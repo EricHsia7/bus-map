@@ -64,9 +64,15 @@ jobs:
       
       - name: Split GeoJSON into Parts
         run: python split-into-parts.py
-        
-      - name: Upload GeoJSONs
-        uses: actions/upload-artifact@v4
-        with:
-          name: parts # The name of the artifact
-          path: parts # The path of the directory to upload
+      
+      - name: Commit Generated Files
+        run: |
+          git checkout -b temp-branch
+          git add ./parts
+          git commit -m "Add Parts"
+
+      - name: Push to Release Branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use the provided GitHub token for auth
+        run: |
+          git push origin temp-branch:release --force
