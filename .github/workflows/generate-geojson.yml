@@ -52,19 +52,27 @@ jobs:
       
       - name: Extract Map Data
         run: osmium extract -b 121.27,24.8,122.004,25.3 -o extracted.osm.pbf data.osm.pbf
-
-      - name: Clean Extracted Map Data
-        run: osmium cat -c changeset -c uid -c user -c version -c timestamp -o cleaned.osm.pbf extracted.osm.pbf
+      
+      - name: Filter Extracted Map Data
+        run: osmium tags-filter n/addr:city=臺北市,台北市,新北市 -o filtered.geojson cleaned.geojson
+      
+      - name: Clean Filtered Map Data
+        run: osmium cat -c changeset -c uid -c user -c version -c timestamp -o cleaned.osm.pbf filtered.osm.pbf
 
       - name: Convert Cleaned Map Data into GeoJSON
         run: osmium export -o data.geojson cleaned.osm.pbf
-      
+
       - name: Create Parts
         run: mkdir parts
       
       - name: Split GeoJSON into Parts
         run: python split-into-parts.py
-      
+
+      - name: Configure git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
       - name: Commit Generated Files
         run: |
           git checkout -b temp-branch
