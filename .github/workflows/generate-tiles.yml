@@ -1,4 +1,4 @@
-name: Generate Tiles
+name: Generate GeoJSON
 
 on:
   workflow_dispatch:
@@ -47,13 +47,16 @@ jobs:
       - name: Download Map Data
         run: curl --output data.osm.pbf "http://download.geofabrik.de/asia/taiwan-latest.osm.pbf"
       
-      - name: Clean Map Data
-        run: osmium cat -c changeset -c uid -c user -c version -c timestamp -o cleaned.osm.pbf data.osm.pbf
+      - name: Extract Map Data
+        run: osmium extract -b 121.27,24.8,122.004,25.3 extracted.osm.pbf
+
+      - name: Clean Extracted Map Data
+        run: osmium cat -c changeset -c uid -c user -c version -c timestamp -o cleaned.osm.pbf extracted.osm.pbf
 
       - name: Convert Cleaned Map Data into GeoJSON
-        run: osmium export cleaned.osm.pbf --bbox=121.27,24.8,122.004,25.3 -o data.geojson
+        run: osmium export -o data.geojson cleaned.osm.pbf
       
-      - name: Upload Tiles
+      - name: Upload GeoJSON
         uses: actions/upload-artifact@v4
         with:
           name: data.geojson # The name of the artifact
