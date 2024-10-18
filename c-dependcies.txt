@@ -1,0 +1,16 @@
+cmake
+g++
+make
+libboost-all-dev
+zlib1g-dev
+libexpat1-dev
+libbz2-dev
+liblz4-dev
+libzstd-dev
+libosmpbf-dev
+libprotozero-dev
+libutfcpp-dev
+build-essential
+git
+libsqlite3-dev
+zlib1g-dev
