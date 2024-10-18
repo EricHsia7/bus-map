@@ -44,33 +44,17 @@ jobs:
           make -j$(nproc)
           sudo make install
 
-      - name: Install Tippecanoe
-        run: |
-          git clone https://github.com/mapbox/tippecanoe.git
-          cd tippecanoe
-          make -j
-          sudo make install
-
-      - name: Install Mbutil
-        run: pip install mbutil
-
       - name: Download Map Data
         run: curl --output data.osm.pbf "http://download.geofabrik.de/asia/taiwan-latest.osm.pbf"
       
       - name: Clean Map Data
-        run: osmium cat -c changeset -c uid -c user -o cleaned.osm.pbf data.osm.pbf
+        run: osmium cat -c changeset -c uid -c user -c version -c timestamp -o cleaned.osm.pbf data.osm.pbf
 
-      - name: Convert Map Data into Mbtiles
-        run: tippecanoe -o mb.mbtiles cleaned.osm.pbf
-      
-      - name: Create a Directory for Tiles
-        run: mkdir tiles
-
-      - name: Extract Tiles from Mbtiles into Smaller PBFs
-        run: mb-util mb.mbtiles tiles/ --image_format=pbf
+      - name: Convert Cleaned Map Data into GeoJSON
+        run: osmium export cleaned.osm.pbf --bbox=121.27,24.8,122.004,25.3 -o data.geojson
       
       - name: Upload Tiles
         uses: actions/upload-artifact@v4
         with:
-          name: tiles # The name of the artifact
-          path: tiles # The path of the directory to upload
+          name: data.geojson # The name of the artifact
+          path: data.geojson # The path of the directory to upload
