@@ -20,39 +20,10 @@ The workflow is triggered either manually (`workflow_dispatch`) or automatically
 
 ```mermaid
 flowchart TD
-    A[Start Workflow] --> B[Setup Environment]
-    B --> C[Install Dependencies]
-    C --> D[Download and Process Map Data]
-    D --> E[Generate GeoJSON]
-    E --> F[Commit and Push Changes]
+    A[Start Workflow] --> B[Checkout Code & Set Up Python]
+    B --> C[Install Ijson, C Dependencies, Libosmium, and Osmium Tool]
+    C --> D[Download, Extract, and Clean Map Data]
+    D --> E[Convert to GeoJSON & Split into Parts]
+    E --> F[Commit Generated Files & Push to Release Branch]
     F --> G[End Workflow]
-
-    subgraph Setup Environment
-        B1[Checkout Code]
-        B2[Set Up Python]
-    end
-
-    subgraph Install Dependencies
-        C1[Install Ijson]
-        C2[Install C Dependencies]
-        C3[Install Libosmium]
-        C4[Install Osmium Tool]
-    end
-
-    subgraph Download and Process Map Data
-        D1[Download Map Data]
-        D2[Extract Map Data]
-        D3[Clean Extracted Map Data]
-    end
-
-    subgraph Generate GeoJSON
-        E1[Convert Cleaned Map Data into GeoJSON]
-        E2[Create Parts]
-        E3[Split GeoJSON into Parts]
-    end
-
-    subgraph Commit and Push Changes
-        F1[Commit Generated Files]
-        F2[Push to Release Branch]
-    end
 ```
