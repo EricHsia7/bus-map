@@ -43,7 +43,7 @@ jobs:
         run: curl --output data.osm.pbf "http://download.geofabrik.de/asia/taiwan-latest.osm.pbf"
       
       - name: Extract Map Data
-        run: osmium extract -b 121.27,24.8,122.004,25.3 extracted.osm.pbf
+        run: osmium extract -b 121.27,24.8,122.004,25.3 -o extracted.osm.pbf data.osm.pbf
 
       - name: Clean Extracted Map Data
         run: osmium cat -c changeset -c uid -c user -c version -c timestamp -o cleaned.osm.pbf extracted.osm.pbf
