@@ -1,0 +1,50 @@
+name: Generate Tiles
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - test
+
+jobs:
+  Generate Tiles:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install Tippecanoe
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential git libsqlite3-dev zlib1g-dev
+          git clone https://github.com/mapbox/tippecanoe.git
+          cd tippecanoe
+          make -j
+          sudo make install
+
+      - name: Install Mbutil
+        run: pip install mbutil
+
+      - name: Download Map Data
+        run: curl --output map-data.osm.pbf "http://download.geofabrik.de/asia/taiwan-latest.osm.pbf"
+
+      - name: Convert Map Data into Mbtiles
+        run: tippecanoe -o output.mbtiles map-data.osm.pbf
+      
+      - name: Create a Directory for Tiles
+        run: mkdir tiles
+
+      - name: Extract Tiles from Mbtiles into Smaller PBFs
+        run: mb-util output.mbtiles tiles/ --image_format=pbf
+      
+      - name: Upload Tiles
+        uses: actions/upload-artifact@v4
+        with:
+          name: tiles # The name of the artifact
+          path: tiles # The path of the directory to upload
