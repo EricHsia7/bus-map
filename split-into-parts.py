@@ -45,7 +45,7 @@ with open(geojson_file, 'r', encoding='utf-8') as file:
 
         # Once the buffer reaches the desired size, write to a new GeoJSON file
         if len(feature_buffer) >= features_per_file:
-            output_filename = f'{outdir}/{file_counter}.geojson'
+            output_filename = f'{outdir}/parts/{file_counter}.geojson'
             style_key = f'p-{file_counter}'
             url = f'https://erichsia7.github.io/bus-map/parts/{file_counter}.geojson'
             with open(output_filename, 'w', encoding='utf-8') as output_file:
