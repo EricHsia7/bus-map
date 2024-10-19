@@ -6,7 +6,7 @@ from decimal import Decimal
 geojson_file = 'data.geojson'
 
 # Set how many features each output file should contain
-features_per_file = 2048
+features_per_file = 4096
 
 # Set the output dir
 outdir = './dist'
@@ -47,7 +47,7 @@ with open(geojson_file, 'r', encoding='utf-8') as file:
         if len(feature_buffer) >= features_per_file:
             output_filename = f'{outdir}/parts/{file_counter}.geojson'
             style_key = f'p-{file_counter}'
-            url = f'https://erichsia7.github.io/bus-map/parts/{file_counter}.geojson'
+            url = f'https://erichsia7.github.io/bus-map/dist/parts/{file_counter}.geojson'
             with open(output_filename, 'w', encoding='utf-8') as output_file:
                 # Write the GeoJSON structure with the buffered features
                 json.dump({
