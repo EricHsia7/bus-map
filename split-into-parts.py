@@ -9,7 +9,7 @@ geojson_file = 'data.geojson'
 features_per_file = 2048
 
 # Set the output dir
-outdir = './parts'
+outdir = './dist'
 
 # Helper function to convert Decimal to float recursively
 def convert_decimals(obj):
@@ -60,22 +60,35 @@ with open(geojson_file, 'r', encoding='utf-8') as file:
                 }
                 for feature_type in feature_type_buffer:
                     graphy_type = ''
-                    type_filter = []
+                    geometry_type = ''
+                    paint = {}
                     if feature_type in ['Point', 'MultiPoint']:
                         graphy_type = 'circle'
+                        geometry_type = 'Point'
+                        paint = {
+                            "circle-radius": 8,
+                            "circle-color": "#329CFF"
+                        }
                     if feature_type in ['LineString', 'MultiLineString']:
                         graphy_type = 'line'
+                        geometry_type = 'LineString'
+                        paint = {
+                            "line-color": "#888888",
+                            "line-width": 2
+                        }
                     if feature_type in ['Polygon', 'MultiPolygon']:
                         graphy_type = 'fill'
+                        geometry_type = 'Polygon'
+                        paint = {
+                            "fill-color": "#888888",
+                            "fill-opacity": 0.45
+                        }
                     style['layers'].append({
                         "id": style_key,
                         "type": graphy_type,
                         "source": style_key,
-                        "filter": ["==", "$type", "LineString"],
-                        "paint": {
-                            "line-color": "#ff0000",
-                            "line-width": 2
-                        }
+                        "filter": ["==", "$type", geometry_type],
+                        "paint": paint
                     })
 
             print(f'Created {output_filename} with {len(feature_buffer)} features.')
@@ -87,9 +100,14 @@ with open(geojson_file, 'r', encoding='utf-8') as file:
 
     # Write any remaining features to the final file
     if feature_buffer:
-        output_filename = f'{outdir}/{file_counter}.geojson'
+        output_filename = f'{outdir}/parts/{file_counter}.geojson'
         with open(output_filename, 'w', encoding='utf-8') as output_file:
             json.dump({
                 "type": "FeatureCollection",
                 "features": feature_buffer
             }, output_file, ensure_ascii=False)
+    # Save style
+    style_filename = f'{outdir}/style.json'
+    with open(style_filename, 'w', encoding='utf-8') as style_file:
+        json.dump(style, style_file, ensure_ascii=False)
+    
