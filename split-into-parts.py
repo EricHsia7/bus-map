@@ -37,7 +37,8 @@ with open(geojson_file, 'r', encoding='utf-8') as file:
     # Use ijson to incrementally parse the 'features' array
     for feature in ijson.items(file, 'features.item'):
         feature_type = feature['geometry']['type']
-        if feature_type in ['Point']:
+        # Skip Point and MultiPoint
+        if feature_type in ['Point', 'MultiPoint']:
             continue
         # Convert any Decimal values to float
         feature = convert_decimals(feature)
