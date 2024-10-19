@@ -68,9 +68,13 @@ jobs:
 
       - name: Convert Cleaned Map Data into GeoJSON
         run: osmium export -o data.geojson cleaned.osm.pbf
+      
+      - name: Create Dist
+        run: mkdir dist
 
       - name: Create Parts
-        run: mkdir parts
+        run: |
+          mkdir -p dist/parts
       
       - name: Split GeoJSON into Parts
         run: python split-into-parts.py
