@@ -38,10 +38,15 @@ with open(geojson_file, 'r', encoding='utf-8') as file:
     for feature in ijson.items(file, 'features.item'):
         # Convert any Decimal values to float
         feature = convert_decimals(feature)
+        # Remove unnecessary properties
+        if 'properties' in feature:
+            del feature['properties']
+        # Add the feature to this part
+        feature_buffer.append(feature)
+        # Register feature type for this part
         feature_type = feature['geometry']['type']
         if feature_type not in feature_type_buffer:
-            feature_type_buffer.append(feature_type)
-        feature_buffer.append(feature)
+            feature_type_buffer.append(feature_type)     
 
         # Once the buffer reaches the desired size, write to a new GeoJSON file
         if len(feature_buffer) >= features_per_file:
@@ -66,8 +71,17 @@ with open(geojson_file, 'r', encoding='utf-8') as file:
                         graphy_type = 'circle'
                         geometry_type = 'Point'
                         paint = {
-                            "circle-radius": 1,
-                            "circle-color": "#329CFF"
+                            "circle-radius": 4,
+                            "circle-color": "#329CFF",
+                            "circle-opacity": [
+                                "interpolate", 
+                                ["linear"], 
+                                ["zoom"],
+                                10, 0,
+                                12, 1
+                            ]
+                            # Completely transparent at zoom 10
+                            # Fully opaque at zoom 12
                         }
                     if feature_type in ['LineString', 'MultiLineString']:
                         graphy_type = 'line'
@@ -81,10 +95,10 @@ with open(geojson_file, 'r', encoding='utf-8') as file:
                         geometry_type = 'Polygon'
                         paint = {
                             "fill-color": "#888888",
-                            "fill-opacity": 0.45
+                            "fill-opacity": 0.3
                         }
                     style['layers'].append({
-                        "id": f'{style_key}_{geometry_type}',
+                        "id": f'{style_key}-{geometry_type}',
                         "type": graphy_type,
                         "source": style_key,
                         "filter": ["==", "$type", geometry_type],
