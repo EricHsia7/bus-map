@@ -60,8 +60,8 @@ jobs:
             r/addr:city=臺北市,台北市,新北市 \
             w/highway \
             w/building \
-            n/amenity \
-            n/addr:city=臺北市,台北市,新北市
+        # n/addr:city=臺北市,台北市,新北市 \
+        # n/amenity
 
       - name: Clean Filtered Map Data
         run: osmium cat -c changeset -c uid -c user -c version -c timestamp -o cleaned.osm.pbf filtered.osm.pbf
