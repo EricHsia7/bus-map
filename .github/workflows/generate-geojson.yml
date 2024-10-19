@@ -60,7 +60,7 @@ jobs:
             r/addr:city=臺北市,台北市,新北市 \
             w/highway \
             w/building \
-            n/amenity
+        # n/amenity
         # n/addr:city=臺北市,台北市,新北市 \
 
       - name: Clean Filtered Map Data

@@ -66,7 +66,7 @@ with open(geojson_file, 'r', encoding='utf-8') as file:
                         graphy_type = 'circle'
                         geometry_type = 'Point'
                         paint = {
-                            "circle-radius": 8,
+                            "circle-radius": 1,
                             "circle-color": "#329CFF"
                         }
                     if feature_type in ['LineString', 'MultiLineString']:
