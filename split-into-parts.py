@@ -84,7 +84,7 @@ with open(geojson_file, 'r', encoding='utf-8') as file:
                             "fill-opacity": 0.45
                         }
                     style['layers'].append({
-                        "id": style_key,
+                        "id": f'{style_key}_{geometry_type}',
                         "type": graphy_type,
                         "source": style_key,
                         "filter": ["==", "$type", geometry_type],
