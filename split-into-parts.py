@@ -36,6 +36,9 @@ style = {
 with open(geojson_file, 'r', encoding='utf-8') as file:
     # Use ijson to incrementally parse the 'features' array
     for feature in ijson.items(file, 'features.item'):
+        feature_type = feature['geometry']['type']
+        if feature_type in ['Point']:
+            continue
         # Convert any Decimal values to float
         feature = convert_decimals(feature)
         # Remove unnecessary properties
@@ -44,7 +47,6 @@ with open(geojson_file, 'r', encoding='utf-8') as file:
         # Add the feature to this part
         feature_buffer.append(feature)
         # Register feature type for this part
-        feature_type = feature['geometry']['type']
         if feature_type not in feature_type_buffer:
             feature_type_buffer.append(feature_type)     
 
@@ -77,11 +79,11 @@ with open(geojson_file, 'r', encoding='utf-8') as file:
                                 "interpolate", 
                                 ["linear"], 
                                 ["zoom"],
-                                10, 0,
-                                12, 1
+                                12, 0,
+                                15, 1
                             ]
-                            # Completely transparent at zoom 10
-                            # Fully opaque at zoom 12
+                            # Completely transparent at zoom 12
+                            # Fully opaque at zoom 15
                         }
                     if feature_type in ['LineString', 'MultiLineString']:
                         graphy_type = 'line'
@@ -95,7 +97,13 @@ with open(geojson_file, 'r', encoding='utf-8') as file:
                         geometry_type = 'Polygon'
                         paint = {
                             "fill-color": "#888888",
-                            "fill-opacity": 0.3
+                            "fill-opacity": [
+                                "interpolate", 
+                                ["linear"], 
+                                ["zoom"],
+                                10, 0,
+                                12, 0.3
+                            ]
                         }
                     style['layers'].append({
                         "id": f'{style_key}-{geometry_type}',
