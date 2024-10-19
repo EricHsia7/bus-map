@@ -55,7 +55,7 @@ jobs:
       
       - name: Filter Extracted Map Data
         run: |
-          osmium tags-filter --with-relations -o filtered.osm.pbf extracted.osm.pbf \
+          osmium tags-filter -o filtered.osm.pbf extracted.osm.pbf \
             n/addr:city=臺北市,台北市,新北市 \
             w/addr:city=臺北市,台北市,新北市 \
             r/addr:city=臺北市,台北市,新北市 \
