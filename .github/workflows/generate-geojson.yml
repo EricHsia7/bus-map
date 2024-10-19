@@ -54,8 +54,15 @@ jobs:
         run: osmium extract -b 121.27,24.8,122.004,25.3 -o extracted.osm.pbf data.osm.pbf
       
       - name: Filter Extracted Map Data
-        run: osmium tags-filter -o filtered.osm.pbf extracted.osm.pbf n/addr:city=臺北市,台北市,新北市
-      
+        run: |
+          osmium tags-filter --with-relations -o filtered.osm.pbf extracted.osm.pbf \
+            n/addr:city=臺北市,台北市,新北市 \
+            w/addr:city=臺北市,台北市,新北市 \
+            r/addr:city=臺北市,台北市,新北市 \
+            w/highway \
+            w/building \
+            n/amenity
+
       - name: Clean Filtered Map Data
         run: osmium cat -c changeset -c uid -c user -c version -c timestamp -o cleaned.osm.pbf filtered.osm.pbf
 
