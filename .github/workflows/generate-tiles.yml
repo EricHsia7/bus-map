@@ -1,0 +1,109 @@
+name: Generate Tiles
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - test
+
+jobs:
+  generation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      
+      - name: Install Ijson
+        run: pip install ijson
+
+      - name: Install C Dependencies
+        run: |
+          sudo apt-get update
+          xargs sudo apt-get install -y < c-dependencies.txt
+      
+      - name: Install Libosmium
+        run: |
+          git clone https://github.com/osmcode/libosmium.git
+          cd libosmium
+          mkdir build
+          cd build
+          cmake ..
+          make -j$(nproc)
+          sudo make install
+
+      - name: Install Osmium Tool
+        run: |
+          git clone https://github.com/osmcode/osmium-tool.git
+          cd osmium-tool
+          mkdir build
+          cd build
+          cmake ..
+          make -j$(nproc)
+          sudo make install
+      
+      - name: Install Tippecanoe
+        run: |
+          git clone https://github.com/mapbox/tippecanoe.git
+          cd tippecanoe
+          make -j
+          make install
+
+      - name: Install mbutil
+        run: |
+          git clone https://github.com/mapbox/mbutil.git
+          cd mbutil
+          sudo python setup.py install
+
+      - name: Download Map Data
+        run: curl --output data.osm.pbf "http://download.geofabrik.de/asia/taiwan-latest.osm.pbf"
+      
+      - name: Extract Map Data
+        run: osmium extract -b 121.27,24.8,122.004,25.3 -o extracted.osm.pbf data.osm.pbf
+      
+      - name: Filter Extracted Map Data
+        run: |
+          osmium tags-filter -o filtered.osm.pbf extracted.osm.pbf \
+            w/addr:city=臺北市,台北市,新北市 \
+            r/addr:city=臺北市,台北市,新北市 \
+            w/highway \
+            w/building \
+            n/addr:city=臺北市,台北市,新北市 \
+            n/amenity
+
+      - name: Clean Filtered Map Data
+        run: osmium cat -c changeset -c uid -c user -c version -c timestamp -o cleaned.osm.pbf filtered.osm.pbf
+
+      - name: Convert Cleaned Map Data into GeoJSON
+        run: osmium export -o data.geojson cleaned.osm.pbf
+      
+      - name: Create Tiles
+        run: mkdir tiles
+      
+      - name: Create Map Tiles
+        run: tippecanoe -o output.mbtiles --minimum-zoom=1 --maximum-zoom=9 data.geojson
+      
+      - name: Split Map Tiles
+        run: mb-util output.mbtiles tiles --image_format=pbf
+
+      - name: Configure git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit Generated Files
+        run: |
+          git checkout -b temp-branch
+          git add ./tiles
+          git commit -m "Update Map"
+
+      - name: Push to Tiles Branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use the provided GitHub token for auth
+        run: |
+          git push origin temp-branch:tiles --force
