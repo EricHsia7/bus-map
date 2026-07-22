@@ -1,0 +1,7 @@
+shp/*
+
+# Things created when you use kosmtik
+tmp/
+node_modules/
+package.json
+package-lock.json

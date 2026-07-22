@@ -1,0 +1,9 @@
+.thumb.png
+layers/
+data/
+~DS_Store*
+temp/
+*~
+test-*.png
+
+node_modules

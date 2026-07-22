@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css" rel="stylesheet" />
+    <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+      }
+      #map {
+        position: absolute;
+        inset: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      const TILE_URL = 'output/tiles/{z}/{x}/{y}.jpeg';
+      const CENTER = [25.0331668, 121.5646286]; // [lat, lng] — Taipei
+      const MIN_NATIVE = 13;
+      const MAX_NATIVE = 16;
+      const MIN_ZOOM = 12;
+      const MAX_ZOOM = 18;
+
+      const map = new maplibregl.Map({
+        container: 'map',
+        // MapLibre wants [lng, lat], so flip your CENTER:
+        center: [CENTER[1], CENTER[0]],
+        zoom: 14,
+        minZoom: MIN_ZOOM,
+        maxZoom: MAX_ZOOM,
+        style: {
+          version: 8,
+          sources: {
+            'raster-tiles': {
+              type: 'raster',
+              tiles: [TILE_URL],
+              tileSize: 128,
+              minzoom: MIN_NATIVE, // lowest zoom with real tiles
+              maxzoom: MAX_NATIVE // highest zoom with real tiles -> overzoom above this
+            }
+          },
+          layers: [
+            {
+              id: 'raster-layer',
+              type: 'raster',
+              source: 'raster-tiles'
+              // paint: { 'raster-resampling': 'nearest' }, // crisper overzoom, see note
+            }
+          ]
+        }
+      });
+
+      map.addControl(new maplibregl.NavigationControl());
+    </script>
+  </body>
+</html>
