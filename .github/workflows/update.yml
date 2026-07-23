@@ -142,7 +142,9 @@ jobs:
       - name: Extract Map Data
         run: |
           mkdir chunks
-          osmium extract -c config.json -s simple input.osm.pbf
+          chomd +x ./extract.sh
+          ./extract.sh
+        # osmium extract -c config.json -s simple input.osm.pbf
 
       - name: Make Tiles
         run: |

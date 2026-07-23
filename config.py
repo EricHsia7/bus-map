@@ -11,11 +11,17 @@ def build_config(tiles, zc, out_dir="chunks/"):
         })
     return {"directory": out_dir, "extracts": extracts}
 
-tiles = areaToTiles(24.8, 121.27, 25.3, 122.004, 13)
+# tiles = areaToTiles(24.8, 121.27, 25.3, 122.004, 13)
 
-with open("config.json", "w") as f:
+# with open("config.json", "w") as f:
     json.dump(build_config(tiles, 13), f)
 
-# print(tile2bbox(6864, 3506, 13))
+def build_extraction_script(lat0, lon0, lat1, lon1, zc, out_dir="chunks"):
+    tiles = areaToTiles(lat0, lon0, lat1, lon1, zc)
+    commands = []
+    for (x, y) in tiles:
+        commands.append(f"osmium extract -b {lon0},{lat0},{lon1},{lat1} -o {out_dir}/{zc}_{x}_{y}.osm.pbf input.osm.pbf\n")
+    with open("extract.sh", "w") as f:
+        f.writelines(commands)
 
-# print(deg2tile(25.0331668, 121.5646286, 13))
+build_extraction_script(24.8, 121.27, 25.3, 122.004, 13, "chunks")
