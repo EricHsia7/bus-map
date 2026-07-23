@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "minimist": "1.2.8",
+    "postcss": "8.5.22",
+    "postcss-less": "6.0.0",
+    "sharp": "0.35.3"
+  }
+}
