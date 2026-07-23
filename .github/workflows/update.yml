@@ -12,16 +12,69 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
+      
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
 
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
           python-version: '3.11'
+      
+      - name: Restore cached Node dependencies
+        id: restore-cached-node-dependencies
+        uses: actions/cache/restore@v5
+        with:
+          path: |
+            ./node_modules
+            package-lock.json
+          key: node-dependencies-${{ runner.os }}-${{ hashFiles('package.json') }}
+          restore-keys: |
+            node-dependencies-${{ runner.os }}-${{ hashFiles('package.json') }}
 
-      - name: Install C Dependencies
+      - name: Install Node dependencies
+        if: steps.restore-cached-node-dependencies.outputs.cache-hit != 'true'
+        run: npm install
+
+      - name: Cache Node dependencies
+        id: cache-node-dependencies
+        uses: actions/cache/save@v5
+        if: steps.restore-cached-node-dependencies.outputs.cache-hit != 'true'
+        with:
+          path: |
+            ./node_modules
+            package-lock.json
+          key: ${{ steps.restore-cached-node-dependencies.outputs.cache-primary-key }}
+
+      - name: Restore cached Python virtual environment
+        id: restore-cached-python-venv
+        uses: actions/cache/restore@v5
+        with:
+          path: python_venv
+          key: python-venv-${{ runner.os }}-${{ hashFiles('./requirements.txt') }}
+          restore-keys: |
+            python-venv-${{ runner.os }}-${{ hashFiles('./requirements.txt') }}
+
+      - name: Install Python dependencies
+        if: steps.restore-cached-python-venv.outputs.cache-hit != 'true'
+        run: |
+          python -m venv python_venv
+          python_venv/bin/pip install -r requirements.txt
+
+      - name: Cache Python virtual environment
+        id: cache-python-venv
+        uses: actions/cache/save@v5
+        if: steps.restore-cached-python-venv.outputs.cache-hit != 'true'
+        with:
+          path: python_venv
+          key: ${{ steps.restore-cached-python-venv.outputs.cache-primary-key }}
+
+      - name: Install Dependencies
         run: |
           sudo apt-get update
-          xargs sudo apt-get install -y < c-dependencies.txt
+          xargs sudo apt-get install -y < dependencies.txt
 
       - name: Restore Cached Osmium
         id: restore-cached-osmium
@@ -91,14 +144,15 @@ jobs:
 
       - name: Make Tiles
         run: |
+          source python_venv/bin/activate
           python render_area.py --lat-min 24.8 --lon-min 121.27 --lat-max 25.3 --lon-max 122.004 --base-zoom 13 --zoom 13
         # python render_area.py --lat-min 24.8 --lon-min 121.27 --lat-max 25.3 --lon-max 122.004 --base-zoom 13 --zoom 14
         # python render_area.py --lat-min 24.8 --lon-min 121.27 --lat-max 25.3 --lon-max 122.004 --base-zoom 13 --zoom 15
         # python render_area.py --lat-min 24.8 --lon-min 121.27 --lat-max 25.3 --lon-max 122.004 --base-zoom 13 --zoom 16
+        # deactivate
 
       - name: Compress Tiles
-        run: |
-          node compress-image.js --dir tiles --o dist
+        run: node compress-image.js --dir tiles --o dist
 
       - name: Configure git
         run: |

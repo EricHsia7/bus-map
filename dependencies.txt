@@ -12,4 +12,5 @@ libsqlite3-dev
 libutfcpp-dev
 libzstd-dev
 make
+pkg-config
 zlib1g-dev
