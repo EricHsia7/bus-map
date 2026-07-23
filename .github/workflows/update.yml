@@ -142,7 +142,7 @@ jobs:
       - name: Extract Map Data
         run: |
           mkdir chunks
-          chomd +x ./extract.sh
+          chmod +x ./extract.sh
           ./extract.sh
         # osmium extract -c config.json -s simple input.osm.pbf
 
