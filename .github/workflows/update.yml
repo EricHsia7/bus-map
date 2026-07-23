@@ -138,13 +138,31 @@ jobs:
         with:
           path: input.osm.pbf
           key: ${{ steps.restore-cached-map-data.outputs.cache-primary-key }}
+      
+      - name: Restore Cached Extraction
+        id: restore-cached-extraction
+        uses: actions/cache/restore@v5
+        with:
+          path: chunks
+          key: extraction-${{ hashFiles("input.osm.pbf") }}
+          restore-keys: |
+            extraction-
 
       - name: Extract Map Data
+        if: steps.restore-cached-extraction.outputs.cache-hit != 'true'
         run: |
           mkdir chunks
           chmod +x ./extract.sh
           ./extract.sh
         # osmium extract -c config.json -s simple input.osm.pbf
+      
+      - name: Cache Extraction
+        id: cache-extraction
+        if: steps.restore-cached-extraction.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v5
+        with:
+          path: chunks
+          key: ${{ steps.restore-cached-extraction.outputs.cache-primary-key }}
 
       - name: Make Tiles
         run: |
