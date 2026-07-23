@@ -147,6 +147,7 @@ jobs:
       - name: Make Tiles
         run: |
           source python_venv/bin/activate
+          mkdir tiles
           python render_area.py --lat-min 24.8 --lon-min 121.27 --lat-max 25.3 --lon-max 122.004 --base-zoom 13 --zoom 13
         # python render_area.py --lat-min 24.8 --lon-min 121.27 --lat-max 25.3 --lon-max 122.004 --base-zoom 13 --zoom 14
         # python render_area.py --lat-min 24.8 --lon-min 121.27 --lat-max 25.3 --lon-max 122.004 --base-zoom 13 --zoom 15
