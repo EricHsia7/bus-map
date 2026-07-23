@@ -4,6 +4,7 @@ g++
 libboost-all-dev
 libboost-program-options-dev
 libbz2-dev
+libcairo2-dev
 libexpat1-dev
 liblz4-dev
 libosmpbf-dev
