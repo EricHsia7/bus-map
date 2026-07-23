@@ -140,7 +140,9 @@ jobs:
           key: ${{ steps.restore-cached-map-data.outputs.cache-primary-key }}
 
       - name: Extract Map Data
-        run: osmium extract -c config.json -s simple input.osm.pbf
+        run: |
+          mkdir chunks
+          osmium extract -c config.json -s simple input.osm.pbf
 
       - name: Make Tiles
         run: |
