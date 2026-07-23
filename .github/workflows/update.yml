@@ -1,0 +1,118 @@
+name: Update
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - test
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Install C Dependencies
+        run: |
+          sudo apt-get update
+          xargs sudo apt-get install -y < c-dependencies.txt
+
+      - name: Restore Cached Osmium
+        id: restore-cached-osmium
+        uses: actions/cache/restore@v5
+        with:
+          path: ~/osmium-install
+          key: osmium-${{ runner.os }}-libosmium2.20.0-tool1.16.0
+          restore-keys: |
+            osmium-${{ runner.os }}-
+
+      - name: Install Libosmium
+        if: steps.restore-cached-osmium.outputs.cache-hit != 'true'
+        run: |
+          git clone --depth 1 --branch v2.20.0 https://github.com/osmcode/libosmium.git
+          cmake -S libosmium -B libosmium/build \
+            -DCMAKE_INSTALL_PREFIX=$HOME/osmium-install \
+            -DBUILD_TESTING=OFF
+          cmake --build libosmium/build -j$(nproc)
+          cmake --install libosmium/build
+
+      - name: Install Osmium Tool
+        if: steps.restore-cached-osmium.outputs.cache-hit != 'true'
+        run: |
+          git clone --depth 1 --branch v1.16.0 https://github.com/osmcode/osmium-tool.git
+          cmake -S osmium-tool -B osmium-tool/build \
+            -DCMAKE_INSTALL_PREFIX=$HOME/osmium-install \
+            -DCMAKE_PREFIX_PATH=$HOME/osmium-install
+          cmake --build osmium-tool/build -j$(nproc)
+          cmake --install osmium-tool/build
+
+      - name: Cache Osmium
+        id: cache-osmium
+        uses: actions/cache/save@v5
+        if: steps.restore-cached-osmium.outputs.cache-hit != 'true'
+        with:
+          path: ~/osmium-install
+          key: ${{ steps.restore-cached-osmium.outputs.cache-primary-key }}
+
+      - name: Make Osmium available
+        run: |
+          echo "$HOME/osmium-install/bin" >> "$GITHUB_PATH"
+          echo "LD_LIBRARY_PATH=$HOME/osmium-install/lib:$LD_LIBRARY_PATH" >> "$GITHUB_ENV"
+
+      - name: Restore Cached Map Data
+        id: restore-cached-map-data
+        uses: actions/cache/restore@v5
+        with:
+          path: input.osm.pbf
+          key: map-data-2026-07
+          restore-keys: |
+            map-data-
+
+      - name: Download Map Data
+        if: steps.restore-cached-map-data.outputs.cache-hit != 'true'
+        run: curl --output input.osm.pbf "http://download.geofabrik.de/asia/taiwan-latest.osm.pbf"
+
+      - name: Cache Map Data
+        id: cache-map-data
+        if: steps.restore-cached-map-data.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v5
+        with:
+          path: input.osm.pbf
+          key: ${{ steps.restore-cached-map-data.outputs.cache-primary-key }}
+
+      - name: Extract Map Data
+        run: osmium extract -c config.json -s simple input.osm.pbf
+
+      - name: Make Tiles
+        run: |
+          python render_area.py --lat-min 24.8 --lon-min 121.27 --lat-max 25.3 --lon-max 122.004 --base-zoom 13 --zoom 13
+        # python render_area.py --lat-min 24.8 --lon-min 121.27 --lat-max 25.3 --lon-max 122.004 --base-zoom 13 --zoom 14
+        # python render_area.py --lat-min 24.8 --lon-min 121.27 --lat-max 25.3 --lon-max 122.004 --base-zoom 13 --zoom 15
+        # python render_area.py --lat-min 24.8 --lon-min 121.27 --lat-max 25.3 --lon-max 122.004 --base-zoom 13 --zoom 16
+
+      - name: Compress Tiles
+        run: |
+          node compress-image.js --dir tiles --o dist
+
+      - name: Configure git
+        run: |
+          git config --global user.name "github-actions-bot"
+          git config --global user.email "41898282+github-actions-bot@users.noreply.github.com"
+
+      - name: Commit Generated Files
+        run: |
+          git checkout -b temp-branch
+          git add ./dist
+          git commit -m "Updates"
+
+      - name: Push to Dist Branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use the provided GitHub token for auth
+        run: |
+          git push origin temp-branch:dist --force
