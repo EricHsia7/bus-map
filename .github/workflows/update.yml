@@ -48,6 +48,11 @@ jobs:
             package-lock.json
           key: ${{ steps.restore-cached-node-dependencies.outputs.cache-primary-key }}
 
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          xargs sudo apt-get install -y < dependencies.txt
+
       - name: Restore cached Python virtual environment
         id: restore-cached-python-venv
         uses: actions/cache/restore@v5
@@ -70,11 +75,6 @@ jobs:
         with:
           path: python_venv
           key: ${{ steps.restore-cached-python-venv.outputs.cache-primary-key }}
-
-      - name: Install Dependencies
-        run: |
-          sudo apt-get update
-          xargs sudo apt-get install -y < dependencies.txt
 
       - name: Restore Cached Osmium
         id: restore-cached-osmium
