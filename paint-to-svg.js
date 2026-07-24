@@ -235,11 +235,11 @@ function patternDef(id, file) {
 
 /**
  * Convert a rule's paint object to an array of background SVG element strings.
- * @param paint    rule.paint
- * @param d        shared geometry path data (from plot.js)
+ * @param paint rule.paint
+ * @param d shared geometry path data (from plot.js)
  * @param geomType 'polygon' | 'linestring' (informational; both share `d`)
  * @param k stroke scale factor
- * @param opts     { pathRef, patternDefs }
+ * @param opts { pathRef, patternDefs }
  * @returns string[]  (one per background element, in draw order)
  */
 function paintToSvgElements(paint, d, geomType, k, opts = {}) {
