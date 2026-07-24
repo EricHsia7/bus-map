@@ -1,7 +1,8 @@
 const protobuf = require('protobufjs');
 const fs = require('node:fs');
 const { decompressSync } = require('fflate');
-const { plotShape } = require('./plot');
+const { plotPolygon, plotLineString } = require('./plot');
+const { getTileViewbox } = require('./coordinate');
 
 const toObjectOptions = {
   enums: String, // enums as string names
@@ -156,19 +157,23 @@ async function main() {
     }
   }
 
-  let count = 0;
   // reconstruct geometry
+  const [x0, y0, x1, y1] = getTileViewbox(6863, 3502, 13);
   for (const way of ways) {
     const coords = way.refs.map((id) => nodeMap.get(id)).filter(Boolean);
     const closed = way.refs[0] === way.refs.at(-1);
     const shape = closed
       ? { type: 'Polygon', coordinates: [coords] } // ring/area
       : { type: 'LineString', coordinates: coords };
-    plotShape(shape, 6863, 3502, 13, 512);
-    console.log(way.tags);
-    count++;
-
-    if (count > 5) break;
+    if (closed) {
+      console.log(0);
+      console.log(plotPolygon(shape, x0, y0, x1, y1, 512));
+      console.log(way.tags);
+    } else {
+      console.log(1);
+      console.log(plotLineString(shape, x0, y0, x1, y1, 512));
+      console.log(way.tags);
+    }
   }
 
   // console.log(nodes[0]);
