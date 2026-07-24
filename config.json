@@ -14,7 +14,7 @@
   "tiles": {
     "dir": "./tiles",
     "z": { "min": 13, "max": 16 },
-    "size": 640,
+    "size": 512,
     "precision": 10,
     "background": "#f2efe9"
   }

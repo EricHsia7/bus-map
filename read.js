@@ -214,8 +214,17 @@ async function renderChunk(cX, cY, cZ) {
     await makeDirectory(path.join(tilesDir, tZ.toString(), tX.toString()));
     await rasterize(svg, path.join(tilesDir, tZ.toString(), tX.toString(), tY.toString()), tileSize, tileSize, 2);
     const endTime = performance.now();
-    console.log(`[${count}/${total}] Rendered ${tX} ${tY} ${tZ} in ${((endTime - startTime) / 1000).toFixed(2)}s.`);
+    console.log(`[${count}/${total}] Rendered (${tX} ${tY} ${tZ}) in (${cX} ${cY} ${cZ}) in ${((endTime - startTime) / 1000).toFixed(2)}s.`);
   }
+}
+
+function splitByLength(array, length = 3) {
+  const groups = [];
+  const quantity = Math.ceil(array.length / length);
+  for (let i = 0; i < quantity; i++) {
+    groups.push(array.slice(i * length, i * length + length));
+  }
+  return groups;
 }
 
 async function main() {
@@ -225,9 +234,10 @@ async function main() {
   const north = config.bbox.north;
   const baseZ = config.chunks.baseZ;
   const chunkTiles = areaToTiles(west, south, east, north, baseZ);
-  for (const [cX, cY] of chunkTiles) {
+  const groups = splitByLength(chunkTiles, 4);
+  for (const group of groups) {
     try {
-      await renderChunk(cX, cY, baseZ);
+      await Promise.allSettled(group.map((tile) => renderChunk(tile[0], tile[1], baseZ)));
     } catch (err) {
       console.log(cX, cY, baseZ, err);
     }
