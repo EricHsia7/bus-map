@@ -94,8 +94,8 @@ async function renderChunk(cX, cY, cZ) {
     // Interpret block type
     switch (blobHeader.type) {
       case 'OSMHeader': {
-        // const header = HeaderBlock.decode(data);
-        // console.log('HEADER BLOCK:', header);
+        const header = HeaderBlock.decode(data);
+        console.log('HEADER BLOCK:', header);
         break;
       }
       case 'OSMData': {
@@ -226,7 +226,11 @@ async function main() {
   const baseZ = config.chunks.baseZ;
   const chunkTiles = areaToTiles(west, south, east, north, baseZ);
   for (const [cX, cY] of chunkTiles) {
-    await renderChunk(cX, cY, baseZ);
+    try {
+      await renderChunk(cX, cY, baseZ);
+    } catch (err) {
+      console.log(err);
+    }
   }
 }
 
