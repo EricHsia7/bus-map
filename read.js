@@ -229,7 +229,7 @@ async function main() {
     try {
       await renderChunk(cX, cY, baseZ);
     } catch (err) {
-      console.log(err);
+      console.log(cX, cY, baseZ, err);
     }
   }
 }
