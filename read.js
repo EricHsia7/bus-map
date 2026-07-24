@@ -3,6 +3,8 @@ const fs = require('node:fs');
 const { decompressSync } = require('fflate');
 const { plotPolygon, plotLineString } = require('./plot');
 const { getTileViewbox } = require('./coordinate');
+const style = require('./style.json');
+const matcher = require('./match-rule.js');
 
 const toObjectOptions = {
   enums: String, // enums as string names
@@ -13,6 +15,8 @@ const toObjectOptions = {
   objects: true, // populates empty objects (map fields) even if defaults=false
   oneofs: true
 };
+
+matcher.loadStyle('./style.json');
 
 async function main() {
   const buf = fs.readFileSync('./chunks/13_6863_3502.osm.pbf');
@@ -168,11 +172,14 @@ async function main() {
     if (closed) {
       console.log(0);
       console.log(plotPolygon(shape, x0, y0, x1, y1, 512));
-      console.log(way.tags);
+      console.log(matcher.matchRules(way.tags).map((idx) => style[idx].paint));
+      console.log(way);
+      // console.log(matchRule(style, way.tags, 13));
     } else {
       console.log(1);
       console.log(plotLineString(shape, x0, y0, x1, y1, 512));
-      console.log(way.tags);
+      console.log(way);
+      // console.log(matchRule(style, way.tags, 13));
     }
   }
 

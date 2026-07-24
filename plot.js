@@ -20,13 +20,13 @@ function windPath(path, transformX, transformY, drawingOrientation) {
 }
 
 // type: Polygon
-function plotPolygon(polygon, x0, y0, x1, y1, size = 512) {
+function plotPolygon(polygon, x0, y0, x1, y1, size = 512, precision = 2048) {
   const dX = x1 - x0;
   const dY = y1 - y0;
   const scaleX = size / dX;
   const scaleY = size / dY;
-  const transformX = (x) => (x - x0) * scaleX;
-  const transformY = (y) => (dY - (y - y0)) * scaleY;
+  const transformX = (x) => Math.floor((x - x0) * scaleX * precision) / precision;
+  const transformY = (y) => Math.floor((dY - (y - y0)) * scaleY * precision) / precision;
   const polygonPaths = polygon.coordinates;
   const polygonPathsLength = polygonPaths.length;
   let pathCommand = '';
@@ -46,7 +46,7 @@ function plotPolygon(polygon, x0, y0, x1, y1, size = 512) {
   return pathCommand;
 }
 
-function plotLineString(lineString, x0, y0, x1, y1, size = 512) {
+function plotLineString(lineString, x0, y0, x1, y1, size = 512, precision = 2048) {
   const dX = x1 - x0;
   const dY = y1 - y0;
   const scaleX = size / dX;
