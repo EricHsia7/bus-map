@@ -139,43 +139,40 @@ jobs:
           path: input.osm.pbf
           key: ${{ steps.restore-cached-map-data.outputs.cache-primary-key }}
       
-      - name: Restore Cached Extraction
-        id: restore-cached-extraction
+      - name: Restore Cached Chunks
+        id: restore-cached-chunks
         uses: actions/cache/restore@v5
         with:
           path: chunks
-          key: extraction-${{ hashFiles('input.osm.pbf') }}
+          key: chunks-${{ hashFiles('input.osm.pbf') }}
           restore-keys: |
-            extraction-
+            chunks-
 
-      - name: Extract Map Data
-        if: steps.restore-cached-extraction.outputs.cache-hit != 'true'
+      - name: Chunk Map Data
+        if: steps.restore-cached-chunks.outputs.cache-hit != 'true'
         run: |
           mkdir chunks
-          chmod +x ./extract.sh
-          ./extract.sh
+          chmod +x ./chunk.sh
+          ./chunk.sh
         # osmium extract -c config.json -s simple input.osm.pbf
       
-      - name: Cache Extraction
-        id: cache-extraction
-        if: steps.restore-cached-extraction.outputs.cache-hit != 'true'
+      - name: Cache Chunks
+        id: cache-chunks
+        if: steps.restore-cached-chunks.outputs.cache-hit != 'true'
         uses: actions/cache/save@v5
         with:
           path: chunks
-          key: ${{ steps.restore-cached-extraction.outputs.cache-primary-key }}
+          key: ${{ steps.restore-cached-chunks.outputs.cache-primary-key }}
 
-      - name: Make Tiles
+      - name: Render
         run: |
-          source python_venv/bin/activate
           mkdir tiles
-          python render_area.py --lat-min 24.8 --lon-min 121.27 --lat-max 25.3 --lon-max 122.004 --base-zoom 13 --zoom 13
-        # python render_area.py --lat-min 24.8 --lon-min 121.27 --lat-max 25.3 --lon-max 122.004 --base-zoom 13 --zoom 14
-        # python render_area.py --lat-min 24.8 --lon-min 121.27 --lat-max 25.3 --lon-max 122.004 --base-zoom 13 --zoom 15
-        # python render_area.py --lat-min 24.8 --lon-min 121.27 --lat-max 25.3 --lon-max 122.004 --base-zoom 13 --zoom 16
-        # deactivate
-
-      - name: Compress Tiles
-        run: node compress-image.js --dir tiles --o dist
+          node render.js
+      
+      - name: Separate tiles
+        run:
+          mkdir ./dist
+          mv ./tiles ./dist
 
       - name: Configure git
         run: |
