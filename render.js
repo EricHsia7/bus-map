@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { decompressSync } = require('fflate');
 const { plotPolygon, plotLineString } = require('./plot.js');
-const { getTileViewbox, getSubTiles, areaToTiles } = require('./coordinate.js');
+const { getTileViewbox, getSubTiles, areaToTiles, getParentTile } = require('./coordinate.js');
 const style = require('./style.json');
 const M = require('./match-rule.js');
 const I = require('./infer-layer.js');
@@ -32,6 +32,7 @@ const tileSize = config.tiles.size;
 const tilePrecision = config.tiles.precision;
 const tileBackground = config.tiles.background;
 const tilesMaxZ = config.tiles.z.max;
+const safeMargin = 64;
 
 const backgroundElement = `<rect x="0" y="0" width="${tileSize}" height="${tileSize}" fill="${tileBackground}"/>`;
 
@@ -195,7 +196,8 @@ async function renderChunk(cX, cY, cZ) {
         : { type: 'LineString', coordinates: coords };
 
       const geometry = closed ? 'polygon' : 'linestring';
-      const d = closed ? plotPolygon(shape, x0, y0, x1, y1, tileSize, tilePrecision) : plotLineString(shape, x0, y0, x1, y1, tileSize, tilePrecision);
+      const d = closed ? plotPolygon(shape, x0, y0, x1, y1, tileSize, tilePrecision, safeMargin) : plotLineString(shape, x0, y0, x1, y1, tileSize, tilePrecision, safeMargin);
+      if (!d) continue;
 
       const layers = I.inferLayers(way.tags, { geometry, zoom: tZ });
 
