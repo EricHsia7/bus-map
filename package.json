@@ -1,9 +1,14 @@
 {
   "dependencies": {
+    "@resvg/resvg-js": "2.6.2",
     "fflate": "0.8.3",
+    "jimp": "1.6.1",
+    "mapshaper": "0.7.47",
     "minimist": "1.2.8",
-    "postcss": "8.5.22",
     "postcss-less": "6.0.0",
+    "postcss": "8.5.22",
+    "protobufjs": "8.7.1",
+    "protocol-buffers": "5.0.0",
     "sharp": "0.35.3"
   }
 }

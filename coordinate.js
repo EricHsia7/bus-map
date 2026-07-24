@@ -29,6 +29,20 @@ function areaToTiles(lon0, lat0, lon1, lat1, bazeZ) {
   return tiles;
 }
 
+function getParentTile(x, y, z, baseZ) {
+  const shift = z - baseZ;
+  return [x >> shift, y >> shift];
+}
+
+function getChildTiles(x, y, maxZ, baseZ) {
+  if (maxZ < baseZ) return [];
+  const tiles = [];
+  for (let z = baseZ + 1; z < maxZ + 1; z++) {
+    tiles.push([x << (z - baseZ), y << (z - baseZ), z]);
+  }
+  return tiles;
+}
+
 module.exports = {
   degToTile,
   tileToBoundingbox,
