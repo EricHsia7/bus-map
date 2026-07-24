@@ -4,7 +4,8 @@ const { decompressSync } = require('fflate');
 const { plotPolygon, plotLineString } = require('./plot');
 const { getTileViewbox } = require('./coordinate');
 const style = require('./style.json');
-const matcher = require('./match-rule.js');
+const M = require('./match-rule.js');
+const I = require('./infer-layer.js');
 
 const toObjectOptions = {
   enums: String, // enums as string names
@@ -16,7 +17,8 @@ const toObjectOptions = {
   oneofs: true
 };
 
-matcher.loadStyle('./style.json');
+M.loadStyle('./style.json');
+I.loadMml('./mml.json');
 
 async function main() {
   const buf = fs.readFileSync('./chunks/13_6863_3502.osm.pbf');
@@ -171,16 +173,16 @@ async function main() {
       : { type: 'LineString', coordinates: coords };
     if (closed) {
       console.log(0);
-      console.log(plotPolygon(shape, x0, y0, x1, y1, 512));
-      console.log(matcher.matchRules(way.tags).map((idx) => style[idx].paint));
       console.log(way);
-      // console.log(matchRule(style, way.tags, 13));
+      console.log(plotPolygon(shape, x0, y0, x1, y1, 512));
     } else {
       console.log(1);
       console.log(plotLineString(shape, x0, y0, x1, y1, 512));
       console.log(way);
-      // console.log(matchRule(style, way.tags, 13));
     }
+    I.inferLayers(way.tags).map((layer) => {
+      console.log(M.matchRules(way.tags, layer.id, 13).map((idx) => style[idx].paint));
+    });
   }
 
   // console.log(nodes[0]);

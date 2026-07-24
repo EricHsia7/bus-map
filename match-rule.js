@@ -46,7 +46,6 @@
  * the common project.mml layers (best-effort; see notes on those functions).
  */
 
-'use strict';
 const fs = require('fs');
 const path = require('path');
 
