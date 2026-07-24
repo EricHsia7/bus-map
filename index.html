@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css" rel="stylesheet" />
-    <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.css" rel="stylesheet" />
+    <script src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
     <style>
       html,
       body {
@@ -20,11 +20,11 @@
   <body>
     <div id="map"></div>
     <script>
-      const TILE_URL = 'output/tiles/{z}/{x}/{y}.jpeg';
+      const TILE_URL = './tiles/{z}/{x}/{y}.webp';
       const CENTER = [25.0331668, 121.5646286]; // [lat, lng] — Taipei
       const MIN_NATIVE = 13;
       const MAX_NATIVE = 16;
-      const MIN_ZOOM = 12;
+      const MIN_ZOOM = 11;
       const MAX_ZOOM = 18;
 
       const map = new maplibregl.Map({

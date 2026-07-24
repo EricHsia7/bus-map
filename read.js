@@ -3,13 +3,14 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { decompressSync } = require('fflate');
 const { plotPolygon, plotLineString } = require('./plot');
-const { getTileViewbox, getSubTiles } = require('./coordinate');
+const { getTileViewbox, getSubTiles, areaToTiles } = require('./coordinate');
 const style = require('./style.json');
 const M = require('./match-rule.js');
 const I = require('./infer-layer.js');
 const { paintToSvg } = require('./paint-to-svg.js');
 const config = require('./config.json');
 const { rasterize } = require('./rasterize.js');
+const { makeDirectory } = require('./files.js');
 
 const toObjectOptions = {
   enums: String, // enums as string names
@@ -24,14 +25,18 @@ const toObjectOptions = {
 M.loadStyle('./style.json');
 I.loadMml('./mml.json');
 
+const chunksDir = config.chunks.dir;
+
 const tilesDir = config.tiles.dir;
 const tileSize = config.tiles.size;
 const tilePrecision = config.tiles.precision;
 const tileBackground = config.tiles.background;
+const tilesMaxZ = config.tiles.z.max;
+
 const backgroundElement = `<rect x="0" y="0" width="${tileSize}" height="${tileSize}" fill="${tileBackground}"/>`;
 
-async function main() {
-  const buf = fs.readFileSync('./chunks/13_6862_3507.osm.pbf');
+async function renderChunk(cX, cY, cZ) {
+  const buf = fs.readFileSync(path.join(chunksDir, `${cZ}_${cX}_${cY}.osm.pbf`));
   const view = new DataView(buf.buffer);
 
   const root = await protobuf.load('./fileformat.proto');
@@ -89,8 +94,8 @@ async function main() {
     // Interpret block type
     switch (blobHeader.type) {
       case 'OSMHeader': {
-        const header = HeaderBlock.decode(data);
-        console.log('HEADER BLOCK:', header);
+        // const header = HeaderBlock.decode(data);
+        // console.log('HEADER BLOCK:', header);
         break;
       }
       case 'OSMData': {
@@ -174,10 +179,14 @@ async function main() {
   }
 
   // reconstruct geometry
-  const subTiles = getSubTiles(6862, 3507, 13, 16);
+  const subTiles = getSubTiles(cX, cY, cZ, tilesMaxZ);
+  const total = subTiles.length;
+  let count = 0;
   for (const [tX, tY, tZ] of subTiles) {
+    count++;
     const [x0, y0, x1, y1] = getTileViewbox(tX, tY, tZ);
     let svgElements = '';
+    const startTime = performance.now();
     for (const way of ways) {
       const coords = way.refs.map((id) => nodeMap.get(id)).filter(Boolean);
       const closed = way.refs[0] === way.refs.at(-1);
@@ -191,7 +200,7 @@ async function main() {
       const layers = I.inferLayers(way.tags, { geometry, zoom: tZ });
 
       for (const layer of layers) {
-        const feat = { ...way.tags, ...layer.row }; // <-- inject `feature` + computed cols
+        const feat = { ...way.tags, ...layer.row }; // inject `feature` + computed cols
         const idxs = M.matchRules(feat, layer.id, tZ);
         if (idxs.length === 0) continue;
 
@@ -202,7 +211,22 @@ async function main() {
       }
     }
     const svg = `<svg width="${tileSize}" height="${tileSize}" viewBox="0 0 ${tileSize} ${tileSize}" xmlns="http://www.w3.org/2000/svg">${backgroundElement}${svgElements}</svg>`;
-    await rasterize(svg, path.join(tilesDir, `${tZ}/${tX}/${tY}`), tileSize, tileSize, 2);
+    await makeDirectory(path.join(tilesDir, tZ.toString(), tX.toString()));
+    await rasterize(svg, path.join(tilesDir, tZ.toString(), tX.toString(), tY.toString()), tileSize, tileSize, 2);
+    const endTime = performance.now();
+    console.log(`[${count}/${total}] Rendered ${tX} ${tY} ${tZ} in ${((endTime - startTime) / 1000).toFixed(2)}s.`);
+  }
+}
+
+async function main() {
+  const west = config.bbox.west;
+  const south = config.bbox.south;
+  const east = config.bbox.east;
+  const north = config.bbox.north;
+  const baseZ = config.chunks.baseZ;
+  const chunkTiles = areaToTiles(west, south, east, north, baseZ);
+  for (const [cX, cY] of chunkTiles) {
+    await renderChunk(cX, cY, baseZ);
   }
 }
 
