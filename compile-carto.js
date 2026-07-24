@@ -1,56 +1,48 @@
-// npm install postcss postcss-less
-// Usage: node compile-carto.js style.mss > style.json
-const fs = require('fs');
-const postcss = require('postcss');
-const less = require('postcss-less');
+const fs = require('node:fs');
 const { looksLikeColorValue, parseCSSModel, extractRGBA, rgbaToString } = require('./color');
 
-const root = postcss.parse(stripComments(fs.readFileSync(process.argv[2], { encoding: 'utf8' })), { syntax: less });
+// Usage: node compile-carto.js style.mss > style.json
+//
+// -------------------------------------------------------------------------
+// AND / OR model
+// -------------------------------------------------------------------------
+// A CartoCSS declaration block can be reached by several selectors that are
+// separated by commas, and LESS lets those blocks nest. In CartoCSS/Mapnik:
+//   * commas  => OR   (any of the listed selectors may match)
+//   * a chain of [..][..] attribute selectors on ONE selector => AND
+//   * nesting => the parent selector(s) are ANDed onto the child selector(s)
+//
+// The previous version concatenated the whole nested selector (commas and
+// all) into a single string and scraped every [..] filter into one flat
+// list, which silently merged OR groups into a bogus AND list (e.g.
+// feature='amenity_bar' AND feature='amenity_cafe', which can never match).
+//
+// This version keeps the structure. For each declaration block it emits:
+//
+//   {
+//     "groups": [                       // <- OR  (block matches if ANY group does)
+//       {
+//         "layer": "amenity-points",
+//         "zoom":  { "min": 17, "max": 24 },
+//         "and":   [ {"key":"feature","op":"=","value":"amenity_bar"} ]  // <- AND
+//       },
+//       ...
+//     ],
+//     "paint": { ... }
+//   }
+//
+// Each group carries its own layer + zoom because comma selectors may span
+// different layers (e.g. `#roads-casing, #bridges, #tunnels { ... }`) or set
+// zoom at different nesting levels.
 
-// 1) Collect LESS @variables.
-//    NOTE: depending on postcss-less version these arrive as atrules with
-//    `.variable === true` (older) or as decls whose prop starts with "@".
+/* ----------------------------------------------------------------------- */
+/* LESS @variable resolution (populated by main())                         */
+/* ----------------------------------------------------------------------- */
 
-// Collect the RAW (unresolved) text of every @variable first, then resolve
-// lazily. This lets a variable reference another variable and lets color
-// adjustment functions (lighten/darken/mix/…) that reference @variables be
-// resolved into rgba once every definition is known.
 const rawVars = new Map();
-
-// postcss-less parses "@name: value" as an AtRule.
-//   no space:  at.name = "land-color:"   at.params = "#f2efe9"
-//   w/ space:  at.name = "land-color"    at.params = ": #f2efe9"
-root.walkAtRules((at) => {
-  if (at.nodes) return; // skip @media {…}, detached rulesets, mixins
-  let name = at.name;
-  let value = at.params ?? '';
-
-  if (name.endsWith(':')) {
-    name = name.slice(0, -1); // strip glued colon
-  } else if (value.startsWith(':')) {
-    value = value.slice(1); // strip leading colon from params
-  } else {
-    return; // real at-rule (@import, @media, @charset…)
-  }
-
-  name = name.trim();
-  value = value.trim();
-
-  if (name && value) rawVars.set('@' + name, value); // store WITH '@' to match refs
-});
-
-// Some postcss-less versions emit vars as Declarations (type 'decl')
-// with prop like "@land-color" instead. Cover that too.
-root.walkDecls((decl) => {
-  if (decl.prop && decl.prop.startsWith('@')) {
-    rawVars.set(decl.prop, decl.value);
-  }
-});
-
 const resolvedVars = new Map();
 const resolving = new Set();
 
-// Replace @variable tokens inside a value string with their resolved values.
 function substituteVarTokens(str) {
   return str.replace(/@[A-Za-z_][\w-]*/g, (token) => {
     if (rawVars.has(token)) {
@@ -61,8 +53,6 @@ function substituteVarTokens(str) {
   });
 }
 
-// Resolve a value: substitute nested @vars, then—if it is a color (including a
-// color adjustment function)—collapse it to an rgba(...) string.
 function resolveValue(str) {
   if (typeof str !== 'string') return str;
   const substituted = substituteVarTokens(str.trim());
@@ -85,15 +75,52 @@ function resolveVar(name) {
   return value;
 }
 
-// Eagerly resolve every variable so the cache is populated.
-for (const name of rawVars.keys()) resolveVar(name);
-
 function resolveVars(v) {
   if (rawVars.has(v)) return resolveVar(v);
   return v;
 }
 
-// 2) Parse a selector like  #roads[highway='primary'][zoom>=12]
+/* ----------------------------------------------------------------------- */
+/* Selector helpers (pure)                                                 */
+/* ----------------------------------------------------------------------- */
+
+// Split a selector string on the commas that are NOT inside [ ... ].
+// "#a[b='x,y'], #c"  ->  ["#a[b='x,y']", " #c"]
+function splitTopLevelCommas(sel) {
+  // TODO: splitByTopLevelDelimiter
+  const parts = [];
+  let depth = 0;
+  let buf = '';
+  for (let i = 0; i < sel.length; i++) {
+    const ch = sel[i];
+    if (ch === '[') depth++;
+    else if (ch === ']') depth = Math.max(0, depth - 1);
+    if (ch === ',' && depth === 0) {
+      parts.push(buf);
+      buf = '';
+    } else {
+      buf += ch;
+    }
+  }
+  parts.push(buf);
+  return parts;
+}
+
+// Cartesian product of an array of arrays.
+// [[a,b],[c]] -> [[a,c],[b,c]]
+function cartesian(arrays) {
+  return arrays.reduce(
+    (acc, cur) => {
+      const next = [];
+      for (const combo of acc) for (const item of cur) next.push(combo.concat([item]));
+      return next;
+    },
+    [[]]
+  );
+}
+
+// Parse a single (comma-free) selector like #roads[highway='primary'][zoom>=12]
+// into { layer, filters:[{key,op,value}], zoom:{min,max} }. Filters are ANDed.
 function parseSelector(sel) {
   const layer = (sel.match(/#([\w-]+)/) || [])[1] || null;
   const filters = [];
@@ -120,21 +147,30 @@ function parseSelector(sel) {
   return { layer, filters, zoom };
 }
 
-// 3) Walk rules, flattening LESS nesting by concatenating parent selectors.
-const out = [];
-root.walkRules((rule) => {
-  const chain = [];
-  for (let n = rule; n && n.type === 'rule'; n = n.parent) chain.unshift(n.selector);
-  const parsed = parseSelector(chain.join(''));
+// Turn a nesting chain of (possibly comma-separated) selectors into the OR
+// list of AND-groups. The chain is [ancestorSelector, ..., ruleSelector].
+// Each level is split on top-level commas, the Cartesian product is taken
+// (parent AND child), and every combination is parsed into one AND-group.
+function buildGroups(chain, parseSel = parseSelector) {
+  const perLevel = chain.map(splitTopLevelCommas);
+  const combos = cartesian(perLevel);
+  const groups = [];
+  const seen = new Set();
+  for (const combo of combos) {
+    const p = parseSel(combo.join(''));
+    const group = { layer: p.layer, zoom: p.zoom, and: p.filters };
+    const key = JSON.stringify(group);
+    if (!seen.has(key)) {
+      seen.add(key);
+      groups.push(group);
+    }
+  }
+  return groups;
+}
 
-  const paint = {};
-  rule.each((c) => {
-    if (c.type === 'decl') paint[c.prop] = resolveValue(c.value);
-  }); // shallow: direct decls only
-  if (Object.keys(paint).length) out.push({ ...parsed, paint });
-});
-
-process.stdout.write(JSON.stringify(out, null, 2));
+/* ----------------------------------------------------------------------- */
+/* Comment stripping (pure)                                                */
+/* ----------------------------------------------------------------------- */
 
 function stripComments(input) {
   let out = '';
@@ -143,7 +179,6 @@ function stripComments(input) {
   while (i < n) {
     const c = input[i];
     const d = input[i + 1];
-    // string literals: copy verbatim
     if (c === '"' || c === "'") {
       const quote = c;
       out += c;
@@ -163,13 +198,11 @@ function stripComments(input) {
       }
       continue;
     }
-    // line comment
     if (c === '/' && d === '/') {
       i += 2;
       while (i < n && input[i] !== '\n') i++;
       continue;
     }
-    // block comment (handles /**/, /* * */ and multiline)
     if (c === '/' && d === '*') {
       i += 2;
       while (i < n && !(input[i] === '*' && input[i + 1] === '/')) i++;
@@ -181,3 +214,68 @@ function stripComments(input) {
   }
   return out;
 }
+
+/* ----------------------------------------------------------------------- */
+/* Main (only runs when invoked as a script)                               */
+/* ----------------------------------------------------------------------- */
+
+function main() {
+  const postcss = require('postcss');
+  const less = require('postcss-less');
+
+  const root = postcss.parse(stripComments(fs.readFileSync(process.argv[2], { encoding: 'utf8' })), {
+    syntax: less
+  });
+
+  // 1) Collect LESS @variables (raw), resolve lazily.
+  root.walkAtRules((at) => {
+    if (at.nodes) return; // skip @media {…}, detached rulesets, mixins
+    let name = at.name;
+    let value = at.params ?? '';
+    if (name.endsWith(':')) {
+      name = name.slice(0, -1);
+    } else if (value.startsWith(':')) {
+      value = value.slice(1);
+    } else {
+      return;
+    }
+    name = name.trim();
+    value = value.trim();
+    if (name && value) rawVars.set('@' + name, value);
+  });
+  root.walkDecls((decl) => {
+    if (decl.prop && decl.prop.startsWith('@')) {
+      rawVars.set(decl.prop, decl.value);
+    }
+  });
+  for (const name of rawVars.keys()) resolveVar(name);
+
+  // 2) Walk rules, preserving AND (filter chains) and OR (comma selectors).
+  const out = [];
+  root.walkRules((rule) => {
+    const chain = [];
+    for (let n = rule; n && n.type === 'rule'; n = n.parent) chain.unshift(n.selector);
+
+    const paint = {};
+    rule.each((c) => {
+      if (c.type === 'decl') paint[c.prop] = resolveValue(c.value);
+    }); // shallow: direct decls only
+    if (!Object.keys(paint).length) return;
+
+    const groups = buildGroups(chain, parseSelector);
+    out.push({ groups, paint });
+  });
+
+  process.stdout.write(JSON.stringify(out, null, 2));
+}
+
+if (require.main === module) main();
+
+module.exports = {
+  splitTopLevelCommas,
+  cartesian,
+  parseSelector,
+  buildGroups,
+  resolveValue,
+  stripComments
+};
