@@ -1,11 +1,15 @@
 const protobuf = require('protobufjs');
 const fs = require('node:fs');
+const path = require('node:path');
 const { decompressSync } = require('fflate');
 const { plotPolygon, plotLineString } = require('./plot');
-const { getTileViewbox } = require('./coordinate');
+const { getTileViewbox, getSubTiles } = require('./coordinate');
 const style = require('./style.json');
 const M = require('./match-rule.js');
 const I = require('./infer-layer.js');
+const { paintToSvg } = require('./paint-to-svg.js');
+const config = require('./config.json');
+const { rasterize } = require('./rasterize.js');
 
 const toObjectOptions = {
   enums: String, // enums as string names
@@ -20,8 +24,14 @@ const toObjectOptions = {
 M.loadStyle('./style.json');
 I.loadMml('./mml.json');
 
+const tilesDir = config.tiles.dir;
+const tileSize = config.tiles.size;
+const tilePrecision = config.tiles.precision;
+const tileBackground = config.tiles.background;
+const backgroundElement = `<rect x="0" y="0" width="${tileSize}" height="${tileSize}" fill="${tileBackground}"/>`;
+
 async function main() {
-  const buf = fs.readFileSync('./chunks/13_6863_3502.osm.pbf');
+  const buf = fs.readFileSync('./chunks/13_6862_3507.osm.pbf');
   const view = new DataView(buf.buffer);
 
   const root = await protobuf.load('./fileformat.proto');
@@ -164,31 +174,36 @@ async function main() {
   }
 
   // reconstruct geometry
-  const [x0, y0, x1, y1] = getTileViewbox(6863, 3502, 13);
-  for (const way of ways) {
-    const coords = way.refs.map((id) => nodeMap.get(id)).filter(Boolean);
-    const closed = way.refs[0] === way.refs.at(-1);
-    const shape = closed
-      ? { type: 'Polygon', coordinates: [coords] } // ring/area
-      : { type: 'LineString', coordinates: coords };
-    if (closed) {
-      console.log(0);
-      console.log(way);
-      console.log(plotPolygon(shape, x0, y0, x1, y1, 512));
-    } else {
-      console.log(1);
-      console.log(plotLineString(shape, x0, y0, x1, y1, 512));
-      console.log(way);
-    }
-    I.inferLayers(way.tags).map((layer) => {
-      console.log(M.matchRules(way.tags, layer.id, 13).map((idx) => style[idx].paint));
-    });
-  }
+  const subTiles = getSubTiles(6862, 3507, 13, 16);
+  for (const [tX, tY, tZ] of subTiles) {
+    const [x0, y0, x1, y1] = getTileViewbox(tX, tY, tZ);
+    let svgElements = '';
+    for (const way of ways) {
+      const coords = way.refs.map((id) => nodeMap.get(id)).filter(Boolean);
+      const closed = way.refs[0] === way.refs.at(-1);
+      const shape = closed
+        ? { type: 'Polygon', coordinates: [coords] } // ring/area
+        : { type: 'LineString', coordinates: coords };
 
-  // console.log(nodes[0]);
-  // console.log(ways[0]);
-  // console.log(relations[0]);
-  console.log('Finished reading entire PBF');
+      const geometry = closed ? 'polygon' : 'linestring';
+      const d = closed ? plotPolygon(shape, x0, y0, x1, y1, tileSize, tilePrecision) : plotLineString(shape, x0, y0, x1, y1, tileSize, tilePrecision);
+
+      const layers = I.inferLayers(way.tags, { geometry, zoom: tZ });
+
+      for (const layer of layers) {
+        const feat = { ...way.tags, ...layer.row }; // <-- inject `feature` + computed cols
+        const idxs = M.matchRules(feat, layer.id, tZ);
+        if (idxs.length === 0) continue;
+
+        const paint = {};
+        for (const idx of idxs) for (const key in style[idx].paint) if (!(key in paint)) paint[key] = style[idx].paint[key];
+
+        svgElements += paintToSvg(paint, d, geometry, tileSize / 256);
+      }
+    }
+    const svg = `<svg width="${tileSize}" height="${tileSize}" viewBox="0 0 ${tileSize} ${tileSize}" xmlns="http://www.w3.org/2000/svg">${backgroundElement}${svgElements}</svg>`;
+    await rasterize(svg, path.join(tilesDir, `${tZ}/${tX}/${tY}`), tileSize, tileSize, 2);
+  }
 }
 
 main();

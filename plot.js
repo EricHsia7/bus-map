@@ -34,14 +34,14 @@ function plotPolygon(polygon, x0, y0, x1, y1, size = 512, precision = 2048) {
     return '';
   } else if (polygonPathsLength === 1) {
     pathCommand += windPath(polygonPaths[0], transformX, transformY, 'clockwise');
-    pathCommand += 'Z';
+    // pathCommand += 'Z';
   } else {
     pathCommand += windPath(polygonPaths[0], transformX, transformY, 'clockwise');
     console.log(1);
     for (let i = 1; i < polygonPathsLength; i++) {
       pathCommand += windPath(polygonPaths[i], transformX, transformY, 'counterclockwise');
     }
-    pathCommand += 'Z';
+    // pathCommand += 'Z';
   }
   return pathCommand;
 }
@@ -51,10 +51,10 @@ function plotLineString(lineString, x0, y0, x1, y1, size = 512, precision = 2048
   const dY = y1 - y0;
   const scaleX = size / dX;
   const scaleY = size / dY;
-  const transformX = (x) => (x - x0) * scaleX;
-  const transformY = (y) => (dY - (y - y0)) * scaleY;
+  const transformX = (x) => Math.floor((x - x0) * scaleX * precision) / precision;
+  const transformY = (y) => Math.floor((dY - (y - y0)) * scaleY * precision) / precision;
   let pathCommand = windPath(lineString.coordinates, transformX, transformY, 'clockwise');
-  pathCommand += 'Z';
+  // pathCommand += 'Z';
   return pathCommand;
 }
 

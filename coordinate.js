@@ -34,13 +34,26 @@ function getParentTile(x, y, z, baseZ) {
   return [x >> shift, y >> shift];
 }
 
-function getChildTiles(x, y, maxZ, baseZ) {
-  if (maxZ < baseZ) return [];
-  const tiles = [];
-  for (let z = baseZ + 1; z < maxZ + 1; z++) {
-    tiles.push([x << (z - baseZ), y << (z - baseZ), z]);
+function getSubTiles(x, y, baseZ, maxZ) {
+  if (maxZ < baseZ) {
+    return [];
   }
-  return tiles;
+
+  const subTiles = [];
+  for (let targetZ = baseZ; targetZ < maxZ + 1; targetZ++) {
+    const shift = targetZ - baseZ;
+    const numTilesAxis = 1 << shift;
+
+    const startX = x << shift;
+    const startY = y << shift;
+
+    for (let dx = 0; dx < numTilesAxis; dx++) {
+      for (let dy = 0; dy < numTilesAxis; dy++) {
+        subTiles.push([startX + dx, startY + dy, targetZ]);
+      }
+    }
+  }
+  return subTiles;
 }
 
 function getTileViewbox(x, y, z) {
@@ -99,7 +112,7 @@ module.exports = {
   tileToBoundingbox,
   areaToTiles,
   getParentTile,
-  getChildTiles,
+  getSubTiles,
   getTileViewbox,
   projectCoordinate,
   getOrientation
