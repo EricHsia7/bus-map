@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "fflate": "0.8.3",
     "minimist": "1.2.8",
     "postcss": "8.5.22",
     "postcss-less": "6.0.0",
