@@ -1,6 +1,7 @@
 const protobuf = require('protobufjs');
 const fs = require('node:fs');
 const { decompressSync } = require('fflate');
+const { plotShape } = require('./plot');
 
 const toObjectOptions = {
   enums: String, // enums as string names
@@ -26,6 +27,7 @@ async function main() {
   const Way = root.lookupType('OSMPBF.Way');
   const Relation = root.lookupType('OSMPBF.Relation');
 
+  const nodeMap = new Map();
   let nodes = [];
   let ways = [];
   let relations = [];
@@ -91,12 +93,14 @@ async function main() {
         for (const group of block.primitivegroup) {
           // --- regular Nodes ---
           for (const n of group.nodes) {
+            const id = Number(n.id);
             nodes.push({
-              id: Number(n.id),
+              id: id,
               lat: toDeg(n.lat, latOff),
               lon: toDeg(n.lon, lonOff),
               tags: tags(n.keys, n.vals)
             });
+            nodeMap.set(id, [lon, lat]);
           }
 
           // --- DenseNodes (this is where nodes usually are!) ---
@@ -112,7 +116,7 @@ async function main() {
               lat += Number(d.lat[i]);
               lon += Number(d.lon[i]);
               const t = {};
-             
+
               // keysVals: (<keyId> <valId>)* 0  per node
               while (d.keysVals.length && d.keysVals[kv] !== 0) {
                 const k = d.keysVals[kv++];
@@ -121,6 +125,7 @@ async function main() {
               }
               kv++; // skip the 0 delimiter
               nodes.push({ id, lat: toDeg(lat, latOff), lon: toDeg(lon, lonOff), tags: t });
+              nodeMap.set(id, [toDeg(lon, lonOff), toDeg(lat, latOff)]);
             }
           }
 
@@ -151,9 +156,24 @@ async function main() {
     }
   }
 
-  console.log(nodes[0]);
-  console.log(ways[0]);
-  console.log(relations[0]);
+  let count = 0;
+  // reconstruct geometry
+  for (const way of ways) {
+    const coords = way.refs.map((id) => nodeMap.get(id)).filter(Boolean);
+    const closed = way.refs[0] === way.refs.at(-1);
+    const shape = closed
+      ? { type: 'Polygon', coordinates: [coords] } // ring/area
+      : { type: 'LineString', coordinates: coords };
+    plotShape(shape, 6863, 3502, 13, 512);
+    console.log(way.tags);
+    count++;
+
+    if (count > 5) break;
+  }
+
+  // console.log(nodes[0]);
+  // console.log(ways[0]);
+  // console.log(relations[0]);
   console.log('Finished reading entire PBF');
 }
 

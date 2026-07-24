@@ -43,8 +43,64 @@ function getChildTiles(x, y, maxZ, baseZ) {
   return tiles;
 }
 
+function getTileViewbox(x, y, z) {
+  const R = 6378137;
+  const degToRad = Math.PI / 180;
+  const n = 2 ** z;
+  const west = (x / n) * 360 - 180;
+  const east = ((x + 1) / n) * 360 - 180;
+  const north = Math.atan(Math.sinh(Math.PI * (1 - (2 * y) / n)));
+  const south = Math.atan(Math.sinh(Math.PI * (1 - (2 * (y + 1)) / n)));
+  const x0 = R * west * degToRad;
+  const x1 = R * east * degToRad;
+  const y0 = R * Math.log(Math.tan(Math.PI / 4 + south / 2));
+  const y1 = R * Math.log(Math.tan(Math.PI / 4 + north / 2));
+  return [x0, y0, x1, y1];
+}
+
+/**
+ * project coordinate to x-y plane using web mercator
+ * @param {number} lon longitude
+ * @param {number} lat latitude
+ * @returns [x, y]
+ */
+function projectCoordinate(lon, lat) {
+  const R = 6378137;
+  const degToRad = Math.PI / 180;
+  return [R * lon * degToRad, R * Math.log(Math.tan(Math.PI / 4 + (lat * degToRad) / 2))];
+}
+
+/**
+ * Determines the orientation of a polygon path.
+ *
+ * @param {Array<[number, number]>} coordinates
+ * @returns {"clockwise" | "counterclockwise" | "degenerate"}
+ */
+function getOrientation(coordinates) {
+  if (coordinates.length < 3) {
+    return 'degenerate';
+  }
+
+  let area = 0;
+
+  for (let i = 0, n = coordinates.length; i < n; i++) {
+    const [x1, y1] = coordinates[i];
+    const [x2, y2] = coordinates[(i + 1) % n];
+    area += x1 * y2 - x2 * y1;
+  }
+
+  if (area > 0) return 'counterclockwise';
+  if (area < 0) return 'clockwise';
+  return 'degenerate';
+}
+
 module.exports = {
   degToTile,
   tileToBoundingbox,
-  areaToTiles
+  areaToTiles,
+  getParentTile,
+  getChildTiles,
+  getTileViewbox,
+  projectCoordinate,
+  getOrientation
 };
