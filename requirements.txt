@@ -1,5 +1,5 @@
-osmium
-pillow
-pycairo
+# osmium
+# pillow
+# pycairo
 pyyaml
 sqlglot
