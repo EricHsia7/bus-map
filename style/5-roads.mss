@@ -1,5 +1,5 @@
 @default-casing: #ffffff;
-@road-fill: #d7dee5;
+@road-fill: #c4cbd4;
 @road-casing: @residential-casing;
 
 @access-marking: #eaeaeb;
@@ -10,100 +10,125 @@
 
 @aeroway-fill: #cbcbce;
 
-@bridge-casing: #aeb2b6;
-@bridleway-casing: @default-casing;
-@bridleway-fill-noaccess: #aaddaa;
-@bridleway-fill: green;
-
 @bus-guideway-fill: #6699ff;
 @bus-guideway-tunnel-fill: lighten(desaturate(@bus-guideway-fill, 20%), 8%);
 
-@cycleway-casing: @default-casing;
-@cycleway-fill-noaccess: #9999ff;
-@cycleway-fill: blue;
-
 @destination-marking: #c2e0ff;
-
-@footway-fill: @road-fill;
-@footway-casing: @default-casing;
-@footway-fill-noaccess: @footway-fill;
 
 @helipad-fill: @aeroway-fill;
 
-@living-street-casing: @residential-casing;
-@living-street-fill: @road-fill;
-@living-street-tunnel-fill: lighten(@living-street-fill, 3%);
-
 @minor-construction: #a6a7a9;
 
-@motorway-casing: #e65c5c;
-@motorway-fill: #eb8877;
-@motorway-low-zoom-casing: #f1ac93;
-@motorway-low-zoom: #f1ac93;
-@motorway-shield: #f1ac93;
-@motorway-tunnel-fill: lighten(@motorway-fill, 10%);
+/* Dual-carriageway, high speed, grade-separated with restricted access. */
+@motorway-casing: @road-fill;
+@motorway-fill: @road-fill;
+@motorway-low-zoom-casing: @road-fill;
+@motorway-low-zoom: @road-fill;
+@motorway-shield: @road-fill;
+@motorway-tunnel-fill: @road-fill;
 
-@path-casing: @default-casing;
+/* High-importance corridors that do not meet full motorway standards. */
+@trunk-fill: #8ba5c0;
+@trunk-casing: @trunk-fill;
+@trunk-low-zoom-casing: @trunk-fill;
+@trunk-low-zoom: @trunk-fill;
+@trunk-shield: @trunk-fill;
+@trunk-tunnel-fill: @trunk-fill;
 
-@pedestrian-casing: #97999c;
-@pedestrian-fill: @footway-fill;
+/* Links major cities and large towns within a state or region. */
+@primary-casing: @road-fill;
+@primary-fill: @road-fill;
+@primary-low-zoom-casing: darken(@road-fill, 3%);
+@primary-low-zoom: @road-fill;
+@primary-shield: @road-fill;
+@primary-tunnel-fill: @road-fill;
+
+/* Connects smaller towns, major suburbs, or key urban hubs. */
+@secondary-casing: darken(@road-fill, 5%);
+@secondary-fill: @road-fill;
+@secondary-low-zoom-casing: darken(@road-fill, 3%);
+@secondary-low-zoom: @road-fill;
+@secondary-shield: @road-fill;
+@secondary-tunnel-fill: @road-fill;
+
+/* Connects villages, suburbs, or local districts to secondary and primary roads. */
+@tertiary-casing: darken(@road-fill, 5%);
+@tertiary-fill: @road-fill;
+@tertiary-shield: @road-fill;
+@tertiary-tunnel-fill: @road-fill;
+
+/* Streets through housing areas intended for local resident traffic. */
+@residential-casing: @road-fill;
+@residential-fill: @road-fill;
+@residential-tunnel-fill: darken(@road-fill, 5%);
+
+/* Pedestrian-priority residential streets with strict speed limits. */
+@living-street-casing: darken(@road-fill, 5%);
+@living-street-fill: @road-fill;
+@living-street-tunnel-fill: @road-fill;
+
+/* Access roads to buildings, parking lots, driveways, alleyways, gas stations, or emergency access. */
+@service-casing: darken(@road-fill, 5%);
+@service-construction: #a6a7a9;
+@service-fill: @road-fill;
+
+/* Roads reserved primarily for pedestrians, such as shopping streets, plazas, or town centers. */
+@pedestrian-casing: darken(@road-fill, 5%);
+@pedestrian-fill: @road-fill;
+
+/* Roads used for agricultural or forestry access. Usually unpaved and sub-tagged with surface quality (tracktype=grade1 to grade5). */
+@track-casing: @default-casing;
+@track-fill-noaccess: #e2c5bb;
+@track-fill: #996600;
+
+/* Designated walking paths, sidewalks, or footbridges. */
+@footway-casing: darken(@road-fill, 5%);
+@footway-fill: @road-fill;
+@footway-fill-noaccess: @road-fill;
+
+/* Dedicated bicycle paths or separated cycle tracks. */
+@cycleway-fill: #5f9089;
+@cycleway-fill-noaccess: @cycleway-fill;
+@cycleway-casing: #99b9b6;
+
+/* Generic multi-use non-motorized trails (shared by hikers, mountain bikers, or horse riders). */
+@path-casing: darken(@road-fill, 5%);
+
+/* Outdoor stairs or stepped pathways. */
+@steps-casing: darken(@road-fill, 5%);
+@steps-fill-noaccess: @road-fill;
+@steps-fill: @road-fill;
+
+/* Paths designated primarily for equestrian/horse riding. */
+@bridleway-fill: #a7d4a7;
+@bridleway-fill-noaccess: @bridleway-fill;
+@bridleway-casing: darken(@bridleway-fill, 5%);
+
+/*
+* Used for modeling entry/exit ramps, slip lanes, and grade-separated connections between main roads:
+* highway=motorway_link
+* highway=trunk_link
+* highway=primary_link
+* highway=secondary_link
+* highway=tertiary_link
+*/
+
+@bridge-casing: darken(@road-fill, 5%);
 
 @platform-fill: #bbbbbb;
-
-@primary-casing: @road-fill;
-@primary-fill: @primary-casing;
-@primary-low-zoom-casing: @primary-casing;
-@primary-low-zoom: @primary-casing;
-@primary-shield: @primary-casing;
-@primary-tunnel-fill: lighten(@primary-casing, 10%);
-
-@secondary-casing: @road-fill;
-@secondary-fill: @secondary-casing;
-@secondary-low-zoom-casing: @secondary-casing;
-@secondary-low-zoom: @secondary-casing;
-@secondary-shield: @secondary-casing;
-@secondary-tunnel-fill: lighten(@secondary-casing, 5%);
 
 @private-marking-for-red: #c26363;
 @private-marking: #efa9a9;
 
 @raceway-fill: @road-fill;
 
-@residential-casing: @road-fill;
-@residential-fill: @road-fill;
-@residential-tunnel-fill: darken(@road-fill, 5%);
-
 @runway-fill: @aeroway-fill;
-
-@service-casing: @residential-casing;
-@service-construction: #a6a7a9;
-@service-fill: @residential-fill;
-
-@steps-casing: @default-casing;
-@steps-fill-noaccess: @footway-fill;
-@steps-fill: @footway-fill;
 
 @taxiway-fill: @aeroway-fill;
 
-@tertiary-casing: #8d8e91;
-@tertiary-fill: @road-fill;
-@tertiary-shield: #3b3b3b;
-@tertiary-tunnel-fill: lighten(@tertiary-fill, 5%);
-
-@track-casing: @default-casing;
-@track-fill-noaccess: #e2c5bb;
-@track-fill: #996600;
-
-@trunk-casing: #8ba5c0;
-@trunk-fill: @trunk-casing;
-@trunk-low-zoom-casing: @trunk-casing;
-@trunk-low-zoom: @trunk-casing;
-@trunk-shield: @trunk-casing;
-@trunk-tunnel-fill: lighten(@trunk-casing, 10%);
-
 @tunnel-casing: #999ea3;
 
-@unimportant-road: @residential-casing;
+@unimportant-road: @road-fill;
 
 @motorway-width-z6: 0.4;
 @trunk-width-z6: 0.4;
