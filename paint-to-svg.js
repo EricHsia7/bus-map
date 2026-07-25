@@ -92,12 +92,12 @@ function typesIn(props) {
 /* ----------------------------------------------------------------------- */
 
 function num(v, k = 1) {
-  return typeof v === 'number' ? v : parseFloat(v) * k;
+  return typeof v === 'number' ? v * k : parseFloat(v) * k;
 }
 
 function dash(v, k = 1) {
   if (v == null) return null;
-  if (Array.isArray(v)) return v.map(n => parseFloat(n) * k).join(',');
+  if (Array.isArray(v)) return v.map((n) => parseFloat(n) * k).join(',');
   return String(v).trim().replace(/\s+/g, ',');
 }
 
