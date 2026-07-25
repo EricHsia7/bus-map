@@ -197,7 +197,7 @@ jobs:
           mkdir -p ./dist || true
           mv ./tiles ./dist || true
           git checkout -b temp-branch || true
-          git add ./dist || true
+          git add ./dist -f || true
           git commit -m "Updates" || true
 
       - name: Push to Dist Branch
