@@ -1,5 +1,6 @@
 const fs = require('node:fs');
 const { looksLikeColorValue, parseCSSModel, extractRGBA, rgbaToString } = require('./color');
+const { looksLikeNumericalExpression, calc } = require('./calc');
 
 // Usage: node compile-carto.js style.mss > style.json
 //
@@ -60,6 +61,11 @@ function resolveValue(str) {
     const parsed = parseCSSModel(substituted);
     if (parsed) {
       return rgbaToString(extractRGBA(parsed));
+    }
+  } else if (looksLikeNumericalExpression(substituted)) {
+    const evaluated = calc(substituted);
+    if (typeof evaluated === 'number' && Number.isFinite(evaluated)) {
+      return String(evaluated);
     }
   }
   return substituted;
