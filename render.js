@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { decompressSync } = require('fflate');
 const { plotPolygon, plotLineString } = require('./plot.js');
-const { getTileViewbox, getSubTiles, areaToTiles, getParentTile } = require('./coordinate.js');
+const { getTileViewbox, getSubTiles, areaToTiles, getParentTile, tileToBoundingbox } = require('./coordinate.js');
 const style = require('./style.json');
 const M = require('./match-rule.js');
 const I = require('./infer-layer.js');
@@ -12,6 +12,7 @@ const { assembleAreas } = require('./assemble.js');
 const config = require('./config.json');
 const { rasterize } = require('./rasterize.js');
 const { makeDirectory } = require('./files.js');
+const { paintToLabels } = require('./paint-to-label.js');
 
 const toObjectOptions = {
   enums: String, // enums as string names
@@ -72,10 +73,43 @@ const tileBackground = config.tiles.background;
 const tilesMaxZ = config.tiles.z.max;
 const safeMargin = 64;
 
+// Overlay label/marker output. Text and point symbols are intentionally NOT
+// rasterized (see paint-to-svg.js); instead we collect the features a MapLibre
+// `symbol` layer *should* render and emit one GeoJSON FeatureCollection per
+// tile, mirroring the raster pyramid at labels/z/x/y.geojson. Coordinates are
+// WGS84 lon/lat, as required by the GeoJSON spec.
+const labelsDir = (config.labels && config.labels.dir) || path.join(tilesDir, '..', 'labels');
+
+// Representative point (vertex average) of a ring, for placing an area label.
+function centroidOf(ring) {
+  let x = 0,
+    y = 0,
+    n = 0;
+  for (const p of ring) {
+    if (!p) continue;
+    x += p[0];
+    y += p[1];
+    n++;
+  }
+  return n ? [x / n, y / n] : null;
+}
+
 const backgroundElement = `<rect x="0" y="0" width="${tileSize}" height="${tileSize}" fill="${tileBackground}"/>`;
 
-async function renderChunk(cX, cY, cZ) {
-  const buf = fs.readFileSync(path.join(chunksDir, `${cZ}_${cX}_${cY}.osm.pbf`));
+const chunkCache = new Map();
+
+// Parse one chunk's .osm.pbf into { nodeMap, ways, relations }. Cached so the
+// center chunk and its neighbors (loaded by adjacent renders) are parsed once.
+// Returns null when the chunk file does not exist (edge of the extract).
+async function parseChunk(cX, cY, cZ) {
+  const key = `${cZ}_${cX}_${cY}`;
+  if (chunkCache.has(key)) return chunkCache.get(key);
+  const file = path.join(chunksDir, `${cZ}_${cX}_${cY}.osm.pbf`);
+  if (!fs.existsSync(file)) {
+    chunkCache.set(key, null);
+    return null;
+  }
+  const buf = fs.readFileSync(file);
   const view = new DataView(buf.buffer);
 
   const root = await protobuf.load('./fileformat.proto');
@@ -161,7 +195,7 @@ async function renderChunk(cX, cY, cZ) {
               lon: toDeg(n.lon, lonOff),
               tags: tags(n.keys, n.vals)
             });
-            nodeMap.set(id, [lon, lat]);
+            nodeMap.set(id, [toDeg(n.lon, lonOff), toDeg(n.lat, latOff)]);
           }
 
           // --- DenseNodes (this is where nodes usually are!) ---
@@ -217,9 +251,49 @@ async function renderChunk(cX, cY, cZ) {
     }
   }
 
-  // Assemble multipolygon relations (wide rivers, lakes, landuse, ...) into filled area geometry. Their tags live on the relation and their member ways are usually untagged, so the per-way loop below never draws them.
-  const wayMap = new Map(ways.map((w) => [w.id, w]));
-  const { features: areaFeatures, memberWayIds } = assembleAreas(relations, wayMap, nodeMap);
+  // Only tagged nodes are potential POI/marker/label anchors; untagged nodes
+  // are pure geometry vertices and would bloat memory.
+  const taggedNodes = nodes.filter((n) => n.tags && Object.keys(n.tags).length);
+  const result = { nodeMap, nodes: taggedNodes, ways, relations };
+  chunkCache.set(key, result);
+  return result;
+}
+
+async function renderChunk(cX, cY, cZ) {
+  const center = await parseChunk(cX, cY, cZ);
+  if (!center) return;
+  const { nodeMap, ways, relations } = center;
+
+  // Load the 8 neighbor chunks so multipolygon rings whose connecting member
+  // ways cross a chunk boundary can still be closed. Without this a cross-chunk
+  // outer ring stays open and gets force-closed with a straight chord across
+  // the interior -> the white-triangle / checkerboard fill artifact.
+  const lookupChunks = [center];
+  for (let dx = -1; dx <= 1; dx++) {
+    for (let dy = -1; dy <= 1; dy++) {
+      if (dx === 0 && dy === 0) continue;
+      const nb = await parseChunk(cX + dx, cY + dy, cZ);
+      if (nb) lookupChunks.push(nb);
+    }
+  }
+  const mergedWayMap = new Map();
+  for (const c of lookupChunks) {
+    for (const w of c.ways) if (!mergedWayMap.has(w.id)) mergedWayMap.set(w.id, w);
+  }
+  const mergedNodes = {
+    get: (id) => {
+      for (const c of lookupChunks) {
+        const p = c.nodeMap.get(id);
+        if (p) return p;
+      }
+      return undefined;
+    }
+  };
+
+  // Assemble multipolygon relations (wide rivers, lakes, landuse, ...) into
+  // filled area geometry. Their tags live on the relation and their member
+  // ways are usually untagged, so the per-way loop below never draws them.
+  const { features: areaFeatures, memberWayIds } = assembleAreas(relations, mergedWayMap, mergedNodes);
 
   // reconstruct geometry
   const subTiles = getSubTiles(cX, cY, cZ, tilesMaxZ);
@@ -228,8 +302,10 @@ async function renderChunk(cX, cY, cZ) {
   for (const [tX, tY, tZ] of subTiles) {
     count++;
     const [x0, y0, x1, y1] = getTileViewbox(tX, tY, tZ);
+    const [tw, ts, te, tn] = tileToBoundingbox(tX, tY, tZ); // lon/lat bounds of this tile
     const fills = []; // { order, svg } collected across ways + relations
     const lineEls = []; // { order, svg }
+    const labels = []; // GeoJSON features for the text/marker overlay
     const startTime = performance.now();
     for (const way of ways) {
       if (memberWayIds.has(way.id)) continue; // drawn via its parent multipolygon
@@ -263,6 +339,26 @@ async function renderChunk(cX, cY, cZ) {
             lineEls.push({ base, index, svg });
           }
         }
+
+        // Collect the text/markers this feature should render (placed live by
+        // MapLibre, not rasterized). Lines keep their geometry for line
+        // placement; closed areas get a representative point.
+        const labelPaint = {};
+        for (const idx of idxs) Object.assign(labelPaint, style[idx].paint);
+        const descs = paintToLabels(labelPaint, feat);
+        if (descs) {
+          let geom = null;
+          if (closed) {
+            const c = centroidOf(coords);
+            if (c && c[0] >= tw && c[0] <= te && c[1] >= ts && c[1] <= tn) geom = { type: 'Point', coordinates: c };
+          } else {
+            geom = { type: 'LineString', coordinates: coords };
+          }
+          if (geom)
+            for (const desc of descs) {
+              labels.push({ type: 'Feature', id: `w${way.id}:${layer.id}:${desc.instance || ''}`, geometry: geom, properties: { layer: layer.id, minzoom: tZ, ...desc.properties } });
+            }
+        }
       }
     }
 
@@ -288,10 +384,46 @@ async function renderChunk(cX, cY, cZ) {
           if (!svg) continue;
           fills.push({ base, index, svg });
         }
+
+        // Area labels (place/landuse/building names): anchor at a
+        // representative point, emitted only for the tile that contains it.
+        const labelPaint = {};
+        for (const idx of idxs) Object.assign(labelPaint, style[idx].paint);
+        const descs = paintToLabels(labelPaint, featRow);
+        if (descs) {
+          const ring = feat.polygons[0] && feat.polygons[0][0];
+          const c = ring && centroidOf(ring);
+          if (c && c[0] >= tw && c[0] <= te && c[1] >= ts && c[1] <= tn) {
+            for (const desc of descs) {
+              labels.push({ type: 'Feature', id: `r:${layer.id}:${desc.instance || ''}:${c[0].toFixed(5)},${c[1].toFixed(5)}`, geometry: { type: 'Point', coordinates: c }, properties: { layer: layer.id, minzoom: tZ, ...desc.properties } });
+            }
+          }
+        }
       }
     }
 
-    // Emit in OSM Carto layer order (stable sort keeps intra-layer feature order). Fills first, then lines, so casings/labels stay on top.
+    // Point features (POIs / place names / stations) live on tagged nodes,
+    // which are never drawn as background geometry. Emit each only for the tile
+    // whose bbox contains it, so a point lands in exactly one tile.
+    for (const node of center.nodes) {
+      if (node.lon < tw || node.lon > te || node.lat < ts || node.lat > tn) continue;
+      const nlayers = I.inferLayers(node.tags, { geometry: 'point', zoom: tZ });
+      for (const layer of nlayers) {
+        const feat = { ...node.tags, ...layer.row };
+        const idxs = M.matchRules(feat, layer.id, tZ);
+        if (idxs.length === 0) continue;
+        const labelPaint = {};
+        for (const idx of idxs) Object.assign(labelPaint, style[idx].paint);
+        const descs = paintToLabels(labelPaint, feat);
+        if (!descs) continue;
+        for (const desc of descs) {
+          labels.push({ type: 'Feature', id: `n${node.id}:${layer.id}:${desc.instance || ''}`, geometry: { type: 'Point', coordinates: [node.lon, node.lat] }, properties: { layer: layer.id, minzoom: tZ, ...desc.properties } });
+        }
+      }
+    }
+
+    // Emit in OSM Carto layer order (stable sort keeps intra-layer feature
+    // order). Fills first, then lines, so casings/labels stay on top.
     fills.sort(function (a, b) {
       if (a.base !== b.base) return a.base - b.base;
       return a.index - b.index;
@@ -305,6 +437,10 @@ async function renderChunk(cX, cY, cZ) {
     const svg = `<svg width="${tileSize}" height="${tileSize}" viewBox="0 0 ${tileSize} ${tileSize}" xmlns="http://www.w3.org/2000/svg">${backgroundElement}${polygonElements}${lineElements}</svg>`;
     await makeDirectory(path.join(tilesDir, tZ.toString(), tX.toString()));
     await rasterize(svg, path.join(tilesDir, tZ.toString(), tX.toString(), tY.toString()));
+    if (labels.length) {
+      await makeDirectory(path.join(labelsDir, tZ.toString(), tX.toString()));
+      fs.writeFileSync(path.join(labelsDir, tZ.toString(), tX.toString(), `${tY}.geojson`), JSON.stringify({ type: 'FeatureCollection', features: labels }));
+    }
     const endTime = performance.now();
     console.log(`[${count}/${total}] Rendered (${tX} ${tY} ${tZ}) in (${cX} ${cY} ${cZ}) in ${((endTime - startTime) / 1000).toFixed(2)}s.`);
   }
