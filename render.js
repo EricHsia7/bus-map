@@ -208,7 +208,11 @@ async function renderChunk(cX, cY, cZ) {
         if (idxs.length === 0) continue;
 
         const paint = {};
-        for (const idx of idxs) for (const key in style[idx].paint) if (!(key in paint)) paint[key] = style[idx].paint[key];
+        for (const idx of idxs) {
+          for (const key in style[idx].paint) {
+            paint[key] = style[idx].paint[key];
+          }
+        }
 
         if (closed) {
           polygonElements += paintToSvg(paint, d, geometry, tileSize / 256);
