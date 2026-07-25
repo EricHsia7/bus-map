@@ -1,72 +1,109 @@
-/* For the main linear features, such as roads and railways. */
+@default-casing: #ffffff;
+@road-fill: #d7dee5;
+@road-casing: @residential-casing;
 
-@tertiary-fill: #ffffff;
-@residential-fill: #ffffff;
-@service-fill: @residential-fill;
-@living-street-fill: #ededed;
-@pedestrian-fill: #dddde8;
-@raceway-fill: #ffc0cb;
-@road-fill: #ddd;
-@footway-fill: #ddd;
-@footway-fill-noaccess: #bbbbbb;
-@steps-fill: @footway-fill;
-@steps-fill-noaccess: #bbbbbb;
-@cycleway-fill: blue;
-@cycleway-fill-noaccess: #9999ff;
-@bridleway-fill: green;
-@bridleway-fill-noaccess: #aaddaa;
-@track-fill: #996600;
-@track-fill-noaccess: #e2c5bb;
-@platform-fill: #bbbbbb;
-@aeroway-fill: rgb(203, 203, 206);
-@runway-fill: @aeroway-fill;
-@taxiway-fill: @aeroway-fill;
-@helipad-fill: @aeroway-fill;
 @access-marking: #eaeaeb;
-/* access-marking-light is used on some darker highways for better contrast */
 @access-marking-light: #eaeaeb;
+@access-marking-living-street: #d3d3d5;
 @access-marking-secondary: #e2e3e4;
 @access-marking-white-unpaved: #e0e0e1;
-@access-marking-living-street: #d3d3d5;
 
-@default-casing: #ffffff;
-@tertiary-casing: #8d8e91;
-@residential-casing: #b9babc;
-@road-casing: @residential-casing;
-@service-casing: @residential-casing;
-@living-street-casing: @residential-casing;
-@pedestrian-casing: #97999c;
-@path-casing: @default-casing;
-@footway-casing: @default-casing;
-@steps-casing: @default-casing;
-@cycleway-casing: @default-casing;
-@bridleway-casing: @default-casing;
-@track-casing: @default-casing;
+@aeroway-fill: #cbcbce;
 
-@tertiary-shield: #3b3b3b;
-
-@unimportant-road: @residential-casing;
-
-@minor-construction: #a6a7a9;
-@service-construction: #a6a7a9;
-
-@destination-marking: #c2e0ff;
-@private-marking: #efa9a9;
-@private-marking-for-red: #c26363;
-
-@tunnel-casing: #999ea3;
 @bridge-casing: #aeb2b6;
-
-@motorway-tunnel-fill: lighten(@motorway-fill, 10%);
-@trunk-tunnel-fill: lighten(@trunk-fill, 10%);
-@primary-tunnel-fill: lighten(@primary-fill, 10%);
-@secondary-tunnel-fill: lighten(@secondary-fill, 5%);
-@tertiary-tunnel-fill: lighten(@tertiary-fill, 5%);
-@residential-tunnel-fill: darken(@residential-fill, 5%);
-@living-street-tunnel-fill: lighten(@living-street-fill, 3%);
+@bridleway-casing: @default-casing;
+@bridleway-fill-noaccess: #aaddaa;
+@bridleway-fill: green;
 
 @bus-guideway-fill: #6699ff;
 @bus-guideway-tunnel-fill: lighten(desaturate(@bus-guideway-fill, 20%), 8%);
+
+@cycleway-casing: @default-casing;
+@cycleway-fill-noaccess: #9999ff;
+@cycleway-fill: blue;
+
+@destination-marking: #c2e0ff;
+
+@footway-fill: @road-fill;
+@footway-casing: @default-casing;
+@footway-fill-noaccess: @footway-fill;
+
+@helipad-fill: @aeroway-fill;
+
+@living-street-casing: @residential-casing;
+@living-street-fill: @road-fill;
+@living-street-tunnel-fill: lighten(@living-street-fill, 3%);
+
+@minor-construction: #a6a7a9;
+
+@motorway-casing: #e65c5c;
+@motorway-fill: #eb8877;
+@motorway-low-zoom-casing: #f1ac93;
+@motorway-low-zoom: #f1ac93;
+@motorway-shield: #f1ac93;
+@motorway-tunnel-fill: lighten(@motorway-fill, 10%);
+
+@path-casing: @default-casing;
+
+@pedestrian-casing: #97999c;
+@pedestrian-fill: @footway-fill;
+
+@platform-fill: #bbbbbb;
+
+@primary-casing: @road-fill;
+@primary-fill: @primary-casing;
+@primary-low-zoom-casing: @primary-casing;
+@primary-low-zoom: @primary-casing;
+@primary-shield: @primary-casing;
+@primary-tunnel-fill: lighten(@primary-casing, 10%);
+
+@secondary-casing: @road-fill;
+@secondary-fill: @secondary-casing;
+@secondary-low-zoom-casing: @secondary-casing;
+@secondary-low-zoom: @secondary-casing;
+@secondary-shield: @secondary-casing;
+@secondary-tunnel-fill: lighten(@secondary-casing, 5%);
+
+@private-marking-for-red: #c26363;
+@private-marking: #efa9a9;
+
+@raceway-fill: @road-fill;
+
+@residential-casing: @road-fill;
+@residential-fill: @road-fill;
+@residential-tunnel-fill: darken(@road-fill, 5%);
+
+@runway-fill: @aeroway-fill;
+
+@service-casing: @residential-casing;
+@service-construction: #a6a7a9;
+@service-fill: @residential-fill;
+
+@steps-casing: @default-casing;
+@steps-fill-noaccess: @footway-fill;
+@steps-fill: @footway-fill;
+
+@taxiway-fill: @aeroway-fill;
+
+@tertiary-casing: #8d8e91;
+@tertiary-fill: @road-fill;
+@tertiary-shield: #3b3b3b;
+@tertiary-tunnel-fill: lighten(@tertiary-fill, 5%);
+
+@track-casing: @default-casing;
+@track-fill-noaccess: #e2c5bb;
+@track-fill: #996600;
+
+@trunk-casing: #8ba5c0;
+@trunk-fill: @trunk-casing;
+@trunk-low-zoom-casing: @trunk-casing;
+@trunk-low-zoom: @trunk-casing;
+@trunk-shield: @trunk-casing;
+@trunk-tunnel-fill: lighten(@trunk-casing, 10%);
+
+@tunnel-casing: #999ea3;
+
+@unimportant-road: @residential-casing;
 
 @motorway-width-z6: 0.4;
 @trunk-width-z6: 0.4;

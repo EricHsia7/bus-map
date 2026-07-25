@@ -26,6 +26,41 @@ const toObjectOptions = {
 M.loadStyle('./style.json');
 I.loadMml('./mml.json');
 
+// Paint order: Mapnik/CartoCSS draw order is defined by the `Layer:` order in
+// project.mml, NOT by the order of rules in the concatenated .mss (that only
+// controls the within-layer cascade). mml.json preserves the project.mml layer
+// order, so map each layer id to its index there. This is the authoritative
+// stacking order and is independent of how the .mss files were concatenated.
+const mml = require('./mml.json');
+const layerOrder = new Map();
+mml.forEach((layer, i) => {
+  const id = layer && (layer.id || layer.name);
+  if (id != null && !layerOrder.has(id)) layerOrder.set(id, i);
+});
+const orderOf = (layerId) => (layerOrder.has(layerId) ? layerOrder.get(layerId) : Infinity);
+
+// Group matched rule indices by attachment, preserving first-appearance order
+// (ascending index == stylesheet source order). Paint cascades (last-wins)
+// ONLY within an attachment; each attachment (::casing, ::fill, ...) becomes a
+// separate symbolizer/stroke and must never overwrite another. Rules from a
+// different layer are never in `idxs` because matchRules is layer-scoped, so
+// other layers can't take precedence either.
+function cascadeByAttachment(idxs, style) {
+  const byAtt = new Map();
+  const order = [];
+  for (const idx of idxs) {
+    const att = style[idx].attachment || '';
+    if (!byAtt.has(att)) {
+      byAtt.set(att, {});
+      order.push(att);
+    }
+    const p = byAtt.get(att);
+    const paint = style[idx].paint;
+    for (const key in paint) p[key] = paint[key];
+  }
+  return order.map((att) => byAtt.get(att));
+}
+
 const chunksDir = config.chunks.dir;
 
 const tilesDir = config.tiles.dir;
@@ -191,8 +226,8 @@ async function renderChunk(cX, cY, cZ) {
   for (const [tX, tY, tZ] of subTiles) {
     count++;
     const [x0, y0, x1, y1] = getTileViewbox(tX, tY, tZ);
-    let polygonElements = '';
-    let lineElements = '';
+    const fills = []; // { order, svg } collected across ways + relations
+    const lineEls = []; // { order, svg }
     const startTime = performance.now();
     for (const way of ways) {
       if (memberWayIds.has(way.id)) continue; // drawn via its parent multipolygon
@@ -213,22 +248,20 @@ async function renderChunk(cX, cY, cZ) {
         const idxs = M.matchRules(feat, layer.id, tZ);
         if (idxs.length === 0) continue;
 
-        const paint = {};
-        for (const idx of idxs) {
-          for (const key in style[idx].paint) {
-            paint[key] = style[idx].paint[key];
-          }
-        }
-
-        if (closed) {
-          polygonElements += paintToSvg(paint, d, geometry, tileSize / 256);
-        } else {
-          lineElements += paintToSvg(paint, d, geometry, tileSize / 256);
-        }
+        const passes = cascadeByAttachment(idxs, style);
+        const base = orderOf(layer.id);
+        passes.forEach((paint, ai) => {
+          const svg = paintToSvg(paint, d, geometry, tileSize / 256);
+          if (!svg) return;
+          const order = base + ai * 1e-3; // preserve attachment order within the layer
+          if (closed) fills.push({ order, svg });
+          else lineEls.push({ order, svg });
+        });
       }
     }
 
-    // Multipolygon area features assembled from relations (drawn as fills, beneath the line elements).
+    // Multipolygon area features assembled from relations (drawn as fills,
+    // beneath the line elements).
     for (const feat of areaFeatures) {
       let d = '';
       for (const poly of feat.polygons) {
@@ -242,15 +275,21 @@ async function renderChunk(cX, cY, cZ) {
         const idxs = M.matchRules(featRow, layer.id, tZ);
         if (idxs.length === 0) continue;
 
-        const paint = {};
-        for (const idx of idxs) {
-          for (const key in style[idx].paint) {
-            paint[key] = style[idx].paint[key];
-          }
-        }
-        polygonElements += paintToSvg(paint, d, 'polygon', tileSize / 256);
+        const passes = cascadeByAttachment(idxs, style);
+        const base = orderOf(layer.id);
+        passes.forEach((paint, ai) => {
+          const svg = paintToSvg(paint, d, 'polygon', tileSize / 256);
+          if (svg) fills.push({ order: base + ai * 1e-3, svg });
+        });
       }
     }
+
+    // Emit in OSM Carto layer order (stable sort keeps intra-layer feature
+    // order). Fills first, then lines, so casings/labels stay on top.
+    fills.sort((a, b) => a.order - b.order);
+    lineEls.sort((a, b) => a.order - b.order);
+    const polygonElements = fills.map((f) => f.svg).join('');
+    const lineElements = lineEls.map((l) => l.svg).join('');
     const svg = `<svg width="${tileSize}" height="${tileSize}" viewBox="0 0 ${tileSize} ${tileSize}" xmlns="http://www.w3.org/2000/svg">${backgroundElement}${polygonElements}${lineElements}</svg>`;
     await makeDirectory(path.join(tilesDir, tZ.toString(), tX.toString()));
     await rasterize(svg, path.join(tilesDir, tZ.toString(), tX.toString(), tY.toString()));

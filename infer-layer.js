@@ -25,6 +25,7 @@
  *    permissively in boolean context). Extend `registry` for exact results.
  */
 
+'use strict';
 const fs = require('fs');
 const path = require('path');
 
@@ -69,6 +70,37 @@ const registry = {
   },
 };
 function norm(v) { return v === UNKNOWN || v == null ? null : String(v); }
+
+/* -----------------------------------------------------------------------
+ * hstore / array tag predicates (osm2pgsql). Their first argument is the
+ * `tags` hstore column, so we evaluate them against the raw tag row directly
+ * instead of the (undefined) evaluated `tags` value. These are what layer
+ * Datasource WHEREs use to select niche features (e.g. roller coasters);
+ * evaluating them exactly stops those layers from matching everything.
+ * --------------------------------------------------------------------- */
+const HSTORE_PREDICATES = new Set(['ARRAYCONTAINSALL', 'ARRAYCONTAINSANY', 'ARRAYCONTAINS']);
+function parseHstoreLiteral(s) {
+  // 'a=>x, b=>y' -> [['a','x'],['b','y']];  bare 'a' -> ['a', undefined] (key exists)
+  return String(s).split(',').map((pair) => {
+    const [k, v] = pair.split('=>');
+    return [k.trim(), v === undefined ? undefined : v.trim()];
+  });
+}
+function evalHstorePredicate(name, args, row) {
+  const pairs = [];
+  for (const a of args.slice(1)) {
+    const v = a && a.t === 'lit' ? a.v : null;
+    if (v == null) return UNKNOWN;
+    for (const p of parseHstoreLiteral(v)) pairs.push(p);
+  }
+  if (!pairs.length) return UNKNOWN;
+  const test = ([k, val]) => {
+    const actual = row[k];
+    if (val === undefined) return actual !== undefined && actual !== null && actual !== '';
+    return actual != null && String(actual) === val;
+  };
+  return name === 'ARRAYCONTAINSANY' ? pairs.some(test) : pairs.every(test);
+}
 
 /* ----------------------------------------------------------------------- */
 /* Expression evaluation                                                   */
@@ -117,6 +149,8 @@ function evalVal(n, row) {
       return n.else != null ? evalVal(n.else, row) : null;
     }
     case 'func': {
+      const fname = (n.name || '').toUpperCase();
+      if (HSTORE_PREDICATES.has(fname)) return evalHstorePredicate(fname, n.args, row);
       const fn = registry[(n.name || '').toLowerCase()] || registry[n.name];
       if (!fn) return UNKNOWN;
       const args = n.args.map((a) => evalVal(a, row));
@@ -181,7 +215,11 @@ function evalBool(n, row) {
     }
     case 'func': {
       const v = evalVal(n, row);
-      if (v === UNKNOWN) return true;                    // unknown predicate: pass
+      // An unknown FUNCTION predicate in a layer's WHERE almost always tests
+      // tags to SELECT features (e.g. ARRAYCONTAINSALL, hstore ops). Treating
+      // it as PASS makes the layer match everything -> cross-layer bleed
+      // (tourism/roller-coaster painting over roads). Exclude instead.
+      if (v === UNKNOWN) return false;
       return v === true || v === 'yes' || v === 't' || v === 'true';
     }
     case 'has': return evalVal(n, row) === true;
@@ -242,8 +280,21 @@ function inferLayers(tags, opts = {}) {
   return out;
 }
 
+/**
+ * Convenience: infer layers, then match style rules for each via match-rule.js.
+ * @returns {Array<{layer, feature, ruleIndices}>}
+ */
+function inferAndMatch(tags, opts = {}) {
+  const M = require('./match-rule.js');
+  const layers = inferLayers(tags, opts);
+  return layers.map(({ id, feature, row }) => ({
+    layer: id,
+    feature,
+    ruleIndices: M.matchRules(row, id, opts.zoom),
+  }));
+}
 
 module.exports = {
-  loadMml, setMml, inferLayers,
+  loadMml, setMml, inferLayers, inferAndMatch,
   evalBool, evalVal, applyColumns, registry, UNKNOWN,
 };

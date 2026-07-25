@@ -129,6 +129,7 @@ function cartesian(arrays) {
 // into { layer, filters:[{key,op,value}], zoom:{min,max} }. Filters are ANDed.
 function parseSelector(sel) {
   const layer = (sel.match(/#([\w-]+)/) || [])[1] || null;
+  const attachment = (sel.match(/::([\w-]+)/) || [])[1] || null;
   const filters = [];
   const zoom = { min: 0, max: 24 };
   const re = /\[\s*([\w:@-]+)\s*(=|!=|>=|<=|>|<)\s*'?([^\]']+)'?\s*\]/g;
@@ -150,7 +151,7 @@ function parseSelector(sel) {
       filters.push({ key, op, value });
     }
   }
-  return { layer, filters, zoom };
+  return { layer, filters, zoom, attachment };
 }
 
 // Turn a nesting chain of (possibly comma-separated) selectors into the OR
@@ -268,8 +269,17 @@ function main() {
     }); // shallow: direct decls only
     if (!Object.keys(paint).length) return;
 
+    // The attachment (::casing, ::fill, ...) can appear on any segment of the
+    // nesting chain; the innermost/last one applies to this declaration block.
+    // Each attachment is rendered as a SEPARATE symbolizer, so paint from one
+    // attachment must never cascade onto another.
+    const attachment = chain
+      .map((s) => (s.match(/::([\w-]+)/) || [])[1])
+      .filter(Boolean)
+      .pop() || null;
+
     const groups = buildGroups(chain, parseSelector);
-    out.push({ groups, paint });
+    out.push(attachment ? { groups, paint, attachment } : { groups, paint });
   });
 
   process.stdout.write(JSON.stringify(out, null, 2));
