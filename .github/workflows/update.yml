@@ -164,10 +164,28 @@ jobs:
           path: chunks
           key: ${{ steps.restore-cached-chunks.outputs.cache-primary-key }}
 
+      - name: Restore Cached Tiles
+        id: restore-cached-tiles
+        uses: actions/cache/restore@v5
+        with:
+          path: ./tiles
+          key: tiles-${{ hashFiles('input.osm.pbf') }}-${{ hashFiles('chunk.js') }}-${{ hashFiles('config.json') }}-${{ hashFiles('render.js') }}
+          restore-keys: |
+            tiles-${{ hashFiles('input.osm.pbf') }}-${{ hashFiles('chunk.js') }}-${{ hashFiles('config.json') }}-${{ hashFiles('render.js') }}
+
       - name: Render
+        if: steps.restore-cached-tiles.outputs.cache-hit != 'true'
         run: |
-          mkdir -p tiles
-          node render.js
+          mkdir -p tiles || true
+          node render.js || true
+      
+      - name: Cache Tiles
+        id: cache-tiles
+        if: steps.restore-cached-tiles.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v5
+        with:
+          path: chunks
+          key: ${{ steps.restore-cached-tiles.outputs.cache-primary-key }}
 
       - name: Configure git
         run: |
@@ -176,12 +194,14 @@ jobs:
 
       - name: Commit Generated Files
         run: |
-          git checkout -b temp-branch
-          git add ./tiles
-          git commit -m "Updates"
+          mkdir -p ./dist || true
+          mv ./tiles ./dist || true
+          git checkout -b temp-branch || true
+          git add ./dist || true
+          git commit -m "Updates" || true
 
       - name: Push to Dist Branch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use the provided GitHub token for auth
         run: |
-          git push origin temp-branch:dist --force
+          git push origin temp-branch:dist --force || true

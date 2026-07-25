@@ -45,20 +45,22 @@ const orderOf = (layerId) => (layerOrder.has(layerId) ? layerOrder.get(layerId) 
 // separate symbolizer/stroke and must never overwrite another. Rules from a
 // different layer are never in `idxs` because matchRules is layer-scoped, so
 // other layers can't take precedence either.
-function cascadeByAttachment(idxs, style) {
-  const byAtt = new Map();
+function cascadeByAttachment(indices, style) {
+  const byAttachment = new Map();
   const order = [];
-  for (const idx of idxs) {
-    const att = style[idx].attachment || '';
-    if (!byAtt.has(att)) {
-      byAtt.set(att, {});
-      order.push(att);
+  for (const index of indices) {
+    const attachment = style[index].attachment || '';
+    if (!byAttachment.has(attachment)) {
+      byAttachment.set(attachment, {});
+      order.push(attachment);
     }
-    const p = byAtt.get(att);
-    const paint = style[idx].paint;
-    for (const key in paint) p[key] = paint[key];
+    const attachmentPaint = byAttachment.get(attachment);
+    const paint = style[index].paint;
+    for (const key in paint) {
+      attachmentPaint[key] = paint[key];
+    }
   }
-  return order.map((att) => byAtt.get(att));
+  return order.map((attachment) => byAttachment.get(attachment));
 }
 
 const chunksDir = config.chunks.dir;
@@ -249,19 +251,22 @@ async function renderChunk(cX, cY, cZ) {
         if (idxs.length === 0) continue;
 
         const passes = cascadeByAttachment(idxs, style);
+        const passesLength = passes.length;
         const base = orderOf(layer.id);
-        passes.forEach((paint, ai) => {
-          const svg = paintToSvg(paint, d, geometry, tileSize / 256);
-          if (!svg) return;
-          const order = base + ai * 1e-3; // preserve attachment order within the layer
-          if (closed) fills.push({ order, svg });
-          else lineEls.push({ order, svg });
-        });
+        for (let index = 0; index < passesLength; index++) {
+          const svg = paintToSvg(passes[index], d, geometry, tileSize / 256);
+          if (!svg) continue;
+          // preserve attachment order within the layer
+          if (closed) {
+            fills.push({ base, index, svg }); // index = attachment index
+          } else {
+            lineEls.push({ base, index, svg });
+          }
+        }
       }
     }
 
-    // Multipolygon area features assembled from relations (drawn as fills,
-    // beneath the line elements).
+    // Multipolygon area features assembled from relations (drawn as fills, beneath the line elements).
     for (const feat of areaFeatures) {
       let d = '';
       for (const poly of feat.polygons) {
@@ -276,18 +281,25 @@ async function renderChunk(cX, cY, cZ) {
         if (idxs.length === 0) continue;
 
         const passes = cascadeByAttachment(idxs, style);
+        const passesLength = passes.length;
         const base = orderOf(layer.id);
-        passes.forEach((paint, ai) => {
-          const svg = paintToSvg(paint, d, 'polygon', tileSize / 256);
-          if (svg) fills.push({ order: base + ai * 1e-3, svg });
-        });
+        for (let index = 0; index < passesLength; index++) {
+          const svg = paintToSvg(passes[index], d, 'polygon', tileSize / 256);
+          if (!svg) continue;
+          fills.push({ base, index, svg });
+        }
       }
     }
 
-    // Emit in OSM Carto layer order (stable sort keeps intra-layer feature
-    // order). Fills first, then lines, so casings/labels stay on top.
-    fills.sort((a, b) => a.order - b.order);
-    lineEls.sort((a, b) => a.order - b.order);
+    // Emit in OSM Carto layer order (stable sort keeps intra-layer feature order). Fills first, then lines, so casings/labels stay on top.
+    fills.sort(function (a, b) {
+      if (a.base !== b.base) return a.base - b.base;
+      return a.index - b.index;
+    });
+    lineEls.sort(function (a, b) {
+      if (a.base !== b.base) return a.base - b.base;
+      return a.index - b.index;
+    });
     const polygonElements = fills.map((f) => f.svg).join('');
     const lineElements = lineEls.map((l) => l.svg).join('');
     const svg = `<svg width="${tileSize}" height="${tileSize}" viewBox="0 0 ${tileSize} ${tileSize}" xmlns="http://www.w3.org/2000/svg">${backgroundElement}${polygonElements}${lineElements}</svg>`;
@@ -296,6 +308,7 @@ async function renderChunk(cX, cY, cZ) {
     const endTime = performance.now();
     console.log(`[${count}/${total}] Rendered (${tX} ${tY} ${tZ}) in (${cX} ${cY} ${cZ}) in ${((endTime - startTime) / 1000).toFixed(2)}s.`);
   }
+  return true;
 }
 
 function splitByLength(array, length = 3) {
@@ -317,7 +330,8 @@ async function main() {
   const groups = splitByLength(chunkTiles, 4);
   for (const group of groups) {
     try {
-      await Promise.allSettled(group.map((tile) => renderChunk(tile[0], tile[1], baseZ)));
+      const groupResults = await Promise.allSettled(group.map((tile) => renderChunk(tile[0], tile[1], baseZ)));
+      console.log(groupResults);
     } catch (err) {
       console.log(cX, cY, baseZ, err);
     }
