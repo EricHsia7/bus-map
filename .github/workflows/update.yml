@@ -164,8 +164,8 @@ jobs:
           path: chunks
           key: ${{ steps.restore-cached-chunks.outputs.cache-primary-key }}
 
-      - name: Restore Cached Tiles
-        id: restore-cached-tiles
+      - name: Restore Cached Tiles and Labels
+        id: restore-cached-tiles-labels
         uses: actions/cache/restore@v5
         with:
           path: ./tiles
@@ -174,18 +174,21 @@ jobs:
             tiles-${{ hashFiles('input.osm.pbf') }}-${{ hashFiles('chunk.js') }}-${{ hashFiles('config.json') }}-${{ hashFiles('render.js') }}
 
       - name: Render
-        if: steps.restore-cached-tiles.outputs.cache-hit != 'true'
+        if: steps.restore-cached-tiles-labels.outputs.cache-hit != 'true'
         run: |
           mkdir -p tiles || true
+          mkdir -p labels || true
           node render.js || true
       
-      - name: Cache Tiles
-        id: cache-tiles
-        if: steps.restore-cached-tiles.outputs.cache-hit != 'true'
+      - name: Cache Tiles and Labels
+        id: cache-tiles-labels
+        if: steps.restore-cached-tiles-labels.outputs.cache-hit != 'true'
         uses: actions/cache/save@v5
         with:
-          path: chunks
-          key: ${{ steps.restore-cached-tiles.outputs.cache-primary-key }}
+          path: |
+            chunks
+            labels
+          key: ${{ steps.restore-cached-tiles-labels.outputs.cache-primary-key }}
 
       - name: Configure git
         run: |
@@ -196,6 +199,7 @@ jobs:
         run: |
           mkdir -p ./dist || true
           mv ./tiles ./dist || true
+          mv ./labels ./dist || true
           git checkout -b temp-branch || true
           git add ./dist -f || true
           git commit -m "Updates" || true
