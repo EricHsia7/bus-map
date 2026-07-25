@@ -1,7 +1,7 @@
 {
   "data": "./input.osm.pbf",
   "bbox": {
-    "west": 121.27,
+    "west": 120.886,
     "east": 122.004,
     "north": 25.3,
     "south": 24.8

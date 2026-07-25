@@ -711205,7 +711205,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(139,165,192,1)",
+      "line-color": "rgba(183,199,216,1)",
       "line-width": "3.5"
     },
     "attachment": "casing"
@@ -711256,7 +711256,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(139,165,192,1)"
+      "line-color": "rgba(183,199,216,1)"
     },
     "attachment": "casing"
   },
@@ -747411,7 +747411,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(139,165,192,1)"
+      "line-color": "rgba(183,199,216,1)"
     },
     "attachment": "fill"
   },
@@ -781133,7 +781133,7 @@
     ],
     "paint": {
       "line-width": "0.4",
-      "line-color": "rgba(139,165,192,1)"
+      "line-color": "rgba(183,199,216,1)"
     },
     "attachment": "fill"
   },
@@ -783005,7 +783005,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(139,165,192,1)",
+      "line-color": "rgba(183,199,216,1)",
       "line-width": "2.5",
       "line-cap": "round",
       "line-join": "round"
@@ -787232,7 +787232,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(139,165,192,1)"
+      "line-color": "rgba(183,199,216,1)"
     },
     "attachment": "fill"
   },
@@ -875722,7 +875722,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(139,165,192,1)",
+      "line-color": "rgba(183,199,216,1)",
       "line-width": "17.4",
       "line-cap": "round"
     }
@@ -876609,7 +876609,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(139,165,192,1)",
+      "line-color": "rgba(183,199,216,1)",
       "line-width": "16",
       "line-cap": "round"
     }
@@ -878866,7 +878866,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(139,165,192,1)"
+      "line-color": "rgba(183,199,216,1)"
     },
     "attachment": "circle"
   },
@@ -893186,7 +893186,7 @@
       }
     ],
     "paint": {
-      "shield-fill": "rgba(139,165,192,1)",
+      "shield-fill": "rgba(183,199,216,1)",
       "shield-file": "url('symbols/shields/trunk_[width]x[height].svg')"
     }
   },
@@ -894005,7 +894005,7 @@
       }
     ],
     "paint": {
-      "shield-fill": "rgba(139,165,192,1)",
+      "shield-fill": "rgba(183,199,216,1)",
       "shield-file": "url('symbols/shields/trunk_[width]x[height].svg')"
     }
   },
@@ -895947,7 +895947,7 @@
       }
     ],
     "paint": {
-      "text-halo-fill": "rgba(139,165,192,1)"
+      "text-halo-fill": "rgba(183,199,216,1)"
     }
   },
   {
@@ -904244,7 +904244,7 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(72,101,132,1)"
+      "marker-fill": "rgba(100,135,171,1)"
     },
     "attachment": "directions"
   },

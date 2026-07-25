@@ -1,252 +1,378 @@
-osmium extract -b 121.2451171875,25.284437746983034,121.2890625,25.32416652573839 -s smart --overwrite -o chunks/13_6855_3500.osm.pbf ./input.osm.pbf
-osmium extract -b 121.2451171875,25.244695951306035,121.2890625,25.284437746983034 -s smart --overwrite -o chunks/13_6855_3501.osm.pbf ./input.osm.pbf
-osmium extract -b 121.2451171875,25.204941153569116,121.2890625,25.244695951306035 -s smart --overwrite -o chunks/13_6855_3502.osm.pbf ./input.osm.pbf
-osmium extract -b 121.2451171875,25.165173368663936,121.2890625,25.204941153569116 -s smart --overwrite -o chunks/13_6855_3503.osm.pbf ./input.osm.pbf
-osmium extract -b 121.2451171875,25.125392611512016,121.2890625,25.165173368663936 -s smart --overwrite -o chunks/13_6855_3504.osm.pbf ./input.osm.pbf
-osmium extract -b 121.2451171875,25.085598897064767,121.2890625,25.125392611512016 -s smart --overwrite -o chunks/13_6855_3505.osm.pbf ./input.osm.pbf
-osmium extract -b 121.2451171875,25.04579224030344,121.2890625,25.085598897064767 -s smart --overwrite -o chunks/13_6855_3506.osm.pbf ./input.osm.pbf
-osmium extract -b 121.2451171875,25.005972656239187,121.2890625,25.04579224030344 -s smart --overwrite -o chunks/13_6855_3507.osm.pbf ./input.osm.pbf
-osmium extract -b 121.2451171875,24.966140159912964,121.2890625,25.005972656239187 -s smart --overwrite -o chunks/13_6855_3508.osm.pbf ./input.osm.pbf
-osmium extract -b 121.2451171875,24.92629476639559,121.2890625,24.966140159912964 -s smart --overwrite -o chunks/13_6855_3509.osm.pbf ./input.osm.pbf
-osmium extract -b 121.2451171875,24.886436490787702,121.2890625,24.92629476639559 -s smart --overwrite -o chunks/13_6855_3510.osm.pbf ./input.osm.pbf
-osmium extract -b 121.2451171875,24.84656534821974,121.2890625,24.886436490787702 -s smart --overwrite -o chunks/13_6855_3511.osm.pbf ./input.osm.pbf
-osmium extract -b 121.2451171875,24.806681353851975,121.2890625,24.84656534821974 -s smart --overwrite -o chunks/13_6855_3512.osm.pbf ./input.osm.pbf
-osmium extract -b 121.2451171875,24.766784522874442,121.2890625,24.806681353851975 -s smart --overwrite -o chunks/13_6855_3513.osm.pbf ./input.osm.pbf
-osmium extract -b 121.2890625,25.284437746983034,121.3330078125,25.32416652573839 -s smart --overwrite -o chunks/13_6856_3500.osm.pbf ./input.osm.pbf
-osmium extract -b 121.2890625,25.244695951306035,121.3330078125,25.284437746983034 -s smart --overwrite -o chunks/13_6856_3501.osm.pbf ./input.osm.pbf
-osmium extract -b 121.2890625,25.204941153569116,121.3330078125,25.244695951306035 -s smart --overwrite -o chunks/13_6856_3502.osm.pbf ./input.osm.pbf
-osmium extract -b 121.2890625,25.165173368663936,121.3330078125,25.204941153569116 -s smart --overwrite -o chunks/13_6856_3503.osm.pbf ./input.osm.pbf
-osmium extract -b 121.2890625,25.125392611512016,121.3330078125,25.165173368663936 -s smart --overwrite -o chunks/13_6856_3504.osm.pbf ./input.osm.pbf
-osmium extract -b 121.2890625,25.085598897064767,121.3330078125,25.125392611512016 -s smart --overwrite -o chunks/13_6856_3505.osm.pbf ./input.osm.pbf
-osmium extract -b 121.2890625,25.04579224030344,121.3330078125,25.085598897064767 -s smart --overwrite -o chunks/13_6856_3506.osm.pbf ./input.osm.pbf
-osmium extract -b 121.2890625,25.005972656239187,121.3330078125,25.04579224030344 -s smart --overwrite -o chunks/13_6856_3507.osm.pbf ./input.osm.pbf
-osmium extract -b 121.2890625,24.966140159912964,121.3330078125,25.005972656239187 -s smart --overwrite -o chunks/13_6856_3508.osm.pbf ./input.osm.pbf
-osmium extract -b 121.2890625,24.92629476639559,121.3330078125,24.966140159912964 -s smart --overwrite -o chunks/13_6856_3509.osm.pbf ./input.osm.pbf
-osmium extract -b 121.2890625,24.886436490787702,121.3330078125,24.92629476639559 -s smart --overwrite -o chunks/13_6856_3510.osm.pbf ./input.osm.pbf
-osmium extract -b 121.2890625,24.84656534821974,121.3330078125,24.886436490787702 -s smart --overwrite -o chunks/13_6856_3511.osm.pbf ./input.osm.pbf
-osmium extract -b 121.2890625,24.806681353851975,121.3330078125,24.84656534821974 -s smart --overwrite -o chunks/13_6856_3512.osm.pbf ./input.osm.pbf
-osmium extract -b 121.2890625,24.766784522874442,121.3330078125,24.806681353851975 -s smart --overwrite -o chunks/13_6856_3513.osm.pbf ./input.osm.pbf
-osmium extract -b 121.3330078125,25.284437746983034,121.376953125,25.32416652573839 -s smart --overwrite -o chunks/13_6857_3500.osm.pbf ./input.osm.pbf
-osmium extract -b 121.3330078125,25.244695951306035,121.376953125,25.284437746983034 -s smart --overwrite -o chunks/13_6857_3501.osm.pbf ./input.osm.pbf
-osmium extract -b 121.3330078125,25.204941153569116,121.376953125,25.244695951306035 -s smart --overwrite -o chunks/13_6857_3502.osm.pbf ./input.osm.pbf
-osmium extract -b 121.3330078125,25.165173368663936,121.376953125,25.204941153569116 -s smart --overwrite -o chunks/13_6857_3503.osm.pbf ./input.osm.pbf
-osmium extract -b 121.3330078125,25.125392611512016,121.376953125,25.165173368663936 -s smart --overwrite -o chunks/13_6857_3504.osm.pbf ./input.osm.pbf
-osmium extract -b 121.3330078125,25.085598897064767,121.376953125,25.125392611512016 -s smart --overwrite -o chunks/13_6857_3505.osm.pbf ./input.osm.pbf
-osmium extract -b 121.3330078125,25.04579224030344,121.376953125,25.085598897064767 -s smart --overwrite -o chunks/13_6857_3506.osm.pbf ./input.osm.pbf
-osmium extract -b 121.3330078125,25.005972656239187,121.376953125,25.04579224030344 -s smart --overwrite -o chunks/13_6857_3507.osm.pbf ./input.osm.pbf
-osmium extract -b 121.3330078125,24.966140159912964,121.376953125,25.005972656239187 -s smart --overwrite -o chunks/13_6857_3508.osm.pbf ./input.osm.pbf
-osmium extract -b 121.3330078125,24.92629476639559,121.376953125,24.966140159912964 -s smart --overwrite -o chunks/13_6857_3509.osm.pbf ./input.osm.pbf
-osmium extract -b 121.3330078125,24.886436490787702,121.376953125,24.92629476639559 -s smart --overwrite -o chunks/13_6857_3510.osm.pbf ./input.osm.pbf
-osmium extract -b 121.3330078125,24.84656534821974,121.376953125,24.886436490787702 -s smart --overwrite -o chunks/13_6857_3511.osm.pbf ./input.osm.pbf
-osmium extract -b 121.3330078125,24.806681353851975,121.376953125,24.84656534821974 -s smart --overwrite -o chunks/13_6857_3512.osm.pbf ./input.osm.pbf
-osmium extract -b 121.3330078125,24.766784522874442,121.376953125,24.806681353851975 -s smart --overwrite -o chunks/13_6857_3513.osm.pbf ./input.osm.pbf
-osmium extract -b 121.376953125,25.284437746983034,121.4208984375,25.32416652573839 -s smart --overwrite -o chunks/13_6858_3500.osm.pbf ./input.osm.pbf
-osmium extract -b 121.376953125,25.244695951306035,121.4208984375,25.284437746983034 -s smart --overwrite -o chunks/13_6858_3501.osm.pbf ./input.osm.pbf
-osmium extract -b 121.376953125,25.204941153569116,121.4208984375,25.244695951306035 -s smart --overwrite -o chunks/13_6858_3502.osm.pbf ./input.osm.pbf
-osmium extract -b 121.376953125,25.165173368663936,121.4208984375,25.204941153569116 -s smart --overwrite -o chunks/13_6858_3503.osm.pbf ./input.osm.pbf
-osmium extract -b 121.376953125,25.125392611512016,121.4208984375,25.165173368663936 -s smart --overwrite -o chunks/13_6858_3504.osm.pbf ./input.osm.pbf
-osmium extract -b 121.376953125,25.085598897064767,121.4208984375,25.125392611512016 -s smart --overwrite -o chunks/13_6858_3505.osm.pbf ./input.osm.pbf
-osmium extract -b 121.376953125,25.04579224030344,121.4208984375,25.085598897064767 -s smart --overwrite -o chunks/13_6858_3506.osm.pbf ./input.osm.pbf
-osmium extract -b 121.376953125,25.005972656239187,121.4208984375,25.04579224030344 -s smart --overwrite -o chunks/13_6858_3507.osm.pbf ./input.osm.pbf
-osmium extract -b 121.376953125,24.966140159912964,121.4208984375,25.005972656239187 -s smart --overwrite -o chunks/13_6858_3508.osm.pbf ./input.osm.pbf
-osmium extract -b 121.376953125,24.92629476639559,121.4208984375,24.966140159912964 -s smart --overwrite -o chunks/13_6858_3509.osm.pbf ./input.osm.pbf
-osmium extract -b 121.376953125,24.886436490787702,121.4208984375,24.92629476639559 -s smart --overwrite -o chunks/13_6858_3510.osm.pbf ./input.osm.pbf
-osmium extract -b 121.376953125,24.84656534821974,121.4208984375,24.886436490787702 -s smart --overwrite -o chunks/13_6858_3511.osm.pbf ./input.osm.pbf
-osmium extract -b 121.376953125,24.806681353851975,121.4208984375,24.84656534821974 -s smart --overwrite -o chunks/13_6858_3512.osm.pbf ./input.osm.pbf
-osmium extract -b 121.376953125,24.766784522874442,121.4208984375,24.806681353851975 -s smart --overwrite -o chunks/13_6858_3513.osm.pbf ./input.osm.pbf
-osmium extract -b 121.4208984375,25.284437746983034,121.46484375,25.32416652573839 -s smart --overwrite -o chunks/13_6859_3500.osm.pbf ./input.osm.pbf
-osmium extract -b 121.4208984375,25.244695951306035,121.46484375,25.284437746983034 -s smart --overwrite -o chunks/13_6859_3501.osm.pbf ./input.osm.pbf
-osmium extract -b 121.4208984375,25.204941153569116,121.46484375,25.244695951306035 -s smart --overwrite -o chunks/13_6859_3502.osm.pbf ./input.osm.pbf
-osmium extract -b 121.4208984375,25.165173368663936,121.46484375,25.204941153569116 -s smart --overwrite -o chunks/13_6859_3503.osm.pbf ./input.osm.pbf
-osmium extract -b 121.4208984375,25.125392611512016,121.46484375,25.165173368663936 -s smart --overwrite -o chunks/13_6859_3504.osm.pbf ./input.osm.pbf
-osmium extract -b 121.4208984375,25.085598897064767,121.46484375,25.125392611512016 -s smart --overwrite -o chunks/13_6859_3505.osm.pbf ./input.osm.pbf
-osmium extract -b 121.4208984375,25.04579224030344,121.46484375,25.085598897064767 -s smart --overwrite -o chunks/13_6859_3506.osm.pbf ./input.osm.pbf
-osmium extract -b 121.4208984375,25.005972656239187,121.46484375,25.04579224030344 -s smart --overwrite -o chunks/13_6859_3507.osm.pbf ./input.osm.pbf
-osmium extract -b 121.4208984375,24.966140159912964,121.46484375,25.005972656239187 -s smart --overwrite -o chunks/13_6859_3508.osm.pbf ./input.osm.pbf
-osmium extract -b 121.4208984375,24.92629476639559,121.46484375,24.966140159912964 -s smart --overwrite -o chunks/13_6859_3509.osm.pbf ./input.osm.pbf
-osmium extract -b 121.4208984375,24.886436490787702,121.46484375,24.92629476639559 -s smart --overwrite -o chunks/13_6859_3510.osm.pbf ./input.osm.pbf
-osmium extract -b 121.4208984375,24.84656534821974,121.46484375,24.886436490787702 -s smart --overwrite -o chunks/13_6859_3511.osm.pbf ./input.osm.pbf
-osmium extract -b 121.4208984375,24.806681353851975,121.46484375,24.84656534821974 -s smart --overwrite -o chunks/13_6859_3512.osm.pbf ./input.osm.pbf
-osmium extract -b 121.4208984375,24.766784522874442,121.46484375,24.806681353851975 -s smart --overwrite -o chunks/13_6859_3513.osm.pbf ./input.osm.pbf
-osmium extract -b 121.46484375,25.284437746983034,121.5087890625,25.32416652573839 -s smart --overwrite -o chunks/13_6860_3500.osm.pbf ./input.osm.pbf
-osmium extract -b 121.46484375,25.244695951306035,121.5087890625,25.284437746983034 -s smart --overwrite -o chunks/13_6860_3501.osm.pbf ./input.osm.pbf
-osmium extract -b 121.46484375,25.204941153569116,121.5087890625,25.244695951306035 -s smart --overwrite -o chunks/13_6860_3502.osm.pbf ./input.osm.pbf
-osmium extract -b 121.46484375,25.165173368663936,121.5087890625,25.204941153569116 -s smart --overwrite -o chunks/13_6860_3503.osm.pbf ./input.osm.pbf
-osmium extract -b 121.46484375,25.125392611512016,121.5087890625,25.165173368663936 -s smart --overwrite -o chunks/13_6860_3504.osm.pbf ./input.osm.pbf
-osmium extract -b 121.46484375,25.085598897064767,121.5087890625,25.125392611512016 -s smart --overwrite -o chunks/13_6860_3505.osm.pbf ./input.osm.pbf
-osmium extract -b 121.46484375,25.04579224030344,121.5087890625,25.085598897064767 -s smart --overwrite -o chunks/13_6860_3506.osm.pbf ./input.osm.pbf
-osmium extract -b 121.46484375,25.005972656239187,121.5087890625,25.04579224030344 -s smart --overwrite -o chunks/13_6860_3507.osm.pbf ./input.osm.pbf
-osmium extract -b 121.46484375,24.966140159912964,121.5087890625,25.005972656239187 -s smart --overwrite -o chunks/13_6860_3508.osm.pbf ./input.osm.pbf
-osmium extract -b 121.46484375,24.92629476639559,121.5087890625,24.966140159912964 -s smart --overwrite -o chunks/13_6860_3509.osm.pbf ./input.osm.pbf
-osmium extract -b 121.46484375,24.886436490787702,121.5087890625,24.92629476639559 -s smart --overwrite -o chunks/13_6860_3510.osm.pbf ./input.osm.pbf
-osmium extract -b 121.46484375,24.84656534821974,121.5087890625,24.886436490787702 -s smart --overwrite -o chunks/13_6860_3511.osm.pbf ./input.osm.pbf
-osmium extract -b 121.46484375,24.806681353851975,121.5087890625,24.84656534821974 -s smart --overwrite -o chunks/13_6860_3512.osm.pbf ./input.osm.pbf
-osmium extract -b 121.46484375,24.766784522874442,121.5087890625,24.806681353851975 -s smart --overwrite -o chunks/13_6860_3513.osm.pbf ./input.osm.pbf
-osmium extract -b 121.5087890625,25.284437746983034,121.552734375,25.32416652573839 -s smart --overwrite -o chunks/13_6861_3500.osm.pbf ./input.osm.pbf
-osmium extract -b 121.5087890625,25.244695951306035,121.552734375,25.284437746983034 -s smart --overwrite -o chunks/13_6861_3501.osm.pbf ./input.osm.pbf
-osmium extract -b 121.5087890625,25.204941153569116,121.552734375,25.244695951306035 -s smart --overwrite -o chunks/13_6861_3502.osm.pbf ./input.osm.pbf
-osmium extract -b 121.5087890625,25.165173368663936,121.552734375,25.204941153569116 -s smart --overwrite -o chunks/13_6861_3503.osm.pbf ./input.osm.pbf
-osmium extract -b 121.5087890625,25.125392611512016,121.552734375,25.165173368663936 -s smart --overwrite -o chunks/13_6861_3504.osm.pbf ./input.osm.pbf
-osmium extract -b 121.5087890625,25.085598897064767,121.552734375,25.125392611512016 -s smart --overwrite -o chunks/13_6861_3505.osm.pbf ./input.osm.pbf
-osmium extract -b 121.5087890625,25.04579224030344,121.552734375,25.085598897064767 -s smart --overwrite -o chunks/13_6861_3506.osm.pbf ./input.osm.pbf
-osmium extract -b 121.5087890625,25.005972656239187,121.552734375,25.04579224030344 -s smart --overwrite -o chunks/13_6861_3507.osm.pbf ./input.osm.pbf
-osmium extract -b 121.5087890625,24.966140159912964,121.552734375,25.005972656239187 -s smart --overwrite -o chunks/13_6861_3508.osm.pbf ./input.osm.pbf
-osmium extract -b 121.5087890625,24.92629476639559,121.552734375,24.966140159912964 -s smart --overwrite -o chunks/13_6861_3509.osm.pbf ./input.osm.pbf
-osmium extract -b 121.5087890625,24.886436490787702,121.552734375,24.92629476639559 -s smart --overwrite -o chunks/13_6861_3510.osm.pbf ./input.osm.pbf
-osmium extract -b 121.5087890625,24.84656534821974,121.552734375,24.886436490787702 -s smart --overwrite -o chunks/13_6861_3511.osm.pbf ./input.osm.pbf
-osmium extract -b 121.5087890625,24.806681353851975,121.552734375,24.84656534821974 -s smart --overwrite -o chunks/13_6861_3512.osm.pbf ./input.osm.pbf
-osmium extract -b 121.5087890625,24.766784522874442,121.552734375,24.806681353851975 -s smart --overwrite -o chunks/13_6861_3513.osm.pbf ./input.osm.pbf
-osmium extract -b 121.552734375,25.284437746983034,121.5966796875,25.32416652573839 -s smart --overwrite -o chunks/13_6862_3500.osm.pbf ./input.osm.pbf
-osmium extract -b 121.552734375,25.244695951306035,121.5966796875,25.284437746983034 -s smart --overwrite -o chunks/13_6862_3501.osm.pbf ./input.osm.pbf
-osmium extract -b 121.552734375,25.204941153569116,121.5966796875,25.244695951306035 -s smart --overwrite -o chunks/13_6862_3502.osm.pbf ./input.osm.pbf
-osmium extract -b 121.552734375,25.165173368663936,121.5966796875,25.204941153569116 -s smart --overwrite -o chunks/13_6862_3503.osm.pbf ./input.osm.pbf
-osmium extract -b 121.552734375,25.125392611512016,121.5966796875,25.165173368663936 -s smart --overwrite -o chunks/13_6862_3504.osm.pbf ./input.osm.pbf
-osmium extract -b 121.552734375,25.085598897064767,121.5966796875,25.125392611512016 -s smart --overwrite -o chunks/13_6862_3505.osm.pbf ./input.osm.pbf
-osmium extract -b 121.552734375,25.04579224030344,121.5966796875,25.085598897064767 -s smart --overwrite -o chunks/13_6862_3506.osm.pbf ./input.osm.pbf
-osmium extract -b 121.552734375,25.005972656239187,121.5966796875,25.04579224030344 -s smart --overwrite -o chunks/13_6862_3507.osm.pbf ./input.osm.pbf
-osmium extract -b 121.552734375,24.966140159912964,121.5966796875,25.005972656239187 -s smart --overwrite -o chunks/13_6862_3508.osm.pbf ./input.osm.pbf
-osmium extract -b 121.552734375,24.92629476639559,121.5966796875,24.966140159912964 -s smart --overwrite -o chunks/13_6862_3509.osm.pbf ./input.osm.pbf
-osmium extract -b 121.552734375,24.886436490787702,121.5966796875,24.92629476639559 -s smart --overwrite -o chunks/13_6862_3510.osm.pbf ./input.osm.pbf
-osmium extract -b 121.552734375,24.84656534821974,121.5966796875,24.886436490787702 -s smart --overwrite -o chunks/13_6862_3511.osm.pbf ./input.osm.pbf
-osmium extract -b 121.552734375,24.806681353851975,121.5966796875,24.84656534821974 -s smart --overwrite -o chunks/13_6862_3512.osm.pbf ./input.osm.pbf
-osmium extract -b 121.552734375,24.766784522874442,121.5966796875,24.806681353851975 -s smart --overwrite -o chunks/13_6862_3513.osm.pbf ./input.osm.pbf
-osmium extract -b 121.5966796875,25.284437746983034,121.640625,25.32416652573839 -s smart --overwrite -o chunks/13_6863_3500.osm.pbf ./input.osm.pbf
-osmium extract -b 121.5966796875,25.244695951306035,121.640625,25.284437746983034 -s smart --overwrite -o chunks/13_6863_3501.osm.pbf ./input.osm.pbf
-osmium extract -b 121.5966796875,25.204941153569116,121.640625,25.244695951306035 -s smart --overwrite -o chunks/13_6863_3502.osm.pbf ./input.osm.pbf
-osmium extract -b 121.5966796875,25.165173368663936,121.640625,25.204941153569116 -s smart --overwrite -o chunks/13_6863_3503.osm.pbf ./input.osm.pbf
-osmium extract -b 121.5966796875,25.125392611512016,121.640625,25.165173368663936 -s smart --overwrite -o chunks/13_6863_3504.osm.pbf ./input.osm.pbf
-osmium extract -b 121.5966796875,25.085598897064767,121.640625,25.125392611512016 -s smart --overwrite -o chunks/13_6863_3505.osm.pbf ./input.osm.pbf
-osmium extract -b 121.5966796875,25.04579224030344,121.640625,25.085598897064767 -s smart --overwrite -o chunks/13_6863_3506.osm.pbf ./input.osm.pbf
-osmium extract -b 121.5966796875,25.005972656239187,121.640625,25.04579224030344 -s smart --overwrite -o chunks/13_6863_3507.osm.pbf ./input.osm.pbf
-osmium extract -b 121.5966796875,24.966140159912964,121.640625,25.005972656239187 -s smart --overwrite -o chunks/13_6863_3508.osm.pbf ./input.osm.pbf
-osmium extract -b 121.5966796875,24.92629476639559,121.640625,24.966140159912964 -s smart --overwrite -o chunks/13_6863_3509.osm.pbf ./input.osm.pbf
-osmium extract -b 121.5966796875,24.886436490787702,121.640625,24.92629476639559 -s smart --overwrite -o chunks/13_6863_3510.osm.pbf ./input.osm.pbf
-osmium extract -b 121.5966796875,24.84656534821974,121.640625,24.886436490787702 -s smart --overwrite -o chunks/13_6863_3511.osm.pbf ./input.osm.pbf
-osmium extract -b 121.5966796875,24.806681353851975,121.640625,24.84656534821974 -s smart --overwrite -o chunks/13_6863_3512.osm.pbf ./input.osm.pbf
-osmium extract -b 121.5966796875,24.766784522874442,121.640625,24.806681353851975 -s smart --overwrite -o chunks/13_6863_3513.osm.pbf ./input.osm.pbf
-osmium extract -b 121.640625,25.284437746983034,121.6845703125,25.32416652573839 -s smart --overwrite -o chunks/13_6864_3500.osm.pbf ./input.osm.pbf
-osmium extract -b 121.640625,25.244695951306035,121.6845703125,25.284437746983034 -s smart --overwrite -o chunks/13_6864_3501.osm.pbf ./input.osm.pbf
-osmium extract -b 121.640625,25.204941153569116,121.6845703125,25.244695951306035 -s smart --overwrite -o chunks/13_6864_3502.osm.pbf ./input.osm.pbf
-osmium extract -b 121.640625,25.165173368663936,121.6845703125,25.204941153569116 -s smart --overwrite -o chunks/13_6864_3503.osm.pbf ./input.osm.pbf
-osmium extract -b 121.640625,25.125392611512016,121.6845703125,25.165173368663936 -s smart --overwrite -o chunks/13_6864_3504.osm.pbf ./input.osm.pbf
-osmium extract -b 121.640625,25.085598897064767,121.6845703125,25.125392611512016 -s smart --overwrite -o chunks/13_6864_3505.osm.pbf ./input.osm.pbf
-osmium extract -b 121.640625,25.04579224030344,121.6845703125,25.085598897064767 -s smart --overwrite -o chunks/13_6864_3506.osm.pbf ./input.osm.pbf
-osmium extract -b 121.640625,25.005972656239187,121.6845703125,25.04579224030344 -s smart --overwrite -o chunks/13_6864_3507.osm.pbf ./input.osm.pbf
-osmium extract -b 121.640625,24.966140159912964,121.6845703125,25.005972656239187 -s smart --overwrite -o chunks/13_6864_3508.osm.pbf ./input.osm.pbf
-osmium extract -b 121.640625,24.92629476639559,121.6845703125,24.966140159912964 -s smart --overwrite -o chunks/13_6864_3509.osm.pbf ./input.osm.pbf
-osmium extract -b 121.640625,24.886436490787702,121.6845703125,24.92629476639559 -s smart --overwrite -o chunks/13_6864_3510.osm.pbf ./input.osm.pbf
-osmium extract -b 121.640625,24.84656534821974,121.6845703125,24.886436490787702 -s smart --overwrite -o chunks/13_6864_3511.osm.pbf ./input.osm.pbf
-osmium extract -b 121.640625,24.806681353851975,121.6845703125,24.84656534821974 -s smart --overwrite -o chunks/13_6864_3512.osm.pbf ./input.osm.pbf
-osmium extract -b 121.640625,24.766784522874442,121.6845703125,24.806681353851975 -s smart --overwrite -o chunks/13_6864_3513.osm.pbf ./input.osm.pbf
-osmium extract -b 121.6845703125,25.284437746983034,121.728515625,25.32416652573839 -s smart --overwrite -o chunks/13_6865_3500.osm.pbf ./input.osm.pbf
-osmium extract -b 121.6845703125,25.244695951306035,121.728515625,25.284437746983034 -s smart --overwrite -o chunks/13_6865_3501.osm.pbf ./input.osm.pbf
-osmium extract -b 121.6845703125,25.204941153569116,121.728515625,25.244695951306035 -s smart --overwrite -o chunks/13_6865_3502.osm.pbf ./input.osm.pbf
-osmium extract -b 121.6845703125,25.165173368663936,121.728515625,25.204941153569116 -s smart --overwrite -o chunks/13_6865_3503.osm.pbf ./input.osm.pbf
-osmium extract -b 121.6845703125,25.125392611512016,121.728515625,25.165173368663936 -s smart --overwrite -o chunks/13_6865_3504.osm.pbf ./input.osm.pbf
-osmium extract -b 121.6845703125,25.085598897064767,121.728515625,25.125392611512016 -s smart --overwrite -o chunks/13_6865_3505.osm.pbf ./input.osm.pbf
-osmium extract -b 121.6845703125,25.04579224030344,121.728515625,25.085598897064767 -s smart --overwrite -o chunks/13_6865_3506.osm.pbf ./input.osm.pbf
-osmium extract -b 121.6845703125,25.005972656239187,121.728515625,25.04579224030344 -s smart --overwrite -o chunks/13_6865_3507.osm.pbf ./input.osm.pbf
-osmium extract -b 121.6845703125,24.966140159912964,121.728515625,25.005972656239187 -s smart --overwrite -o chunks/13_6865_3508.osm.pbf ./input.osm.pbf
-osmium extract -b 121.6845703125,24.92629476639559,121.728515625,24.966140159912964 -s smart --overwrite -o chunks/13_6865_3509.osm.pbf ./input.osm.pbf
-osmium extract -b 121.6845703125,24.886436490787702,121.728515625,24.92629476639559 -s smart --overwrite -o chunks/13_6865_3510.osm.pbf ./input.osm.pbf
-osmium extract -b 121.6845703125,24.84656534821974,121.728515625,24.886436490787702 -s smart --overwrite -o chunks/13_6865_3511.osm.pbf ./input.osm.pbf
-osmium extract -b 121.6845703125,24.806681353851975,121.728515625,24.84656534821974 -s smart --overwrite -o chunks/13_6865_3512.osm.pbf ./input.osm.pbf
-osmium extract -b 121.6845703125,24.766784522874442,121.728515625,24.806681353851975 -s smart --overwrite -o chunks/13_6865_3513.osm.pbf ./input.osm.pbf
-osmium extract -b 121.728515625,25.284437746983034,121.7724609375,25.32416652573839 -s smart --overwrite -o chunks/13_6866_3500.osm.pbf ./input.osm.pbf
-osmium extract -b 121.728515625,25.244695951306035,121.7724609375,25.284437746983034 -s smart --overwrite -o chunks/13_6866_3501.osm.pbf ./input.osm.pbf
-osmium extract -b 121.728515625,25.204941153569116,121.7724609375,25.244695951306035 -s smart --overwrite -o chunks/13_6866_3502.osm.pbf ./input.osm.pbf
-osmium extract -b 121.728515625,25.165173368663936,121.7724609375,25.204941153569116 -s smart --overwrite -o chunks/13_6866_3503.osm.pbf ./input.osm.pbf
-osmium extract -b 121.728515625,25.125392611512016,121.7724609375,25.165173368663936 -s smart --overwrite -o chunks/13_6866_3504.osm.pbf ./input.osm.pbf
-osmium extract -b 121.728515625,25.085598897064767,121.7724609375,25.125392611512016 -s smart --overwrite -o chunks/13_6866_3505.osm.pbf ./input.osm.pbf
-osmium extract -b 121.728515625,25.04579224030344,121.7724609375,25.085598897064767 -s smart --overwrite -o chunks/13_6866_3506.osm.pbf ./input.osm.pbf
-osmium extract -b 121.728515625,25.005972656239187,121.7724609375,25.04579224030344 -s smart --overwrite -o chunks/13_6866_3507.osm.pbf ./input.osm.pbf
-osmium extract -b 121.728515625,24.966140159912964,121.7724609375,25.005972656239187 -s smart --overwrite -o chunks/13_6866_3508.osm.pbf ./input.osm.pbf
-osmium extract -b 121.728515625,24.92629476639559,121.7724609375,24.966140159912964 -s smart --overwrite -o chunks/13_6866_3509.osm.pbf ./input.osm.pbf
-osmium extract -b 121.728515625,24.886436490787702,121.7724609375,24.92629476639559 -s smart --overwrite -o chunks/13_6866_3510.osm.pbf ./input.osm.pbf
-osmium extract -b 121.728515625,24.84656534821974,121.7724609375,24.886436490787702 -s smart --overwrite -o chunks/13_6866_3511.osm.pbf ./input.osm.pbf
-osmium extract -b 121.728515625,24.806681353851975,121.7724609375,24.84656534821974 -s smart --overwrite -o chunks/13_6866_3512.osm.pbf ./input.osm.pbf
-osmium extract -b 121.728515625,24.766784522874442,121.7724609375,24.806681353851975 -s smart --overwrite -o chunks/13_6866_3513.osm.pbf ./input.osm.pbf
-osmium extract -b 121.7724609375,25.284437746983034,121.81640625,25.32416652573839 -s smart --overwrite -o chunks/13_6867_3500.osm.pbf ./input.osm.pbf
-osmium extract -b 121.7724609375,25.244695951306035,121.81640625,25.284437746983034 -s smart --overwrite -o chunks/13_6867_3501.osm.pbf ./input.osm.pbf
-osmium extract -b 121.7724609375,25.204941153569116,121.81640625,25.244695951306035 -s smart --overwrite -o chunks/13_6867_3502.osm.pbf ./input.osm.pbf
-osmium extract -b 121.7724609375,25.165173368663936,121.81640625,25.204941153569116 -s smart --overwrite -o chunks/13_6867_3503.osm.pbf ./input.osm.pbf
-osmium extract -b 121.7724609375,25.125392611512016,121.81640625,25.165173368663936 -s smart --overwrite -o chunks/13_6867_3504.osm.pbf ./input.osm.pbf
-osmium extract -b 121.7724609375,25.085598897064767,121.81640625,25.125392611512016 -s smart --overwrite -o chunks/13_6867_3505.osm.pbf ./input.osm.pbf
-osmium extract -b 121.7724609375,25.04579224030344,121.81640625,25.085598897064767 -s smart --overwrite -o chunks/13_6867_3506.osm.pbf ./input.osm.pbf
-osmium extract -b 121.7724609375,25.005972656239187,121.81640625,25.04579224030344 -s smart --overwrite -o chunks/13_6867_3507.osm.pbf ./input.osm.pbf
-osmium extract -b 121.7724609375,24.966140159912964,121.81640625,25.005972656239187 -s smart --overwrite -o chunks/13_6867_3508.osm.pbf ./input.osm.pbf
-osmium extract -b 121.7724609375,24.92629476639559,121.81640625,24.966140159912964 -s smart --overwrite -o chunks/13_6867_3509.osm.pbf ./input.osm.pbf
-osmium extract -b 121.7724609375,24.886436490787702,121.81640625,24.92629476639559 -s smart --overwrite -o chunks/13_6867_3510.osm.pbf ./input.osm.pbf
-osmium extract -b 121.7724609375,24.84656534821974,121.81640625,24.886436490787702 -s smart --overwrite -o chunks/13_6867_3511.osm.pbf ./input.osm.pbf
-osmium extract -b 121.7724609375,24.806681353851975,121.81640625,24.84656534821974 -s smart --overwrite -o chunks/13_6867_3512.osm.pbf ./input.osm.pbf
-osmium extract -b 121.7724609375,24.766784522874442,121.81640625,24.806681353851975 -s smart --overwrite -o chunks/13_6867_3513.osm.pbf ./input.osm.pbf
-osmium extract -b 121.81640625,25.284437746983034,121.8603515625,25.32416652573839 -s smart --overwrite -o chunks/13_6868_3500.osm.pbf ./input.osm.pbf
-osmium extract -b 121.81640625,25.244695951306035,121.8603515625,25.284437746983034 -s smart --overwrite -o chunks/13_6868_3501.osm.pbf ./input.osm.pbf
-osmium extract -b 121.81640625,25.204941153569116,121.8603515625,25.244695951306035 -s smart --overwrite -o chunks/13_6868_3502.osm.pbf ./input.osm.pbf
-osmium extract -b 121.81640625,25.165173368663936,121.8603515625,25.204941153569116 -s smart --overwrite -o chunks/13_6868_3503.osm.pbf ./input.osm.pbf
-osmium extract -b 121.81640625,25.125392611512016,121.8603515625,25.165173368663936 -s smart --overwrite -o chunks/13_6868_3504.osm.pbf ./input.osm.pbf
-osmium extract -b 121.81640625,25.085598897064767,121.8603515625,25.125392611512016 -s smart --overwrite -o chunks/13_6868_3505.osm.pbf ./input.osm.pbf
-osmium extract -b 121.81640625,25.04579224030344,121.8603515625,25.085598897064767 -s smart --overwrite -o chunks/13_6868_3506.osm.pbf ./input.osm.pbf
-osmium extract -b 121.81640625,25.005972656239187,121.8603515625,25.04579224030344 -s smart --overwrite -o chunks/13_6868_3507.osm.pbf ./input.osm.pbf
-osmium extract -b 121.81640625,24.966140159912964,121.8603515625,25.005972656239187 -s smart --overwrite -o chunks/13_6868_3508.osm.pbf ./input.osm.pbf
-osmium extract -b 121.81640625,24.92629476639559,121.8603515625,24.966140159912964 -s smart --overwrite -o chunks/13_6868_3509.osm.pbf ./input.osm.pbf
-osmium extract -b 121.81640625,24.886436490787702,121.8603515625,24.92629476639559 -s smart --overwrite -o chunks/13_6868_3510.osm.pbf ./input.osm.pbf
-osmium extract -b 121.81640625,24.84656534821974,121.8603515625,24.886436490787702 -s smart --overwrite -o chunks/13_6868_3511.osm.pbf ./input.osm.pbf
-osmium extract -b 121.81640625,24.806681353851975,121.8603515625,24.84656534821974 -s smart --overwrite -o chunks/13_6868_3512.osm.pbf ./input.osm.pbf
-osmium extract -b 121.81640625,24.766784522874442,121.8603515625,24.806681353851975 -s smart --overwrite -o chunks/13_6868_3513.osm.pbf ./input.osm.pbf
-osmium extract -b 121.8603515625,25.284437746983034,121.904296875,25.32416652573839 -s smart --overwrite -o chunks/13_6869_3500.osm.pbf ./input.osm.pbf
-osmium extract -b 121.8603515625,25.244695951306035,121.904296875,25.284437746983034 -s smart --overwrite -o chunks/13_6869_3501.osm.pbf ./input.osm.pbf
-osmium extract -b 121.8603515625,25.204941153569116,121.904296875,25.244695951306035 -s smart --overwrite -o chunks/13_6869_3502.osm.pbf ./input.osm.pbf
-osmium extract -b 121.8603515625,25.165173368663936,121.904296875,25.204941153569116 -s smart --overwrite -o chunks/13_6869_3503.osm.pbf ./input.osm.pbf
-osmium extract -b 121.8603515625,25.125392611512016,121.904296875,25.165173368663936 -s smart --overwrite -o chunks/13_6869_3504.osm.pbf ./input.osm.pbf
-osmium extract -b 121.8603515625,25.085598897064767,121.904296875,25.125392611512016 -s smart --overwrite -o chunks/13_6869_3505.osm.pbf ./input.osm.pbf
-osmium extract -b 121.8603515625,25.04579224030344,121.904296875,25.085598897064767 -s smart --overwrite -o chunks/13_6869_3506.osm.pbf ./input.osm.pbf
-osmium extract -b 121.8603515625,25.005972656239187,121.904296875,25.04579224030344 -s smart --overwrite -o chunks/13_6869_3507.osm.pbf ./input.osm.pbf
-osmium extract -b 121.8603515625,24.966140159912964,121.904296875,25.005972656239187 -s smart --overwrite -o chunks/13_6869_3508.osm.pbf ./input.osm.pbf
-osmium extract -b 121.8603515625,24.92629476639559,121.904296875,24.966140159912964 -s smart --overwrite -o chunks/13_6869_3509.osm.pbf ./input.osm.pbf
-osmium extract -b 121.8603515625,24.886436490787702,121.904296875,24.92629476639559 -s smart --overwrite -o chunks/13_6869_3510.osm.pbf ./input.osm.pbf
-osmium extract -b 121.8603515625,24.84656534821974,121.904296875,24.886436490787702 -s smart --overwrite -o chunks/13_6869_3511.osm.pbf ./input.osm.pbf
-osmium extract -b 121.8603515625,24.806681353851975,121.904296875,24.84656534821974 -s smart --overwrite -o chunks/13_6869_3512.osm.pbf ./input.osm.pbf
-osmium extract -b 121.8603515625,24.766784522874442,121.904296875,24.806681353851975 -s smart --overwrite -o chunks/13_6869_3513.osm.pbf ./input.osm.pbf
-osmium extract -b 121.904296875,25.284437746983034,121.9482421875,25.32416652573839 -s smart --overwrite -o chunks/13_6870_3500.osm.pbf ./input.osm.pbf
-osmium extract -b 121.904296875,25.244695951306035,121.9482421875,25.284437746983034 -s smart --overwrite -o chunks/13_6870_3501.osm.pbf ./input.osm.pbf
-osmium extract -b 121.904296875,25.204941153569116,121.9482421875,25.244695951306035 -s smart --overwrite -o chunks/13_6870_3502.osm.pbf ./input.osm.pbf
-osmium extract -b 121.904296875,25.165173368663936,121.9482421875,25.204941153569116 -s smart --overwrite -o chunks/13_6870_3503.osm.pbf ./input.osm.pbf
-osmium extract -b 121.904296875,25.125392611512016,121.9482421875,25.165173368663936 -s smart --overwrite -o chunks/13_6870_3504.osm.pbf ./input.osm.pbf
-osmium extract -b 121.904296875,25.085598897064767,121.9482421875,25.125392611512016 -s smart --overwrite -o chunks/13_6870_3505.osm.pbf ./input.osm.pbf
-osmium extract -b 121.904296875,25.04579224030344,121.9482421875,25.085598897064767 -s smart --overwrite -o chunks/13_6870_3506.osm.pbf ./input.osm.pbf
-osmium extract -b 121.904296875,25.005972656239187,121.9482421875,25.04579224030344 -s smart --overwrite -o chunks/13_6870_3507.osm.pbf ./input.osm.pbf
-osmium extract -b 121.904296875,24.966140159912964,121.9482421875,25.005972656239187 -s smart --overwrite -o chunks/13_6870_3508.osm.pbf ./input.osm.pbf
-osmium extract -b 121.904296875,24.92629476639559,121.9482421875,24.966140159912964 -s smart --overwrite -o chunks/13_6870_3509.osm.pbf ./input.osm.pbf
-osmium extract -b 121.904296875,24.886436490787702,121.9482421875,24.92629476639559 -s smart --overwrite -o chunks/13_6870_3510.osm.pbf ./input.osm.pbf
-osmium extract -b 121.904296875,24.84656534821974,121.9482421875,24.886436490787702 -s smart --overwrite -o chunks/13_6870_3511.osm.pbf ./input.osm.pbf
-osmium extract -b 121.904296875,24.806681353851975,121.9482421875,24.84656534821974 -s smart --overwrite -o chunks/13_6870_3512.osm.pbf ./input.osm.pbf
-osmium extract -b 121.904296875,24.766784522874442,121.9482421875,24.806681353851975 -s smart --overwrite -o chunks/13_6870_3513.osm.pbf ./input.osm.pbf
-osmium extract -b 121.9482421875,25.284437746983034,121.9921875,25.32416652573839 -s smart --overwrite -o chunks/13_6871_3500.osm.pbf ./input.osm.pbf
-osmium extract -b 121.9482421875,25.244695951306035,121.9921875,25.284437746983034 -s smart --overwrite -o chunks/13_6871_3501.osm.pbf ./input.osm.pbf
-osmium extract -b 121.9482421875,25.204941153569116,121.9921875,25.244695951306035 -s smart --overwrite -o chunks/13_6871_3502.osm.pbf ./input.osm.pbf
-osmium extract -b 121.9482421875,25.165173368663936,121.9921875,25.204941153569116 -s smart --overwrite -o chunks/13_6871_3503.osm.pbf ./input.osm.pbf
-osmium extract -b 121.9482421875,25.125392611512016,121.9921875,25.165173368663936 -s smart --overwrite -o chunks/13_6871_3504.osm.pbf ./input.osm.pbf
-osmium extract -b 121.9482421875,25.085598897064767,121.9921875,25.125392611512016 -s smart --overwrite -o chunks/13_6871_3505.osm.pbf ./input.osm.pbf
-osmium extract -b 121.9482421875,25.04579224030344,121.9921875,25.085598897064767 -s smart --overwrite -o chunks/13_6871_3506.osm.pbf ./input.osm.pbf
-osmium extract -b 121.9482421875,25.005972656239187,121.9921875,25.04579224030344 -s smart --overwrite -o chunks/13_6871_3507.osm.pbf ./input.osm.pbf
-osmium extract -b 121.9482421875,24.966140159912964,121.9921875,25.005972656239187 -s smart --overwrite -o chunks/13_6871_3508.osm.pbf ./input.osm.pbf
-osmium extract -b 121.9482421875,24.92629476639559,121.9921875,24.966140159912964 -s smart --overwrite -o chunks/13_6871_3509.osm.pbf ./input.osm.pbf
-osmium extract -b 121.9482421875,24.886436490787702,121.9921875,24.92629476639559 -s smart --overwrite -o chunks/13_6871_3510.osm.pbf ./input.osm.pbf
-osmium extract -b 121.9482421875,24.84656534821974,121.9921875,24.886436490787702 -s smart --overwrite -o chunks/13_6871_3511.osm.pbf ./input.osm.pbf
-osmium extract -b 121.9482421875,24.806681353851975,121.9921875,24.84656534821974 -s smart --overwrite -o chunks/13_6871_3512.osm.pbf ./input.osm.pbf
-osmium extract -b 121.9482421875,24.766784522874442,121.9921875,24.806681353851975 -s smart --overwrite -o chunks/13_6871_3513.osm.pbf ./input.osm.pbf
-osmium extract -b 121.9921875,25.284437746983034,122.0361328125,25.32416652573839 -s smart --overwrite -o chunks/13_6872_3500.osm.pbf ./input.osm.pbf
-osmium extract -b 121.9921875,25.244695951306035,122.0361328125,25.284437746983034 -s smart --overwrite -o chunks/13_6872_3501.osm.pbf ./input.osm.pbf
-osmium extract -b 121.9921875,25.204941153569116,122.0361328125,25.244695951306035 -s smart --overwrite -o chunks/13_6872_3502.osm.pbf ./input.osm.pbf
-osmium extract -b 121.9921875,25.165173368663936,122.0361328125,25.204941153569116 -s smart --overwrite -o chunks/13_6872_3503.osm.pbf ./input.osm.pbf
-osmium extract -b 121.9921875,25.125392611512016,122.0361328125,25.165173368663936 -s smart --overwrite -o chunks/13_6872_3504.osm.pbf ./input.osm.pbf
-osmium extract -b 121.9921875,25.085598897064767,122.0361328125,25.125392611512016 -s smart --overwrite -o chunks/13_6872_3505.osm.pbf ./input.osm.pbf
-osmium extract -b 121.9921875,25.04579224030344,122.0361328125,25.085598897064767 -s smart --overwrite -o chunks/13_6872_3506.osm.pbf ./input.osm.pbf
-osmium extract -b 121.9921875,25.005972656239187,122.0361328125,25.04579224030344 -s smart --overwrite -o chunks/13_6872_3507.osm.pbf ./input.osm.pbf
-osmium extract -b 121.9921875,24.966140159912964,122.0361328125,25.005972656239187 -s smart --overwrite -o chunks/13_6872_3508.osm.pbf ./input.osm.pbf
-osmium extract -b 121.9921875,24.92629476639559,122.0361328125,24.966140159912964 -s smart --overwrite -o chunks/13_6872_3509.osm.pbf ./input.osm.pbf
-osmium extract -b 121.9921875,24.886436490787702,122.0361328125,24.92629476639559 -s smart --overwrite -o chunks/13_6872_3510.osm.pbf ./input.osm.pbf
-osmium extract -b 121.9921875,24.84656534821974,122.0361328125,24.886436490787702 -s smart --overwrite -o chunks/13_6872_3511.osm.pbf ./input.osm.pbf
-osmium extract -b 121.9921875,24.806681353851975,122.0361328125,24.84656534821974 -s smart --overwrite -o chunks/13_6872_3512.osm.pbf ./input.osm.pbf
-osmium extract -b 121.9921875,24.766784522874442,122.0361328125,24.806681353851975 -s smart --overwrite -o chunks/13_6872_3513.osm.pbf ./input.osm.pbf
+osmium extract -b 120.849609375,25.284437746983034,120.8935546875,25.32416652573839 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6846_3500.osm.pbf ./input.osm.pbf
+osmium extract -b 120.849609375,25.244695951306035,120.8935546875,25.284437746983034 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6846_3501.osm.pbf ./input.osm.pbf
+osmium extract -b 120.849609375,25.204941153569116,120.8935546875,25.244695951306035 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6846_3502.osm.pbf ./input.osm.pbf
+osmium extract -b 120.849609375,25.165173368663936,120.8935546875,25.204941153569116 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6846_3503.osm.pbf ./input.osm.pbf
+osmium extract -b 120.849609375,25.125392611512016,120.8935546875,25.165173368663936 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6846_3504.osm.pbf ./input.osm.pbf
+osmium extract -b 120.849609375,25.085598897064767,120.8935546875,25.125392611512016 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6846_3505.osm.pbf ./input.osm.pbf
+osmium extract -b 120.849609375,25.04579224030344,120.8935546875,25.085598897064767 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6846_3506.osm.pbf ./input.osm.pbf
+osmium extract -b 120.849609375,25.005972656239187,120.8935546875,25.04579224030344 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6846_3507.osm.pbf ./input.osm.pbf
+osmium extract -b 120.849609375,24.966140159912964,120.8935546875,25.005972656239187 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6846_3508.osm.pbf ./input.osm.pbf
+osmium extract -b 120.849609375,24.92629476639559,120.8935546875,24.966140159912964 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6846_3509.osm.pbf ./input.osm.pbf
+osmium extract -b 120.849609375,24.886436490787702,120.8935546875,24.92629476639559 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6846_3510.osm.pbf ./input.osm.pbf
+osmium extract -b 120.849609375,24.84656534821974,120.8935546875,24.886436490787702 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6846_3511.osm.pbf ./input.osm.pbf
+osmium extract -b 120.849609375,24.806681353851975,120.8935546875,24.84656534821974 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6846_3512.osm.pbf ./input.osm.pbf
+osmium extract -b 120.849609375,24.766784522874442,120.8935546875,24.806681353851975 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6846_3513.osm.pbf ./input.osm.pbf
+osmium extract -b 120.8935546875,25.284437746983034,120.9375,25.32416652573839 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6847_3500.osm.pbf ./input.osm.pbf
+osmium extract -b 120.8935546875,25.244695951306035,120.9375,25.284437746983034 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6847_3501.osm.pbf ./input.osm.pbf
+osmium extract -b 120.8935546875,25.204941153569116,120.9375,25.244695951306035 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6847_3502.osm.pbf ./input.osm.pbf
+osmium extract -b 120.8935546875,25.165173368663936,120.9375,25.204941153569116 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6847_3503.osm.pbf ./input.osm.pbf
+osmium extract -b 120.8935546875,25.125392611512016,120.9375,25.165173368663936 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6847_3504.osm.pbf ./input.osm.pbf
+osmium extract -b 120.8935546875,25.085598897064767,120.9375,25.125392611512016 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6847_3505.osm.pbf ./input.osm.pbf
+osmium extract -b 120.8935546875,25.04579224030344,120.9375,25.085598897064767 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6847_3506.osm.pbf ./input.osm.pbf
+osmium extract -b 120.8935546875,25.005972656239187,120.9375,25.04579224030344 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6847_3507.osm.pbf ./input.osm.pbf
+osmium extract -b 120.8935546875,24.966140159912964,120.9375,25.005972656239187 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6847_3508.osm.pbf ./input.osm.pbf
+osmium extract -b 120.8935546875,24.92629476639559,120.9375,24.966140159912964 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6847_3509.osm.pbf ./input.osm.pbf
+osmium extract -b 120.8935546875,24.886436490787702,120.9375,24.92629476639559 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6847_3510.osm.pbf ./input.osm.pbf
+osmium extract -b 120.8935546875,24.84656534821974,120.9375,24.886436490787702 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6847_3511.osm.pbf ./input.osm.pbf
+osmium extract -b 120.8935546875,24.806681353851975,120.9375,24.84656534821974 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6847_3512.osm.pbf ./input.osm.pbf
+osmium extract -b 120.8935546875,24.766784522874442,120.9375,24.806681353851975 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6847_3513.osm.pbf ./input.osm.pbf
+osmium extract -b 120.9375,25.284437746983034,120.9814453125,25.32416652573839 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6848_3500.osm.pbf ./input.osm.pbf
+osmium extract -b 120.9375,25.244695951306035,120.9814453125,25.284437746983034 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6848_3501.osm.pbf ./input.osm.pbf
+osmium extract -b 120.9375,25.204941153569116,120.9814453125,25.244695951306035 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6848_3502.osm.pbf ./input.osm.pbf
+osmium extract -b 120.9375,25.165173368663936,120.9814453125,25.204941153569116 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6848_3503.osm.pbf ./input.osm.pbf
+osmium extract -b 120.9375,25.125392611512016,120.9814453125,25.165173368663936 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6848_3504.osm.pbf ./input.osm.pbf
+osmium extract -b 120.9375,25.085598897064767,120.9814453125,25.125392611512016 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6848_3505.osm.pbf ./input.osm.pbf
+osmium extract -b 120.9375,25.04579224030344,120.9814453125,25.085598897064767 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6848_3506.osm.pbf ./input.osm.pbf
+osmium extract -b 120.9375,25.005972656239187,120.9814453125,25.04579224030344 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6848_3507.osm.pbf ./input.osm.pbf
+osmium extract -b 120.9375,24.966140159912964,120.9814453125,25.005972656239187 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6848_3508.osm.pbf ./input.osm.pbf
+osmium extract -b 120.9375,24.92629476639559,120.9814453125,24.966140159912964 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6848_3509.osm.pbf ./input.osm.pbf
+osmium extract -b 120.9375,24.886436490787702,120.9814453125,24.92629476639559 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6848_3510.osm.pbf ./input.osm.pbf
+osmium extract -b 120.9375,24.84656534821974,120.9814453125,24.886436490787702 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6848_3511.osm.pbf ./input.osm.pbf
+osmium extract -b 120.9375,24.806681353851975,120.9814453125,24.84656534821974 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6848_3512.osm.pbf ./input.osm.pbf
+osmium extract -b 120.9375,24.766784522874442,120.9814453125,24.806681353851975 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6848_3513.osm.pbf ./input.osm.pbf
+osmium extract -b 120.9814453125,25.284437746983034,121.025390625,25.32416652573839 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6849_3500.osm.pbf ./input.osm.pbf
+osmium extract -b 120.9814453125,25.244695951306035,121.025390625,25.284437746983034 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6849_3501.osm.pbf ./input.osm.pbf
+osmium extract -b 120.9814453125,25.204941153569116,121.025390625,25.244695951306035 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6849_3502.osm.pbf ./input.osm.pbf
+osmium extract -b 120.9814453125,25.165173368663936,121.025390625,25.204941153569116 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6849_3503.osm.pbf ./input.osm.pbf
+osmium extract -b 120.9814453125,25.125392611512016,121.025390625,25.165173368663936 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6849_3504.osm.pbf ./input.osm.pbf
+osmium extract -b 120.9814453125,25.085598897064767,121.025390625,25.125392611512016 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6849_3505.osm.pbf ./input.osm.pbf
+osmium extract -b 120.9814453125,25.04579224030344,121.025390625,25.085598897064767 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6849_3506.osm.pbf ./input.osm.pbf
+osmium extract -b 120.9814453125,25.005972656239187,121.025390625,25.04579224030344 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6849_3507.osm.pbf ./input.osm.pbf
+osmium extract -b 120.9814453125,24.966140159912964,121.025390625,25.005972656239187 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6849_3508.osm.pbf ./input.osm.pbf
+osmium extract -b 120.9814453125,24.92629476639559,121.025390625,24.966140159912964 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6849_3509.osm.pbf ./input.osm.pbf
+osmium extract -b 120.9814453125,24.886436490787702,121.025390625,24.92629476639559 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6849_3510.osm.pbf ./input.osm.pbf
+osmium extract -b 120.9814453125,24.84656534821974,121.025390625,24.886436490787702 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6849_3511.osm.pbf ./input.osm.pbf
+osmium extract -b 120.9814453125,24.806681353851975,121.025390625,24.84656534821974 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6849_3512.osm.pbf ./input.osm.pbf
+osmium extract -b 120.9814453125,24.766784522874442,121.025390625,24.806681353851975 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6849_3513.osm.pbf ./input.osm.pbf
+osmium extract -b 121.025390625,25.284437746983034,121.0693359375,25.32416652573839 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6850_3500.osm.pbf ./input.osm.pbf
+osmium extract -b 121.025390625,25.244695951306035,121.0693359375,25.284437746983034 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6850_3501.osm.pbf ./input.osm.pbf
+osmium extract -b 121.025390625,25.204941153569116,121.0693359375,25.244695951306035 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6850_3502.osm.pbf ./input.osm.pbf
+osmium extract -b 121.025390625,25.165173368663936,121.0693359375,25.204941153569116 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6850_3503.osm.pbf ./input.osm.pbf
+osmium extract -b 121.025390625,25.125392611512016,121.0693359375,25.165173368663936 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6850_3504.osm.pbf ./input.osm.pbf
+osmium extract -b 121.025390625,25.085598897064767,121.0693359375,25.125392611512016 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6850_3505.osm.pbf ./input.osm.pbf
+osmium extract -b 121.025390625,25.04579224030344,121.0693359375,25.085598897064767 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6850_3506.osm.pbf ./input.osm.pbf
+osmium extract -b 121.025390625,25.005972656239187,121.0693359375,25.04579224030344 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6850_3507.osm.pbf ./input.osm.pbf
+osmium extract -b 121.025390625,24.966140159912964,121.0693359375,25.005972656239187 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6850_3508.osm.pbf ./input.osm.pbf
+osmium extract -b 121.025390625,24.92629476639559,121.0693359375,24.966140159912964 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6850_3509.osm.pbf ./input.osm.pbf
+osmium extract -b 121.025390625,24.886436490787702,121.0693359375,24.92629476639559 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6850_3510.osm.pbf ./input.osm.pbf
+osmium extract -b 121.025390625,24.84656534821974,121.0693359375,24.886436490787702 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6850_3511.osm.pbf ./input.osm.pbf
+osmium extract -b 121.025390625,24.806681353851975,121.0693359375,24.84656534821974 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6850_3512.osm.pbf ./input.osm.pbf
+osmium extract -b 121.025390625,24.766784522874442,121.0693359375,24.806681353851975 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6850_3513.osm.pbf ./input.osm.pbf
+osmium extract -b 121.0693359375,25.284437746983034,121.11328125,25.32416652573839 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6851_3500.osm.pbf ./input.osm.pbf
+osmium extract -b 121.0693359375,25.244695951306035,121.11328125,25.284437746983034 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6851_3501.osm.pbf ./input.osm.pbf
+osmium extract -b 121.0693359375,25.204941153569116,121.11328125,25.244695951306035 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6851_3502.osm.pbf ./input.osm.pbf
+osmium extract -b 121.0693359375,25.165173368663936,121.11328125,25.204941153569116 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6851_3503.osm.pbf ./input.osm.pbf
+osmium extract -b 121.0693359375,25.125392611512016,121.11328125,25.165173368663936 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6851_3504.osm.pbf ./input.osm.pbf
+osmium extract -b 121.0693359375,25.085598897064767,121.11328125,25.125392611512016 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6851_3505.osm.pbf ./input.osm.pbf
+osmium extract -b 121.0693359375,25.04579224030344,121.11328125,25.085598897064767 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6851_3506.osm.pbf ./input.osm.pbf
+osmium extract -b 121.0693359375,25.005972656239187,121.11328125,25.04579224030344 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6851_3507.osm.pbf ./input.osm.pbf
+osmium extract -b 121.0693359375,24.966140159912964,121.11328125,25.005972656239187 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6851_3508.osm.pbf ./input.osm.pbf
+osmium extract -b 121.0693359375,24.92629476639559,121.11328125,24.966140159912964 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6851_3509.osm.pbf ./input.osm.pbf
+osmium extract -b 121.0693359375,24.886436490787702,121.11328125,24.92629476639559 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6851_3510.osm.pbf ./input.osm.pbf
+osmium extract -b 121.0693359375,24.84656534821974,121.11328125,24.886436490787702 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6851_3511.osm.pbf ./input.osm.pbf
+osmium extract -b 121.0693359375,24.806681353851975,121.11328125,24.84656534821974 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6851_3512.osm.pbf ./input.osm.pbf
+osmium extract -b 121.0693359375,24.766784522874442,121.11328125,24.806681353851975 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6851_3513.osm.pbf ./input.osm.pbf
+osmium extract -b 121.11328125,25.284437746983034,121.1572265625,25.32416652573839 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6852_3500.osm.pbf ./input.osm.pbf
+osmium extract -b 121.11328125,25.244695951306035,121.1572265625,25.284437746983034 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6852_3501.osm.pbf ./input.osm.pbf
+osmium extract -b 121.11328125,25.204941153569116,121.1572265625,25.244695951306035 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6852_3502.osm.pbf ./input.osm.pbf
+osmium extract -b 121.11328125,25.165173368663936,121.1572265625,25.204941153569116 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6852_3503.osm.pbf ./input.osm.pbf
+osmium extract -b 121.11328125,25.125392611512016,121.1572265625,25.165173368663936 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6852_3504.osm.pbf ./input.osm.pbf
+osmium extract -b 121.11328125,25.085598897064767,121.1572265625,25.125392611512016 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6852_3505.osm.pbf ./input.osm.pbf
+osmium extract -b 121.11328125,25.04579224030344,121.1572265625,25.085598897064767 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6852_3506.osm.pbf ./input.osm.pbf
+osmium extract -b 121.11328125,25.005972656239187,121.1572265625,25.04579224030344 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6852_3507.osm.pbf ./input.osm.pbf
+osmium extract -b 121.11328125,24.966140159912964,121.1572265625,25.005972656239187 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6852_3508.osm.pbf ./input.osm.pbf
+osmium extract -b 121.11328125,24.92629476639559,121.1572265625,24.966140159912964 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6852_3509.osm.pbf ./input.osm.pbf
+osmium extract -b 121.11328125,24.886436490787702,121.1572265625,24.92629476639559 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6852_3510.osm.pbf ./input.osm.pbf
+osmium extract -b 121.11328125,24.84656534821974,121.1572265625,24.886436490787702 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6852_3511.osm.pbf ./input.osm.pbf
+osmium extract -b 121.11328125,24.806681353851975,121.1572265625,24.84656534821974 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6852_3512.osm.pbf ./input.osm.pbf
+osmium extract -b 121.11328125,24.766784522874442,121.1572265625,24.806681353851975 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6852_3513.osm.pbf ./input.osm.pbf
+osmium extract -b 121.1572265625,25.284437746983034,121.201171875,25.32416652573839 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6853_3500.osm.pbf ./input.osm.pbf
+osmium extract -b 121.1572265625,25.244695951306035,121.201171875,25.284437746983034 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6853_3501.osm.pbf ./input.osm.pbf
+osmium extract -b 121.1572265625,25.204941153569116,121.201171875,25.244695951306035 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6853_3502.osm.pbf ./input.osm.pbf
+osmium extract -b 121.1572265625,25.165173368663936,121.201171875,25.204941153569116 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6853_3503.osm.pbf ./input.osm.pbf
+osmium extract -b 121.1572265625,25.125392611512016,121.201171875,25.165173368663936 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6853_3504.osm.pbf ./input.osm.pbf
+osmium extract -b 121.1572265625,25.085598897064767,121.201171875,25.125392611512016 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6853_3505.osm.pbf ./input.osm.pbf
+osmium extract -b 121.1572265625,25.04579224030344,121.201171875,25.085598897064767 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6853_3506.osm.pbf ./input.osm.pbf
+osmium extract -b 121.1572265625,25.005972656239187,121.201171875,25.04579224030344 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6853_3507.osm.pbf ./input.osm.pbf
+osmium extract -b 121.1572265625,24.966140159912964,121.201171875,25.005972656239187 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6853_3508.osm.pbf ./input.osm.pbf
+osmium extract -b 121.1572265625,24.92629476639559,121.201171875,24.966140159912964 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6853_3509.osm.pbf ./input.osm.pbf
+osmium extract -b 121.1572265625,24.886436490787702,121.201171875,24.92629476639559 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6853_3510.osm.pbf ./input.osm.pbf
+osmium extract -b 121.1572265625,24.84656534821974,121.201171875,24.886436490787702 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6853_3511.osm.pbf ./input.osm.pbf
+osmium extract -b 121.1572265625,24.806681353851975,121.201171875,24.84656534821974 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6853_3512.osm.pbf ./input.osm.pbf
+osmium extract -b 121.1572265625,24.766784522874442,121.201171875,24.806681353851975 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6853_3513.osm.pbf ./input.osm.pbf
+osmium extract -b 121.201171875,25.284437746983034,121.2451171875,25.32416652573839 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6854_3500.osm.pbf ./input.osm.pbf
+osmium extract -b 121.201171875,25.244695951306035,121.2451171875,25.284437746983034 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6854_3501.osm.pbf ./input.osm.pbf
+osmium extract -b 121.201171875,25.204941153569116,121.2451171875,25.244695951306035 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6854_3502.osm.pbf ./input.osm.pbf
+osmium extract -b 121.201171875,25.165173368663936,121.2451171875,25.204941153569116 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6854_3503.osm.pbf ./input.osm.pbf
+osmium extract -b 121.201171875,25.125392611512016,121.2451171875,25.165173368663936 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6854_3504.osm.pbf ./input.osm.pbf
+osmium extract -b 121.201171875,25.085598897064767,121.2451171875,25.125392611512016 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6854_3505.osm.pbf ./input.osm.pbf
+osmium extract -b 121.201171875,25.04579224030344,121.2451171875,25.085598897064767 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6854_3506.osm.pbf ./input.osm.pbf
+osmium extract -b 121.201171875,25.005972656239187,121.2451171875,25.04579224030344 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6854_3507.osm.pbf ./input.osm.pbf
+osmium extract -b 121.201171875,24.966140159912964,121.2451171875,25.005972656239187 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6854_3508.osm.pbf ./input.osm.pbf
+osmium extract -b 121.201171875,24.92629476639559,121.2451171875,24.966140159912964 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6854_3509.osm.pbf ./input.osm.pbf
+osmium extract -b 121.201171875,24.886436490787702,121.2451171875,24.92629476639559 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6854_3510.osm.pbf ./input.osm.pbf
+osmium extract -b 121.201171875,24.84656534821974,121.2451171875,24.886436490787702 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6854_3511.osm.pbf ./input.osm.pbf
+osmium extract -b 121.201171875,24.806681353851975,121.2451171875,24.84656534821974 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6854_3512.osm.pbf ./input.osm.pbf
+osmium extract -b 121.201171875,24.766784522874442,121.2451171875,24.806681353851975 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6854_3513.osm.pbf ./input.osm.pbf
+osmium extract -b 121.2451171875,25.284437746983034,121.2890625,25.32416652573839 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6855_3500.osm.pbf ./input.osm.pbf
+osmium extract -b 121.2451171875,25.244695951306035,121.2890625,25.284437746983034 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6855_3501.osm.pbf ./input.osm.pbf
+osmium extract -b 121.2451171875,25.204941153569116,121.2890625,25.244695951306035 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6855_3502.osm.pbf ./input.osm.pbf
+osmium extract -b 121.2451171875,25.165173368663936,121.2890625,25.204941153569116 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6855_3503.osm.pbf ./input.osm.pbf
+osmium extract -b 121.2451171875,25.125392611512016,121.2890625,25.165173368663936 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6855_3504.osm.pbf ./input.osm.pbf
+osmium extract -b 121.2451171875,25.085598897064767,121.2890625,25.125392611512016 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6855_3505.osm.pbf ./input.osm.pbf
+osmium extract -b 121.2451171875,25.04579224030344,121.2890625,25.085598897064767 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6855_3506.osm.pbf ./input.osm.pbf
+osmium extract -b 121.2451171875,25.005972656239187,121.2890625,25.04579224030344 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6855_3507.osm.pbf ./input.osm.pbf
+osmium extract -b 121.2451171875,24.966140159912964,121.2890625,25.005972656239187 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6855_3508.osm.pbf ./input.osm.pbf
+osmium extract -b 121.2451171875,24.92629476639559,121.2890625,24.966140159912964 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6855_3509.osm.pbf ./input.osm.pbf
+osmium extract -b 121.2451171875,24.886436490787702,121.2890625,24.92629476639559 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6855_3510.osm.pbf ./input.osm.pbf
+osmium extract -b 121.2451171875,24.84656534821974,121.2890625,24.886436490787702 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6855_3511.osm.pbf ./input.osm.pbf
+osmium extract -b 121.2451171875,24.806681353851975,121.2890625,24.84656534821974 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6855_3512.osm.pbf ./input.osm.pbf
+osmium extract -b 121.2451171875,24.766784522874442,121.2890625,24.806681353851975 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6855_3513.osm.pbf ./input.osm.pbf
+osmium extract -b 121.2890625,25.284437746983034,121.3330078125,25.32416652573839 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6856_3500.osm.pbf ./input.osm.pbf
+osmium extract -b 121.2890625,25.244695951306035,121.3330078125,25.284437746983034 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6856_3501.osm.pbf ./input.osm.pbf
+osmium extract -b 121.2890625,25.204941153569116,121.3330078125,25.244695951306035 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6856_3502.osm.pbf ./input.osm.pbf
+osmium extract -b 121.2890625,25.165173368663936,121.3330078125,25.204941153569116 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6856_3503.osm.pbf ./input.osm.pbf
+osmium extract -b 121.2890625,25.125392611512016,121.3330078125,25.165173368663936 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6856_3504.osm.pbf ./input.osm.pbf
+osmium extract -b 121.2890625,25.085598897064767,121.3330078125,25.125392611512016 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6856_3505.osm.pbf ./input.osm.pbf
+osmium extract -b 121.2890625,25.04579224030344,121.3330078125,25.085598897064767 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6856_3506.osm.pbf ./input.osm.pbf
+osmium extract -b 121.2890625,25.005972656239187,121.3330078125,25.04579224030344 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6856_3507.osm.pbf ./input.osm.pbf
+osmium extract -b 121.2890625,24.966140159912964,121.3330078125,25.005972656239187 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6856_3508.osm.pbf ./input.osm.pbf
+osmium extract -b 121.2890625,24.92629476639559,121.3330078125,24.966140159912964 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6856_3509.osm.pbf ./input.osm.pbf
+osmium extract -b 121.2890625,24.886436490787702,121.3330078125,24.92629476639559 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6856_3510.osm.pbf ./input.osm.pbf
+osmium extract -b 121.2890625,24.84656534821974,121.3330078125,24.886436490787702 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6856_3511.osm.pbf ./input.osm.pbf
+osmium extract -b 121.2890625,24.806681353851975,121.3330078125,24.84656534821974 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6856_3512.osm.pbf ./input.osm.pbf
+osmium extract -b 121.2890625,24.766784522874442,121.3330078125,24.806681353851975 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6856_3513.osm.pbf ./input.osm.pbf
+osmium extract -b 121.3330078125,25.284437746983034,121.376953125,25.32416652573839 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6857_3500.osm.pbf ./input.osm.pbf
+osmium extract -b 121.3330078125,25.244695951306035,121.376953125,25.284437746983034 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6857_3501.osm.pbf ./input.osm.pbf
+osmium extract -b 121.3330078125,25.204941153569116,121.376953125,25.244695951306035 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6857_3502.osm.pbf ./input.osm.pbf
+osmium extract -b 121.3330078125,25.165173368663936,121.376953125,25.204941153569116 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6857_3503.osm.pbf ./input.osm.pbf
+osmium extract -b 121.3330078125,25.125392611512016,121.376953125,25.165173368663936 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6857_3504.osm.pbf ./input.osm.pbf
+osmium extract -b 121.3330078125,25.085598897064767,121.376953125,25.125392611512016 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6857_3505.osm.pbf ./input.osm.pbf
+osmium extract -b 121.3330078125,25.04579224030344,121.376953125,25.085598897064767 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6857_3506.osm.pbf ./input.osm.pbf
+osmium extract -b 121.3330078125,25.005972656239187,121.376953125,25.04579224030344 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6857_3507.osm.pbf ./input.osm.pbf
+osmium extract -b 121.3330078125,24.966140159912964,121.376953125,25.005972656239187 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6857_3508.osm.pbf ./input.osm.pbf
+osmium extract -b 121.3330078125,24.92629476639559,121.376953125,24.966140159912964 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6857_3509.osm.pbf ./input.osm.pbf
+osmium extract -b 121.3330078125,24.886436490787702,121.376953125,24.92629476639559 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6857_3510.osm.pbf ./input.osm.pbf
+osmium extract -b 121.3330078125,24.84656534821974,121.376953125,24.886436490787702 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6857_3511.osm.pbf ./input.osm.pbf
+osmium extract -b 121.3330078125,24.806681353851975,121.376953125,24.84656534821974 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6857_3512.osm.pbf ./input.osm.pbf
+osmium extract -b 121.3330078125,24.766784522874442,121.376953125,24.806681353851975 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6857_3513.osm.pbf ./input.osm.pbf
+osmium extract -b 121.376953125,25.284437746983034,121.4208984375,25.32416652573839 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6858_3500.osm.pbf ./input.osm.pbf
+osmium extract -b 121.376953125,25.244695951306035,121.4208984375,25.284437746983034 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6858_3501.osm.pbf ./input.osm.pbf
+osmium extract -b 121.376953125,25.204941153569116,121.4208984375,25.244695951306035 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6858_3502.osm.pbf ./input.osm.pbf
+osmium extract -b 121.376953125,25.165173368663936,121.4208984375,25.204941153569116 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6858_3503.osm.pbf ./input.osm.pbf
+osmium extract -b 121.376953125,25.125392611512016,121.4208984375,25.165173368663936 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6858_3504.osm.pbf ./input.osm.pbf
+osmium extract -b 121.376953125,25.085598897064767,121.4208984375,25.125392611512016 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6858_3505.osm.pbf ./input.osm.pbf
+osmium extract -b 121.376953125,25.04579224030344,121.4208984375,25.085598897064767 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6858_3506.osm.pbf ./input.osm.pbf
+osmium extract -b 121.376953125,25.005972656239187,121.4208984375,25.04579224030344 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6858_3507.osm.pbf ./input.osm.pbf
+osmium extract -b 121.376953125,24.966140159912964,121.4208984375,25.005972656239187 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6858_3508.osm.pbf ./input.osm.pbf
+osmium extract -b 121.376953125,24.92629476639559,121.4208984375,24.966140159912964 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6858_3509.osm.pbf ./input.osm.pbf
+osmium extract -b 121.376953125,24.886436490787702,121.4208984375,24.92629476639559 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6858_3510.osm.pbf ./input.osm.pbf
+osmium extract -b 121.376953125,24.84656534821974,121.4208984375,24.886436490787702 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6858_3511.osm.pbf ./input.osm.pbf
+osmium extract -b 121.376953125,24.806681353851975,121.4208984375,24.84656534821974 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6858_3512.osm.pbf ./input.osm.pbf
+osmium extract -b 121.376953125,24.766784522874442,121.4208984375,24.806681353851975 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6858_3513.osm.pbf ./input.osm.pbf
+osmium extract -b 121.4208984375,25.284437746983034,121.46484375,25.32416652573839 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6859_3500.osm.pbf ./input.osm.pbf
+osmium extract -b 121.4208984375,25.244695951306035,121.46484375,25.284437746983034 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6859_3501.osm.pbf ./input.osm.pbf
+osmium extract -b 121.4208984375,25.204941153569116,121.46484375,25.244695951306035 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6859_3502.osm.pbf ./input.osm.pbf
+osmium extract -b 121.4208984375,25.165173368663936,121.46484375,25.204941153569116 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6859_3503.osm.pbf ./input.osm.pbf
+osmium extract -b 121.4208984375,25.125392611512016,121.46484375,25.165173368663936 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6859_3504.osm.pbf ./input.osm.pbf
+osmium extract -b 121.4208984375,25.085598897064767,121.46484375,25.125392611512016 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6859_3505.osm.pbf ./input.osm.pbf
+osmium extract -b 121.4208984375,25.04579224030344,121.46484375,25.085598897064767 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6859_3506.osm.pbf ./input.osm.pbf
+osmium extract -b 121.4208984375,25.005972656239187,121.46484375,25.04579224030344 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6859_3507.osm.pbf ./input.osm.pbf
+osmium extract -b 121.4208984375,24.966140159912964,121.46484375,25.005972656239187 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6859_3508.osm.pbf ./input.osm.pbf
+osmium extract -b 121.4208984375,24.92629476639559,121.46484375,24.966140159912964 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6859_3509.osm.pbf ./input.osm.pbf
+osmium extract -b 121.4208984375,24.886436490787702,121.46484375,24.92629476639559 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6859_3510.osm.pbf ./input.osm.pbf
+osmium extract -b 121.4208984375,24.84656534821974,121.46484375,24.886436490787702 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6859_3511.osm.pbf ./input.osm.pbf
+osmium extract -b 121.4208984375,24.806681353851975,121.46484375,24.84656534821974 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6859_3512.osm.pbf ./input.osm.pbf
+osmium extract -b 121.4208984375,24.766784522874442,121.46484375,24.806681353851975 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6859_3513.osm.pbf ./input.osm.pbf
+osmium extract -b 121.46484375,25.284437746983034,121.5087890625,25.32416652573839 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6860_3500.osm.pbf ./input.osm.pbf
+osmium extract -b 121.46484375,25.244695951306035,121.5087890625,25.284437746983034 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6860_3501.osm.pbf ./input.osm.pbf
+osmium extract -b 121.46484375,25.204941153569116,121.5087890625,25.244695951306035 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6860_3502.osm.pbf ./input.osm.pbf
+osmium extract -b 121.46484375,25.165173368663936,121.5087890625,25.204941153569116 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6860_3503.osm.pbf ./input.osm.pbf
+osmium extract -b 121.46484375,25.125392611512016,121.5087890625,25.165173368663936 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6860_3504.osm.pbf ./input.osm.pbf
+osmium extract -b 121.46484375,25.085598897064767,121.5087890625,25.125392611512016 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6860_3505.osm.pbf ./input.osm.pbf
+osmium extract -b 121.46484375,25.04579224030344,121.5087890625,25.085598897064767 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6860_3506.osm.pbf ./input.osm.pbf
+osmium extract -b 121.46484375,25.005972656239187,121.5087890625,25.04579224030344 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6860_3507.osm.pbf ./input.osm.pbf
+osmium extract -b 121.46484375,24.966140159912964,121.5087890625,25.005972656239187 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6860_3508.osm.pbf ./input.osm.pbf
+osmium extract -b 121.46484375,24.92629476639559,121.5087890625,24.966140159912964 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6860_3509.osm.pbf ./input.osm.pbf
+osmium extract -b 121.46484375,24.886436490787702,121.5087890625,24.92629476639559 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6860_3510.osm.pbf ./input.osm.pbf
+osmium extract -b 121.46484375,24.84656534821974,121.5087890625,24.886436490787702 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6860_3511.osm.pbf ./input.osm.pbf
+osmium extract -b 121.46484375,24.806681353851975,121.5087890625,24.84656534821974 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6860_3512.osm.pbf ./input.osm.pbf
+osmium extract -b 121.46484375,24.766784522874442,121.5087890625,24.806681353851975 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6860_3513.osm.pbf ./input.osm.pbf
+osmium extract -b 121.5087890625,25.284437746983034,121.552734375,25.32416652573839 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6861_3500.osm.pbf ./input.osm.pbf
+osmium extract -b 121.5087890625,25.244695951306035,121.552734375,25.284437746983034 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6861_3501.osm.pbf ./input.osm.pbf
+osmium extract -b 121.5087890625,25.204941153569116,121.552734375,25.244695951306035 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6861_3502.osm.pbf ./input.osm.pbf
+osmium extract -b 121.5087890625,25.165173368663936,121.552734375,25.204941153569116 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6861_3503.osm.pbf ./input.osm.pbf
+osmium extract -b 121.5087890625,25.125392611512016,121.552734375,25.165173368663936 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6861_3504.osm.pbf ./input.osm.pbf
+osmium extract -b 121.5087890625,25.085598897064767,121.552734375,25.125392611512016 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6861_3505.osm.pbf ./input.osm.pbf
+osmium extract -b 121.5087890625,25.04579224030344,121.552734375,25.085598897064767 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6861_3506.osm.pbf ./input.osm.pbf
+osmium extract -b 121.5087890625,25.005972656239187,121.552734375,25.04579224030344 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6861_3507.osm.pbf ./input.osm.pbf
+osmium extract -b 121.5087890625,24.966140159912964,121.552734375,25.005972656239187 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6861_3508.osm.pbf ./input.osm.pbf
+osmium extract -b 121.5087890625,24.92629476639559,121.552734375,24.966140159912964 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6861_3509.osm.pbf ./input.osm.pbf
+osmium extract -b 121.5087890625,24.886436490787702,121.552734375,24.92629476639559 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6861_3510.osm.pbf ./input.osm.pbf
+osmium extract -b 121.5087890625,24.84656534821974,121.552734375,24.886436490787702 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6861_3511.osm.pbf ./input.osm.pbf
+osmium extract -b 121.5087890625,24.806681353851975,121.552734375,24.84656534821974 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6861_3512.osm.pbf ./input.osm.pbf
+osmium extract -b 121.5087890625,24.766784522874442,121.552734375,24.806681353851975 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6861_3513.osm.pbf ./input.osm.pbf
+osmium extract -b 121.552734375,25.284437746983034,121.5966796875,25.32416652573839 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6862_3500.osm.pbf ./input.osm.pbf
+osmium extract -b 121.552734375,25.244695951306035,121.5966796875,25.284437746983034 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6862_3501.osm.pbf ./input.osm.pbf
+osmium extract -b 121.552734375,25.204941153569116,121.5966796875,25.244695951306035 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6862_3502.osm.pbf ./input.osm.pbf
+osmium extract -b 121.552734375,25.165173368663936,121.5966796875,25.204941153569116 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6862_3503.osm.pbf ./input.osm.pbf
+osmium extract -b 121.552734375,25.125392611512016,121.5966796875,25.165173368663936 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6862_3504.osm.pbf ./input.osm.pbf
+osmium extract -b 121.552734375,25.085598897064767,121.5966796875,25.125392611512016 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6862_3505.osm.pbf ./input.osm.pbf
+osmium extract -b 121.552734375,25.04579224030344,121.5966796875,25.085598897064767 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6862_3506.osm.pbf ./input.osm.pbf
+osmium extract -b 121.552734375,25.005972656239187,121.5966796875,25.04579224030344 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6862_3507.osm.pbf ./input.osm.pbf
+osmium extract -b 121.552734375,24.966140159912964,121.5966796875,25.005972656239187 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6862_3508.osm.pbf ./input.osm.pbf
+osmium extract -b 121.552734375,24.92629476639559,121.5966796875,24.966140159912964 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6862_3509.osm.pbf ./input.osm.pbf
+osmium extract -b 121.552734375,24.886436490787702,121.5966796875,24.92629476639559 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6862_3510.osm.pbf ./input.osm.pbf
+osmium extract -b 121.552734375,24.84656534821974,121.5966796875,24.886436490787702 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6862_3511.osm.pbf ./input.osm.pbf
+osmium extract -b 121.552734375,24.806681353851975,121.5966796875,24.84656534821974 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6862_3512.osm.pbf ./input.osm.pbf
+osmium extract -b 121.552734375,24.766784522874442,121.5966796875,24.806681353851975 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6862_3513.osm.pbf ./input.osm.pbf
+osmium extract -b 121.5966796875,25.284437746983034,121.640625,25.32416652573839 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6863_3500.osm.pbf ./input.osm.pbf
+osmium extract -b 121.5966796875,25.244695951306035,121.640625,25.284437746983034 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6863_3501.osm.pbf ./input.osm.pbf
+osmium extract -b 121.5966796875,25.204941153569116,121.640625,25.244695951306035 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6863_3502.osm.pbf ./input.osm.pbf
+osmium extract -b 121.5966796875,25.165173368663936,121.640625,25.204941153569116 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6863_3503.osm.pbf ./input.osm.pbf
+osmium extract -b 121.5966796875,25.125392611512016,121.640625,25.165173368663936 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6863_3504.osm.pbf ./input.osm.pbf
+osmium extract -b 121.5966796875,25.085598897064767,121.640625,25.125392611512016 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6863_3505.osm.pbf ./input.osm.pbf
+osmium extract -b 121.5966796875,25.04579224030344,121.640625,25.085598897064767 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6863_3506.osm.pbf ./input.osm.pbf
+osmium extract -b 121.5966796875,25.005972656239187,121.640625,25.04579224030344 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6863_3507.osm.pbf ./input.osm.pbf
+osmium extract -b 121.5966796875,24.966140159912964,121.640625,25.005972656239187 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6863_3508.osm.pbf ./input.osm.pbf
+osmium extract -b 121.5966796875,24.92629476639559,121.640625,24.966140159912964 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6863_3509.osm.pbf ./input.osm.pbf
+osmium extract -b 121.5966796875,24.886436490787702,121.640625,24.92629476639559 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6863_3510.osm.pbf ./input.osm.pbf
+osmium extract -b 121.5966796875,24.84656534821974,121.640625,24.886436490787702 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6863_3511.osm.pbf ./input.osm.pbf
+osmium extract -b 121.5966796875,24.806681353851975,121.640625,24.84656534821974 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6863_3512.osm.pbf ./input.osm.pbf
+osmium extract -b 121.5966796875,24.766784522874442,121.640625,24.806681353851975 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6863_3513.osm.pbf ./input.osm.pbf
+osmium extract -b 121.640625,25.284437746983034,121.6845703125,25.32416652573839 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6864_3500.osm.pbf ./input.osm.pbf
+osmium extract -b 121.640625,25.244695951306035,121.6845703125,25.284437746983034 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6864_3501.osm.pbf ./input.osm.pbf
+osmium extract -b 121.640625,25.204941153569116,121.6845703125,25.244695951306035 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6864_3502.osm.pbf ./input.osm.pbf
+osmium extract -b 121.640625,25.165173368663936,121.6845703125,25.204941153569116 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6864_3503.osm.pbf ./input.osm.pbf
+osmium extract -b 121.640625,25.125392611512016,121.6845703125,25.165173368663936 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6864_3504.osm.pbf ./input.osm.pbf
+osmium extract -b 121.640625,25.085598897064767,121.6845703125,25.125392611512016 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6864_3505.osm.pbf ./input.osm.pbf
+osmium extract -b 121.640625,25.04579224030344,121.6845703125,25.085598897064767 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6864_3506.osm.pbf ./input.osm.pbf
+osmium extract -b 121.640625,25.005972656239187,121.6845703125,25.04579224030344 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6864_3507.osm.pbf ./input.osm.pbf
+osmium extract -b 121.640625,24.966140159912964,121.6845703125,25.005972656239187 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6864_3508.osm.pbf ./input.osm.pbf
+osmium extract -b 121.640625,24.92629476639559,121.6845703125,24.966140159912964 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6864_3509.osm.pbf ./input.osm.pbf
+osmium extract -b 121.640625,24.886436490787702,121.6845703125,24.92629476639559 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6864_3510.osm.pbf ./input.osm.pbf
+osmium extract -b 121.640625,24.84656534821974,121.6845703125,24.886436490787702 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6864_3511.osm.pbf ./input.osm.pbf
+osmium extract -b 121.640625,24.806681353851975,121.6845703125,24.84656534821974 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6864_3512.osm.pbf ./input.osm.pbf
+osmium extract -b 121.640625,24.766784522874442,121.6845703125,24.806681353851975 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6864_3513.osm.pbf ./input.osm.pbf
+osmium extract -b 121.6845703125,25.284437746983034,121.728515625,25.32416652573839 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6865_3500.osm.pbf ./input.osm.pbf
+osmium extract -b 121.6845703125,25.244695951306035,121.728515625,25.284437746983034 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6865_3501.osm.pbf ./input.osm.pbf
+osmium extract -b 121.6845703125,25.204941153569116,121.728515625,25.244695951306035 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6865_3502.osm.pbf ./input.osm.pbf
+osmium extract -b 121.6845703125,25.165173368663936,121.728515625,25.204941153569116 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6865_3503.osm.pbf ./input.osm.pbf
+osmium extract -b 121.6845703125,25.125392611512016,121.728515625,25.165173368663936 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6865_3504.osm.pbf ./input.osm.pbf
+osmium extract -b 121.6845703125,25.085598897064767,121.728515625,25.125392611512016 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6865_3505.osm.pbf ./input.osm.pbf
+osmium extract -b 121.6845703125,25.04579224030344,121.728515625,25.085598897064767 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6865_3506.osm.pbf ./input.osm.pbf
+osmium extract -b 121.6845703125,25.005972656239187,121.728515625,25.04579224030344 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6865_3507.osm.pbf ./input.osm.pbf
+osmium extract -b 121.6845703125,24.966140159912964,121.728515625,25.005972656239187 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6865_3508.osm.pbf ./input.osm.pbf
+osmium extract -b 121.6845703125,24.92629476639559,121.728515625,24.966140159912964 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6865_3509.osm.pbf ./input.osm.pbf
+osmium extract -b 121.6845703125,24.886436490787702,121.728515625,24.92629476639559 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6865_3510.osm.pbf ./input.osm.pbf
+osmium extract -b 121.6845703125,24.84656534821974,121.728515625,24.886436490787702 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6865_3511.osm.pbf ./input.osm.pbf
+osmium extract -b 121.6845703125,24.806681353851975,121.728515625,24.84656534821974 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6865_3512.osm.pbf ./input.osm.pbf
+osmium extract -b 121.6845703125,24.766784522874442,121.728515625,24.806681353851975 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6865_3513.osm.pbf ./input.osm.pbf
+osmium extract -b 121.728515625,25.284437746983034,121.7724609375,25.32416652573839 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6866_3500.osm.pbf ./input.osm.pbf
+osmium extract -b 121.728515625,25.244695951306035,121.7724609375,25.284437746983034 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6866_3501.osm.pbf ./input.osm.pbf
+osmium extract -b 121.728515625,25.204941153569116,121.7724609375,25.244695951306035 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6866_3502.osm.pbf ./input.osm.pbf
+osmium extract -b 121.728515625,25.165173368663936,121.7724609375,25.204941153569116 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6866_3503.osm.pbf ./input.osm.pbf
+osmium extract -b 121.728515625,25.125392611512016,121.7724609375,25.165173368663936 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6866_3504.osm.pbf ./input.osm.pbf
+osmium extract -b 121.728515625,25.085598897064767,121.7724609375,25.125392611512016 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6866_3505.osm.pbf ./input.osm.pbf
+osmium extract -b 121.728515625,25.04579224030344,121.7724609375,25.085598897064767 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6866_3506.osm.pbf ./input.osm.pbf
+osmium extract -b 121.728515625,25.005972656239187,121.7724609375,25.04579224030344 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6866_3507.osm.pbf ./input.osm.pbf
+osmium extract -b 121.728515625,24.966140159912964,121.7724609375,25.005972656239187 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6866_3508.osm.pbf ./input.osm.pbf
+osmium extract -b 121.728515625,24.92629476639559,121.7724609375,24.966140159912964 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6866_3509.osm.pbf ./input.osm.pbf
+osmium extract -b 121.728515625,24.886436490787702,121.7724609375,24.92629476639559 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6866_3510.osm.pbf ./input.osm.pbf
+osmium extract -b 121.728515625,24.84656534821974,121.7724609375,24.886436490787702 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6866_3511.osm.pbf ./input.osm.pbf
+osmium extract -b 121.728515625,24.806681353851975,121.7724609375,24.84656534821974 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6866_3512.osm.pbf ./input.osm.pbf
+osmium extract -b 121.728515625,24.766784522874442,121.7724609375,24.806681353851975 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6866_3513.osm.pbf ./input.osm.pbf
+osmium extract -b 121.7724609375,25.284437746983034,121.81640625,25.32416652573839 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6867_3500.osm.pbf ./input.osm.pbf
+osmium extract -b 121.7724609375,25.244695951306035,121.81640625,25.284437746983034 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6867_3501.osm.pbf ./input.osm.pbf
+osmium extract -b 121.7724609375,25.204941153569116,121.81640625,25.244695951306035 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6867_3502.osm.pbf ./input.osm.pbf
+osmium extract -b 121.7724609375,25.165173368663936,121.81640625,25.204941153569116 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6867_3503.osm.pbf ./input.osm.pbf
+osmium extract -b 121.7724609375,25.125392611512016,121.81640625,25.165173368663936 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6867_3504.osm.pbf ./input.osm.pbf
+osmium extract -b 121.7724609375,25.085598897064767,121.81640625,25.125392611512016 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6867_3505.osm.pbf ./input.osm.pbf
+osmium extract -b 121.7724609375,25.04579224030344,121.81640625,25.085598897064767 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6867_3506.osm.pbf ./input.osm.pbf
+osmium extract -b 121.7724609375,25.005972656239187,121.81640625,25.04579224030344 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6867_3507.osm.pbf ./input.osm.pbf
+osmium extract -b 121.7724609375,24.966140159912964,121.81640625,25.005972656239187 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6867_3508.osm.pbf ./input.osm.pbf
+osmium extract -b 121.7724609375,24.92629476639559,121.81640625,24.966140159912964 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6867_3509.osm.pbf ./input.osm.pbf
+osmium extract -b 121.7724609375,24.886436490787702,121.81640625,24.92629476639559 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6867_3510.osm.pbf ./input.osm.pbf
+osmium extract -b 121.7724609375,24.84656534821974,121.81640625,24.886436490787702 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6867_3511.osm.pbf ./input.osm.pbf
+osmium extract -b 121.7724609375,24.806681353851975,121.81640625,24.84656534821974 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6867_3512.osm.pbf ./input.osm.pbf
+osmium extract -b 121.7724609375,24.766784522874442,121.81640625,24.806681353851975 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6867_3513.osm.pbf ./input.osm.pbf
+osmium extract -b 121.81640625,25.284437746983034,121.8603515625,25.32416652573839 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6868_3500.osm.pbf ./input.osm.pbf
+osmium extract -b 121.81640625,25.244695951306035,121.8603515625,25.284437746983034 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6868_3501.osm.pbf ./input.osm.pbf
+osmium extract -b 121.81640625,25.204941153569116,121.8603515625,25.244695951306035 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6868_3502.osm.pbf ./input.osm.pbf
+osmium extract -b 121.81640625,25.165173368663936,121.8603515625,25.204941153569116 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6868_3503.osm.pbf ./input.osm.pbf
+osmium extract -b 121.81640625,25.125392611512016,121.8603515625,25.165173368663936 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6868_3504.osm.pbf ./input.osm.pbf
+osmium extract -b 121.81640625,25.085598897064767,121.8603515625,25.125392611512016 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6868_3505.osm.pbf ./input.osm.pbf
+osmium extract -b 121.81640625,25.04579224030344,121.8603515625,25.085598897064767 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6868_3506.osm.pbf ./input.osm.pbf
+osmium extract -b 121.81640625,25.005972656239187,121.8603515625,25.04579224030344 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6868_3507.osm.pbf ./input.osm.pbf
+osmium extract -b 121.81640625,24.966140159912964,121.8603515625,25.005972656239187 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6868_3508.osm.pbf ./input.osm.pbf
+osmium extract -b 121.81640625,24.92629476639559,121.8603515625,24.966140159912964 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6868_3509.osm.pbf ./input.osm.pbf
+osmium extract -b 121.81640625,24.886436490787702,121.8603515625,24.92629476639559 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6868_3510.osm.pbf ./input.osm.pbf
+osmium extract -b 121.81640625,24.84656534821974,121.8603515625,24.886436490787702 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6868_3511.osm.pbf ./input.osm.pbf
+osmium extract -b 121.81640625,24.806681353851975,121.8603515625,24.84656534821974 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6868_3512.osm.pbf ./input.osm.pbf
+osmium extract -b 121.81640625,24.766784522874442,121.8603515625,24.806681353851975 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6868_3513.osm.pbf ./input.osm.pbf
+osmium extract -b 121.8603515625,25.284437746983034,121.904296875,25.32416652573839 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6869_3500.osm.pbf ./input.osm.pbf
+osmium extract -b 121.8603515625,25.244695951306035,121.904296875,25.284437746983034 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6869_3501.osm.pbf ./input.osm.pbf
+osmium extract -b 121.8603515625,25.204941153569116,121.904296875,25.244695951306035 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6869_3502.osm.pbf ./input.osm.pbf
+osmium extract -b 121.8603515625,25.165173368663936,121.904296875,25.204941153569116 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6869_3503.osm.pbf ./input.osm.pbf
+osmium extract -b 121.8603515625,25.125392611512016,121.904296875,25.165173368663936 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6869_3504.osm.pbf ./input.osm.pbf
+osmium extract -b 121.8603515625,25.085598897064767,121.904296875,25.125392611512016 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6869_3505.osm.pbf ./input.osm.pbf
+osmium extract -b 121.8603515625,25.04579224030344,121.904296875,25.085598897064767 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6869_3506.osm.pbf ./input.osm.pbf
+osmium extract -b 121.8603515625,25.005972656239187,121.904296875,25.04579224030344 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6869_3507.osm.pbf ./input.osm.pbf
+osmium extract -b 121.8603515625,24.966140159912964,121.904296875,25.005972656239187 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6869_3508.osm.pbf ./input.osm.pbf
+osmium extract -b 121.8603515625,24.92629476639559,121.904296875,24.966140159912964 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6869_3509.osm.pbf ./input.osm.pbf
+osmium extract -b 121.8603515625,24.886436490787702,121.904296875,24.92629476639559 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6869_3510.osm.pbf ./input.osm.pbf
+osmium extract -b 121.8603515625,24.84656534821974,121.904296875,24.886436490787702 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6869_3511.osm.pbf ./input.osm.pbf
+osmium extract -b 121.8603515625,24.806681353851975,121.904296875,24.84656534821974 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6869_3512.osm.pbf ./input.osm.pbf
+osmium extract -b 121.8603515625,24.766784522874442,121.904296875,24.806681353851975 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6869_3513.osm.pbf ./input.osm.pbf
+osmium extract -b 121.904296875,25.284437746983034,121.9482421875,25.32416652573839 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6870_3500.osm.pbf ./input.osm.pbf
+osmium extract -b 121.904296875,25.244695951306035,121.9482421875,25.284437746983034 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6870_3501.osm.pbf ./input.osm.pbf
+osmium extract -b 121.904296875,25.204941153569116,121.9482421875,25.244695951306035 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6870_3502.osm.pbf ./input.osm.pbf
+osmium extract -b 121.904296875,25.165173368663936,121.9482421875,25.204941153569116 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6870_3503.osm.pbf ./input.osm.pbf
+osmium extract -b 121.904296875,25.125392611512016,121.9482421875,25.165173368663936 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6870_3504.osm.pbf ./input.osm.pbf
+osmium extract -b 121.904296875,25.085598897064767,121.9482421875,25.125392611512016 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6870_3505.osm.pbf ./input.osm.pbf
+osmium extract -b 121.904296875,25.04579224030344,121.9482421875,25.085598897064767 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6870_3506.osm.pbf ./input.osm.pbf
+osmium extract -b 121.904296875,25.005972656239187,121.9482421875,25.04579224030344 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6870_3507.osm.pbf ./input.osm.pbf
+osmium extract -b 121.904296875,24.966140159912964,121.9482421875,25.005972656239187 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6870_3508.osm.pbf ./input.osm.pbf
+osmium extract -b 121.904296875,24.92629476639559,121.9482421875,24.966140159912964 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6870_3509.osm.pbf ./input.osm.pbf
+osmium extract -b 121.904296875,24.886436490787702,121.9482421875,24.92629476639559 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6870_3510.osm.pbf ./input.osm.pbf
+osmium extract -b 121.904296875,24.84656534821974,121.9482421875,24.886436490787702 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6870_3511.osm.pbf ./input.osm.pbf
+osmium extract -b 121.904296875,24.806681353851975,121.9482421875,24.84656534821974 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6870_3512.osm.pbf ./input.osm.pbf
+osmium extract -b 121.904296875,24.766784522874442,121.9482421875,24.806681353851975 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6870_3513.osm.pbf ./input.osm.pbf
+osmium extract -b 121.9482421875,25.284437746983034,121.9921875,25.32416652573839 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6871_3500.osm.pbf ./input.osm.pbf
+osmium extract -b 121.9482421875,25.244695951306035,121.9921875,25.284437746983034 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6871_3501.osm.pbf ./input.osm.pbf
+osmium extract -b 121.9482421875,25.204941153569116,121.9921875,25.244695951306035 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6871_3502.osm.pbf ./input.osm.pbf
+osmium extract -b 121.9482421875,25.165173368663936,121.9921875,25.204941153569116 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6871_3503.osm.pbf ./input.osm.pbf
+osmium extract -b 121.9482421875,25.125392611512016,121.9921875,25.165173368663936 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6871_3504.osm.pbf ./input.osm.pbf
+osmium extract -b 121.9482421875,25.085598897064767,121.9921875,25.125392611512016 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6871_3505.osm.pbf ./input.osm.pbf
+osmium extract -b 121.9482421875,25.04579224030344,121.9921875,25.085598897064767 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6871_3506.osm.pbf ./input.osm.pbf
+osmium extract -b 121.9482421875,25.005972656239187,121.9921875,25.04579224030344 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6871_3507.osm.pbf ./input.osm.pbf
+osmium extract -b 121.9482421875,24.966140159912964,121.9921875,25.005972656239187 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6871_3508.osm.pbf ./input.osm.pbf
+osmium extract -b 121.9482421875,24.92629476639559,121.9921875,24.966140159912964 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6871_3509.osm.pbf ./input.osm.pbf
+osmium extract -b 121.9482421875,24.886436490787702,121.9921875,24.92629476639559 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6871_3510.osm.pbf ./input.osm.pbf
+osmium extract -b 121.9482421875,24.84656534821974,121.9921875,24.886436490787702 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6871_3511.osm.pbf ./input.osm.pbf
+osmium extract -b 121.9482421875,24.806681353851975,121.9921875,24.84656534821974 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6871_3512.osm.pbf ./input.osm.pbf
+osmium extract -b 121.9482421875,24.766784522874442,121.9921875,24.806681353851975 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6871_3513.osm.pbf ./input.osm.pbf
+osmium extract -b 121.9921875,25.284437746983034,122.0361328125,25.32416652573839 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6872_3500.osm.pbf ./input.osm.pbf
+osmium extract -b 121.9921875,25.244695951306035,122.0361328125,25.284437746983034 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6872_3501.osm.pbf ./input.osm.pbf
+osmium extract -b 121.9921875,25.204941153569116,122.0361328125,25.244695951306035 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6872_3502.osm.pbf ./input.osm.pbf
+osmium extract -b 121.9921875,25.165173368663936,122.0361328125,25.204941153569116 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6872_3503.osm.pbf ./input.osm.pbf
+osmium extract -b 121.9921875,25.125392611512016,122.0361328125,25.165173368663936 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6872_3504.osm.pbf ./input.osm.pbf
+osmium extract -b 121.9921875,25.085598897064767,122.0361328125,25.125392611512016 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6872_3505.osm.pbf ./input.osm.pbf
+osmium extract -b 121.9921875,25.04579224030344,122.0361328125,25.085598897064767 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6872_3506.osm.pbf ./input.osm.pbf
+osmium extract -b 121.9921875,25.005972656239187,122.0361328125,25.04579224030344 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6872_3507.osm.pbf ./input.osm.pbf
+osmium extract -b 121.9921875,24.966140159912964,122.0361328125,25.005972656239187 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6872_3508.osm.pbf ./input.osm.pbf
+osmium extract -b 121.9921875,24.92629476639559,122.0361328125,24.966140159912964 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6872_3509.osm.pbf ./input.osm.pbf
+osmium extract -b 121.9921875,24.886436490787702,122.0361328125,24.92629476639559 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6872_3510.osm.pbf ./input.osm.pbf
+osmium extract -b 121.9921875,24.84656534821974,122.0361328125,24.886436490787702 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6872_3511.osm.pbf ./input.osm.pbf
+osmium extract -b 121.9921875,24.806681353851975,122.0361328125,24.84656534821974 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6872_3512.osm.pbf ./input.osm.pbf
+osmium extract -b 121.9921875,24.766784522874442,122.0361328125,24.806681353851975 -s smart --overwrite -S types=multipolygon,boundary -o chunks/13_6872_3513.osm.pbf ./input.osm.pbf

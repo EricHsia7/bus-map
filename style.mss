@@ -6110,7 +6110,7 @@ no official postal addresses) */
 @motorway-tunnel-fill: @road-fill;
 
 /* High-importance corridors that do not meet full motorway standards. */
-@trunk-fill: #8ba5c0;
+@trunk-fill: #b7c7d8;
 @trunk-casing: @trunk-fill;
 @trunk-low-zoom-casing: @trunk-fill;
 @trunk-low-zoom: @trunk-fill;
