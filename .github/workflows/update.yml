@@ -171,7 +171,8 @@ jobs:
           path: ./tiles
           key: tiles-${{ hashFiles('input.osm.pbf') }}-${{ hashFiles('chunk.js') }}-${{ hashFiles('config.json') }}-${{ hashFiles('render.js') }}
           restore-keys: |
-            tiles-${{ hashFiles('input.osm.pbf') }}-${{ hashFiles('chunk.js') }}-${{ hashFiles('config.json') }}-${{ hashFiles('render.js') }}
+            tiles-${{ hashFiles('input.osm.pbf') }}
+          #-${{ hashFiles('chunk.js') }}-${{ hashFiles('config.json') }}-${{ hashFiles('render.js') }}
 
       - name: Render
         if: steps.restore-cached-tiles.outputs.cache-hit != 'true'
