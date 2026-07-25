@@ -125,14 +125,19 @@ function assembleAreas(relations, wayMap, nodeMap) {
     if (Object.keys(tags).length === 0 && fallbackTags) tags = { ...fallbackTags };
     if (Object.keys(tags).length === 0) continue;
 
-    const outerRings = stitchRings(outerFrags)
-      .map((r) => ringToCoords(r, nodeMap))
-      .filter((r) => r && r.length >= 4);
-    if (!outerRings.length) continue;
+    // Only keep rings that actually closed (first node === last node). An open
+    // ring means a connecting member way lives outside the loaded chunk(s);
+    // force-closing it would draw a straight chord across the interior (the
+    // "white triangle" nonzero-fill artifact), so we drop it instead.
+    const closedRings = (frags) =>
+      stitchRings(frags)
+        .filter((r) => r.length >= 4 && r[0] === r[r.length - 1])
+        .map((r) => ringToCoords(r, nodeMap))
+        .filter((r) => r && r.length >= 4);
 
-    const innerRings = stitchRings(innerFrags)
-      .map((r) => ringToCoords(r, nodeMap))
-      .filter((r) => r && r.length >= 4);
+    const outerRings = closedRings(outerFrags);
+    if (!outerRings.length) continue;
+    const innerRings = closedRings(innerFrags);
 
     // Each outer ring starts its own polygon; assign holes to the smallest
     // outer ring that contains them (nonzero fill then punches them out).
@@ -159,9 +164,4 @@ function assembleAreas(relations, wayMap, nodeMap) {
   return { features, memberWayIds };
 }
 
-module.exports = {
-  assembleAreas,
-  stitchRings,
-  pointInRing,
-  ringArea
-};
+module.exports = { assembleAreas, stitchRings, pointInRing, ringArea };

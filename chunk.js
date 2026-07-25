@@ -16,7 +16,8 @@ async function main() {
   for (const [x, y] of tiles) {
     const boundingBox = tileToBoundingbox(x, y, baseZ).join(',');
     const chunkPath = path.join(outputDir, `${baseZ}_${x}_${y}.osm.pbf`);
-    commands.push(`osmium extract -b ${boundingBox} -o ${chunkPath} ${inputPath}`);
+    commands.push(`osmium extract -b ${boundingBox} -s smart --overwrite -o ${chunkPath} ${inputPath}`);
+    // use smart strategy so large polygons spanning through multiple chunks are closed.
   }
   await fs.promises.writeFile(config.chunks.output, commands.join('\n'));
 }

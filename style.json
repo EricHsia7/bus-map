@@ -417540,7 +417540,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(41,67,72,1)"
+      "text-fill": "rgba(61,83,105,1)"
     }
   },
   {
@@ -665477,7 +665477,7 @@
       "text-size": "10",
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
-      "text-fill": "rgba(69,113,121,1)",
+      "text-fill": "rgba(89,120,154,1)",
       "text-face-name": "@oblique-fonts",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
@@ -681473,7 +681473,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(197,218,222,1)"
+      "polygon-fill": "rgba(231,236,241,1)"
     }
   },
   {
@@ -681509,7 +681509,7 @@
     ],
     "paint": {
       "line-width": "0.5",
-      "line-color": "rgba(167,197,204,1)"
+      "line-color": "rgba(219,226,234,1)"
     }
   },
   {
@@ -681635,7 +681635,7 @@
     ],
     "paint": {
       "line-width": "0.5",
-      "line-color": "rgba(167,197,204,1)"
+      "line-color": "rgba(219,226,234,1)"
     }
   },
   {
@@ -681670,7 +681670,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(197,218,222,1)"
+      "polygon-fill": "rgba(231,236,241,1)"
     }
   },
   {
@@ -681706,7 +681706,7 @@
     ],
     "paint": {
       "line-width": "0.5",
-      "line-color": "rgba(167,197,204,1)"
+      "line-color": "rgba(219,226,234,1)"
     }
   },
   {
@@ -681741,7 +681741,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(197,218,222,1)"
+      "polygon-fill": "rgba(231,236,241,1)"
     }
   },
   {
@@ -681777,7 +681777,7 @@
     ],
     "paint": {
       "line-width": "0.5",
-      "line-color": "rgba(167,197,204,1)"
+      "line-color": "rgba(219,226,234,1)"
     }
   },
   {
@@ -681812,7 +681812,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(197,218,222,1)"
+      "polygon-fill": "rgba(231,236,241,1)"
     }
   },
   {
@@ -682175,7 +682175,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(197,218,222,1)"
+      "polygon-fill": "rgba(231,236,241,1)"
     }
   },
   {
@@ -682266,7 +682266,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(181,208,213,1)"
+      "polygon-fill": "rgba(215,223,232,1)"
     }
   },
   {
@@ -682358,7 +682358,7 @@
     ],
     "paint": {
       "line-width": "0.5",
-      "line-color": "rgba(151,186,195,1)"
+      "line-color": "rgba(203,213,225,1)"
     }
   },
   {
@@ -689298,7 +689298,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(197,218,222,1)"
+      "polygon-fill": "rgba(231,236,241,1)"
     }
   },
   {

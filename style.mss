@@ -4179,8 +4179,8 @@ Then all three layers are added to the rendering with comp-op: darken, so that t
 @retail-line: #a7b4cc;
 @commercial: #c5d5de;
 @commercial-line: #a7becc;
-@industrial: #c5dade; // Also used for railway, wastewater_plant
-@industrial-line: #a7c5cc; // Also used for railway-line, wastewater_plant-line
+@industrial: #e7ecf1; // Also used for railway, wastewater_plant
+@industrial-line: #dbe2ea; // Also used for railway-line, wastewater_plant-line
 @farmland: #efece6;
 @farmland-line: #e5e0d7;
 @farmyard: #dbd4c8;
