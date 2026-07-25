@@ -168,11 +168,6 @@ jobs:
         run: |
           mkdir -p tiles
           node render.js
-      
-      - name: Separate tiles
-        run:
-          mkdir -p ./dist
-          mv -f ./tiles ./dist
 
       - name: Configure git
         run: |
@@ -182,7 +177,7 @@ jobs:
       - name: Commit Generated Files
         run: |
           git checkout -b temp-branch
-          git add ./dist
+          git add ./tiles
           git commit -m "Updates"
 
       - name: Push to Dist Branch
