@@ -186,7 +186,8 @@ async function renderChunk(cX, cY, cZ) {
   for (const [tX, tY, tZ] of subTiles) {
     count++;
     const [x0, y0, x1, y1] = getTileViewbox(tX, tY, tZ);
-    let svgElements = '';
+    let polygonElements = '';
+    let lineElements = '';
     const startTime = performance.now();
     for (const way of ways) {
       const coords = way.refs.map((id) => nodeMap.get(id)).filter(Boolean);
@@ -209,10 +210,14 @@ async function renderChunk(cX, cY, cZ) {
         const paint = {};
         for (const idx of idxs) for (const key in style[idx].paint) if (!(key in paint)) paint[key] = style[idx].paint[key];
 
-        svgElements += paintToSvg(paint, d, geometry, tileSize / 256);
+        if (closed) {
+          polygonElements += paintToSvg(paint, d, geometry, tileSize / 256);
+        } else {
+          lineElements += paintToSvg(paint, d, geometry, tileSize / 256);
+        }
       }
     }
-    const svg = `<svg width="${tileSize}" height="${tileSize}" viewBox="0 0 ${tileSize} ${tileSize}" xmlns="http://www.w3.org/2000/svg">${backgroundElement}${svgElements}</svg>`;
+    const svg = `<svg width="${tileSize}" height="${tileSize}" viewBox="0 0 ${tileSize} ${tileSize}" xmlns="http://www.w3.org/2000/svg">${backgroundElement}${polygonElements}${lineElements}</svg>`;
     await makeDirectory(path.join(tilesDir, tZ.toString(), tX.toString()));
     await rasterize(svg, path.join(tilesDir, tZ.toString(), tX.toString(), tY.toString()), tileSize, tileSize, 2);
     const endTime = performance.now();

@@ -11,8 +11,8 @@
 
 // --- "Base" landuses ---
 
-@built-up-lowzoom: #d0d1d2;
-@built-up-z12: #dddedf;
+@built-up-lowzoom: #dcdddd;
+@built-up-z12: #e5e6e7;
 @residential: #eaeaeb;
 @residential-line: #b7babd;
 @retail: #c5cede;
@@ -69,7 +69,7 @@
 // --- Sports ---
 
 @pitch: #c4e5c6;
-@track: #565759;
+@track: darken(@pitch, 5%);
 @stadium: @leisure; // also sports_centre
 @golf_course: @campsite;
 
