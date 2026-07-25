@@ -6,6 +6,11 @@ function splitByTopLevelDelimiter(value, legalDelimiters = ['+', '-', '*', '/'])
   const result = [];
   const delimiters = [];
   const len = value.length;
+  const prevNonSpace = (i) => {
+    let j = i - 1;
+    while (j >= 0 && value[j] === ' ') j--;
+    return j >= 0 ? value[j] : '';
+  };
   for (let i = 0, l = len, l1 = len - 1; i < l; i++) {
     const char = value[i];
     if (char === '(') {
@@ -15,7 +20,15 @@ function splitByTopLevelDelimiter(value, legalDelimiters = ['+', '-', '*', '/'])
       rightBracket++;
     }
     if (leftBracket === rightBracket) {
-      if (legalDelimiters.indexOf(char) > -1) {
+      let isDelimiter = legalDelimiters.indexOf(char) > -1;
+      // A leading '+'/'-' (at the start, or right after another operator or an
+      // opening bracket) is a unary sign that belongs to the number, not a
+      // top-level delimiter. Fixes calc('5 * -1') -> -5.
+      if (isDelimiter && (char === '+' || char === '-')) {
+        const prev = prevNonSpace(i);
+        if (prev === '' || '+-*/('.indexOf(prev) > -1) isDelimiter = false;
+      }
+      if (isDelimiter) {
         result.push(value.slice(start, i).trim());
         delimiters.push(char);
         start = i + 1;
@@ -93,8 +106,6 @@ function calc(value) {
 
   return result[0];
 }
-
-// TODO: fix negative number parsing calc(`5 * -1`) -> calc(`5 * (-1)`)
 
 function looksLikeNumericalExpression(value) {
   return /(?:[0-9]+(?:\.[0-9]+)?|\()[0-9+\-*/().\s]*[+\-*/][0-9+\-*/().\s]*(?:[0-9]+(?:\.[0-9]+)?|\))/g.test(value);

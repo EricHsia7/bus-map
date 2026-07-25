@@ -8,6 +8,7 @@ const style = require('./style.json');
 const M = require('./match-rule.js');
 const I = require('./infer-layer.js');
 const { paintToSvg } = require('./paint-to-svg.js');
+const { assembleAreas } = require('./assemble.js');
 const config = require('./config.json');
 const { rasterize } = require('./rasterize.js');
 const { makeDirectory } = require('./files.js');
@@ -179,6 +180,10 @@ async function renderChunk(cX, cY, cZ) {
     }
   }
 
+  // Assemble multipolygon relations (wide rivers, lakes, landuse, ...) into filled area geometry. Their tags live on the relation and their member ways are usually untagged, so the per-way loop below never draws them.
+  const wayMap = new Map(ways.map((w) => [w.id, w]));
+  const { features: areaFeatures, memberWayIds } = assembleAreas(relations, wayMap, nodeMap);
+
   // reconstruct geometry
   const subTiles = getSubTiles(cX, cY, cZ, tilesMaxZ);
   const total = subTiles.length;
@@ -190,6 +195,7 @@ async function renderChunk(cX, cY, cZ) {
     let lineElements = '';
     const startTime = performance.now();
     for (const way of ways) {
+      if (memberWayIds.has(way.id)) continue; // drawn via its parent multipolygon
       const coords = way.refs.map((id) => nodeMap.get(id)).filter(Boolean);
       const closed = way.refs[0] === way.refs.at(-1);
       const shape = closed
@@ -219,6 +225,30 @@ async function renderChunk(cX, cY, cZ) {
         } else {
           lineElements += paintToSvg(paint, d, geometry, tileSize / 256);
         }
+      }
+    }
+
+    // Multipolygon area features assembled from relations (drawn as fills, beneath the line elements).
+    for (const feat of areaFeatures) {
+      let d = '';
+      for (const poly of feat.polygons) {
+        d += plotPolygon({ type: 'Polygon', coordinates: poly }, x0, y0, x1, y1, tileSize, tilePrecision, safeMargin);
+      }
+      if (!d) continue;
+
+      const layers = I.inferLayers(feat.tags, { geometry: 'polygon', zoom: tZ });
+      for (const layer of layers) {
+        const featRow = { ...feat.tags, ...layer.row };
+        const idxs = M.matchRules(featRow, layer.id, tZ);
+        if (idxs.length === 0) continue;
+
+        const paint = {};
+        for (const idx of idxs) {
+          for (const key in style[idx].paint) {
+            paint[key] = style[idx].paint[key];
+          }
+        }
+        polygonElements += paintToSvg(paint, d, 'polygon', tileSize / 256);
       }
     }
     const svg = `<svg width="${tileSize}" height="${tileSize}" viewBox="0 0 ${tileSize} ${tileSize}" xmlns="http://www.w3.org/2000/svg">${backgroundElement}${polygonElements}${lineElements}</svg>`;
