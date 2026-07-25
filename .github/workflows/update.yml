@@ -151,7 +151,7 @@ jobs:
       - name: Chunk Map Data
         if: steps.restore-cached-chunks.outputs.cache-hit != 'true'
         run: |
-          mkdir chunks
+          mkdir -p chunks
           chmod +x ./chunk.sh
           ./chunk.sh
         # osmium extract -c config.json -s simple input.osm.pbf
@@ -166,13 +166,13 @@ jobs:
 
       - name: Render
         run: |
-          mkdir tiles
+          mkdir -p tiles
           node render.js
       
       - name: Separate tiles
         run:
-          mkdir ./dist
-          mv ./tiles ./dist
+          mkdir -p ./dist
+          mv -f ./tiles ./dist
 
       - name: Configure git
         run: |
