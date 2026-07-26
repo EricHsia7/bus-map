@@ -3,15 +3,14 @@ const sharp = require('sharp');
 
 const config = require('./config.json');
 const tileSize = config.tiles.size;
-const samplingWidth = tileSize * 2;
 const options = {
   shapeRendering: 0,
   textRendering: 0,
   imageRendering: 1,
-  dpi: 128,
+  dpi: 288,
   fitTo: {
     mode: 'width',
-    value: samplingWidth
+    value: tileSize
   },
   font: {
     loadSystemFonts: false
@@ -24,7 +23,6 @@ async function rasterize(svgText, outputPath) {
   const pngData = resvg.render();
   const pngBuffer = pngData.asPng();
   await sharp(pngBuffer).webp({ lossless: true }).toFile(`${outputPath}.webp`);
-  // .resize(tileSize, tileSize)
 }
 
 module.exports = {
