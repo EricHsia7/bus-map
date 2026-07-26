@@ -96,19 +96,13 @@ function centroidOf(ring) {
 
 const backgroundElement = `<rect x="0" y="0" width="${tileSize}" height="${tileSize}" fill="${tileBackground}"/>`;
 
-const chunkCache = new Map();
-
-// Parse one chunk's .osm.pbf into { nodeMap, ways, relations }. Cached so the
-// center chunk and its neighbors (loaded by adjacent renders) are parsed once.
-// Returns null when the chunk file does not exist (edge of the extract).
+// Parse one chunk's .osm.pbf into { nodeMap, ways, relations }.
+// Returns null when the chunk file does not exist.
 async function parseChunk(cX, cY, cZ) {
   const key = `${cZ}_${cX}_${cY}`;
-  if (chunkCache.has(key)) return chunkCache.get(key);
   const file = path.join(chunksDir, `${cZ}_${cX}_${cY}.osm.pbf`);
-  if (!fs.existsSync(file)) {
-    chunkCache.set(key, null);
-    return null;
-  }
+  if (!fs.existsSync(file)) return null;
+
   const buf = fs.readFileSync(file);
   const view = new DataView(buf.buffer);
 
@@ -255,7 +249,6 @@ async function parseChunk(cX, cY, cZ) {
   // are pure geometry vertices and would bloat memory.
   const taggedNodes = nodes.filter((n) => n.tags && Object.keys(n.tags).length);
   const result = { nodeMap, nodes: taggedNodes, ways, relations };
-  chunkCache.set(key, result);
   return result;
 }
 
@@ -441,55 +434,13 @@ async function main() {
   const baseZ = config.chunks.baseZ;
   const chunkTiles = areaToTiles(west, south, east, north, baseZ);
 
-  // --- Chunk unloading ---------------------------------------------------
-  // renderChunk keeps every parsed chunk (center + its 8 neighbors) in
-  // chunkCache so a chunk shared by adjacent centers is parsed once. Left
-  // unbounded this holds the whole extract in memory. A chunk at (x,y) can
-  // only ever be needed by a center within its 3x3 neighborhood, i.e. the
-  // centers (x+dx, y+dy) for dx,dy in {-1,0,1}. Once all of those centers have
-  // been rendered, the chunk is unreachable and is dropped. Eviction is always
-  // safe: parseChunk re-reads from disk on a miss, so at worst a wrongly-timed
-  // drop costs a re-parse, never a wrong tile.
-  const pending = new Set(chunkTiles.map(([x, y]) => `${x},${y}`)); // centers not yet rendered
-
-  function unloadFinishedChunks() {
-    for (const cacheKey of [...chunkCache.keys()]) {
-      // cacheKey === `${cZ}_${cX}_${cY}` (cX/cY may be negative at the edge)
-      const parts = cacheKey.split('_');
-      const kx = Number(parts[1]);
-      const ky = Number(parts[2]);
-      let stillNeeded = false;
-      for (let dx = -1; dx <= 1 && !stillNeeded; dx++) {
-        for (let dy = -1; dy <= 1; dy++) {
-          if (pending.has(`${kx + dx},${ky + dy}`)) {
-            stillNeeded = true;
-            break;
-          }
-        }
-      }
-      if (!stillNeeded) chunkCache.delete(cacheKey);
-    }
-  }
-
   const groups = splitByLength(chunkTiles, 4);
   for (const group of groups) {
     try {
-      const groupResults = await Promise.allSettled(
-        group.map(async (tile) => {
-          const result = await renderChunk(tile[0], tile[1], baseZ);
-          pending.delete(`${tile[0]},${tile[1]}`); // this center is now rendered
-          return result;
-        })
-      );
+      const groupResults = await Promise.allSettled(group.map((tile) => renderChunk(tile[0], tile[1], baseZ)));
       console.log(groupResults);
     } catch (err) {
       console.log(baseZ, err);
-    } finally {
-      // Drop any cached chunk whose whole neighborhood is now rendered. Runs
-      // after the group (not mid-group) so a chunk still in use by a sibling
-      // render in the same group is never pulled out from under it.
-      unloadFinishedChunks();
-      console.log(`chunkCache: ${chunkCache.size} chunk(s) resident`);
     }
   }
 }
