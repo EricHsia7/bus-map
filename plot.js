@@ -96,8 +96,8 @@ function plotLineString(lineString, x0, y0, x1, y1, size = 512, precision = 2048
   if (!dX || !dY || !Number.isFinite(dX) || !Number.isFinite(dY)) return '';
   const scaleX = size / dX;
   const scaleY = size / dY;
-  const transformX = (x) => (x - x0) * scaleX;
-  const transformY = (y) => (dY - (y - y0)) * scaleY;
+  const transformX = (x) => Math.floor((x - x0) * scaleX * precision) / precision;
+  const transformY = (y) => Math.floor((dY - (y - y0)) * scaleY * precision) / precision;
 
   const coords = lineString.coordinates;
   if (!coords || coords.length < 2) return '';

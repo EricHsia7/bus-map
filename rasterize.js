@@ -8,6 +8,7 @@ const options = {
   shapeRendering: 0,
   textRendering: 0,
   imageRendering: 1,
+  dpi: 128,
   fitTo: {
     mode: 'width',
     value: samplingWidth
@@ -22,7 +23,8 @@ async function rasterize(svgText, outputPath) {
   const resvg = new Resvg(svg, options);
   const pngData = resvg.render();
   const pngBuffer = pngData.asPng();
-  await sharp(pngBuffer).resize(tileSize, tileSize).webp({ lossless: true }).toFile(`${outputPath}.webp`);
+  await sharp(pngBuffer).webp({ lossless: true }).toFile(`${outputPath}.webp`);
+  // .resize(tileSize, tileSize)
 }
 
 module.exports = {
