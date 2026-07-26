@@ -5,6 +5,7 @@ const { decompressSync } = require('fflate');
 const { plotPolygon, plotLineString } = require('./plot.js');
 const { getTileViewbox, getSubTiles, areaToTiles, getParentTile, tileToBoundingbox } = require('./coordinate.js');
 const style = require('./style.json');
+const mml = require('./mml.json');
 const M = require('./match-rule.js');
 const I = require('./infer-layer.js');
 const { paintToSvg } = require('./paint-to-svg.js');
@@ -32,7 +33,6 @@ I.loadMml('./mml.json');
 // controls the within-layer cascade). mml.json preserves the project.mml layer
 // order, so map each layer id to its index there. This is the authoritative
 // stacking order and is independent of how the .mss files were concatenated.
-const mml = require('./mml.json');
 const layerOrder = new Map();
 mml.forEach((layer, i) => {
   const id = layer && (layer.id || layer.name);
@@ -264,36 +264,13 @@ async function renderChunk(cX, cY, cZ) {
   if (!center) return;
   const { nodeMap, ways, relations } = center;
 
-  // Load the 8 neighbor chunks so multipolygon rings whose connecting member
-  // ways cross a chunk boundary can still be closed. Without this a cross-chunk
-  // outer ring stays open and gets force-closed with a straight chord across
-  // the interior -> the white-triangle / checkerboard fill artifact.
-  const lookupChunks = [center];
-  for (let dx = -1; dx <= 1; dx++) {
-    for (let dy = -1; dy <= 1; dy++) {
-      if (dx === 0 && dy === 0) continue;
-      const nb = await parseChunk(cX + dx, cY + dy, cZ);
-      if (nb) lookupChunks.push(nb);
-    }
+  const wayMap = new Map();
+  for (let i = ways.length - 1; i >= 0; i--) {
+    wayMap.set(ways[i].id, i);
   }
-  const mergedWayMap = new Map();
-  for (const c of lookupChunks) {
-    for (const w of c.ways) if (!mergedWayMap.has(w.id)) mergedWayMap.set(w.id, w);
-  }
-  const mergedNodes = {
-    get: (id) => {
-      for (const c of lookupChunks) {
-        const p = c.nodeMap.get(id);
-        if (p) return p;
-      }
-      return undefined;
-    }
-  };
 
-  // Assemble multipolygon relations (wide rivers, lakes, landuse, ...) into
-  // filled area geometry. Their tags live on the relation and their member
-  // ways are usually untagged, so the per-way loop below never draws them.
-  const { features: areaFeatures, memberWayIds } = assembleAreas(relations, mergedWayMap, mergedNodes);
+  // Assemble multipolygon relations (wide rivers, lakes, landuse, ...) into filled area geometry. Their tags live on the relation and their member ways are usually untagged, so the per-way loop below never draws them.
+  const { features: areaFeatures, memberWayIds } = assembleAreas(relations, ways, wayMap, nodeMap);
 
   // reconstruct geometry
   const subTiles = getSubTiles(cX, cY, cZ, tilesMaxZ);

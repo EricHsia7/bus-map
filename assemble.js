@@ -85,13 +85,14 @@ function ringToCoords(ring, nodeMap) {
 
 /**
  * @param relations parsed relations: { id, members:[{type,ref,role}], tags }
- * @param wayMap    Map<wayId, { id, refs, tags }>
+ * @param ways Array<{ id, refs, tags }>
+ * @param wayMap    Map<wayId, wayIdx>
  * @param nodeMap   Map<nodeId, [lon,lat]>
  * @returns { features: [{ tags, polygons:[[outer, ...holes], ...] }], memberWayIds:Set }
  *   `polygons` coordinates are in [lon,lat]; each entry is one outer ring
  *   followed by its hole rings, ready to pass to plotPolygon.
  */
-function assembleAreas(relations, wayMap, nodeMap) {
+function assembleAreas(relations, ways, wayMap, nodeMap) {
   const features = [];
   const memberWayIds = new Set();
 
@@ -106,8 +107,9 @@ function assembleAreas(relations, wayMap, nodeMap) {
     for (const m of rel.members) {
       if (m.type !== 'way') continue;
       memberWayIds.add(m.ref);
-      const w = wayMap.get(m.ref);
-      if (!w) continue; // member way not present in this chunk
+      const idx = wayMap.get(m.ref);
+      if (!idx) continue; // member way not present in this chunk
+      const w = ways[idx];
       if (m.role === 'inner') {
         innerFrags.push(w.refs);
       } else {
