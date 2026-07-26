@@ -1,6 +1,7 @@
 const fs = require('node:fs');
 const { looksLikeColorValue, parseCSSModel, extractRGBA, rgbaToString } = require('./color');
 const { looksLikeNumericalExpression, calc } = require('./calc');
+const { invertRGB } = require('./invert');
 
 // Usage: node compile-carto.js style.mss > style.json
 //
@@ -36,9 +37,7 @@ const { looksLikeNumericalExpression, calc } = require('./calc');
 // different layers (e.g. `#roads-casing, #bridges, #tunnels { ... }`) or set
 // zoom at different nesting levels.
 
-/* ----------------------------------------------------------------------- */
-/* LESS @variable resolution (populated by main())                         */
-/* ----------------------------------------------------------------------- */
+const dark = process?.argv && Array.isArray(process.argv) && process.argv.includes('--dark');
 
 const rawVars = new Map();
 const resolvedVars = new Map();
@@ -60,7 +59,13 @@ function resolveValue(str) {
   if (looksLikeColorValue(substituted)) {
     const parsed = parseCSSModel(substituted);
     if (parsed) {
-      return rgbaToString(extractRGBA(parsed));
+      const rgba = extractRGBA(parsed);
+      if (dark) {
+        const inverted = invertRGB(rgba[0], rgba[1], rgba[2]);
+        return rgbaToString([inverted[0], inverted[1], inverted[2], rgba[3]]);
+      } else {
+        return rgbaToString(rgba);
+      }
     }
   } else if (looksLikeNumericalExpression(substituted)) {
     const evaluated = calc(substituted);
@@ -273,10 +278,11 @@ function main() {
     // nesting chain; the innermost/last one applies to this declaration block.
     // Each attachment is rendered as a SEPARATE symbolizer, so paint from one
     // attachment must never cascade onto another.
-    const attachment = chain
-      .map((s) => (s.match(/::([\w-]+)/) || [])[1])
-      .filter(Boolean)
-      .pop() || null;
+    const attachment =
+      chain
+        .map((s) => (s.match(/::([\w-]+)/) || [])[1])
+        .filter(Boolean)
+        .pop() || null;
 
     const groups = buildGroups(chain, parseSelector);
     out.push(attachment ? { groups, paint, attachment } : { groups, paint });

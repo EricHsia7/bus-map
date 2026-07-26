@@ -87,9 +87,9 @@
 @footway-fill-noaccess: @road-fill;
 
 /* Dedicated bicycle paths or separated cycle tracks. */
-@cycleway-fill: #5f9089;
+@cycleway-fill: #16bb9a;
 @cycleway-fill-noaccess: @cycleway-fill;
-@cycleway-casing: #99b9b6;
+@cycleway-casing: #ffffff;
 
 /* Generic multi-use non-motorized trails (shared by hikers, mountain bikers, or horse riders). */
 @path-casing: darken(@road-fill, 5%);

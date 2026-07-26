@@ -727981,7 +727981,7 @@
     ],
     "paint": {
       "line-width": "2.7",
-      "line-color": "rgba(153,185,182,1)",
+      "line-color": "rgba(255,255,255,1)",
       "line-join": "round"
     },
     "attachment": "bridges_and_tunnels_background"
@@ -728517,7 +728517,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(153,185,182,1)",
+      "line-color": "rgba(255,255,255,1)",
       "line-cap": "round",
       "line-join": "round",
       "line-width": "2.7"
@@ -857793,7 +857793,7 @@
       }
     ],
     "paint": {
-      "line/line-color": "rgba(95,144,137,1)",
+      "line/line-color": "rgba(22,187,154,1)",
       "line/line-dasharray": "1, 3",
       "line/line-join": "round",
       "line/line-cap": "round",
@@ -857937,7 +857937,7 @@
       }
     ],
     "paint": {
-      "background/line-color": "rgba(153,185,182,1)",
+      "background/line-color": "rgba(255,255,255,1)",
       "background/line-cap": "round",
       "background/line-join": "round",
       "background/line-width": "2.9",
@@ -858541,7 +858541,7 @@
       }
     ],
     "paint": {
-      "line/line-color": "rgba(95,144,137,1)"
+      "line/line-color": "rgba(22,187,154,1)"
     },
     "attachment": "fill"
   },
@@ -859623,7 +859623,7 @@
       }
     ],
     "paint": {
-      "line/line-color": "rgba(95,144,137,1)",
+      "line/line-color": "rgba(22,187,154,1)",
       "line/line-dasharray": "1, 3, 2, 4",
       "line/line-join": "round",
       "line/line-cap": "round",
@@ -859847,7 +859847,7 @@
       }
     ],
     "paint": {
-      "line/line-color": "rgba(95,144,137,1)"
+      "line/line-color": "rgba(22,187,154,1)"
     },
     "attachment": "fill"
   },
@@ -860568,7 +860568,7 @@
       }
     ],
     "paint": {
-      "line/line-color": "rgba(95,144,137,1)",
+      "line/line-color": "rgba(22,187,154,1)",
       "line/line-dasharray": "1, 4",
       "line/line-join": "round",
       "line/line-cap": "round",
@@ -860792,7 +860792,7 @@
       }
     ],
     "paint": {
-      "line/line-color": "rgba(95,144,137,1)"
+      "line/line-color": "rgba(22,187,154,1)"
     },
     "attachment": "fill"
   },
@@ -918124,7 +918124,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(44,67,64,1)"
+      "text-fill": "rgba(9,73,60,1)"
     },
     "attachment": "directions"
   },
