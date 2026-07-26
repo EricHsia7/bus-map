@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.css" rel="stylesheet" />
     <script src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
+    <script src="https://unpkg.com/fflate@0.8.3"></script>
     <style>
       html,
       body {
@@ -34,8 +35,44 @@
     <div id="map"></div>
     <div id="hud">labels: …</div>
     <script>
+      const { Decompress } = fflate;
+
+      function concatChunks(chunks) {
+        const size = chunks.reduce((n, c) => n + c.length, 0);
+        const result = new Uint8Array(size);
+        let pos = 0;
+        for (const chunk of chunks) {
+          result.set(chunk, pos);
+          pos += chunk.length;
+        }
+        return result;
+      }
+
+      async function streamInflate(url) {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        if (!response.body) throw new Error('No response body to stream');
+
+        const inflater = new Decompress();
+        const chunks = [];
+        inflater.ondata = (chunk, final) => {
+          chunks.push(chunk);
+        };
+
+        const reader = response.body.getReader();
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          inflater.push(value, false); // feed compressed bytes incrementally
+        }
+
+        inflater.push(new Uint8Array(0), true); // final = true -> flush the tail
+
+        return concatChunks(chunks);
+      }
+
       const TILE_URL = './tiles/{z}/{x}/{y}.webp';
-      const LABEL_URL = './labels/{z}/{x}/{y}.geojson'; // per-tile GeoJSON emitted by render.js
+      const LABEL_URL = './labels/{z}/{x}/{y}.geojson.gz'; // per-tile GeoJSON emitted by render.js
       const CENTER = [25.0331668, 121.5646286]; // [lat, lng] — Taipei
       const MIN_NATIVE = 13;
       const MAX_NATIVE = 16;
@@ -177,6 +214,7 @@
 
       const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
 
+      const decoder = new TextDecoder();
       async function fetchTile(z, x, y) {
         const key = z + '/' + x + '/' + y;
         if (labelCache.has(key)) {
@@ -187,11 +225,9 @@
         }
         let feats = [];
         try {
-          const res = await fetch(LABEL_URL.replace('{z}', z).replace('{x}', x).replace('{y}', y));
-          if (res.ok) {
-            const gj = await res.json();
-            feats = (gj && gj.features) || [];
-          }
+          const data = await streamInflate(LABEL_URL.replace('{z}', z).replace('{x}', x).replace('{y}', y));
+          const geojson = JSON.parse(decoder.decode(data));
+          feats = (geojson && geojson.features) || [];
         } catch (e) {
           /* missing tile -> treat as empty, and cache so we don't refetch */
         }

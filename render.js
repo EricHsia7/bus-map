@@ -1,7 +1,7 @@
 const protobuf = require('protobufjs');
 const fs = require('node:fs');
 const path = require('node:path');
-const { decompressSync } = require('fflate');
+const { decompressSync, gzipSync } = require('fflate');
 const { plotPolygon, plotLineString } = require('./plot.js');
 const { getTileViewbox, getSubTiles, areaToTiles, getParentTile, tileToBoundingbox } = require('./coordinate.js');
 const style = require('./style.json');
@@ -73,6 +73,9 @@ const tileBackground = config.tiles.background;
 const tilesMaxZ = config.tiles.z.max;
 const safeMargin = 64;
 
+const backgroundElement = `<rect x="0" y="0" width="${tileSize}" height="${tileSize}" fill="${tileBackground}"/>`;
+const encoder = new TextEncoder();
+
 // Overlay label/marker output. Text and point symbols are intentionally NOT
 // rasterized (see paint-to-svg.js); instead we collect the features a MapLibre
 // `symbol` layer *should* render and emit one GeoJSON FeatureCollection per
@@ -93,8 +96,6 @@ function centroidOf(ring) {
   }
   return n ? [x / n, y / n] : null;
 }
-
-const backgroundElement = `<rect x="0" y="0" width="${tileSize}" height="${tileSize}" fill="${tileBackground}"/>`;
 
 // Parse one chunk's .osm.pbf into { nodeMap, ways, relations }.
 // Returns null when the chunk file does not exist.
@@ -409,7 +410,7 @@ async function renderChunk(cX, cY, cZ) {
     await rasterize(svg, path.join(tilesDir, tZ.toString(), tX.toString(), tY.toString()));
     if (labels.length) {
       await makeDirectory(path.join(labelsDir, tZ.toString(), tX.toString()));
-      fs.writeFileSync(path.join(labelsDir, tZ.toString(), tX.toString(), `${tY}.geojson`), JSON.stringify({ type: 'FeatureCollection', features: labels }));
+      fs.writeFileSync(path.join(labelsDir, tZ.toString(), tX.toString(), `${tY}.geojson.gz`), Buffer.from(gzipSync(encoder.encode(JSON.stringify({ type: 'FeatureCollection', features: labels })))));
     }
     const endTime = performance.now();
     console.log(`[${count}/${total}] Rendered (${tX} ${tY} ${tZ}) in (${cX} ${cY} ${cZ}) in ${((endTime - startTime) / 1000).toFixed(2)}s.`);

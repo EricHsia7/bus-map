@@ -4255,7 +4255,7 @@ no official postal addresses) */
 @bare_ground: #eee5dc;
 @campsite: #def6c0; // also caravan_site, picnic_site
 @cemetery: #aacbaf; // also grave_yard
-@construction: #c7c7b4; // also brownfield
+@construction: #e0e0dc; // also brownfield
 @heath: #d6d99f;
 @mud: rgba(203, 177, 154, 0.3); // produces #e6dcd1 over @land
 @place_of_worship: #d0d0d0; // also landuse_religious
