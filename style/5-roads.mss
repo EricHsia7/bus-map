@@ -1,5 +1,5 @@
-@default-casing: #ffffff;
-@road-fill: #c4cbd4;
+@default-casing: #d3d8de;
+@road-fill: #d3d8de;
 @road-casing: @residential-casing;
 
 @access-marking: #eaeaeb;
@@ -77,7 +77,7 @@
 @pedestrian-fill: @road-fill;
 
 /* Roads used for agricultural or forestry access. Usually unpaved and sub-tagged with surface quality (tracktype=grade1 to grade5). */
-@track-casing: @default-casing;
+@track-casing: #ffffff;
 @track-fill-noaccess: #e2c5bb;
 @track-fill: #996600;
 

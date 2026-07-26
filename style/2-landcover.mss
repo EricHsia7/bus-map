@@ -1,12 +1,12 @@
 // --- Parks, woods, other green things ---
 
-@grass: #cdebb0; // also grassland, meadow, village_green, garden, allotments
-@scrub: #c8d7ab;
-@forest: #9dc69d;
-@forest-text: #46673b;
-@park: #c8facc;
-@allotments: #c9e1bf;
-@orchard: #aedfa3; // also vineyard, plant_nursery
+@grass: #c8facc; // also grassland, meadow, village_green, garden, allotments
+@scrub: #bef2c2;
+@forest: #b5eab7;
+@forest-text: #1f3a20;
+@park: #abe2ad;
+@allotments: #a2daa2;
+@orchard: #98d298; // also vineyard, plant_nursery
 @hedge: @forest;
 
 // --- "Base" landuses ---

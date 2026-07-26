@@ -261,7 +261,7 @@ async function parseChunk(cX, cY, cZ) {
 
 async function renderChunk(cX, cY, cZ) {
   const center = await parseChunk(cX, cY, cZ);
-  if (!center) return;
+  if (!center) return false;
   const { nodeMap, ways, relations } = center;
 
   const wayMap = new Map();
@@ -484,12 +484,13 @@ async function main() {
       console.log(groupResults);
     } catch (err) {
       console.log(baseZ, err);
+    } finally {
+      // Drop any cached chunk whose whole neighborhood is now rendered. Runs
+      // after the group (not mid-group) so a chunk still in use by a sibling
+      // render in the same group is never pulled out from under it.
+      unloadFinishedChunks();
+      console.log(`chunkCache: ${chunkCache.size} chunk(s) resident`);
     }
-    // Drop any cached chunk whose whole neighborhood is now rendered. Runs
-    // after the group (not mid-group) so a chunk still in use by a sibling
-    // render in the same group is never pulled out from under it.
-    unloadFinishedChunks();
-    console.log(`chunkCache: ${chunkCache.size} chunk(s) resident`);
   }
 }
 
