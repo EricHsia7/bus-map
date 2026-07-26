@@ -59,7 +59,7 @@
       }
     }
     [int_intermittent='yes'] {
-      polygon-pattern-file: url('patterns/intermittent_water.svg');
+      polygon-pattern-file: "url('patterns/intermittent_water.svg')";
       [way_pixels >='4'] {
         polygon-pattern-gamma: 0.75;
       }

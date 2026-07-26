@@ -3,6 +3,10 @@
 
 @standard-halo-radius: 1;
 @standard-halo-fill: rgba(255, 255, 255, 0.6);
+
+@book-fonts: 'Noto Sans';
+@bold-fonts: 'Noto Sans', @book-fonts;
+@oblique-fonts: 'Noto Sans', @book-fonts;
 #ocean-lz,
 #ocean {
   polygon-fill: @water-color;
@@ -80,12 +84,12 @@
   [feature='tourism_alpine_hut'][zoom >='13'],
   [feature='tourism_wilderness_hut'][zoom >='13'],
   [feature='amenity_shelter'][zoom >='16'] {
-    marker-file: url('symbols/amenity/shelter.svg');
+    marker-file: "url('symbols/amenity/shelter.svg')";
     [feature='tourism_wilderness_hut'] {
-      marker-file: url('symbols/tourism/wilderness_hut.svg');
+      marker-file: "url('symbols/tourism/wilderness_hut.svg')";
     }
     [feature='tourism_alpine_hut'] {
-      marker-file: url('symbols/tourism/alpinehut.svg');
+      marker-file: "url('symbols/tourism/alpinehut.svg')";
     }
     [feature='amenity_shelter'] {
       marker-fill: @man-made-icon;
@@ -98,19 +102,19 @@
   }
 
   [feature='amenity_atm'][zoom >='18'] {
-    marker-file: url('symbols/amenity/atm.svg');
+    marker-file: "url('symbols/amenity/atm.svg')";
     marker-fill: @amenity-brown;
     marker-clip: false;
   }
 
   [feature='amenity_bureau_de_change'][zoom >='17'] {
-    marker-file: url('symbols/amenity/bureau_de_change.svg');
+    marker-file: "url('symbols/amenity/bureau_de_change.svg')";
     marker-fill: @amenity-brown;
     marker-clip: false;
   }
 
   [feature='amenity_bank'][zoom >='17'] {
-    marker-file: url('symbols/amenity/bank.svg');
+    marker-file: "url('symbols/amenity/bank.svg')";
     marker-fill: @public-service;
     marker-clip: false;
   }
@@ -130,37 +134,37 @@
       marker-line-width: 0;
     }
     [feature='amenity_bar'][zoom >='18'] {
-      marker-file: url('symbols/amenity/bar.svg');
+      marker-file: "url('symbols/amenity/bar.svg')";
     }
     [feature='amenity_biergarten'][zoom >='18'] {
-      marker-file: url('symbols/amenity/biergarten.svg');
+      marker-file: "url('symbols/amenity/biergarten.svg')";
     }
     [feature='amenity_cafe'][zoom >='18'] {
-      marker-file: url('symbols/amenity/cafe.svg');
+      marker-file: "url('symbols/amenity/cafe.svg')";
     }
     [feature='amenity_fast_food'][zoom >='18'] {
-      marker-file: url('symbols/amenity/fast_food.svg');
+      marker-file: "url('symbols/amenity/fast_food.svg')";
     }
     [feature='amenity_food_court'][zoom >='17'],
     [feature='amenity_restaurant'][zoom >='18'] {
-      marker-file: url('symbols/amenity/restaurant.svg');
+      marker-file: "url('symbols/amenity/restaurant.svg')";
     }
     [feature='amenity_ice_cream'][zoom >='18'] {
-      marker-file: url('symbols/amenity/ice_cream.svg');
+      marker-file: "url('symbols/amenity/ice_cream.svg')";
     }
     [feature='amenity_pub'][zoom >='18'] {
-      marker-file: url('symbols/amenity/pub.svg');
+      marker-file: "url('symbols/amenity/pub.svg')";
     }
   }
 
   [feature='amenity_internet_cafe'][zoom >='17'] {
-    marker-file: url('symbols/amenity/internet_cafe.svg');
+    marker-file: "url('symbols/amenity/internet_cafe.svg')";
     marker-fill: @amenity-brown;
     marker-clip: false;
   }
 
   [feature='amenity_bbq'][zoom >='17'] {
-    marker-file: url('symbols/amenity/bbq.svg');
+    marker-file: "url('symbols/amenity/bbq.svg')";
     marker-fill: @amenity-brown;
     marker-clip: false;
     [int_access='restricted'] {
@@ -169,26 +173,26 @@
   }
 
   [feature='amenity_public_bookcase'][zoom >='19'] {
-    marker-file: url('symbols/amenity/public_bookcase.svg');
+    marker-file: "url('symbols/amenity/public_bookcase.svg')";
     marker-fill: @amenity-brown;
     marker-clip: false;
   }
 
   [feature='amenity_bicycle_rental'][zoom >='17'] {
-    marker-file: url('symbols/amenity/rental_bicycle.svg');
+    marker-file: "url('symbols/amenity/rental_bicycle.svg')";
     marker-fill: @transportation-icon;
     marker-clip: false;
   }
 
   [feature='highway_bus_stop'] {
     [zoom >='16'][zoom < 17] {
-      marker-file: url('symbols/square.svg');
+      marker-file: "url('symbols/square.svg')";
       marker-fill: @transportation-icon;
       marker-width: 6;
       marker-clip: false;
     }
     [zoom >='17'] {
-      marker-file: url('symbols/highway/bus_stop.svg');
+      marker-file: "url('symbols/highway/bus_stop.svg')";
       marker-fill: @transportation-icon;
       marker-clip: false;
     }
@@ -196,32 +200,32 @@
 
   [feature='highway_elevator'][zoom >='18'] {
     [int_access='yes'] {
-      marker-file: url('symbols/highway/elevator.svg');
+      marker-file: "url('symbols/highway/elevator.svg')";
       marker-fill: @transportation-icon;
     }
   }
 
   [feature='amenity_bus_station'][zoom >='16'] {
-    marker-file: url('symbols/amenity/bus_station.svg');
+    marker-file: "url('symbols/amenity/bus_station.svg')";
     // use colors from SVG to allow for white background
     marker-clip: false;
   }
 
   [feature='amenity_taxi'][zoom >='17'] {
-    marker-file: url('symbols/amenity/taxi.svg');
+    marker-file: "url('symbols/amenity/taxi.svg')";
     marker-fill: @transportation-icon;
     marker-clip: false;
   }
 
   [feature='amenity_vending_machine'][zoom >='19'] {
     [vending='excrement_bags'] {
-      marker-file: url('symbols/amenity/excrement_bags.svg');
+      marker-file: "url('symbols/amenity/excrement_bags.svg')";
     }
     [vending='parking_tickets'] {
-      marker-file: url('symbols/amenity/parking_tickets.svg');
+      marker-file: "url('symbols/amenity/parking_tickets.svg')";
     }
     [vending='public_transport_tickets'] {
-      marker-file: url('symbols/amenity/public_transport_tickets.svg');
+      marker-file: "url('symbols/amenity/public_transport_tickets.svg')";
     }
     marker-fill: @amenity-brown;
     marker-clip: false;
@@ -234,93 +238,93 @@
       marker-line-width: 0;
     }
     [zoom >='18'] {
-      marker-file: url('symbols/amenity/parcel_locker.svg');
+      marker-file: "url('symbols/amenity/parcel_locker.svg')";
       marker-clip: false;
     }
   }
 
   [feature='highway_traffic_signals'][zoom >='17'] {
-    marker-file: url('symbols/highway/traffic_light.svg');
+    marker-file: "url('symbols/highway/traffic_light.svg')";
     marker-fill: #545454;
     marker-clip: false;
   }
 
   [feature='barrier_toll_booth'][zoom >='16'] {
-    marker-file: url('symbols/barrier/toll_booth.svg');
+    marker-file: "url('symbols/barrier/toll_booth.svg')";
     marker-fill: @transportation-icon;
     marker-clip: false;
   }
 
   [feature='tourism_artwork'][zoom >='17'] {
     [artwork_type !='statue'] {
-      marker-file: url('symbols/tourism/artwork.svg');
+      marker-file: "url('symbols/tourism/artwork.svg')";
     }
     [artwork_type='statue'] {
-      marker-file: url('symbols/historic/statue.svg');
+      marker-file: "url('symbols/historic/statue.svg')";
     }
     [artwork_type='bust'] {
-      marker-file: url('symbols/historic/bust.svg');
+      marker-file: "url('symbols/historic/bust.svg')";
     }
     marker-fill: @memorials;
   }
 
   [feature='tourism_camp_site'][zoom >='16'] {
-    marker-file: url('symbols/tourism/camping.svg');
+    marker-file: "url('symbols/tourism/camping.svg')";
     marker-fill: @accommodation-icon;
     marker-clip: false;
   }
 
   // Ford tagging on points - ford on lines is defined later
   [feature='highway_ford'][zoom >='16'] {
-    marker-file: url('symbols/highway/ford.svg');
+    marker-file: "url('symbols/highway/ford.svg')";
     marker-fill: @transportation-icon;
     marker-clip: false;
   }
 
   [feature='tourism_caravan_site'][zoom >='16'] {
-    marker-file: url('symbols/tourism/caravan_park.svg');
+    marker-file: "url('symbols/tourism/caravan_park.svg')";
     marker-clip: false;
     marker-fill: @accommodation-icon;
   }
 
   [feature='amenity_car_rental'][zoom >='17'] {
-    marker-file: url('symbols/amenity/rental_car.svg');
+    marker-file: "url('symbols/amenity/rental_car.svg')";
     marker-fill: @transportation-icon;
     marker-clip: false;
   }
 
   [feature='amenity_car_wash'][zoom >='17'] {
-    marker-file: url('symbols/amenity/car_wash.svg');
+    marker-file: "url('symbols/amenity/car_wash.svg')";
     marker-fill: @amenity-brown;
     marker-clip: false;
   }
 
   [feature='tourism_chalet'][zoom >='17'] {
-    marker-file: url('symbols/tourism/chalet.svg');
+    marker-file: "url('symbols/tourism/chalet.svg')";
     marker-fill: @accommodation-icon;
     marker-clip: false;
   }
 
   [feature='amenity_cinema'][zoom >='16'] {
-    marker-file: url('symbols/amenity/cinema.svg');
+    marker-file: "url('symbols/amenity/cinema.svg')";
     marker-fill: @culture;
     marker-clip: false;
   }
 
   [feature='amenity_public_bath'][zoom >='17'] {
-    marker-file: url('symbols/amenity/public_bath.svg');
+    marker-file: "url('symbols/amenity/public_bath.svg')";
     marker-fill: @amenity-brown;
     marker-clip: false;
   }
 
   [feature='amenity_nightclub'][zoom >='17'] {
-    marker-file: url('symbols/amenity/nightclub.svg');
+    marker-file: "url('symbols/amenity/nightclub.svg')";
     marker-fill: @amenity-brown;
     marker-clip: false;
   }
 
   [feature='amenity_fire_station'][zoom >='16'] {
-    marker-file: url('symbols/amenity/firestation.svg');
+    marker-file: "url('symbols/amenity/firestation.svg')";
     marker-fill: @public-service;
     marker-clip: false;
   }
@@ -344,7 +348,7 @@
         nozzle/marker-height: 3;
       }
       [zoom >='18'] {
-        nozzle/marker-file: url('symbols/amenity/fountain.svg');
+        nozzle/marker-file: "url('symbols/amenity/fountain.svg')";
         nozzle/marker-fill: @marina-text;
         nozzle/marker-clip: false;
       }
@@ -352,7 +356,7 @@
   }
 
   [feature='amenity_charging_station'][zoom >='17'] {
-    marker-file: url('symbols/amenity/charging_station.svg');
+    marker-file: "url('symbols/amenity/charging_station.svg')";
     marker-fill: @transportation-icon;
     marker-clip: false;
     [int_access='restricted'] {
@@ -361,25 +365,25 @@
   }
 
   [feature='amenity_fuel'][zoom >='17'] {
-    marker-file: url('symbols/amenity/fuel.svg');
+    marker-file: "url('symbols/amenity/fuel.svg')";
     marker-fill: @transportation-icon;
     marker-clip: false;
   }
 
   [feature='tourism_guest_house'][zoom >='17'] {
-    marker-file: url('symbols/tourism/guest_house.svg');
+    marker-file: "url('symbols/tourism/guest_house.svg')";
     marker-fill: @accommodation-icon;
     marker-clip: false;
   }
 
   [feature='tourism_apartment'][zoom >='18'] {
-    marker-file: url('symbols/tourism/apartment.svg');
+    marker-file: "url('symbols/tourism/apartment.svg')";
     marker-fill: @accommodation-icon;
     marker-clip: false;
   }
 
   [feature='amenity_bicycle_repair_station'][zoom >='19'] {
-    marker-file: url('symbols/amenity/bicycle_repair_station.svg');
+    marker-file: "url('symbols/amenity/bicycle_repair_station.svg')";
     marker-fill: @amenity-brown;
     marker-clip: false;
     [int_access='restricted'] {
@@ -388,31 +392,31 @@
   }
 
   [feature='amenity_casino'][zoom >='17'] {
-    marker-file: url('symbols/amenity/casino.svg');
+    marker-file: "url('symbols/amenity/casino.svg')";
     marker-fill: @amenity-brown;
     marker-clip: false;
   }
 
   [feature='tourism_gallery'][zoom >='17'] {
-    marker-file: url('symbols/shop/art.svg');
+    marker-file: "url('symbols/shop/art.svg')";
     marker-clip: false;
     marker-fill: @amenity-brown;
   }
 
   [feature='tourism_hostel'][zoom >='17'] {
-    marker-file: url('symbols/tourism/hostel.svg');
+    marker-file: "url('symbols/tourism/hostel.svg')";
     marker-clip: false;
     marker-fill: @accommodation-icon;
   }
 
   [feature='tourism_hotel'][zoom >='17'] {
-    marker-file: url('symbols/tourism/hotel.svg');
+    marker-file: "url('symbols/tourism/hotel.svg')";
     marker-clip: false;
     marker-fill: @accommodation-icon;
   }
 
   [feature='tourism_motel'][zoom >='17'] {
-    marker-file: url('symbols/tourism/motel.svg');
+    marker-file: "url('symbols/tourism/motel.svg')";
     marker-clip: false;
     marker-fill: @accommodation-icon;
   }
@@ -420,49 +424,49 @@
   [feature='tourism_information'][zoom >='19'],
   [feature='tourism_information']["information"='office'][zoom >='17'] {
     [information='audioguide'] {
-      marker-file: url('symbols/tourism/audioguide.svg');
+      marker-file: "url('symbols/tourism/audioguide.svg')";
     }
     [information='board'] {
-      marker-file: url('symbols/tourism/board.svg');
+      marker-file: "url('symbols/tourism/board.svg')";
     }
     [information='guidepost'] {
-      marker-file: url('symbols/tourism/guidepost.svg');
+      marker-file: "url('symbols/tourism/guidepost.svg')";
     }
     [information='office'] {
-      marker-file: url('symbols/tourism/office.svg');
+      marker-file: "url('symbols/tourism/office.svg')";
       marker-fill: @amenity-brown;
     }
     [information='map'],
     [information='tactile_map'] {
-      marker-file: url('symbols/tourism/map.svg');
+      marker-file: "url('symbols/tourism/map.svg')";
     }
     [information='terminal'] {
-      marker-file: url('symbols/tourism/terminal.svg');
+      marker-file: "url('symbols/tourism/terminal.svg')";
     }
     marker-fill: @man-made-icon;
     marker-clip: false;
   }
 
   [feature='amenity_library'][zoom >='16'] {
-    marker-file: url('symbols/amenity/library.svg');
+    marker-file: "url('symbols/amenity/library.svg')";
     marker-fill: @culture;
     marker-clip: false;
   }
 
   [feature='amenity_courthouse'][zoom >='16'] {
-    marker-file: url('symbols/amenity/courthouse.svg');
+    marker-file: "url('symbols/amenity/courthouse.svg')";
     marker-fill: @public-service;
     marker-clip: false;
   }
 
   [feature='amenity_community_centre'][zoom >='17'] {
-    marker-file: url('symbols/amenity/community_centre.svg');
+    marker-file: "url('symbols/amenity/community_centre.svg')";
     marker-fill: @culture;
     marker-clip: false;
   }
 
   [feature='amenity_shower'][zoom >='18'] {
-    marker-file: url('symbols/amenity/shower.svg');
+    marker-file: "url('symbols/amenity/shower.svg')";
     marker-fill: @amenity-brown;
     marker-clip: false;
     [int_access='restricted'] {
@@ -471,13 +475,13 @@
   }
 
   [feature='amenity_social_facility'][zoom >='17'] {
-    marker-file: url('symbols/amenity/social_facility.svg');
+    marker-file: "url('symbols/amenity/social_facility.svg')";
     marker-fill: @public-service;
     marker-clip: false;
   }
 
   [feature='amenity_townhall'][zoom >='16'] {
-    marker-file: url('symbols/amenity/town_hall.svg');
+    marker-file: "url('symbols/amenity/town_hall.svg')";
     marker-fill: @public-service;
     marker-clip: false;
   }
@@ -489,14 +493,14 @@
     [zoom >='16'][height >='40'],
     [zoom >='17'][height >='20'],
     [zoom >='18'] {
-      marker-file: url('symbols/man_made/mast.svg');
+      marker-file: "url('symbols/man_made/mast.svg')";
       marker-fill: @man-made-icon;
       marker-clip: false;
       ["tower:type"='lighting'] {
-        marker-file: url('symbols/man_made/mast_lighting.svg');
+        marker-file: "url('symbols/man_made/mast_lighting.svg')";
       }
       ["tower:type"='communication'] {
-        marker-file: url('symbols/man_made/mast_communications.svg');
+        marker-file: "url('symbols/man_made/mast_communications.svg')";
       }
     }
   }
@@ -510,54 +514,54 @@
     [zoom >='15'][height >='80'],
     [zoom >='16'][height >='40'],
     [zoom >='17'] {
-      marker-file: url('symbols/man_made/tower_generic.svg');
+      marker-file: "url('symbols/man_made/tower_generic.svg')";
       marker-fill: @man-made-icon;
       marker-clip: false;
       ["tower:type"='defensive'] {
-        marker-file: url('symbols/man_made/tower_defensive.svg');
+        marker-file: "url('symbols/man_made/tower_defensive.svg')";
       }
       ["tower:type"='observation'],
       ["tower:type"='watchtower'] {
-        marker-file: url('symbols/man_made/tower_observation.svg');
+        marker-file: "url('symbols/man_made/tower_observation.svg')";
       }
       ["tower:type"='bell_tower'] {
-        marker-file: url('symbols/man_made/bell_tower.svg');
+        marker-file: "url('symbols/man_made/bell_tower.svg')";
       }
       ["tower:type"='cooling'] {
-        marker-file: url('symbols/man_made/tower_cooling.svg');
+        marker-file: "url('symbols/man_made/tower_cooling.svg')";
       }
       ["tower:construction"='lattice'] {
-        marker-file: url('symbols/man_made/tower_lattice.svg');
+        marker-file: "url('symbols/man_made/tower_lattice.svg')";
       }
       ["tower:construction"='dish'] {
-        marker-file: url('symbols/man_made/tower_dish.svg');
+        marker-file: "url('symbols/man_made/tower_dish.svg')";
       }
       ["tower:construction"='dome'] {
-        marker-file: url('symbols/man_made/tower_dome.svg');
+        marker-file: "url('symbols/man_made/tower_dome.svg')";
       }
       ["tower:type"='communication'] {
-        marker-file: url('symbols/man_made/tower_cantilever_communication.svg');
+        marker-file: "url('symbols/man_made/tower_cantilever_communication.svg')";
         ["tower:construction"='lattice'] {
-          marker-file: url('symbols/man_made/tower_lattice_communication.svg');
+          marker-file: "url('symbols/man_made/tower_lattice_communication.svg')";
         }
         ["tower:construction"='dish'] {
-          marker-file: url('symbols/man_made/tower_dish.svg');
+          marker-file: "url('symbols/man_made/tower_dish.svg')";
         }
         ["tower:construction"='dome'] {
-          marker-file: url('symbols/man_made/tower_dome.svg');
+          marker-file: "url('symbols/man_made/tower_dome.svg')";
         }
       }
       ["tower:type"='lighting'] {
-        marker-file: url('symbols/man_made/tower_lighting.svg');
+        marker-file: "url('symbols/man_made/tower_lighting.svg')";
         ["tower:construction"='lattice'] {
-          marker-file: url('symbols/man_made/tower_lattice_lighting.svg');
+          marker-file: "url('symbols/man_made/tower_lattice_lighting.svg')";
         }
       }
     }
   }
 
   [feature='man_made_communications_tower'][zoom >='14'] {
-    marker-file: url('symbols/man_made/communications_tower.svg');
+    marker-file: "url('symbols/man_made/communications_tower.svg')";
     marker-fill: @man-made-icon;
     marker-clip: false;
   }
@@ -566,7 +570,7 @@
     [zoom >='16'][height > 50],
     [zoom >='17'][height > 30],
     [zoom >='18'] {
-      marker-file: url('symbols/man_made/chimney.svg');
+      marker-file: "url('symbols/man_made/chimney.svg')";
       marker-fill: @man-made-icon;
       marker-clip: false;
     }
@@ -575,7 +579,7 @@
   [feature='man_made_crane'] {
     [zoom >='16'][height > 50],
     [zoom >='17'] {
-      marker-file: url('symbols/man_made/crane.svg');
+      marker-file: "url('symbols/man_made/crane.svg')";
       marker-fill: @man-made-icon;
       marker-clip: false;
     }
@@ -585,7 +589,7 @@
     [zoom >='14']["telescope:diameter" >='60'],
     [zoom >='15']["telescope:diameter" >='30'],
     [zoom >='16'] {
-      marker-file: url('symbols/man_made/telescope_dish.svg');
+      marker-file: "url('symbols/man_made/telescope_dish.svg')";
       marker-fill: @man-made-icon;
       marker-clip: false;
     }
@@ -597,27 +601,27 @@
     [zoom >='15']["telescope:diameter" >='4'],
     [zoom >='16']["telescope:diameter" >='2'],
     [zoom >='17'] {
-      marker-file: url('symbols/man_made/telescope_dome.svg');
+      marker-file: "url('symbols/man_made/telescope_dome.svg')";
       marker-fill: @man-made-icon;
       marker-clip: false;
     }
   }
 
   [feature='historic_city_gate'][zoom >='17'] {
-    marker-file: url('symbols/historic/city_gate.svg');
+    marker-file: "url('symbols/historic/city_gate.svg')";
     marker-fill: @man-made-icon;
     marker-clip: false;
   }
 
   [feature='tourism_museum'][zoom >='16'] {
-    marker-file: url('symbols/tourism/museum.svg');
+    marker-file: "url('symbols/tourism/museum.svg')";
     marker-fill: @culture;
     marker-clip: false;
   }
 
   [feature='amenity_clinic'][zoom >='17'],
   [feature='amenity_doctors'][zoom >='17'] {
-    marker-file: url('symbols/amenity/doctors.svg');
+    marker-file: "url('symbols/amenity/doctors.svg')";
     marker-fill: @health-color;
     marker-clip: false;
   }
@@ -628,101 +632,101 @@
       marker-line-width: 0;
     }
     [zoom >='18'] {
-      marker-file: url('symbols/amenity/dentist.svg');
+      marker-file: "url('symbols/amenity/dentist.svg')";
     }
     marker-fill: @health-color;
     marker-clip: false;
   }
 
   [feature='amenity_hospital'][zoom >='15'] {
-    marker-file: url('symbols/amenity/hospital.svg');
+    marker-file: "url('symbols/amenity/hospital.svg')";
     marker-fill: @health-color;
     marker-clip: false;
   }
 
   [feature='amenity_pharmacy'][zoom >='17'] {
-    marker-file: url('symbols/amenity/pharmacy.svg');
+    marker-file: "url('symbols/amenity/pharmacy.svg')";
     marker-fill: @health-color;
     marker-clip: false;
   }
 
   [feature='amenity_veterinary'][zoom >='17'] {
-    marker-file: url('symbols/amenity/veterinary.svg');
+    marker-file: "url('symbols/amenity/veterinary.svg')";
     marker-fill: @health-color;
     marker-clip: false;
   }
 
   [feature='amenity_place_of_worship'][zoom >='16'] {
-    marker-file: url('symbols/amenity/place_of_worship.svg');
+    marker-file: "url('symbols/amenity/place_of_worship.svg')";
     marker-fill: @religious-icon;
     marker-clip: false;
     [religion='christian'] {
-      marker-file: url('symbols/religion/christian.svg');
+      marker-file: "url('symbols/religion/christian.svg')";
       // Some Christian denominations do not use a cross, so reset them to the default marker
       [denomination='jehovahs_witness'],
       [denomination='la_luz_del_mundo'],
       [denomination='iglesia_ni_cristo'],
       [denomination='mormon'] {
-        marker-file: url('symbols/amenity/place_of_worship.svg');
+        marker-file: "url('symbols/amenity/place_of_worship.svg')";
       }
     }
     [religion='muslim'] {
-      marker-file: url('symbols/religion/muslim.svg');
+      marker-file: "url('symbols/religion/muslim.svg')";
     }
     [religion='sikh'] {
-      marker-file: url('symbols/religion/sikhist.svg');
+      marker-file: "url('symbols/religion/sikhist.svg')";
     }
     [religion='jewish'] {
-      marker-file: url('symbols/religion/jewish.svg');
+      marker-file: "url('symbols/religion/jewish.svg')";
     }
     [religion='hindu'] {
-      marker-file: url('symbols/religion/hinduist.svg');
+      marker-file: "url('symbols/religion/hinduist.svg')";
     }
     [religion='buddhist'] {
-      marker-file: url('symbols/religion/buddhist.svg');
+      marker-file: "url('symbols/religion/buddhist.svg')";
     }
     [religion='shinto'] {
-      marker-file: url('symbols/religion/shintoist.svg');
+      marker-file: "url('symbols/religion/shintoist.svg')";
     }
     [religion='taoist'] {
-      marker-file: url('symbols/religion/taoist.svg');
+      marker-file: "url('symbols/religion/taoist.svg')";
     }
   }
 
   [feature='man_made_storage_tank'][zoom >='18'],
   [feature='man_made_silo'][zoom >='18'] {
-    marker-file: url('symbols/man_made/storage_tank.svg');
+    marker-file: "url('symbols/man_made/storage_tank.svg')";
     marker-fill: @man-made-icon;
     marker-clip: false;
   }
 
   [feature='amenity_police'][zoom >='16'] {
-    marker-file: url('symbols/amenity/police.svg');
+    marker-file: "url('symbols/amenity/police.svg')";
     marker-fill: @public-service;
     marker-clip: false;
   }
 
   [feature='amenity_vehicle_inspection'][zoom >='17'] {
-    marker-file: url('symbols/amenity/vehicle_inspection.svg');
+    marker-file: "url('symbols/amenity/vehicle_inspection.svg')";
     marker-fill: @public-service;
     marker-clip: false;
   }
 
   [feature='amenity_post_box'][zoom >='18'] {
-    marker-file: url('symbols/amenity/post_box.svg');
+    marker-file: "url('symbols/amenity/post_box.svg')";
     marker-fill: @amenity-brown;
     marker-clip: false;
   }
 
   [feature='amenity_post_office'][zoom >='17'] {
-    marker-file: url('symbols/amenity/post_office.svg');
+    marker-file: "url('symbols/amenity/post_office.svg')";
     marker-fill: @public-service;
     marker-clip: false;
   }
 
   [feature='amenity_recycling'][recycling_type='centre'][zoom >='17'],
   [feature='amenity_recycling'][zoom >='19'] {
-    marker-file: url('symbols/amenity/recycling.svg');
+    marker-file: "url('symbols/amenity/recycling.svg')";
     marker-fill: @amenity-brown;
     marker-clip: false;
     [int_access='restricted'] {
@@ -731,25 +735,25 @@
   }
 
   [feature='amenity_telephone'][zoom >='17'] {
-    marker-file: url('symbols/amenity/telephone.svg');
+    marker-file: "url('symbols/amenity/telephone.svg')";
     marker-fill: @amenity-brown;
     marker-clip: false;
   }
 
   [feature='emergency_phone'][zoom >='18'] {
-    marker-file: url('symbols/amenity/emergency_phone.svg');
+    marker-file: "url('symbols/amenity/emergency_phone.svg')";
     marker-fill: @amenity-brown;
     marker-clip: false;
   }
 
   [feature='amenity_theatre'][zoom >='16'] {
-    marker-file: url('symbols/amenity/theatre.svg');
+    marker-file: "url('symbols/amenity/theatre.svg')";
     marker-fill: @culture;
     marker-clip: false;
   }
 
   [feature='amenity_arts_centre'][zoom >='17'] {
-    marker-file: url('symbols/amenity/arts_centre.svg');
+    marker-file: "url('symbols/amenity/arts_centre.svg')";
     marker-fill: @culture;
     marker-clip: false;
   }
@@ -757,7 +761,7 @@
   [feature='amenity_toilets'] {
     [int_access='yes'][zoom >='18'],
     [zoom >='19'] {
-      marker-file: url('symbols/amenity/toilets.svg');
+      marker-file: "url('symbols/amenity/toilets.svg')";
       marker-fill: @amenity-brown;
       marker-clip: false;
       [int_access='restricted'] {
@@ -767,7 +771,7 @@
   }
 
   [feature='amenity_drinking_water'][zoom >='17'] {
-    marker-file: url('symbols/amenity/drinking_water.svg');
+    marker-file: "url('symbols/amenity/drinking_water.svg')";
     marker-fill: @amenity-brown;
     marker-clip: false;
     [int_access='restricted'] {
@@ -776,7 +780,7 @@
   }
 
   [feature='amenity_prison'][zoom >='17'] {
-    marker-file: url('symbols/amenity/prison.svg');
+    marker-file: "url('symbols/amenity/prison.svg')";
     marker-fill: @public-service;
     marker-clip: false;
   }
@@ -805,13 +809,13 @@
   }
 
   [feature='tourism_viewpoint'][zoom >='16'] {
-    marker-file: url('symbols/tourism/viewpoint.svg');
+    marker-file: "url('symbols/tourism/viewpoint.svg')";
     marker-fill: @amenity-brown;
     marker-clip: false;
   }
 
   [feature='man_made_water_tower'][zoom >='17'] {
-    marker-file: url('symbols/man_made/water_tower.svg');
+    marker-file: "url('symbols/man_made/water_tower.svg')";
     marker-fill: @man-made-icon;
     marker-clip: false;
   }
@@ -824,38 +828,38 @@
   [feature='historic_memorial'][memorial='stone'][zoom >='18'],
   [feature='historic_memorial'][memorial='blue_plaque'][zoom >='19'],
   [feature='historic_memorial'][memorial='plaque'][zoom >='19'] {
-    marker-file: url('symbols/historic/memorial.svg');
+    marker-file: "url('symbols/historic/memorial.svg')";
     [memorial='bust'] {
-      marker-file: url('symbols/historic/bust.svg');
+      marker-file: "url('symbols/historic/bust.svg')";
     }
     [memorial='blue_plaque'],
     [memorial='plaque'] {
-      marker-file: url('symbols/historic/plaque.svg');
+      marker-file: "url('symbols/historic/plaque.svg')";
     }
     [memorial='statue'] {
-      marker-file: url('symbols/historic/statue.svg');
+      marker-file: "url('symbols/historic/statue.svg')";
     }
     [memorial='stone'] {
-      marker-file: url('symbols/historic/stone.svg');
+      marker-file: "url('symbols/historic/stone.svg')";
     }
     marker-fill: @memorials;
     marker-clip: false;
   }
 
   [feature='man_made_obelisk'][zoom >='17'] {
-    marker-file: url('symbols/historic/obelisk.svg');
+    marker-file: "url('symbols/historic/obelisk.svg')";
     marker-fill: @memorials;
     marker-clip: false;
   }
 
   [feature='historic_monument'][zoom >='16'] {
-    marker-file: url('symbols/historic/monument.svg');
+    marker-file: "url('symbols/historic/monument.svg')";
     marker-fill: @memorials;
     marker-clip: false;
   }
 
   [feature='historic_fort'][zoom >='16'] {
-    marker-file: url('symbols/historic/fort.svg');
+    marker-file: "url('symbols/historic/fort.svg')";
     marker-fill: @memorials;
     marker-clip: false;
   }
@@ -864,28 +868,28 @@
   [feature='historic_castle'][castle_type='stately'][zoom >='16'],
   [feature='historic_castle'][castle_type='manor'][zoom >='16'],
   [feature='historic_manor'][zoom >='16'] {
-    marker-file: url('symbols/historic/castle.svg');
+    marker-file: "url('symbols/historic/castle.svg')";
     marker-fill: @memorials;
     marker-clip: false;
     [castle_type='palace'],
     [castle_type='stately'] {
-      marker-file: url('symbols/historic/palace.svg');
+      marker-file: "url('symbols/historic/palace.svg')";
     }
     [castle_type='manor'],
     [feature='historic_manor'] {
-      marker-file: url('symbols/historic/manor.svg');
+      marker-file: "url('symbols/historic/manor.svg')";
     }
     [castle_type='fortress'],
     [castle_type='defensive'],
     [castle_type='castrum'],
     [castle_type='shiro'],
     [castle_type='kremlin'] {
-      marker-file: url('symbols/historic/fortress.svg');
+      marker-file: "url('symbols/historic/fortress.svg')";
     }
   }
 
   [feature='historic_archaeological_site'][zoom >='16'] {
-    marker-file: url('symbols/historic/archaeological_site.svg');
+    marker-file: "url('symbols/historic/archaeological_site.svg')";
     marker-fill: @culture;
     marker-clip: false;
   }
@@ -894,7 +898,7 @@
   [feature='amenity_marketplace'][zoom >='17'] {
     marker-clip: false;
     marker-fill: @shop-icon;
-    marker-file: url('symbols/shop/marketplace.svg');
+    marker-file: "url('symbols/shop/marketplace.svg')";
   }
 
   [feature='shop'] {
@@ -916,327 +920,327 @@
     }
 
     [shop='supermarket'][zoom >='16'] {
-      marker-file: url('symbols/shop/supermarket.svg');
+      marker-file: "url('symbols/shop/supermarket.svg')";
     }
 
     [shop='art'][zoom >='18'] {
-      marker-file: url('symbols/shop/art.svg');
+      marker-file: "url('symbols/shop/art.svg')";
     }
 
     [shop='bag'][zoom >='18'] {
-      marker-file: url('symbols/shop/bag.svg');
+      marker-file: "url('symbols/shop/bag.svg')";
     }
 
     [shop='bakery'][zoom >='18'] {
-      marker-file: url('symbols/shop/bakery.svg');
+      marker-file: "url('symbols/shop/bakery.svg')";
     }
 
     [shop='beauty'][zoom >='18'] {
-      marker-file: url('symbols/shop/beauty.svg');
+      marker-file: "url('symbols/shop/beauty.svg')";
     }
 
     [shop='bed'][zoom >='18'] {
-      marker-file: url('symbols/shop/bed.svg');
+      marker-file: "url('symbols/shop/bed.svg')";
     }
 
     [shop='beverages'][zoom >='18'] {
-      marker-file: url('symbols/shop/beverages.svg');
+      marker-file: "url('symbols/shop/beverages.svg')";
     }
 
     [shop='bookmaker'][zoom >='18'] {
-      marker-file: url('symbols/shop/bookmaker.svg');
+      marker-file: "url('symbols/shop/bookmaker.svg')";
     }
 
     [shop='books'][zoom >='18'] {
-      marker-file: url('symbols/amenity/library.svg');
+      marker-file: "url('symbols/amenity/library.svg')";
     }
 
     [shop='butcher'][zoom >='18'] {
-      marker-file: url('symbols/shop/butcher.svg');
+      marker-file: "url('symbols/shop/butcher.svg')";
     }
 
     [shop='carpet'][zoom >='18'] {
-      marker-file: url('symbols/shop/carpet.svg');
+      marker-file: "url('symbols/shop/carpet.svg')";
     }
 
     [shop='charity'][zoom >='18'] {
-      marker-file: url('symbols/shop/charity.svg');
+      marker-file: "url('symbols/shop/charity.svg')";
     }
 
     [shop='chemist'][zoom >='18'] {
-      marker-file: url('symbols/shop/chemist.svg');
+      marker-file: "url('symbols/shop/chemist.svg')";
     }
 
     [shop='clothes'],
     [shop='fashion'] {
       [zoom >='18'] {
-        marker-file: url('symbols/shop/clothes.svg');
+        marker-file: "url('symbols/shop/clothes.svg')";
       }
     }
 
     [shop='coffee'][zoom >='18'] {
-      marker-file: url('symbols/shop/coffee.svg');
+      marker-file: "url('symbols/shop/coffee.svg')";
     }
 
     [shop='computer'][zoom >='18'] {
-      marker-file: url('symbols/shop/computer.svg');
+      marker-file: "url('symbols/shop/computer.svg')";
     }
 
     [shop='convenience'][zoom >='18'] {
-      marker-file: url('symbols/shop/convenience.svg');
+      marker-file: "url('symbols/shop/convenience.svg')";
     }
 
     [shop='chocolate'][zoom >='18'],
     [shop='confectionery'][zoom >='18'],
     [shop='pastry'][zoom >='18'] {
-      marker-file: url('symbols/shop/confectionery.svg');
+      marker-file: "url('symbols/shop/confectionery.svg')";
     }
 
     [shop='copyshop'][zoom >='18'] {
-      marker-file: url('symbols/shop/copyshop.svg');
+      marker-file: "url('symbols/shop/copyshop.svg')";
     }
 
     [shop='cosmetics'],
     [shop='perfumery'] {
       [zoom >='18'] {
-        marker-file: url('symbols/shop/perfumery.svg');
+        marker-file: "url('symbols/shop/perfumery.svg')";
       }
     }
 
     [shop='deli'] {
       [zoom >='18'] {
-        marker-file: url('symbols/shop/deli.svg');
+        marker-file: "url('symbols/shop/deli.svg')";
       }
     }
 
     [shop='department_store'][zoom >='16'] {
-      marker-file: url('symbols/shop/department_store.svg');
+      marker-file: "url('symbols/shop/department_store.svg')";
     }
 
     [shop='doityourself'],
     [shop='hardware'] {
       [zoom >='18'] {
-        marker-file: url('symbols/shop/diy.svg');
+        marker-file: "url('symbols/shop/diy.svg')";
       }
     }
 
     [shop='dry_cleaning'],
     [shop='laundry'] {
       [zoom >='18'] {
-        marker-file: url('symbols/shop/laundry.svg');
+        marker-file: "url('symbols/shop/laundry.svg')";
       }
     }
 
     [shop='fabric'][zoom >='18'] {
-      marker-file: url('symbols/shop/fabric.svg');
+      marker-file: "url('symbols/shop/fabric.svg')";
     }
 
     [shop='seafood'][zoom >='18'] {
-      marker-file: url('symbols/shop/seafood.svg');
+      marker-file: "url('symbols/shop/seafood.svg')";
     }
 
     [shop='florist'][zoom >='18'] {
-      marker-file: url('symbols/shop/florist.svg');
+      marker-file: "url('symbols/shop/florist.svg')";
     }
 
     [shop='garden_centre'][zoom >='18'] {
-      marker-file: url('symbols/shop/garden_centre.svg');
+      marker-file: "url('symbols/shop/garden_centre.svg')";
     }
 
     [shop='greengrocer'],
     [shop='farm'] {
       [zoom >='18'] {
-        marker-file: url('symbols/shop/greengrocer.svg');
+        marker-file: "url('symbols/shop/greengrocer.svg')";
       }
     }
 
     [shop='hairdresser'][zoom >='18'] {
-      marker-file: url('symbols/shop/hairdresser.svg');
+      marker-file: "url('symbols/shop/hairdresser.svg')";
     }
 
     [shop='hifi'][zoom >='18'] {
-      marker-file: url('symbols/shop/hifi.svg');
+      marker-file: "url('symbols/shop/hifi.svg')";
     }
 
     [shop='houseware'][zoom >='18'] {
-      marker-file: url('symbols/shop/houseware.svg');
+      marker-file: "url('symbols/shop/houseware.svg')";
     }
 
     [shop='car'][zoom >='18'] {
-      marker-file: url('symbols/shop/car.svg');
+      marker-file: "url('symbols/shop/car.svg')";
     }
 
     [shop='car_parts'][zoom >='18'] {
-      marker-file: url('symbols/shop/car_parts.svg');
+      marker-file: "url('symbols/shop/car_parts.svg')";
     }
 
     [shop='car_repair'][zoom >='18'] {
-      marker-file: url('symbols/shop/car_repair.svg');
+      marker-file: "url('symbols/shop/car_repair.svg')";
     }
 
     [shop='motorcycle_repair'][zoom >='18'] {
-      marker-file: url('symbols/shop/motorcycle_repair.svg');
+      marker-file: "url('symbols/shop/motorcycle_repair.svg')";
     }
 
     [shop='dairy'][zoom >='18'] {
-      marker-file: url('symbols/shop/dairy.svg');
+      marker-file: "url('symbols/shop/dairy.svg')";
     }
 
     [shop='bicycle'][zoom >='18'] {
-      marker-file: url('symbols/shop/bicycle.svg');
+      marker-file: "url('symbols/shop/bicycle.svg')";
     }
 
     [shop='pet'][zoom >='18'] {
-      marker-file: url('symbols/shop/pet.svg');
+      marker-file: "url('symbols/shop/pet.svg')";
     }
 
     [shop='photo'],
     [shop='photo_studio'] {
       [zoom >='18'] {
-        marker-file: url('symbols/shop/photo.svg');
+        marker-file: "url('symbols/shop/photo.svg')";
       }
     }
 
     [shop='paint'][zoom >='18'] {
-      marker-file: url('symbols/shop/paint.svg');
+      marker-file: "url('symbols/shop/paint.svg')";
     }
 
     [shop='shoes'][zoom >='18'] {
-      marker-file: url('symbols/shop/shoes.svg');
+      marker-file: "url('symbols/shop/shoes.svg')";
     }
 
     [shop='gift'][zoom >='18'] {
-      marker-file: url('symbols/shop/gift.svg');
+      marker-file: "url('symbols/shop/gift.svg')";
     }
 
     [shop='electronics'][zoom >='18'] {
-      marker-file: url('symbols/shop/electronics.svg');
+      marker-file: "url('symbols/shop/electronics.svg')";
     }
 
     [shop='alcohol'],
     [shop='wine'] {
       [zoom >='18'] {
-        marker-file: url('symbols/shop/alcohol.svg');
+        marker-file: "url('symbols/shop/alcohol.svg')";
       }
     }
 
     [shop='optician'][zoom >='18'] {
-      marker-file: url('symbols/shop/optician.svg');
+      marker-file: "url('symbols/shop/optician.svg')";
     }
 
     [shop='hearing_aids'][zoom >='18'] {
-      marker-file: url('symbols/shop/hearing_aids.svg');
+      marker-file: "url('symbols/shop/hearing_aids.svg')";
     }
 
     [shop='outdoor'][zoom >='18'] {
-      marker-file: url('symbols/shop/outdoor.svg');
+      marker-file: "url('symbols/shop/outdoor.svg')";
     }
 
     [shop='furniture'][zoom >='18'] {
-      marker-file: url('symbols/shop/furniture.svg');
+      marker-file: "url('symbols/shop/furniture.svg')";
     }
 
     [shop='interior_decoration'][zoom >='18'] {
-      marker-file: url('symbols/shop/interior_decoration.svg');
+      marker-file: "url('symbols/shop/interior_decoration.svg')";
     }
 
     [shop='massage'][zoom >='18'] {
-      marker-file: url('symbols/shop/massage.svg');
+      marker-file: "url('symbols/shop/massage.svg')";
       marker-fill: @leisure-green;
     }
 
     [shop='medical_supply'][zoom >='18'] {
-      marker-file: url('symbols/shop/medical_supply.svg');
+      marker-file: "url('symbols/shop/medical_supply.svg')";
     }
 
     [shop='mobile_phone'][zoom >='18'] {
-      marker-file: url('symbols/shop/mobile_phone.svg');
+      marker-file: "url('symbols/shop/mobile_phone.svg')";
     }
 
     [shop='motorcycle'][zoom >='18'] {
-      marker-file: url('symbols/shop/motorcycle.svg');
+      marker-file: "url('symbols/shop/motorcycle.svg')";
     }
 
     [shop='music'][zoom >='18'] {
-      marker-file: url('symbols/shop/music.svg');
+      marker-file: "url('symbols/shop/music.svg')";
     }
 
     [shop='musical_instrument'][zoom >='18'] {
-      marker-file: url('symbols/shop/musical_instrument.svg');
+      marker-file: "url('symbols/shop/musical_instrument.svg')";
     }
 
     [shop='kiosk'],
     [shop='newsagent'] {
       [zoom >='18'] {
-        marker-file: url('symbols/shop/newsagent.svg');
+        marker-file: "url('symbols/shop/newsagent.svg')";
       }
     }
 
     [shop='jewelry'] {
       [zoom >='18'] {
-        marker-file: url('symbols/shop/jewelry.svg');
+        marker-file: "url('symbols/shop/jewelry.svg')";
       }
     }
 
     [shop='toys'][zoom >='18'] {
-      marker-file: url('symbols/shop/toys.svg');
+      marker-file: "url('symbols/shop/toys.svg')";
     }
 
     [shop='travel_agency'][zoom >='18'] {
-      marker-file: url('symbols/shop/travel_agency.svg');
+      marker-file: "url('symbols/shop/travel_agency.svg')";
     }
 
     [shop='second_hand'][zoom >='18'] {
-      marker-file: url('symbols/shop/second_hand.svg');
+      marker-file: "url('symbols/shop/second_hand.svg')";
     }
 
     [shop='sports'][zoom >='18'] {
-      marker-file: url('symbols/shop/sports.svg');
+      marker-file: "url('symbols/shop/sports.svg')";
     }
 
     [shop='stationery'][zoom >='18'] {
-      marker-file: url('symbols/shop/stationery.svg');
+      marker-file: "url('symbols/shop/stationery.svg')";
     }
 
     [shop='tobacco'][zoom >='18'] {
-      marker-file: url('symbols/shop/tobacco.svg');
+      marker-file: "url('symbols/shop/tobacco.svg')";
     }
 
     [shop='tea'][zoom >='18'] {
-      marker-file: url('symbols/shop/tea.svg');
+      marker-file: "url('symbols/shop/tea.svg')";
     }
 
     [shop='ticket'][zoom >='18'] {
-      marker-file: url('symbols/shop/ticket.svg');
+      marker-file: "url('symbols/shop/ticket.svg')";
     }
 
     [shop='trade'][zoom >='18'] {
-      marker-file: url('symbols/shop/trade.svg');
+      marker-file: "url('symbols/shop/trade.svg')";
     }
 
     [shop='wholesale'][zoom >='18'] {
-      marker-file: url('symbols/shop/trade.svg');
+      marker-file: "url('symbols/shop/trade.svg')";
     }
 
     [shop='tyres'][zoom >='18'] {
-      marker-file: url('symbols/shop/tyres.svg');
+      marker-file: "url('symbols/shop/tyres.svg')";
     }
 
     [shop='variety_store'][zoom >='18'] {
-      marker-file: url('symbols/shop/variety_store.svg');
+      marker-file: "url('symbols/shop/variety_store.svg')";
     }
 
     [shop='video'][zoom >='18'] {
-      marker-file: url('symbols/shop/video.svg');
+      marker-file: "url('symbols/shop/video.svg')";
     }
 
     [shop='video_games'][zoom >='18'] {
-      marker-file: url('symbols/shop/video_games.svg');
+      marker-file: "url('symbols/shop/video_games.svg')";
     }
   }
 
   [feature='advertising_column'][zoom >='19'] {
-    marker-file: url('symbols/amenity/advertising_column.svg');
+    marker-file: "url('symbols/amenity/advertising_column.svg')";
     marker-fill: @advertising-grey;
     marker-clip: false;
   }
@@ -1250,13 +1254,13 @@
   }
 
   [feature='diplomatic_embassy'][zoom >='17'] {
-    marker-file: url('symbols/office/embassy.svg');
+    marker-file: "url('symbols/office/embassy.svg')";
     marker-fill: @office;
     marker-clip: false;
   }
 
   [feature='diplomatic_consulate'][zoom >='17'] {
-    marker-file: url('symbols/office/consulate.svg');
+    marker-file: "url('symbols/office/consulate.svg')";
     marker-fill: @office;
     marker-clip: false;
   }
@@ -1264,14 +1268,14 @@
   [feature='leisure_water_park'][zoom >='16'],
   [feature='leisure_sports_centre'][sport='swimming'][zoom >='17'],
   [feature='leisure_swimming_area'][zoom >='17'] {
-    marker-file: url('symbols/leisure/water_park.svg');
+    marker-file: "url('symbols/leisure/water_park.svg')";
     marker-fill: @leisure-green;
     marker-clip: false;
   }
 
   [feature='leisure_fitness_centre'][zoom >='17'],
   [feature='leisure_fitness_station'][zoom >='17'] {
-    marker-file: url('symbols/leisure/fitness.svg');
+    marker-file: "url('symbols/leisure/fitness.svg')";
     marker-fill: @leisure-green;
     marker-clip: false;
     [int_access='restricted'] {
@@ -1280,7 +1284,7 @@
   }
 
   [feature='leisure_dog_park'][zoom >='17'] {
-    marker-file: url('symbols/shop/pet.svg');
+    marker-file: "url('symbols/shop/pet.svg')";
     marker-fill: @leisure-green;
     marker-clip: false;
     [int_access='restricted'] {
@@ -1289,7 +1293,7 @@
   }
 
   [feature='leisure_playground'][zoom >='17'] {
-    marker-file: url('symbols/leisure/playground.svg');
+    marker-file: "url('symbols/leisure/playground.svg')";
     marker-fill: @leisure-green;
     marker-clip: false;
     [int_access='restricted'] {
@@ -1298,19 +1302,19 @@
   }
 
   [feature='leisure_miniature_golf'][zoom >='17'] {
-    marker-file: url('symbols/leisure/miniature_golf.svg');
+    marker-file: "url('symbols/leisure/miniature_golf.svg')";
     marker-fill: @leisure-green;
     marker-clip: false;
   }
 
   [feature='leisure_golf_course'][zoom >='15'] {
-    marker-file: url('symbols/leisure/golf.svg');
+    marker-file: "url('symbols/leisure/golf.svg')";
     marker-fill: @leisure-green;
     marker-clip: false;
   }
 
   [feature='tourism_picnic_site'][zoom >='16'] {
-    marker-file: url('symbols/tourism/picnic.svg');
+    marker-file: "url('symbols/tourism/picnic.svg')";
     marker-fill: @leisure-green;
     marker-clip: false;
     [int_access='restricted'] {
@@ -1319,7 +1323,7 @@
   }
 
   [feature='leisure_picnic_table'][zoom >='17'] {
-    marker-file: url('symbols/tourism/picnic.svg');
+    marker-file: "url('symbols/tourism/picnic.svg')";
     marker-fill: @man-made-icon;
     marker-clip: false;
     [int_access='restricted'] {
@@ -1328,7 +1332,7 @@
   }
 
   [feature='leisure_firepit'][zoom >='17'] {
-    marker-file: url('symbols/leisure/firepit.svg');
+    marker-file: "url('symbols/leisure/firepit.svg')";
     marker-fill: @amenity-brown;
     marker-clip: false;
     [int_access='restricted'] {
@@ -1337,68 +1341,68 @@
   }
 
   [feature='leisure_sauna'][zoom >='17'] {
-    marker-file: url('symbols/leisure/sauna.svg');
+    marker-file: "url('symbols/leisure/sauna.svg')";
     marker-fill: @leisure-green;
     marker-clip: false;
   }
 
   [feature='leisure_beach_resort'][zoom >='16'] {
-    marker-file: url('symbols/leisure/beach_resort.svg');
+    marker-file: "url('symbols/leisure/beach_resort.svg')";
     marker-fill: @leisure-green;
     marker-clip: false;
   }
 
   [feature='leisure_bowling_alley'][zoom >='17'] {
-    marker-file: url('symbols/leisure/bowling_alley.svg');
+    marker-file: "url('symbols/leisure/bowling_alley.svg')";
     marker-fill: @leisure-green;
     marker-clip: false;
   }
 
   [feature='leisure_outdoor_seating'][zoom >='19'] {
-    marker-file: url('symbols/leisure/outdoor_seating.svg');
+    marker-file: "url('symbols/leisure/outdoor_seating.svg')";
     marker-fill: @leisure-green;
     marker-clip: false;
   }
 
   [feature='leisure_bird_hide'][zoom >='17'] {
-    marker-file: url('symbols/leisure/bird_hide.svg');
+    marker-file: "url('symbols/leisure/bird_hide.svg')";
     marker-fill: @leisure-green;
     marker-clip: false;
   }
 
   [feature='leisure_amusement_arcade'][zoom >='17'] {
-    marker-file: url('symbols/leisure/amusement_arcade.svg');
+    marker-file: "url('symbols/leisure/amusement_arcade.svg')";
     marker-fill: @leisure-green;
     marker-clip: false;
   }
 
   [feature='leisure_fishing'][zoom >='17'] {
-    marker-file: url('symbols/leisure/fishing.svg');
+    marker-file: "url('symbols/leisure/fishing.svg')";
     marker-fill: @leisure-green;
     marker-clip: false;
   }
 
   [feature='leisure_dance'][zoom >='17'] {
-    marker-file: url('symbols/leisure/dance.svg');
+    marker-file: "url('symbols/leisure/dance.svg')";
     marker-fill: @leisure-green;
     marker-clip: false;
   }
 
   // Slipway tagging on points - slipway on lines is defined later
   [feature='leisure_slipway'][zoom >='17'] {
-    marker-file: url('symbols/leisure/slipway.svg');
+    marker-file: "url('symbols/leisure/slipway.svg')";
     marker-fill: @transportation-icon;
     marker-clip: false;
   }
 
   [feature='amenity_boat_rental'][zoom >='17'] {
-    marker-file: url('symbols/amenity/boat_rental.svg');
+    marker-file: "url('symbols/amenity/boat_rental.svg')";
     marker-fill: @transportation-icon;
     marker-clip: false;
   }
 
   [feature='aeroway_helipad'][zoom >='16'] {
-    marker-file: url('symbols/amenity/helipad.svg');
+    marker-file: "url('symbols/amenity/helipad.svg')";
     marker-clip: false;
     marker-fill: @airtransport;
   }
@@ -1409,56 +1413,56 @@
   [feature='aeroway_aerodrome'][iata='null'][zoom >='12'][zoom < 18] {
     [way_pixels <='192000'],
     [way_pixels='null'] {
-      marker-file: url('symbols/amenity/aerodrome.svg');
+      marker-file: "url('symbols/amenity/aerodrome.svg')";
       marker-clip: false;
       marker-fill: @airtransport;
     }
   }
 
   [feature='amenity_ferry_terminal'][zoom >='15'] {
-    marker-file: url('symbols/amenity/ferry.svg');
+    marker-file: "url('symbols/amenity/ferry.svg')";
     marker-clip: false;
     marker-fill: @airtransport;
   }
 
   [feature='man_made_lighthouse'][zoom >='15'] {
-    marker-file: url('symbols/man_made/lighthouse.svg');
+    marker-file: "url('symbols/man_made/lighthouse.svg')";
     marker-clip: false;
     marker-fill: @man-made-icon;
   }
 
   [feature='natural_peak'][zoom >='11'] {
-    marker-file: url('symbols/natural/peak.svg');
+    marker-file: "url('symbols/natural/peak.svg')";
     marker-fill: @landform-color;
     marker-clip: false;
   }
 
   [feature='natural_volcano'][zoom >='11'] {
-    marker-file: url('symbols/natural/peak.svg');
+    marker-file: "url('symbols/natural/peak.svg')";
     marker-fill: #d40000;
     marker-clip: false;
   }
 
   [feature='natural_saddle'][zoom >='15'] {
-    marker-file: url('symbols/natural/saddle.svg');
+    marker-file: "url('symbols/natural/saddle.svg')";
     marker-fill: @landform-color;
     marker-clip: false;
   }
 
   [feature='mountain_pass'][zoom >='15'] {
-    marker-file: url('symbols/natural/saddle.svg');
+    marker-file: "url('symbols/natural/saddle.svg')";
     marker-fill: @transportation-icon;
     marker-clip: false;
   }
 
   [feature='natural_spring'][zoom >='14'] {
-    marker-file: url('symbols/natural/spring.svg');
+    marker-file: "url('symbols/natural/spring.svg')";
     marker-fill: #7abcec;
     marker-clip: false;
   }
 
   [feature='natural_cave_entrance'][zoom >='15'] {
-    marker-file: url('symbols/natural/cave.svg');
+    marker-file: "url('symbols/natural/cave.svg')";
     marker-clip: false;
   }
 
@@ -1467,14 +1471,14 @@
     [zoom >='14'][height > 10],
     [zoom >='15'][name !='null'],
     [zoom >='16'] {
-      marker-file: url('symbols/natural/waterfall.svg');
+      marker-file: "url('symbols/natural/waterfall.svg')";
       marker-clip: false;
       marker-fill: @water-text;
     }
   }
 
   [feature='military_bunker'][zoom >='17'] {
-    marker-file: url('symbols/man_made/bunker.svg');
+    marker-file: "url('symbols/man_made/bunker.svg')";
     marker-fill: @man-made-icon;
     marker-clip: false;
   }
@@ -1483,20 +1487,20 @@
     [zoom >='15'][location !='rooftop'][location !='roof'],
     [zoom >='15'][location='null'],
     [zoom >='19'] {
-      marker-file: url('symbols/man_made/generator_wind.svg');
+      marker-file: "url('symbols/man_made/generator_wind.svg')";
       marker-fill: @man-made-icon;
       marker-clip: false;
     }
   }
 
   [feature='man_made_windmill'][zoom >='16'] {
-    marker-file: url('symbols/man_made/windmill.svg');
+    marker-file: "url('symbols/man_made/windmill.svg')";
     marker-fill: @man-made-icon;
     marker-clip: false;
   }
 
   [feature='amenity_hunting_stand'][zoom >='16'] {
-    marker-file: url('symbols/amenity/hunting_stand.svg');
+    marker-file: "url('symbols/amenity/hunting_stand.svg')";
     marker-fill: @man-made-icon;
     marker-clip: false;
   }
@@ -1504,7 +1508,7 @@
   // waste_disposal tagging on ways - tagging on nodes is defined later
   [feature='amenity_waste_disposal'][zoom >='19'] {
     [int_access='yes'] {
-      marker-file: url('symbols/amenity/waste_disposal.svg');
+      marker-file: "url('symbols/amenity/waste_disposal.svg')";
       marker-fill: @man-made-icon;
     }
   }
@@ -1517,23 +1521,23 @@
     [zoom >='17'][feature='amenity_parking']["parking" !='street_side']["parking" !='lane'],
     [zoom >='18'] {
       [feature='amenity_parking'] {
-        marker-file: url('symbols/amenity/parking.svg');
+        marker-file: "url('symbols/amenity/parking.svg')";
       }
       [feature='amenity_parking']["parking"='street_side'],
       [feature='amenity_parking']["parking"='lane'] {
-        marker-file: url('symbols/amenity/parking_subtle.svg');
+        marker-file: "url('symbols/amenity/parking_subtle.svg')";
       }
       [feature='amenity_bicycle_parking'] {
-        marker-file: url('symbols/amenity/bicycle_parking.svg');
+        marker-file: "url('symbols/amenity/bicycle_parking.svg')";
       }
       [feature='amenity_motorcycle_parking'] {
-        marker-file: url('symbols/amenity/motorcycle_parking.svg');
+        marker-file: "url('symbols/amenity/motorcycle_parking.svg')";
       }
       [feature='amenity_parking_entrance']["parking"='underground'] {
-        marker-file: url('symbols/amenity/parking_entrance_underground.svg');
+        marker-file: "url('symbols/amenity/parking_entrance_underground.svg')";
       }
       [feature='amenity_parking_entrance']["parking"='multi-storey'] {
-        marker-file: url('symbols/amenity/parking_entrance_multistorey.svg');
+        marker-file: "url('symbols/amenity/parking_entrance_multistorey.svg')";
       }
       marker-clip: false;
       marker-fill: @transportation-icon;
@@ -1547,73 +1551,73 @@
 #amenity-low-priority {
   [feature='man_made_cross'][zoom >='16'],
   [feature='historic_wayside_cross'][zoom >='16'] {
-    marker-file: url('symbols/man_made/cross.svg');
+    marker-file: "url('symbols/man_made/cross.svg')";
     marker-fill: @religious-icon;
     marker-clip: false;
   }
 
   [feature='historic_wayside_shrine'][zoom >='17'] {
-    marker-file: url('symbols/historic/shrine.svg');
+    marker-file: "url('symbols/historic/shrine.svg')";
     marker-fill: @man-made-icon;
     marker-clip: false;
   }
 
   [feature='railway_level_crossing'][zoom >='14']::railway,
   [feature='railway_crossing'][zoom >='15']::railway {
-    marker-file: url('symbols/barrier/level_crossing.svg');
+    marker-file: "url('symbols/barrier/level_crossing.svg')";
     marker-fill: #4d4d4d;
     marker-clip: false;
     [zoom >='16'] {
-      marker-file: url('symbols/barrier/level_crossing2.svg');
+      marker-file: "url('symbols/barrier/level_crossing2.svg')";
     }
   }
 
   [feature='barrier_gate']::barrier {
     [zoom >='17'] {
-      marker-file: url('symbols/barrier/gate.svg');
+      marker-file: "url('symbols/barrier/gate.svg')";
       marker-clip: false;
     }
   }
 
   [feature='barrier_lift_gate'][zoom >='17']::barrier,
   [feature='barrier_swing_gate'][zoom >='17']::barrier {
-    marker-file: url('symbols/barrier/lift_gate.svg');
+    marker-file: "url('symbols/barrier/lift_gate.svg')";
     marker-fill: @barrier-icon;
     marker-clip: false;
   }
 
   [feature='barrier_cattle_grid'][zoom >='17']::barrier {
-    marker-file: url('symbols/barrier/cattle_grid.svg');
+    marker-file: "url('symbols/barrier/cattle_grid.svg')";
     marker-fill: @barrier-icon;
     marker-clip: false;
   }
 
   [feature='barrier_stile'][zoom >='17']::barrier {
-    marker-file: url('symbols/barrier/stile.svg');
+    marker-file: "url('symbols/barrier/stile.svg')";
     marker-fill: @barrier-icon;
     marker-clip: false;
   }
 
   [feature='barrier_motorcycle_barrier'][zoom >='17']::barrier {
-    marker-file: url('symbols/barrier/motorcycle_barrier.svg');
+    marker-file: "url('symbols/barrier/motorcycle_barrier.svg')";
     marker-fill: @barrier-icon;
     marker-clip: false;
   }
 
   [feature='barrier_cycle_barrier'][zoom >='17']::barrier {
-    marker-file: url('symbols/barrier/cycle_barrier.svg');
+    marker-file: "url('symbols/barrier/cycle_barrier.svg')";
     marker-fill: @barrier-icon;
     marker-clip: false;
   }
 
   [feature='barrier_full-height_turnstile'][zoom >='17']::barrier {
-    marker-file: url('symbols/barrier/full-height_turnstile.svg');
+    marker-file: "url('symbols/barrier/full-height_turnstile.svg')";
     marker-fill: @barrier-icon;
     marker-clip: false;
   }
 
   [feature='barrier_kissing_gate'][zoom >='17']::barrier {
-    marker-file: url('symbols/barrier/kissing_gate.svg');
+    marker-file: "url('symbols/barrier/kissing_gate.svg')";
     marker-fill: @barrier-icon;
     marker-clip: false;
   }
@@ -1634,7 +1638,7 @@
   }
 
   [feature='amenity_bench'][zoom >='19']::amenity {
-    marker-file: url('symbols/amenity/bench.svg');
+    marker-file: "url('symbols/amenity/bench.svg')";
     marker-fill: @man-made-icon;
     [int_access='restricted'] {
       marker-opacity: @private-opacity;
@@ -1642,7 +1646,7 @@
   }
 
   [feature='amenity_waste_basket'][zoom >='19']::amenity {
-    marker-file: url('symbols/amenity/waste_basket.svg');
+    marker-file: "url('symbols/amenity/waste_basket.svg')";
     marker-fill: @man-made-icon;
     [int_access='restricted'] {
       marker-opacity: @private-opacity;
@@ -1652,7 +1656,7 @@
   // waste_disposal tagging on nodes - tagging on ways is defined earlier
   [feature='amenity_waste_disposal'][zoom >='19']::amenity {
     [int_access='yes'] {
-      marker-file: url('symbols/amenity/waste_disposal.svg');
+      marker-file: "url('symbols/amenity/waste_disposal.svg')";
       marker-fill: @man-made-icon;
     }
   }
@@ -3025,7 +3029,7 @@
 #amenity-points,
 #amenity-line {
   [feature='man_made_ceremonial_gate'][zoom >='17'] {
-    marker-file: url('symbols/man_made/ceremonial_gate.svg');
+    marker-file: "url('symbols/man_made/ceremonial_gate.svg')";
     marker-fill: @man-made-icon;
     marker-clip: false;
   }
@@ -3049,12 +3053,12 @@
 #amenity-line {
   // Ford tagging on ways
   [feature='highway_ford'][zoom >='16'] {
-    marker-file: url('symbols/highway/ford.svg');
+    marker-file: "url('symbols/highway/ford.svg')";
     marker-fill: @transportation-icon;
   }
   // Slipway tagging on ways
   [feature='leisure_slipway'][zoom >='17'] {
-    marker-file: url('symbols/leisure/slipway.svg');
+    marker-file: "url('symbols/leisure/slipway.svg')";
     marker-fill: @transportation-icon;
   }
 }
@@ -4039,32 +4043,32 @@ no official postal addresses) */
 }
 @golf-color: #666;
 
-#landcover[zoom >= 12] {
-  ::high-zoom[zoom >= 12] {
-    [feature = 'golf_tee'],
-    [feature = 'golf_fairway'],
-    [feature = 'golf_rough'],
-    [feature = 'golf_driving_range'] {
+#landcover[zoom >='12'] {
+  ::high-zoom[zoom >='12'] {
+    [feature='golf_tee'],
+    [feature='golf_fairway'],
+    [feature='golf_rough'],
+    [feature='golf_driving_range'] {
       polygon-fill: @grass;
     }
   }
-  ::high-zoom[zoom >= 13] {
-    [feature = 'golf_green'] {
+  ::high-zoom[zoom >='13'] {
+    [feature='golf_green'] {
       polygon-fill: @pitch;
     }
-    [feature = 'golf_bunker'] {
+    [feature='golf_bunker'] {
       polygon-fill: @sand;
     }
   }
-  ::high-zoom[zoom >= 15] {
-    [feature = 'golf_rough'] {
-      polygon-pattern-file: url('symbols/golf_rough.svg');
+  ::high-zoom[zoom >='15'] {
+    [feature='golf_rough'] {
+      polygon-pattern-file: "url('symbols/golf_rough.svg')";
     }
   }
 }
 
-#golf-line[zoom >= 16] {
-  [golf = 'hole'] {
+#golf-line[zoom >='16'] {
+  [golf='hole'] {
     line-color: @golf-color;
     line-width: 0.5;
   }
@@ -4075,26 +4079,28 @@ no official postal addresses) */
 // Previously the name would replace the ref, which was causing mappers to incorrectly put the hole number into the name, e.g. "1 First Hole".
 // This is not a valid name, see https://wiki.openstreetmap.org/wiki/Tag:leisure%3Dgolf_course
 // See https://github.com/gravitystorm/openstreetmap-carto/pull/5133 for discussion on removal of name.
-#text-line[zoom >= 16] {
-  [feature = 'golf_hole'][ref != ''] {
+#text-line[zoom >='16'] {
+  [feature='golf_hole'][ref !=''] {
     text-placement: line;
     text-size: 11;
     text-fill: @golf-color;
     text-face-name: @book-fonts;
     text-halo-radius: @standard-halo-radius;
     text-halo-fill: @standard-halo-fill;
-    text-name: "[ref]";
+    text-name: '[ref]';
 
-    [zoom >= 17] { text-size: 13; }
+    [zoom >='17'] {
+      text-size: 13;
+    }
   }
 }
 
-#amenity-points[zoom >= 16] {
-  [feature = 'golf_pin'] {
-    marker-file: url('symbols/leisure/golf_pin.svg');
+#amenity-points[zoom >='16'] {
+  [feature='golf_pin'] {
+    marker-file: "url('symbols/leisure/golf_pin.svg')";
     marker-fill: @golf-color;
     marker-clip: false;
-	marker-transform: translate(0,-5);
+    marker-transform: translate(0, -5);
   }
 }
 /* For tourism features like roller coasters */
@@ -4333,7 +4339,7 @@ no official postal addresses) */
 
   [feature='landuse_quarry'][zoom >='10'] {
     polygon-fill: @quarry;
-    polygon-pattern-file: url('symbols/quarry.svg');
+    polygon-pattern-file: "url('symbols/quarry.svg')";
     [zoom >='13'] {
       line-width: 0.5;
       line-color: darken(@quarry, 10%);
@@ -4357,7 +4363,7 @@ no official postal addresses) */
       }
     }
     [zoom >='13'] {
-      polygon-pattern-file: url('patterns/vineyard.svg');
+      polygon-pattern-file: "url('patterns/vineyard.svg')";
       polygon-pattern-alignment: global;
       [way_pixels >='4'] {
         polygon-pattern-gamma: 0.75;
@@ -4379,7 +4385,7 @@ no official postal addresses) */
       }
     }
     [zoom >='13'] {
-      polygon-pattern-file: url('patterns/orchard.svg');
+      polygon-pattern-file: "url('patterns/orchard.svg')";
       polygon-pattern-alignment: global;
       [way_pixels >='4'] {
         polygon-pattern-gamma: 0.75;
@@ -4401,7 +4407,7 @@ no official postal addresses) */
       }
     }
     [zoom >='13'] {
-      polygon-pattern-file: url('patterns/plant_nursery.svg');
+      polygon-pattern-file: "url('patterns/plant_nursery.svg')";
       polygon-pattern-opacity: 0.6;
       polygon-pattern-alignment: global;
       [way_pixels >='4'] {
@@ -4424,7 +4430,7 @@ no official postal addresses) */
       }
     }
     [zoom >='15'] {
-      polygon-pattern-file: url('symbols/flowerbed_mid_zoom.svg');
+      polygon-pattern-file: "url('symbols/flowerbed_mid_zoom.svg')";
       polygon-pattern-alignment: global;
       [way_pixels >='4'] {
         polygon-pattern-gamma: 0.75;
@@ -4434,7 +4440,7 @@ no official postal addresses) */
       }
     }
     [zoom >='17'] {
-      polygon-pattern-file: url('symbols/flowerbed_high_zoom.svg');
+      polygon-pattern-file: "url('symbols/flowerbed_high_zoom.svg')";
       polygon-pattern-alignment: global;
       [way_pixels >='4'] {
         polygon-pattern-gamma: 0.75;
@@ -4456,7 +4462,7 @@ no official postal addresses) */
       }
     }
     [zoom >='13'] {
-      polygon-pattern-file: url('patterns/plant_nursery.svg');
+      polygon-pattern-file: "url('patterns/plant_nursery.svg')";
       polygon-pattern-alignment: global;
       [way_pixels >='4'] {
         polygon-pattern-gamma: 0.75;
@@ -4480,16 +4486,16 @@ no official postal addresses) */
     }
     [zoom >='13'] {
       [religion='jewish'] {
-        polygon-pattern-file: url('patterns/grave_yard_jewish.svg');
+        polygon-pattern-file: "url('patterns/grave_yard_jewish.svg')";
       }
       [religion='christian'] {
-        polygon-pattern-file: url('patterns/grave_yard_christian.svg');
+        polygon-pattern-file: "url('patterns/grave_yard_christian.svg')";
       }
       [religion='muslim'] {
-        polygon-pattern-file: url('patterns/grave_yard_muslim.svg');
+        polygon-pattern-file: "url('patterns/grave_yard_muslim.svg')";
       }
       [religion='INT-generic'] {
-        polygon-pattern-file: url('patterns/grave_yard_generic.svg');
+        polygon-pattern-file: "url('patterns/grave_yard_generic.svg')";
       }
       [religion='jewish'],
       [religion='christian'],
@@ -4519,7 +4525,7 @@ no official postal addresses) */
   [feature='amenity_prison'][zoom >='10'][way_pixels > 75] {
     polygon-fill: #8e8e8e;
     polygon-opacity: 0.14;
-    polygon-pattern-file: url('patterns/grey_vertical_hatch.svg');
+    polygon-pattern-file: "url('patterns/grey_vertical_hatch.svg')";
     polygon-pattern-alignment: global;
     line-color: #888;
     line-width: 3;
@@ -4593,7 +4599,7 @@ no official postal addresses) */
       }
     }
     [zoom >='16'] {
-      polygon-pattern-file: url('patterns/dog_park.svg');
+      polygon-pattern-file: "url('patterns/dog_park.svg')";
       polygon-pattern-alignment: global;
       [way_pixels >='4'] {
         polygon-pattern-gamma: 0.75;
@@ -4626,7 +4632,7 @@ no official postal addresses) */
       }
     }
     [zoom >='13'] {
-      polygon-pattern-file: url('patterns/allotments.svg');
+      polygon-pattern-file: "url('patterns/allotments.svg')";
       polygon-pattern-alignment: global;
       [way_pixels >='4'] {
         polygon-pattern-gamma: 0.75;
@@ -4862,7 +4868,7 @@ no official postal addresses) */
       polygon-gamma: 0.3;
     }
     [zoom >='13'] {
-      polygon-pattern-file: url('symbols/rock_overlay.png');
+      polygon-pattern-file: "url('symbols/rock_overlay.png')";
       [way_pixels >='4'] {
         polygon-pattern-gamma: 0.75;
       }
@@ -4883,7 +4889,7 @@ no official postal addresses) */
         polygon-gamma: 0.3;
       }
       [zoom >='13'] {
-        polygon-pattern-file: url('symbols/scree_overlay.png');
+        polygon-pattern-file: "url('symbols/scree_overlay.png')";
         [way_pixels >='4'] {
           polygon-pattern-gamma: 0.75;
         }
@@ -4974,7 +4980,7 @@ no official postal addresses) */
     [zoom >='5'] {
       polygon-fill: @grass;
       [feature='wetland_saltmarsh'][zoom >='13'] {
-        polygon-pattern-file: url('symbols/salt-dots-2.png');
+        polygon-pattern-file: "url('symbols/salt-dots-2.png')";
         polygon-pattern-alignment: global;
         [way_pixels >='4'] {
           polygon-pattern-gamma: 0.75;
@@ -5191,46 +5197,46 @@ no official postal addresses) */
   }
 
   [int_wetland !='null'][zoom >='10'] {
-    polygon-pattern-file: url('symbols/wetland.png');
+    polygon-pattern-file: "url('symbols/wetland.png')";
     polygon-pattern-alignment: global;
   }
   [natural='reef'][zoom >='10'] {
-    polygon-pattern-file: url('symbols/reef.png');
+    polygon-pattern-file: "url('symbols/reef.png')";
     polygon-pattern-alignment: global;
   }
   [zoom >='13'] {
     [int_wetland='marsh'],
     [int_wetland='saltmarsh'],
     [int_wetland='wet_meadow'] {
-      polygon-pattern-file: url('symbols/wetland_marsh.png');
+      polygon-pattern-file: "url('symbols/wetland_marsh.png')";
       polygon-pattern-alignment: global;
     }
     [int_wetland='reedbed'] {
-      polygon-pattern-file: url('symbols/wetland_reed.png');
+      polygon-pattern-file: "url('symbols/wetland_reed.png')";
       polygon-pattern-alignment: global;
     }
     [int_wetland='mangrove'] {
-      polygon-pattern-file: url('symbols/wetland_mangrove.png');
+      polygon-pattern-file: "url('symbols/wetland_mangrove.png')";
       polygon-pattern-alignment: global;
     }
     [int_wetland='swamp'] {
-      polygon-pattern-file: url('symbols/wetland_swamp.png');
+      polygon-pattern-file: "url('symbols/wetland_swamp.png')";
       polygon-pattern-alignment: global;
     }
     [int_wetland='bog'],
     [int_wetland='fen'],
     [int_wetland='string_bog'] {
-      polygon-pattern-file: url('symbols/wetland_bog.png');
+      polygon-pattern-file: "url('symbols/wetland_bog.png')";
       polygon-pattern-alignment: global;
     }
     [landuse='salt_pond'] {
-      polygon-pattern-file: url('symbols/salt_pond.png');
+      polygon-pattern-file: "url('symbols/salt_pond.png')";
       polygon-pattern-alignment: global;
     }
     [natural='beach'],
     [natural='shoal'] {
       [surface='sand'] {
-        polygon-pattern-file: url('symbols/beach.png');
+        polygon-pattern-file: "url('symbols/beach.png')";
         polygon-pattern-alignment: global;
       }
       [surface='gravel'],
@@ -5240,30 +5246,30 @@ no official postal addresses) */
       [surface='shingle'],
       [surface='stones'],
       [surface='shells'] {
-        polygon-pattern-file: url('symbols/beach_coarse.png');
+        polygon-pattern-file: "url('symbols/beach_coarse.png')";
         polygon-pattern-alignment: global;
       }
     }
     [natural='scrub'] {
-      polygon-pattern-file: url('symbols/scrub.png');
+      polygon-pattern-file: "url('symbols/scrub.png')";
       polygon-pattern-alignment: global;
     }
   }
 
   //Also landuse = forest, converted in the SQL
   [natural='wood'][zoom >='13']::wood {
-    polygon-pattern-file: url('symbols/leaftype_unknown.svg'); // Lch(55,30,135)
+    polygon-pattern-file: "url('symbols/leaftype_unknown.svg')"; // Lch(55,30,135)
     [leaf_type='broadleaved'] {
-      polygon-pattern-file: url('symbols/leaftype_broadleaved.svg');
+      polygon-pattern-file: "url('symbols/leaftype_broadleaved.svg')";
     }
     [leaf_type='needleleaved'] {
-      polygon-pattern-file: url('symbols/leaftype_needleleaved.svg');
+      polygon-pattern-file: "url('symbols/leaftype_needleleaved.svg')";
     }
     [leaf_type='mixed'] {
-      polygon-pattern-file: url('symbols/leaftype_mixed.svg');
+      polygon-pattern-file: "url('symbols/leaftype_mixed.svg')";
     }
     [leaf_type='leafless'] {
-      polygon-pattern-file: url('symbols/leaftype_leafless.svg');
+      polygon-pattern-file: "url('symbols/leaftype_leafless.svg')";
     }
     polygon-pattern-alignment: global;
     opacity: 0.4; // The entire layer has opacity to handle overlapping forests
@@ -5275,7 +5281,7 @@ no official postal addresses) */
   [landuse='military'][zoom >='13'] {
     polygon-fill: #ff5555;
     polygon-opacity: 0.08;
-    polygon-pattern-file: url('patterns/military_red_hatch.svg');
+    polygon-pattern-file: "url('patterns/military_red_hatch.svg')";
     polygon-pattern-alignment: global;
     line-color: @military;
     line-opacity: 0.24;
@@ -5290,7 +5296,7 @@ no official postal addresses) */
   [military='danger_area'][zoom >='9'] {
     polygon-fill: #ff5555;
     polygon-opacity: 0.1;
-    polygon-pattern-file: url('patterns/danger_red_hatch.svg');
+    polygon-pattern-file: "url('patterns/danger_red_hatch.svg')";
     polygon-pattern-alignment: global;
     line-color: @military;
     line-opacity: 0.2;
@@ -5301,25 +5307,25 @@ no official postal addresses) */
 
 #cliffs {
   [natural='cliff'][zoom >='13'] {
-    line-pattern-file: url('symbols/cliff.svg');
+    line-pattern-file: "url('symbols/cliff.svg')";
     [zoom >='15'] {
-      line-pattern-file: url('symbols/cliff2.svg');
+      line-pattern-file: "url('symbols/cliff2.svg')";
     }
   }
   [natural='ridge'][zoom >='14'] {
-    line-pattern-file: url('symbols/ridge-mid.svg');
+    line-pattern-file: "url('symbols/ridge-mid.svg')";
     [zoom >='15'] {
-      line-pattern-file: url('symbols/ridge2.svg');
+      line-pattern-file: "url('symbols/ridge2.svg')";
     }
   }
   [natural='arete'][zoom >='14'] {
-    line-pattern-file: url('symbols/arete-mid.svg');
+    line-pattern-file: "url('symbols/arete-mid.svg')";
     [zoom >='15'] {
-      line-pattern-file: url('symbols/arete2.svg');
+      line-pattern-file: "url('symbols/arete2.svg')";
     }
   }
   [man_made='embankment'][zoom >='15']::man_made {
-    line-pattern-file: url('symbols/embankment.svg');
+    line-pattern-file: "url('symbols/embankment.svg')";
   }
 }
 
@@ -5477,7 +5483,7 @@ no official postal addresses) */
       }
     }
     [int_intermittent='yes'] {
-      polygon-pattern-file: url('patterns/intermittent_water.svg');
+      polygon-pattern-file: "url('patterns/intermittent_water.svg')";
       [way_pixels >='4'] {
         polygon-pattern-gamma: 0.75;
       }
@@ -8109,7 +8115,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         line-pattern-type: repeat;
         line-pattern-alignment: global;
         line-pattern-width: @motorway-width-z6;
-        line-pattern-file: url('symbols/unpaved/unpaved_motorway-low-zoom.svg');
+        line-pattern-file: "url('symbols/unpaved/unpaved_motorway-low-zoom.svg')";
         [zoom >='7'] {
           line-pattern-width: @motorway-width-z7;
         }
@@ -8126,7 +8132,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           line-pattern-width: @motorway-width-z11;
         }
         [zoom >='12'] {
-          line-pattern-file: url('symbols/unpaved/unpaved_motorway-fill.svg');
+          line-pattern-file: "url('symbols/unpaved/unpaved_motorway-fill.svg')";
           line-pattern-width: @motorway-width-z12 - 2 * @major-casing-width-z12;
           [zoom >='13'] {
             line-pattern-width: @motorway-width-z13 - 2 * @major-casing-width-z13;
@@ -8327,7 +8333,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         line-pattern-type: repeat;
         line-pattern-alignment: global;
         line-pattern-width: @trunk-width-z6;
-        line-pattern-file: url('symbols/unpaved/unpaved_trunk-low-zoom.svg');
+        line-pattern-file: "url('symbols/unpaved/unpaved_trunk-low-zoom.svg')";
         [zoom >='7'] {
           line-pattern-width: @trunk-width-z7;
         }
@@ -8344,7 +8350,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           line-pattern-width: @trunk-width-z11;
         }
         [zoom >='12'] {
-          line-pattern-file: url('symbols/unpaved/unpaved_trunk-fill.svg');
+          line-pattern-file: "url('symbols/unpaved/unpaved_trunk-fill.svg')";
           line-pattern-width: @trunk-width-z12 - 2 * @major-casing-width-z12;
           [zoom >='13'] {
             line-pattern-width: @trunk-width-z13 - 2 * @major-casing-width-z13;
@@ -8527,7 +8533,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         line-pattern-type: repeat;
         line-pattern-alignment: global;
         line-pattern-width: @primary-width-z8;
-        line-pattern-file: url('symbols/unpaved/unpaved_primary-low-zoom.svg');
+        line-pattern-file: "url('symbols/unpaved/unpaved_primary-low-zoom.svg')";
         [zoom >='9'] {
           line-pattern-width: @primary-width-z9;
         }
@@ -8538,7 +8544,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           line-pattern-width: @primary-width-z11;
         }
         [zoom >='12'] {
-          line-pattern-file: url('symbols/unpaved/unpaved_primary-fill.svg');
+          line-pattern-file: "url('symbols/unpaved/unpaved_primary-fill.svg')";
           line-pattern-width: @primary-width-z12 - 2 * @major-casing-width-z12;
           [zoom >='13'] {
             line-pattern-width: @primary-width-z13 - 2 * @major-casing-width-z13;
@@ -8725,7 +8731,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         line-pattern-type: repeat;
         line-pattern-alignment: global;
         line-pattern-width: @secondary-width-z12 - 2 * @secondary-casing-width-z12;
-        line-pattern-file: url('symbols/unpaved/unpaved_secondary-fill.svg');
+        line-pattern-file: "url('symbols/unpaved/unpaved_secondary-fill.svg')";
         line-pattern-cap: round;
         line-pattern-join: round;
         [zoom >='13'] {
@@ -8920,7 +8926,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         line-pattern-type: repeat;
         line-pattern-alignment: global;
         line-pattern-width: @tertiary-width-z12 - 2 * @casing-width-z12;
-        line-pattern-file: url('symbols/unpaved/unpaved_residential-fill.svg');
+        line-pattern-file: "url('symbols/unpaved/unpaved_residential-fill.svg')";
         [zoom >='13'] {
           line-pattern-width: @tertiary-width-z13 - 2 * @casing-width-z13;
         }
@@ -9096,7 +9102,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         }
         line-pattern-type: repeat;
         line-pattern-alignment: global;
-        line-pattern-file: url('symbols/unpaved/unpaved_residential-fill.svg');
+        line-pattern-file: "url('symbols/unpaved/unpaved_residential-fill.svg')";
         #bridges {
           line-pattern-width: @residential-width-z13 - 2 * @bridge-casing-width-z13;
           [zoom >='14'] {
@@ -9203,7 +9209,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         }
         line-pattern-type: repeat;
         line-pattern-alignment: global;
-        line-pattern-file: url('symbols/unpaved/unpaved_living-street-fill.svg');
+        line-pattern-file: "url('symbols/unpaved/unpaved_living-street-fill.svg')";
         #bridges {
           line-pattern-width: @living-street-width-z13 - 2 * @casing-width-z13;
           [zoom >='14'] {
@@ -9296,7 +9302,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         }
         line-pattern-type: repeat;
         line-pattern-alignment: global;
-        line-pattern-file: url('symbols/unpaved/unpaved_road-fill.svg');
+        line-pattern-file: "url('symbols/unpaved/unpaved_road-fill.svg')";
         #bridges {
           line-pattern-width: @road-width-z14 - 2 * @bridge-casing-width-z14;
           [zoom >='16'] {
@@ -9403,7 +9409,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       [zoom >='17'][service='INT-minor'] {
         line-pattern-type: repeat;
         line-pattern-alignment: global;
-        line-pattern-file: url('symbols/unpaved/unpaved_residential-fill.svg');
+        line-pattern-file: "url('symbols/unpaved/unpaved_residential-fill.svg')";
         [service='INT-normal'] {
           line-pattern-width: @service-width-z14 - 2 * @casing-width-z14;
           [zoom >='16'] {
@@ -9542,7 +9548,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         }
         line-pattern-type: repeat;
         line-pattern-alignment: global;
-        line-pattern-file: url('symbols/unpaved/unpaved_pedestrian-fill.svg');
+        line-pattern-file: "url('symbols/unpaved/unpaved_pedestrian-fill.svg')";
         #bridges {
           line-pattern-width: @pedestrian-width-z14 - 2 * @bridge-casing-width-z14;
           [zoom >='15'] {
@@ -9597,7 +9603,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       [zoom >='12'] {
         line-pattern-type: repeat;
         line-pattern-alignment: global;
-        line-pattern-file: url('symbols/unpaved/unpaved_raceway-fill.svg');
+        line-pattern-file: "url('symbols/unpaved/unpaved_raceway-fill.svg')";
         line-pattern-width: 1.2;
         line-pattern-join: round;
         line-pattern-cap: round;
@@ -9644,7 +9650,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         b/line-pattern-width: 4;
         b/line-pattern-type: repeat;
         b/line-pattern-alignment: global;
-        b/line-pattern-file: url('symbols/unpaved/unpaved_platform-fill.svg');
+        b/line-pattern-file: "url('symbols/unpaved/unpaved_platform-fill.svg')";
         b/line-pattern-cap: round;
         b/line-pattern-join: round;
       }
@@ -10255,7 +10261,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         b/line-pattern-width: 4;
         b/line-pattern-type: repeat;
         b/line-pattern-alignment: global;
-        b/line-pattern-file: url('symbols/unpaved/unpaved_platform-fill.svg');
+        b/line-pattern-file: "url('symbols/unpaved/unpaved_platform-fill.svg')";
         b/line-pattern-cap: round;
         b/line-pattern-join: round;
       }
@@ -10424,7 +10430,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     line-pattern-type: repeat;
     line-pattern-alignment: global;
     line-pattern-width: @trunk-width-z15 * @turning-circle-factor;
-    line-pattern-file: url('symbols/unpaved/unpaved_trunk-fill.svg');
+    line-pattern-file: "url('symbols/unpaved/unpaved_trunk-fill.svg')";
     [zoom >='17'] {
       line-pattern-width: @trunk-width-z17 * @turning-circle-factor;
     }
@@ -10455,7 +10461,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     line-pattern-type: repeat;
     line-pattern-alignment: global;
     line-pattern-width: @primary-width-z15 * @turning-circle-factor;
-    line-pattern-file: url('symbols/unpaved/unpaved_primary-fill.svg');
+    line-pattern-file: "url('symbols/unpaved/unpaved_primary-fill.svg')";
     [zoom >='17'] {
       line-pattern-width: @primary-width-z17 * @turning-circle-factor;
     }
@@ -10489,7 +10495,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     line-pattern-type: repeat;
     line-pattern-alignment: global;
     line-pattern-width: @secondary-width-z15 * @turning-circle-factor;
-    line-pattern-file: url('symbols/unpaved/unpaved_secondary-fill.svg');
+    line-pattern-file: "url('symbols/unpaved/unpaved_secondary-fill.svg')";
     [zoom >='16'] {
       line-pattern-width: @secondary-width-z16 * @turning-circle-factor;
     }
@@ -10526,7 +10532,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     line-pattern-type: repeat;
     line-pattern-alignment: global;
     line-pattern-width: @tertiary-width-z15 * 1.6;
-    line-pattern-file: url('symbols/unpaved/unpaved_residential-fill.svg');
+    line-pattern-file: "url('symbols/unpaved/unpaved_residential-fill.svg')";
     [zoom >='16'] {
       line-pattern-width: @tertiary-width-z16 * @turning-circle-factor;
     }
@@ -10568,7 +10574,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       line-pattern-type: repeat;
       line-pattern-alignment: global;
       line-pattern-width: @residential-width-z15 * @turning-circle-factor;
-      line-pattern-file: url('symbols/unpaved/unpaved_residential-fill.svg');
+      line-pattern-file: "url('symbols/unpaved/unpaved_residential-fill.svg')";
       [zoom >='16'] {
         line-pattern-width: @residential-width-z16 * @turning-circle-factor;
       }
@@ -10606,7 +10612,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     line-pattern-type: repeat;
     line-pattern-alignment: global;
     line-pattern-width: @living-street-width-z15 * @turning-circle-factor;
-    line-pattern-file: url('symbols/unpaved/unpaved_living-street-fill.svg');
+    line-pattern-file: "url('symbols/unpaved/unpaved_living-street-fill.svg')";
     [zoom >='16'] {
       line-pattern-width: @living-street-width-z16 * @turning-circle-factor;
     }
@@ -10643,7 +10649,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     line-pattern-type: repeat;
     line-pattern-alignment: global;
     line-pattern-width: @service-width-z16 * @turning-circle-factor;
-    line-pattern-file: url('symbols/unpaved/unpaved_residential-fill.svg');
+    line-pattern-file: "url('symbols/unpaved/unpaved_residential-fill.svg')";
     [zoom >='17'] {
       line-pattern-width: @service-width-z17 * @turning-circle-factor;
     }
@@ -10674,7 +10680,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     line-pattern-type: repeat;
     line-pattern-alignment: global;
     line-pattern-width: @minor-service-width-z18 * @turning-circle-factor;
-    line-pattern-file: url('symbols/unpaved/unpaved_residential-fill.svg');
+    line-pattern-file: "url('symbols/unpaved/unpaved_residential-fill.svg')";
     [zoom >='19'] {
       line-pattern-width: @minor-service-width-z19 * @turning-circle-factor;
     }
@@ -10756,7 +10762,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   [feature='highway_living_street'][zoom >='14'] {
     polygon-fill: @living-street-fill;
     [int_surface='unpaved'] {
-      polygon-pattern-file: url('symbols/unpaved/unpaved_living-street-fill.svg');
+      polygon-pattern-file: "url('symbols/unpaved/unpaved_living-street-fill.svg')";
       polygon-pattern-alignment: global;
     }
   }
@@ -10765,7 +10771,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     [zoom >='14'] {
       polygon-fill: #fff;
       [int_surface='unpaved'] {
-        polygon-pattern-file: url('symbols/unpaved/unpaved_residential-fill.svg');
+        polygon-pattern-file: "url('symbols/unpaved/unpaved_residential-fill.svg')";
         polygon-pattern-alignment: global;
       }
     }
@@ -10776,7 +10782,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     [zoom >='15'] {
       polygon-fill: @pedestrian-fill;
       [int_surface='unpaved'] {
-        polygon-pattern-file: url('symbols/unpaved/unpaved_pedestrian-fill.svg');
+        polygon-pattern-file: "url('symbols/unpaved/unpaved_pedestrian-fill.svg')";
         polygon-pattern-alignment: global;
       }
     }
@@ -10787,7 +10793,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     [zoom >='16'] {
       polygon-fill: @platform-fill;
       [int_surface='unpaved'] {
-        polygon-pattern-file: url('symbols/unpaved/unpaved_platform-fill.svg');
+        polygon-pattern-file: "url('symbols/unpaved/unpaved_platform-fill.svg')";
         polygon-pattern-alignment: global;
       }
     }
@@ -10796,7 +10802,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   [feature='aeroway_runway'][zoom >='11'] {
     polygon-fill: @runway-fill;
     [int_surface='unpaved'] {
-      polygon-pattern-file: url('symbols/unpaved/unpaved_aeroway-fill.svg');
+      polygon-pattern-file: "url('symbols/unpaved/unpaved_aeroway-fill.svg')";
       polygon-pattern-alignment: global;
     }
   }
@@ -10804,7 +10810,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   [feature='aeroway_taxiway'][zoom >='13'] {
     polygon-fill: @taxiway-fill;
     [int_surface='unpaved'] {
-      polygon-pattern-file: url('symbols/unpaved/unpaved_aeroway-fill.svg');
+      polygon-pattern-file: "url('symbols/unpaved/unpaved_aeroway-fill.svg')";
       polygon-pattern-alignment: global;
     }
   }
@@ -10812,7 +10818,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   [feature='aeroway_helipad'][zoom >='16'] {
     polygon-fill: @helipad-fill;
     [int_surface='unpaved'] {
-      polygon-pattern-file: url('symbols/unpaved/unpaved_aeroway-fill.svg');
+      polygon-pattern-file: "url('symbols/unpaved/unpaved_aeroway-fill.svg')";
       polygon-pattern-alignment: global;
     }
   }
@@ -11107,7 +11113,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         [int_surface='unpaved'] {
           line-pattern-type: repeat;
           line-pattern-alignment: global;
-          line-pattern-file: url('symbols/unpaved/unpaved_aeroway-fill.svg');
+          line-pattern-file: "url('symbols/unpaved/unpaved_aeroway-fill.svg')";
           line-pattern-width: 2;
           [zoom >='12'] {
             line-pattern-width: 4;
@@ -11167,7 +11173,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         [int_surface='unpaved'] {
           line-pattern-type: repeat;
           line-pattern-alignment: global;
-          line-pattern-file: url('symbols/unpaved/unpaved_aeroway-fill.svg');
+          line-pattern-file: "url('symbols/unpaved/unpaved_aeroway-fill.svg')";
           line-pattern-width: 1;
           [zoom >='13'] {
             line-pattern-width: 2;
@@ -11204,22 +11210,22 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
     [highway='motorway'] {
       shield-fill: @motorway-shield;
-      shield-file: url('symbols/shields/motorway_[width]x[height].svg');
+      shield-file: "url('symbols/shields/motorway_[width]x[height].svg')";
     }
 
     [highway='trunk'] {
       shield-fill: @trunk-shield;
-      shield-file: url('symbols/shields/trunk_[width]x[height].svg');
+      shield-file: "url('symbols/shields/trunk_[width]x[height].svg')";
     }
 
     [highway='primary'] {
       shield-fill: @primary-shield;
-      shield-file: url('symbols/shields/primary_[width]x[height].svg');
+      shield-file: "url('symbols/shields/primary_[width]x[height].svg')";
     }
 
     [highway='secondary'] {
       shield-fill: @secondary-shield;
-      shield-file: url('symbols/shields/secondary_[width]x[height].svg');
+      shield-file: "url('symbols/shields/secondary_[width]x[height].svg')";
     }
   }
 }
@@ -11253,57 +11259,57 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
       [highway='motorway'] {
         shield-fill: @motorway-shield;
-        shield-file: url('symbols/shields/motorway_[width]x[height].svg');
+        shield-file: "url('symbols/shields/motorway_[width]x[height].svg')";
 
         [zoom >='16'] {
-          shield-file: url('symbols/shields/motorway_[width]x[height]_z16.svg');
+          shield-file: "url('symbols/shields/motorway_[width]x[height]_z16.svg')";
         }
         [zoom >='18'] {
-          shield-file: url('symbols/shields/motorway_[width]x[height]_z18.svg');
+          shield-file: "url('symbols/shields/motorway_[width]x[height]_z18.svg')";
         }
       }
       [highway='trunk'] {
         shield-fill: @trunk-shield;
-        shield-file: url('symbols/shields/trunk_[width]x[height].svg');
+        shield-file: "url('symbols/shields/trunk_[width]x[height].svg')";
 
         [zoom >='16'] {
-          shield-file: url('symbols/shields/trunk_[width]x[height]_z16.svg');
+          shield-file: "url('symbols/shields/trunk_[width]x[height]_z16.svg')";
         }
         [zoom >='18'] {
-          shield-file: url('symbols/shields/trunk_[width]x[height]_z18.svg');
+          shield-file: "url('symbols/shields/trunk_[width]x[height]_z18.svg')";
         }
       }
       [highway='primary'] {
         shield-fill: @primary-shield;
-        shield-file: url('symbols/shields/primary_[width]x[height].svg');
+        shield-file: "url('symbols/shields/primary_[width]x[height].svg')";
 
         [zoom >='16'] {
-          shield-file: url('symbols/shields/primary_[width]x[height]_z16.svg');
+          shield-file: "url('symbols/shields/primary_[width]x[height]_z16.svg')";
         }
         [zoom >='18'] {
-          shield-file: url('symbols/shields/primary_[width]x[height]_z18.svg');
+          shield-file: "url('symbols/shields/primary_[width]x[height]_z18.svg')";
         }
       }
       [highway='secondary'] {
         shield-fill: @secondary-shield;
-        shield-file: url('symbols/shields/secondary_[width]x[height].svg');
+        shield-file: "url('symbols/shields/secondary_[width]x[height].svg')";
 
         [zoom >='16'] {
-          shield-file: url('symbols/shields/secondary_[width]x[height]_z16.svg');
+          shield-file: "url('symbols/shields/secondary_[width]x[height]_z16.svg')";
         }
         [zoom >='18'] {
-          shield-file: url('symbols/shields/secondary_[width]x[height]_z18.svg');
+          shield-file: "url('symbols/shields/secondary_[width]x[height]_z18.svg')";
         }
       }
       [highway='tertiary'] {
         shield-fill: @tertiary-shield;
-        shield-file: url('symbols/shields/tertiary_[width]x[height].svg');
+        shield-file: "url('symbols/shields/tertiary_[width]x[height].svg')";
 
         [zoom >='16'] {
-          shield-file: url('symbols/shields/tertiary_[width]x[height]_z16.svg');
+          shield-file: "url('symbols/shields/tertiary_[width]x[height]_z16.svg')";
         }
         [zoom >='18'] {
-          shield-file: url('symbols/shields/tertiary_[width]x[height]_z18.svg');
+          shield-file: "url('symbols/shields/tertiary_[width]x[height]_z18.svg')";
         }
       }
     }
@@ -11683,9 +11689,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         marker-placement: line;
         marker-spacing: 180;
         marker-max-error: 0.5;
-        marker-file: url('symbols/oneway.svg');
+        marker-file: "url('symbols/oneway.svg')";
         [oneway='-1'] {
-          marker-file: url('symbols/oneway-reverse.svg');
+          marker-file: "url('symbols/oneway-reverse.svg')";
         }
 
         [highway='motorway'],
@@ -11921,11 +11927,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 #power-towers {
   [power='tower'] {
     [zoom >='14'] {
-      marker-file: url('symbols/man_made/power_tower_small.svg');
+      marker-file: "url('symbols/man_made/power_tower_small.svg')";
       marker-width: 3;
     }
     [zoom >='15'] {
-      marker-file: url('symbols/man_made/power_tower.svg');
+      marker-file: "url('symbols/man_made/power_tower.svg')";
       marker-width: 5;
     }
     [zoom >='17'] {
@@ -11933,7 +11939,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
   }
   [power='pole'][zoom >='16'] {
-    marker-file: url('symbols/square.svg');
+    marker-file: "url('symbols/square.svg')";
     marker-fill: #928f8f;
     marker-width: 3;
   }
@@ -11945,37 +11951,37 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 @county-labels: darken(@admin-boundaries-wide, 5%);
 
 #country-names {
-  [zoom >= 3][zoom < 5][way_pixels > 1000],
-  [zoom >= 5][way_pixels < 360000] {
-    text-name: "[name]";
+  [zoom >='3'][zoom < 5][way_pixels > 1000],
+  [zoom >='5'][way_pixels < 360000] {
+    text-name: '[name]';
     text-size: 10;
     text-wrap-width: 35; // 3.5 em
     text-line-spacing: -1.5; // -0.15 em
-    text-margin: 7.0; // 0.7 em
-    [zoom >= 4] {
+    text-margin: 7; // 0.7 em
+    [zoom >='4'] {
       text-size: 11;
       text-wrap-width: 40; // 3.6 em
       text-line-spacing: -1.4; // -0.13 em
       text-margin: 7.7; // 0.7 em
     }
-    [zoom >= 5] {
+    [zoom >='5'] {
       text-size: 12;
       text-wrap-width: 45; // 3.7 em
       text-line-spacing: -1.2; // -0.10 em
       text-margin: 8.4; // 0.7 em
     }
-    [zoom >= 7] {
+    [zoom >='7'] {
       text-size: 13;
       text-wrap-width: 50; // 3.8 em
-      text-line-spacing: -1.0; // -0.08 em
+      text-line-spacing: -1; // -0.08 em
       text-margin: 9.1; // 0.7 em
     }
-    [zoom >= 9] {
+    [zoom >='9'] {
       text-size: 14;
       text-wrap-width: 55; // 3.9 em
       text-line-spacing: -0.7; // -0.05 em
     }
-    [zoom >= 10] {
+    [zoom >='10'] {
       text-size: 15;
       text-wrap-width: 60; // 4.0 em
       text-line-spacing: -0.4; // -0.02 em
@@ -11989,49 +11995,49 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 }
 
 #state-names {
-  [zoom >= 5][zoom < 7][way_pixels > 3000],
-  [zoom >= 7][way_pixels > 3000][way_pixels < 196000] {
-    text-name: "[name]";
+  [zoom >='5'][zoom < 7][way_pixels > 3000],
+  [zoom >='7'][way_pixels > 3000][way_pixels < 196000] {
+    text-name: '[name]';
     text-size: 10;
     text-wrap-width: 35; // 3.5 em
     text-line-spacing: -1.5; // -0.15 em
-    text-margin: 7.0; // 0.7 em
+    text-margin: 7; // 0.7 em
     text-fill: @state-labels;
     text-face-name: @oblique-fonts;
     text-halo-fill: @standard-halo-fill;
     text-halo-radius: @standard-halo-radius * 1.5;
     text-placement: interior;
-    [zoom >= 7] {
+    [zoom >='7'] {
       text-size: 11;
       text-wrap-width: 40; // 3.6 em
       text-line-spacing: -1.4; // -0.13 em
       text-margin: 7.7; // 0.7 em
     }
-    [zoom >= 9] {
+    [zoom >='9'] {
       text-size: 12;
       text-wrap-width: 45; // 3.7 em
       text-line-spacing: -1.2; // -0.10 em
       text-margin: 8.4; // 0.7 em
     }
-    [zoom >= 10] {
+    [zoom >='10'] {
       text-size: 13;
       text-wrap-width: 50; // 3.8 em
-      text-line-spacing: -1.0; // -0.08 em
+      text-line-spacing: -1; // -0.08 em
       text-margin: 9.1; // 0.7 em
     }
-    [zoom >= 12] {
+    [zoom >='12'] {
       text-size: 15;
       text-wrap-width: 50; // 3.8 em
-      text-line-spacing: -1.0; // -0.08 em
+      text-line-spacing: -1; // -0.08 em
       text-margin: 9.1; // 0.7 em
     }
   }
 }
 
 #capital-names {
-  [zoom >= 4][zoom < 8][population > 600000],
-  [zoom >= 5][zoom < 8] {
-    shield-file: url('symbols/place/place-capital-6.svg');
+  [zoom >='4'][zoom < 8][population > 600000],
+  [zoom >='5'][zoom < 8] {
+    shield-file: "url('symbols/place/place-capital-6.svg')";
     shield-text-dx: 6;
     shield-text-dy: 6;
     shield-name: '[name]';
@@ -12045,28 +12051,28 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     shield-halo-radius: @standard-halo-radius * 1.5;
     shield-placement-type: simple;
     shield-placements: 'S,N,E,W';
-    [dir = 1] {
+    [dir='1'] {
       shield-placements: 'N,S,E,W';
     }
     shield-unlock-image: true;
 
-    [zoom >= 5] {
+    [zoom >='5'] {
       shield-wrap-width: 45; // 4.1 em
       shield-line-spacing: -1.1; // -0.10 em
     }
-    [zoom >= 6] {
+    [zoom >='6'] {
       shield-size: 12;
       shield-wrap-width: 60; // 5.0 em
       shield-line-spacing: -0.6; // -0.05 em
       shield-margin: 8.4; // 0.7 em
     }
-    [zoom >= 7] {
-      shield-file: url('symbols/place/place-capital-8.svg');
+    [zoom >='7'] {
+      shield-file: "url('symbols/place/place-capital-8.svg')";
       shield-text-dx: 7;
       shield-text-dy: 7;
     }
   }
-  [zoom >= 8] {
+  [zoom >='8'] {
     text-name: '[name]';
     text-face-name: @book-fonts;
     text-fill: @placenames;
@@ -12077,13 +12083,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     text-halo-fill: @standard-halo-fill;
     text-halo-radius: @standard-halo-radius * 1.5;
 
-    [zoom >= 10] {
+    [zoom >='10'] {
       text-size: 14;
       text-wrap-width: 70; // 5.0 em
-      text-line-spacing: -0.70; // -0.05 em
+      text-line-spacing: -0.7; // -0.05 em
       text-margin: 9.8; // 0.7 em
     }
-    [zoom >= 11] {
+    [zoom >='11'] {
       text-size: 15;
       text-wrap-width: 75; // 5.0 em
       text-line-spacing: -0.75; // -0.05 em
@@ -12093,10 +12099,10 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 }
 
 #placenames-medium::high-importance {
-  [category = 1][zoom < 14] {
-    [zoom >= 4][zoom < 5][score >= 3000000],
-    [zoom >= 5][zoom < 8][score >= 400000] {
-      shield-file: url('symbols/place/place-4.svg');
+  [category='1'][zoom < 14] {
+    [zoom >='4'][zoom < 5][score >='3000000'],
+    [zoom >='5'][zoom < 8][score >='400000'] {
+      shield-file: "url('symbols/place/place-4.svg')";
       shield-text-dx: 4;
       shield-text-dy: 4;
       shield-name: '[name]';
@@ -12110,30 +12116,30 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       shield-halo-radius: @standard-halo-radius * 1.5;
       shield-placement-type: simple;
       shield-placements: 'S,N,E,W';
-      [dir = 1] {
+      [dir='1'] {
         shield-placements: 'N,S,E,W';
       }
       shield-unlock-image: true;
 
-      [zoom >= 5] {
+      [zoom >='5'] {
         shield-wrap-width: 45; // 4.1 em
         shield-line-spacing: -1.1; // -0.10 em
       }
-      [zoom >= 6] {
+      [zoom >='6'] {
         shield-size: 12;
         shield-wrap-width: 60; // 5.0 em
         shield-line-spacing: -0.6; // -0.05 em
         shield-margin: 8.4; // 0.7 em
 
-        shield-file: url('symbols/place/place-6.svg');
+        shield-file: "url('symbols/place/place-6.svg')";
         shield-text-dx: 5;
         shield-text-dy: 5;
       }
-      [zoom >= 7] {
-        shield-file: url('symbols/place/place-6-z7.svg');
+      [zoom >='7'] {
+        shield-file: "url('symbols/place/place-6-z7.svg')";
       }
     }
-    [zoom >= 8][score >= 400000] {
+    [zoom >='8'][score >='400000'] {
       text-name: '[name]';
       text-face-name: @book-fonts;
       text-fill: @placenames;
@@ -12144,13 +12150,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       text-halo-fill: @standard-halo-fill;
       text-halo-radius: @standard-halo-radius * 1.5;
 
-      [zoom >= 10] {
+      [zoom >='10'] {
         text-size: 14;
         text-wrap-width: 70; // 5.0 em
         text-line-spacing: -0.7; // -0.05 em
         text-margin: 9.8; // 0.7 em
       }
-      [zoom >= 11] {
+      [zoom >='11'] {
         text-size: 15;
         text-wrap-width: 75; // 5.0 em
         text-line-spacing: -0.75; // -0.05 em
@@ -12161,13 +12167,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 }
 
 #placenames-medium::medium-importance {
-  [category = 1][score < 400000][zoom < 15] {
-    [zoom >= 6][zoom < 8][score >= 70000],
-    [zoom >= 7][zoom < 8] {
-      shield-file: url('symbols/place/place-4.svg');
+  [category='1'][score < 400000][zoom < 15] {
+    [zoom >='6'][zoom < 8][score >='70000'],
+    [zoom >='7'][zoom < 8] {
+      shield-file: "url('symbols/place/place-4.svg')";
       shield-text-dx: 4;
       shield-text-dy: 4;
-      shield-name: "[name]";
+      shield-name: '[name]';
       shield-size: 10;
       shield-fill: @placenames;
       shield-face-name: @book-fonts;
@@ -12175,46 +12181,46 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       shield-halo-radius: @standard-halo-radius * 1.5;
       shield-wrap-width: 30; // 3.0 em
       shield-line-spacing: -1.5; // -0.15 em
-      shield-margin: 7.0; // 0.7 em
+      shield-margin: 7; // 0.7 em
       shield-placement-type: simple;
       shield-placements: 'S,N,E,W';
-      [dir = 1] {
+      [dir='1'] {
         shield-placements: 'N,S,E,W';
       }
       shield-unlock-image: true;
-      [zoom >= 7] {
-        shield-file: url('symbols/place/place-4-z7.svg');
+      [zoom >='7'] {
+        shield-file: "url('symbols/place/place-4-z7.svg')";
       }
     }
-    [zoom >= 8] {
-      text-name: "[name]";
+    [zoom >='8'] {
+      text-name: '[name]';
       text-size: 10;
       text-fill: @placenames;
       text-face-name: @book-fonts;
       text-halo-fill: @standard-halo-fill;
       text-halo-radius: @standard-halo-radius * 1.5;
       text-wrap-width: 40; // 4.0 em
-      text-line-spacing: -1.0; // -0.10 em
-      text-margin: 7.0; // 0.7 em
-      [zoom >= 9] {
+      text-line-spacing: -1; // -0.10 em
+      text-margin: 7; // 0.7 em
+      [zoom >='9'] {
         text-size: 12;
         text-wrap-width: 60; // 5.0 em
         text-line-spacing: -0.6; // -0.05 em
         text-margin: 8.4; // 0.7 em
       }
-      [zoom >= 10] {
+      [zoom >='10'] {
         text-size: 13;
         text-wrap-width: 65; // 5.0 em
         text-line-spacing: -0.65; // -0.05 em
         text-margin: 9.1; // 0.7 em
       }
-      [zoom >= 11] {
+      [zoom >='11'] {
         text-size: 14;
         text-wrap-width: 70; // 5.0 em
         text-line-spacing: -0.7; // -0.05 em
         text-margin: 9.8; // 0.7 em
       }
-      [zoom >= 14] {
+      [zoom >='14'] {
         text-size: 15;
         text-wrap-width: 75; // 5.0 em
         text-line-spacing: -0.7; // -0.05 em
@@ -12225,9 +12231,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 }
 
 #placenames-medium::low-importance {
-  [category = 2] {
-    [zoom >= 9][zoom < 16] {
-      text-name: "[name]";
+  [category='2'] {
+    [zoom >='9'][zoom < 16] {
+      text-name: '[name]';
       text-size: 10;
       text-fill: @placenames;
       text-face-name: @book-fonts;
@@ -12236,19 +12242,19 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       text-wrap-width: 45; // 4.5 em
       text-line-spacing: -0.8; // -0.08 em
       text-margin: 7; // 0.7 em
-      [zoom >= 11] {
+      [zoom >='11'] {
         text-size: 11;
         text-wrap-width: 55; // 5.0 em
         text-line-spacing: -0.55; // -0.05 em
         text-margin: 7.7; // 0.7 em
       }
-      [zoom >= 12] {
+      [zoom >='12'] {
         text-size: 13;
         text-wrap-width: 65; // 5.0 em
         text-line-spacing: -0.65; // -0.05 em
         text-margin: 8.4; // 0.7 em
       }
-      [zoom >= 14] {
+      [zoom >='14'] {
         text-size: 15;
         text-wrap-width: 75; // 5.0 em
         text-line-spacing: -0.75; // -0.05 em
@@ -12259,8 +12265,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 }
 
 #placenames-small::suburb {
-  [place = 'suburb'][zoom >= 12][zoom < 17] {
-    text-name: "[name]";
+  [place='suburb'][zoom >='12'][zoom < 17] {
+    text-name: '[name]';
     text-size: 11;
     text-fill: @placenames;
     text-face-name: @book-fonts;
@@ -12269,21 +12275,21 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     text-wrap-width: 55; // 5.0 em
     text-line-spacing: -0.55; // -0.05 em
     text-margin: 7.7; // 0.7 em
-    [zoom >= 13] {
+    [zoom >='13'] {
       text-size: 12;
       text-wrap-width: 60; // 5.0 em
-      text-line-spacing: -0.60; // -0.05 em
+      text-line-spacing: -0.6; // -0.05 em
       text-margin: 8.4; // 0.7 em
     }
-    [zoom >= 14] {
+    [zoom >='14'] {
       text-size: 14;
       text-wrap-width: 70; // 5.0 em
-      text-line-spacing: -0.70; // -0.05 em
+      text-line-spacing: -0.7; // -0.05 em
       text-margin: 9.8; // 0.7 em
       text-fill: @placenames-light;
       text-halo-fill: white;
     }
-    [zoom >= 16] {
+    [zoom >='16'] {
       text-size: 15;
       text-wrap-width: 75; // 5.0 em
       text-line-spacing: -0.75; // -0.05 em
@@ -12293,24 +12299,24 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 }
 
 #placenames-small::village {
-  [place = 'village'] {
-    [zoom >= 12][zoom < 17] {
-      text-name: "[name]";
+  [place='village'] {
+    [zoom >='12'][zoom < 17] {
+      text-name: '[name]';
       text-size: 10;
       text-fill: @placenames;
       text-face-name: @book-fonts;
       text-halo-fill: @standard-halo-fill;
       text-halo-radius: @standard-halo-radius * 1.5;
       text-wrap-width: 50; // 5.0 em
-      text-line-spacing: -0.50; // -0.05 em
-      text-margin: 7.0; // 0.7 em
-      [zoom >= 13] {
+      text-line-spacing: -0.5; // -0.05 em
+      text-margin: 7; // 0.7 em
+      [zoom >='13'] {
         text-size: 11;
         text-wrap-width: 55; // 5.0 em
         text-line-spacing: -0.55; // -0.05 em
         text-margin: 7.7; // 0.7 em
       }
-      [zoom >= 14] {
+      [zoom >='14'] {
         text-fill: @placenames-light;
         text-halo-fill: white;
         text-size: 13;
@@ -12318,13 +12324,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         text-line-spacing: -0.65; // -0.05 em
         text-margin: 9.1; // 0.7 em
       }
-      [zoom >= 15] {
+      [zoom >='15'] {
         text-size: 14;
         text-wrap-width: 70; // 5.0 em
-        text-line-spacing: -0.70; // -0.05 em
+        text-line-spacing: -0.7; // -0.05 em
         text-margin: 9.8; // 0.7 em
       }
-      [zoom >= 16] {
+      [zoom >='16'] {
         text-size: 15;
         text-wrap-width: 75; // 5.0 em
         text-line-spacing: -0.75; // -0.05 em
@@ -12335,60 +12341,60 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 }
 
 #placenames-small::quarter {
-  [place = 'quarter'] {
-    [zoom >= 14][zoom < 17] {
-      text-name: "[name]";
+  [place='quarter'] {
+    [zoom >='14'][zoom < 17] {
+      text-name: '[name]';
       text-fill: @placenames;
       text-face-name: @book-fonts;
       text-halo-fill: @standard-halo-fill;
       text-halo-radius: @standard-halo-radius * 1.5;
-      [zoom >= 14] {
+      [zoom >='14'] {
         text-halo-fill: white;
         text-size: 11;
         text-wrap-width: 55; // 5.0 em
         text-line-spacing: -0.55; // -0.05 em
         text-margin: 7.7; // 0.7 em
       }
-      [zoom >= 15] {
+      [zoom >='15'] {
         text-fill: @placenames-light;
         text-size: 12;
         text-wrap-width: 60; // 5.0 em
-        text-line-spacing: -0.60; // -0.05 em
+        text-line-spacing: -0.6; // -0.05 em
         text-margin: 8.4; // 0.7 em
       }
-      [zoom >= 16] {
+      [zoom >='16'] {
         text-size: 14;
         text-wrap-width: 70; // 5.0 em
-        text-line-spacing: -0.70; // -0.05 em
+        text-line-spacing: -0.7; // -0.05 em
         text-margin: 9.8; // 0.7 em
       }
     }
   }
-  [place = 'hamlet'] {
-    [zoom >= 14][zoom < 18] {
-      text-name: "[name]";
+  [place='hamlet'] {
+    [zoom >='14'][zoom < 18] {
+      text-name: '[name]';
       text-fill: @placenames;
       text-face-name: @book-fonts;
       text-halo-fill: white;
       text-halo-radius: @standard-halo-radius * 1.5;
-      [zoom >= 14] {
+      [zoom >='14'] {
         text-size: 10;
         text-wrap-width: 55; // 5.0 em
         text-line-spacing: -0.55; // -0.05 em
         text-margin: 7.7; // 0.7 em
       }
-      [zoom >= 15] {
+      [zoom >='15'] {
         text-size: 11;
         text-fill: @placenames-light;
         text-halo-fill: @standard-halo-fill;
         text-wrap-width: 45; // 4.5 em
         text-line-spacing: -0.8; // -0.08 em
-        text-margin: 7.0; // 0.7 em
+        text-margin: 7; // 0.7 em
       }
-      [zoom >= 16] {
+      [zoom >='16'] {
         text-size: 12;
         text-wrap-width: 60; // 5.0 em
-        text-line-spacing: -0.60; // -0.05 em
+        text-line-spacing: -0.6; // -0.05 em
         text-margin: 8.4; // 0.7 em
         text-fill: @placenames-light;
         text-halo-fill: white;
@@ -12398,10 +12404,10 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 }
 
 #placenames-small::neighborhood {
-  [place = 'neighbourhood'][zoom >= 15][zoom < 20],
-  [place = 'isolated_dwelling'][zoom >= 15],
-  [place = 'farm'][zoom >= 15] {
-    text-name: "[name]";
+  [place='neighbourhood'][zoom >='15'][zoom < 20],
+  [place='isolated_dwelling'][zoom >='15'],
+  [place='farm'][zoom >='15'] {
+    text-name: '[name]';
     text-size: 10;
     text-fill: @placenames;
     text-face-name: @book-fonts;
@@ -12409,11 +12415,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     text-halo-radius: @standard-halo-radius * 1.5;
     text-wrap-width: 45; // 4.5 em
     text-line-spacing: -0.8; // -0.08 em
-    text-margin: 7.0; // 0.7 em
-    [zoom >= 16] {
+    text-margin: 7; // 0.7 em
+    [zoom >='16'] {
       text-size: 12;
       text-wrap-width: 60; // 5.0 em
-      text-line-spacing: -0.60; // -0.05 em
+      text-line-spacing: -0.6; // -0.05 em
       text-margin: 8.4; // 0.7 em
       text-fill: @placenames-light;
       text-halo-fill: white;
@@ -12422,36 +12428,36 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 }
 
 #county-names {
-  [zoom >= 8][way_pixels > 12000][way_pixels < 196000] {
-    [admin_level = '5'][zoom >= 8],
-    [admin_level = '6'][zoom >= 10] {
-      text-name: "[name]";
+  [zoom >='8'][way_pixels > 12000][way_pixels < 196000] {
+    [admin_level='5'][zoom >='8'],
+    [admin_level='6'][zoom >='10'] {
+      text-name: '[name]';
       text-size: 10;
       text-wrap-width: 30; // 3.0 em
       text-line-spacing: -1.5; // -0.15 em
-      text-margin: 7.0; // 0.7 em
+      text-margin: 7; // 0.7 em
       text-fill: @county-labels;
       text-face-name: @oblique-fonts;
       text-halo-fill: @standard-halo-fill;
       text-halo-radius: @standard-halo-radius * 1.5;
       text-placement-type: simple;
-      text-placements: "S,SE,SW,E,NE,W,NW,N";
-      [admin_level = '5'] {
+      text-placements: 'S,SE,SW,E,NE,W,NW,N';
+      [admin_level='5'] {
         text-face-name: @book-fonts;
-        [zoom >= 10] {
+        [zoom >='10'] {
           text-size: 12;
           text-wrap-width: 45; // 3.7 em
           text-line-spacing: -1.2; // -0.10 em
           text-margin: 8.4; // 0.7 em
         }
-        [zoom >= 12] {
+        [zoom >='12'] {
           text-size: 13;
           text-wrap-width: 50; // 3.8 em
-          text-line-spacing: -1.0; // -0.08 em
+          text-line-spacing: -1; // -0.08 em
           text-margin: 9.1; // 0.7 em
         }
       }
-      [admin_level = '6'][zoom >= 12] {
+      [admin_level='6'][zoom >='12'] {
         text-size: 11;
         text-wrap-width: 40; // 3.6 em
         text-line-spacing: -1.4; // -0.13 em
@@ -12460,7 +12466,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
   }
 }
-@building-fill: #E4E5E7;
+@building-fill: #e4e5e7;
 @building-line: darken(@building-fill, 15%);
 @building-low-zoom: darken(@building-fill, 4%);
 
@@ -12473,25 +12479,25 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 @entrance-normal: @building-line;
 
 #buildings {
-  [zoom >= 14] {
+  [zoom >='14'] {
     polygon-fill: @building-low-zoom;
     polygon-clip: false;
-    [zoom >= 15] {
+    [zoom >='15'] {
       polygon-fill: @building-fill;
       line-color: @building-line;
-      line-width: .75;
+      line-width: 0.75;
       line-clip: false;
     }
-    [amenity = 'place_of_worship'],
-    [aeroway = 'terminal'],
-    [aerialway = 'station'],
-    [building = 'train_station'],
-    [public_transport = 'station'] {
+    [amenity='place_of_worship'],
+    [aeroway='terminal'],
+    [aerialway='station'],
+    [building='train_station'],
+    [public_transport='station'] {
       polygon-fill: @building-major-z14;
-      [zoom >= 15] {
+      [zoom >='15'] {
         polygon-fill: @building-major-z15;
         line-color: @building-major-line;
-        [zoom >= 16] {
+        [zoom >='16'] {
           polygon-fill: @building-major-fill;
         }
       }
@@ -12500,62 +12506,62 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 }
 
 #bridge {
-  [zoom >= 12] {
-    polygon-fill: #B8B8B8;
+  [zoom >='12'] {
+    polygon-fill: #b8b8b8;
   }
 }
 
 #entrances {
-  [zoom >= 18]  {
+  [zoom >='18'] {
     marker-fill: @entrance-normal;
     marker-allow-overlap: true;
     marker-ignore-placement: true;
-    marker-file: url('symbols/rect.svg');
-    marker-width: 5.0;
-    marker-height: 5.0;
-    marker-opacity: 0.0;
-    ["entrance" = 'main'] {
-      marker-opacity: 1.0;
-      marker-file: url('symbols/square.svg');
+    marker-file: "url('symbols/rect.svg')";
+    marker-width: 5;
+    marker-height: 5;
+    marker-opacity: 0;
+    ["entrance"='main'] {
+      marker-opacity: 1;
+      marker-file: "url('symbols/square.svg')";
     }
   }
-  [zoom >= 19] {
-    ["entrance" = 'yes'],
-    ["entrance" = 'main'],
-    ["entrance" = 'home'],
-    ["entrance" = 'service'],
-    ["entrance" = 'staircase'],
-    ["entrance" = 'shop'] {
-      marker-opacity: 1.0;
-      marker-width: 6.0;
-      marker-height: 6.0;
-      ["entrance" = 'service'] {
-        marker-file: url('symbols/corners.svg');
+  [zoom >='19'] {
+    ["entrance"='yes'],
+    ["entrance"='main'],
+    ["entrance"='home'],
+    ["entrance"='service'],
+    ["entrance"='staircase'],
+    ["entrance"='shop'] {
+      marker-opacity: 1;
+      marker-width: 6;
+      marker-height: 6;
+      ["entrance"='service'] {
+        marker-file: "url('symbols/corners.svg')";
       }
     }
-    ["access" = 'yes'],
-    ["access" = 'permissive'] {
+    ["access"='yes'],
+    ["access"='permissive'] {
       marker-fill: @entrance-permissive;
     }
-    ["access" = 'no'] {
+    ["access"='no'] {
       marker-fill: @entrance-normal;
-      marker-file: url('symbols/rectdiag.svg');
+      marker-file: "url('symbols/rectdiag.svg')";
     }
   }
-  [zoom >= 20] {
-    marker-width: 8.0;
-    marker-height: 8.0;
+  [zoom >='20'] {
+    marker-width: 8;
+    marker-height: 8;
   }
 }
 @station-color: #7981b0;
 @station-text: darken(saturate(@station-color, 15%), 10%);
 
 #stations {
-  [railway = 'subway_entrance'][zoom >= 18] {
-    marker-file: url('symbols/amenity/entrance.svg');
+  [railway='subway_entrance'][zoom >='18'] {
+    marker-file: "url('symbols/amenity/entrance.svg')";
     marker-fill: @transportation-icon;
     marker-clip: false;
-    [zoom >= 19] {
+    [zoom >='19'] {
       text-name: [ref];
       text-face-name: @book-fonts;
       text-size: 10;
@@ -12567,20 +12573,20 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
   }
 
-  [railway = 'station'][zoom >= 12] {
-    marker-file: url('symbols/square.svg');
+  [railway='station'][zoom >='12'] {
+    marker-file: "url('symbols/square.svg')";
     marker-fill: @station-color;
     marker-clip: false;
-    [station != 'subway'] {
+    [station !='subway'] {
       marker-width: 4;
     }
-    [zoom >= 13][station != 'subway'],
-    [zoom >= 14][station = 'subway'] {
+    [zoom >='13'][station !='subway'],
+    [zoom >='14'][station='subway'] {
       marker-width: 6;
     }
-    [zoom >= 14][station !='subway'],
-    [zoom >=15] {
-      text-name: "[name]";
+    [zoom >='14'][station !='subway'],
+    [zoom >='15'] {
+      text-name: '[name]';
       text-face-name: @bold-fonts;
       text-size: 10;
       text-fill: @station-text;
@@ -12590,8 +12596,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       text-wrap-width: 30; // 3 em
       text-line-spacing: -1.5; // -0.15 em
     }
-    [zoom >= 15][station != 'subway'],
-    [zoom >= 16] {
+    [zoom >='15'][station !='subway'],
+    [zoom >='16'] {
       marker-width: 9;
       text-size: 11;
       text-wrap-width: 33; // 3 em
@@ -12600,18 +12606,18 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
   }
 
-  [railway = 'halt'] {
-    [zoom >= 13] {
-      marker-file: url('symbols/square.svg');
+  [railway='halt'] {
+    [zoom >='13'] {
+      marker-file: "url('symbols/square.svg')";
       marker-fill: @station-color;
       marker-width: 4;
       marker-clip: false;
-      [zoom >= 15] {
+      [zoom >='15'] {
         marker-width: 6;
       }
     }
-    [zoom >= 15] {
-      text-name: "[name]";
+    [zoom >='15'] {
+      text-name: '[name]';
       text-face-name: @bold-fonts;
       text-size: @standard-font-size;
       text-fill: @station-text;
@@ -12623,18 +12629,18 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
   }
 
-  [aerialway = 'station']::aerialway {
-    [zoom >= 13] {
-      marker-file: url('symbols/square.svg');
+  [aerialway='station']::aerialway {
+    [zoom >='13'] {
+      marker-file: "url('symbols/square.svg')";
       marker-fill: @station-color;
       marker-width: 4;
       marker-clip: false;
     }
-    [zoom >= 15] {
+    [zoom >='15'] {
       marker-width: 6;
     }
-    [zoom >= 14] {
-      text-name: "[name]";
+    [zoom >='14'] {
+      text-name: '[name]';
       text-face-name: @book-fonts;
       text-size: @standard-font-size;
       text-fill: @station-text;
@@ -12646,18 +12652,18 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
   }
 
-  [railway = 'tram_stop'] {
-    [zoom >= 14] {
-      marker-file: url('symbols/square.svg');
+  [railway='tram_stop'] {
+    [zoom >='14'] {
+      marker-file: "url('symbols/square.svg')";
       marker-fill: @station-color;
       marker-width: 4;
       marker-clip: false;
-      [zoom >= 15] {
+      [zoom >='15'] {
         marker-width: 6;
       }
     }
-    [zoom >= 16] {
-      text-name: "[name]";
+    [zoom >='16'] {
+      text-name: '[name]';
       text-face-name: @book-fonts;
       text-size: @standard-font-size;
       text-fill: @station-text;

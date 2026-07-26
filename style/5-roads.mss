@@ -1859,7 +1859,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         line-pattern-type: repeat;
         line-pattern-alignment: global;
         line-pattern-width: @motorway-width-z6;
-        line-pattern-file: url('symbols/unpaved/unpaved_motorway-low-zoom.svg');
+        line-pattern-file: "url('symbols/unpaved/unpaved_motorway-low-zoom.svg')";
         [zoom >='7'] {
           line-pattern-width: @motorway-width-z7;
         }
@@ -1876,7 +1876,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           line-pattern-width: @motorway-width-z11;
         }
         [zoom >='12'] {
-          line-pattern-file: url('symbols/unpaved/unpaved_motorway-fill.svg');
+          line-pattern-file: "url('symbols/unpaved/unpaved_motorway-fill.svg')";
           line-pattern-width: @motorway-width-z12 - 2 * @major-casing-width-z12;
           [zoom >='13'] {
             line-pattern-width: @motorway-width-z13 - 2 * @major-casing-width-z13;
@@ -2077,7 +2077,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         line-pattern-type: repeat;
         line-pattern-alignment: global;
         line-pattern-width: @trunk-width-z6;
-        line-pattern-file: url('symbols/unpaved/unpaved_trunk-low-zoom.svg');
+        line-pattern-file: "url('symbols/unpaved/unpaved_trunk-low-zoom.svg')";
         [zoom >='7'] {
           line-pattern-width: @trunk-width-z7;
         }
@@ -2094,7 +2094,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           line-pattern-width: @trunk-width-z11;
         }
         [zoom >='12'] {
-          line-pattern-file: url('symbols/unpaved/unpaved_trunk-fill.svg');
+          line-pattern-file: "url('symbols/unpaved/unpaved_trunk-fill.svg')";
           line-pattern-width: @trunk-width-z12 - 2 * @major-casing-width-z12;
           [zoom >='13'] {
             line-pattern-width: @trunk-width-z13 - 2 * @major-casing-width-z13;
@@ -2277,7 +2277,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         line-pattern-type: repeat;
         line-pattern-alignment: global;
         line-pattern-width: @primary-width-z8;
-        line-pattern-file: url('symbols/unpaved/unpaved_primary-low-zoom.svg');
+        line-pattern-file: "url('symbols/unpaved/unpaved_primary-low-zoom.svg')";
         [zoom >='9'] {
           line-pattern-width: @primary-width-z9;
         }
@@ -2288,7 +2288,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           line-pattern-width: @primary-width-z11;
         }
         [zoom >='12'] {
-          line-pattern-file: url('symbols/unpaved/unpaved_primary-fill.svg');
+          line-pattern-file: "url('symbols/unpaved/unpaved_primary-fill.svg')";
           line-pattern-width: @primary-width-z12 - 2 * @major-casing-width-z12;
           [zoom >='13'] {
             line-pattern-width: @primary-width-z13 - 2 * @major-casing-width-z13;
@@ -2475,7 +2475,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         line-pattern-type: repeat;
         line-pattern-alignment: global;
         line-pattern-width: @secondary-width-z12 - 2 * @secondary-casing-width-z12;
-        line-pattern-file: url('symbols/unpaved/unpaved_secondary-fill.svg');
+        line-pattern-file: "url('symbols/unpaved/unpaved_secondary-fill.svg')";
         line-pattern-cap: round;
         line-pattern-join: round;
         [zoom >='13'] {
@@ -2670,7 +2670,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         line-pattern-type: repeat;
         line-pattern-alignment: global;
         line-pattern-width: @tertiary-width-z12 - 2 * @casing-width-z12;
-        line-pattern-file: url('symbols/unpaved/unpaved_residential-fill.svg');
+        line-pattern-file: "url('symbols/unpaved/unpaved_residential-fill.svg')";
         [zoom >='13'] {
           line-pattern-width: @tertiary-width-z13 - 2 * @casing-width-z13;
         }
@@ -2846,7 +2846,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         }
         line-pattern-type: repeat;
         line-pattern-alignment: global;
-        line-pattern-file: url('symbols/unpaved/unpaved_residential-fill.svg');
+        line-pattern-file: "url('symbols/unpaved/unpaved_residential-fill.svg')";
         #bridges {
           line-pattern-width: @residential-width-z13 - 2 * @bridge-casing-width-z13;
           [zoom >='14'] {
@@ -2953,7 +2953,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         }
         line-pattern-type: repeat;
         line-pattern-alignment: global;
-        line-pattern-file: url('symbols/unpaved/unpaved_living-street-fill.svg');
+        line-pattern-file: "url('symbols/unpaved/unpaved_living-street-fill.svg')";
         #bridges {
           line-pattern-width: @living-street-width-z13 - 2 * @casing-width-z13;
           [zoom >='14'] {
@@ -3046,7 +3046,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         }
         line-pattern-type: repeat;
         line-pattern-alignment: global;
-        line-pattern-file: url('symbols/unpaved/unpaved_road-fill.svg');
+        line-pattern-file: "url('symbols/unpaved/unpaved_road-fill.svg')";
         #bridges {
           line-pattern-width: @road-width-z14 - 2 * @bridge-casing-width-z14;
           [zoom >='16'] {
@@ -3153,7 +3153,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       [zoom >='17'][service='INT-minor'] {
         line-pattern-type: repeat;
         line-pattern-alignment: global;
-        line-pattern-file: url('symbols/unpaved/unpaved_residential-fill.svg');
+        line-pattern-file: "url('symbols/unpaved/unpaved_residential-fill.svg')";
         [service='INT-normal'] {
           line-pattern-width: @service-width-z14 - 2 * @casing-width-z14;
           [zoom >='16'] {
@@ -3292,7 +3292,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         }
         line-pattern-type: repeat;
         line-pattern-alignment: global;
-        line-pattern-file: url('symbols/unpaved/unpaved_pedestrian-fill.svg');
+        line-pattern-file: "url('symbols/unpaved/unpaved_pedestrian-fill.svg')";
         #bridges {
           line-pattern-width: @pedestrian-width-z14 - 2 * @bridge-casing-width-z14;
           [zoom >='15'] {
@@ -3347,7 +3347,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       [zoom >='12'] {
         line-pattern-type: repeat;
         line-pattern-alignment: global;
-        line-pattern-file: url('symbols/unpaved/unpaved_raceway-fill.svg');
+        line-pattern-file: "url('symbols/unpaved/unpaved_raceway-fill.svg')";
         line-pattern-width: 1.2;
         line-pattern-join: round;
         line-pattern-cap: round;
@@ -3394,7 +3394,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         b/line-pattern-width: 4;
         b/line-pattern-type: repeat;
         b/line-pattern-alignment: global;
-        b/line-pattern-file: url('symbols/unpaved/unpaved_platform-fill.svg');
+        b/line-pattern-file: "url('symbols/unpaved/unpaved_platform-fill.svg')";
         b/line-pattern-cap: round;
         b/line-pattern-join: round;
       }
@@ -4005,7 +4005,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         b/line-pattern-width: 4;
         b/line-pattern-type: repeat;
         b/line-pattern-alignment: global;
-        b/line-pattern-file: url('symbols/unpaved/unpaved_platform-fill.svg');
+        b/line-pattern-file: "url('symbols/unpaved/unpaved_platform-fill.svg')";
         b/line-pattern-cap: round;
         b/line-pattern-join: round;
       }
@@ -4174,7 +4174,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     line-pattern-type: repeat;
     line-pattern-alignment: global;
     line-pattern-width: @trunk-width-z15 * @turning-circle-factor;
-    line-pattern-file: url('symbols/unpaved/unpaved_trunk-fill.svg');
+    line-pattern-file: "url('symbols/unpaved/unpaved_trunk-fill.svg')";
     [zoom >='17'] {
       line-pattern-width: @trunk-width-z17 * @turning-circle-factor;
     }
@@ -4205,7 +4205,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     line-pattern-type: repeat;
     line-pattern-alignment: global;
     line-pattern-width: @primary-width-z15 * @turning-circle-factor;
-    line-pattern-file: url('symbols/unpaved/unpaved_primary-fill.svg');
+    line-pattern-file: "url('symbols/unpaved/unpaved_primary-fill.svg')";
     [zoom >='17'] {
       line-pattern-width: @primary-width-z17 * @turning-circle-factor;
     }
@@ -4239,7 +4239,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     line-pattern-type: repeat;
     line-pattern-alignment: global;
     line-pattern-width: @secondary-width-z15 * @turning-circle-factor;
-    line-pattern-file: url('symbols/unpaved/unpaved_secondary-fill.svg');
+    line-pattern-file: "url('symbols/unpaved/unpaved_secondary-fill.svg')";
     [zoom >='16'] {
       line-pattern-width: @secondary-width-z16 * @turning-circle-factor;
     }
@@ -4276,7 +4276,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     line-pattern-type: repeat;
     line-pattern-alignment: global;
     line-pattern-width: @tertiary-width-z15 * 1.6;
-    line-pattern-file: url('symbols/unpaved/unpaved_residential-fill.svg');
+    line-pattern-file: "url('symbols/unpaved/unpaved_residential-fill.svg')";
     [zoom >='16'] {
       line-pattern-width: @tertiary-width-z16 * @turning-circle-factor;
     }
@@ -4318,7 +4318,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       line-pattern-type: repeat;
       line-pattern-alignment: global;
       line-pattern-width: @residential-width-z15 * @turning-circle-factor;
-      line-pattern-file: url('symbols/unpaved/unpaved_residential-fill.svg');
+      line-pattern-file: "url('symbols/unpaved/unpaved_residential-fill.svg')";
       [zoom >='16'] {
         line-pattern-width: @residential-width-z16 * @turning-circle-factor;
       }
@@ -4356,7 +4356,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     line-pattern-type: repeat;
     line-pattern-alignment: global;
     line-pattern-width: @living-street-width-z15 * @turning-circle-factor;
-    line-pattern-file: url('symbols/unpaved/unpaved_living-street-fill.svg');
+    line-pattern-file: "url('symbols/unpaved/unpaved_living-street-fill.svg')";
     [zoom >='16'] {
       line-pattern-width: @living-street-width-z16 * @turning-circle-factor;
     }
@@ -4393,7 +4393,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     line-pattern-type: repeat;
     line-pattern-alignment: global;
     line-pattern-width: @service-width-z16 * @turning-circle-factor;
-    line-pattern-file: url('symbols/unpaved/unpaved_residential-fill.svg');
+    line-pattern-file: "url('symbols/unpaved/unpaved_residential-fill.svg')";
     [zoom >='17'] {
       line-pattern-width: @service-width-z17 * @turning-circle-factor;
     }
@@ -4424,7 +4424,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     line-pattern-type: repeat;
     line-pattern-alignment: global;
     line-pattern-width: @minor-service-width-z18 * @turning-circle-factor;
-    line-pattern-file: url('symbols/unpaved/unpaved_residential-fill.svg');
+    line-pattern-file: "url('symbols/unpaved/unpaved_residential-fill.svg')";
     [zoom >='19'] {
       line-pattern-width: @minor-service-width-z19 * @turning-circle-factor;
     }
@@ -4506,7 +4506,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   [feature='highway_living_street'][zoom >='14'] {
     polygon-fill: @living-street-fill;
     [int_surface='unpaved'] {
-      polygon-pattern-file: url('symbols/unpaved/unpaved_living-street-fill.svg');
+      polygon-pattern-file: "url('symbols/unpaved/unpaved_living-street-fill.svg')";
       polygon-pattern-alignment: global;
     }
   }
@@ -4515,7 +4515,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     [zoom >='14'] {
       polygon-fill: #fff;
       [int_surface='unpaved'] {
-        polygon-pattern-file: url('symbols/unpaved/unpaved_residential-fill.svg');
+        polygon-pattern-file: "url('symbols/unpaved/unpaved_residential-fill.svg')";
         polygon-pattern-alignment: global;
       }
     }
@@ -4526,7 +4526,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     [zoom >='15'] {
       polygon-fill: @pedestrian-fill;
       [int_surface='unpaved'] {
-        polygon-pattern-file: url('symbols/unpaved/unpaved_pedestrian-fill.svg');
+        polygon-pattern-file: "url('symbols/unpaved/unpaved_pedestrian-fill.svg')";
         polygon-pattern-alignment: global;
       }
     }
@@ -4537,7 +4537,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     [zoom >='16'] {
       polygon-fill: @platform-fill;
       [int_surface='unpaved'] {
-        polygon-pattern-file: url('symbols/unpaved/unpaved_platform-fill.svg');
+        polygon-pattern-file: "url('symbols/unpaved/unpaved_platform-fill.svg')";
         polygon-pattern-alignment: global;
       }
     }
@@ -4546,7 +4546,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   [feature='aeroway_runway'][zoom >='11'] {
     polygon-fill: @runway-fill;
     [int_surface='unpaved'] {
-      polygon-pattern-file: url('symbols/unpaved/unpaved_aeroway-fill.svg');
+      polygon-pattern-file: "url('symbols/unpaved/unpaved_aeroway-fill.svg')";
       polygon-pattern-alignment: global;
     }
   }
@@ -4554,7 +4554,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   [feature='aeroway_taxiway'][zoom >='13'] {
     polygon-fill: @taxiway-fill;
     [int_surface='unpaved'] {
-      polygon-pattern-file: url('symbols/unpaved/unpaved_aeroway-fill.svg');
+      polygon-pattern-file: "url('symbols/unpaved/unpaved_aeroway-fill.svg')";
       polygon-pattern-alignment: global;
     }
   }
@@ -4562,7 +4562,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   [feature='aeroway_helipad'][zoom >='16'] {
     polygon-fill: @helipad-fill;
     [int_surface='unpaved'] {
-      polygon-pattern-file: url('symbols/unpaved/unpaved_aeroway-fill.svg');
+      polygon-pattern-file: "url('symbols/unpaved/unpaved_aeroway-fill.svg')";
       polygon-pattern-alignment: global;
     }
   }
@@ -4857,7 +4857,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         [int_surface='unpaved'] {
           line-pattern-type: repeat;
           line-pattern-alignment: global;
-          line-pattern-file: url('symbols/unpaved/unpaved_aeroway-fill.svg');
+          line-pattern-file: "url('symbols/unpaved/unpaved_aeroway-fill.svg')";
           line-pattern-width: 2;
           [zoom >='12'] {
             line-pattern-width: 4;
@@ -4917,7 +4917,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         [int_surface='unpaved'] {
           line-pattern-type: repeat;
           line-pattern-alignment: global;
-          line-pattern-file: url('symbols/unpaved/unpaved_aeroway-fill.svg');
+          line-pattern-file: "url('symbols/unpaved/unpaved_aeroway-fill.svg')";
           line-pattern-width: 1;
           [zoom >='13'] {
             line-pattern-width: 2;
@@ -4954,22 +4954,22 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
     [highway='motorway'] {
       shield-fill: @motorway-shield;
-      shield-file: url('symbols/shields/motorway_[width]x[height].svg');
+      shield-file: "url('symbols/shields/motorway_[width]x[height].svg')";
     }
 
     [highway='trunk'] {
       shield-fill: @trunk-shield;
-      shield-file: url('symbols/shields/trunk_[width]x[height].svg');
+      shield-file: "url('symbols/shields/trunk_[width]x[height].svg')";
     }
 
     [highway='primary'] {
       shield-fill: @primary-shield;
-      shield-file: url('symbols/shields/primary_[width]x[height].svg');
+      shield-file: "url('symbols/shields/primary_[width]x[height].svg')";
     }
 
     [highway='secondary'] {
       shield-fill: @secondary-shield;
-      shield-file: url('symbols/shields/secondary_[width]x[height].svg');
+      shield-file: "url('symbols/shields/secondary_[width]x[height].svg')";
     }
   }
 }
@@ -5003,57 +5003,57 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
       [highway='motorway'] {
         shield-fill: @motorway-shield;
-        shield-file: url('symbols/shields/motorway_[width]x[height].svg');
+        shield-file: "url('symbols/shields/motorway_[width]x[height].svg')";
 
         [zoom >='16'] {
-          shield-file: url('symbols/shields/motorway_[width]x[height]_z16.svg');
+          shield-file: "url('symbols/shields/motorway_[width]x[height]_z16.svg')";
         }
         [zoom >='18'] {
-          shield-file: url('symbols/shields/motorway_[width]x[height]_z18.svg');
+          shield-file: "url('symbols/shields/motorway_[width]x[height]_z18.svg')";
         }
       }
       [highway='trunk'] {
         shield-fill: @trunk-shield;
-        shield-file: url('symbols/shields/trunk_[width]x[height].svg');
+        shield-file: "url('symbols/shields/trunk_[width]x[height].svg')";
 
         [zoom >='16'] {
-          shield-file: url('symbols/shields/trunk_[width]x[height]_z16.svg');
+          shield-file: "url('symbols/shields/trunk_[width]x[height]_z16.svg')";
         }
         [zoom >='18'] {
-          shield-file: url('symbols/shields/trunk_[width]x[height]_z18.svg');
+          shield-file: "url('symbols/shields/trunk_[width]x[height]_z18.svg')";
         }
       }
       [highway='primary'] {
         shield-fill: @primary-shield;
-        shield-file: url('symbols/shields/primary_[width]x[height].svg');
+        shield-file: "url('symbols/shields/primary_[width]x[height].svg')";
 
         [zoom >='16'] {
-          shield-file: url('symbols/shields/primary_[width]x[height]_z16.svg');
+          shield-file: "url('symbols/shields/primary_[width]x[height]_z16.svg')";
         }
         [zoom >='18'] {
-          shield-file: url('symbols/shields/primary_[width]x[height]_z18.svg');
+          shield-file: "url('symbols/shields/primary_[width]x[height]_z18.svg')";
         }
       }
       [highway='secondary'] {
         shield-fill: @secondary-shield;
-        shield-file: url('symbols/shields/secondary_[width]x[height].svg');
+        shield-file: "url('symbols/shields/secondary_[width]x[height].svg')";
 
         [zoom >='16'] {
-          shield-file: url('symbols/shields/secondary_[width]x[height]_z16.svg');
+          shield-file: "url('symbols/shields/secondary_[width]x[height]_z16.svg')";
         }
         [zoom >='18'] {
-          shield-file: url('symbols/shields/secondary_[width]x[height]_z18.svg');
+          shield-file: "url('symbols/shields/secondary_[width]x[height]_z18.svg')";
         }
       }
       [highway='tertiary'] {
         shield-fill: @tertiary-shield;
-        shield-file: url('symbols/shields/tertiary_[width]x[height].svg');
+        shield-file: "url('symbols/shields/tertiary_[width]x[height].svg')";
 
         [zoom >='16'] {
-          shield-file: url('symbols/shields/tertiary_[width]x[height]_z16.svg');
+          shield-file: "url('symbols/shields/tertiary_[width]x[height]_z16.svg')";
         }
         [zoom >='18'] {
-          shield-file: url('symbols/shields/tertiary_[width]x[height]_z18.svg');
+          shield-file: "url('symbols/shields/tertiary_[width]x[height]_z18.svg')";
         }
       }
     }
@@ -5433,9 +5433,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         marker-placement: line;
         marker-spacing: 180;
         marker-max-error: 0.5;
-        marker-file: url('symbols/oneway.svg');
+        marker-file: "url('symbols/oneway.svg')";
         [oneway='-1'] {
-          marker-file: url('symbols/oneway-reverse.svg');
+          marker-file: "url('symbols/oneway-reverse.svg')";
         }
 
         [highway='motorway'],

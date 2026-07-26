@@ -190,7 +190,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/shelter.svg')",
+      "marker-file": "\"url('symbols/amenity/shelter.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -256,7 +256,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/tourism/wilderness_hut.svg')"
+      "marker-file": "\"url('symbols/tourism/wilderness_hut.svg')\""
     }
   },
   {
@@ -320,7 +320,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/tourism/alpinehut.svg')"
+      "marker-file": "\"url('symbols/tourism/alpinehut.svg')\""
     }
   },
   {
@@ -469,7 +469,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/atm.svg')",
+      "marker-file": "\"url('symbols/amenity/atm.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -492,7 +492,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/bureau_de_change.svg')",
+      "marker-file": "\"url('symbols/amenity/bureau_de_change.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -515,7 +515,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/bank.svg')",
+      "marker-file": "\"url('symbols/amenity/bank.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -956,7 +956,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/bar.svg')"
+      "marker-file": "\"url('symbols/amenity/bar.svg')\""
     }
   },
   {
@@ -1115,7 +1115,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/biergarten.svg')"
+      "marker-file": "\"url('symbols/amenity/biergarten.svg')\""
     }
   },
   {
@@ -1274,7 +1274,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/cafe.svg')"
+      "marker-file": "\"url('symbols/amenity/cafe.svg')\""
     }
   },
   {
@@ -1433,7 +1433,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/fast_food.svg')"
+      "marker-file": "\"url('symbols/amenity/fast_food.svg')\""
     }
   },
   {
@@ -1744,7 +1744,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/restaurant.svg')"
+      "marker-file": "\"url('symbols/amenity/restaurant.svg')\""
     }
   },
   {
@@ -1903,7 +1903,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/ice_cream.svg')"
+      "marker-file": "\"url('symbols/amenity/ice_cream.svg')\""
     }
   },
   {
@@ -2062,7 +2062,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/pub.svg')"
+      "marker-file": "\"url('symbols/amenity/pub.svg')\""
     }
   },
   {
@@ -2083,7 +2083,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/internet_cafe.svg')",
+      "marker-file": "\"url('symbols/amenity/internet_cafe.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -2106,7 +2106,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/bbq.svg')",
+      "marker-file": "\"url('symbols/amenity/bbq.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -2155,7 +2155,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/public_bookcase.svg')",
+      "marker-file": "\"url('symbols/amenity/public_bookcase.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -2178,7 +2178,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/rental_bicycle.svg')",
+      "marker-file": "\"url('symbols/amenity/rental_bicycle.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -2201,7 +2201,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/square.svg')",
+      "marker-file": "\"url('symbols/square.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-width": "6",
       "marker-clip": "false"
@@ -2225,7 +2225,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/highway/bus_stop.svg')",
+      "marker-file": "\"url('symbols/highway/bus_stop.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -2253,7 +2253,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/highway/elevator.svg')",
+      "marker-file": "\"url('symbols/highway/elevator.svg')\"",
       "marker-fill": "rgba(0,146,218,1)"
     }
   },
@@ -2275,7 +2275,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/bus_station.svg')",
+      "marker-file": "\"url('symbols/amenity/bus_station.svg')\"",
       "marker-clip": "false"
     }
   },
@@ -2297,7 +2297,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/taxi.svg')",
+      "marker-file": "\"url('symbols/amenity/taxi.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -2347,7 +2347,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/excrement_bags.svg')"
+      "marker-file": "\"url('symbols/amenity/excrement_bags.svg')\""
     }
   },
   {
@@ -2373,7 +2373,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/parking_tickets.svg')"
+      "marker-file": "\"url('symbols/amenity/parking_tickets.svg')\""
     }
   },
   {
@@ -2399,7 +2399,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/public_transport_tickets.svg')"
+      "marker-file": "\"url('symbols/amenity/public_transport_tickets.svg')\""
     }
   },
   {
@@ -2463,7 +2463,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/parcel_locker.svg')",
+      "marker-file": "\"url('symbols/amenity/parcel_locker.svg')\"",
       "marker-clip": "false"
     }
   },
@@ -2485,7 +2485,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/highway/traffic_light.svg')",
+      "marker-file": "\"url('symbols/highway/traffic_light.svg')\"",
       "marker-fill": "rgba(84,84,84,1)",
       "marker-clip": "false"
     }
@@ -2508,7 +2508,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/barrier/toll_booth.svg')",
+      "marker-file": "\"url('symbols/barrier/toll_booth.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -2557,7 +2557,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/tourism/artwork.svg')"
+      "marker-file": "\"url('symbols/tourism/artwork.svg')\""
     }
   },
   {
@@ -2583,7 +2583,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/historic/statue.svg')"
+      "marker-file": "\"url('symbols/historic/statue.svg')\""
     }
   },
   {
@@ -2609,7 +2609,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/historic/bust.svg')"
+      "marker-file": "\"url('symbols/historic/bust.svg')\""
     }
   },
   {
@@ -2630,7 +2630,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/tourism/camping.svg')",
+      "marker-file": "\"url('symbols/tourism/camping.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -2653,7 +2653,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/highway/ford.svg')",
+      "marker-file": "\"url('symbols/highway/ford.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -2676,7 +2676,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/tourism/caravan_park.svg')",
+      "marker-file": "\"url('symbols/tourism/caravan_park.svg')\"",
       "marker-clip": "false",
       "marker-fill": "rgba(0,146,218,1)"
     }
@@ -2699,7 +2699,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/rental_car.svg')",
+      "marker-file": "\"url('symbols/amenity/rental_car.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -2722,7 +2722,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/car_wash.svg')",
+      "marker-file": "\"url('symbols/amenity/car_wash.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -2745,7 +2745,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/tourism/chalet.svg')",
+      "marker-file": "\"url('symbols/tourism/chalet.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -2768,7 +2768,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/cinema.svg')",
+      "marker-file": "\"url('symbols/amenity/cinema.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -2791,7 +2791,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/public_bath.svg')",
+      "marker-file": "\"url('symbols/amenity/public_bath.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -2814,7 +2814,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/nightclub.svg')",
+      "marker-file": "\"url('symbols/amenity/nightclub.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -2837,7 +2837,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/firestation.svg')",
+      "marker-file": "\"url('symbols/amenity/firestation.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -2912,7 +2912,7 @@
       }
     ],
     "paint": {
-      "nozzle/marker-file": "url('symbols/amenity/fountain.svg')",
+      "nozzle/marker-file": "\"url('symbols/amenity/fountain.svg')\"",
       "nozzle/marker-fill": "rgba(87,109,223,1)",
       "nozzle/marker-clip": "false"
     },
@@ -2936,7 +2936,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/charging_station.svg')",
+      "marker-file": "\"url('symbols/amenity/charging_station.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -2985,7 +2985,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/fuel.svg')",
+      "marker-file": "\"url('symbols/amenity/fuel.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -3008,7 +3008,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/tourism/guest_house.svg')",
+      "marker-file": "\"url('symbols/tourism/guest_house.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -3031,7 +3031,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/tourism/apartment.svg')",
+      "marker-file": "\"url('symbols/tourism/apartment.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -3054,7 +3054,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/bicycle_repair_station.svg')",
+      "marker-file": "\"url('symbols/amenity/bicycle_repair_station.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -3103,7 +3103,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/casino.svg')",
+      "marker-file": "\"url('symbols/amenity/casino.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -3126,7 +3126,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/art.svg')",
+      "marker-file": "\"url('symbols/shop/art.svg')\"",
       "marker-clip": "false",
       "marker-fill": "rgba(115,74,8,1)"
     }
@@ -3149,7 +3149,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/tourism/hostel.svg')",
+      "marker-file": "\"url('symbols/tourism/hostel.svg')\"",
       "marker-clip": "false",
       "marker-fill": "rgba(0,146,218,1)"
     }
@@ -3172,7 +3172,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/tourism/hotel.svg')",
+      "marker-file": "\"url('symbols/tourism/hotel.svg')\"",
       "marker-clip": "false",
       "marker-fill": "rgba(0,146,218,1)"
     }
@@ -3195,7 +3195,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/tourism/motel.svg')",
+      "marker-file": "\"url('symbols/tourism/motel.svg')\"",
       "marker-clip": "false",
       "marker-fill": "rgba(0,146,218,1)"
     }
@@ -3278,7 +3278,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/tourism/audioguide.svg')"
+      "marker-file": "\"url('symbols/tourism/audioguide.svg')\""
     }
   },
   {
@@ -3323,7 +3323,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/tourism/board.svg')"
+      "marker-file": "\"url('symbols/tourism/board.svg')\""
     }
   },
   {
@@ -3368,7 +3368,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/tourism/guidepost.svg')"
+      "marker-file": "\"url('symbols/tourism/guidepost.svg')\""
     }
   },
   {
@@ -3413,7 +3413,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/tourism/office.svg')",
+      "marker-file": "\"url('symbols/tourism/office.svg')\"",
       "marker-fill": "rgba(115,74,8,1)"
     }
   },
@@ -3497,7 +3497,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/tourism/map.svg')"
+      "marker-file": "\"url('symbols/tourism/map.svg')\""
     }
   },
   {
@@ -3542,7 +3542,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/tourism/terminal.svg')"
+      "marker-file": "\"url('symbols/tourism/terminal.svg')\""
     }
   },
   {
@@ -3563,7 +3563,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/library.svg')",
+      "marker-file": "\"url('symbols/amenity/library.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -3586,7 +3586,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/courthouse.svg')",
+      "marker-file": "\"url('symbols/amenity/courthouse.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -3609,7 +3609,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/community_centre.svg')",
+      "marker-file": "\"url('symbols/amenity/community_centre.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -3632,7 +3632,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/shower.svg')",
+      "marker-file": "\"url('symbols/amenity/shower.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -3681,7 +3681,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/social_facility.svg')",
+      "marker-file": "\"url('symbols/amenity/social_facility.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -3704,7 +3704,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/town_hall.svg')",
+      "marker-file": "\"url('symbols/amenity/town_hall.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -3879,7 +3879,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/mast.svg')",
+      "marker-file": "\"url('symbols/man_made/mast.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -4054,7 +4054,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/mast_lighting.svg')"
+      "marker-file": "\"url('symbols/man_made/mast_lighting.svg')\""
     }
   },
   {
@@ -4227,7 +4227,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/mast_communications.svg')"
+      "marker-file": "\"url('symbols/man_made/mast_communications.svg')\""
     }
   },
   {
@@ -4395,7 +4395,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/tower_generic.svg')",
+      "marker-file": "\"url('symbols/man_made/tower_generic.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -4565,7 +4565,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/tower_defensive.svg')"
+      "marker-file": "\"url('symbols/man_made/tower_defensive.svg')\""
     }
   },
   {
@@ -4733,7 +4733,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/tower_observation.svg')"
+      "marker-file": "\"url('symbols/man_made/tower_observation.svg')\""
     }
   },
   {
@@ -4901,7 +4901,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/bell_tower.svg')"
+      "marker-file": "\"url('symbols/man_made/bell_tower.svg')\""
     }
   },
   {
@@ -5069,7 +5069,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/tower_cooling.svg')"
+      "marker-file": "\"url('symbols/man_made/tower_cooling.svg')\""
     }
   },
   {
@@ -5237,7 +5237,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/tower_lattice.svg')"
+      "marker-file": "\"url('symbols/man_made/tower_lattice.svg')\""
     }
   },
   {
@@ -5405,7 +5405,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/tower_dish.svg')"
+      "marker-file": "\"url('symbols/man_made/tower_dish.svg')\""
     }
   },
   {
@@ -5573,7 +5573,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/tower_dome.svg')"
+      "marker-file": "\"url('symbols/man_made/tower_dome.svg')\""
     }
   },
   {
@@ -5741,7 +5741,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/tower_cantilever_communication.svg')"
+      "marker-file": "\"url('symbols/man_made/tower_cantilever_communication.svg')\""
     }
   },
   {
@@ -5909,7 +5909,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/tower_lattice_communication.svg')"
+      "marker-file": "\"url('symbols/man_made/tower_lattice_communication.svg')\""
     }
   },
   {
@@ -6077,7 +6077,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/tower_dish.svg')"
+      "marker-file": "\"url('symbols/man_made/tower_dish.svg')\""
     }
   },
   {
@@ -6245,7 +6245,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/tower_dome.svg')"
+      "marker-file": "\"url('symbols/man_made/tower_dome.svg')\""
     }
   },
   {
@@ -6413,7 +6413,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/tower_lighting.svg')"
+      "marker-file": "\"url('symbols/man_made/tower_lighting.svg')\""
     }
   },
   {
@@ -6581,7 +6581,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/tower_lattice_lighting.svg')"
+      "marker-file": "\"url('symbols/man_made/tower_lattice_lighting.svg')\""
     }
   },
   {
@@ -6602,7 +6602,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/communications_tower.svg')",
+      "marker-file": "\"url('symbols/man_made/communications_tower.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -6663,7 +6663,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/chimney.svg')",
+      "marker-file": "\"url('symbols/man_made/chimney.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -6705,7 +6705,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/crane.svg')",
+      "marker-file": "\"url('symbols/man_made/crane.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -6756,7 +6756,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/telescope_dish.svg')",
+      "marker-file": "\"url('symbols/man_made/telescope_dish.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -6821,7 +6821,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/telescope_dome.svg')",
+      "marker-file": "\"url('symbols/man_made/telescope_dome.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -6844,7 +6844,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/historic/city_gate.svg')",
+      "marker-file": "\"url('symbols/historic/city_gate.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -6867,7 +6867,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/tourism/museum.svg')",
+      "marker-file": "\"url('symbols/tourism/museum.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -6904,7 +6904,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/doctors.svg')",
+      "marker-file": "\"url('symbols/amenity/doctors.svg')\"",
       "marker-fill": "rgba(191,0,0,1)",
       "marker-clip": "false"
     }
@@ -6971,7 +6971,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/dentist.svg')"
+      "marker-file": "\"url('symbols/amenity/dentist.svg')\""
     }
   },
   {
@@ -6992,7 +6992,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/hospital.svg')",
+      "marker-file": "\"url('symbols/amenity/hospital.svg')\"",
       "marker-fill": "rgba(191,0,0,1)",
       "marker-clip": "false"
     }
@@ -7015,7 +7015,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/pharmacy.svg')",
+      "marker-file": "\"url('symbols/amenity/pharmacy.svg')\"",
       "marker-fill": "rgba(191,0,0,1)",
       "marker-clip": "false"
     }
@@ -7038,7 +7038,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/veterinary.svg')",
+      "marker-file": "\"url('symbols/amenity/veterinary.svg')\"",
       "marker-fill": "rgba(191,0,0,1)",
       "marker-clip": "false"
     }
@@ -7061,7 +7061,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/place_of_worship.svg')",
+      "marker-file": "\"url('symbols/amenity/place_of_worship.svg')\"",
       "marker-fill": "rgba(0,0,0,1)",
       "marker-clip": "false"
     }
@@ -7089,7 +7089,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/religion/christian.svg')"
+      "marker-file": "\"url('symbols/religion/christian.svg')\""
     }
   },
   {
@@ -7192,7 +7192,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/place_of_worship.svg')"
+      "marker-file": "\"url('symbols/amenity/place_of_worship.svg')\""
     }
   },
   {
@@ -7218,7 +7218,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/religion/muslim.svg')"
+      "marker-file": "\"url('symbols/religion/muslim.svg')\""
     }
   },
   {
@@ -7244,7 +7244,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/religion/sikhist.svg')"
+      "marker-file": "\"url('symbols/religion/sikhist.svg')\""
     }
   },
   {
@@ -7270,7 +7270,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/religion/jewish.svg')"
+      "marker-file": "\"url('symbols/religion/jewish.svg')\""
     }
   },
   {
@@ -7296,7 +7296,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/religion/hinduist.svg')"
+      "marker-file": "\"url('symbols/religion/hinduist.svg')\""
     }
   },
   {
@@ -7322,7 +7322,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/religion/buddhist.svg')"
+      "marker-file": "\"url('symbols/religion/buddhist.svg')\""
     }
   },
   {
@@ -7348,7 +7348,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/religion/shintoist.svg')"
+      "marker-file": "\"url('symbols/religion/shintoist.svg')\""
     }
   },
   {
@@ -7374,7 +7374,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/religion/taoist.svg')"
+      "marker-file": "\"url('symbols/religion/taoist.svg')\""
     }
   },
   {
@@ -7409,7 +7409,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/storage_tank.svg')",
+      "marker-file": "\"url('symbols/man_made/storage_tank.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -7432,7 +7432,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/police.svg')",
+      "marker-file": "\"url('symbols/amenity/police.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -7455,7 +7455,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/vehicle_inspection.svg')",
+      "marker-file": "\"url('symbols/amenity/vehicle_inspection.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -7478,7 +7478,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/post_box.svg')",
+      "marker-file": "\"url('symbols/amenity/post_box.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -7501,7 +7501,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/post_office.svg')",
+      "marker-file": "\"url('symbols/amenity/post_office.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -7543,7 +7543,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/recycling.svg')",
+      "marker-file": "\"url('symbols/amenity/recycling.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -7616,7 +7616,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/telephone.svg')",
+      "marker-file": "\"url('symbols/amenity/telephone.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -7639,7 +7639,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/emergency_phone.svg')",
+      "marker-file": "\"url('symbols/amenity/emergency_phone.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -7662,7 +7662,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/theatre.svg')",
+      "marker-file": "\"url('symbols/amenity/theatre.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -7685,7 +7685,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/arts_centre.svg')",
+      "marker-file": "\"url('symbols/amenity/arts_centre.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -7727,7 +7727,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/toilets.svg')",
+      "marker-file": "\"url('symbols/amenity/toilets.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -7800,7 +7800,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/drinking_water.svg')",
+      "marker-file": "\"url('symbols/amenity/drinking_water.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -7849,7 +7849,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/prison.svg')",
+      "marker-file": "\"url('symbols/amenity/prison.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -7990,7 +7990,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/tourism/viewpoint.svg')",
+      "marker-file": "\"url('symbols/tourism/viewpoint.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -8013,7 +8013,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/water_tower.svg')",
+      "marker-file": "\"url('symbols/man_made/water_tower.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -8199,7 +8199,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/historic/memorial.svg')",
+      "marker-file": "\"url('symbols/historic/memorial.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -8425,7 +8425,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/historic/bust.svg')"
+      "marker-file": "\"url('symbols/historic/bust.svg')\""
     }
   },
   {
@@ -8866,7 +8866,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/historic/plaque.svg')"
+      "marker-file": "\"url('symbols/historic/plaque.svg')\""
     }
   },
   {
@@ -9090,7 +9090,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/historic/statue.svg')"
+      "marker-file": "\"url('symbols/historic/statue.svg')\""
     }
   },
   {
@@ -9314,7 +9314,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/historic/stone.svg')"
+      "marker-file": "\"url('symbols/historic/stone.svg')\""
     }
   },
   {
@@ -9335,7 +9335,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/historic/obelisk.svg')",
+      "marker-file": "\"url('symbols/historic/obelisk.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -9358,7 +9358,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/historic/monument.svg')",
+      "marker-file": "\"url('symbols/historic/monument.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -9381,7 +9381,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/historic/fort.svg')",
+      "marker-file": "\"url('symbols/historic/fort.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -9466,7 +9466,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/historic/castle.svg')",
+      "marker-file": "\"url('symbols/historic/castle.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -9667,7 +9667,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/historic/palace.svg')"
+      "marker-file": "\"url('symbols/historic/palace.svg')\""
     }
   },
   {
@@ -9866,7 +9866,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/historic/manor.svg')"
+      "marker-file": "\"url('symbols/historic/manor.svg')\""
     }
   },
   {
@@ -10353,7 +10353,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/historic/fortress.svg')"
+      "marker-file": "\"url('symbols/historic/fortress.svg')\""
     }
   },
   {
@@ -10374,7 +10374,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/historic/archaeological_site.svg')",
+      "marker-file": "\"url('symbols/historic/archaeological_site.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -10418,7 +10418,7 @@
     "paint": {
       "marker-clip": "false",
       "marker-fill": "rgba(172,57,172,1)",
-      "marker-file": "url('symbols/shop/marketplace.svg')"
+      "marker-file": "\"url('symbols/shop/marketplace.svg')\""
     }
   },
   {
@@ -10583,7 +10583,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/supermarket.svg')"
+      "marker-file": "\"url('symbols/shop/supermarket.svg')\""
     }
   },
   {
@@ -10609,7 +10609,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/art.svg')"
+      "marker-file": "\"url('symbols/shop/art.svg')\""
     }
   },
   {
@@ -10635,7 +10635,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/bag.svg')"
+      "marker-file": "\"url('symbols/shop/bag.svg')\""
     }
   },
   {
@@ -10661,7 +10661,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/bakery.svg')"
+      "marker-file": "\"url('symbols/shop/bakery.svg')\""
     }
   },
   {
@@ -10687,7 +10687,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/beauty.svg')"
+      "marker-file": "\"url('symbols/shop/beauty.svg')\""
     }
   },
   {
@@ -10713,7 +10713,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/bed.svg')"
+      "marker-file": "\"url('symbols/shop/bed.svg')\""
     }
   },
   {
@@ -10739,7 +10739,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/beverages.svg')"
+      "marker-file": "\"url('symbols/shop/beverages.svg')\""
     }
   },
   {
@@ -10765,7 +10765,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/bookmaker.svg')"
+      "marker-file": "\"url('symbols/shop/bookmaker.svg')\""
     }
   },
   {
@@ -10791,7 +10791,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/library.svg')"
+      "marker-file": "\"url('symbols/amenity/library.svg')\""
     }
   },
   {
@@ -10817,7 +10817,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/butcher.svg')"
+      "marker-file": "\"url('symbols/shop/butcher.svg')\""
     }
   },
   {
@@ -10843,7 +10843,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/carpet.svg')"
+      "marker-file": "\"url('symbols/shop/carpet.svg')\""
     }
   },
   {
@@ -10869,7 +10869,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/charity.svg')"
+      "marker-file": "\"url('symbols/shop/charity.svg')\""
     }
   },
   {
@@ -10895,7 +10895,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/chemist.svg')"
+      "marker-file": "\"url('symbols/shop/chemist.svg')\""
     }
   },
   {
@@ -10940,7 +10940,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/clothes.svg')"
+      "marker-file": "\"url('symbols/shop/clothes.svg')\""
     }
   },
   {
@@ -10966,7 +10966,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/coffee.svg')"
+      "marker-file": "\"url('symbols/shop/coffee.svg')\""
     }
   },
   {
@@ -10992,7 +10992,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/computer.svg')"
+      "marker-file": "\"url('symbols/shop/computer.svg')\""
     }
   },
   {
@@ -11018,7 +11018,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/convenience.svg')"
+      "marker-file": "\"url('symbols/shop/convenience.svg')\""
     }
   },
   {
@@ -11082,7 +11082,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/confectionery.svg')"
+      "marker-file": "\"url('symbols/shop/confectionery.svg')\""
     }
   },
   {
@@ -11108,7 +11108,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/copyshop.svg')"
+      "marker-file": "\"url('symbols/shop/copyshop.svg')\""
     }
   },
   {
@@ -11153,7 +11153,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/perfumery.svg')"
+      "marker-file": "\"url('symbols/shop/perfumery.svg')\""
     }
   },
   {
@@ -11179,7 +11179,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/deli.svg')"
+      "marker-file": "\"url('symbols/shop/deli.svg')\""
     }
   },
   {
@@ -11205,7 +11205,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/department_store.svg')"
+      "marker-file": "\"url('symbols/shop/department_store.svg')\""
     }
   },
   {
@@ -11250,7 +11250,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/diy.svg')"
+      "marker-file": "\"url('symbols/shop/diy.svg')\""
     }
   },
   {
@@ -11295,7 +11295,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/laundry.svg')"
+      "marker-file": "\"url('symbols/shop/laundry.svg')\""
     }
   },
   {
@@ -11321,7 +11321,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/fabric.svg')"
+      "marker-file": "\"url('symbols/shop/fabric.svg')\""
     }
   },
   {
@@ -11347,7 +11347,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/seafood.svg')"
+      "marker-file": "\"url('symbols/shop/seafood.svg')\""
     }
   },
   {
@@ -11373,7 +11373,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/florist.svg')"
+      "marker-file": "\"url('symbols/shop/florist.svg')\""
     }
   },
   {
@@ -11399,7 +11399,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/garden_centre.svg')"
+      "marker-file": "\"url('symbols/shop/garden_centre.svg')\""
     }
   },
   {
@@ -11444,7 +11444,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/greengrocer.svg')"
+      "marker-file": "\"url('symbols/shop/greengrocer.svg')\""
     }
   },
   {
@@ -11470,7 +11470,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/hairdresser.svg')"
+      "marker-file": "\"url('symbols/shop/hairdresser.svg')\""
     }
   },
   {
@@ -11496,7 +11496,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/hifi.svg')"
+      "marker-file": "\"url('symbols/shop/hifi.svg')\""
     }
   },
   {
@@ -11522,7 +11522,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/houseware.svg')"
+      "marker-file": "\"url('symbols/shop/houseware.svg')\""
     }
   },
   {
@@ -11548,7 +11548,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/car.svg')"
+      "marker-file": "\"url('symbols/shop/car.svg')\""
     }
   },
   {
@@ -11574,7 +11574,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/car_parts.svg')"
+      "marker-file": "\"url('symbols/shop/car_parts.svg')\""
     }
   },
   {
@@ -11600,7 +11600,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/car_repair.svg')"
+      "marker-file": "\"url('symbols/shop/car_repair.svg')\""
     }
   },
   {
@@ -11626,7 +11626,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/motorcycle_repair.svg')"
+      "marker-file": "\"url('symbols/shop/motorcycle_repair.svg')\""
     }
   },
   {
@@ -11652,7 +11652,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/dairy.svg')"
+      "marker-file": "\"url('symbols/shop/dairy.svg')\""
     }
   },
   {
@@ -11678,7 +11678,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/bicycle.svg')"
+      "marker-file": "\"url('symbols/shop/bicycle.svg')\""
     }
   },
   {
@@ -11704,7 +11704,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/pet.svg')"
+      "marker-file": "\"url('symbols/shop/pet.svg')\""
     }
   },
   {
@@ -11749,7 +11749,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/photo.svg')"
+      "marker-file": "\"url('symbols/shop/photo.svg')\""
     }
   },
   {
@@ -11775,7 +11775,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/paint.svg')"
+      "marker-file": "\"url('symbols/shop/paint.svg')\""
     }
   },
   {
@@ -11801,7 +11801,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/shoes.svg')"
+      "marker-file": "\"url('symbols/shop/shoes.svg')\""
     }
   },
   {
@@ -11827,7 +11827,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/gift.svg')"
+      "marker-file": "\"url('symbols/shop/gift.svg')\""
     }
   },
   {
@@ -11853,7 +11853,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/electronics.svg')"
+      "marker-file": "\"url('symbols/shop/electronics.svg')\""
     }
   },
   {
@@ -11898,7 +11898,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/alcohol.svg')"
+      "marker-file": "\"url('symbols/shop/alcohol.svg')\""
     }
   },
   {
@@ -11924,7 +11924,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/optician.svg')"
+      "marker-file": "\"url('symbols/shop/optician.svg')\""
     }
   },
   {
@@ -11950,7 +11950,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/hearing_aids.svg')"
+      "marker-file": "\"url('symbols/shop/hearing_aids.svg')\""
     }
   },
   {
@@ -11976,7 +11976,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/outdoor.svg')"
+      "marker-file": "\"url('symbols/shop/outdoor.svg')\""
     }
   },
   {
@@ -12002,7 +12002,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/furniture.svg')"
+      "marker-file": "\"url('symbols/shop/furniture.svg')\""
     }
   },
   {
@@ -12028,7 +12028,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/interior_decoration.svg')"
+      "marker-file": "\"url('symbols/shop/interior_decoration.svg')\""
     }
   },
   {
@@ -12054,7 +12054,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/massage.svg')",
+      "marker-file": "\"url('symbols/shop/massage.svg')\"",
       "marker-fill": "rgba(23,68,25,1)"
     }
   },
@@ -12081,7 +12081,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/medical_supply.svg')"
+      "marker-file": "\"url('symbols/shop/medical_supply.svg')\""
     }
   },
   {
@@ -12107,7 +12107,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/mobile_phone.svg')"
+      "marker-file": "\"url('symbols/shop/mobile_phone.svg')\""
     }
   },
   {
@@ -12133,7 +12133,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/motorcycle.svg')"
+      "marker-file": "\"url('symbols/shop/motorcycle.svg')\""
     }
   },
   {
@@ -12159,7 +12159,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/music.svg')"
+      "marker-file": "\"url('symbols/shop/music.svg')\""
     }
   },
   {
@@ -12185,7 +12185,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/musical_instrument.svg')"
+      "marker-file": "\"url('symbols/shop/musical_instrument.svg')\""
     }
   },
   {
@@ -12230,7 +12230,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/newsagent.svg')"
+      "marker-file": "\"url('symbols/shop/newsagent.svg')\""
     }
   },
   {
@@ -12256,7 +12256,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/jewelry.svg')"
+      "marker-file": "\"url('symbols/shop/jewelry.svg')\""
     }
   },
   {
@@ -12282,7 +12282,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/toys.svg')"
+      "marker-file": "\"url('symbols/shop/toys.svg')\""
     }
   },
   {
@@ -12308,7 +12308,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/travel_agency.svg')"
+      "marker-file": "\"url('symbols/shop/travel_agency.svg')\""
     }
   },
   {
@@ -12334,7 +12334,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/second_hand.svg')"
+      "marker-file": "\"url('symbols/shop/second_hand.svg')\""
     }
   },
   {
@@ -12360,7 +12360,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/sports.svg')"
+      "marker-file": "\"url('symbols/shop/sports.svg')\""
     }
   },
   {
@@ -12386,7 +12386,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/stationery.svg')"
+      "marker-file": "\"url('symbols/shop/stationery.svg')\""
     }
   },
   {
@@ -12412,7 +12412,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/tobacco.svg')"
+      "marker-file": "\"url('symbols/shop/tobacco.svg')\""
     }
   },
   {
@@ -12438,7 +12438,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/tea.svg')"
+      "marker-file": "\"url('symbols/shop/tea.svg')\""
     }
   },
   {
@@ -12464,7 +12464,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/ticket.svg')"
+      "marker-file": "\"url('symbols/shop/ticket.svg')\""
     }
   },
   {
@@ -12490,7 +12490,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/trade.svg')"
+      "marker-file": "\"url('symbols/shop/trade.svg')\""
     }
   },
   {
@@ -12516,7 +12516,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/trade.svg')"
+      "marker-file": "\"url('symbols/shop/trade.svg')\""
     }
   },
   {
@@ -12542,7 +12542,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/tyres.svg')"
+      "marker-file": "\"url('symbols/shop/tyres.svg')\""
     }
   },
   {
@@ -12568,7 +12568,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/variety_store.svg')"
+      "marker-file": "\"url('symbols/shop/variety_store.svg')\""
     }
   },
   {
@@ -12594,7 +12594,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/video.svg')"
+      "marker-file": "\"url('symbols/shop/video.svg')\""
     }
   },
   {
@@ -12620,7 +12620,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/video_games.svg')"
+      "marker-file": "\"url('symbols/shop/video_games.svg')\""
     }
   },
   {
@@ -12641,7 +12641,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/advertising_column.svg')",
+      "marker-file": "\"url('symbols/amenity/advertising_column.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -12688,7 +12688,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/office/embassy.svg')",
+      "marker-file": "\"url('symbols/office/embassy.svg')\"",
       "marker-fill": "rgba(72,99,160,1)",
       "marker-clip": "false"
     }
@@ -12711,7 +12711,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/office/consulate.svg')",
+      "marker-file": "\"url('symbols/office/consulate.svg')\"",
       "marker-fill": "rgba(72,99,160,1)",
       "marker-clip": "false"
     }
@@ -12767,7 +12767,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/leisure/water_park.svg')",
+      "marker-file": "\"url('symbols/leisure/water_park.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -12804,7 +12804,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/leisure/fitness.svg')",
+      "marker-file": "\"url('symbols/leisure/fitness.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -12872,7 +12872,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/shop/pet.svg')",
+      "marker-file": "\"url('symbols/shop/pet.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -12921,7 +12921,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/leisure/playground.svg')",
+      "marker-file": "\"url('symbols/leisure/playground.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -12970,7 +12970,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/leisure/miniature_golf.svg')",
+      "marker-file": "\"url('symbols/leisure/miniature_golf.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -12993,7 +12993,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/leisure/golf.svg')",
+      "marker-file": "\"url('symbols/leisure/golf.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -13016,7 +13016,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/tourism/picnic.svg')",
+      "marker-file": "\"url('symbols/tourism/picnic.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -13065,7 +13065,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/tourism/picnic.svg')",
+      "marker-file": "\"url('symbols/tourism/picnic.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -13114,7 +13114,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/leisure/firepit.svg')",
+      "marker-file": "\"url('symbols/leisure/firepit.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -13163,7 +13163,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/leisure/sauna.svg')",
+      "marker-file": "\"url('symbols/leisure/sauna.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -13186,7 +13186,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/leisure/beach_resort.svg')",
+      "marker-file": "\"url('symbols/leisure/beach_resort.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -13209,7 +13209,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/leisure/bowling_alley.svg')",
+      "marker-file": "\"url('symbols/leisure/bowling_alley.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -13232,7 +13232,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/leisure/outdoor_seating.svg')",
+      "marker-file": "\"url('symbols/leisure/outdoor_seating.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -13255,7 +13255,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/leisure/bird_hide.svg')",
+      "marker-file": "\"url('symbols/leisure/bird_hide.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -13278,7 +13278,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/leisure/amusement_arcade.svg')",
+      "marker-file": "\"url('symbols/leisure/amusement_arcade.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -13301,7 +13301,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/leisure/fishing.svg')",
+      "marker-file": "\"url('symbols/leisure/fishing.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -13324,7 +13324,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/leisure/dance.svg')",
+      "marker-file": "\"url('symbols/leisure/dance.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -13347,7 +13347,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/leisure/slipway.svg')",
+      "marker-file": "\"url('symbols/leisure/slipway.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -13370,7 +13370,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/boat_rental.svg')",
+      "marker-file": "\"url('symbols/amenity/boat_rental.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -13393,7 +13393,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/helipad.svg')",
+      "marker-file": "\"url('symbols/amenity/helipad.svg')\"",
       "marker-clip": "false",
       "marker-fill": "rgba(132,97,196,1)"
     }
@@ -13614,7 +13614,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/aerodrome.svg')",
+      "marker-file": "\"url('symbols/amenity/aerodrome.svg')\"",
       "marker-clip": "false",
       "marker-fill": "rgba(132,97,196,1)"
     }
@@ -13637,7 +13637,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/ferry.svg')",
+      "marker-file": "\"url('symbols/amenity/ferry.svg')\"",
       "marker-clip": "false",
       "marker-fill": "rgba(132,97,196,1)"
     }
@@ -13660,7 +13660,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/lighthouse.svg')",
+      "marker-file": "\"url('symbols/man_made/lighthouse.svg')\"",
       "marker-clip": "false",
       "marker-fill": "rgba(102,102,102,1)"
     }
@@ -13683,7 +13683,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/natural/peak.svg')",
+      "marker-file": "\"url('symbols/natural/peak.svg')\"",
       "marker-fill": "rgba(208,143,85,1)",
       "marker-clip": "false"
     }
@@ -13706,7 +13706,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/natural/peak.svg')",
+      "marker-file": "\"url('symbols/natural/peak.svg')\"",
       "marker-fill": "rgba(212,0,0,1)",
       "marker-clip": "false"
     }
@@ -13729,7 +13729,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/natural/saddle.svg')",
+      "marker-file": "\"url('symbols/natural/saddle.svg')\"",
       "marker-fill": "rgba(208,143,85,1)",
       "marker-clip": "false"
     }
@@ -13752,7 +13752,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/natural/saddle.svg')",
+      "marker-file": "\"url('symbols/natural/saddle.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -13775,7 +13775,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/natural/spring.svg')",
+      "marker-file": "\"url('symbols/natural/spring.svg')\"",
       "marker-fill": "rgba(122,188,236,1)",
       "marker-clip": "false"
     }
@@ -13798,7 +13798,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/natural/cave.svg')",
+      "marker-file": "\"url('symbols/natural/cave.svg')\"",
       "marker-clip": "false"
     }
   },
@@ -13877,7 +13877,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/natural/waterfall.svg')",
+      "marker-file": "\"url('symbols/natural/waterfall.svg')\"",
       "marker-clip": "false",
       "marker-fill": "rgba(53,139,162,1)"
     }
@@ -13900,7 +13900,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/bunker.svg')",
+      "marker-file": "\"url('symbols/man_made/bunker.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -13966,7 +13966,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/generator_wind.svg')",
+      "marker-file": "\"url('symbols/man_made/generator_wind.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -13989,7 +13989,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/windmill.svg')",
+      "marker-file": "\"url('symbols/man_made/windmill.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -14012,7 +14012,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/hunting_stand.svg')",
+      "marker-file": "\"url('symbols/amenity/hunting_stand.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -14040,7 +14040,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/waste_disposal.svg')",
+      "marker-file": "\"url('symbols/amenity/waste_disposal.svg')\"",
       "marker-fill": "rgba(102,102,102,1)"
     }
   },
@@ -14532,7 +14532,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/parking.svg')"
+      "marker-file": "\"url('symbols/amenity/parking.svg')\""
     }
   },
   {
@@ -14807,7 +14807,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/parking_subtle.svg')"
+      "marker-file": "\"url('symbols/amenity/parking_subtle.svg')\""
     }
   },
   {
@@ -15082,7 +15082,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/bicycle_parking.svg')"
+      "marker-file": "\"url('symbols/amenity/bicycle_parking.svg')\""
     }
   },
   {
@@ -15357,7 +15357,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/motorcycle_parking.svg')"
+      "marker-file": "\"url('symbols/amenity/motorcycle_parking.svg')\""
     }
   },
   {
@@ -15632,7 +15632,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/parking_entrance_underground.svg')"
+      "marker-file": "\"url('symbols/amenity/parking_entrance_underground.svg')\""
     }
   },
   {
@@ -15907,7 +15907,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/parking_entrance_multistorey.svg')"
+      "marker-file": "\"url('symbols/amenity/parking_entrance_multistorey.svg')\""
     }
   },
   {
@@ -16217,7 +16217,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/cross.svg')",
+      "marker-file": "\"url('symbols/man_made/cross.svg')\"",
       "marker-fill": "rgba(0,0,0,1)",
       "marker-clip": "false"
     }
@@ -16240,7 +16240,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/historic/shrine.svg')",
+      "marker-file": "\"url('symbols/historic/shrine.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -16277,7 +16277,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/barrier/level_crossing.svg')",
+      "marker-file": "\"url('symbols/barrier/level_crossing.svg')\"",
       "marker-fill": "rgba(77,77,77,1)",
       "marker-clip": "false"
     },
@@ -16315,7 +16315,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/barrier/level_crossing2.svg')"
+      "marker-file": "\"url('symbols/barrier/level_crossing2.svg')\""
     },
     "attachment": "railway"
   },
@@ -16337,7 +16337,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/barrier/gate.svg')",
+      "marker-file": "\"url('symbols/barrier/gate.svg')\"",
       "marker-clip": "false"
     },
     "attachment": "barrier"
@@ -16374,7 +16374,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/barrier/lift_gate.svg')",
+      "marker-file": "\"url('symbols/barrier/lift_gate.svg')\"",
       "marker-fill": "rgba(63,63,63,1)",
       "marker-clip": "false"
     },
@@ -16398,7 +16398,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/barrier/cattle_grid.svg')",
+      "marker-file": "\"url('symbols/barrier/cattle_grid.svg')\"",
       "marker-fill": "rgba(63,63,63,1)",
       "marker-clip": "false"
     },
@@ -16422,7 +16422,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/barrier/stile.svg')",
+      "marker-file": "\"url('symbols/barrier/stile.svg')\"",
       "marker-fill": "rgba(63,63,63,1)",
       "marker-clip": "false"
     },
@@ -16446,7 +16446,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/barrier/motorcycle_barrier.svg')",
+      "marker-file": "\"url('symbols/barrier/motorcycle_barrier.svg')\"",
       "marker-fill": "rgba(63,63,63,1)",
       "marker-clip": "false"
     },
@@ -16470,7 +16470,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/barrier/cycle_barrier.svg')",
+      "marker-file": "\"url('symbols/barrier/cycle_barrier.svg')\"",
       "marker-fill": "rgba(63,63,63,1)",
       "marker-clip": "false"
     },
@@ -16494,7 +16494,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/barrier/full-height_turnstile.svg')",
+      "marker-file": "\"url('symbols/barrier/full-height_turnstile.svg')\"",
       "marker-fill": "rgba(63,63,63,1)",
       "marker-clip": "false"
     },
@@ -16518,7 +16518,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/barrier/kissing_gate.svg')",
+      "marker-file": "\"url('symbols/barrier/kissing_gate.svg')\"",
       "marker-fill": "rgba(63,63,63,1)",
       "marker-clip": "false"
     },
@@ -16670,7 +16670,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/bench.svg')",
+      "marker-file": "\"url('symbols/amenity/bench.svg')\"",
       "marker-fill": "rgba(102,102,102,1)"
     },
     "attachment": "amenity"
@@ -16720,7 +16720,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/waste_basket.svg')",
+      "marker-file": "\"url('symbols/amenity/waste_basket.svg')\"",
       "marker-fill": "rgba(102,102,102,1)"
     },
     "attachment": "amenity"
@@ -16775,7 +16775,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/waste_disposal.svg')",
+      "marker-file": "\"url('symbols/amenity/waste_disposal.svg')\"",
       "marker-fill": "rgba(102,102,102,1)"
     },
     "attachment": "amenity"
@@ -16921,7 +16921,7 @@
       "text-size": "10",
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
-      "text-face-name": "@oblique-fonts",
+      "text-face-name": "'Noto Sans', 'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -17351,7 +17351,7 @@
       "text-name": "'[name]'",
       "text-size": "10",
       "text-fill": "rgba(34,34,34,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-wrap-width": "45",
@@ -17461,7 +17461,7 @@
     "paint": {
       "text-name": "'[name]'",
       "text-size": "11",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-wrap-width": "45",
@@ -17703,7 +17703,7 @@
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
       "text-dy": "11",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -18253,7 +18253,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(115,74,8,1)",
       "text-dy": "11",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -18918,7 +18918,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(115,74,8,1)",
       "text-dy": "11",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -18989,7 +18989,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(23,68,25,1)",
       "text-dy": "11",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -19143,7 +19143,7 @@
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,102,255,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -20367,7 +20367,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(115,74,8,1)",
       "text-dy": "11",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -21878,7 +21878,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(115,74,8,1)",
       "text-dy": "10",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -24092,7 +24092,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(115,74,8,1)",
       "text-dy": "10",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -24568,7 +24568,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,0,51,1)",
       "text-dy": "12",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -24649,7 +24649,7 @@
       "text-line-spacing": "-1.5",
       "text-dy": "12",
       "text-fill": "rgba(153,51,153,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -24804,7 +24804,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(110,68,30,1)",
       "text-dy": "7",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -25437,7 +25437,7 @@
       "text-size": "10",
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -25527,7 +25527,7 @@
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,0,0,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-dy": "11"
@@ -25788,7 +25788,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(53,139,162,1)",
       "text-dy": "10",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -26280,7 +26280,7 @@
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(51,51,51,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -34487,7 +34487,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(115,74,8,1)",
       "text-dy": "11",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -34530,7 +34530,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(51,51,51,1)",
       "text-dy": "10",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -34600,7 +34600,7 @@
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(23,68,25,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-dy": "13"
@@ -34710,7 +34710,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(23,68,25,1)",
       "text-dy": "11",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -34810,7 +34810,7 @@
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(87,109,223,1)",
-      "text-face-name": "@oblique-fonts",
+      "text-face-name": "'Noto Sans', 'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -35167,7 +35167,7 @@
       "text-line-spacing": "-1.5",
       "text-dy": "13",
       "text-fill": "rgba(23,68,25,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
   },
@@ -36030,7 +36030,7 @@
       "text-size": "10",
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
-      "text-face-name": "@oblique-fonts",
+      "text-face-name": "'Noto Sans', 'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -42224,7 +42224,7 @@
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(238,0,0,1)",
-      "text-face-name": "@oblique-fonts",
+      "text-face-name": "'Noto Sans', 'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -42554,7 +42554,7 @@
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(105,101,69,1)",
-      "text-face-name": "@oblique-fonts",
+      "text-face-name": "'Noto Sans', 'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -52325,7 +52325,7 @@
       "text-size": "10",
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
-      "text-face-name": "@oblique-fonts",
+      "text-face-name": "'Noto Sans', 'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -490964,7 +490964,7 @@
     ],
     "paint": {
       "text-fill": "rgba(102,0,51,1)",
-      "text-face-name": "@bold-fonts"
+      "text-face-name": "'Noto Sans', 'Noto Sans'"
     }
   },
   {
@@ -651892,7 +651892,7 @@
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(53,139,162,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-dy": "7"
@@ -651948,7 +651948,7 @@
       "text-fill": "rgba(115,74,8,1)",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
-      "text-face-name": "@book-fonts"
+      "text-face-name": "'Noto Sans'"
     }
   },
   {
@@ -652047,7 +652047,7 @@
       "text-fill": "rgba(115,74,8,1)",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
-      "text-face-name": "@book-fonts"
+      "text-face-name": "'Noto Sans'"
     }
   },
   {
@@ -652396,7 +652396,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,102,255,1)",
       "text-dy": "11",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -656476,7 +656476,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,102,255,1)",
       "text-dy": "11",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -656575,7 +656575,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,102,255,1)",
       "text-dy": "11",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -656898,7 +656898,7 @@
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(87,109,223,1)",
-      "text-face-name": "@oblique-fonts",
+      "text-face-name": "'Noto Sans', 'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -657131,7 +657131,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(87,109,223,1)",
       "text-dy": "4",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -657237,7 +657237,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(51,51,51,1)",
       "text-dy": "10",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -657318,7 +657318,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(115,74,8,1)",
       "text-dy": "10",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -657361,7 +657361,7 @@
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
       "text-dy": "10",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -657516,7 +657516,7 @@
       "text-line-spacing": "-1.5",
       "text-dy": "12",
       "text-fill": "rgba(191,0,0,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -657585,7 +657585,7 @@
       "text-size": "10",
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
-      "text-face-name": "@oblique-fonts",
+      "text-face-name": "'Noto Sans', 'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-dy": "8",
@@ -657630,7 +657630,7 @@
       "text-line-spacing": "-1.5",
       "text-dy": "8",
       "text-fill": "rgba(153,51,153,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -657731,7 +657731,7 @@
       "text-line-spacing": "-1.5",
       "text-dy": "12",
       "text-fill": "rgba(153,51,153,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -658000,7 +658000,7 @@
       "text-line-spacing": "-1.5",
       "text-dy": "8",
       "text-fill": "rgba(72,99,160,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -658071,7 +658071,7 @@
       "text-line-spacing": "-1.5",
       "text-dy": "10",
       "text-fill": "rgba(72,99,160,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -658142,7 +658142,7 @@
       "text-line-spacing": "-1.5",
       "text-dy": "12",
       "text-fill": "rgba(153,51,153,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -658184,7 +658184,7 @@
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,0,0,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -658456,7 +658456,7 @@
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(89,120,154,1)",
-      "text-face-name": "@oblique-fonts",
+      "text-face-name": "'Noto Sans', 'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -659467,7 +659467,7 @@
       "text-size": "10",
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
-      "text-face-name": "@oblique-fonts",
+      "text-face-name": "'Noto Sans', 'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -662143,7 +662143,7 @@
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(62,62,74,1)",
-      "text-face-name": "@oblique-fonts",
+      "text-face-name": "'Noto Sans', 'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -662559,7 +662559,7 @@
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(182,53,53,1)",
-      "text-face-name": "@oblique-fonts",
+      "text-face-name": "'Noto Sans', 'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -663149,7 +663149,7 @@
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(31,193,227,1)",
-      "text-face-name": "@oblique-fonts",
+      "text-face-name": "'Noto Sans', 'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -663538,7 +663538,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(132,97,196,1)",
       "text-dy": "-10",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -663977,7 +663977,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(94,59,158,1)",
       "text-dy": "10",
-      "text-face-name": "@oblique-fonts",
+      "text-face-name": "'Noto Sans', 'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -664020,7 +664020,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(94,59,158,1)",
       "text-dy": "10",
-      "text-face-name": "@oblique-fonts",
+      "text-face-name": "'Noto Sans', 'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -664063,7 +664063,7 @@
       "text-line-spacing": "-1.5",
       "text-dy": "10",
       "text-fill": "rgba(51,51,51,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -664106,7 +664106,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,128,0,1)",
       "text-dy": "7",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -664254,7 +664254,7 @@
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
       "text-dy": "10",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -664308,7 +664308,7 @@
       "text-fill": "rgba(102,0,51,1)",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
-      "text-face-name": "@book-fonts"
+      "text-face-name": "'Noto Sans'"
     }
   },
   {
@@ -664585,7 +664585,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,102,255,1)",
       "text-dy": "9",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -665675,7 +665675,7 @@
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(115,74,8,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -665732,7 +665732,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(51,51,51,1)",
       "text-dy": "6",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -665833,7 +665833,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/ceremonial_gate.svg')",
+      "marker-file": "\"url('symbols/man_made/ceremonial_gate.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -665876,7 +665876,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(51,51,51,1)",
       "text-dy": "10",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -665899,7 +665899,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/highway/ford.svg')",
+      "marker-file": "\"url('symbols/highway/ford.svg')\"",
       "marker-fill": "rgba(0,146,218,1)"
     }
   },
@@ -665921,7 +665921,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/leisure/slipway.svg')",
+      "marker-file": "\"url('symbols/leisure/slipway.svg')\"",
       "marker-fill": "rgba(0,146,218,1)"
     }
   },
@@ -666149,7 +666149,7 @@
     "paint": {
       "text-name": "'[name]'",
       "text-size": "10",
-      "text-face-name": "@oblique-fonts",
+      "text-face-name": "'Noto Sans', 'Noto Sans'",
       "text-fill": "rgba(68,153,73,1)",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -666183,7 +666183,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,102,255,1)",
       "text-dy": "13",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -666558,7 +666558,7 @@
     ],
     "paint": {
       "text-name": "\"[name]\"",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-placement": "line",
       "text-fill": "rgba(102,102,255,1)",
       "text-spacing": "1000",
@@ -667232,7 +667232,7 @@
       "text-placement": "line",
       "text-repeat-distance": "200",
       "text-margin": "18",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -673052,7 +673052,7 @@
     ],
     "paint": {
       "text-name": "\"[name]\"",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-fill": "rgba(76,76,76,1)",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -673337,7 +673337,7 @@
     ],
     "paint": {
       "text-name": "\"[name]\"",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-fill": "rgba(120,173,136,1)",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -673652,7 +673652,7 @@
     ],
     "paint": {
       "text-name": "\"[addr_housename]\"",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-fill": "rgba(102,102,102,1)",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -673842,7 +673842,7 @@
     ],
     "paint": {
       "text-name": "\"[name]\"",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-fill": "rgba(68,68,68,1)",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -673977,7 +673977,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/golf_rough.svg')"
+      "polygon-pattern-file": "\"url('symbols/golf_rough.svg')\""
     },
     "attachment": "high-zoom"
   },
@@ -674024,10 +674024,10 @@
       "text-placement": "line",
       "text-size": "11",
       "text-fill": "rgba(102,102,102,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
-      "text-name": "\"[ref]\""
+      "text-name": "'[ref]'"
     }
   },
   {
@@ -674069,10 +674069,10 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/leisure/golf_pin.svg')",
+      "marker-file": "\"url('symbols/leisure/golf_pin.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false",
-      "marker-transform": "translate(0,-5)"
+      "marker-transform": "translate(0, -5)"
     }
   },
   {
@@ -675828,7 +675828,7 @@
     ],
     "paint": {
       "polygon-fill": "rgba(197,195,195,1)",
-      "polygon-pattern-file": "url('symbols/quarry.svg')"
+      "polygon-pattern-file": "\"url('symbols/quarry.svg')\""
     },
     "attachment": "low-zoom"
   },
@@ -676121,7 +676121,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('patterns/vineyard.svg')",
+      "polygon-pattern-file": "\"url('patterns/vineyard.svg')\"",
       "polygon-pattern-alignment": "global"
     },
     "attachment": "low-zoom"
@@ -676378,7 +676378,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('patterns/orchard.svg')",
+      "polygon-pattern-file": "\"url('patterns/orchard.svg')\"",
       "polygon-pattern-alignment": "global"
     },
     "attachment": "low-zoom"
@@ -676635,7 +676635,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('patterns/plant_nursery.svg')",
+      "polygon-pattern-file": "\"url('patterns/plant_nursery.svg')\"",
       "polygon-pattern-opacity": "0.6",
       "polygon-pattern-alignment": "global"
     },
@@ -676893,7 +676893,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/flowerbed_mid_zoom.svg')",
+      "polygon-pattern-file": "\"url('symbols/flowerbed_mid_zoom.svg')\"",
       "polygon-pattern-alignment": "global"
     },
     "attachment": "low-zoom"
@@ -677022,7 +677022,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/flowerbed_high_zoom.svg')",
+      "polygon-pattern-file": "\"url('symbols/flowerbed_high_zoom.svg')\"",
       "polygon-pattern-alignment": "global"
     },
     "attachment": "low-zoom"
@@ -677279,7 +677279,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('patterns/plant_nursery.svg')",
+      "polygon-pattern-file": "\"url('patterns/plant_nursery.svg')\"",
       "polygon-pattern-alignment": "global"
     },
     "attachment": "low-zoom"
@@ -677688,7 +677688,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('patterns/grave_yard_jewish.svg')"
+      "polygon-pattern-file": "\"url('patterns/grave_yard_jewish.svg')\""
     },
     "attachment": "low-zoom"
   },
@@ -677772,7 +677772,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('patterns/grave_yard_christian.svg')"
+      "polygon-pattern-file": "\"url('patterns/grave_yard_christian.svg')\""
     },
     "attachment": "low-zoom"
   },
@@ -677856,7 +677856,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('patterns/grave_yard_muslim.svg')"
+      "polygon-pattern-file": "\"url('patterns/grave_yard_muslim.svg')\""
     },
     "attachment": "low-zoom"
   },
@@ -677940,7 +677940,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('patterns/grave_yard_generic.svg')"
+      "polygon-pattern-file": "\"url('patterns/grave_yard_generic.svg')\""
     },
     "attachment": "low-zoom"
   },
@@ -678903,7 +678903,7 @@
     "paint": {
       "polygon-fill": "rgba(142,142,142,1)",
       "polygon-opacity": "0.14",
-      "polygon-pattern-file": "url('patterns/grey_vertical_hatch.svg')",
+      "polygon-pattern-file": "\"url('patterns/grey_vertical_hatch.svg')\"",
       "polygon-pattern-alignment": "global",
       "line-color": "rgba(136,136,136,1)",
       "line-width": "3",
@@ -679694,7 +679694,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('patterns/dog_park.svg')",
+      "polygon-pattern-file": "\"url('patterns/dog_park.svg')\"",
       "polygon-pattern-alignment": "global"
     },
     "attachment": "low-zoom"
@@ -680183,7 +680183,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('patterns/allotments.svg')",
+      "polygon-pattern-file": "\"url('patterns/allotments.svg')\"",
       "polygon-pattern-alignment": "global"
     },
     "attachment": "low-zoom"
@@ -684202,7 +684202,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/rock_overlay.png')"
+      "polygon-pattern-file": "\"url('symbols/rock_overlay.png')\""
     },
     "attachment": "low-zoom"
   },
@@ -684590,7 +684590,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/scree_overlay.png')"
+      "polygon-pattern-file": "\"url('symbols/scree_overlay.png')\""
     },
     "attachment": "low-zoom"
   },
@@ -686038,7 +686038,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/salt-dots-2.png')",
+      "polygon-pattern-file": "\"url('symbols/salt-dots-2.png')\"",
       "polygon-pattern-alignment": "global"
     },
     "attachment": "low-zoom"
@@ -691047,7 +691047,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/wetland.png')",
+      "polygon-pattern-file": "\"url('symbols/wetland.png')\"",
       "polygon-pattern-alignment": "global"
     }
   },
@@ -691069,7 +691069,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/reef.png')",
+      "polygon-pattern-file": "\"url('symbols/reef.png')\"",
       "polygon-pattern-alignment": "global"
     }
   },
@@ -691119,7 +691119,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/wetland_marsh.png')",
+      "polygon-pattern-file": "\"url('symbols/wetland_marsh.png')\"",
       "polygon-pattern-alignment": "global"
     }
   },
@@ -691141,7 +691141,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/wetland_reed.png')",
+      "polygon-pattern-file": "\"url('symbols/wetland_reed.png')\"",
       "polygon-pattern-alignment": "global"
     }
   },
@@ -691163,7 +691163,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/wetland_mangrove.png')",
+      "polygon-pattern-file": "\"url('symbols/wetland_mangrove.png')\"",
       "polygon-pattern-alignment": "global"
     }
   },
@@ -691185,7 +691185,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/wetland_swamp.png')",
+      "polygon-pattern-file": "\"url('symbols/wetland_swamp.png')\"",
       "polygon-pattern-alignment": "global"
     }
   },
@@ -691235,7 +691235,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/wetland_bog.png')",
+      "polygon-pattern-file": "\"url('symbols/wetland_bog.png')\"",
       "polygon-pattern-alignment": "global"
     }
   },
@@ -691257,7 +691257,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/salt_pond.png')",
+      "polygon-pattern-file": "\"url('symbols/salt_pond.png')\"",
       "polygon-pattern-alignment": "global"
     }
   },
@@ -691303,7 +691303,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/beach.png')",
+      "polygon-pattern-file": "\"url('symbols/beach.png')\"",
       "polygon-pattern-alignment": "global"
     }
   },
@@ -691577,7 +691577,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/beach_coarse.png')",
+      "polygon-pattern-file": "\"url('symbols/beach_coarse.png')\"",
       "polygon-pattern-alignment": "global"
     }
   },
@@ -691599,7 +691599,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/scrub.png')",
+      "polygon-pattern-file": "\"url('symbols/scrub.png')\"",
       "polygon-pattern-alignment": "global"
     }
   },
@@ -691621,7 +691621,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/leaftype_unknown.svg')",
+      "polygon-pattern-file": "\"url('symbols/leaftype_unknown.svg')\"",
       "polygon-pattern-alignment": "global",
       "opacity": "0.4"
     },
@@ -691650,7 +691650,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/leaftype_broadleaved.svg')"
+      "polygon-pattern-file": "\"url('symbols/leaftype_broadleaved.svg')\""
     },
     "attachment": "wood"
   },
@@ -691677,7 +691677,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/leaftype_needleleaved.svg')"
+      "polygon-pattern-file": "\"url('symbols/leaftype_needleleaved.svg')\""
     },
     "attachment": "wood"
   },
@@ -691704,7 +691704,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/leaftype_mixed.svg')"
+      "polygon-pattern-file": "\"url('symbols/leaftype_mixed.svg')\""
     },
     "attachment": "wood"
   },
@@ -691731,7 +691731,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/leaftype_leafless.svg')"
+      "polygon-pattern-file": "\"url('symbols/leaftype_leafless.svg')\""
     },
     "attachment": "wood"
   },
@@ -691774,7 +691774,7 @@
     "paint": {
       "polygon-fill": "rgba(255,85,85,1)",
       "polygon-opacity": "0.08",
-      "polygon-pattern-file": "url('patterns/military_red_hatch.svg')",
+      "polygon-pattern-file": "\"url('patterns/military_red_hatch.svg')\"",
       "polygon-pattern-alignment": "global",
       "line-color": "rgba(255,85,85,1)",
       "line-opacity": "0.24",
@@ -691843,7 +691843,7 @@
     "paint": {
       "polygon-fill": "rgba(255,85,85,1)",
       "polygon-opacity": "0.1",
-      "polygon-pattern-file": "url('patterns/danger_red_hatch.svg')",
+      "polygon-pattern-file": "\"url('patterns/danger_red_hatch.svg')\"",
       "polygon-pattern-alignment": "global",
       "line-color": "rgba(255,85,85,1)",
       "line-opacity": "0.2",
@@ -691869,7 +691869,7 @@
       }
     ],
     "paint": {
-      "line-pattern-file": "url('symbols/cliff.svg')"
+      "line-pattern-file": "\"url('symbols/cliff.svg')\""
     }
   },
   {
@@ -691890,7 +691890,7 @@
       }
     ],
     "paint": {
-      "line-pattern-file": "url('symbols/cliff2.svg')"
+      "line-pattern-file": "\"url('symbols/cliff2.svg')\""
     }
   },
   {
@@ -691911,7 +691911,7 @@
       }
     ],
     "paint": {
-      "line-pattern-file": "url('symbols/ridge-mid.svg')"
+      "line-pattern-file": "\"url('symbols/ridge-mid.svg')\""
     }
   },
   {
@@ -691932,7 +691932,7 @@
       }
     ],
     "paint": {
-      "line-pattern-file": "url('symbols/ridge2.svg')"
+      "line-pattern-file": "\"url('symbols/ridge2.svg')\""
     }
   },
   {
@@ -691953,7 +691953,7 @@
       }
     ],
     "paint": {
-      "line-pattern-file": "url('symbols/arete-mid.svg')"
+      "line-pattern-file": "\"url('symbols/arete-mid.svg')\""
     }
   },
   {
@@ -691974,7 +691974,7 @@
       }
     ],
     "paint": {
-      "line-pattern-file": "url('symbols/arete2.svg')"
+      "line-pattern-file": "\"url('symbols/arete2.svg')\""
     }
   },
   {
@@ -691995,7 +691995,7 @@
       }
     ],
     "paint": {
-      "line-pattern-file": "url('symbols/embankment.svg')"
+      "line-pattern-file": "\"url('symbols/embankment.svg')\""
     },
     "attachment": "man_made"
   },
@@ -692717,7 +692717,7 @@
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-fill": "rgba(153,153,153,1)",
       "text-size": "10",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-placement": "line",
       "text-dy": "8",
       "text-vertical-alignment": "middle",
@@ -693226,7 +693226,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('patterns/intermittent_water.svg')"
+      "polygon-pattern-file": "\"url('patterns/intermittent_water.svg')\""
     }
   },
   {
@@ -706581,7 +706581,7 @@
     ],
     "paint": {
       "text-name": "'[lock_name]'",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-placement": "line",
       "text-fill": "rgba(53,139,162,1)",
       "text-spacing": "500",
@@ -706620,7 +706620,7 @@
     "paint": {
       "text-name": "'[name]'",
       "text-size": "10",
-      "text-face-name": "@oblique-fonts",
+      "text-face-name": "'Noto Sans', 'Noto Sans'",
       "text-fill": "rgba(53,139,162,1)",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -706690,7 +706690,7 @@
     "paint": {
       "text-name": "'[name]'",
       "text-size": "10",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-fill": "rgba(53,139,162,1)",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -706808,7 +706808,7 @@
     "paint": {
       "text-name": "'[name]'",
       "text-size": "10",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-fill": "rgba(53,139,162,1)",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -706910,7 +706910,7 @@
       }
     ],
     "paint": {
-      "text-face-name": "@oblique-fonts"
+      "text-face-name": "'Noto Sans', 'Noto Sans'"
     }
   },
   {
@@ -706947,7 +706947,7 @@
     "paint": {
       "text-name": "'[name]'",
       "text-size": "10",
-      "text-face-name": "@oblique-fonts",
+      "text-face-name": "'Noto Sans', 'Noto Sans'",
       "text-fill": "rgba(53,139,162,1)",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -707344,7 +707344,7 @@
       "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(53,139,162,1)",
-      "text-face-name": "@oblique-fonts",
+      "text-face-name": "'Noto Sans', 'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-placement": "interior"
@@ -708686,7 +708686,7 @@
       "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(53,139,162,1)",
-      "text-face-name": "@oblique-fonts",
+      "text-face-name": "'Noto Sans', 'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-placement": "interior"
@@ -709782,7 +709782,7 @@
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-fill": "rgba(34,34,34,1)",
       "text-size": "10",
-      "text-face-name": "@book-fonts"
+      "text-face-name": "'Noto Sans'"
     }
   },
   {
@@ -710007,7 +710007,7 @@
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-fill": "rgba(34,34,34,1)",
       "text-size": "10",
-      "text-face-name": "@book-fonts"
+      "text-face-name": "'Noto Sans'"
     }
   },
   {
@@ -774317,7 +774317,7 @@
       "line-pattern-type": "repeat",
       "line-pattern-alignment": "global",
       "line-pattern-width": "0.4",
-      "line-pattern-file": "url('symbols/unpaved/unpaved_motorway-low-zoom.svg')"
+      "line-pattern-file": "\"url('symbols/unpaved/unpaved_motorway-low-zoom.svg')\""
     },
     "attachment": "fill"
   },
@@ -775397,7 +775397,7 @@
       }
     ],
     "paint": {
-      "line-pattern-file": "url('symbols/unpaved/unpaved_motorway-fill.svg')",
+      "line-pattern-file": "\"url('symbols/unpaved/unpaved_motorway-fill.svg')\"",
       "line-pattern-width": "2.5",
       "line-pattern-cap": "round",
       "line-pattern-join": "round"
@@ -791639,7 +791639,7 @@
       "line-pattern-type": "repeat",
       "line-pattern-alignment": "global",
       "line-pattern-width": "0.4",
-      "line-pattern-file": "url('symbols/unpaved/unpaved_trunk-low-zoom.svg')"
+      "line-pattern-file": "\"url('symbols/unpaved/unpaved_trunk-low-zoom.svg')\""
     },
     "attachment": "fill"
   },
@@ -792719,7 +792719,7 @@
       }
     ],
     "paint": {
-      "line-pattern-file": "url('symbols/unpaved/unpaved_trunk-fill.svg')",
+      "line-pattern-file": "\"url('symbols/unpaved/unpaved_trunk-fill.svg')\"",
       "line-pattern-width": "2.5",
       "line-pattern-cap": "round",
       "line-pattern-join": "round"
@@ -807537,7 +807537,7 @@
       "line-pattern-type": "repeat",
       "line-pattern-alignment": "global",
       "line-pattern-width": "1",
-      "line-pattern-file": "url('symbols/unpaved/unpaved_primary-low-zoom.svg')"
+      "line-pattern-file": "\"url('symbols/unpaved/unpaved_primary-low-zoom.svg')\""
     },
     "attachment": "fill"
   },
@@ -808257,7 +808257,7 @@
       }
     ],
     "paint": {
-      "line-pattern-file": "url('symbols/unpaved/unpaved_primary-fill.svg')",
+      "line-pattern-file": "\"url('symbols/unpaved/unpaved_primary-fill.svg')\"",
       "line-pattern-width": "2.5",
       "line-pattern-cap": "round",
       "line-pattern-join": "round"
@@ -817931,7 +817931,7 @@
       "line-pattern-type": "repeat",
       "line-pattern-alignment": "global",
       "line-pattern-width": "2.9",
-      "line-pattern-file": "url('symbols/unpaved/unpaved_secondary-fill.svg')",
+      "line-pattern-file": "\"url('symbols/unpaved/unpaved_secondary-fill.svg')\"",
       "line-pattern-cap": "round",
       "line-pattern-join": "round"
     },
@@ -822756,7 +822756,7 @@
       "line-pattern-type": "repeat",
       "line-pattern-alignment": "global",
       "line-pattern-width": "1.9",
-      "line-pattern-file": "url('symbols/unpaved/unpaved_residential-fill.svg')",
+      "line-pattern-file": "\"url('symbols/unpaved/unpaved_residential-fill.svg')\"",
       "line-pattern-cap": "round",
       "line-pattern-join": "round"
     },
@@ -827673,7 +827673,7 @@
       "line-pattern-width": "1.5",
       "line-pattern-type": "repeat",
       "line-pattern-alignment": "global",
-      "line-pattern-file": "url('symbols/unpaved/unpaved_residential-fill.svg')",
+      "line-pattern-file": "\"url('symbols/unpaved/unpaved_residential-fill.svg')\"",
       "line-pattern-cap": "round",
       "line-pattern-join": "round"
     },
@@ -832084,7 +832084,7 @@
       "line-pattern-width": "1",
       "line-pattern-type": "repeat",
       "line-pattern-alignment": "global",
-      "line-pattern-file": "url('symbols/unpaved/unpaved_living-street-fill.svg')",
+      "line-pattern-file": "\"url('symbols/unpaved/unpaved_living-street-fill.svg')\"",
       "line-pattern-join": "round",
       "line-pattern-cap": "round"
     },
@@ -834103,7 +834103,7 @@
       "line-pattern-width": "0.8999999999999999",
       "line-pattern-type": "repeat",
       "line-pattern-alignment": "global",
-      "line-pattern-file": "url('symbols/unpaved/unpaved_road-fill.svg')"
+      "line-pattern-file": "\"url('symbols/unpaved/unpaved_road-fill.svg')\""
     },
     "attachment": "fill"
   },
@@ -839783,7 +839783,7 @@
     "paint": {
       "line-pattern-type": "repeat",
       "line-pattern-alignment": "global",
-      "line-pattern-file": "url('symbols/unpaved/unpaved_residential-fill.svg')",
+      "line-pattern-file": "\"url('symbols/unpaved/unpaved_residential-fill.svg')\"",
       "line-pattern-join": "round",
       "line-pattern-cap": "round"
     },
@@ -846835,7 +846835,7 @@
       "line-pattern-width": "1.9",
       "line-pattern-type": "repeat",
       "line-pattern-alignment": "global",
-      "line-pattern-file": "url('symbols/unpaved/unpaved_pedestrian-fill.svg')",
+      "line-pattern-file": "\"url('symbols/unpaved/unpaved_pedestrian-fill.svg')\"",
       "line-pattern-join": "round",
       "line-pattern-cap": "round"
     },
@@ -848438,7 +848438,7 @@
     "paint": {
       "line-pattern-type": "repeat",
       "line-pattern-alignment": "global",
-      "line-pattern-file": "url('symbols/unpaved/unpaved_raceway-fill.svg')",
+      "line-pattern-file": "\"url('symbols/unpaved/unpaved_raceway-fill.svg')\"",
       "line-pattern-width": "1.2",
       "line-pattern-join": "round",
       "line-pattern-cap": "round"
@@ -849127,7 +849127,7 @@
       "b/line-pattern-width": "4",
       "b/line-pattern-type": "repeat",
       "b/line-pattern-alignment": "global",
-      "b/line-pattern-file": "url('symbols/unpaved/unpaved_platform-fill.svg')",
+      "b/line-pattern-file": "\"url('symbols/unpaved/unpaved_platform-fill.svg')\"",
       "b/line-pattern-cap": "round",
       "b/line-pattern-join": "round"
     },
@@ -875633,7 +875633,7 @@
       "b/line-pattern-width": "4",
       "b/line-pattern-type": "repeat",
       "b/line-pattern-alignment": "global",
-      "b/line-pattern-file": "url('symbols/unpaved/unpaved_platform-fill.svg')",
+      "b/line-pattern-file": "\"url('symbols/unpaved/unpaved_platform-fill.svg')\"",
       "b/line-pattern-cap": "round",
       "b/line-pattern-join": "round"
     },
@@ -876718,7 +876718,7 @@
       "line-pattern-type": "repeat",
       "line-pattern-alignment": "global",
       "line-pattern-width": "16",
-      "line-pattern-file": "url('symbols/unpaved/unpaved_trunk-fill.svg')",
+      "line-pattern-file": "\"url('symbols/unpaved/unpaved_trunk-fill.svg')\"",
       "line-pattern-cap": "round"
     }
   },
@@ -876932,7 +876932,7 @@
       "line-pattern-type": "repeat",
       "line-pattern-alignment": "global",
       "line-pattern-width": "16",
-      "line-pattern-file": "url('symbols/unpaved/unpaved_primary-fill.svg')",
+      "line-pattern-file": "\"url('symbols/unpaved/unpaved_primary-fill.svg')\"",
       "line-pattern-cap": "round"
     }
   },
@@ -877172,7 +877172,7 @@
       "line-pattern-type": "repeat",
       "line-pattern-alignment": "global",
       "line-pattern-width": "14.4",
-      "line-pattern-file": "url('symbols/unpaved/unpaved_secondary-fill.svg')",
+      "line-pattern-file": "\"url('symbols/unpaved/unpaved_secondary-fill.svg')\"",
       "line-pattern-cap": "round"
     }
   },
@@ -877438,7 +877438,7 @@
       "line-pattern-type": "repeat",
       "line-pattern-alignment": "global",
       "line-pattern-width": "14.4",
-      "line-pattern-file": "url('symbols/unpaved/unpaved_residential-fill.svg')",
+      "line-pattern-file": "\"url('symbols/unpaved/unpaved_residential-fill.svg')\"",
       "line-pattern-cap": "round"
     }
   },
@@ -877818,7 +877818,7 @@
       "line-pattern-type": "repeat",
       "line-pattern-alignment": "global",
       "line-pattern-width": "8",
-      "line-pattern-file": "url('symbols/unpaved/unpaved_residential-fill.svg')",
+      "line-pattern-file": "\"url('symbols/unpaved/unpaved_residential-fill.svg')\"",
       "line-pattern-cap": "round"
     }
   },
@@ -878160,7 +878160,7 @@
       "line-pattern-type": "repeat",
       "line-pattern-alignment": "global",
       "line-pattern-width": "8",
-      "line-pattern-file": "url('symbols/unpaved/unpaved_living-street-fill.svg')",
+      "line-pattern-file": "\"url('symbols/unpaved/unpaved_living-street-fill.svg')\"",
       "line-pattern-cap": "round"
     }
   },
@@ -878456,7 +878456,7 @@
       "line-pattern-type": "repeat",
       "line-pattern-alignment": "global",
       "line-pattern-width": "5.6000000000000005",
-      "line-pattern-file": "url('symbols/unpaved/unpaved_residential-fill.svg')",
+      "line-pattern-file": "\"url('symbols/unpaved/unpaved_residential-fill.svg')\"",
       "line-pattern-cap": "round"
     }
   },
@@ -878710,7 +878710,7 @@
       "line-pattern-type": "repeat",
       "line-pattern-alignment": "global",
       "line-pattern-width": "7.6000000000000005",
-      "line-pattern-file": "url('symbols/unpaved/unpaved_residential-fill.svg')",
+      "line-pattern-file": "\"url('symbols/unpaved/unpaved_residential-fill.svg')\"",
       "line-pattern-cap": "round"
     }
   },
@@ -879218,7 +879218,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/unpaved/unpaved_living-street-fill.svg')",
+      "polygon-pattern-file": "\"url('symbols/unpaved/unpaved_living-street-fill.svg')\"",
       "polygon-pattern-alignment": "global"
     }
   },
@@ -879266,7 +879266,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/unpaved/unpaved_residential-fill.svg')",
+      "polygon-pattern-file": "\"url('symbols/unpaved/unpaved_residential-fill.svg')\"",
       "polygon-pattern-alignment": "global"
     }
   },
@@ -879347,7 +879347,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/unpaved/unpaved_pedestrian-fill.svg')",
+      "polygon-pattern-file": "\"url('symbols/unpaved/unpaved_pedestrian-fill.svg')\"",
       "polygon-pattern-alignment": "global"
     }
   },
@@ -879428,7 +879428,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/unpaved/unpaved_platform-fill.svg')",
+      "polygon-pattern-file": "\"url('symbols/unpaved/unpaved_platform-fill.svg')\"",
       "polygon-pattern-alignment": "global"
     }
   },
@@ -879476,7 +879476,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/unpaved/unpaved_aeroway-fill.svg')",
+      "polygon-pattern-file": "\"url('symbols/unpaved/unpaved_aeroway-fill.svg')\"",
       "polygon-pattern-alignment": "global"
     }
   },
@@ -879524,7 +879524,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/unpaved/unpaved_aeroway-fill.svg')",
+      "polygon-pattern-file": "\"url('symbols/unpaved/unpaved_aeroway-fill.svg')\"",
       "polygon-pattern-alignment": "global"
     }
   },
@@ -879572,7 +879572,7 @@
       }
     ],
     "paint": {
-      "polygon-pattern-file": "url('symbols/unpaved/unpaved_aeroway-fill.svg')",
+      "polygon-pattern-file": "\"url('symbols/unpaved/unpaved_aeroway-fill.svg')\"",
       "polygon-pattern-alignment": "global"
     }
   },
@@ -879598,7 +879598,7 @@
       "text-size": "10",
       "text-fill": "rgba(150,0,0,1)",
       "text-min-distance": "2",
-      "text-face-name": "@oblique-fonts",
+      "text-face-name": "'Noto Sans', 'Noto Sans'",
       "text-halo-radius": "1",
       "text-wrap-character": "';'",
       "text-wrap-width": "2",
@@ -879704,7 +879704,7 @@
       "text-name": "'[name]'",
       "text-size": "10",
       "text-fill": "rgba(0,0,0,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-wrap-width": "30",
@@ -879826,7 +879826,7 @@
       "text-wrap-width": "30",
       "text-line-spacing": "-1.2",
       "text-fill": "rgba(0,0,0,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-margin": "3"
@@ -892400,7 +892400,7 @@
     "paint": {
       "line-pattern-type": "repeat",
       "line-pattern-alignment": "global",
-      "line-pattern-file": "url('symbols/unpaved/unpaved_aeroway-fill.svg')",
+      "line-pattern-file": "\"url('symbols/unpaved/unpaved_aeroway-fill.svg')\"",
       "line-pattern-width": "2"
     },
     "attachment": "fill"
@@ -892838,7 +892838,7 @@
     "paint": {
       "line-pattern-type": "repeat",
       "line-pattern-alignment": "global",
-      "line-pattern-file": "url('symbols/unpaved/unpaved_aeroway-fill.svg')",
+      "line-pattern-file": "\"url('symbols/unpaved/unpaved_aeroway-fill.svg')\"",
       "line-pattern-width": "1"
     },
     "attachment": "fill"
@@ -893018,7 +893018,7 @@
       "shield-spacing": "760",
       "shield-repeat-distance": "400",
       "shield-margin": "40",
-      "shield-face-name": "@book-fonts",
+      "shield-face-name": "'Noto Sans'",
       "shield-clip": "false"
     }
   },
@@ -893103,7 +893103,7 @@
     ],
     "paint": {
       "shield-fill": "rgba(211,216,222,1)",
-      "shield-file": "url('symbols/shields/motorway_[width]x[height].svg')"
+      "shield-file": "\"url('symbols/shields/motorway_[width]x[height].svg')\""
     }
   },
   {
@@ -893187,7 +893187,7 @@
     ],
     "paint": {
       "shield-fill": "rgba(183,199,216,1)",
-      "shield-file": "url('symbols/shields/trunk_[width]x[height].svg')"
+      "shield-file": "\"url('symbols/shields/trunk_[width]x[height].svg')\""
     }
   },
   {
@@ -893271,7 +893271,7 @@
     ],
     "paint": {
       "shield-fill": "rgba(211,216,222,1)",
-      "shield-file": "url('symbols/shields/primary_[width]x[height].svg')"
+      "shield-file": "\"url('symbols/shields/primary_[width]x[height].svg')\""
     }
   },
   {
@@ -893355,7 +893355,7 @@
     ],
     "paint": {
       "shield-fill": "rgba(211,216,222,1)",
-      "shield-file": "url('symbols/shields/secondary_[width]x[height].svg')"
+      "shield-file": "\"url('symbols/shields/secondary_[width]x[height].svg')\""
     }
   },
   {
@@ -893439,7 +893439,7 @@
       "shield-spacing": "760",
       "shield-repeat-distance": "400",
       "shield-margin": "40",
-      "shield-face-name": "@book-fonts",
+      "shield-face-name": "'Noto Sans'",
       "shield-clip": "false"
     }
   },
@@ -893699,7 +893699,7 @@
     ],
     "paint": {
       "shield-fill": "rgba(211,216,222,1)",
-      "shield-file": "url('symbols/shields/motorway_[width]x[height].svg')"
+      "shield-file": "\"url('symbols/shields/motorway_[width]x[height].svg')\""
     }
   },
   {
@@ -893801,7 +893801,7 @@
       }
     ],
     "paint": {
-      "shield-file": "url('symbols/shields/motorway_[width]x[height]_z16.svg')"
+      "shield-file": "\"url('symbols/shields/motorway_[width]x[height]_z16.svg')\""
     }
   },
   {
@@ -893903,7 +893903,7 @@
       }
     ],
     "paint": {
-      "shield-file": "url('symbols/shields/motorway_[width]x[height]_z18.svg')"
+      "shield-file": "\"url('symbols/shields/motorway_[width]x[height]_z18.svg')\""
     }
   },
   {
@@ -894006,7 +894006,7 @@
     ],
     "paint": {
       "shield-fill": "rgba(183,199,216,1)",
-      "shield-file": "url('symbols/shields/trunk_[width]x[height].svg')"
+      "shield-file": "\"url('symbols/shields/trunk_[width]x[height].svg')\""
     }
   },
   {
@@ -894108,7 +894108,7 @@
       }
     ],
     "paint": {
-      "shield-file": "url('symbols/shields/trunk_[width]x[height]_z16.svg')"
+      "shield-file": "\"url('symbols/shields/trunk_[width]x[height]_z16.svg')\""
     }
   },
   {
@@ -894210,7 +894210,7 @@
       }
     ],
     "paint": {
-      "shield-file": "url('symbols/shields/trunk_[width]x[height]_z18.svg')"
+      "shield-file": "\"url('symbols/shields/trunk_[width]x[height]_z18.svg')\""
     }
   },
   {
@@ -894307,320 +894307,320 @@
             "key": "highway",
             "op": "=",
             "value": "primary"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "shield-fill": "rgba(211,216,222,1)",
-      "shield-file": "url('symbols/shields/primary_[width]x[height].svg')"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-text-ref",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "motorway"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "primary"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-ref",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "trunk"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "primary"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-ref",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "primary"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "primary"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-ref",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "secondary"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "primary"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-ref",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "tertiary"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "primary"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "shield-file": "url('symbols/shields/primary_[width]x[height]_z16.svg')"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-text-ref",
-        "zoom": {
-          "min": 18,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "motorway"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "primary"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-ref",
-        "zoom": {
-          "min": 18,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "trunk"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "primary"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-ref",
-        "zoom": {
-          "min": 18,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "primary"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "primary"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-ref",
-        "zoom": {
-          "min": 18,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "secondary"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "primary"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-ref",
-        "zoom": {
-          "min": 18,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "tertiary"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "primary"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "shield-file": "url('symbols/shields/primary_[width]x[height]_z18.svg')"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-text-ref",
-        "zoom": {
-          "min": 13,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "motorway"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "secondary"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-ref",
-        "zoom": {
-          "min": 13,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "trunk"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "secondary"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-ref",
-        "zoom": {
-          "min": 13,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "primary"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "secondary"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-ref",
-        "zoom": {
-          "min": 13,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "secondary"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "secondary"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-ref",
-        "zoom": {
-          "min": 13,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "tertiary"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "secondary"
           }
         ]
       }
     ],
     "paint": {
       "shield-fill": "rgba(211,216,222,1)",
-      "shield-file": "url('symbols/shields/secondary_[width]x[height].svg')"
+      "shield-file": "\"url('symbols/shields/primary_[width]x[height].svg')\""
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-text-ref",
+        "zoom": {
+          "min": 16,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "motorway"
+          },
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "primary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-ref",
+        "zoom": {
+          "min": 16,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "trunk"
+          },
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "primary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-ref",
+        "zoom": {
+          "min": 16,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "primary"
+          },
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "primary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-ref",
+        "zoom": {
+          "min": 16,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "secondary"
+          },
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "primary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-ref",
+        "zoom": {
+          "min": 16,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "tertiary"
+          },
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "primary"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "shield-file": "\"url('symbols/shields/primary_[width]x[height]_z16.svg')\""
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-text-ref",
+        "zoom": {
+          "min": 18,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "motorway"
+          },
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "primary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-ref",
+        "zoom": {
+          "min": 18,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "trunk"
+          },
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "primary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-ref",
+        "zoom": {
+          "min": 18,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "primary"
+          },
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "primary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-ref",
+        "zoom": {
+          "min": 18,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "secondary"
+          },
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "primary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-ref",
+        "zoom": {
+          "min": 18,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "tertiary"
+          },
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "primary"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "shield-file": "\"url('symbols/shields/primary_[width]x[height]_z18.svg')\""
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-text-ref",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "motorway"
+          },
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "secondary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-ref",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "trunk"
+          },
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "secondary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-ref",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "primary"
+          },
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "secondary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-ref",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "secondary"
+          },
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "secondary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-ref",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "tertiary"
+          },
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "secondary"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "shield-fill": "rgba(211,216,222,1)",
+      "shield-file": "\"url('symbols/shields/secondary_[width]x[height].svg')\""
     }
   },
   {
@@ -894722,7 +894722,7 @@
       }
     ],
     "paint": {
-      "shield-file": "url('symbols/shields/secondary_[width]x[height]_z16.svg')"
+      "shield-file": "\"url('symbols/shields/secondary_[width]x[height]_z16.svg')\""
     }
   },
   {
@@ -894824,7 +894824,7 @@
       }
     ],
     "paint": {
-      "shield-file": "url('symbols/shields/secondary_[width]x[height]_z18.svg')"
+      "shield-file": "\"url('symbols/shields/secondary_[width]x[height]_z18.svg')\""
     }
   },
   {
@@ -894927,7 +894927,7 @@
     ],
     "paint": {
       "shield-fill": "rgba(211,216,222,1)",
-      "shield-file": "url('symbols/shields/tertiary_[width]x[height].svg')"
+      "shield-file": "\"url('symbols/shields/tertiary_[width]x[height].svg')\""
     }
   },
   {
@@ -895029,7 +895029,7 @@
       }
     ],
     "paint": {
-      "shield-file": "url('symbols/shields/tertiary_[width]x[height]_z16.svg')"
+      "shield-file": "\"url('symbols/shields/tertiary_[width]x[height]_z16.svg')\""
     }
   },
   {
@@ -895131,7 +895131,7 @@
       }
     ],
     "paint": {
-      "shield-file": "url('symbols/shields/tertiary_[width]x[height]_z18.svg')"
+      "shield-file": "\"url('symbols/shields/tertiary_[width]x[height]_z18.svg')\""
     }
   },
   {
@@ -895172,7 +895172,7 @@
       "text-spacing": "750",
       "text-clip": "false",
       "text-placement": "line",
-      "text-face-name": "@oblique-fonts",
+      "text-face-name": "'Noto Sans', 'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-repeat-distance": "10"
@@ -895213,7 +895213,7 @@
       "text-name": "'[refs]'",
       "text-size": "8",
       "text-fill": "rgba(0,0,0,1)",
-      "text-face-name": "@oblique-fonts",
+      "text-face-name": "'Noto Sans', 'Noto Sans'",
       "text-placement": "line",
       "text-repeat-distance": "50",
       "text-halo-radius": "1",
@@ -895315,7 +895315,7 @@
       "text-dy": "5",
       "text-clip": "false",
       "text-fill": "rgba(34,34,34,1)",
-      "text-face-name": "@oblique-fonts",
+      "text-face-name": "'Noto Sans', 'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-margin": "10",
@@ -895478,7 +895478,7 @@
       "text-spacing": "300",
       "text-clip": "false",
       "text-placement": "line",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-repeat-distance": "50"
     }
   },
@@ -896583,7 +896583,7 @@
       "text-spacing": "300",
       "text-clip": "false",
       "text-placement": "line",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(211,216,222,1)",
       "text-repeat-distance": "50"
@@ -896792,7 +896792,7 @@
       "text-spacing": "300",
       "text-clip": "false",
       "text-placement": "line",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(211,216,222,1)",
       "text-repeat-distance": "50"
@@ -896909,7 +896909,7 @@
       "text-placement": "line",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-repeat-distance": "50"
     }
   },
@@ -897097,7 +897097,7 @@
       "text-placement": "line",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(211,216,222,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-repeat-distance": "10"
     }
   },
@@ -897715,7 +897715,7 @@
       "text-clip": "false",
       "text-placement": "line",
       "text-halo-radius": "1",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-repeat-distance": "50"
     }
   },
@@ -898055,7 +898055,7 @@
       "text-clip": "false",
       "text-placement": "line",
       "text-halo-radius": "1",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-repeat-distance": "10"
     }
   },
@@ -898493,7 +898493,7 @@
     "paint": {
       "text-name": "'[name]'",
       "text-size": "11",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-wrap-width": "30",
       "text-line-spacing": "-1.7"
     }
@@ -898543,7 +898543,7 @@
       "text-spacing": "300",
       "text-clip": "false",
       "text-placement": "line",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-vertical-alignment": "middle",
       "text-dy": "5",
       "text-repeat-distance": "50"
@@ -898808,7 +898808,7 @@
       "text-spacing": "300",
       "text-clip": "false",
       "text-placement": "line",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-vertical-alignment": "middle",
       "text-dy": "7",
       "text-repeat-distance": "50"
@@ -899900,7 +899900,7 @@
       "marker-placement": "line",
       "marker-spacing": "180",
       "marker-max-error": "0.5",
-      "marker-file": "url('symbols/oneway.svg')"
+      "marker-file": "\"url('symbols/oneway.svg')\""
     },
     "attachment": "directions"
   },
@@ -900772,7 +900772,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/oneway-reverse.svg')"
+      "marker-file": "\"url('symbols/oneway-reverse.svg')\""
     },
     "attachment": "directions"
   },
@@ -916651,7 +916651,7 @@
       "text-dy": "3",
       "text-upright": "right",
       "text-vertical-alignment": "middle",
-      "text-face-name": "@book-fonts"
+      "text-face-name": "'Noto Sans'"
     },
     "attachment": "directions"
   },
@@ -918829,7 +918829,7 @@
       "text-spacing": "900",
       "text-clip": "false",
       "text-placement": "line",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-repeat-distance": "200"
@@ -918971,7 +918971,7 @@
       "text-spacing": "300",
       "text-clip": "false",
       "text-placement": "line",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-repeat-distance": "200"
@@ -919118,7 +919118,7 @@
       "text-spacing": "300",
       "text-clip": "false",
       "text-placement": "line",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-repeat-distance": "200"
@@ -919242,7 +919242,7 @@
       "text-spacing": "900",
       "text-clip": "false",
       "text-placement": "line",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-repeat-distance": "200"
@@ -919438,7 +919438,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/power_tower_small.svg')",
+      "marker-file": "\"url('symbols/man_made/power_tower_small.svg')\"",
       "marker-width": "3"
     }
   },
@@ -919460,7 +919460,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/man_made/power_tower.svg')",
+      "marker-file": "\"url('symbols/man_made/power_tower.svg')\"",
       "marker-width": "5"
     }
   },
@@ -919503,7 +919503,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/square.svg')",
+      "marker-file": "\"url('symbols/square.svg')\"",
       "marker-fill": "rgba(146,143,143,1)",
       "marker-width": "3"
     }
@@ -919540,13 +919540,13 @@
       }
     ],
     "paint": {
-      "text-name": "\"[name]\"",
+      "text-name": "'[name]'",
       "text-size": "10",
       "text-wrap-width": "35",
       "text-line-spacing": "-1.5",
-      "text-margin": "7.0",
+      "text-margin": "7",
       "text-fill": "rgba(51,49,52,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-character-spacing": "0.5"
@@ -919662,7 +919662,7 @@
     "paint": {
       "text-size": "13",
       "text-wrap-width": "50",
-      "text-line-spacing": "-1.0",
+      "text-line-spacing": "-1",
       "text-margin": "9.1"
     }
   },
@@ -919777,13 +919777,13 @@
       }
     ],
     "paint": {
-      "text-name": "\"[name]\"",
+      "text-name": "'[name]'",
       "text-size": "10",
       "text-wrap-width": "35",
       "text-line-spacing": "-1.5",
-      "text-margin": "7.0",
+      "text-margin": "7",
       "text-fill": "rgba(76,76,76,1)",
-      "text-face-name": "@oblique-fonts",
+      "text-face-name": "'Noto Sans', 'Noto Sans'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-placement": "interior"
@@ -919914,7 +919914,7 @@
     "paint": {
       "text-size": "13",
       "text-wrap-width": "50",
-      "text-line-spacing": "-1.0",
+      "text-line-spacing": "-1",
       "text-margin": "9.1"
     }
   },
@@ -919957,7 +919957,7 @@
     "paint": {
       "text-size": "15",
       "text-wrap-width": "50",
-      "text-line-spacing": "-1.0",
+      "text-line-spacing": "-1",
       "text-margin": "9.1"
     }
   },
@@ -919987,11 +919987,11 @@
       }
     ],
     "paint": {
-      "shield-file": "url('symbols/place/place-capital-6.svg')",
+      "shield-file": "\"url('symbols/place/place-capital-6.svg')\"",
       "shield-text-dx": "6",
       "shield-text-dy": "6",
       "shield-name": "'[name]'",
-      "shield-face-name": "@book-fonts",
+      "shield-face-name": "'Noto Sans'",
       "shield-fill": "rgba(34,34,34,1)",
       "shield-size": "11",
       "shield-wrap-width": "30",
@@ -920132,7 +920132,7 @@
       }
     ],
     "paint": {
-      "shield-file": "url('symbols/place/place-capital-8.svg')",
+      "shield-file": "\"url('symbols/place/place-capital-8.svg')\"",
       "shield-text-dx": "7",
       "shield-text-dy": "7"
     }
@@ -920150,7 +920150,7 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-fill": "rgba(34,34,34,1)",
       "text-size": "13",
       "text-wrap-width": "65",
@@ -920174,7 +920174,7 @@
     "paint": {
       "text-size": "14",
       "text-wrap-width": "70",
-      "text-line-spacing": "-0.70",
+      "text-line-spacing": "-0.7",
       "text-margin": "9.8"
     }
   },
@@ -920238,11 +920238,11 @@
       }
     ],
     "paint": {
-      "shield-file": "url('symbols/place/place-4.svg')",
+      "shield-file": "\"url('symbols/place/place-4.svg')\"",
       "shield-text-dx": "4",
       "shield-text-dy": "4",
       "shield-name": "'[name]'",
-      "shield-face-name": "@book-fonts",
+      "shield-face-name": "'Noto Sans'",
       "shield-fill": "rgba(34,34,34,1)",
       "shield-size": "11",
       "shield-wrap-width": "30",
@@ -920405,7 +920405,7 @@
       "shield-wrap-width": "60",
       "shield-line-spacing": "-0.6",
       "shield-margin": "8.4",
-      "shield-file": "url('symbols/place/place-6.svg')",
+      "shield-file": "\"url('symbols/place/place-6.svg')\"",
       "shield-text-dx": "5",
       "shield-text-dy": "5"
     },
@@ -920453,7 +920453,7 @@
       }
     ],
     "paint": {
-      "shield-file": "url('symbols/place/place-6-z7.svg')"
+      "shield-file": "\"url('symbols/place/place-6-z7.svg')\""
     },
     "attachment": "high-importance"
   },
@@ -920481,7 +920481,7 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-fill": "rgba(34,34,34,1)",
       "text-size": "13",
       "text-wrap-width": "65",
@@ -920599,18 +920599,18 @@
       }
     ],
     "paint": {
-      "shield-file": "url('symbols/place/place-4.svg')",
+      "shield-file": "\"url('symbols/place/place-4.svg')\"",
       "shield-text-dx": "4",
       "shield-text-dy": "4",
-      "shield-name": "\"[name]\"",
+      "shield-name": "'[name]'",
       "shield-size": "10",
       "shield-fill": "rgba(34,34,34,1)",
-      "shield-face-name": "@book-fonts",
+      "shield-face-name": "'Noto Sans'",
       "shield-halo-fill": "rgba(255,255,255,0.6)",
       "shield-halo-radius": "1.5",
       "shield-wrap-width": "30",
       "shield-line-spacing": "-1.5",
-      "shield-margin": "7.0",
+      "shield-margin": "7",
       "shield-placement-type": "simple",
       "shield-placements": "'S,N,E,W'",
       "shield-unlock-image": "true"
@@ -920725,7 +920725,7 @@
       }
     ],
     "paint": {
-      "shield-file": "url('symbols/place/place-4-z7.svg')"
+      "shield-file": "\"url('symbols/place/place-4-z7.svg')\""
     },
     "attachment": "medium-importance"
   },
@@ -920752,15 +920752,15 @@
       }
     ],
     "paint": {
-      "text-name": "\"[name]\"",
+      "text-name": "'[name]'",
       "text-size": "10",
       "text-fill": "rgba(34,34,34,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-wrap-width": "40",
-      "text-line-spacing": "-1.0",
-      "text-margin": "7.0"
+      "text-line-spacing": "-1",
+      "text-margin": "7"
     },
     "attachment": "medium-importance"
   },
@@ -920902,10 +920902,10 @@
       }
     ],
     "paint": {
-      "text-name": "\"[name]\"",
+      "text-name": "'[name]'",
       "text-size": "10",
       "text-fill": "rgba(34,34,34,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-wrap-width": "45",
@@ -921007,10 +921007,10 @@
       }
     ],
     "paint": {
-      "text-name": "\"[name]\"",
+      "text-name": "'[name]'",
       "text-size": "11",
       "text-fill": "rgba(34,34,34,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-wrap-width": "55",
@@ -921039,7 +921039,7 @@
     "paint": {
       "text-size": "12",
       "text-wrap-width": "60",
-      "text-line-spacing": "-0.60",
+      "text-line-spacing": "-0.6",
       "text-margin": "8.4"
     },
     "attachment": "suburb"
@@ -921064,7 +921064,7 @@
     "paint": {
       "text-size": "14",
       "text-wrap-width": "70",
-      "text-line-spacing": "-0.70",
+      "text-line-spacing": "-0.7",
       "text-margin": "9.8",
       "text-fill": "rgba(119,119,119,1)",
       "text-halo-fill": "rgba(255,255,255,1)"
@@ -921114,15 +921114,15 @@
       }
     ],
     "paint": {
-      "text-name": "\"[name]\"",
+      "text-name": "'[name]'",
       "text-size": "10",
       "text-fill": "rgba(34,34,34,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-wrap-width": "50",
-      "text-line-spacing": "-0.50",
-      "text-margin": "7.0"
+      "text-line-spacing": "-0.5",
+      "text-margin": "7"
     },
     "attachment": "village"
   },
@@ -921198,7 +921198,7 @@
     "paint": {
       "text-size": "14",
       "text-wrap-width": "70",
-      "text-line-spacing": "-0.70",
+      "text-line-spacing": "-0.7",
       "text-margin": "9.8"
     },
     "attachment": "village"
@@ -921246,9 +921246,9 @@
       }
     ],
     "paint": {
-      "text-name": "\"[name]\"",
+      "text-name": "'[name]'",
       "text-fill": "rgba(34,34,34,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5"
     },
@@ -921301,7 +921301,7 @@
       "text-fill": "rgba(119,119,119,1)",
       "text-size": "12",
       "text-wrap-width": "60",
-      "text-line-spacing": "-0.60",
+      "text-line-spacing": "-0.6",
       "text-margin": "8.4"
     },
     "attachment": "quarter"
@@ -921326,7 +921326,7 @@
     "paint": {
       "text-size": "14",
       "text-wrap-width": "70",
-      "text-line-spacing": "-0.70",
+      "text-line-spacing": "-0.7",
       "text-margin": "9.8"
     },
     "attachment": "quarter"
@@ -921349,9 +921349,9 @@
       }
     ],
     "paint": {
-      "text-name": "\"[name]\"",
+      "text-name": "'[name]'",
       "text-fill": "rgba(34,34,34,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-fill": "rgba(255,255,255,1)",
       "text-halo-radius": "1.5"
     },
@@ -921405,7 +921405,7 @@
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-wrap-width": "45",
       "text-line-spacing": "-0.8",
-      "text-margin": "7.0"
+      "text-margin": "7"
     },
     "attachment": "quarter"
   },
@@ -921429,7 +921429,7 @@
     "paint": {
       "text-size": "12",
       "text-wrap-width": "60",
-      "text-line-spacing": "-0.60",
+      "text-line-spacing": "-0.6",
       "text-margin": "8.4",
       "text-fill": "rgba(119,119,119,1)",
       "text-halo-fill": "rgba(255,255,255,1)"
@@ -921482,15 +921482,15 @@
       }
     ],
     "paint": {
-      "text-name": "\"[name]\"",
+      "text-name": "'[name]'",
       "text-size": "10",
       "text-fill": "rgba(34,34,34,1)",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-wrap-width": "45",
       "text-line-spacing": "-0.8",
-      "text-margin": "7.0"
+      "text-margin": "7"
     },
     "attachment": "neighborhood"
   },
@@ -921542,7 +921542,7 @@
     "paint": {
       "text-size": "12",
       "text-wrap-width": "60",
-      "text-line-spacing": "-0.60",
+      "text-line-spacing": "-0.6",
       "text-margin": "8.4",
       "text-fill": "rgba(119,119,119,1)",
       "text-halo-fill": "rgba(255,255,255,1)"
@@ -921601,17 +921601,17 @@
       }
     ],
     "paint": {
-      "text-name": "\"[name]\"",
+      "text-name": "'[name]'",
       "text-size": "10",
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
-      "text-margin": "7.0",
+      "text-margin": "7",
       "text-fill": "rgba(110,109,113,1)",
-      "text-face-name": "@oblique-fonts",
+      "text-face-name": "'Noto Sans', 'Noto Sans'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-placement-type": "simple",
-      "text-placements": "\"S,SE,SW,E,NE,W,NW,N\""
+      "text-placements": "'S,SE,SW,E,NE,W,NW,N'"
     }
   },
   {
@@ -921676,7 +921676,7 @@
       }
     ],
     "paint": {
-      "text-face-name": "@book-fonts"
+      "text-face-name": "'Noto Sans'"
     }
   },
   {
@@ -921811,7 +921811,7 @@
     "paint": {
       "text-size": "13",
       "text-wrap-width": "50",
-      "text-line-spacing": "-1.0",
+      "text-line-spacing": "-1",
       "text-margin": "9.1"
     }
   },
@@ -921913,7 +921913,7 @@
     "paint": {
       "polygon-fill": "rgba(228,229,231,1)",
       "line-color": "rgba(188,190,195,1)",
-      "line-width": ".75",
+      "line-width": "0.75",
       "line-clip": "false"
     }
   },
@@ -922179,10 +922179,10 @@
       "marker-fill": "rgba(188,190,195,1)",
       "marker-allow-overlap": "true",
       "marker-ignore-placement": "true",
-      "marker-file": "url('symbols/rect.svg')",
-      "marker-width": "5.0",
-      "marker-height": "5.0",
-      "marker-opacity": "0.0"
+      "marker-file": "\"url('symbols/rect.svg')\"",
+      "marker-width": "5",
+      "marker-height": "5",
+      "marker-opacity": "0"
     }
   },
   {
@@ -922197,8 +922197,8 @@
       }
     ],
     "paint": {
-      "marker-opacity": "1.0",
-      "marker-file": "url('symbols/square.svg')"
+      "marker-opacity": "1",
+      "marker-file": "\"url('symbols/square.svg')\""
     }
   },
   {
@@ -922213,9 +922213,9 @@
       }
     ],
     "paint": {
-      "marker-opacity": "1.0",
-      "marker-width": "6.0",
-      "marker-height": "6.0"
+      "marker-opacity": "1",
+      "marker-width": "6",
+      "marker-height": "6"
     }
   },
   {
@@ -922230,7 +922230,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/corners.svg')"
+      "marker-file": "\"url('symbols/corners.svg')\""
     }
   },
   {
@@ -922261,7 +922261,7 @@
     ],
     "paint": {
       "marker-fill": "rgba(188,190,195,1)",
-      "marker-file": "url('symbols/rectdiag.svg')"
+      "marker-file": "\"url('symbols/rectdiag.svg')\""
     }
   },
   {
@@ -922276,8 +922276,8 @@
       }
     ],
     "paint": {
-      "marker-width": "8.0",
-      "marker-height": "8.0"
+      "marker-width": "8",
+      "marker-height": "8"
     }
   },
   {
@@ -922298,7 +922298,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/amenity/entrance.svg')",
+      "marker-file": "\"url('symbols/amenity/entrance.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -922322,7 +922322,7 @@
     ],
     "paint": {
       "text-name": "[ref]",
-      "text-face-name": "@book-fonts",
+      "text-face-name": "'Noto Sans'",
       "text-size": "10",
       "text-fill": "rgba(0,102,255,1)",
       "text-dy": "10",
@@ -922349,7 +922349,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/square.svg')",
+      "marker-file": "\"url('symbols/square.svg')\"",
       "marker-fill": "rgba(121,129,176,1)",
       "marker-clip": "false"
     }
@@ -922462,8 +922462,8 @@
       }
     ],
     "paint": {
-      "text-name": "\"[name]\"",
-      "text-face-name": "@bold-fonts",
+      "text-name": "'[name]'",
+      "text-face-name": "'Noto Sans', 'Noto Sans'",
       "text-size": "10",
       "text-fill": "rgba(73,88,173,1)",
       "text-dy": "9",
@@ -922535,7 +922535,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/square.svg')",
+      "marker-file": "\"url('symbols/square.svg')\"",
       "marker-fill": "rgba(121,129,176,1)",
       "marker-width": "4",
       "marker-clip": "false"
@@ -922580,8 +922580,8 @@
       }
     ],
     "paint": {
-      "text-name": "\"[name]\"",
-      "text-face-name": "@bold-fonts",
+      "text-name": "'[name]'",
+      "text-face-name": "'Noto Sans', 'Noto Sans'",
       "text-size": "10",
       "text-fill": "rgba(73,88,173,1)",
       "text-dy": "10",
@@ -922609,7 +922609,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/square.svg')",
+      "marker-file": "\"url('symbols/square.svg')\"",
       "marker-fill": "rgba(121,129,176,1)",
       "marker-width": "4",
       "marker-clip": "false"
@@ -922656,8 +922656,8 @@
       }
     ],
     "paint": {
-      "text-name": "\"[name]\"",
-      "text-face-name": "@book-fonts",
+      "text-name": "'[name]'",
+      "text-face-name": "'Noto Sans'",
       "text-size": "10",
       "text-fill": "rgba(73,88,173,1)",
       "text-dy": "10",
@@ -922686,7 +922686,7 @@
       }
     ],
     "paint": {
-      "marker-file": "url('symbols/square.svg')",
+      "marker-file": "\"url('symbols/square.svg')\"",
       "marker-fill": "rgba(121,129,176,1)",
       "marker-width": "4",
       "marker-clip": "false"
@@ -922731,8 +922731,8 @@
       }
     ],
     "paint": {
-      "text-name": "\"[name]\"",
-      "text-face-name": "@book-fonts",
+      "text-name": "'[name]'",
+      "text-face-name": "'Noto Sans'",
       "text-size": "10",
       "text-fill": "rgba(73,88,173,1)",
       "text-dy": "10",
