@@ -1,5 +1,0 @@
-# osmium
-# pillow
-# pycairo
-pyyaml
-sqlglot
