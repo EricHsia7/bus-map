@@ -183,7 +183,6 @@ async function parseChunk(cX, cY, cZ) {
           // --- DenseNodes (this is where nodes usually are!) ---
           if (group.dense) {
             const d = group.dense;
-            // console.log(123, d)
             let id = 0,
               lat = 0,
               lon = 0,
@@ -308,7 +307,6 @@ async function renderChunk(cX, cY, cZ) {
         const labelGeometry = closed ? plotPolygonLabel(shape, x0, y0, x1, y1, labelQuantization) : plotLineStringLabel(shape, x0, y0, x1, y1, labelQuantization);
         for (const desc of descs) {
           labels.push({ type: 'Feature', id: `w${way.id}`, geometry: labelGeometry, properties: { layer: layer.id, minzoom: tZ, ...desc.properties } });
-          // console.log(tZ, labelGeometry, way, layer, desc);
         }
       }
     }
@@ -426,6 +424,4 @@ async function main() {
   }
 }
 
-// main();
-
-renderChunk(6850, 3508, 13);
+main();
