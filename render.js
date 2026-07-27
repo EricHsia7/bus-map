@@ -2,8 +2,8 @@ const protobuf = require('protobufjs');
 const fs = require('node:fs');
 const path = require('node:path');
 const { decompressSync, gzipSync } = require('fflate');
-const { plotPolygon, plotLineString } = require('./plot.js');
-const { getTileViewbox, getSubTiles, areaToTiles, getParentTile, tileToBoundingbox } = require('./coordinate.js');
+const { plotPolygon, plotLineString, plotPolygonLabel, plotLineStringLabel, plotPointLabel } = require('./plot.js');
+const { getTileViewbox, getSubTiles, areaToTiles, getParentTile, tileToBoundingbox, getCentroid } = require('./coordinate.js');
 const style = require('./style.json');
 const mml = require('./mml.json');
 const M = require('./match-rule.js');
@@ -69,6 +69,7 @@ const chunksDir = config.chunks.dir;
 const tilesDir = config.tiles.dir;
 const tileSize = config.tiles.size;
 const tilePrecision = config.tiles.precision;
+const labelQuantization = config.tiles.labelQuantization;
 const tileBackground = config.tiles.background;
 const tilesMaxZ = config.tiles.z.max;
 const safeMargin = 64;
@@ -82,20 +83,6 @@ const encoder = new TextEncoder();
 // tile, mirroring the raster pyramid at labels/z/x/y.geojson. Coordinates are
 // WGS84 lon/lat, as required by the GeoJSON spec.
 const labelsDir = (config.labels && config.labels.dir) || path.join(tilesDir, '..', 'labels');
-
-// Representative point (vertex average) of a ring, for placing an area label.
-function centroidOf(ring) {
-  let x = 0,
-    y = 0,
-    n = 0;
-  for (const p of ring) {
-    if (!p) continue;
-    x += p[0];
-    y += p[1];
-    n++;
-  }
-  return n ? [x / n, y / n] : null;
-}
 
 // Parse one chunk's .osm.pbf into { nodeMap, ways, relations }.
 // Returns null when the chunk file does not exist.
@@ -317,18 +304,11 @@ async function renderChunk(cX, cY, cZ) {
         const labelPaint = {};
         for (const idx of idxs) Object.assign(labelPaint, style[idx].paint);
         const descs = paintToLabels(labelPaint, feat);
-        if (descs) {
-          let geom = null;
-          if (closed) {
-            const c = centroidOf(coords);
-            if (c && c[0] >= tw && c[0] <= te && c[1] >= ts && c[1] <= tn) geom = { type: 'Point', coordinates: c };
-          } else {
-            geom = { type: 'LineString', coordinates: coords };
-          }
-          if (geom)
-            for (const desc of descs) {
-              labels.push({ type: 'Feature', id: `w${way.id}:${layer.id}:${desc.instance || ''}`, geometry: geom, properties: { layer: layer.id, minzoom: tZ, ...desc.properties } });
-            }
+        if (!descs) continue;
+        const labelGeometry = closed ? plotPolygonLabel(shape, x0, y0, x1, y1, labelQuantization) : plotLineStringLabel(shape, x0, y0, x1, y1, labelQuantization);
+        for (const desc of descs) {
+          labels.push({ type: 'Feature', id: `w${way.id}`, geometry: labelGeometry, properties: { layer: layer.id, minzoom: tZ, ...desc.properties } });
+          // console.log(tZ, labelGeometry, way, layer, desc);
         }
       }
     }
@@ -361,13 +341,11 @@ async function renderChunk(cX, cY, cZ) {
         const labelPaint = {};
         for (const idx of idxs) Object.assign(labelPaint, style[idx].paint);
         const descs = paintToLabels(labelPaint, featRow);
-        if (descs) {
-          const ring = feat.polygons[0] && feat.polygons[0][0];
-          const c = ring && centroidOf(ring);
-          if (c && c[0] >= tw && c[0] <= te && c[1] >= ts && c[1] <= tn) {
-            for (const desc of descs) {
-              labels.push({ type: 'Feature', id: `r:${layer.id}:${desc.instance || ''}:${c[0].toFixed(5)},${c[1].toFixed(5)}`, geometry: { type: 'Point', coordinates: c }, properties: { layer: layer.id, minzoom: tZ, ...desc.properties } });
-            }
+        if (!descs) continue;
+        if (feat.polygons[0]) {
+          const labelGeometry = plotPolygonLabel(feat.polygons[0], x0, y0, x1, y1, labelQuantization);
+          for (const desc of descs) {
+            labels.push({ type: 'Feature', id: `r${layer.id}:${labelGeometry.coordinates[0]}:${labelGeometry.coordinates[1]}`, geometry: labelGeometry, properties: { layer: layer.id, minzoom: tZ, ...desc.properties } });
           }
         }
       }
@@ -387,8 +365,9 @@ async function renderChunk(cX, cY, cZ) {
         for (const idx of idxs) Object.assign(labelPaint, style[idx].paint);
         const descs = paintToLabels(labelPaint, feat);
         if (!descs) continue;
+        const labelGeometry = plotPointLabel([node.lon, node.lat], x0, y0, x1, y1, labelQuantization);
         for (const desc of descs) {
-          labels.push({ type: 'Feature', id: `n${node.id}:${layer.id}:${desc.instance || ''}`, geometry: { type: 'Point', coordinates: [node.lon, node.lat] }, properties: { layer: layer.id, minzoom: tZ, ...desc.properties } });
+          labels.push({ type: 'Feature', id: `n${node.id}`, geometry: labelGeometry, properties: { layer: layer.id, minzoom: tZ, ...desc.properties } });
         }
       }
     }
@@ -410,7 +389,8 @@ async function renderChunk(cX, cY, cZ) {
     await rasterize(svg, path.join(tilesDir, tZ.toString(), tX.toString(), tY.toString()));
     if (labels.length) {
       await makeDirectory(path.join(labelsDir, tZ.toString(), tX.toString()));
-      fs.writeFileSync(path.join(labelsDir, tZ.toString(), tX.toString(), `${tY}.geojson.gz`), Buffer.from(gzipSync(encoder.encode(JSON.stringify({ type: 'FeatureCollection', features: labels })))));
+      // `extent` is what tells the client these are tile-local integers; drop it and the worker would read them as lon/lat and place everything at the antimeridian.
+      fs.writeFileSync(path.join(labelsDir, tZ.toString(), tX.toString(), `${tY}.geojson.gz`), Buffer.from(gzipSync(encoder.encode(JSON.stringify({ type: 'FeatureCollection', extent: labelQuantization, features: labels })))));
     }
     const endTime = performance.now();
     console.log(`[${count}/${total}] Rendered (${tX} ${tY} ${tZ}) in (${cX} ${cY} ${cZ}) in ${((endTime - startTime) / 1000).toFixed(2)}s.`);
@@ -446,4 +426,6 @@ async function main() {
   }
 }
 
-main();
+// main();
+
+renderChunk(6850, 3508, 13);

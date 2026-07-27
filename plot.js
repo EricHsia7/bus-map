@@ -1,10 +1,10 @@
-const { getOrientation, projectCoordinate, tileToBoundingbox, getTileViewbox } = require('./coordinate');
+const { getOrientation, projectCoordinate, tileToBoundingbox, getTileViewbox, getCentroid } = require('./coordinate');
 
 // Project + transform a ring/line into pixel space, dropping non-finite points.
 function projectTransform(path, transformX, transformY) {
   const out = [];
-  for (const c of path) {
-    const p = projectCoordinate(c[0], c[1]);
+  for (const coordinate of path) {
+    const p = projectCoordinate(coordinate[0], coordinate[1]);
     if (!Number.isFinite(p[0]) || !Number.isFinite(p[1])) continue;
     const x = transformX(p[0]);
     const y = transformY(p[1]);
@@ -112,7 +112,49 @@ function plotLineString(lineString, x0, y0, x1, y1, size = 512, precision = 2048
   return windPoints(points, 'clockwise');
 }
 
+function plotPolygonLabel(polygon, x0, y0, x1, y1, quantization = 1024) {
+  const dX = x1 - x0;
+  const dY = y1 - y0;
+  if (!dX || !dY || !Number.isFinite(dX) || !Number.isFinite(dY)) return '';
+  const scaleX = quantization / dX;
+  const scaleY = quantization / dY;
+  const transformX = (x) => Math.floor((x - x0) * scaleX);
+  const transformY = (y) => Math.floor((dY - (y - y0)) * scaleY);
+
+  const coords = polygon.coordinates;
+  const centroid = getCentroid(coords);
+  // if (centroid && centroid[0] >= 0 && centroid[0] <= quantization && centroid[1] >= 0 && centroid[1] <= quantization) {
+  return { type: 'Point', coordinates: projectTransform([centroid], transformX, transformY)[0] };
+  //}
+}
+
+function plotLineStringLabel(polygon, x0, y0, x1, y1, quantization = 1024) {
+  const dX = x1 - x0;
+  const dY = y1 - y0;
+  if (!dX || !dY || !Number.isFinite(dX) || !Number.isFinite(dY)) return '';
+  const scaleX = quantization / dX;
+  const scaleY = quantization / dY;
+  const transformX = (x) => Math.floor((x - x0) * scaleX);
+  const transformY = (y) => Math.floor((dY - (y - y0)) * scaleY);
+  const coords = polygon.coordinates;
+  return { type: 'LineString', coordinates: projectTransform(coords, transformX, transformY) };
+}
+
+function plotPointLabel(point, x0, y0, x1, y1, quantization = 1024) {
+  const dX = x1 - x0;
+  const dY = y1 - y0;
+  if (!dX || !dY || !Number.isFinite(dX) || !Number.isFinite(dY)) return '';
+  const scaleX = quantization / dX;
+  const scaleY = quantization / dY;
+  const transformX = (x) => Math.floor((x - x0) * scaleX);
+  const transformY = (y) => Math.floor((dY - (y - y0)) * scaleY);
+  return { type: 'Point', coordinates: projectTransform([point], transformX, transformY)[0] };
+}
+
 module.exports = {
   plotPolygon,
-  plotLineString
+  plotLineString,
+  plotPolygonLabel,
+  plotLineStringLabel,
+  plotPointLabel
 };

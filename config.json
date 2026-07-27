@@ -15,6 +15,7 @@
     "dir": "./tiles",
     "z": { "min": 13, "max": 16 },
     "size": 1024,
+    "labelQuantization": 1024,
     "precision": 2048,
     "background": "#f0f3f7"
   }

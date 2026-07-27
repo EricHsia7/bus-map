@@ -107,6 +107,20 @@ function getOrientation(coordinates) {
   return 'degenerate';
 }
 
+// Representative point (vertex average) of a ring, for placing an area label.
+function getCentroid(ring) {
+  let x = 0,
+    y = 0,
+    n = 0;
+  for (const p of ring) {
+    if (!p) continue;
+    x += p[0];
+    y += p[1];
+    n++;
+  }
+  return n ? [x / n, y / n] : null;
+}
+
 module.exports = {
   degToTile,
   tileToBoundingbox,
@@ -115,5 +129,6 @@ module.exports = {
   getSubTiles,
   getTileViewbox,
   projectCoordinate,
-  getOrientation
+  getOrientation,
+  getCentroid
 };
