@@ -2,7 +2,7 @@ const protobuf = require('protobufjs');
 const fs = require('node:fs');
 const path = require('node:path');
 const { decompressSync, gzipSync } = require('fflate');
-const { plotPolygon, plotLineString, plotPolygonLabel, plotLineStringLabel, plotPointLabel } = require('./plot.js');
+const { plotPolygon, plotLineString, plotPolygonLabel, plotLineLabel, plotPointLabel } = require('./plot.js');
 const { getTileViewbox, getSubTiles, areaToTiles, getParentTile, tileToBoundingbox, getCentroid } = require('./coordinate.js');
 const style = require('./style.json');
 const mml = require('./mml.json');
@@ -80,7 +80,7 @@ const encoder = new TextEncoder();
 // Overlay label/marker output. Text and point symbols are intentionally NOT
 // rasterized (see paint-to-svg.js); instead we collect the features a MapLibre
 // `symbol` layer *should* render and emit one GeoJSON FeatureCollection per
-// tile, mirroring the raster pyramid at labels/z/x/y.geojson. Coordinates are
+// tile, mirroring the raster pyramid at labels/z/x/y.gz. Coordinates are
 // WGS84 lon/lat, as required by the GeoJSON spec.
 const labelsDir = (config.labels && config.labels.dir) || path.join(tilesDir, '..', 'labels');
 
@@ -304,9 +304,24 @@ async function renderChunk(cX, cY, cZ) {
         for (const idx of idxs) Object.assign(labelPaint, style[idx].paint);
         const descs = paintToLabels(labelPaint, feat);
         if (!descs) continue;
-        const labelGeometry = closed ? plotPolygonLabel(shape, x0, y0, x1, y1, labelQuantization) : plotLineStringLabel(shape, x0, y0, x1, y1, labelQuantization);
+        // Bake placement in: lines get an anchor at the midpoint of their
+        // longest segment plus an upright text angle; closed areas get their
+        // centroid (drawn horizontally). The emitted geometry is always a Point
+        // so the client never re-derives anchor/angle per frame.
+        let labelGeometry;
+        let labelAngle;
+        if (closed) {
+          labelGeometry = plotPolygonLabel(shape, x0, y0, x1, y1, labelQuantization);
+        } else {
+          const placement = plotLineLabel(shape, x0, y0, x1, y1, labelQuantization);
+          if (placement) {
+            labelGeometry = { type: 'Point', coordinates: placement.coordinates };
+            labelAngle = placement.angle;
+          }
+        }
+        if (!labelGeometry) continue;
         for (const desc of descs) {
-          labels.push({ type: 'Feature', id: `w${way.id}`, geometry: labelGeometry, properties: { layer: layer.id, minzoom: tZ, ...desc.properties } });
+          labels.push({ type: 'Feature', id: `w${way.id}`, geometry: labelGeometry, properties: { layer: layer.id, minzoom: tZ, ...(labelAngle !== undefined ? { angle: labelAngle } : {}), ...desc.properties } });
         }
       }
     }
@@ -388,7 +403,7 @@ async function renderChunk(cX, cY, cZ) {
     if (labels.length) {
       await makeDirectory(path.join(labelsDir, tZ.toString(), tX.toString()));
       // `extent` is what tells the client these are tile-local integers; drop it and the worker would read them as lon/lat and place everything at the antimeridian.
-      fs.writeFileSync(path.join(labelsDir, tZ.toString(), tX.toString(), `${tY}.geojson.gz`), Buffer.from(gzipSync(encoder.encode(JSON.stringify({ type: 'FeatureCollection', extent: labelQuantization, features: labels })))));
+      fs.writeFileSync(path.join(labelsDir, tZ.toString(), tX.toString(), `${tY}.gz`), Buffer.from(gzipSync(encoder.encode(JSON.stringify({ type: 'FeatureCollection', extent: labelQuantization, features: labels })))));
     }
     const endTime = performance.now();
     console.log(`[${count}/${total}] Rendered (${tX} ${tY} ${tZ}) in (${cX} ${cY} ${cZ}) in ${((endTime - startTime) / 1000).toFixed(2)}s.`);

@@ -128,16 +128,49 @@ function plotPolygonLabel(polygon, x0, y0, x1, y1, quantization = 1024) {
   //}
 }
 
-function plotLineStringLabel(polygon, x0, y0, x1, y1, quantization = 1024) {
+// Bake a line label down to a single anchor + text angle instead of shipping
+// the whole polyline to the client. The client projects tiles with a pure
+// scale + translate (no rotation), so the longest segment -- and therefore its
+// midpoint (the anchor) and heading (the angle) -- are identical once on
+// screen; nothing needs to be recomputed per frame. Tile-local Y is already
+// Y-down here (the `dY - (y - y0)` flip), matching screen space, so the angle
+// is emitted exactly as the renderer should draw it. Returns null for a
+// degenerate line so the caller can skip it.
+function plotLineLabel(lineString, x0, y0, x1, y1, quantization = 1024) {
   const dX = x1 - x0;
   const dY = y1 - y0;
-  if (!dX || !dY || !Number.isFinite(dX) || !Number.isFinite(dY)) return '';
+  if (!dX || !dY || !Number.isFinite(dX) || !Number.isFinite(dY)) return null;
   const scaleX = quantization / dX;
   const scaleY = quantization / dY;
   const transformX = (x) => Math.floor((x - x0) * scaleX);
   const transformY = (y) => Math.floor((dY - (y - y0)) * scaleY);
-  const coords = polygon.coordinates;
-  return { type: 'LineString', coordinates: projectTransform(coords, transformX, transformY) };
+
+  const points = projectTransform(lineString.coordinates, transformX, transformY);
+  if (points.length < 2) return null;
+
+  // Anchor at the midpoint of the longest segment and adopt that segment's
+  // heading as the text angle (this is the work the client used to redo each
+  // frame in getLineAngle).
+  let longestLengthSq = -1;
+  let anchor = points[0];
+  let angle = 0;
+  for (let i = 1; i < points.length; i++) {
+    const [ax, ay] = points[i - 1];
+    const [bx, by] = points[i];
+    const dx = bx - ax;
+    const dy = by - ay;
+    const lengthSq = dx * dx + dy * dy;
+    if (lengthSq > longestLengthSq) {
+      longestLengthSq = lengthSq;
+      anchor = [(ax + bx) / 2, (ay + by) / 2];
+      angle = Math.atan2(dy, dx);
+    }
+  }
+  // Fold to an upright heading so text is never drawn upside down.
+  if (angle > Math.PI / 2) angle -= Math.PI;
+  if (angle < -Math.PI / 2) angle += Math.PI;
+
+  return { coordinates: anchor, angle };
 }
 
 function plotPointLabel(point, x0, y0, x1, y1, quantization = 1024) {
@@ -155,6 +188,6 @@ module.exports = {
   plotPolygon,
   plotLineString,
   plotPolygonLabel,
-  plotLineStringLabel,
+  plotLineLabel,
   plotPointLabel
 };
