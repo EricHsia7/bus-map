@@ -170,7 +170,7 @@ function plotLineLabel(lineString, x0, y0, x1, y1, quantization = 1024) {
   if (angle > Math.PI / 2) angle -= Math.PI;
   if (angle < -Math.PI / 2) angle += Math.PI;
 
-  return { coordinates: anchor, angle };
+  return { coordinates: anchor, angle: Math.floor(angle * 1000) / 1000 };
 }
 
 function plotPointLabel(point, x0, y0, x1, y1, quantization = 1024) {
