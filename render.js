@@ -400,11 +400,9 @@ async function renderChunk(cX, cY, cZ) {
     const svg = `<svg width="${tileSize}" height="${tileSize}" viewBox="0 0 ${tileSize} ${tileSize}" xmlns="http://www.w3.org/2000/svg">${backgroundElement}${polygonElements}${lineElements}</svg>`;
     await makeDirectory(path.join(tilesDir, tZ.toString(), tX.toString()));
     await rasterize(svg, path.join(tilesDir, tZ.toString(), tX.toString(), tY.toString()));
-    if (labels.length) {
-      await makeDirectory(path.join(labelsDir, tZ.toString(), tX.toString()));
-      // `extent` is what tells the client these are tile-local integers; drop it and the worker would read them as lon/lat and place everything at the antimeridian.
-      fs.writeFileSync(path.join(labelsDir, tZ.toString(), tX.toString(), `${tY}.gz`), Buffer.from(gzipSync(encoder.encode(JSON.stringify({ type: 'FeatureCollection', extent: labelQuantization, features: labels })))));
-    }
+    await makeDirectory(path.join(labelsDir, tZ.toString(), tX.toString()));
+    // `extent` is what tells the client these are tile-local integers; drop it and the worker would read them as lon/lat and place everything at the antimeridian.
+    fs.writeFileSync(path.join(labelsDir, tZ.toString(), tX.toString(), `${tY}.gz`), Buffer.from(gzipSync(encoder.encode(JSON.stringify({ type: 'FeatureCollection', extent: labelQuantization, features: labels })))));
     const endTime = performance.now();
     console.log(`[${count}/${total}] Rendered (${tX} ${tY} ${tZ}) in (${cX} ${cY} ${cZ}) in ${((endTime - startTime) / 1000).toFixed(2)}s.`);
   }
