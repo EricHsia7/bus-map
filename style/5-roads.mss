@@ -4524,7 +4524,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   [feature='highway_footway'],
   [feature='highway_pedestrian'] {
     [zoom >='15'] {
-      polygon-fill: @pedestrian-fill;
+      // polygon-fill: @pedestrian-fill;
       [int_surface='unpaved'] {
         polygon-pattern-file: "url('symbols/unpaved/unpaved_pedestrian-fill.svg')";
         polygon-pattern-alignment: global;
