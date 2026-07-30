@@ -50,12 +50,12 @@ function windPoints(points, drawingOrientation) {
 }
 
 // type: Polygon
-function plotPolygon(polygon, x0, y0, x1, y1, size = 512, precision = 2048, margin = 64) {
+function plotPolygon(polygon, x0, y0, x1, y1, tileSize = 512, precision = 2048, margin = 64) {
   const dX = x1 - x0;
   const dY = y1 - y0;
   if (!dX || !dY || !Number.isFinite(dX) || !Number.isFinite(dY)) return '';
-  const scaleX = size / dX;
-  const scaleY = size / dY;
+  const scaleX = tileSize / dX;
+  const scaleY = tileSize / dY;
   const transformX = (x) => Math.floor((x - x0) * scaleX * precision) / precision;
   const transformY = (y) => Math.floor((dY - (y - y0)) * scaleY * precision) / precision;
 
@@ -78,7 +78,7 @@ function plotPolygon(polygon, x0, y0, x1, y1, size = 512, precision = 2048, marg
   }
 
   // Cull if the whole polygon is off-canvas (prevents the resvg panic).
-  if (!intersectsViewport(bbox, size, margin)) return '';
+  if (!intersectsViewport(bbox, tileSize, margin)) return '';
 
   let pathCommand = windPoints(outer, 'clockwise');
   if (!pathCommand) return '';
@@ -90,12 +90,12 @@ function plotPolygon(polygon, x0, y0, x1, y1, size = 512, precision = 2048, marg
   return pathCommand;
 }
 
-function plotLineString(lineString, x0, y0, x1, y1, size = 512, precision = 2048, margin = 64) {
+function plotLineString(lineString, x0, y0, x1, y1, tileSize = 512, precision = 2048, margin = 64) {
   const dX = x1 - x0;
   const dY = y1 - y0;
   if (!dX || !dY || !Number.isFinite(dX) || !Number.isFinite(dY)) return '';
-  const scaleX = size / dX;
-  const scaleY = size / dY;
+  const scaleX = tileSize / dX;
+  const scaleY = tileSize / dY;
   const transformX = (x) => Math.floor((x - x0) * scaleX * precision) / precision;
   const transformY = (y) => Math.floor((dY - (y - y0)) * scaleY * precision) / precision;
 
@@ -106,7 +106,7 @@ function plotLineString(lineString, x0, y0, x1, y1, size = 512, precision = 2048
 
   const bbox = [Infinity, Infinity, -Infinity, -Infinity];
   bboxOf(points, bbox);
-  if (!intersectsViewport(bbox, size, margin)) return '';
+  if (!intersectsViewport(bbox, tileSize, margin)) return '';
 
   // No 'Z' (a LineString is an open stroke)
   return windPoints(points, 'clockwise');
@@ -128,49 +128,99 @@ function plotPolygonLabel(polygon, x0, y0, x1, y1, quantization = 1024) {
   //}
 }
 
-// Bake a line label down to a single anchor + text angle instead of shipping
-// the whole polyline to the client. The client projects tiles with a pure
-// scale + translate (no rotation), so the longest segment -- and therefore its
-// midpoint (the anchor) and heading (the angle) -- are identical once on
-// screen; nothing needs to be recomputed per frame. Tile-local Y is already
-// Y-down here (the `dY - (y - y0)` flip), matching screen space, so the angle
-// is emitted exactly as the renderer should draw it. Returns null for a
-// degenerate line so the caller can skip it.
-function plotLineLabel(lineString, x0, y0, x1, y1, quantization = 1024) {
+/**
+ * Pre-computes per-character text placement (anchor + rotation) along a line,
+ * approximating each glyph as a square with side length = the *scaled* text
+ * size, and emits the result directly as a LineString-style geometry object
+ * (matching the shape of plotLineStringLabel's output in plot.js) instead of
+ * a wrapper object.
+ *
+ * `coordinates` and `angles` are parallel arrays: one entry per character of
+ * `label` (coordinates.length === angles.length === label.length). Each
+ * coordinate is the CENTER of that character's square; each angle (radians)
+ * is the local tangent direction of the line at that point, so downstream
+ * code can rotate a `size x size` box around each anchor to draw the glyph.
+ *
+ * Context: style `text-size` values (Mapnik/OSM Carto convention) are
+ * authored against a 256x256 reference tile. Label geometry coordinates
+ * (e.g. from plotLineStringLabel in plot.js) live in "labelQuantization"
+ * pixel space (commonly 1024, per config.tiles.labelQuantization), so
+ * text-size must be scaled up by (quantization / 256) before it's used as a
+ * distance in that coordinate space.
+ */
+function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, tileSize = 512, quantization = 1024, center = true, keepUpright = true) {
+  if (!Array.isArray(lineString.coordinates) || lineString.coordinates.length < 2) return '';
+  if (!label || label.length === 0) return '';
+  if (!(textSize > 0)) return '';
+
   const dX = x1 - x0;
   const dY = y1 - y0;
   if (!dX || !dY || !Number.isFinite(dX) || !Number.isFinite(dY)) return null;
-  const scaleX = quantization / dX;
-  const scaleY = quantization / dY;
-  const transformX = (x) => Math.floor((x - x0) * scaleX);
-  const transformY = (y) => Math.floor((dY - (y - y0)) * scaleY);
+  const scaleX = tileSize / dX;
+  const scaleY = tileSize / dY;
+  const transformX = (x) => (x - x0) * scaleX;
+  const transformY = (y) => (dY - (y - y0)) * scaleY;
 
   const points = projectTransform(lineString.coordinates, transformX, transformY);
-  if (points.length < 2) return null;
 
-  // Anchor at the midpoint of the longest segment and adopt that segment's
-  // heading as the text angle (this is the work the client used to redo each
-  // frame in getLineAngle).
-  let longestLengthSq = -1;
-  let anchor = points[0];
-  let angle = 0;
-  for (let i = 1; i < points.length; i++) {
-    const [ax, ay] = points[i - 1];
-    const [bx, by] = points[i];
-    const dx = bx - ax;
-    const dy = by - ay;
-    const lengthSq = dx * dx + dy * dy;
-    if (lengthSq > longestLengthSq) {
-      longestLengthSq = lengthSq;
-      anchor = [(ax + bx) / 2, (ay + by) / 2];
-      angle = Math.atan2(dy, dx);
-    }
+  // text-size is authored against a 256x256 tile; scale it into whatever
+  // pixel space `coordinates` live in.
+  const size = textSize * (tileSize / 256);
+  const textWidth = size * label.length;
+
+  // Decide traversal direction so text doesn't render upside-down: compare
+  // net horizontal displacement from the first point to the last point.
+  let pts = points;
+  if (keepUpright) {
+    const netDx = points[points.length - 1][0] - points[0][0];
+    if (netDx < 0) pts = points.slice().reverse();
   }
-  // Fold to an upright heading so text is never drawn upside down.
-  if (angle > Math.PI / 2) angle -= Math.PI;
-  if (angle < -Math.PI / 2) angle += Math.PI;
 
-  return { coordinates: anchor, angle: Math.floor(angle * 1000) / 1000 };
+  // Arc length per segment + total.
+  const segLengths = [];
+  let totalLength = 0;
+  for (let i = 0; i < pts.length - 1; i++) {
+    const dx = pts[i + 1][0] - pts[i][0];
+    const dy = pts[i + 1][1] - pts[i][1];
+    const len = Math.hypot(dx, dy);
+    segLengths.push(len);
+    totalLength += len;
+  }
+
+  if (totalLength < textWidth) return ''; // line too short to fit the label
+
+  function sampleAtDistance(dist) {
+    let remaining = Math.max(0, Math.min(dist, totalLength));
+    for (let i = 0; i < segLengths.length; i++) {
+      const segLen = segLengths[i];
+      if (remaining <= segLen || i === segLengths.length - 1) {
+        const t = segLen === 0 ? 0 : remaining / segLen;
+        const p0 = pts[i];
+        const p1 = pts[i + 1];
+        return {
+          x: p0[0] + (p1[0] - p0[0]) * t,
+          y: p0[1] + (p1[1] - p0[1]) * t,
+          angle: Math.atan2(p1[1] - p0[1], p1[0] - p0[0])
+        };
+      }
+      remaining -= segLen;
+    }
+    const last = pts[pts.length - 1];
+    return { x: last[0], y: last[1], angle: 0 };
+  }
+
+  const startOffset = center ? (totalLength - textWidth) / 2 : 0;
+
+  const outCoordinates = [];
+  const angles = [];
+  for (let i = 0; i < label.length; i++) {
+    const charCenterDist = startOffset + size * i + size / 2;
+    const { x, y, angle } = sampleAtDistance(charCenterDist);
+    outCoordinates.push([Math.floor(x * quantization), Math.floor(y * quantization)]);
+    angles.push(angle);
+  }
+
+  return { type: 'LineString', coordinates: outCoordinates, angles };
 }
 
 function plotPointLabel(point, x0, y0, x1, y1, quantization = 1024) {
@@ -188,6 +238,6 @@ module.exports = {
   plotPolygon,
   plotLineString,
   plotPolygonLabel,
-  plotLineLabel,
+  plotLineStringLabel,
   plotPointLabel
 };
