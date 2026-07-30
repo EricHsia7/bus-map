@@ -1,5 +1,5 @@
-@default-casing: #d3d8de;
-@road-fill: #d3d8de;
+@default-casing: #ced4da;
+@road-fill: #ced4da;
 @road-casing: @residential-casing;
 
 @access-marking: #eaeaeb;
@@ -28,7 +28,7 @@
 @motorway-tunnel-fill: @road-fill;
 
 /* High-importance corridors that do not meet full motorway standards. */
-@trunk-fill: #b7c7d8;
+@trunk-fill: @road-fill;
 @trunk-casing: @trunk-fill;
 @trunk-low-zoom-casing: @trunk-fill;
 @trunk-low-zoom: @trunk-fill;
@@ -44,7 +44,7 @@
 @primary-tunnel-fill: @road-fill;
 
 /* Connects smaller towns, major suburbs, or key urban hubs. */
-@secondary-casing: darken(@road-fill, 5%);
+@secondary-casing: @road-fill;
 @secondary-fill: @road-fill;
 @secondary-low-zoom-casing: darken(@road-fill, 3%);
 @secondary-low-zoom: @road-fill;
@@ -52,7 +52,7 @@
 @secondary-tunnel-fill: @road-fill;
 
 /* Connects villages, suburbs, or local districts to secondary and primary roads. */
-@tertiary-casing: darken(@road-fill, 5%);
+@tertiary-casing: @road-fill;
 @tertiary-fill: @road-fill;
 @tertiary-shield: @road-fill;
 @tertiary-tunnel-fill: @road-fill;
@@ -60,20 +60,20 @@
 /* Streets through housing areas intended for local resident traffic. */
 @residential-casing: @road-fill;
 @residential-fill: @road-fill;
-@residential-tunnel-fill: darken(@road-fill, 5%);
+@residential-tunnel-fill: @road-fill;
 
 /* Pedestrian-priority residential streets with strict speed limits. */
-@living-street-casing: darken(@road-fill, 5%);
+@living-street-casing: @road-fill;
 @living-street-fill: @road-fill;
 @living-street-tunnel-fill: @road-fill;
 
 /* Access roads to buildings, parking lots, driveways, alleyways, gas stations, or emergency access. */
-@service-casing: darken(@road-fill, 5%);
+@service-casing: @road-fill;
 @service-construction: #a6a7a9;
 @service-fill: @road-fill;
 
 /* Roads reserved primarily for pedestrians, such as shopping streets, plazas, or town centers. */
-@pedestrian-casing: darken(@road-fill, 5%);
+@pedestrian-casing: @road-fill;
 @pedestrian-fill: @road-fill;
 
 /* Roads used for agricultural or forestry access. Usually unpaved and sub-tagged with surface quality (tracktype=grade1 to grade5). */
@@ -82,7 +82,7 @@
 @track-fill: #996600;
 
 /* Designated walking paths, sidewalks, or footbridges. */
-@footway-casing: darken(@road-fill, 5%);
+@footway-casing: @road-fill;
 @footway-fill: @road-fill;
 @footway-fill-noaccess: @road-fill;
 
@@ -92,10 +92,10 @@
 @cycleway-casing: #ffffff;
 
 /* Generic multi-use non-motorized trails (shared by hikers, mountain bikers, or horse riders). */
-@path-casing: darken(@road-fill, 5%);
+@path-casing: @road-fill;
 
 /* Outdoor stairs or stepped pathways. */
-@steps-casing: darken(@road-fill, 5%);
+@steps-casing: @road-fill;
 @steps-fill-noaccess: @road-fill;
 @steps-fill: @road-fill;
 

@@ -4,10 +4,10 @@ const sharp = require('sharp');
 const config = require('./config.json');
 const tileSize = config.tiles.size;
 const options = {
-  shapeRendering: 0,
+  shapeRendering: 2,
   textRendering: 0,
   imageRendering: 1,
-  dpi: 288,
+  dpi: 96,
   fitTo: {
     mode: 'width',
     value: tileSize
