@@ -1705,7 +1705,8 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(227,230,232,1)"
+      "polygon-fill": "rgba(227,230,232,1)",
+      "polygon-opacity": "0"
     },
     "attachment": "low-zoom"
   },
@@ -1741,7 +1742,8 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(229,234,240,1)"
+      "polygon-fill": "rgba(229,234,240,1)",
+      "polygon-opacity": "0"
     },
     "attachment": "low-zoom"
   },
@@ -1779,42 +1781,6 @@
     "paint": {
       "line-width": "0.5",
       "line-color": "rgba(183,186,189,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 13,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_garages"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 13,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_garages"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(223,221,206,1)"
     },
     "attachment": "low-zoom"
   },
