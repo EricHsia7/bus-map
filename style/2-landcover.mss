@@ -324,29 +324,19 @@
       polygon-fill: @built-up-z12;
     }
     [zoom >='13'] {
-      polygon-fill: @residential;
+      // polygon-fill: @residential;
+      polygon-opacity: 0;
     }
     [zoom >='16'] {
       line-width: @landuse-faint-outline-width;
       line-color: @residential-line;
     }
-    // [way_pixels >='4'] {
-    //   polygon-gamma: 0.75;
-    // }
-    // [way_pixels >='64'] {
-    //   polygon-gamma: 0.3;
-    // }
   }
 
-  [feature='landuse_garages'][zoom >='13'] {
-    polygon-fill: @garages;
-    // [way_pixels >='4'] {
-    //   polygon-gamma: 0.75;
-    // }
-    // [way_pixels >='64'] {
-    //   polygon-gamma: 0.3;
-    // }
-  }
+  // [feature='landuse_garages'][zoom >='13'] {
+  //   polygon-fill: @garages;
+  //   polygon-opacity: 0;
+  // }
 
   [feature='leisure_park'] {
     [zoom >='10'] {
