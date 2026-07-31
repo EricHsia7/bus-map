@@ -1,0 +1,154 @@
+#aerialways {
+  &[aerialway='cable_car'],
+  &[aerialway='gondola'],
+  &[aerialway='mixed_lift'] {
+    &:zoom(12) {
+      --line__line-width: 1;
+      --line__line-join: round;
+      --line__line-cap: round;
+      --line__line-color: @cable;
+
+      --dash__line-width: 3;
+      --dash__line-join: round;
+      --dash__line-cap: round;
+      --dash__line-color: @cable-dash;
+      --dash__line-dasharray: 0.4, 13;
+      --dash__line-clip: false;
+    }
+  }
+
+  &[aerialway='goods'] {
+    &:zoom(12) {
+      --line__line-width: 1;
+      --line__line-join: round;
+      --line__line-cap: round;
+      --line__line-color: #808080;
+
+      --dash__line-width: 3.5;
+      --dash__line-join: round;
+      --dash__line-color: #707070;
+      --dash__line-dasharray: 6, 25;
+      --dash__line-clip: false;
+    }
+  }
+
+  &[aerialway='chair_lift'],
+  &[aerialway='drag_lift'],
+  &[aerialway='t-bar'],
+  &[aerialway='j-bar'],
+  &[aerialway='platter'],
+  &[aerialway='rope_tow'],
+  &[aerialway='zip_line'] {
+    &:zoom(12) {
+      --line__line-width: 1;
+      --line__line-join: round;
+      --line__line-cap: round;
+      --line__line-color: @cable;
+
+      --dash__line-width: 4;
+      --dash__line-join: round;
+      --dash__line-color: @cable-dash;
+      --dash__line-dasharray: 1, 30;
+      --dash__line-clip: false;
+    }
+  }
+
+  &[man_made='goods_conveyor'] {
+    &:zoom(14) {
+      --line__line-width: zoom-gradient(0.7, 1 16z);
+      --line__line-join: round;
+      --line__line-cap: round;
+      --line__line-color: #999999;
+
+      --dash__line-width: zoom-gradient(2, 3 16z);
+      --dash__line-join: round;
+      --dash__line-color: #999999;
+      --dash__line-dasharray: 4, 6;
+
+      &:zoom(16) {
+        --dash__line-dasharray: 6, 6;
+      }
+    }
+  }
+
+  &[man_made='pipeline'] {
+    &:zoom(14) {
+      --line__line-width: zoom-gradient(0.7, 1 15z, 1.5 16z, 2 17z, 3 18z, 4 19z);
+      --line__line-join: round;
+      --line__line-color: #909090;
+      --line__line-dasharray: 0, 0.7, 14, 0.7;
+      --dash__line-width: zoom-gradient(2, 2.5 15z, 3 16z, 4 17z, 5 18z, 6 19z);
+      --dash__line-join: round;
+      --dash__line-color: #909090;
+      --dash__line-dasharray: 0, 0.7, 0.7, 12.6, 0.7, 0.7;
+      --center__line-width: zoom-gradient(1 17z, 2 18z, 3 19z);
+      &:zoom(15) {
+        --line__line-dasharray: 0, 0.7, 16, 0.7;
+        --dash__line-dasharray: 0, 0.7, 0.7, 14.6, 0.7, 0.7;
+      }
+      &:zoom(16) {
+        --line__line-dasharray: 0, 1, 20, 1;
+        --dash__line-dasharray: 0, 1, 1, 18, 1, 1;
+      }
+      &:zoom(17) {
+        --line__line-dasharray: 0, 1, 24, 1;
+        --dash__line-dasharray: 0, 1, 1, 22, 1, 1;
+        --center__line-dasharray: 0, 2, 22, 2;
+        --center__line-color: @land-color;
+        --center__line-join: round;
+        &[substance='water'] {
+          --center__line-color: @water-color;
+        }
+        &[substance='gas'] {
+          --center__line-color: #c1c1c1;
+        } // Lch(78,0,0)
+        &[substance='oil'] {
+          --center__line-color: #cfbfa5;
+        } // Lch(78,15,83)
+      }
+      &:zoom(18) {
+        --line__line-dasharray: 0, 1, 30, 1;
+        --dash__line-dasharray: 0, 1, 1, 28, 1, 1;
+        --center__line-dasharray: 0, 2, 28, 2;
+      }
+      &:zoom(19) {
+        --line__line-dasharray: 0, 1, 36, 1;
+        --dash__line-dasharray: 0, 1, 1, 34, 1, 1;
+        --center__line-dasharray: 0, 2, 34, 2;
+      }
+    }
+  }
+}
+
+#text-line {
+  &[feature='aerialway_cable_car'],
+  &[feature='aerialway_gondola'],
+  &[feature='aerialway_mixed_lift'],
+  &[feature='aerialway_goods'],
+  &[feature='aerialway_chair_lift'],
+  &[feature='aerialway_drag_lift'],
+  &[feature='aerialway_t-bar'],
+  &[feature='aerialway_j-bar'],
+  &[feature='aerialway_platter'],
+  &[feature='aerialway_rope_tow'],
+  &[feature='aerialway_zip_line'],
+  &[feature='man_made_pipeline'] {
+    &:zoom(17) {
+      --text-name: '[name]';
+      --text-fill: #666666;
+      --text-size: zoom-gradient(10, 11 19z);
+      --text-dy: zoom-gradient(4, 5 19z);
+      --text-spacing: 900;
+      --text-clip: false;
+      --text-placement: line;
+      --text-repeat-distance: 200;
+      --text-margin: 18;
+      --text-face-name: @book-fonts;
+      --text-halo-radius: @standard-halo-radius;
+      --text-halo-fill: @standard-halo-fill;
+      &[feature='man_made_pipeline'] {
+        --text-dy: zoom-gradient(6, 7 18z, 8 19z);
+      }
+    }
+  }
+}

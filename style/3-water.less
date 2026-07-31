@@ -1,0 +1,396 @@
+@water-color: #9cdff0;
+@water-text: #358ba2;
+@glacier: #c7f2fa;
+@glacier-line: #b1e8f5;
+@water-tunnelfill-color: @water-color;
+@waterway-text-repeat-distance: 200;
+@waterway-text-spacing: 500;
+@fishpass-fill-color: #aaa;
+
+@river-width-z8: 0.7;
+@river-width-z9: 1.2;
+@river-width-z10: 1.5;
+@river-width-z11: 1.8;
+@river-width-z12: 2.3;
+@river-width-z13: 3;
+@river-width-z14: 4.5;
+@river-width-z15: 6;
+@river-width-z16: 8;
+@river-width-z17: 10;
+@river-width-z18: 12;
+
+@stream-width-z12: 0.8;
+@stream-width-z13: 1.4;
+@stream-width-z14: 2;
+@stream-width-z15: 2.5;
+@stream-width-z16: 3;
+@stream-width-z17: 3.5;
+@stream-width-z18: 4;
+
+@ditchdrain-width-z17: 3;
+
+@canal-scale-factor: 1.4;
+
+#water-areas {
+  &[natural='glacier']::natural {
+    &:zoom(5) {
+      --line-width: zoom-gradient(1, 1.5 10z);
+      --line-color: @glacier-line;
+      --polygon-fill: @glacier;
+      &:zoom(10) {
+        --line-dasharray: 4, 2;
+      }
+    }
+  }
+
+  &[waterway='dock'],
+  &[landuse='basin'],
+  &[natural='water'],
+  &[landuse='reservoir'],
+  &[waterway='riverbank'] {
+    &[int_intermittent='no'] {
+      --polygon-fill: @water-color;
+    }
+    &[int_intermittent='yes'] {
+      --polygon-pattern-file: "url('patterns/intermittent_water.svg')";
+    }
+  }
+}
+
+#water-lines-low-zoom {
+  &:zoom(8, 11) {
+    &[int_intermittent='yes'] {
+      --line-dasharray: 8, 4;
+      --line-cap: butt;
+      --line-join: round;
+    }
+    --line-color: @water-color;
+    --line-width: zoom-gradient(@river-width-z8, @river-width-z9 9z, @river-width-z10 10z);
+  }
+}
+
+#water-lines::casing {
+  // white glow used when water stroke width is less than 3.5 px and only at "mid zoom" (13 - 17)
+
+  &[feature='waterway_canal'][int_bridge_tunnel='no']:zoom(13, 14) {
+    --line-color: @water-color;
+    --line-join: round;
+    --line-cap: round;
+    --line-opacity: 0.85;
+    --line-width: zoom-gradient((@stream-width-z13 * @canal-scale-factor) + 0.6, (@stream-width-z14 * @canal-scale-factor) + 0.6 14z);
+    &[int_intermittent='yes'] {
+      --line-dasharray: 4, 3;
+      --line-cap: butt;
+    }
+  }
+
+  &[feature='waterway_ditch'],
+  &[feature='waterway_drain'],
+  &[feature='waterway_stream'] {
+    &[int_bridge_tunnel='no']:zoom(13, 17) {
+      --line-color: @water-color;
+      --line-join: round;
+      --line-cap: round;
+      --line-opacity: 0.7;
+      &:zoom(14) {
+        --line-opacity: 0.85;
+      }
+      &:zoom(16) {
+        --line-opacity: 0.75;
+      }
+      &:zoom(17) {
+        --line-opacity: 0.6;
+      }
+      --line-width: @stream-width-z13 + 0.6;
+      &:zoom(14) {
+        --line-width: @stream-width-z14 + 0.6;
+      }
+      &[feature='waterway_stream'] {
+        --line-width: zoom-gradient(@stream-width-z15 + 0.6 15z, @stream-width-z16 + 0.6 16z, @stream-width-z17 + 0.6 17z);
+      }
+      &:not([feature='waterway_stream']):zoom(17) {
+        --line-width: @ditchdrain-width-z17 + 0.6;
+      }
+
+      &[int_intermittent='yes'] {
+        --line-dasharray: 4, 3;
+        --line-cap: butt;
+      }
+    }
+  }
+}
+
+#bridges:zoom(14)::casing {
+  &[feature='waterway_river'] {
+    --line-color: #646568;
+    --line-join: round;
+    --line-width: zoom-gradient(@river-width-z14 + 1, @river-width-z15 + 1 15z, @river-width-z16 + 1 16z, @river-width-z17 + 1 17z, @river-width-z18 + 1 18z);
+  }
+
+  &[feature='waterway_ditch'],
+  &[feature='waterway_drain'],
+  &[feature='waterway_fish_pass']:zoom(15),
+  &[feature='waterway_stream'] {
+    --line-color: #646568;
+    --line-join: round;
+    --line-width: @stream-width-z14 + 1;
+    &[feature='waterway_stream'] {
+      --line-width: zoom-gradient(@stream-width-z15 + 1 15z, @stream-width-z16 + 1 16z, @stream-width-z17 + 1 17z, @stream-width-z18 + 1 18z);
+    }
+    &:not([feature='waterway_stream']):zoom(17) {
+      --line-width: @ditchdrain-width-z17 + 1;
+    }
+  }
+
+  &[feature='waterway_canal'] {
+    --line-color: #646568;
+    --line-join: round;
+    --line-width: zoom-gradient((@stream-width-z14 * @canal-scale-factor) + 1, (@stream-width-z15 * @canal-scale-factor) + 1 15z, (@stream-width-z16 * @canal-scale-factor) + 1 16z, (@stream-width-z17 * @canal-scale-factor) + 1 17z, (@stream-width-z18 * @canal-scale-factor) + 1 18z);
+  }
+}
+
+#water-lines,
+#bridges::fill {
+  &[feature='waterway_river']:zoom(12) {
+    &[int_bridge_tunnel='tunnel'] {
+      // Background for dashed tunnel casings
+      --background__line-color: @water-tunnelfill-color;
+      --background__line-width: zoom-gradient(@river-width-z12, @river-width-z13 13z, @river-width-z14 14z, @river-width-z15 15z, @river-width-z16 16z, @river-width-z17 17z, @river-width-z18 18z);
+      --background__line-join: round;
+    }
+    &[int_bridge_tunnel='bridge'][int_intermittent='yes']:zoom(14) {
+      --background__line-color: @water-color;
+      --background__line-join: round;
+      --background__line-width: zoom-gradient(@river-width-z14, @river-width-z15 15z, @river-width-z16 16z, @river-width-z17 17z, @river-width-z18 18z);
+    }
+
+    --water__line-color: @water-color;
+    --water__line-width: zoom-gradient(@river-width-z12, @river-width-z13 13z, @river-width-z14 14z, @river-width-z15 15z, @river-width-z16 16z, @river-width-z17 17z, @river-width-z18 18z);
+    --water__line-cap: round;
+    --water__line-join: round;
+
+    &[int_intermittent='yes'] {
+      --water__line-dasharray: 4, 3;
+      --water__line-cap: butt;
+    }
+
+    &[int_bridge_tunnel='tunnel'] {
+      // This provides the blue dashed casing of waterway tunnels
+      --water__line-dasharray: 4, 2;
+      --water__line-cap: butt;
+      --tunnelfill__line-color: @water-tunnelfill-color;
+      --tunnelfill__line-width: zoom-gradient(@river-width-z12 - 1.5, @river-width-z13 - 2 13z, @river-width-z14 - 3 14z, @river-width-z15 - 3 15z, @river-width-z16 - 3 16z, @river-width-z17 - 3 17z, @river-width-z18 - 4 18z);
+      --tunnelfill__line-join: round;
+    }
+  }
+
+  &[feature='waterway_ditch'],
+  &[feature='waterway_drain'],
+  &[feature='waterway_fish_pass']:zoom(15),
+  &[feature='waterway_stream'] {
+    &:not([int_intermittent='yes']):zoom(12),
+    &:zoom(13) {
+      &[int_bridge_tunnel='tunnel']:zoom(14) {
+        // Background for dashed tunnel casings
+        // The line widths are adjusted later - this just "books in" the background layer
+        --background__line-color: @water-tunnelfill-color;
+        --background__line-join: round;
+      }
+      &[int_bridge_tunnel='bridge'][int_intermittent='yes']:zoom(14) {
+        --background__line-color: @water-tunnelfill-color;
+        --background__line-join: round;
+        --background__line-width: @stream-width-z14;
+        &[feature='waterway_stream'] {
+          --background__line-width: zoom-gradient(@stream-width-z15 15z, @stream-width-z16 16z, @stream-width-z17 17z, @stream-width-z18 18z);
+        }
+        &:not([feature='waterway_stream']):zoom(17) {
+          --background__line-width: @ditchdrain-width-z17;
+        }
+      }
+      --water__line-width: zoom-gradient(@stream-width-z12, @stream-width-z13 13z, @stream-width-z14 14z);
+      &[feature='waterway_stream'] {
+        --water__line-width: zoom-gradient(@stream-width-z15 15z, @stream-width-z16 16z, @stream-width-z17 17z, @stream-width-z18 18z);
+      }
+      &:not([feature='waterway_stream']):zoom(17) {
+        --water__line-width: @ditchdrain-width-z17;
+      }
+      --water__line-color: @water-color;
+      --water__line-cap: round;
+      --water__line-join: round;
+
+      &:not([feature='waterway_fish_pass'])[int_intermittent='yes'] {
+        --water__line-dasharray: 4, 3;
+        --water__line-cap: butt;
+      }
+      &[feature='waterway_fish_pass']:not([int_bridge_tunnel='tunnel']):zoom(17) {
+        --steps__line-dasharray: 1.5, 3;
+        --steps__line-color: @fishpass-fill-color;
+        --steps__line-width: @ditchdrain-width-z17;
+        --steps__line-join: round;
+      }
+
+      &[int_bridge_tunnel='tunnel']:zoom(14) {
+        --water__line-dasharray: 4, 2;
+        --water__line-cap: butt;
+        --background__line-width: @stream-width-z14 + 1;
+        --water__line-width: @stream-width-z14 + 1;
+        --tunnelfill__line-width: @stream-width-z14 - 0.5;
+        --tunnelfill__line-color: @water-tunnelfill-color;
+        --tunnelfill__line-join: round;
+        &[feature='waterway_stream'] {
+          --background__line-width: zoom-gradient(@stream-width-z15 + 1.5 15z, @stream-width-z16 + 1 16z, @stream-width-z17 + 1 17z, @stream-width-z18 + 1 18z);
+          --water__line-width: zoom-gradient(@stream-width-z15 + 1.5 15z, @stream-width-z16 + 1 16z, @stream-width-z17 + 1 17z, @stream-width-z18 + 1 18z);
+          --tunnelfill__line-width: zoom-gradient(@stream-width-z15 - 1 15z, @stream-width-z16 - 1.5 16z, @stream-width-z17 - 1.5 17z, @stream-width-z18 - 1.5 18z);
+        }
+        &:not([feature='waterway_stream']):zoom(17) {
+          --background__line-width: @ditchdrain-width-z17 + 1;
+          --water__line-width: @ditchdrain-width-z17 + 1;
+          --tunnelfill__line-width: @ditchdrain-width-z17 - 1.5;
+        }
+      }
+    }
+  }
+
+  &[feature='waterway_canal']:zoom(12) {
+    &[int_bridge_tunnel='tunnel']:zoom(13) {
+      // Background for dashed tunnel casings
+      // The line widths are adjusted later - this just "books in" the background layer
+      --background__line-color: @water-tunnelfill-color;
+      --background__line-join: round;
+    }
+    &[int_bridge_tunnel='bridge'][int_intermittent='yes']:zoom(14) {
+      --background__line-color: @water-tunnelfill-color;
+      --background__line-join: round;
+      --background__line-width: zoom-gradient(@stream-width-z14 * @canal-scale-factor, @stream-width-z15 * @canal-scale-factor 15z, @stream-width-z16 * @canal-scale-factor 16z, @stream-width-z17 * @canal-scale-factor 17z, @stream-width-z18 * @canal-scale-factor 18z);
+    }
+
+    --water__line-width: zoom-gradient(@stream-width-z12 * @canal-scale-factor, @stream-width-z13 * @canal-scale-factor 13z, @stream-width-z14 * @canal-scale-factor 14z, @stream-width-z15 * @canal-scale-factor 15z, @stream-width-z16 * @canal-scale-factor 16z, @stream-width-z17 * @canal-scale-factor 17z, @stream-width-z18 * @canal-scale-factor 18z);
+    --water__line-color: @water-color;
+    --water__line-join: round;
+    --water__line-cap: round;
+
+    &[int_intermittent='yes'] {
+      --water__line-dasharray: 4, 3;
+      --water__line-cap: butt;
+    }
+
+    &[int_bridge_tunnel='tunnel']:zoom(13) {
+      --water__line-dasharray: 4, 2;
+      --water__line-cap: butt;
+      --background__line-width: zoom-gradient((@stream-width-z13 * @canal-scale-factor) + 1, (@stream-width-z14 * @canal-scale-factor) + 1 14z, (@stream-width-z15 * @canal-scale-factor) + 1 15z, (@stream-width-z16 * @canal-scale-factor) + 1 16z, (@stream-width-z17 * @canal-scale-factor) + 1 17z, (@stream-width-z18 * @canal-scale-factor) + 1 18z);
+      --water__line-width: zoom-gradient((@stream-width-z13 * @canal-scale-factor) + 1, (@stream-width-z14 * @canal-scale-factor) + 1 14z, (@stream-width-z15 * @canal-scale-factor) + 1 15z, (@stream-width-z16 * @canal-scale-factor) + 1 16z, (@stream-width-z17 * @canal-scale-factor) + 1 17z, (@stream-width-z18 * @canal-scale-factor) + 1 18z);
+      --tunnelfill__line-width: zoom-gradient((@stream-width-z13 * @canal-scale-factor) - 1, (@stream-width-z14 * @canal-scale-factor) - 1.5 14z, (@stream-width-z15 * @canal-scale-factor) - 1.5 15z, (@stream-width-z16 * @canal-scale-factor) - 1.5 16z, (@stream-width-z17 * @canal-scale-factor) - 1.5 17z, (@stream-width-z18 * @canal-scale-factor) - 1.5 18z);
+      --tunnelfill__line-color: @water-tunnelfill-color;
+      --tunnelfill__line-join: round;
+    }
+  }
+}
+
+#water-lines-text {
+  &[lock='yes']:zoom(17) {
+    --text-name: '[lock_name]';
+    --text-face-name: @standard-font;
+    --text-placement: line;
+    --text-fill: @water-text;
+    --text-spacing: @waterway-text-spacing;
+    --text-size: 10;
+    --text-halo-radius: @standard-halo-radius;
+    --text-halo-fill: @standard-halo-fill;
+  }
+
+  &:not([lock='yes']):not([int_tunnel='yes']) {
+    &[waterway='river']:zoom(13) {
+      --text-name: '[name]';
+      --text-size: zoom-gradient(10, 12 14z);
+      --text-face-name: @oblique-fonts;
+      --text-fill: @water-text;
+      --text-halo-radius: @standard-halo-radius;
+      --text-halo-fill: @standard-halo-fill;
+      --text-spacing: @waterway-text-spacing;
+      --text-placement: line;
+      --text-repeat-distance: @waterway-text-repeat-distance;
+    }
+
+    &[waterway='canal']:zoom(13) {
+      --text-name: '[name]';
+      --text-size: zoom-gradient(10, 12 14z);
+      --text-face-name: @standard-font;
+      --text-fill: @water-text;
+      --text-halo-radius: @standard-halo-radius;
+      --text-halo-fill: @standard-halo-fill;
+      --text-placement: line;
+      --text-repeat-distance: @waterway-text-repeat-distance;
+      --text-spacing: @waterway-text-spacing;
+    }
+
+    &[waterway='drain']:zoom(15),
+    &[waterway='ditch']:zoom(15),
+    &[waterway='stream']:zoom(15) {
+      --text-name: '[name]';
+      --text-size: 10;
+      --text-face-name: @standard-font;
+      &[waterway='stream'] {
+        --text-face-name: @oblique-fonts;
+      }
+      --text-fill: @water-text;
+      --text-halo-radius: @standard-halo-radius;
+      --text-halo-fill: @standard-halo-fill;
+      --text-spacing: @waterway-text-spacing;
+      --text-placement: line;
+      --text-vertical-alignment: middle;
+      --text-dy: 8;
+      --text-repeat-distance: @waterway-text-repeat-distance;
+    }
+  }
+  &[natural='bay']:zoom(14),
+  &[natural='strait']:zoom(14) {
+    --text-name: '[name]';
+    --text-size: zoom-gradient(10, 12 15z);
+    --text-face-name: @oblique-fonts;
+    --text-fill: @water-text;
+    --text-halo-radius: @standard-halo-radius;
+    --text-halo-fill: @standard-halo-fill;
+    --text-max-char-angle-delta: 15;
+    --text-spacing: 400;
+    --text-placement: line;
+  }
+}
+
+#text-poly-low-zoom:zoom(*, 9),
+#text-point:zoom(10) {
+  &[feature='natural_water'],
+  &[feature='landuse_reservoir'],
+  &[feature='landuse_basin'],
+  &[feature='waterway_dock'] {
+    &:zoom(5) {
+      --text-name: '[name]';
+      --text-size: 10;
+      --text-wrap-width: 25; // 2.5 em
+      --text-line-spacing: -1.5; // -0.15 em
+      --text-fill: @water-text;
+      --text-face-name: @oblique-fonts;
+      --text-halo-radius: @standard-halo-radius;
+      --text-halo-fill: @standard-halo-fill;
+      --text-placement: interior;
+    }
+  }
+}
+
+#text-point:zoom(14) {
+  &[feature='natural_bay'],
+  &[feature='natural_strait'] {
+    --text-name: '[name]';
+    --text-size: zoom-gradient(10, 12 15z);
+    --text-wrap-width: zoom-gradient(25, 37 15z); // 2.5 em
+    --text-line-spacing: -1.5; // -0.15 em
+    --text-fill: @water-text;
+    --text-face-name: @oblique-fonts;
+    --text-halo-radius: @standard-halo-radius;
+    --text-halo-fill: @standard-halo-fill;
+    --text-placement: interior;
+    &:zoom(15) {
+      // 3.1 em
+      --text-line-spacing: -1.6; // -0.13 em
+    }
+  }
+}
