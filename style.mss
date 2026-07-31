@@ -2133,7 +2133,7 @@
           line-cap: round;
         }
         #tunnels {
-          line-dasharray: 4, 2;
+          line-dasharray: 2;
         }
         #bridges {
           line-join: round;
@@ -2189,7 +2189,7 @@
           line-cap: round;
         }
         #tunnels {
-          line-dasharray: 4, 2;
+          line-dasharray: 2;
         }
         #bridges {
           line-join: round;
@@ -2245,7 +2245,7 @@
           line-cap: round;
         }
         #tunnels {
-          line-dasharray: 4, 2;
+          line-dasharray: 2;
         }
         #bridges {
           line-join: round;
@@ -2307,7 +2307,7 @@
           line-cap: round;
         }
         #tunnels {
-          line-dasharray: 4, 2;
+          line-dasharray: 2;
         }
         #bridges {
           [zoom >='13'] {
@@ -2366,7 +2366,7 @@
           line-cap: round;
         }
         #tunnels {
-          line-dasharray: 4, 2;
+          line-dasharray: 2;
         }
         #bridges {
           [zoom >='14'] {
@@ -2405,7 +2405,7 @@
           line-cap: round;
         }
         #tunnels {
-          line-dasharray: 4, 2;
+          line-dasharray: 2;
         }
         #bridges {
           [zoom >='14'] {
@@ -2437,7 +2437,7 @@
           line-cap: round;
         }
         #tunnels {
-          line-dasharray: 4, 2;
+          line-dasharray: 2;
         }
         #bridges {
           line-color: @bridge-casing;
@@ -2488,7 +2488,7 @@
           line-cap: round;
         }
         #tunnels {
-          line-dasharray: 4, 2;
+          line-dasharray: 2;
         }
         #bridges {
           line-color: @bridge-casing;
@@ -2521,7 +2521,7 @@
           line-cap: round;
         }
         #tunnels {
-          line-dasharray: 4, 2;
+          line-dasharray: 2;
         }
         #bridges {
           line-color: @bridge-casing;
@@ -2558,7 +2558,7 @@
           line-join: round;
         }
         #tunnels {
-          line-dasharray: 4, 2;
+          line-dasharray: 2;
         }
         #bridges {
           [zoom >='14'] {
@@ -2589,7 +2589,7 @@
             line-width: @steps-width-z15 + 2 * (@paths-background-width + @paths-tunnel-casing-width);
           }
           line-color: @tunnel-casing;
-          line-dasharray: 3;
+          line-dasharray: 2;
         }
       }
     }
@@ -2614,7 +2614,7 @@
             line-width: @bridleway-width-z15 + 2 * (@paths-background-width + @paths-tunnel-casing-width);
           }
           line-color: @tunnel-casing;
-          line-dasharray: 3;
+          line-dasharray: 2;
         }
       }
     }
@@ -2658,7 +2658,7 @@
             line-width: @footway-width-z19 + 2 * (@paths-background-width + @paths-tunnel-casing-width);
           }
           line-color: @tunnel-casing;
-          line-dasharray: 3;
+          line-dasharray: 2;
         }
       }
     }
@@ -2701,7 +2701,7 @@
             line-width: @cycleway-width-z19 + 2 * (@paths-background-width + @paths-tunnel-casing-width);
           }
           line-color: @tunnel-casing;
-          line-dasharray: 3;
+          line-dasharray: 2;
         }
       }
     }
@@ -2735,7 +2735,7 @@
         [zoom >='13'][int_access !='no'],
         [zoom >='15'] {
           line-color: @tunnel-casing;
-          line-dasharray: 3;
+          line-dasharray: 2;
           line-width: @track-width-z13 + 2 * (@paths-background-width + @paths-tunnel-casing-width);
           [tracktype='grade1'] {
             line-width: @track-grade1-width-z13 + 2 * (@paths-background-width + @paths-tunnel-casing-width);
@@ -3252,7 +3252,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         }
         line-width: 2;
         b/line-width: 2;
-        b/line-dasharray: 4, 2;
+        b/line-dasharray: 2;
         b/line-color: white;
         [zoom >='13'] {
           line-width: 4;
@@ -5117,7 +5117,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         [int_access='no'] {
           line/line-color: @bridleway-fill-noaccess;
         }
-        line/line-dasharray: 4, 2;
+        line/line-dasharray: 2;
         line/line-width: @bridleway-width-z13;
         [zoom >='15'] {
           line/line-width: @bridleway-width-z15;
@@ -5161,11 +5161,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           line/line-dasharray: 2, 3.5;
           line/line-width: @footway-width-z15;
           [zoom >='16'] {
-            line/line-dasharray: 3, 3.5;
+            line/line-dasharray: 2, 3.5;
             line/line-width: @footway-width-z16;
           }
           [zoom >='17'] {
-            line/line-dasharray: 3, 3;
+            line/line-dasharray: 2, 3;
           }
           [zoom >='18'] {
             line/line-width: @footway-width-z18;
@@ -5184,7 +5184,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           line/line-cap: round;
           line/line-width: @footway-width-z15;
           [zoom >='16'] {
-            line/line-dasharray: 1, 4, 2, 3;
+            line/line-dasharray: 1, 2, 3;
             line/line-width: @footway-width-z16;
           }
           [zoom >='18'] {
@@ -5247,11 +5247,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           line/line-dasharray: 2, 3.5;
           line/line-width: @cycleway-width-z15;
           [zoom >='16'] {
-            line/line-dasharray: 3, 3.5;
+            line/line-dasharray: 2, 3.5;
             line/line-width: @cycleway-width-z16;
           }
           [zoom >='17'] {
-            line/line-dasharray: 3, 3;
+            line/line-dasharray: 2, 3;
           }
           [zoom >='18'] {
             line/line-width: @cycleway-width-z18;
@@ -5270,7 +5270,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           line/line-cap: round;
           line/line-width: @cycleway-width-z15;
           [zoom >='16'] {
-            line/line-dasharray: 1, 4, 2, 3;
+            line/line-dasharray: 1, 2, 3;
             line/line-width: @cycleway-width-z16;
           }
           [zoom >='18'] {
@@ -5326,7 +5326,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         [int_access='no'] {
           line/line-color: @track-fill-noaccess;
         }
-        line/line-dasharray: 5, 4, 2, 4;
+        line/line-dasharray: 5, 2, 4;
         line/line-cap: round;
         line/line-join: round;
         line/line-opacity: 0.8;
@@ -5344,7 +5344,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           line/line-dasharray: 5.6, 4;
         }
         [tracktype='grade4'] {
-          line/line-dasharray: 3.2, 4.8;
+          line/line-dasharray: 2.2, 4.8;
         }
         [tracktype='grade5'] {
           line/line-dasharray: 1.6, 6.4;
@@ -5474,7 +5474,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           [feature='railway_INT-spur-siding-yard'] {
             line-color: #aaa;
             line-width: 1.9;
-            line-dasharray: 3, 3;
+            line-dasharray: 2, 3;
             [zoom >='18'] {
               line-width: 2.7;
             }
@@ -5634,7 +5634,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         }
 
         #tunnels {
-          line/line-dasharray: 3, 4;
+          line/line-dasharray: 2, 4;
         }
       }
     }
@@ -5650,7 +5650,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         }
         [zoom >='15'] {
           line-width: 3;
-          line-dasharray: 3, 3;
+          line-dasharray: 2, 3;
         }
       }
     }
