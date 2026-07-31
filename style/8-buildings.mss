@@ -1,5 +1,5 @@
-@building-fill: #e4e5e7;
-@building-line: darken(@building-fill, 15%);
+@building-fill: #dae6f1;
+@building-line: darken(@building-fill, 8%);
 @building-low-zoom: darken(@building-fill, 4%);
 
 @building-major-fill: darken(@building-fill, 10%);
