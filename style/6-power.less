@@ -1,0 +1,27 @@
+@power-line-color: #888;
+
+#power-line {
+  &:zoom(14) {
+    --line-width: zoom-gradient(0.5, 0.6 15z, 0.7 16z 17z, 1 18z, 1.2 19z);
+    --line-color: @power-line-color;
+  }
+}
+
+#power-minorline {
+  &:zoom(16) {
+    --line-width: zoom-gradient(0.3, 0.4 17z, 0.5 18z);
+    --line-color: @power-line-color;
+  }
+}
+
+#power-towers {
+  &[power='tower'] {
+    --marker-file: zoom-gradient("url('symbols/man_made/power_tower_small.svg')" 14z, "url('symbols/man_made/power_tower.svg')" 15z);
+    --marker-width: zoom-gradient(3 14z, 5 15z 16z, 7 17z);
+  }
+  &[power='pole']:zoom(16) {
+    --marker-file: "url('symbols/square.svg')";
+    --marker-fill: #928f8f;
+    --marker-width: 3;
+  }
+}

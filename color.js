@@ -39,6 +39,9 @@ function looksLikeColorValue(value) {
 }
 
 const cssDelimiters = {
+  // Like a CSS gradient, a zoom-gradient() splits into stops on top-level
+  // commas only, so each stop keeps its own spaces and nested commas.
+  'zoom-gradient': [','],
   'linear-gradient': [','],
   'radial-gradient': [','],
   'conic-gradient': [','],
@@ -54,6 +57,7 @@ const cssDelimiters = {
 };
 
 const cssPrimaryDelimiters = {
+  'zoom-gradient': ',',
   'linear-gradient': ',',
   'radial-gradient': ',',
   'conic-gradient': ',',
@@ -438,7 +442,7 @@ const systemColors = {
 };
 
 const CSSColors = ['rgb', 'rgba', 'hsl', 'hsla', 'hwb', 'color-mix'];
-const CSSGradients = ['linear-gradient', 'radial-gradient', 'conic-gradient'];
+const CSSGradients = ['zoom-gradient', 'linear-gradient', 'radial-gradient', 'conic-gradient'];
 const CSSAdjusters = ['lighten', 'darken', 'saturate', 'desaturate', 'greyscale', 'grayscale', 'spin', 'fadein', 'fadeout', 'fade', 'mix', 'tint', 'shade'];
 
 function isColor(modelComponent) {
@@ -962,9 +966,177 @@ function extractRGBA(modelComponent) {
   return [0, 0, 0, 0];
 }
 
+/* ---------------------------------------------------------------------- *
+ * zoom-gradient()
+ *
+ * A gradient whose axis is the zoom level instead of a line across a box:
+ *
+ *   zoom-gradient(1, 2.5 16z, 4 17z, 6 18z)   numbers
+ *   zoom-gradient(#eee 10z, #333 16z)         colours
+ *   zoom-gradient(2 12z 15z, 8 16z)           hard stop (constant band)
+ *
+ * Stop positions carry the `z` unit, exactly as CSS gradient stops carry `%`.
+ * The unit is what makes the grammar unambiguous: a stop value can itself be a
+ * bare number, so `2.5 16` alone could not be split reliably.
+ *
+ * Semantics, following CSS gradients where it makes sense:
+ *   - two positioned stops interpolate between their positions;
+ *   - a stop with two positions is a hard stop, constant across that band;
+ *   - after the last stop the value is clamped;
+ *   - the first stop may omit its position, in which case it is a base value
+ *     held constant until the first positioned stop. (CSS would interpolate
+ *     from position 0 instead, but a leading value with no start position has
+ *     nothing to interpolate from here.)
+ *   - before the first positioned stop, with no base, the value is undefined,
+ *     i.e. the property is simply not set at that zoom.
+ * ---------------------------------------------------------------------- */
+
+const ZOOM_POSITION_UNIT = 'z';
+
+function looksLikeZoomGradientValue(value) {
+  return typeof value === 'string' && /^\s*zoom-gradient\s*\(/i.test(value);
+}
+
+function zoomStopEnd(stop) {
+  return stop.to === undefined ? stop.from : stop.to;
+}
+
+function parseZoomPosition(token) {
+  const parsed = parseNumber(token);
+  if (parsed === undefined) return undefined;
+  if (String(parsed.unit).toLowerCase() !== ZOOM_POSITION_UNIT) return undefined;
+  return parsed.number;
+}
+
+function parseZoomGradient(value) {
+  if (!looksLikeZoomGradientValue(value)) return undefined;
+
+  const trimmed = String(value).trim();
+  if (!isTopLevelModel(trimmed)) return undefined;
+
+  const stripped = stripTopLevelModel(trimmed);
+  if (stripped.model.toLowerCase() !== 'zoom-gradient') return undefined;
+  if (stripped.result === '') return undefined;
+
+  const parts = splitByTopLevelDelimiter(stripped.result, cssDelimiters['zoom-gradient']).result.filter((part) => part !== '');
+  if (parts.length === 0) return undefined;
+
+  const stops = [];
+  for (let i = 0; i < parts.length; i++) {
+    const tokens = splitByTopLevelDelimiter(parts[i], [' ']).result.filter((token) => token !== '');
+    if (tokens.length === 0) return undefined;
+
+    // Pull the trailing position tokens off the end of the stop; whatever is
+    // left is the value, spaces and all.
+    const positions = [];
+    while (tokens.length > 1 && positions.length < 2) {
+      const position = parseZoomPosition(tokens[tokens.length - 1]);
+      if (position === undefined) break;
+      positions.unshift(position);
+      tokens.pop();
+    }
+
+    // More than two positions is not a thing.
+    if (parseZoomPosition(tokens[tokens.length - 1]) !== undefined) return undefined;
+
+    const stopValue = tokens.join(' ').trim();
+    if (stopValue === '') return undefined;
+
+    if (positions.length === 0) {
+      // Only the leading stop may omit its position.
+      if (i !== 0) return undefined;
+      stops.push({ value: stopValue, from: undefined, to: undefined });
+      continue;
+    }
+
+    const from = positions[0];
+    const to = positions.length > 1 ? positions[1] : undefined;
+    if (to !== undefined && to < from) return undefined;
+    stops.push({ value: stopValue, from: from, to: to });
+  }
+
+  // Positions have to run forwards, like CSS gradient stops.
+  let previous = -Infinity;
+  for (const stop of stops) {
+    if (stop.from === undefined) continue;
+    if (stop.from < previous) return undefined;
+    previous = zoomStopEnd(stop);
+  }
+
+  return { type: 'zoom-gradient', stops: stops };
+}
+
+// Blend two stop values: numbers with matching units, or anything the colour
+// model can read. Returns undefined when the pair cannot be blended.
+function interpolateStopValues(from, to, t) {
+  const a = String(from).trim();
+  const b = String(to).trim();
+
+  const numberA = parseNumber(a);
+  const numberB = parseNumber(b);
+  if (numberA !== undefined && numberB !== undefined && numberA.unit === numberB.unit) {
+    const blended = numberA.number + (numberB.number - numberA.number) * t;
+    return `${Math.round(blended * 1e4) / 1e4}${numberA.unit}`;
+  }
+
+  const modelA = parseCSSModel(a);
+  const modelB = parseCSSModel(b);
+  if (modelA !== undefined && modelB !== undefined) {
+    const rgbaA = extractRGBA(modelA);
+    const rgbaB = extractRGBA(modelB);
+    if (Array.isArray(rgbaA) && Array.isArray(rgbaB)) {
+      return rgbaToString([
+        Math.round(rgbaA[0] + (rgbaB[0] - rgbaA[0]) * t),
+        Math.round(rgbaA[1] + (rgbaB[1] - rgbaA[1]) * t),
+        Math.round(rgbaA[2] + (rgbaB[2] - rgbaA[2]) * t),
+        rgbaA[3] + (rgbaB[3] - rgbaA[3]) * t
+      ]);
+    }
+  }
+
+  return undefined;
+}
+
+// Sample a zoom-gradient at one position. Accepts either the source string or
+// an already-parsed gradient.
+function sampleZoomGradient(gradient, position) {
+  const parsed = typeof gradient === 'string' ? parseZoomGradient(gradient) : gradient;
+  if (parsed === undefined || !Array.isArray(parsed.stops) || parsed.stops.length === 0) return undefined;
+
+  const stops = parsed.stops;
+  const positioned = stops.filter((stop) => stop.from !== undefined);
+
+  // Before the first positioned stop: the base value, or nothing at all.
+  if (stops[0].from === undefined) {
+    if (positioned.length === 0 || position < positioned[0].from) return stops[0].value;
+  } else if (position < stops[0].from) {
+    return undefined;
+  }
+
+  for (let i = 0; i < positioned.length; i++) {
+    const stop = positioned[i];
+    const end = zoomStopEnd(stop);
+    if (position >= stop.from && position <= end) return stop.value;
+
+    const next = positioned[i + 1];
+    if (next !== undefined && position > end && position < next.from) {
+      // A hard stop holds its value until the next stop begins.
+      if (stop.to !== undefined) return stop.value;
+      return interpolateStopValues(stop.value, next.value, (position - stop.from) / (next.from - stop.from));
+    }
+  }
+
+  // Past the last stop: clamp.
+  return positioned[positioned.length - 1].value;
+}
+
 module.exports = {
   looksLikeColorValue,
   parseCSSModel,
   extractRGBA,
-  rgbaToString
+  rgbaToString,
+  looksLikeZoomGradientValue,
+  parseZoomGradient,
+  sampleZoomGradient,
+  interpolateStopValues
 };
