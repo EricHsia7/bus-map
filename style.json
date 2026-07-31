@@ -1023,7 +1023,8 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(152,210,152,1)"
+      "polygon-fill": "rgba(152,210,152,1)",
+      "polygon-opacity": "0.05"
     },
     "attachment": "low-zoom"
   },
@@ -2172,42 +2173,6 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 10,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_farmyard"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_farmyard"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(219,212,200,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
           "min": 16,
           "max": 9
         },
@@ -2235,7 +2200,6 @@
       }
     ],
     "paint": {
-      "polygon-opacity": "0",
       "line-width": "0.5",
       "line-color": "rgba(200,190,172,1)"
     },
@@ -2246,70 +2210,6 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 5,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_farmland"
-          }
-        ]
-      },
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 5,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_greenhouse_horticulture"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_farmland"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_greenhouse_horticulture"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(239,236,230,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
           "min": 16,
           "max": 9
         },
@@ -2365,7 +2265,6 @@
       }
     ],
     "paint": {
-      "polygon-opacity": "0",
       "line-width": "0.5",
       "line-color": "rgba(229,224,215,1)"
     },
@@ -2763,7 +2662,8 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(197,206,222,1)"
+      "polygon-fill": "rgba(197,206,222,1)",
+      "polygon-opacity": "0"
     },
     "attachment": "low-zoom"
   },
@@ -2928,8 +2828,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(227,230,232,1)",
-      "polygon-opacity": "0"
+      "polygon-fill": "rgba(227,230,232,1)"
     },
     "attachment": "low-zoom"
   },
@@ -3223,7 +3122,7 @@
     ],
     "paint": {
       "polygon-fill": "rgba(219,226,234,1)",
-      "polygon-opacity": "0"
+      "polygon-opacity": "0.05"
     },
     "attachment": "low-zoom"
   },
