@@ -5,8 +5,7 @@
 @county-labels: darken(@admin-boundaries-wide, 5%);
 
 #country-names {
-  [zoom >='3'][zoom < 5][way_pixels > 1000],
-  [zoom >='5'][way_pixels < 360000] {
+  [zoom >='3'] {
     text-name: '[name]';
     text-size: 10;
     text-wrap-width: 35; // 3.5 em
@@ -49,8 +48,7 @@
 }
 
 #state-names {
-  [zoom >='5'][zoom < 7][way_pixels > 3000],
-  [zoom >='7'][way_pixels > 3000][way_pixels < 196000] {
+  [zoom >='5'] {
     text-name: '[name]';
     text-size: 10;
     text-wrap-width: 35; // 3.5 em
@@ -482,7 +480,7 @@
 }
 
 #county-names {
-  [zoom >='8'][way_pixels > 12000][way_pixels < 196000] {
+  [zoom >='8'] {
     [admin_level='5'][zoom >='8'],
     [admin_level='6'][zoom >='10'] {
       text-name: '[name]';

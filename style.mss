@@ -47,16 +47,16 @@
 
 // --- "Base" landuses ---
 
-@built-up-lowzoom: #dcdddd;
-@built-up-z12: #e5e6e7;
-@residential: #eaeaeb;
+@built-up-lowzoom: #dce0e4;
+@built-up-z12: #e3e6e8;
+@residential: #e5eaf0;
 @residential-line: #b7babd;
 @retail: #c5cede;
 @retail-line: #a7b4cc;
 @commercial: #c5d5de;
 @commercial-line: #a7becc;
-@industrial: #e7ecf1; // Also used for railway, wastewater_plant
-@industrial-line: #dbe2ea; // Also used for railway-line, wastewater_plant-line
+@industrial: #dbe2ea; // Also used for railway, wastewater_plant
+@industrial-line: #bad4ee; // Also used for railway-line, wastewater_plant-line
 @farmland: #efece6;
 @farmland-line: #e5e0d7;
 @farmyard: #dbd4c8;
@@ -117,12 +117,12 @@
       line-width: 0.5;
       line-color: saturate(darken(@water-color, 20%), 20%);
     }
-    [way_pixels >='4'] {
-      polygon-gamma: 0.75;
-    }
-    [way_pixels >='64'] {
-      polygon-gamma: 0.3;
-    }
+    // [way_pixels >='4'] {
+    //   polygon-gamma: 0.75;
+    // }
+    // [way_pixels >='64'] {
+    //   polygon-gamma: 0.3;
+    // }
   }
 
   [feature='landuse_recreation_ground'][zoom >='10'],
@@ -133,12 +133,12 @@
       line-color: darken(@leisure, 60%);
       line-width: 0.3;
     }
-    [way_pixels >='4'] {
-      polygon-gamma: 0.75;
-    }
-    [way_pixels >='64'] {
-      polygon-gamma: 0.3;
-    }
+    // [way_pixels >='4'] {
+    //   polygon-gamma: 0.75;
+    // }
+    // [way_pixels >='64'] {
+    //   polygon-gamma: 0.3;
+    // }
   }
 
   [feature='tourism_camp_site'],
@@ -150,12 +150,12 @@
         line-color: saturate(darken(@campsite, 60%), 30%);
         line-width: 0.3;
       }
-      [way_pixels >='4'] {
-        polygon-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-gamma: 0.3;
+      // }
     }
   }
 
@@ -166,132 +166,132 @@
       line-width: 0.5;
       line-color: darken(@quarry, 10%);
     }
-    [way_pixels >='4'] {
-      polygon-pattern-gamma: 0.75;
-    }
-    [way_pixels >='64'] {
-      polygon-pattern-gamma: 0.3;
-    }
+    // [way_pixels >='4'] {
+    //   polygon-pattern-gamma: 0.75;
+    // }
+    // [way_pixels >='64'] {
+    //   polygon-pattern-gamma: 0.3;
+    // }
   }
 
   [feature='landuse_vineyard'] {
     [zoom >='5'] {
       polygon-fill: @orchard;
-      [way_pixels >='4'] {
-        polygon-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-gamma: 0.3;
+      // }
     }
     [zoom >='13'] {
       polygon-pattern-file: "url('patterns/vineyard.svg')";
       polygon-pattern-alignment: global;
-      [way_pixels >='4'] {
-        polygon-pattern-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-pattern-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-pattern-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-pattern-gamma: 0.3;
+      // }
     }
   }
 
   [feature='landuse_orchard'] {
     [zoom >='5'] {
       polygon-fill: @orchard;
-      [way_pixels >='4'] {
-        polygon-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-gamma: 0.3;
+      // }
     }
     [zoom >='13'] {
       polygon-pattern-file: "url('patterns/orchard.svg')";
       polygon-pattern-alignment: global;
-      [way_pixels >='4'] {
-        polygon-pattern-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-pattern-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-pattern-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-pattern-gamma: 0.3;
+      // }
     }
   }
 
   [feature='leisure_garden'] {
     [zoom >='10'] {
       polygon-fill: @grass;
-      [way_pixels >='4'] {
-        polygon-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-gamma: 0.3;
+      // }
     }
     [zoom >='13'] {
       polygon-pattern-file: "url('patterns/plant_nursery.svg')";
       polygon-pattern-opacity: 0.6;
       polygon-pattern-alignment: global;
-      [way_pixels >='4'] {
-        polygon-pattern-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-pattern-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-pattern-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-pattern-gamma: 0.3;
+      // }
     }
   }
 
   [feature='landuse_flowerbed'] {
     [zoom >='10'] {
       polygon-fill: @grass;
-      [way_pixels >='4'] {
-        polygon-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-gamma: 0.3;
+      // }
     }
     [zoom >='15'] {
       polygon-pattern-file: "url('symbols/flowerbed_mid_zoom.svg')";
       polygon-pattern-alignment: global;
-      [way_pixels >='4'] {
-        polygon-pattern-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-pattern-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-pattern-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-pattern-gamma: 0.3;
+      // }
     }
     [zoom >='17'] {
       polygon-pattern-file: "url('symbols/flowerbed_high_zoom.svg')";
       polygon-pattern-alignment: global;
-      [way_pixels >='4'] {
-        polygon-pattern-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-pattern-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-pattern-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-pattern-gamma: 0.3;
+      // }
     }
   }
 
   [feature='landuse_plant_nursery'] {
     [zoom >='10'] {
       polygon-fill: @orchard;
-      [way_pixels >='4'] {
-        polygon-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-gamma: 0.3;
+      // }
     }
     [zoom >='13'] {
       polygon-pattern-file: "url('patterns/plant_nursery.svg')";
       polygon-pattern-alignment: global;
-      [way_pixels >='4'] {
-        polygon-pattern-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-pattern-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-pattern-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-pattern-gamma: 0.3;
+      // }
     }
   }
 
@@ -299,12 +299,12 @@
   [feature='amenity_grave_yard'] {
     [zoom >='10'] {
       polygon-fill: @cemetery;
-      [way_pixels >='4'] {
-        polygon-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-gamma: 0.3;
+      // }
     }
     [zoom >='13'] {
       [religion='jewish'] {
@@ -319,17 +319,17 @@
       [religion='INT-generic'] {
         polygon-pattern-file: "url('patterns/grave_yard_generic.svg')";
       }
-      [religion='jewish'],
-      [religion='christian'],
-      [religion='muslim'],
-      [religion='INT-generic'] {
-        [way_pixels >='4'] {
-          polygon-pattern-gamma: 0.75;
-        }
-        [way_pixels >='64'] {
-          polygon-pattern-gamma: 0.3;
-        }
-      }
+      // [religion='jewish'],
+      // [religion='christian'],
+      // [religion='muslim'],
+      // [religion='INT-generic'] {
+      //   [way_pixels >='4'] {
+      //     polygon-pattern-gamma: 0.75;
+      //   }
+      //   [way_pixels >='64'] {
+      //     polygon-pattern-gamma: 0.3;
+      //   }
+      // }
     }
   }
 
@@ -344,7 +344,7 @@
     }
   }
 
-  [feature='amenity_prison'][zoom >='10'][way_pixels > 75] {
+  [feature='amenity_prison'][zoom >='10'] {
     polygon-fill: #8e8e8e;
     polygon-opacity: 0.14;
     polygon-pattern-file: "url('patterns/grey_vertical_hatch.svg')";
@@ -366,33 +366,33 @@
       line-width: @landuse-faint-outline-width;
       line-color: @residential-line;
     }
-    [way_pixels >='4'] {
-      polygon-gamma: 0.75;
-    }
-    [way_pixels >='64'] {
-      polygon-gamma: 0.3;
-    }
+    // [way_pixels >='4'] {
+    //   polygon-gamma: 0.75;
+    // }
+    // [way_pixels >='64'] {
+    //   polygon-gamma: 0.3;
+    // }
   }
 
   [feature='landuse_garages'][zoom >='13'] {
     polygon-fill: @garages;
-    [way_pixels >='4'] {
-      polygon-gamma: 0.75;
-    }
-    [way_pixels >='64'] {
-      polygon-gamma: 0.3;
-    }
+    // [way_pixels >='4'] {
+    //   polygon-gamma: 0.75;
+    // }
+    // [way_pixels >='64'] {
+    //   polygon-gamma: 0.3;
+    // }
   }
 
   [feature='leisure_park'] {
     [zoom >='10'] {
       polygon-fill: @park;
-      [way_pixels >='4'] {
-        polygon-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-gamma: 0.3;
+      // }
     }
   }
 
@@ -401,67 +401,67 @@
       polygon-fill: @glacier;
       line-width: 0.5;
       line-color: saturate(darken(@pitch, 30%), 20%);
-      [way_pixels >='4'] {
-        polygon-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-gamma: 0.3;
+      // }
     }
   }
 
   [feature='leisure_dog_park'] {
     [zoom >='10'] {
       polygon-fill: @leisure;
-      [way_pixels >='4'] {
-        polygon-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-gamma: 0.3;
+      // }
     }
     [zoom >='16'] {
       polygon-pattern-file: "url('patterns/dog_park.svg')";
       polygon-pattern-alignment: global;
-      [way_pixels >='4'] {
-        polygon-pattern-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-pattern-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-pattern-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-pattern-gamma: 0.3;
+      // }
     }
   }
 
   [feature='leisure_golf_course'][zoom >='10'],
   [feature='leisure_miniature_golf'][zoom >='15'] {
     polygon-fill: @golf_course;
-    [way_pixels >='4'] {
-      polygon-gamma: 0.75;
-    }
-    [way_pixels >='64'] {
-      polygon-gamma: 0.3;
-    }
+    // [way_pixels >='4'] {
+    //   polygon-gamma: 0.75;
+    // }
+    // [way_pixels >='64'] {
+    //   polygon-gamma: 0.3;
+    // }
   }
 
   [feature='landuse_allotments'] {
     [zoom >='10'] {
       polygon-fill: @allotments;
-      [way_pixels >='4'] {
-        polygon-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-gamma: 0.3;
+      // }
     }
     [zoom >='13'] {
       polygon-pattern-file: "url('patterns/allotments.svg')";
       polygon-pattern-alignment: global;
-      [way_pixels >='4'] {
-        polygon-pattern-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-pattern-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-pattern-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-pattern-gamma: 0.3;
+      // }
     }
     [zoom >='16'] {
       line-width: @landuse-faint-outline-width;
@@ -473,12 +473,12 @@
   [feature='natural_wood'] {
     [zoom >='5'] {
       polygon-fill: @forest;
-      [way_pixels >='4'] {
-        polygon-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-gamma: 0.3;
+      // }
     }
   }
 
@@ -488,28 +488,29 @@
       line-width: @landuse-faint-outline-width;
       line-color: @farmyard-line;
     }
-    [way_pixels >='4'] {
-      polygon-gamma: 0.75;
-    }
-    [way_pixels >='64'] {
-      polygon-gamma: 0.3;
-    }
+    // [way_pixels >='4'] {
+    //   polygon-gamma: 0.75;
+    // }
+    // [way_pixels >='64'] {
+    //   polygon-gamma: 0.3;
+    // }
   }
 
   [feature='landuse_farmland'],
   [feature='landuse_greenhouse_horticulture'] {
     [zoom >='5'] {
       polygon-fill: @farmland;
+      polygon-opacity: 0.5;
       [zoom >='16'] {
         line-width: @landuse-faint-outline-width;
         line-color: @farmland-line;
       }
-      [way_pixels >='4'] {
-        polygon-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-gamma: 0.3;
+      // }
     }
   }
 
@@ -518,12 +519,12 @@
   [feature='landuse_grass'][zoom >='5'],
   [feature='landuse_village_green'][zoom >='5'] {
     polygon-fill: @grass;
-    [way_pixels >='4'] {
-      polygon-gamma: 0.75;
-    }
-    [way_pixels >='64'] {
-      polygon-gamma: 0.3;
-    }
+    // [way_pixels >='4'] {
+    //   polygon-gamma: 0.75;
+    // }
+    // [way_pixels >='64'] {
+    //   polygon-gamma: 0.3;
+    // }
   }
 
   [feature='landuse_retail'],
@@ -541,12 +542,12 @@
         line-width: @landuse-faint-outline-width;
         line-color: @retail-line;
       }
-      [way_pixels >='4'] {
-        polygon-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-gamma: 0.3;
+      // }
     }
   }
 
@@ -554,20 +555,22 @@
     polygon-fill: @built-up-lowzoom;
     [zoom >='12'] {
       polygon-fill: @built-up-z12;
+      polygon-opacity: 0;
     }
     [zoom >='13'] {
       polygon-fill: @industrial;
+      polygon-opacity: 0;
     }
     [zoom >='16'] {
       line-width: @landuse-faint-outline-width;
       line-color: @industrial-line;
     }
-    [way_pixels >='4'] {
-      polygon-gamma: 0.75;
-    }
-    [way_pixels >='64'] {
-      polygon-gamma: 0.3;
-    }
+    // [way_pixels >='4'] {
+    //   polygon-gamma: 0.75;
+    // }
+    // [way_pixels >='64'] {
+    //   polygon-gamma: 0.3;
+    // }
   }
 
   [feature='man_made_works'][zoom >='16'] {
@@ -593,12 +596,13 @@
 
   [feature='landuse_railway'][zoom >='10'] {
     polygon-fill: @railway;
-    [way_pixels >='4'] {
-      polygon-gamma: 0.75;
-    }
-    [way_pixels >='64'] {
-      polygon-gamma: 0.3;
-    }
+    polygon-opacity: 0;
+    // [way_pixels >='4'] {
+    //   polygon-gamma: 0.75;
+    // }
+    // [way_pixels >='64'] {
+    //   polygon-gamma: 0.3;
+    // }
   }
 
   [feature='power_plant'][zoom >='10'],
@@ -618,12 +622,12 @@
       line-width: @landuse-faint-outline-width;
       line-color: @power-line;
     }
-    [way_pixels >='4'] {
-      polygon-gamma: 0.75;
-    }
-    [way_pixels >='64'] {
-      polygon-gamma: 0.3;
-    }
+    // [way_pixels >='4'] {
+    //   polygon-gamma: 0.75;
+    // }
+    // [way_pixels >='64'] {
+    //   polygon-gamma: 0.3;
+    // }
   }
 
   [feature='landuse_commercial'][zoom >='8'] {
@@ -638,65 +642,66 @@
       line-width: @landuse-faint-outline-width;
       line-color: @commercial-line;
     }
-    [way_pixels >='4'] {
-      polygon-gamma: 0.75;
-    }
-    [way_pixels >='64'] {
-      polygon-gamma: 0.3;
-    }
+    // [way_pixels >='4'] {
+    //   polygon-gamma: 0.75;
+    // }
+    // [way_pixels >='64'] {
+    //   polygon-gamma: 0.3;
+    // }
   }
 
   [feature='landuse_brownfield'],
   [feature='landuse_construction'] {
     [zoom >='10'] {
       polygon-fill: @construction;
-      [way_pixels >='4'] {
-        polygon-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-gamma: 0.3;
-      }
+      polygon-opacity: 0;
+      // [way_pixels >='4'] {
+      //   polygon-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-gamma: 0.3;
+      // }
     }
   }
 
   [feature='landuse_landfill'] {
     [zoom >='10'] {
       polygon-fill: #b6b592;
-      [way_pixels >='4'] {
-        polygon-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-gamma: 0.3;
+      // }
     }
   }
 
   [feature='landuse_salt_pond'][zoom >='10'] {
     polygon-fill: @water-color;
-    [way_pixels >='4'] {
-      polygon-gamma: 0.75;
-    }
-    [way_pixels >='64'] {
-      polygon-gamma: 0.3;
-    }
+    // [way_pixels >='4'] {
+    //   polygon-gamma: 0.75;
+    // }
+    // [way_pixels >='64'] {
+    //   polygon-gamma: 0.3;
+    // }
   }
 
   [feature='natural_bare_rock'][zoom >='5'] {
     polygon-fill: @bare_ground;
-    [way_pixels >='4'] {
-      polygon-gamma: 0.75;
-    }
-    [way_pixels >='64'] {
-      polygon-gamma: 0.3;
-    }
+    // [way_pixels >='4'] {
+    //   polygon-gamma: 0.75;
+    // }
+    // [way_pixels >='64'] {
+    //   polygon-gamma: 0.3;
+    // }
     [zoom >='13'] {
       polygon-pattern-file: "url('symbols/rock_overlay.png')";
-      [way_pixels >='4'] {
-        polygon-pattern-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-pattern-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-pattern-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-pattern-gamma: 0.3;
+      // }
     }
   }
 
@@ -704,94 +709,94 @@
   [feature='natural_shingle'] {
     [zoom >='5'] {
       polygon-fill: @bare_ground;
-      [way_pixels >='4'] {
-        polygon-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-gamma: 0.3;
+      // }
       [zoom >='13'] {
         polygon-pattern-file: "url('symbols/scree_overlay.png')";
-        [way_pixels >='4'] {
-          polygon-pattern-gamma: 0.75;
-        }
-        [way_pixels >='64'] {
-          polygon-pattern-gamma: 0.3;
-        }
+        // [way_pixels >='4'] {
+        //   polygon-pattern-gamma: 0.75;
+        // }
+        // [way_pixels >='64'] {
+        //   polygon-pattern-gamma: 0.3;
+        // }
       }
     }
   }
 
   [feature='natural_sand'][zoom >='5'] {
     polygon-fill: @sand;
-    [way_pixels >='4'] {
-      polygon-gamma: 0.75;
-    }
-    [way_pixels >='64'] {
-      polygon-gamma: 0.3;
-    }
+    // [way_pixels >='4'] {
+    //   polygon-gamma: 0.75;
+    // }
+    // [way_pixels >='64'] {
+    //   polygon-gamma: 0.3;
+    // }
   }
 
   [feature='natural_heath'][zoom >='5'] {
     polygon-fill: @heath;
-    [way_pixels >='4'] {
-      polygon-gamma: 0.75;
-    }
-    [way_pixels >='64'] {
-      polygon-gamma: 0.3;
-    }
+    // [way_pixels >='4'] {
+    //   polygon-gamma: 0.75;
+    // }
+    // [way_pixels >='64'] {
+    //   polygon-gamma: 0.3;
+    // }
   }
 
   [feature='natural_scrub'][zoom >='5'] {
     polygon-fill: @scrub;
-    [way_pixels >='4'] {
-      polygon-gamma: 0.75;
-    }
-    [way_pixels >='64'] {
-      polygon-gamma: 0.3;
-    }
+    // [way_pixels >='4'] {
+    //   polygon-gamma: 0.75;
+    // }
+    // [way_pixels >='64'] {
+    //   polygon-gamma: 0.3;
+    // }
   }
 
   [feature='wetland_swamp'][zoom >='5'] {
     polygon-fill: @forest;
-    [way_pixels >='4'] {
-      polygon-gamma: 0.75;
-    }
-    [way_pixels >='64'] {
-      polygon-gamma: 0.3;
-    }
+    // [way_pixels >='4'] {
+    //   polygon-gamma: 0.75;
+    // }
+    // [way_pixels >='64'] {
+    //   polygon-gamma: 0.3;
+    // }
   }
 
   [feature='wetland_mangrove'][zoom >='5'] {
     polygon-fill: @scrub;
-    [way_pixels >='4'] {
-      polygon-gamma: 0.75;
-    }
-    [way_pixels >='64'] {
-      polygon-gamma: 0.3;
-    }
+    // [way_pixels >='4'] {
+    //   polygon-gamma: 0.75;
+    // }
+    // [way_pixels >='64'] {
+    //   polygon-gamma: 0.3;
+    // }
   }
 
   [feature='wetland_reedbed'][zoom >='5'] {
     polygon-fill: @grass;
-    [way_pixels >='4'] {
-      polygon-gamma: 0.75;
-    }
-    [way_pixels >='64'] {
-      polygon-gamma: 0.3;
-    }
+    // [way_pixels >='4'] {
+    //   polygon-gamma: 0.75;
+    // }
+    // [way_pixels >='64'] {
+    //   polygon-gamma: 0.3;
+    // }
   }
 
   [feature='wetland_bog'],
   [feature='wetland_string_bog'] {
     [zoom >='5'] {
       polygon-fill: @heath;
-      [way_pixels >='4'] {
-        polygon-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-gamma: 0.3;
+      // }
     }
   }
 
@@ -804,19 +809,19 @@
       [feature='wetland_saltmarsh'][zoom >='13'] {
         polygon-pattern-file: "url('symbols/salt-dots-2.png')";
         polygon-pattern-alignment: global;
-        [way_pixels >='4'] {
-          polygon-pattern-gamma: 0.75;
-        }
-        [way_pixels >='64'] {
-          polygon-pattern-gamma: 0.3;
-        }
+        // [way_pixels >='4'] {
+        //   polygon-pattern-gamma: 0.75;
+        // }
+        // [way_pixels >='64'] {
+        //   polygon-pattern-gamma: 0.3;
+        // }
       }
-      [way_pixels >='4'] {
-        polygon-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-gamma: 0.3;
+      // }
     }
   }
 
@@ -831,12 +836,12 @@
   [feature='amenity_arts_centre'] {
     [zoom >='10'] {
       polygon-fill: @built-up-lowzoom;
-      [way_pixels >='4'] {
-        polygon-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-gamma: 0.3;
+      // }
     }
     [zoom >='12'] {
       polygon-fill: @built-up-z12;
@@ -848,8 +853,8 @@
     }
   }
 
-  [feature='amenity_fire_station'][zoom >='8'][way_pixels > 900],
-  [feature='amenity_police'][zoom >='8'][way_pixels > 900],
+  [feature='amenity_fire_station'][zoom >='8'],
+  [feature='amenity_police'][zoom >='8'],
   [feature='amenity_fire_station'][zoom >='13'],
   [feature='amenity_police'][zoom >='13'] {
     polygon-fill: #f3e3dd;
@@ -873,12 +878,12 @@
         line-width: 0.3;
         line-color: @parking-outline;
       }
-      [way_pixels >='4'] {
-        polygon-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-gamma: 0.3;
+      // }
     }
   }
 
@@ -889,12 +894,12 @@
 
   [feature='aeroway_apron'][zoom >='10'] {
     polygon-fill: @apron;
-    [way_pixels >='4'] {
-      polygon-gamma: 0.75;
-    }
-    [way_pixels >='64'] {
-      polygon-gamma: 0.3;
-    }
+    // [way_pixels >='4'] {
+    //   polygon-gamma: 0.75;
+    // }
+    // [way_pixels >='64'] {
+    //   polygon-gamma: 0.3;
+    // }
   }
 
   [feature='aeroway_aerodrome'][zoom >='10'],
@@ -903,35 +908,35 @@
     polygon-fill: @transportation-area;
     line-width: 0.2;
     line-color: saturate(darken(@transportation-area, 40%), 20%);
-    [way_pixels >='4'] {
-      polygon-gamma: 0.75;
-    }
-    [way_pixels >='64'] {
-      polygon-gamma: 0.3;
-    }
+    // [way_pixels >='4'] {
+    //   polygon-gamma: 0.75;
+    // }
+    // [way_pixels >='64'] {
+    //   polygon-gamma: 0.3;
+    // }
   }
 
   [feature='natural_beach'][zoom >='10'],
   [feature='natural_shoal'][zoom >='10'] {
     polygon-fill: @beach;
-    [way_pixels >='4'] {
-      polygon-gamma: 0.75;
-    }
-    [way_pixels >='64'] {
-      polygon-gamma: 0.3;
-    }
+    // [way_pixels >='4'] {
+    //   polygon-gamma: 0.75;
+    // }
+    // [way_pixels >='64'] {
+    //   polygon-gamma: 0.3;
+    // }
   }
 
   [feature='highway_services'],
   [feature='highway_rest_area'] {
     [zoom >='10'] {
       polygon-fill: @rest_area;
-      [way_pixels >='4'] {
-        polygon-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-gamma: 0.3;
+      // }
     }
   }
 
@@ -944,12 +949,12 @@
   [feature='leisure_stadium'] {
     [zoom >='10'] {
       polygon-fill: @stadium;
-      [way_pixels >='4'] {
-        polygon-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-gamma: 0.3;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-gamma: 0.3;
+      // }
       [zoom >='13'] {
         line-width: 0.3;
         line-color: darken(@stadium, 35%);
@@ -963,12 +968,12 @@
       line-width: 0.5;
       line-color: desaturate(darken(@track, 20%), 10%);
     }
-    [way_pixels >='4'] {
-      polygon-gamma: 0.75;
-    }
-    [way_pixels >='64'] {
-      polygon-gamma: 0.3;
-    }
+    // [way_pixels >='4'] {
+    //   polygon-gamma: 0.75;
+    // }
+    // [way_pixels >='64'] {
+    //   polygon-gamma: 0.3;
+    // }
   }
 
   [feature='leisure_pitch'][zoom >='10'] {
@@ -977,12 +982,12 @@
       line-width: 0.5;
       line-color: desaturate(darken(@pitch, 20%), 10%);
     }
-    [way_pixels >='4'] {
-      polygon-gamma: 0.75;
-    }
-    [way_pixels >='64'] {
-      polygon-gamma: 0.3;
-    }
+    // [way_pixels >='4'] {
+    //   polygon-gamma: 0.75;
+    // }
+    // [way_pixels >='64'] {
+    //   polygon-gamma: 0.3;
+    // }
   }
 }
 
@@ -1008,12 +1013,12 @@
     [int_wetland='tidalflat'] {
       [zoom >='9'] {
         polygon-fill: @mud;
-        [way_pixels >='4'] {
-          polygon-gamma: 0.75;
-        }
-        [way_pixels >='64'] {
-          polygon-gamma: 0.3;
-        }
+        // [way_pixels >='4'] {
+        //   polygon-gamma: 0.75;
+        // }
+        // [way_pixels >='64'] {
+        //   polygon-gamma: 0.3;
+        // }
       }
     }
   }
@@ -1099,10 +1104,10 @@
 }
 
 #landuse-overlay {
-  [landuse='military'][zoom >='8'][way_pixels > 900],
+  [landuse='military'][zoom >='8'],
   [landuse='military'][zoom >='13'] {
-    polygon-fill: #ff5555;
-    polygon-opacity: 0.08;
+    polygon-fill: @military;
+    polygon-opacity: 0.05;
     polygon-pattern-file: "url('patterns/military_red_hatch.svg')";
     polygon-pattern-alignment: global;
     line-color: @military;
@@ -1199,30 +1204,26 @@
 }
 
 #tourism-boundary {
-  [tourism='zoo'][zoom >='10'][way_pixels >='750'],
-  [tourism='zoo'][zoom >='17'],
-  [tourism='theme_park'][zoom >='10'][way_pixels >='750'],
-  [tourism='theme_park'][zoom >='17'] {
+  [tourism='zoo'][zoom >='10'],
+  [tourism='theme_park'][zoom >='10'] {
     a/line-width: 1;
     a/line-offset: -0.5;
     a/line-color: @tourism;
     a/line-opacity: 0.5;
     a/line-join: round;
     a/line-cap: round;
-    [zoom >='17'],
-    [way_pixels >='60'] {
+    [zoom >='17'] {
+      a/line-width: 2;
+      a/line-offset: -1;
+
+      b/line-width: 6;
+      b/line-offset: -3;
       b/line-width: 4;
       b/line-offset: -2;
       b/line-color: @tourism;
       b/line-opacity: 0.3;
       b/line-join: round;
       b/line-cap: round;
-    }
-    [zoom >='17'] {
-      a/line-width: 2;
-      a/line-offset: -1;
-      b/line-width: 6;
-      b/line-offset: -3;
     }
   }
 }
@@ -1297,21 +1298,21 @@
   [waterway='riverbank'] {
     [int_intermittent='no'] {
       polygon-fill: @water-color;
-      [way_pixels >='4'] {
-        polygon-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-gamma: 0.6;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-gamma: 0.6;
+      // }
     }
     [int_intermittent='yes'] {
       polygon-pattern-file: "url('patterns/intermittent_water.svg')";
-      [way_pixels >='4'] {
-        polygon-pattern-gamma: 0.75;
-      }
-      [way_pixels >='64'] {
-        polygon-pattern-gamma: 0.6;
-      }
+      // [way_pixels >='4'] {
+      //   polygon-pattern-gamma: 0.75;
+      // }
+      // [way_pixels >='64'] {
+      //   polygon-pattern-gamma: 0.6;
+      // }
     }
   }
 }
@@ -1848,27 +1849,26 @@
   [feature='landuse_reservoir'],
   [feature='landuse_basin'],
   [feature='waterway_dock'] {
-    [zoom >='5'][way_pixels > 3000][way_pixels <='768000'],
-    [zoom >='17'][way_pixels <='768000'] {
+    [zoom >='5'] {
       text-name: '[name]';
       text-size: 10;
       text-wrap-width: 25; // 2.5 em
       text-line-spacing: -1.5; // -0.15 em
-      [way_pixels > 12000] {
-        text-size: 12;
-        text-wrap-width: 37; // 3.1 em
-        text-line-spacing: -1.6; // -0.13 em
-      }
-      [way_pixels > 48000] {
-        text-size: 15;
-        text-wrap-width: 59; // 3.9 em
-        text-line-spacing: -1.5; // -0.10 em
-      }
-      [way_pixels > 192000] {
-        text-size: 19;
-        text-wrap-width: 95; // 5.0 em
-        text-line-spacing: -0.95; // -0.05 em
-      }
+      // [way_pixels > 12000] {
+      //   text-size: 12;
+      //   text-wrap-width: 37; // 3.1 em
+      //   text-line-spacing: -1.6; // -0.13 em
+      // }
+      // [way_pixels > 48000] {
+      //   text-size: 15;
+      //   text-wrap-width: 59; // 3.9 em
+      //   text-line-spacing: -1.5; // -0.10 em
+      // }
+      // [way_pixels > 192000] {
+      //   text-size: 19;
+      //   text-wrap-width: 95; // 5.0 em
+      //   text-line-spacing: -0.95; // -0.05 em
+      // }
       text-fill: @water-text;
       text-face-name: @oblique-fonts;
       text-halo-radius: @standard-halo-radius;
@@ -6700,7 +6700,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
 #bridge-text {
   [man_made='bridge'] {
-    [zoom >='12'][way_pixels > 125][way_pixels <='768000'] {
+    [zoom >='12'] {
       text-name: '[name]';
       text-size: 10;
       text-wrap-width: 30; // 3 em
@@ -6711,34 +6711,34 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       text-halo-fill: @standard-halo-fill;
       text-margin: 3; // 0.3 em
       text-wrap-width: 30;
-      [way_pixels > 250] {
-        text-size: 11;
-        text-margin: 3.3; // 0.3 em
-        text-wrap-width: 33; // 3 em
-        text-line-spacing: -1.35; // -0.15 em
-        text-halo-radius: @standard-halo-radius * 1.1;
-      }
-      [way_pixels > 1000] {
-        text-size: 12;
-        text-margin: 3.6; // 0.3 em
-        text-wrap-width: 36; // 3 em
-        text-line-spacing: -1.65; // -0.15 em
-        text-halo-radius: @standard-halo-radius * 1.2;
-      }
-      [way_pixels > 4000] {
-        text-size: 13;
-        text-margin: 3.9; // 0.3 em
-        text-wrap-width: 39; // 3 em
-        text-line-spacing: -1.8; // -0.15 em
-        text-halo-radius: @standard-halo-radius * 1.3;
-      }
-      [way_pixels > 16000] {
-        text-size: 14;
-        text-margin: 4.2; // 0.3 em
-        text-wrap-width: 42; // 3 em
-        text-line-spacing: -1.95; // -0.15 em
-        text-halo-radius: @standard-halo-radius * 1.4;
-      }
+      // [way_pixels > 250] {
+      //   text-size: 11;
+      //   text-margin: 3.3; // 0.3 em
+      //   text-wrap-width: 33; // 3 em
+      //   text-line-spacing: -1.35; // -0.15 em
+      //   text-halo-radius: @standard-halo-radius * 1.1;
+      // }
+      // [way_pixels > 1000] {
+      //   text-size: 12;
+      //   text-margin: 3.6; // 0.3 em
+      //   text-wrap-width: 36; // 3 em
+      //   text-line-spacing: -1.65; // -0.15 em
+      //   text-halo-radius: @standard-halo-radius * 1.2;
+      // }
+      // [way_pixels > 4000] {
+      //   text-size: 13;
+      //   text-margin: 3.9; // 0.3 em
+      //   text-wrap-width: 39; // 3 em
+      //   text-line-spacing: -1.8; // -0.15 em
+      //   text-halo-radius: @standard-halo-radius * 1.3;
+      // }
+      // [way_pixels > 16000] {
+      //   text-size: 14;
+      //   text-margin: 4.2; // 0.3 em
+      //   text-wrap-width: 42; // 3 em
+      //   text-line-spacing: -1.95; // -0.15 em
+      //   text-halo-radius: @standard-halo-radius * 1.4;
+      // }
     }
   }
 }
@@ -7414,7 +7414,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 }
 
 #roads-area-text-name {
-  [way_pixels > 3000],
   [zoom >='17'] {
     text-name: '[name]';
     text-size: 11;
@@ -7773,8 +7772,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 @county-labels: darken(@admin-boundaries-wide, 5%);
 
 #country-names {
-  [zoom >='3'][zoom < 5][way_pixels > 1000],
-  [zoom >='5'][way_pixels < 360000] {
+  [zoom >='3'] {
     text-name: '[name]';
     text-size: 10;
     text-wrap-width: 35; // 3.5 em
@@ -7817,8 +7815,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 }
 
 #state-names {
-  [zoom >='5'][zoom < 7][way_pixels > 3000],
-  [zoom >='7'][way_pixels > 3000][way_pixels < 196000] {
+  [zoom >='5'] {
     text-name: '[name]';
     text-size: 10;
     text-wrap-width: 35; // 3.5 em
@@ -8250,7 +8247,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 }
 
 #county-names {
-  [zoom >='8'][way_pixels > 12000][way_pixels < 196000] {
+  [zoom >='8'] {
     [admin_level='5'][zoom >='8'],
     [admin_level='6'][zoom >='10'] {
       text-name: '[name]';
@@ -8288,8 +8285,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
   }
 }
-@building-fill: #e4e5e7;
-@building-line: darken(@building-fill, 15%);
+@building-fill: #dae6f1;
+@building-line: darken(@building-fill, 8%);
 @building-low-zoom: darken(@building-fill, 4%);
 
 @building-major-fill: darken(@building-fill, 10%);
@@ -9357,8 +9354,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     marker-clip: false;
   }
 
-  [feature='amenity_marketplace'][zoom >='16'][way_pixels > 3000],
-  [feature='amenity_marketplace'][zoom >='17'] {
+  [feature='amenity_marketplace'][zoom >='16'] {
     marker-clip: false;
     marker-fill: @shop-icon;
     marker-file: "url('symbols/shop/marketplace.svg')";
@@ -9874,12 +9870,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   [feature='aeroway_aerodrome'][int_access='restricted'][zoom >='12'][zoom < 18],
   [feature='aeroway_aerodrome'][icao='null'][zoom >='12'][zoom < 18],
   [feature='aeroway_aerodrome'][iata='null'][zoom >='12'][zoom < 18] {
-    [way_pixels <='192000'],
-    [way_pixels='null'] {
-      marker-file: "url('symbols/amenity/aerodrome.svg')";
-      marker-clip: false;
-      marker-fill: @airtransport;
-    }
+    marker-file: "url('symbols/amenity/aerodrome.svg')";
+    marker-clip: false;
+    marker-fill: @airtransport;
   }
 
   [feature='amenity_ferry_terminal'][zoom >='15'] {
@@ -9980,7 +9973,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   [feature='amenity_bicycle_parking'],
   [feature='amenity_motorcycle_parking'],
   [feature='amenity_parking_entrance'] {
-    [zoom >='14'][way_pixels > 750]["parking" !='street_side']["parking" !='lane'],
+    [zoom >='14']["parking" !='street_side']["parking" !='lane'],
     [zoom >='17'][feature='amenity_parking']["parking" !='street_side']["parking" !='lane'],
     [zoom >='18'] {
       [feature='amenity_parking'] {
@@ -10128,25 +10121,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 /* Note that these layers are also used in water.mss */
 #text-poly-low-zoom[zoom < 10],
 #text-point[zoom >='10'] {
-  [feature='place_island'][zoom >='4'][way_pixels > 3000],
-  [feature='place_island'][zoom >='16'],
-  [feature='place_islet'][zoom >='11'][way_pixels > 3000],
-  [feature='place_islet'][zoom >='17'] {
+  [feature='place_island'][zoom >='4'],
+  [feature='place_islet'][zoom >='11'] {
     text-name: '[name]';
     text-fill: #000;
     text-size: @landcover-font-size;
     text-wrap-width: @landcover-wrap-width-size;
     text-line-spacing: @landcover-line-spacing-size;
-    [way_pixels > 12000] {
-      text-size: @landcover-font-size-big;
-      text-wrap-width: @landcover-wrap-width-size-big;
-      text-line-spacing: @landcover-line-spacing-size-big;
-    }
-    [way_pixels > 48000] {
-      text-size: @landcover-font-size-bigger;
-      text-wrap-width: @landcover-wrap-width-size-bigger;
-      text-line-spacing: @landcover-line-spacing-size-bigger;
-    }
     text-face-name: @oblique-fonts;
     text-halo-radius: @standard-halo-radius;
     text-halo-fill: @standard-halo-fill;
@@ -10370,8 +10351,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
   }
 
-  [feature='amenity_place_of_worship'][zoom >='16'][way_pixels > 3000],
-  [feature='amenity_place_of_worship'][zoom >='17'] {
+  [feature='amenity_place_of_worship'][zoom >='16'] {
     text-name: '[name]';
     text-size: @standard-font-size;
     text-wrap-width: @standard-wrap-width;
@@ -10383,8 +10363,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     text-halo-fill: @standard-halo-fill;
   }
 
-  [feature='amenity_marketplace'][zoom >='16'][way_pixels > 3000],
-  [feature='amenity_marketplace'][zoom >='17'] {
+  [feature='amenity_marketplace'][zoom >='16'] {
     text-name: '[name]';
     text-size: @standard-font-size;
     text-wrap-width: @standard-wrap-width;
@@ -10572,22 +10551,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   }
 
   [feature='leisure_swimming_pool'][is_building='no'] {
-    [zoom >='14'][way_pixels > 3000],
-    [zoom >='17'] {
+    [zoom >='14'] {
       text-name: '[name]';
       text-size: @landcover-font-size;
       text-wrap-width: @landcover-wrap-width-size;
       text-line-spacing: @landcover-line-spacing-size;
-      [way_pixels > 12000] {
-        text-size: @landcover-font-size-big;
-        text-wrap-width: @landcover-wrap-width-size-big;
-        text-line-spacing: @landcover-line-spacing-size-big;
-      }
-      [way_pixels > 48000] {
-        text-size: @landcover-font-size-bigger;
-        text-wrap-width: @landcover-wrap-width-size-bigger;
-        text-line-spacing: @landcover-line-spacing-size-bigger;
-      }
       text-fill: @marina-text;
       text-face-name: @landcover-face-name;
       text-halo-radius: @standard-halo-radius;
@@ -10625,22 +10593,12 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   [feature='leisure_nature_reserve'],
   [feature='boundary_aboriginal_lands'],
   [feature='boundary_protected_area'] {
-    [zoom >='8'][way_pixels > 3000][is_building='no'],
+    [zoom >='8'][is_building='no'],
     [zoom >='17'] {
       text-name: '[name]';
       text-size: @landcover-font-size;
       text-wrap-width: @landcover-wrap-width-size;
       text-line-spacing: @landcover-line-spacing-size;
-      [way_pixels > 12000] {
-        text-size: @landcover-font-size-big;
-        text-wrap-width: @landcover-wrap-width-size-big;
-        text-line-spacing: @landcover-line-spacing-size-big;
-      }
-      [way_pixels > 48000] {
-        text-size: @landcover-font-size-bigger;
-        text-wrap-width: @landcover-wrap-width-size-bigger;
-        text-line-spacing: @landcover-line-spacing-size-bigger;
-      }
       text-face-name: @landcover-face-name;
       text-halo-radius: @standard-halo-radius;
       text-halo-fill: @standard-halo-fill;
@@ -10663,22 +10621,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   }
 
   [feature='military_danger_area'][is_building='no'] {
-    [zoom >='9'][way_pixels > 3000],
-    [zoom >='17'] {
+    [zoom >='9'] {
       text-name: '[name]';
       text-size: @landcover-font-size;
       text-wrap-width: @landcover-wrap-width-size;
       text-line-spacing: @landcover-line-spacing-size;
-      [way_pixels > 12000] {
-        text-size: @landcover-font-size-big;
-        text-wrap-width: @landcover-wrap-width-size-big;
-        text-line-spacing: @landcover-line-spacing-size-big;
-      }
-      [way_pixels > 48000] {
-        text-size: @landcover-font-size-bigger;
-        text-wrap-width: @landcover-wrap-width-size-bigger;
-        text-line-spacing: @landcover-line-spacing-size-bigger;
-      }
       text-fill: darken(@military, 20%);
       text-face-name: @landcover-face-name;
       text-halo-radius: @standard-halo-radius;
@@ -10687,22 +10634,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   }
 
   [feature='landuse_garages'][is_building='no'] {
-    [zoom >='13'][way_pixels > 3000],
-    [zoom >='17'] {
+    [zoom >='13'] {
       text-name: '[name]';
       text-size: @landcover-font-size;
       text-wrap-width: @landcover-wrap-width-size;
       text-line-spacing: @landcover-line-spacing-size;
-      [way_pixels > 12000] {
-        text-size: @landcover-font-size-big;
-        text-wrap-width: @landcover-wrap-width-size-big;
-        text-line-spacing: @landcover-line-spacing-size-big;
-      }
-      [way_pixels > 48000] {
-        text-size: @landcover-font-size-bigger;
-        text-wrap-width: @landcover-wrap-width-size-bigger;
-        text-line-spacing: @landcover-line-spacing-size-bigger;
-      }
       text-fill: darken(@garages, 50%);
       text-face-name: @landcover-face-name;
       text-halo-radius: @standard-halo-radius;
@@ -10759,24 +10695,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   [feature='leisure_track'],
   [feature='leisure_ice_rink'],
   [feature='leisure_pitch'] {
-    [zoom >='10'][way_pixels > 3000][is_building='no'],
-    [zoom >='17'][is_building='no'],
-    [zoom >='10'][way_pixels > 3000][feature='shop'][shop='mall'],
+    [zoom >='10'][is_building='no'],
+    [zoom >='10'][feature='shop'][shop='mall'],
     [zoom >='17'][feature='shop'][shop='mall'] {
       text-name: '[name]';
       text-size: @landcover-font-size;
       text-wrap-width: @landcover-wrap-width-size;
       text-line-spacing: @landcover-line-spacing-size;
-      [way_pixels > 12000] {
-        text-size: @landcover-font-size-big;
-        text-wrap-width: @landcover-wrap-width-size-big;
-        text-line-spacing: @landcover-line-spacing-size-big;
-      }
-      [way_pixels > 48000] {
-        text-size: @landcover-font-size-bigger;
-        text-wrap-width: @landcover-wrap-width-size-bigger;
-        text-line-spacing: @landcover-line-spacing-size-bigger;
-      }
       text-face-name: @landcover-face-name;
       text-halo-radius: @standard-halo-radius;
       text-halo-fill: @standard-halo-fill;
@@ -11000,27 +10925,14 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   }
 
   [feature='leisure_marina'][zoom >='15'] {
-    [zoom >='10'][way_pixels > 3000],
-    [zoom >='17'] {
-      text-name: '[name]';
-      text-size: @landcover-font-size;
-      text-wrap-width: @landcover-wrap-width-size;
-      text-line-spacing: @landcover-line-spacing-size;
-      [way_pixels > 12000] {
-        text-size: @landcover-font-size-big;
-        text-wrap-width: @landcover-wrap-width-size-big;
-        text-line-spacing: @landcover-line-spacing-size-big;
-      }
-      [way_pixels > 48000] {
-        text-size: @landcover-font-size-bigger;
-        text-wrap-width: @landcover-wrap-width-size-bigger;
-        text-line-spacing: @landcover-line-spacing-size-bigger;
-      }
-      text-fill: @marina-text;
-      text-face-name: @landcover-face-name;
-      text-halo-radius: @standard-halo-radius;
-      text-halo-fill: @standard-halo-fill;
-    }
+    text-name: '[name]';
+    text-size: @landcover-font-size;
+    text-wrap-width: @landcover-wrap-width-size;
+    text-line-spacing: @landcover-line-spacing-size;
+    text-fill: @marina-text;
+    text-face-name: @landcover-face-name;
+    text-halo-radius: @standard-halo-radius;
+    text-halo-fill: @standard-halo-fill;
   }
 
   [feature='amenity_fountain'][zoom >='17'] {
@@ -11124,8 +11036,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   }
 
   [feature='shop'][shop !='mall'] {
-    [way_pixels > 3000][zoom >='17'],
-    [zoom >='18'] {
+    [zoom >='17'] {
       text-name: '[name]';
       text-size: @standard-font-size;
       text-wrap-width: @standard-wrap-width;
@@ -11200,24 +11111,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   }
 
   [feature='power_plant'][is_building='no'][zoom >='10'],
-  [feature='power_generator'][is_building='no']["generator:source" !='wind'][zoom >='10'],
+  [feature='power_generator'][is_building='no']['generator:source' !='wind'][zoom >='10'],
   [feature='power_substation'][is_building='no'][zoom >='13'] {
-    [way_pixels > 3000],
     [zoom >='17'] {
       text-name: '[name]';
       text-size: @landcover-font-size;
       text-wrap-width: @landcover-wrap-width-size;
       text-line-spacing: @landcover-line-spacing-size;
-      [way_pixels > 12000] {
-        text-size: @landcover-font-size-big;
-        text-wrap-width: @landcover-wrap-width-size-big;
-        text-line-spacing: @landcover-line-spacing-size-big;
-      }
-      [way_pixels > 48000] {
-        text-size: @landcover-font-size-bigger;
-        text-wrap-width: @landcover-wrap-width-size-bigger;
-        text-line-spacing: @landcover-line-spacing-size-bigger;
-      }
       text-fill: darken(@power, 40%);
       text-face-name: @landcover-face-name;
       text-halo-radius: @standard-halo-radius;
@@ -11229,22 +11129,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   [feature='natural_shingle'][zoom >='9'],
   [feature='natural_bare_rock'],
   [feature='natural_sand'] {
-    [zoom >='8'][way_pixels > 3000][is_building='no'],
-    [zoom >='17'][is_building='no'] {
+    [zoom >='8'][is_building='no'] {
       text-name: '[name]';
       text-size: @landcover-font-size;
       text-wrap-width: @landcover-wrap-width-size;
       text-line-spacing: @landcover-line-spacing-size;
-      [way_pixels > 12000] {
-        text-size: @landcover-font-size-big;
-        text-wrap-width: @landcover-wrap-width-size-big;
-        text-line-spacing: @landcover-line-spacing-size-big;
-      }
-      [way_pixels > 48000] {
-        text-size: @landcover-font-size-bigger;
-        text-wrap-width: @landcover-wrap-width-size-bigger;
-        text-line-spacing: @landcover-line-spacing-size-bigger;
-      }
       text-face-name: @landcover-face-name;
       text-halo-radius: @standard-halo-radius;
       text-halo-fill: @standard-halo-fill;
@@ -11260,22 +11149,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   }
 
   [feature='aeroway_apron'][is_building='no'] {
-    [zoom >='10'][way_pixels > 3000],
-    [zoom >='17'] {
+    [zoom >='10'] {
       text-name: '[name]';
       text-size: @landcover-font-size;
       text-wrap-width: @landcover-wrap-width-size;
       text-line-spacing: @landcover-line-spacing-size;
-      [way_pixels > 12000] {
-        text-size: @landcover-font-size-big;
-        text-wrap-width: @landcover-wrap-width-size-big;
-        text-line-spacing: @landcover-line-spacing-size-big;
-      }
-      [way_pixels > 48000] {
-        text-size: @landcover-font-size-bigger;
-        text-wrap-width: @landcover-wrap-width-size-bigger;
-        text-line-spacing: @landcover-line-spacing-size-bigger;
-      }
       text-fill: darken(@apron, 60%);
       text-face-name: @landcover-face-name;
       text-halo-radius: @standard-halo-radius;
@@ -11285,22 +11163,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
   [feature='highway_services'][is_building='no'],
   [feature='highway_rest_area'][is_building='no'] {
-    [zoom >='10'][way_pixels > 3000],
-    [zoom >='17'] {
+    [zoom >='10'] {
       text-name: '[name]';
       text-size: @landcover-font-size;
       text-wrap-width: @landcover-wrap-width-size;
       text-line-spacing: @landcover-line-spacing-size;
-      [way_pixels > 12000] {
-        text-size: @landcover-font-size-big;
-        text-wrap-width: @landcover-wrap-width-size-big;
-        text-line-spacing: @landcover-line-spacing-size-big;
-      }
-      [way_pixels > 48000] {
-        text-size: @landcover-font-size-bigger;
-        text-wrap-width: @landcover-wrap-width-size-bigger;
-        text-line-spacing: @landcover-line-spacing-size-bigger;
-      }
       text-fill: darken(@rest_area, 40%);
       text-face-name: @landcover-face-name;
       text-halo-radius: @standard-halo-radius;
@@ -11309,23 +11176,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   }
 
   [feature='natural_glacier'][is_building='no'] {
-    [zoom >='8'][way_pixels > 10000],
-    [zoom >='10'][way_pixels > 750],
-    [zoom >='17'] {
+    [zoom >='8'] {
       text-name: '[name]';
       text-size: @landcover-font-size;
       text-wrap-width: @landcover-wrap-width-size;
       text-line-spacing: @landcover-line-spacing-size;
-      [way_pixels > 12000] {
-        text-size: @landcover-font-size-big;
-        text-wrap-width: @landcover-wrap-width-size-big;
-        text-line-spacing: @landcover-line-spacing-size-big;
-      }
-      [way_pixels > 48000] {
-        text-size: @landcover-font-size-bigger;
-        text-wrap-width: @landcover-wrap-width-size-bigger;
-        text-line-spacing: @landcover-line-spacing-size-bigger;
-      }
       text-fill: mix(darken(@glacier, 40%), darken(@glacier-line, 30%), 50%);
       text-face-name: @landcover-face-name;
       text-halo-radius: @standard-halo-radius;
@@ -11349,18 +11204,15 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   [feature='aeroway_aerodrome'][int_access='restricted'][zoom >='13'][zoom < 18],
   [feature='aeroway_aerodrome'][icao='null'][zoom >='13'][zoom < 18],
   [feature='aeroway_aerodrome'][iata='null'][zoom >='13'][zoom < 18] {
-    [way_pixels <='192000'],
-    [way_pixels='null'] {
-      text-name: '[name]';
-      text-size: @standard-font-size;
-      text-wrap-width: @standard-wrap-width;
-      text-line-spacing: @standard-line-spacing-size;
-      text-fill: darken(@airtransport, 15%);
-      text-dy: 10;
-      text-face-name: @oblique-fonts;
-      text-halo-radius: @standard-halo-radius;
-      text-halo-fill: @standard-halo-fill;
-    }
+    text-name: '[name]';
+    text-size: @standard-font-size;
+    text-wrap-width: @standard-wrap-width;
+    text-line-spacing: @standard-line-spacing-size;
+    text-fill: darken(@airtransport, 15%);
+    text-dy: 10;
+    text-face-name: @oblique-fonts;
+    text-halo-radius: @standard-halo-radius;
+    text-halo-fill: @standard-halo-fill;
   }
 
   [feature='amenity_ferry_terminal'][zoom >='15'] {
@@ -11434,9 +11286,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   [feature='amenity_parking'],
   [feature='amenity_bicycle_parking'],
   [feature='amenity_motorcycle_parking'],
-  [feature='amenity_parking_entrance']["parking"='underground'] {
-    [zoom >='14'][way_pixels > 3000],
-    [zoom >='18'] {
+  [feature='amenity_parking_entrance'][parking='underground'] {
+    [zoom >='14'] {
       text-name: '[name]';
       text-size: @standard-font-size;
       text-wrap-width: @standard-wrap-width;
@@ -11878,8 +11729,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   }
 }
 @admin-boundaries: #333036;
-@admin-boundaries-narrow: #4C494F;
-@admin-boundaries-wide: #7B797E;
+@admin-boundaries-narrow: #4c494f;
+@admin-boundaries-wide: #7b797e;
 
 /* For performance reasons, the admin border layers are split into three groups
 for low, middle and high zoom levels.
@@ -11890,23 +11741,35 @@ Then all three layers are added to the rendering with comp-op: darken, so that t
 */
 
 #admin-low-zoom[zoom < 8],
-#admin-mid-zoom[zoom >= 8][zoom < 13],
-#admin-high-zoom[zoom >= 13] {
-  [admin_level = '2']::firstline {
-    [zoom >= 8] {
+#admin-mid-zoom[zoom >='8'][zoom < 13],
+#admin-high-zoom[zoom >='13'] {
+  [admin_level='2']::firstline {
+    [zoom >='8'] {
       background/line-join: bevel;
       background/line-color: white;
       background/line-width: 3;
     }
-    [zoom >= 9] { background/line-width: 3.5; }
-    [zoom >= 10] { background/line-width: 4.5; }
-    [zoom >= 11] { background/line-width: 5.5; }
-    [zoom >= 12] { background/line-width: 6; }
-    [zoom >= 13] { background/line-width: 7; }
-    [zoom >= 14] { background/line-width: 8; }
+    [zoom >='9'] {
+      background/line-width: 3.5;
+    }
+    [zoom >='10'] {
+      background/line-width: 4.5;
+    }
+    [zoom >='11'] {
+      background/line-width: 5.5;
+    }
+    [zoom >='12'] {
+      background/line-width: 6;
+    }
+    [zoom >='13'] {
+      background/line-width: 7;
+    }
+    [zoom >='14'] {
+      background/line-width: 8;
+    }
   }
-  [admin_level = '2']::wideline {
-    [zoom >= 4] {
+  [admin_level='2']::wideline {
+    [zoom >='4'] {
       background/line-join: bevel;
       background/line-color: white;
       background/line-width: 1.2;
@@ -11914,50 +11777,50 @@ Then all three layers are added to the rendering with comp-op: darken, so that t
       line-color: @admin-boundaries;
       line-width: 1.2;
     }
-    [zoom >= 5] {
+    [zoom >='5'] {
       background/line-width: 1.5;
       line-width: 1.5;
     }
-    [zoom >= 6] {
+    [zoom >='6'] {
       background/line-width: 1.8;
       line-width: 1.8;
     }
-    [zoom >= 7] {
+    [zoom >='7'] {
       background/line-width: 2.2;
       line-width: 2.2;
     }
-    [zoom >= 8] {
+    [zoom >='8'] {
       background/line-width: 3;
       line-width: 3;
     }
-    [zoom >= 9] {
+    [zoom >='9'] {
       background/line-width: 3.5;
       line-width: 3.5;
     }
-    [zoom >= 10] {
+    [zoom >='10'] {
       background/line-width: 4.5;
       line-color: @admin-boundaries-wide;
       line-width: 4.5;
     }
-    [zoom >= 11] {
+    [zoom >='11'] {
       background/line-width: 5.5;
       line-width: 5;
     }
-    [zoom >= 12] {
+    [zoom >='12'] {
       background/line-width: 6;
       line-width: 6;
     }
-    [zoom >= 13] {
+    [zoom >='13'] {
       background/line-width: 7;
       line-width: 7;
     }
-    [zoom >= 14] {
+    [zoom >='14'] {
       background/line-width: 8;
       line-width: 8;
     }
   }
-  [admin_level = '2']::narrowline {
-    [zoom >= 8] {
+  [admin_level='2']::narrowline {
+    [zoom >='8'] {
       background/line-join: bevel;
       background/line-color: white;
       background/line-width: 0.6;
@@ -11965,50 +11828,62 @@ Then all three layers are added to the rendering with comp-op: darken, so that t
       thin/line-color: @admin-boundaries-narrow;
       thin/line-width: 0.6;
     }
-    [zoom >= 9] {
+    [zoom >='9'] {
       background/line-width: 0.8;
       thin/line-width: 0.8;
     }
-    [zoom >= 10] {
+    [zoom >='10'] {
       background/line-width: 1;
       thin/line-width: 1;
-      thin/line-dasharray: 18,1,4,1;
+      thin/line-dasharray: 18, 1, 4, 1;
     }
-    [zoom >= 11] {
+    [zoom >='11'] {
       background/line-width: 1.2;
       thin/line-width: 1.2;
     }
-    [zoom >= 12] {
+    [zoom >='12'] {
       background/line-width: 1.4;
       thin/line-width: 1.4;
-      thin/line-dasharray: 27,1.5,6,1.5;
+      thin/line-dasharray: 27, 1.5, 6, 1.5;
     }
-    [zoom >= 13] {
+    [zoom >='13'] {
       background/line-width: 1.6;
       thin/line-width: 1.6;
     }
-    [zoom >= 14] {
+    [zoom >='14'] {
       background/line-width: 1.8;
       thin/line-width: 1.8;
-      thin/line-dasharray: 36,2,8,2;
+      thin/line-dasharray: 36, 2, 8, 2;
     }
   }
 
-  [admin_level = '3']::firstline {
-    [zoom >= 8] {
+  [admin_level='3']::firstline {
+    [zoom >='8'] {
       background/line-join: bevel;
       background/line-color: white;
       background/line-width: 1.8;
     }
-    [zoom >= 9] { background/line-width: 2.5; }
-    [zoom >= 10] { background/line-width: 3.2; }
-    [zoom >= 11] { background/line-width: 4; }
-    [zoom >= 12] { background/line-width: 4.5; }
-    [zoom >= 13] { background/line-width: 5; }
-    [zoom >= 14] { background/line-width: 5.5; }
+    [zoom >='9'] {
+      background/line-width: 2.5;
+    }
+    [zoom >='10'] {
+      background/line-width: 3.2;
+    }
+    [zoom >='11'] {
+      background/line-width: 4;
+    }
+    [zoom >='12'] {
+      background/line-width: 4.5;
+    }
+    [zoom >='13'] {
+      background/line-width: 5;
+    }
+    [zoom >='14'] {
+      background/line-width: 5.5;
+    }
   }
-  [admin_level = '3']::wideline {
-    [zoom >= 4] {
+  [admin_level='3']::wideline {
+    [zoom >='4'] {
       background/line-join: bevel;
       background/line-color: white;
       background/line-width: 0.6;
@@ -12016,93 +11891,105 @@ Then all three layers are added to the rendering with comp-op: darken, so that t
       line-color: @admin-boundaries;
       line-width: 0.6;
     }
-    [zoom >= 5] {
+    [zoom >='5'] {
       background/line-width: 0.8;
       line-width: 0.8;
     }
-    [zoom >= 6] {
+    [zoom >='6'] {
       background/line-width: 1;
       line-width: 1;
     }
-    [zoom >= 7] {
+    [zoom >='7'] {
       background/line-width: 1.2;
       line-width: 1.2;
     }
-    [zoom >= 8] {
+    [zoom >='8'] {
       background/line-width: 1.8;
       line-width: 1.8;
     }
-    [zoom >= 9] {
+    [zoom >='9'] {
       background/line-width: 2.5;
       line-width: 2.5;
     }
-    [zoom >= 10] {
+    [zoom >='10'] {
       background/line-width: 3.2;
       line-color: @admin-boundaries-wide;
       line-width: 3.2;
     }
-    [zoom >= 11] {
+    [zoom >='11'] {
       background/line-width: 4;
       line-width: 4;
     }
-    [zoom >= 12] {
+    [zoom >='12'] {
       background/line-width: 4.5;
       line-width: 4.5;
     }
-    [zoom >= 13] {
+    [zoom >='13'] {
       background/line-width: 5;
       line-width: 5;
     }
-    [zoom >= 14] {
+    [zoom >='14'] {
       background/line-width: 5.5;
       line-width: 5.5;
     }
   }
-  [admin_level = '3']::narrowline {
-    [zoom >= 10] {
+  [admin_level='3']::narrowline {
+    [zoom >='10'] {
       background/line-join: bevel;
       background/line-color: white;
       background/line-width: 0.8;
       thin/line-join: bevel;
       thin/line-color: @admin-boundaries-narrow;
       thin/line-width: 0.8;
-      thin/line-dasharray: 12,2,1.5,2;
+      thin/line-dasharray: 12, 2, 1.5, 2;
     }
-    [zoom >= 11] {
+    [zoom >='11'] {
       background/line-width: 1;
       thin/line-width: 1;
     }
-    [zoom >= 12] {
+    [zoom >='12'] {
       background/line-width: 1.2;
       thin/line-width: 1.2;
-      thin/line-dasharray: 17,3,2,3;
+      thin/line-dasharray: 17, 3, 2, 3;
     }
-    [zoom >= 13] {
+    [zoom >='13'] {
       background/line-width: 1.4;
       thin/line-width: 1.4;
     }
-    [zoom >= 14] {
+    [zoom >='14'] {
       background/line-width: 1.6;
       thin/line-width: 1.6;
-      thin/line-dasharray: 23,4,3,4;
+      thin/line-dasharray: 23, 4, 3, 4;
     }
   }
 
-  [admin_level = '4']::firstline {
-    [zoom >= 8] {
+  [admin_level='4']::firstline {
+    [zoom >='8'] {
       background/line-join: bevel;
       background/line-color: white;
       background/line-width: 1;
     }
-    [zoom >= 9] { background/line-width: 1.5; }
-    [zoom >= 10] { background/line-width: 2; }
-    [zoom >= 11] { background/line-width: 2.5; }
-    [zoom >= 12] { background/line-width: 3; }
-    [zoom >= 13] { background/line-width: 3.5; }
-    [zoom >= 14] { background/line-width: 4; }
+    [zoom >='9'] {
+      background/line-width: 1.5;
+    }
+    [zoom >='10'] {
+      background/line-width: 2;
+    }
+    [zoom >='11'] {
+      background/line-width: 2.5;
+    }
+    [zoom >='12'] {
+      background/line-width: 3;
+    }
+    [zoom >='13'] {
+      background/line-width: 3.5;
+    }
+    [zoom >='14'] {
+      background/line-width: 4;
+    }
   }
-  [admin_level = '4']::wideline {
-    [zoom >= 4] {
+  [admin_level='4']::wideline {
+    [zoom >='4'] {
       background/line-join: bevel;
       background/line-color: white;
       background/line-width: 0.4;
@@ -12111,79 +11998,85 @@ Then all three layers are added to the rendering with comp-op: darken, so that t
       line-width: 0.4;
       line-clip: false;
     }
-    [zoom >= 5] {
+    [zoom >='5'] {
       background/line-width: 0.5;
       line-width: 0.5;
     }
-    [zoom >= 6] {
+    [zoom >='6'] {
       background/line-width: 0.6;
       line-width: 0.6;
     }
-    [zoom >= 7] {
+    [zoom >='7'] {
       background/line-width: 0.8;
       line-width: 0.8;
     }
-    [zoom >= 8] {
+    [zoom >='8'] {
       background/line-width: 1;
       line-width: 1;
     }
-    [zoom >= 9] {
+    [zoom >='9'] {
       background/line-width: 1.5;
       line-width: 1.5;
     }
-    [zoom >= 10] {
+    [zoom >='10'] {
       background/line-width: 2;
       line-color: @admin-boundaries-wide;
       line-width: 2;
     }
-    [zoom >= 11] {
+    [zoom >='11'] {
       background/line-width: 2.5;
       line-width: 2.8;
     }
-    [zoom >= 12] {
+    [zoom >='12'] {
       background/line-width: 3;
       line-width: 3;
     }
-    [zoom >= 13] {
+    [zoom >='13'] {
       background/line-width: 3.5;
       line-width: 3.5;
     }
-    [zoom >= 14] {
+    [zoom >='14'] {
       background/line-width: 4;
       line-width: 4;
     }
   }
-  [admin_level = '4']::narrowline {
-    [zoom >= 10] {
+  [admin_level='4']::narrowline {
+    [zoom >='10'] {
       background/line-join: bevel;
       background/line-color: white;
       background/line-width: 0.6;
       thin/line-color: @admin-boundaries-narrow;
       thin/line-width: 0.6;
-      thin/line-dasharray: 8,2,1.5,2,1.5,2;
+      thin/line-dasharray: 8, 2, 1.5, 2, 1.5, 2;
     }
-    [zoom >= 11] {
+    [zoom >='11'] {
       background/line-width: 0.8;
       thin/line-width: 0.8;
     }
-    [zoom >= 12] {
+    [zoom >='12'] {
       background/line-width: 1;
       thin/line-width: 1;
-      thin/line-dasharray: 12,3,2,3,2,3;
+      thin/line-dasharray: 12, 3, 2, 3, 2, 3;
     }
-    [zoom >= 13] {
+    [zoom >='13'] {
       background/line-width: 1.2;
       thin/line-width: 1.2;
     }
-    [zoom >= 14] {
+    [zoom >='14'] {
       background/line-width: 1.4;
       thin/line-width: 1.4;
-      thin/line-dasharray: 16,4,3,4,3,4;
+      thin/line-dasharray: 16, 4, 3, 4, 3, 4;
     }
   }
-  ::firstline { opacity: 0.5; }
-  ::wideline { opacity: 0.5; }
-  ::narrowline { opacity: 0.6; }
+  ::firstline {
+    opacity: 0.5;
+  }
+  ::wideline {
+    opacity: 0.5;
+  }
+  ::narrowline {
+    opacity: 0.6;
+  }
   /*
   The following code prevents admin boundaries from being rendered on top of
   each other. Comp-op works on the entire attachment, not on the individual
@@ -12197,148 +12090,152 @@ Then all three layers are added to the rendering with comp-op: darken, so that t
   */
   ::firstline,
   ::wideline,
-  ::narrowline { comp-op: darken; }
+  ::narrowline {
+    comp-op: darken;
+  }
 
-  [admin_level = '5'][zoom >= 8]::firstline {
+  [admin_level='5'][zoom >='8']::firstline {
     background/line-join: bevel;
     background/line-color: white;
     background/line-width: 0.6;
     line-join: bevel;
     line-color: @admin-boundaries;
     line-width: 0.6;
-    line-dasharray: 4,0.6,2,0.6;
+    line-dasharray: 4, 0.6, 2, 0.6;
     line-clip: false;
-    [zoom >= 9] {
+    [zoom >='9'] {
       background/line-width: 0.8;
       line-width: 0.8;
-      line-dasharray: 6,1,3,1;
+      line-dasharray: 6, 1, 3, 1;
     }
-    [zoom >= 10] {
+    [zoom >='10'] {
       background/line-width: 1.2;
       line-width: 1.2;
-      line-dasharray: 10,1.5,4.5,1.5;
+      line-dasharray: 10, 1.5, 4.5, 1.5;
     }
-    [zoom >= 11] {
+    [zoom >='11'] {
       background/line-width: 1.7;
       line-width: 1.7;
     }
-    [zoom >= 12] {
+    [zoom >='12'] {
       background/line-width: 2.1;
       line-width: 2.1;
-      line-dasharray: 16,2,6,2;
+      line-dasharray: 16, 2, 6, 2;
     }
-    [zoom >= 14] {
+    [zoom >='14'] {
       background/line-width: 2.4;
       line-width: 2.4;
-      line-dasharray: 20,2,8,2;
+      line-dasharray: 20, 2, 8, 2;
     }
   }
-  [admin_level = '6'][zoom >= 10]::firstline {
+  [admin_level='6'][zoom >='10']::firstline {
     background/line-join: bevel;
     background/line-color: white;
     background/line-width: 1;
     line-join: bevel;
     line-color: @admin-boundaries;
     line-width: 1;
-    line-dasharray: 8,1.5,1.5,1.5;
+    line-dasharray: 8, 1.5, 1.5, 1.5;
     line-clip: false;
-    [zoom >= 11] {
+    [zoom >='11'] {
       background/line-width: 1.4;
       line-width: 1.4;
     }
-    [zoom >= 12] {
+    [zoom >='12'] {
       background/line-width: 1.8;
       line-width: 1.8;
-    line-dasharray: 12,1.5,2,1.5;
+      line-dasharray: 12, 1.5, 2, 1.5;
     }
-    [zoom >= 14] {
+    [zoom >='14'] {
       background/line-width: 2.1;
       line-width: 2.1;
-      line-dasharray: 16,2,3,2;
+      line-dasharray: 16, 2, 3, 2;
     }
   }
-  [admin_level = '7']::firstline {
-    [zoom >= 11] {
+  [admin_level='7']::firstline {
+    [zoom >='11'] {
       background/line-join: bevel;
       background/line-color: white;
       background/line-width: 1.2;
       line-join: bevel;
       line-color: @admin-boundaries;
       line-width: 1.2;
-      line-dasharray: 6,1.5,1.5,1.5,1.5,1.5;
+      line-dasharray: 6, 1.5, 1.5, 1.5, 1.5, 1.5;
       line-clip: false;
     }
-    [zoom >= 12] {
+    [zoom >='12'] {
       background/line-width: 1.5;
       line-width: 1.5;
-      line-dasharray: 9,2,2,2,2,2;
+      line-dasharray: 9, 2, 2, 2, 2, 2;
     }
-    [zoom >= 14] {
+    [zoom >='14'] {
       background/line-width: 1.8;
       line-width: 1.8;
-      line-dasharray: 12,2,3,2,3,2;
+      line-dasharray: 12, 2, 3, 2, 3, 2;
     }
   }
-  [admin_level = '8']::firstline {
-    [zoom >= 12] {
+  [admin_level='8']::firstline {
+    [zoom >='12'] {
       background/line-join: bevel;
       background/line-color: white;
       background/line-width: 1.4;
       line-join: bevel;
       line-color: @admin-boundaries;
       line-width: 1.4;
-      line-dasharray: 8,2,2,2,2.5,2,2,2;
+      line-dasharray: 8, 2, 2, 2, 2.5, 2, 2, 2;
       line-clip: false;
     }
-    [zoom >= 14] {
+    [zoom >='14'] {
       background/line-width: 1.6;
       line-width: 1.6;
-      line-dasharray: 10,2,2,2,3,2,2,2;
+      line-dasharray: 10, 2, 2, 2, 3, 2, 2, 2;
     }
   }
 
-  [admin_level = '9'][zoom >= 13]::firstline {
+  [admin_level='9'][zoom >='13']::firstline {
     background/line-join: bevel;
     background/line-color: white;
     background/line-width: 1.2;
     line-join: bevel;
     line-color: @admin-boundaries;
     line-width: 1.2;
-    line-dasharray: 0,3,2,2,2,2,2,3;
+    line-dasharray: 0, 3, 2, 2, 2, 2, 2, 3;
     line-clip: false;
-    [zoom >= 14] {
+    [zoom >='14'] {
       background/line-width: 1.4;
       line-width: 1.4;
-      line-dasharray: 0,4,2,2,3,2,2,4;
+      line-dasharray: 0, 4, 2, 2, 3, 2, 2, 4;
     }
   }
-  [admin_level = '10'][zoom >= 14]::firstline {
+  [admin_level='10'][zoom >='14']::firstline {
     background/line-join: bevel;
     background/line-color: white;
     background/line-width: 1.2;
     line-join: bevel;
     line-color: @admin-boundaries;
     line-width: 1.2;
-    line-dasharray: 0,3,2,2,2,3;
+    line-dasharray: 0, 3, 2, 2, 2, 3;
     line-clip: false;
   }
 }
 
-#admin-text[zoom >= 11][way_pixels >= 196000] {
-  [admin_level = '1'][way_pixels >= 360000],
-  [admin_level = '2'][way_pixels >= 360000],
-  [zoom >= 11][admin_level = '3'],
-  [zoom >= 11][admin_level = '4'],
-  [zoom >= 11][admin_level = '5'],
-  [zoom >= 12][admin_level = '6'],
-  [zoom >= 13][admin_level = '7'],
-  [zoom >= 14][admin_level = '8'],
-  [zoom >= 15][admin_level = '9'],
-  [zoom >= 16] {
-    text-name: "[name]";
+#admin-text[zoom >='11'] {
+  [admin_level='1'],
+  [admin_level='2'],
+  [zoom >='11'][admin_level='3'],
+  [zoom >='11'][admin_level='4'],
+  [zoom >='11'][admin_level='5'],
+  [zoom >='12'][admin_level='6'],
+  [zoom >='13'][admin_level='7'],
+  [zoom >='14'][admin_level='8'],
+  [zoom >='15'][admin_level='9'],
+  [zoom >='16'] {
+    text-name: '[name]';
     text-face-name: @book-fonts;
     text-fill: @state-labels;
-    [admin_level = '6'] { text-fill: @county-labels; }
+    [admin_level='6'] {
+      text-fill: @county-labels;
+    }
     text-halo-radius: @standard-halo-radius;
     text-halo-fill: @standard-halo-fill;
     text-largest-bbox-only: false;
@@ -12352,8 +12249,8 @@ Then all three layers are added to the rendering with comp-op: darken, so that t
   }
 }
 
-#protected-areas-text[zoom >= 13][way_pixels > 192000] {
-  text-name: "[name]";
+#protected-areas-text[zoom >='13'] {
+  text-name: '[name]';
   text-face-name: @book-fonts;
   text-fill: @protected-area;
   [boundary='aboriginal_lands'] {
@@ -12372,58 +12269,56 @@ Then all three layers are added to the rendering with comp-op: darken, so that t
 }
 
 #protected-areas {
-  [way_pixels > 750] {
-    [zoom >= 8][zoom < 10] {
-      opacity: 0.25;
-      line-width: 1.2;
+  [zoom >='8'][zoom < 10] {
+    opacity: 0.25;
+    line-width: 1.2;
+    line-color: @protected-area;
+    [boundary='aboriginal_lands'] {
+      line-color: @aboriginal;
+    }
+    [zoom >='9'] {
+      line-width: 1.5;
+    }
+  }
+  [zoom >='10'] {
+    // inner line
+    ::wideline {
+      opacity: 0.15;
+      line-width: 3.6;
+      // Unlike planet_osm_line, planet_osm_polygon does not preserves the
+      // original direction of the OSM way: Following OGS at
+      // https://www.opengeospatial.org/standards/sfa always at the left
+      // is the interior and at the right the exterior of the polygon.(This
+      // also applies to inner rings of multipolygons.) So a negative
+      // line-offset is always an offset to the inner side of the polygon.
+      line-offset: -0.9;
       line-color: @protected-area;
-      [boundary = 'aboriginal_lands'] {
+      [boundary='aboriginal_lands'] {
         line-color: @aboriginal;
       }
-      [zoom >= 9] {
-        line-width: 1.5;
+      line-join: round;
+      line-cap: round;
+      [zoom >='12'] {
+        line-width: 4;
+        line-offset: -1;
+      }
+      [zoom >='14'] {
+        line-width: 6;
+        line-offset: -2;
       }
     }
-    [zoom >= 10] {
-      // inner line
-      ::wideline {
-        opacity: 0.15;
-        line-width: 3.6;
-        // Unlike planet_osm_line, planet_osm_polygon does not preserves the
-        // original direction of the OSM way: Following OGS at
-        // https://www.opengeospatial.org/standards/sfa always at the left
-        // is the interior and at the right the exterior of the polygon.(This
-        // also applies to inner rings of multipolygons.) So a negative
-        // line-offset is always an offset to the inner side of the polygon.
-        line-offset: -0.9;
-        line-color: @protected-area;
-        [boundary = 'aboriginal_lands'] {
-          line-color: @aboriginal;
-        }
-        line-join: round;
-        line-cap: round;
-        [zoom >= 12] {
-          line-width: 4;
-          line-offset: -1;
-        }
-        [zoom >= 14] {
-          line-width: 6;
-          line-offset: -2;
-        }
+    // outer line
+    ::narrowline {
+      opacity: 0.15;
+      line-width: 1.8;
+      line-color: @protected-area;
+      [boundary='aboriginal_lands'] {
+        line-color: @aboriginal;
       }
-      // outer line
-      ::narrowline {
-        opacity: 0.15;
-        line-width: 1.8;
-        line-color: @protected-area;
-        [boundary = 'aboriginal_lands'] {
-          line-color: @aboriginal;
-        }
-        line-join: round;
-        line-cap: round;
-        [zoom >= 12] {
-            line-width: 2;
-        }
+      line-join: round;
+      line-cap: round;
+      [zoom >='12'] {
+        line-width: 2;
       }
     }
   }
@@ -12433,22 +12328,21 @@ Then all three layers are added to the rendering with comp-op: darken, so that t
 @address-color: #666;
 
 #interpolation {
-  [zoom >= 17] {
+  [zoom >='17'] {
     line-color: @address-color;
     line-width: 1;
-    line-dasharray: 2,4;
+    line-dasharray: 2, 4;
   }
 }
 
 #addresses {
-  [zoom >= 17] {
-    text-name: "[addr_housename]";
-    ["addr_housenumber" != null] {
+  [zoom >='17'] {
+    text-name: '[addr_housename]';
+    ["addr_housenumber" !='null'] {
       text-name: [addr_housenumber];
-      ["addr_housename" != null] {
-        text-name: [addr_housenumber] + "\n" + [addr_housename];
+      ["addr_housename" !='null'] {
+        text-name: [addr_housenumber] + '\n' + [addr_housename];
       }
-
     }
     text-face-name: @book-fonts;
     text-fill: @address-color;
@@ -12458,32 +12352,32 @@ Then all three layers are added to the rendering with comp-op: darken, so that t
     text-wrap-width: 30; // 3.0 em
     text-line-spacing: -1.5; // -0.15 em
     text-margin: 3; // 0.3 em
-    [zoom >= 18] {
+    [zoom >='18'] {
       text-halo-radius: @standard-halo-radius * 1.25;
-      ["addr_unit" != null]["addr_housenumber" = null] {
+      ["addr_unit" !='null']["addr_housenumber"='null'] {
         text-name: [addr_unit];
       }
-      ["addr_flats" != null]["addr_housenumber" = null] {
+      ["addr_flats" !='null']["addr_housenumber"='null'] {
         text-name: [addr_flats];
       }
-      ["addr_unit" != null] {
-        text-name: [addr_housenumber] + " " + [addr_unit];
-        ["addr_housename" != null] {
-          text-name: [addr_housenumber] + " " + [addr_unit] + "\n" + [addr_housename];
+      ["addr_unit" !='null'] {
+        text-name: [addr_housenumber] + ' ' + [addr_unit];
+        ["addr_housename" !='null'] {
+          text-name: [addr_housenumber] + ' ' + [addr_unit] + '\n' + [addr_housename];
         }
       }
-      ["addr_flats" != null] {
-        text-name: [addr_housenumber] + " " + [addr_flats];
-        ["addr_housename" != null] {
-          text-name: [addr_housenumber] + " " + [addr_flats] + "\n" + [addr_housename];
+      ["addr_flats" !='null'] {
+        text-name: [addr_housenumber] + ' ' + [addr_flats];
+        ["addr_housename" !='null'] {
+          text-name: [addr_housenumber] + ' ' + [addr_flats] + '\n' + [addr_housename];
         }
       }
     }
-    [zoom >= 20] {
-        text-size: 11;
-        text-wrap-width: 22; // 2.0 em
-        text-line-spacing: -1.65; // -0.15 em
-        text-margin: 3.3; // 0.3 em
+    [zoom >='20'] {
+      text-size: 11;
+      text-wrap-width: 22; // 2.0 em
+      text-line-spacing: -1.65; // -0.15 em
+      text-margin: 3.3; // 0.3 em
     }
   }
 }
@@ -12492,9 +12386,8 @@ Then all three layers are added to the rendering with comp-op: darken, so that t
 no official postal addresses) */
 
 #building-text {
-  [zoom >= 14][way_pixels > 3000],
-  [zoom >= 17] {
-    text-name: "[name]";
+  [zoom >='14'] {
+    text-name: '[name]';
     text-face-name: @book-fonts;
     text-fill: #444;
     text-halo-radius: @standard-halo-radius;
