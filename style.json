@@ -5542,9 +5542,8 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(255,255,229,1)",
       "line-width": "0.3",
-      "line-color": "rgba(255,255,50,1)"
+      "line-color": "rgba(255,255,229,1)"
     },
     "attachment": "low-zoom"
   },
@@ -34094,7 +34093,7 @@
       }
     ],
     "paint": {
-      "line-width": "4"
+      "line-width": "3.6"
     },
     "attachment": "casing"
   },
@@ -34300,7 +34299,7 @@
       }
     ],
     "paint": {
-      "line-width": "4.3"
+      "line-width": "3.5"
     },
     "attachment": "casing"
   },
@@ -34506,7 +34505,7 @@
       }
     ],
     "paint": {
-      "line-width": "4.3"
+      "line-width": "3.5"
     },
     "attachment": "casing"
   },
@@ -34712,7 +34711,7 @@
       }
     ],
     "paint": {
-      "line-width": "4.6"
+      "line-width": "3.5"
     },
     "attachment": "casing"
   },
@@ -35126,7 +35125,7 @@
       }
     ],
     "paint": {
-      "line-width": "5"
+      "line-width": "4.6"
     },
     "attachment": "casing"
   },
@@ -35332,7 +35331,7 @@
       }
     ],
     "paint": {
-      "line-width": "5.3"
+      "line-width": "4.5"
     },
     "attachment": "casing"
   },
@@ -35538,7 +35537,7 @@
       }
     ],
     "paint": {
-      "line-width": "5.3"
+      "line-width": "4.5"
     },
     "attachment": "casing"
   },
@@ -35744,7 +35743,7 @@
       }
     ],
     "paint": {
-      "line-width": "5.6"
+      "line-width": "4.5"
     },
     "attachment": "casing"
   },
@@ -39618,7 +39617,7 @@
       }
     ],
     "paint": {
-      "line-width": "3"
+      "line-width": "2.6"
     },
     "attachment": "bridges_and_tunnels_background"
   },
@@ -39824,7 +39823,7 @@
       }
     ],
     "paint": {
-      "line-width": "3.3"
+      "line-width": "2.5"
     },
     "attachment": "bridges_and_tunnels_background"
   },
@@ -40030,7 +40029,7 @@
       }
     ],
     "paint": {
-      "line-width": "3.3"
+      "line-width": "2.5"
     },
     "attachment": "bridges_and_tunnels_background"
   },
@@ -40236,7 +40235,7 @@
       }
     ],
     "paint": {
-      "line-width": "3.6"
+      "line-width": "2.5"
     },
     "attachment": "bridges_and_tunnels_background"
   },
@@ -40651,7 +40650,7 @@
       }
     ],
     "paint": {
-      "line-width": "3"
+      "line-width": "2.6"
     },
     "attachment": "bridges_and_tunnels_background"
   },
@@ -40857,7 +40856,7 @@
       }
     ],
     "paint": {
-      "line-width": "3.3"
+      "line-width": "2.5"
     },
     "attachment": "bridges_and_tunnels_background"
   },
@@ -41063,7 +41062,7 @@
       }
     ],
     "paint": {
-      "line-width": "3.3"
+      "line-width": "2.5"
     },
     "attachment": "bridges_and_tunnels_background"
   },
@@ -41269,7 +41268,7 @@
       }
     ],
     "paint": {
-      "line-width": "3.6"
+      "line-width": "2.5"
     },
     "attachment": "bridges_and_tunnels_background"
   },
@@ -164429,7 +164428,7 @@
       "background/line-color": "rgba(206,212,218,1)",
       "background/line-cap": "round",
       "background/line-join": "round",
-      "background/line-width": "3",
+      "background/line-width": "2.6",
       "background/line-opacity": "0.4"
     },
     "attachment": "fill"
@@ -164702,7 +164701,7 @@
       }
     ],
     "paint": {
-      "background/line-width": "3.3"
+      "background/line-width": "2.5"
     },
     "attachment": "fill"
   },
@@ -164974,7 +164973,7 @@
       }
     ],
     "paint": {
-      "background/line-width": "3.3"
+      "background/line-width": "2.5"
     },
     "attachment": "fill"
   },
@@ -165246,7 +165245,7 @@
       }
     ],
     "paint": {
-      "background/line-width": "3.6"
+      "background/line-width": "2.5"
     },
     "attachment": "fill"
   },
@@ -165951,7 +165950,7 @@
     ],
     "paint": {
       "line/line-dasharray": "2, 3.5",
-      "line/line-width": "1"
+      "line/line-width": "0.6"
     },
     "attachment": "fill"
   },
@@ -166304,7 +166303,7 @@
     ],
     "paint": {
       "line/line-dasharray": "3, 3.5",
-      "line/line-width": "1.3"
+      "line/line-width": "0.5"
     },
     "attachment": "fill"
   },
@@ -167008,7 +167007,7 @@
       }
     ],
     "paint": {
-      "line/line-width": "1.3"
+      "line/line-width": "0.5"
     },
     "attachment": "fill"
   },
@@ -167360,7 +167359,7 @@
       }
     ],
     "paint": {
-      "line/line-width": "1.6"
+      "line/line-width": "0.5"
     },
     "attachment": "fill"
   },
@@ -167716,7 +167715,7 @@
       "line/line-dasharray": "1, 3, 2, 4",
       "line/line-join": "round",
       "line/line-cap": "round",
-      "line/line-width": "1"
+      "line/line-width": "0.6"
     },
     "attachment": "fill"
   },
@@ -168501,7 +168500,7 @@
     ],
     "paint": {
       "line/line-dasharray": "1, 4, 2, 3",
-      "line/line-width": "1.3"
+      "line/line-width": "0.5"
     },
     "attachment": "fill"
   },
@@ -168853,7 +168852,7 @@
       }
     ],
     "paint": {
-      "line/line-width": "1.3"
+      "line/line-width": "0.5"
     },
     "attachment": "fill"
   },
@@ -169205,7 +169204,7 @@
       }
     ],
     "paint": {
-      "line/line-width": "1.6"
+      "line/line-width": "0.5"
     },
     "attachment": "fill"
   },
@@ -169561,7 +169560,7 @@
       "line/line-dasharray": "1, 4",
       "line/line-join": "round",
       "line/line-cap": "round",
-      "line/line-width": "1"
+      "line/line-width": "0.6"
     },
     "attachment": "fill"
   },
@@ -170345,7 +170344,7 @@
       }
     ],
     "paint": {
-      "line/line-width": "1.3"
+      "line/line-width": "0.5"
     },
     "attachment": "fill"
   },
@@ -170697,7 +170696,7 @@
       }
     ],
     "paint": {
-      "line/line-width": "1.3"
+      "line/line-width": "0.5"
     },
     "attachment": "fill"
   },
@@ -171049,7 +171048,7 @@
       }
     ],
     "paint": {
-      "line/line-width": "1.6"
+      "line/line-width": "0.5"
     },
     "attachment": "fill"
   },
