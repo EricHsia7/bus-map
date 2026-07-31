@@ -358,10 +358,9 @@
     polygon-fill: @built-up-lowzoom;
     [zoom >='12'] {
       polygon-fill: @built-up-z12;
-      polygon-opacity: 0;
     }
     [zoom >='13'] {
-      polygon-fill: @residential;
+      // polygon-fill: @residential;
       polygon-opacity: 0;
     }
     [zoom >='16'] {
@@ -464,44 +463,27 @@
   [feature='natural_wood'] {
     [zoom >='5'] {
       polygon-fill: @forest;
-      // [way_pixels >='4'] {
-      //   polygon-gamma: 0.75;
-      // }
-      // [way_pixels >='64'] {
-      //   polygon-gamma: 0.3;
-      // }
     }
   }
 
   [feature='landuse_farmyard'][zoom >='10'] {
     polygon-fill: @farmyard;
     [zoom >='16'] {
+      polygon-opacity: 0;
       line-width: @landuse-faint-outline-width;
       line-color: @farmyard-line;
     }
-    // [way_pixels >='4'] {
-    //   polygon-gamma: 0.75;
-    // }
-    // [way_pixels >='64'] {
-    //   polygon-gamma: 0.3;
-    // }
   }
 
   [feature='landuse_farmland'],
   [feature='landuse_greenhouse_horticulture'] {
     [zoom >='5'] {
       polygon-fill: @farmland;
-      polygon-opacity: 0.5;
       [zoom >='16'] {
+        polygon-opacity: 0;
         line-width: @landuse-faint-outline-width;
         line-color: @farmland-line;
       }
-      // [way_pixels >='4'] {
-      //   polygon-gamma: 0.75;
-      // }
-      // [way_pixels >='64'] {
-      //   polygon-gamma: 0.3;
-      // }
     }
   }
 
