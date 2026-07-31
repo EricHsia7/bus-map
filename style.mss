@@ -2986,7 +2986,7 @@
             line-width: @steps-width-z15 + 2 * (@paths-background-width + @paths-tunnel-casing-width);
           }
           line-color: @tunnel-casing;
-          line-dasharray: 4, 2;
+          line-dasharray: 3;
         }
       }
     }
@@ -3011,7 +3011,7 @@
             line-width: @bridleway-width-z15 + 2 * (@paths-background-width + @paths-tunnel-casing-width);
           }
           line-color: @tunnel-casing;
-          line-dasharray: 4, 2;
+          line-dasharray: 3;
         }
       }
     }
@@ -3055,7 +3055,7 @@
             line-width: @footway-width-z19 + 2 * (@paths-background-width + @paths-tunnel-casing-width);
           }
           line-color: @tunnel-casing;
-          line-dasharray: 4, 2;
+          line-dasharray: 3;
         }
       }
     }
@@ -3098,7 +3098,7 @@
             line-width: @cycleway-width-z19 + 2 * (@paths-background-width + @paths-tunnel-casing-width);
           }
           line-color: @tunnel-casing;
-          line-dasharray: 4, 2;
+          line-dasharray: 3;
         }
       }
     }
@@ -3132,7 +3132,7 @@
         [zoom >='13'][int_access !='no'],
         [zoom >='15'] {
           line-color: @tunnel-casing;
-          line-dasharray: 4, 2;
+          line-dasharray: 3;
           line-width: @track-width-z13 + 2 * (@paths-background-width + @paths-tunnel-casing-width);
           [tracktype='grade1'] {
             line-width: @track-grade1-width-z13 + 2 * (@paths-background-width + @paths-tunnel-casing-width);

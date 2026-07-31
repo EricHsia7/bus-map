@@ -33141,7 +33141,7 @@
     "paint": {
       "line-width": "4.7",
       "line-color": "rgba(153,158,163,1)",
-      "line-dasharray": "4, 2"
+      "line-dasharray": "3"
     },
     "attachment": "casing"
   },
@@ -33573,7 +33573,7 @@
     "paint": {
       "line-width": "4.3",
       "line-color": "rgba(153,158,163,1)",
-      "line-dasharray": "4, 2"
+      "line-dasharray": "3"
     },
     "attachment": "casing"
   },
@@ -34920,7 +34920,7 @@
     "paint": {
       "line-width": "4.7",
       "line-color": "rgba(153,158,163,1)",
-      "line-dasharray": "4, 2"
+      "line-dasharray": "3"
     },
     "attachment": "casing"
   },
@@ -36390,7 +36390,7 @@
     "paint": {
       "line-width": "4.7",
       "line-color": "rgba(153,158,163,1)",
-      "line-dasharray": "4, 2"
+      "line-dasharray": "3"
     },
     "attachment": "casing"
   },
@@ -37335,7 +37335,7 @@
     ],
     "paint": {
       "line-color": "rgba(153,158,163,1)",
-      "line-dasharray": "4, 2",
+      "line-dasharray": "3",
       "line-width": "4.5"
     },
     "attachment": "casing"
