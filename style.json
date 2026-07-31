@@ -1705,8 +1705,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(227,230,232,1)",
-      "polygon-opacity": "0"
+      "polygon-fill": "rgba(227,230,232,1)"
     },
     "attachment": "low-zoom"
   },
@@ -1742,7 +1741,6 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(229,234,240,1)",
       "polygon-opacity": "0"
     },
     "attachment": "low-zoom"
@@ -2237,6 +2235,7 @@
       }
     ],
     "paint": {
+      "polygon-opacity": "0",
       "line-width": "0.5",
       "line-color": "rgba(200,190,172,1)"
     },
@@ -2302,8 +2301,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(239,236,230,1)",
-      "polygon-opacity": "0.5"
+      "polygon-fill": "rgba(239,236,230,1)"
     },
     "attachment": "low-zoom"
   },
@@ -2367,6 +2365,7 @@
       }
     ],
     "paint": {
+      "polygon-opacity": "0",
       "line-width": "0.5",
       "line-color": "rgba(229,224,215,1)"
     },
