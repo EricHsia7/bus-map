@@ -80,7 +80,7 @@
   // white glow used when water stroke width is less than 3.5 px and only at "mid zoom" (13 - 17)
 
   [feature='waterway_canal'][int_bridge_tunnel='no'][zoom >='13'][zoom < 15] {
-    line-color: white;
+    line-color: @water-color;
     line-join: round;
     line-cap: round;
     line-opacity: 0.85;
@@ -98,7 +98,7 @@
   [feature='waterway_drain'],
   [feature='waterway_stream'] {
     [int_bridge_tunnel='no'][zoom >='13'][zoom < 18] {
-      line-color: white;
+      line-color: @water-color;
       line-join: round;
       line-cap: round;
       line-opacity: 0.7;
@@ -230,7 +230,7 @@
       background/line-join: round;
     }
     [int_bridge_tunnel='bridge'][int_intermittent='yes'][zoom >='14'] {
-      background/line-color: white;
+      background/line-color: @water-color;
       background/line-join: round;
       background/line-width: @river-width-z14;
       [zoom >='15'] {
@@ -316,7 +316,7 @@
         background/line-join: round;
       }
       [int_bridge_tunnel='bridge'][int_intermittent='yes'][zoom >='14'] {
-        background/line-color: white;
+        background/line-color: @water-tunnelfill-color;
         background/line-join: round;
         background/line-width: @stream-width-z14;
         [feature='waterway_stream'] {
@@ -423,7 +423,7 @@
       background/line-join: round;
     }
     [int_bridge_tunnel='bridge'][int_intermittent='yes'][zoom >='14'] {
-      background/line-color: white;
+      background/line-color: @water-tunnelfill-color;
       background/line-join: round;
       background/line-width: @stream-width-z14 * @canal-scale-factor;
       [zoom >='15'] {
