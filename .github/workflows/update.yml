@@ -100,13 +100,13 @@ jobs:
         uses: actions/cache/restore@v5
         with:
           path: input.osm.pbf
-          key: map-data-2026-07-22
+          key: map-data-2026-08-02
           restore-keys: |
             map-data-
 
       - name: Download Map Data
         if: steps.restore-cached-map-data.outputs.cache-hit != 'true'
-        run: curl --output input.osm.pbf "https://download.geofabrik.de/asia/taiwan-260722.osm.pbf"
+        run: curl --output input.osm.pbf "https://download.geofabrik.de/asia/taiwan-260802.osm.pbf"
 
       - name: Cache Map Data
         id: cache-map-data
