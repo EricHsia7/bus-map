@@ -200481,7 +200481,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/shelter.svg')\"",
+      "marker-symbol": "'gite'",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -200547,7 +200547,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/tourism/wilderness_hut.svg')\""
+      "marker-symbol": "'bungalow'"
     }
   },
   {
@@ -200611,7 +200611,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/tourism/alpinehut.svg')\""
+      "marker-symbol": "'hiking'"
     }
   },
   {
@@ -200760,7 +200760,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/atm.svg')\"",
+      "marker-symbol": "'atm'",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -200783,7 +200783,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/bureau_de_change.svg')\"",
+      "marker-symbol": "'currency_exchange'",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -200806,7 +200806,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/bank.svg')\"",
+      "marker-symbol": "'account_balance'",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -201247,7 +201247,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/bar.svg')\""
+      "marker-symbol": "'local_bar'"
     }
   },
   {
@@ -201406,7 +201406,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/biergarten.svg')\""
+      "marker-symbol": "'sports_bar'"
     }
   },
   {
@@ -201565,7 +201565,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/cafe.svg')\""
+      "marker-symbol": "'local_cafe'"
     }
   },
   {
@@ -201724,7 +201724,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/fast_food.svg')\""
+      "marker-symbol": "'fastfood'"
     }
   },
   {
@@ -202035,7 +202035,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/restaurant.svg')\""
+      "marker-symbol": "'restaurant'"
     }
   },
   {
@@ -202194,7 +202194,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/ice_cream.svg')\""
+      "marker-symbol": "'icecream'"
     }
   },
   {
@@ -202353,7 +202353,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/pub.svg')\""
+      "marker-symbol": "'glass_cup'"
     }
   },
   {
@@ -202374,7 +202374,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/internet_cafe.svg')\"",
+      "marker-symbol": "'monitor'",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -202397,7 +202397,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/bbq.svg')\"",
+      "marker-symbol": "'outdoor_grill'",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -202446,7 +202446,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/public_bookcase.svg')\"",
+      "marker-symbol": "'shelves'",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -202469,7 +202469,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/rental_bicycle.svg')\"",
+      "marker-symbol": "'directions_bike'",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -202479,8 +202479,8 @@
       {
         "layer": "amenity-points",
         "zoom": {
-          "min": 16,
-          "max": 16
+          "min": 0,
+          "max": 15
         },
         "and": [
           {
@@ -202492,9 +202492,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/square.svg')\"",
-      "marker-fill": "rgba(0,146,218,1)",
-      "marker-clip": "false"
+      "marker-symbol": "'directions_bus'"
     }
   },
   {
@@ -202502,7 +202500,7 @@
       {
         "layer": "amenity-points",
         "zoom": {
-          "min": 17,
+          "min": 16,
           "max": 24
         },
         "and": [
@@ -202515,7 +202513,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/highway/bus_stop.svg')\"",
+      "marker-symbol": "'directions_bus'",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -202564,7 +202562,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/highway/elevator.svg')\"",
+      "marker-symbol": "'elevator'",
       "marker-fill": "rgba(0,146,218,1)"
     }
   },
@@ -202586,7 +202584,8 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/bus_station.svg')\"",
+      "marker-symbol": "'bus_map_pin'",
+      "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
   },
@@ -202608,7 +202607,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/taxi.svg')\"",
+      "marker-symbol": "'local_taxi'",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -202658,7 +202657,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/excrement_bags.svg')\""
+      "marker-symbol": "'orders'"
     }
   },
   {
@@ -202684,7 +202683,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/parking_tickets.svg')\""
+      "marker-symbol": "'parking_sign'"
     }
   },
   {
@@ -202710,7 +202709,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/public_transport_tickets.svg')\""
+      "marker-symbol": "'transit_ticket'"
     }
   },
   {
@@ -202774,7 +202773,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/parcel_locker.svg')\"",
+      "marker-symbol": "'package_2'",
       "marker-clip": "false"
     }
   },
@@ -202796,7 +202795,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/highway/traffic_light.svg')\"",
+      "marker-symbol": "'traffic'",
       "marker-fill": "rgba(84,84,84,1)",
       "marker-clip": "false"
     }
@@ -202819,7 +202818,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/barrier/toll_booth.svg')\"",
+      "marker-symbol": "'parking_meter'",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -202868,7 +202867,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/tourism/artwork.svg')\""
+      "marker-symbol": "'art_track'"
     }
   },
   {
@@ -202894,7 +202893,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/historic/statue.svg')\""
+      "marker-symbol": "'man_4'"
     }
   },
   {
@@ -202920,7 +202919,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/historic/bust.svg')\""
+      "marker-symbol": "'woman_2'"
     }
   },
   {
@@ -202941,7 +202940,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/tourism/camping.svg')\"",
+      "marker-symbol": "'camping'",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -202964,7 +202963,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/highway/ford.svg')\"",
+      "marker-symbol": "'transfer_within_a_station'",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -203010,7 +203009,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/rental_car.svg')\"",
+      "marker-symbol": "'car_rental'",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -203033,7 +203032,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/car_wash.svg')\"",
+      "marker-symbol": "'local_car_wash'",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -203056,7 +203055,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/tourism/chalet.svg')\"",
+      "marker-symbol": "'chalet'",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -203079,7 +203078,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/cinema.svg')\"",
+      "marker-symbol": "'theaters'",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -203102,7 +203101,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/public_bath.svg')\"",
+      "marker-symbol": "'bath_public_large'",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -203125,7 +203124,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/nightclub.svg')\"",
+      "marker-symbol": "'nightlife'",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -203148,7 +203147,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/firestation.svg')\"",
+      "marker-symbol": "'local_fire_department'",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -203244,7 +203243,7 @@
       }
     ],
     "paint": {
-      "nozzle/marker-symbol": "\"url('symbols/amenity/fountain.svg')\"",
+      "nozzle/marker-symbol": "'water'",
       "nozzle/marker-clip": "false"
     },
     "attachment": "nozzle"
@@ -203267,7 +203266,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/charging_station.svg')\"",
+      "marker-symbol": "'ev_station'",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -203316,7 +203315,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/fuel.svg')\"",
+      "marker-symbol": "'local_gas_station'",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -203339,7 +203338,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/tourism/guest_house.svg')\"",
+      "marker-symbol": "'night_shelter'",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -203362,7 +203361,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/tourism/apartment.svg')\"",
+      "marker-symbol": "'apartment'",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -203385,7 +203384,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/bicycle_repair_station.svg')\"",
+      "marker-symbol": "'handyman'",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -203434,7 +203433,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/casino.svg')\"",
+      "marker-symbol": "'casino'",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -203457,7 +203456,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/shop/art.svg')\"",
+      "marker-symbol": "'palette'",
       "marker-clip": "false",
       "marker-fill": "rgba(115,74,8,1)"
     }
@@ -203480,7 +203479,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/tourism/hostel.svg')\"",
+      "marker-symbol": "'hotel'",
       "marker-clip": "false",
       "marker-fill": "rgba(0,146,218,1)"
     }
@@ -203503,7 +203502,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/tourism/hotel.svg')\"",
+      "marker-symbol": "'hotel'",
       "marker-clip": "false",
       "marker-fill": "rgba(0,146,218,1)"
     }
@@ -203526,7 +203525,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/tourism/motel.svg')\"",
+      "marker-symbol": "'hotel'",
       "marker-clip": "false",
       "marker-fill": "rgba(0,146,218,1)"
     }
@@ -203554,6 +203553,11 @@
           "max": 24
         },
         "and": [
+          {
+            "key": "information",
+            "op": "=",
+            "value": "office"
+          },
           {
             "key": "feature",
             "op": "=",
@@ -203596,6 +203600,11 @@
         },
         "and": [
           {
+            "key": "information",
+            "op": "=",
+            "value": "office"
+          },
+          {
             "key": "feature",
             "op": "=",
             "value": "tourism_information"
@@ -203609,7 +203618,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/tourism/audioguide.svg')\""
+      "marker-symbol": "'headphones'"
     }
   },
   {
@@ -203641,6 +203650,11 @@
         },
         "and": [
           {
+            "key": "information",
+            "op": "=",
+            "value": "office"
+          },
+          {
             "key": "feature",
             "op": "=",
             "value": "tourism_information"
@@ -203654,7 +203668,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/tourism/board.svg')\""
+      "marker-symbol": "'newsmode'"
     }
   },
   {
@@ -203686,6 +203700,11 @@
         },
         "and": [
           {
+            "key": "information",
+            "op": "=",
+            "value": "office"
+          },
+          {
             "key": "feature",
             "op": "=",
             "value": "tourism_information"
@@ -203699,7 +203718,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/tourism/guidepost.svg')\""
+      "marker-symbol": "'help'"
     }
   },
   {
@@ -203731,6 +203750,11 @@
         },
         "and": [
           {
+            "key": "information",
+            "op": "=",
+            "value": "office"
+          },
+          {
             "key": "feature",
             "op": "=",
             "value": "tourism_information"
@@ -203744,7 +203768,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/tourism/office.svg')\"",
+      "marker-symbol": "'info'",
       "marker-fill": "rgba(115,74,8,1)"
     }
   },
@@ -203796,6 +203820,11 @@
         },
         "and": [
           {
+            "key": "information",
+            "op": "=",
+            "value": "office"
+          },
+          {
             "key": "feature",
             "op": "=",
             "value": "tourism_information"
@@ -203815,6 +203844,11 @@
         },
         "and": [
           {
+            "key": "information",
+            "op": "=",
+            "value": "office"
+          },
+          {
             "key": "feature",
             "op": "=",
             "value": "tourism_information"
@@ -203828,7 +203862,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/tourism/map.svg')\""
+      "marker-symbol": "'map'"
     }
   },
   {
@@ -203860,6 +203894,11 @@
         },
         "and": [
           {
+            "key": "information",
+            "op": "=",
+            "value": "office"
+          },
+          {
             "key": "feature",
             "op": "=",
             "value": "tourism_information"
@@ -203873,7 +203912,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/tourism/terminal.svg')\""
+      "marker-symbol": "'info_i'"
     }
   },
   {
@@ -203894,7 +203933,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/library.svg')\"",
+      "marker-symbol": "'local_library'",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -203917,7 +203956,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/courthouse.svg')\"",
+      "marker-symbol": "'gavel'",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -203940,7 +203979,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/community_centre.svg')\"",
+      "marker-symbol": "'family_group'",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -203963,7 +204002,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/shower.svg')\"",
+      "marker-symbol": "'shower'",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -204012,7 +204051,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/social_facility.svg')\"",
+      "marker-symbol": "'groups'",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -204035,7 +204074,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/amenity/town_hall.svg')\"",
+      "marker-symbol": "'castle'",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -204210,7 +204249,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/man_made/mast.svg')\"",
+      "marker-symbol": "'align_flex_end'",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -204385,7 +204424,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/man_made/mast_lighting.svg')\""
+      "marker-symbol": "'table_lamp'"
     }
   },
   {
@@ -204558,7 +204597,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/man_made/mast_communications.svg')\""
+      "marker-symbol": "'cell_tower'"
     }
   },
   {
@@ -204726,7 +204765,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/man_made/tower_generic.svg')\"",
+      "marker-symbol": "'align_flex_end'",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -204896,7 +204935,7 @@
       }
     ],
     "paint": {
-      "marker-symbol": "\"url('symbols/man_made/tower_defensive.svg')\""
+      "marker-symbol": "'fort'"
     }
   },
   {

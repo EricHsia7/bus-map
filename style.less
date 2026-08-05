@@ -5504,12 +5504,12 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[feature='tourism_alpine_hut']:zoom(13),
   &[feature='tourism_wilderness_hut']:zoom(13),
   &[feature='amenity_shelter']:zoom(16) {
-    --marker-symbol: "url('symbols/amenity/shelter.svg')";
+    --marker-symbol: 'gite';
     &[feature='tourism_wilderness_hut'] {
-      --marker-symbol: "url('symbols/tourism/wilderness_hut.svg')";
+      --marker-symbol: 'bungalow';
     }
     &[feature='tourism_alpine_hut'] {
-      --marker-symbol: "url('symbols/tourism/alpinehut.svg')";
+      --marker-symbol: 'hiking';
     }
     &[feature='amenity_shelter'] {
       --marker-fill: @man-made-icon;
@@ -5522,19 +5522,19 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   }
 
   &[feature='amenity_atm']:zoom(18) {
-    --marker-symbol: "url('symbols/amenity/atm.svg')";
+    --marker-symbol: 'atm';
     --marker-fill: @amenity-brown;
     --marker-clip: false;
   }
 
   &[feature='amenity_bureau_de_change']:zoom(17) {
-    --marker-symbol: "url('symbols/amenity/bureau_de_change.svg')";
+    --marker-symbol: 'currency_exchange';
     --marker-fill: @amenity-brown;
     --marker-clip: false;
   }
 
   &[feature='amenity_bank']:zoom(17) {
-    --marker-symbol: "url('symbols/amenity/bank.svg')";
+    --marker-symbol: 'account_balance';
     --marker-fill: @public-service;
     --marker-clip: false;
   }
@@ -5554,37 +5554,37 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --marker-line-width: 0;
     }
     &[feature='amenity_bar']:zoom(18) {
-      --marker-symbol: "url('symbols/amenity/bar.svg')";
+      --marker-symbol: 'local_bar';
     }
     &[feature='amenity_biergarten']:zoom(18) {
-      --marker-symbol: "url('symbols/amenity/biergarten.svg')";
+      --marker-symbol: 'sports_bar';
     }
     &[feature='amenity_cafe']:zoom(18) {
-      --marker-symbol: "url('symbols/amenity/cafe.svg')";
+      --marker-symbol: 'local_cafe';
     }
     &[feature='amenity_fast_food']:zoom(18) {
-      --marker-symbol: "url('symbols/amenity/fast_food.svg')";
+      --marker-symbol: 'fastfood';
     }
     &[feature='amenity_food_court']:zoom(17),
     &[feature='amenity_restaurant']:zoom(18) {
-      --marker-symbol: "url('symbols/amenity/restaurant.svg')";
+      --marker-symbol: 'restaurant';
     }
     &[feature='amenity_ice_cream']:zoom(18) {
-      --marker-symbol: "url('symbols/amenity/ice_cream.svg')";
+      --marker-symbol: 'icecream';
     }
     &[feature='amenity_pub']:zoom(18) {
-      --marker-symbol: "url('symbols/amenity/pub.svg')";
+      --marker-symbol: 'glass_cup';
     }
   }
 
   &[feature='amenity_internet_cafe']:zoom(17) {
-    --marker-symbol: "url('symbols/amenity/internet_cafe.svg')";
+    --marker-symbol: 'monitor';
     --marker-fill: @amenity-brown;
     --marker-clip: false;
   }
 
   &[feature='amenity_bbq']:zoom(17) {
-    --marker-symbol: "url('symbols/amenity/bbq.svg')";
+    --marker-symbol: 'outdoor_grill';
     --marker-fill: @amenity-brown;
     --marker-clip: false;
     &[int_access='restricted'] {
@@ -5593,19 +5593,19 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   }
 
   &[feature='amenity_public_bookcase']:zoom(19) {
-    --marker-symbol: "url('symbols/amenity/public_bookcase.svg')";
+    --marker-symbol: 'shelves';
     --marker-fill: @amenity-brown;
     --marker-clip: false;
   }
 
   &[feature='amenity_bicycle_rental']:zoom(17) {
-    --marker-symbol: "url('symbols/amenity/rental_bicycle.svg')";
+    --marker-symbol: 'directions_bike';
     --marker-fill: @transportation-icon;
     --marker-clip: false;
   }
 
   &[feature='highway_bus_stop'] {
-    --marker-symbol: zoom-gradient("url('symbols/square.svg')" 16z 16z, "url('symbols/highway/bus_stop.svg')" 17z);
+    --marker-symbol: 'directions_bus';
     --marker-fill: zoom-gradient(@transportation-icon 16z 16z, @transportation-icon 17z);
     --marker-clip: zoom-gradient(false 16z 16z, false 17z);
     &:zoom(16, 16) {
@@ -5615,32 +5615,32 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
   &[feature='highway_elevator']:zoom(18) {
     &[int_access='yes'] {
-      --marker-symbol: "url('symbols/highway/elevator.svg')";
+      --marker-symbol: 'elevator';
       --marker-fill: @transportation-icon;
     }
   }
 
   &[feature='amenity_bus_station']:zoom(16) {
-    --marker-symbol: "url('symbols/amenity/bus_station.svg')";
-    // use colors from SVG to allow for white background
+    --marker-symbol: 'bus_map_pin';
+    --marker-fill: zoom-gradient(@transportation-icon 16z 16z, @transportation-icon 17z);
     --marker-clip: false;
   }
 
   &[feature='amenity_taxi']:zoom(17) {
-    --marker-symbol: "url('symbols/amenity/taxi.svg')";
+    --marker-symbol: 'local_taxi';
     --marker-fill: @transportation-icon;
     --marker-clip: false;
   }
 
   &[feature='amenity_vending_machine']:zoom(19) {
     &[vending='excrement_bags'] {
-      --marker-symbol: "url('symbols/amenity/excrement_bags.svg')";
+      --marker-symbol: 'orders';
     }
     &[vending='parking_tickets'] {
-      --marker-symbol: "url('symbols/amenity/parking_tickets.svg')";
+      --marker-symbol: 'parking_sign';
     }
     &[vending='public_transport_tickets'] {
-      --marker-symbol: "url('symbols/amenity/public_transport_tickets.svg')";
+      --marker-symbol: 'transit_ticket';
     }
     --marker-fill: @amenity-brown;
     --marker-clip: false;
@@ -5653,45 +5653,45 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --marker-line-width: 0;
     }
     &:zoom(18) {
-      --marker-symbol: "url('symbols/amenity/parcel_locker.svg')";
+      --marker-symbol: 'package_2';
       --marker-clip: false;
     }
   }
 
   &[feature='highway_traffic_signals']:zoom(17) {
-    --marker-symbol: "url('symbols/highway/traffic_light.svg')";
+    --marker-symbol: 'traffic';
     --marker-fill: #545454;
     --marker-clip: false;
   }
 
   &[feature='barrier_toll_booth']:zoom(16) {
-    --marker-symbol: "url('symbols/barrier/toll_booth.svg')";
+    --marker-symbol: 'parking_meter';
     --marker-fill: @transportation-icon;
     --marker-clip: false;
   }
 
   &[feature='tourism_artwork']:zoom(17) {
     &:not([artwork_type='statue']) {
-      --marker-symbol: "url('symbols/tourism/artwork.svg')";
+      --marker-symbol: 'art_track';
     }
     &[artwork_type='statue'] {
-      --marker-symbol: "url('symbols/historic/statue.svg')";
+      --marker-symbol: 'man_4';
     }
     &[artwork_type='bust'] {
-      --marker-symbol: "url('symbols/historic/bust.svg')";
+      --marker-symbol: 'woman_2';
     }
     --marker-fill: @memorials;
   }
 
   &[feature='tourism_camp_site']:zoom(16) {
-    --marker-symbol: "url('symbols/tourism/camping.svg')";
+    --marker-symbol: 'camping';
     --marker-fill: @accommodation-icon;
     --marker-clip: false;
   }
 
   // Ford tagging on points - ford on lines is defined later
   &[feature='highway_ford']:zoom(16) {
-    --marker-symbol: "url('symbols/highway/ford.svg')";
+    --marker-symbol: 'transfer_within_a_station';
     --marker-fill: @transportation-icon;
     --marker-clip: false;
   }
@@ -5703,43 +5703,43 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   }
 
   &[feature='amenity_car_rental']:zoom(17) {
-    --marker-symbol: "url('symbols/amenity/rental_car.svg')";
+    --marker-symbol: 'car_rental';
     --marker-fill: @transportation-icon;
     --marker-clip: false;
   }
 
   &[feature='amenity_car_wash']:zoom(17) {
-    --marker-symbol: "url('symbols/amenity/car_wash.svg')";
+    --marker-symbol: 'local_car_wash';
     --marker-fill: @amenity-brown;
     --marker-clip: false;
   }
 
   &[feature='tourism_chalet']:zoom(17) {
-    --marker-symbol: "url('symbols/tourism/chalet.svg')";
+    --marker-symbol: 'chalet';
     --marker-fill: @accommodation-icon;
     --marker-clip: false;
   }
 
   &[feature='amenity_cinema']:zoom(16) {
-    --marker-symbol: "url('symbols/amenity/cinema.svg')";
+    --marker-symbol: 'theaters';
     --marker-fill: @culture;
     --marker-clip: false;
   }
 
   &[feature='amenity_public_bath']:zoom(17) {
-    --marker-symbol: "url('symbols/amenity/public_bath.svg')";
+    --marker-symbol: 'bath_public_large';
     --marker-fill: @amenity-brown;
     --marker-clip: false;
   }
 
   &[feature='amenity_nightclub']:zoom(17) {
-    --marker-symbol: "url('symbols/amenity/nightclub.svg')";
+    --marker-symbol: 'nightlife';
     --marker-fill: @amenity-brown;
     --marker-clip: false;
   }
 
   &[feature='amenity_fire_station']:zoom(16) {
-    --marker-symbol: "url('symbols/amenity/firestation.svg')";
+    --marker-symbol: 'local_fire_department';
     --marker-fill: @public-service;
     --marker-clip: false;
   }
@@ -5763,14 +5763,14 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         --nozzle__marker-height: 3;
       }
       &:zoom(18) {
-        --nozzle__marker-symbol: "url('symbols/amenity/fountain.svg')";
+        --nozzle__marker-symbol: 'water';
         --nozzle__marker-clip: false;
       }
     }
   }
 
   &[feature='amenity_charging_station']:zoom(17) {
-    --marker-symbol: "url('symbols/amenity/charging_station.svg')";
+    --marker-symbol: 'ev_station';
     --marker-fill: @transportation-icon;
     --marker-clip: false;
     &[int_access='restricted'] {
@@ -5779,25 +5779,25 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   }
 
   &[feature='amenity_fuel']:zoom(17) {
-    --marker-symbol: "url('symbols/amenity/fuel.svg')";
+    --marker-symbol: 'local_gas_station';
     --marker-fill: @transportation-icon;
     --marker-clip: false;
   }
 
   &[feature='tourism_guest_house']:zoom(17) {
-    --marker-symbol: "url('symbols/tourism/guest_house.svg')";
+    --marker-symbol: 'night_shelter';
     --marker-fill: @accommodation-icon;
     --marker-clip: false;
   }
 
   &[feature='tourism_apartment']:zoom(18) {
-    --marker-symbol: "url('symbols/tourism/apartment.svg')";
+    --marker-symbol: 'apartment';
     --marker-fill: @accommodation-icon;
     --marker-clip: false;
   }
 
   &[feature='amenity_bicycle_repair_station']:zoom(19) {
-    --marker-symbol: "url('symbols/amenity/bicycle_repair_station.svg')";
+    --marker-symbol: 'handyman';
     --marker-fill: @amenity-brown;
     --marker-clip: false;
     &[int_access='restricted'] {
@@ -5806,81 +5806,81 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   }
 
   &[feature='amenity_casino']:zoom(17) {
-    --marker-symbol: "url('symbols/amenity/casino.svg')";
+    --marker-symbol: 'casino';
     --marker-fill: @amenity-brown;
     --marker-clip: false;
   }
 
   &[feature='tourism_gallery']:zoom(17) {
-    --marker-symbol: "url('symbols/shop/art.svg')";
+    --marker-symbol: 'palette';
     --marker-clip: false;
     --marker-fill: @amenity-brown;
   }
 
   &[feature='tourism_hostel']:zoom(17) {
-    --marker-symbol: "url('symbols/tourism/hostel.svg')";
+    --marker-symbol: 'hotel';
     --marker-clip: false;
     --marker-fill: @accommodation-icon;
   }
 
   &[feature='tourism_hotel']:zoom(17) {
-    --marker-symbol: "url('symbols/tourism/hotel.svg')";
+    --marker-symbol: 'hotel';
     --marker-clip: false;
     --marker-fill: @accommodation-icon;
   }
 
   &[feature='tourism_motel']:zoom(17) {
-    --marker-symbol: "url('symbols/tourism/motel.svg')";
+    --marker-symbol: 'hotel';
     --marker-clip: false;
     --marker-fill: @accommodation-icon;
   }
 
   &[feature='tourism_information']:zoom(19),
-  &["information"='office'][feature='tourism_information']:zoom(17) {
+  &[information='office'][feature='tourism_information']:zoom(17) {
     &[information='audioguide'] {
-      --marker-symbol: "url('symbols/tourism/audioguide.svg')";
+      --marker-symbol: 'headphones';
     }
     &[information='board'] {
-      --marker-symbol: "url('symbols/tourism/board.svg')";
+      --marker-symbol: 'newsmode';
     }
     &[information='guidepost'] {
-      --marker-symbol: "url('symbols/tourism/guidepost.svg')";
+      --marker-symbol: 'help';
     }
     &[information='office'] {
-      --marker-symbol: "url('symbols/tourism/office.svg')";
+      --marker-symbol: 'info';
       --marker-fill: @amenity-brown;
     }
     &[information='map'],
     &[information='tactile_map'] {
-      --marker-symbol: "url('symbols/tourism/map.svg')";
+      --marker-symbol: 'map';
     }
     &[information='terminal'] {
-      --marker-symbol: "url('symbols/tourism/terminal.svg')";
+      --marker-symbol: 'info_i';
     }
     --marker-fill: @man-made-icon;
     --marker-clip: false;
   }
 
   &[feature='amenity_library']:zoom(16) {
-    --marker-symbol: "url('symbols/amenity/library.svg')";
+    --marker-symbol: 'local_library';
     --marker-fill: @culture;
     --marker-clip: false;
   }
 
   &[feature='amenity_courthouse']:zoom(16) {
-    --marker-symbol: "url('symbols/amenity/courthouse.svg')";
+    --marker-symbol: 'gavel';
     --marker-fill: @public-service;
     --marker-clip: false;
   }
 
   &[feature='amenity_community_centre']:zoom(17) {
-    --marker-symbol: "url('symbols/amenity/community_centre.svg')";
+    --marker-symbol: 'family_group';
     --marker-fill: @culture;
     --marker-clip: false;
   }
 
   &[feature='amenity_shower']:zoom(18) {
-    --marker-symbol: "url('symbols/amenity/shower.svg')";
+    --marker-symbol: 'shower';
     --marker-fill: @amenity-brown;
     --marker-clip: false;
     &[int_access='restricted'] {
@@ -5889,13 +5889,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   }
 
   &[feature='amenity_social_facility']:zoom(17) {
-    --marker-symbol: "url('symbols/amenity/social_facility.svg')";
+    --marker-symbol: 'groups';
     --marker-fill: @public-service;
     --marker-clip: false;
   }
 
   &[feature='amenity_townhall']:zoom(16) {
-    --marker-symbol: "url('symbols/amenity/town_hall.svg')";
+    --marker-symbol: 'castle';
     --marker-fill: @public-service;
     --marker-clip: false;
   }
@@ -5907,14 +5907,14 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     &:gte(height, 40):zoom(16),
     &:gte(height, 20):zoom(17),
     &:zoom(18) {
-      --marker-symbol: "url('symbols/man_made/mast.svg')";
+      --marker-symbol: 'align_flex_end';
       --marker-fill: @man-made-icon;
       --marker-clip: false;
       &["tower:type"='lighting'] {
-        --marker-symbol: "url('symbols/man_made/mast_lighting.svg')";
+        --marker-symbol: 'table_lamp';
       }
       &["tower:type"='communication'] {
-        --marker-symbol: "url('symbols/man_made/mast_communications.svg')";
+        --marker-symbol: 'cell_tower';
       }
     }
   }
@@ -5928,11 +5928,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     &:gte(height, 80):zoom(15),
     &:gte(height, 40):zoom(16),
     &:zoom(17) {
-      --marker-symbol: "url('symbols/man_made/tower_generic.svg')";
+      --marker-symbol: 'align_flex_end';
       --marker-fill: @man-made-icon;
       --marker-clip: false;
       &["tower:type"='defensive'] {
-        --marker-symbol: "url('symbols/man_made/tower_defensive.svg')";
+        --marker-symbol: 'fort';
       }
       &["tower:type"='observation'],
       &["tower:type"='watchtower'] {
