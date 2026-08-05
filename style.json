@@ -4417,10 +4417,136 @@
   {
     "groups": [
       {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_hospital"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_clinic"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_university"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_college"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_school"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_kindergarten"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_community_centre"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_social_facility"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_arts_centre"
+          }
+        ]
+      },
+      {
         "layer": "landcover",
         "zoom": {
           "min": 10,
-          "max": 11
+          "max": 12
         },
         "and": [
           {
@@ -4434,7 +4560,7 @@
         "layer": "landcover",
         "zoom": {
           "min": 10,
-          "max": 11
+          "max": 12
         },
         "and": [
           {
@@ -4448,7 +4574,7 @@
         "layer": "landcover",
         "zoom": {
           "min": 10,
-          "max": 11
+          "max": 12
         },
         "and": [
           {
@@ -4462,7 +4588,7 @@
         "layer": "landcover",
         "zoom": {
           "min": 10,
-          "max": 11
+          "max": 12
         },
         "and": [
           {
@@ -4476,7 +4602,7 @@
         "layer": "landcover",
         "zoom": {
           "min": 10,
-          "max": 11
+          "max": 12
         },
         "and": [
           {
@@ -4490,7 +4616,7 @@
         "layer": "landcover",
         "zoom": {
           "min": 10,
-          "max": 11
+          "max": 12
         },
         "and": [
           {
@@ -4504,7 +4630,7 @@
         "layer": "landcover",
         "zoom": {
           "min": 10,
-          "max": 11
+          "max": 12
         },
         "and": [
           {
@@ -4518,7 +4644,7 @@
         "layer": "landcover",
         "zoom": {
           "min": 10,
-          "max": 11
+          "max": 12
         },
         "and": [
           {
@@ -4532,7 +4658,7 @@
         "layer": "landcover",
         "zoom": {
           "min": 10,
-          "max": 11
+          "max": 12
         },
         "and": [
           {
@@ -4544,7 +4670,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(220,224,228,1)"
+      "line-color": "rgba(255,255,229,1)"
     },
     "attachment": "low-zoom"
   },
@@ -4553,268 +4679,8 @@
       {
         "layer": "landcover",
         "zoom": {
-          "min": 12,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_hospital"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 12,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_clinic"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 12,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_university"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 12,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_college"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 12,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_school"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 12,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_kindergarten"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 12,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_community_centre"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 12,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_social_facility"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 12,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_arts_centre"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(227,230,232,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
           "min": 13,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_hospital"
-          }
-        ]
-      },
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 13,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_clinic"
-          }
-        ]
-      },
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 13,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_university"
-          }
-        ]
-      },
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 13,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_college"
-          }
-        ]
-      },
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 13,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_school"
-          }
-        ]
-      },
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 13,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_kindergarten"
-          }
-        ]
-      },
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 13,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_community_centre"
-          }
-        ]
-      },
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 13,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_social_facility"
-          }
-        ]
-      },
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 13,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_arts_centre"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 13,
-          "max": 24
+          "max": 13
         },
         "and": [
           {
@@ -4828,7 +4694,7 @@
         "layer": "landcover",
         "zoom": {
           "min": 13,
-          "max": 24
+          "max": 13
         },
         "and": [
           {
@@ -4842,7 +4708,7 @@
         "layer": "landcover",
         "zoom": {
           "min": 13,
-          "max": 24
+          "max": 13
         },
         "and": [
           {
@@ -4856,7 +4722,7 @@
         "layer": "landcover",
         "zoom": {
           "min": 13,
-          "max": 24
+          "max": 13
         },
         "and": [
           {
@@ -4870,7 +4736,7 @@
         "layer": "landcover",
         "zoom": {
           "min": 13,
-          "max": 24
+          "max": 13
         },
         "and": [
           {
@@ -4884,7 +4750,7 @@
         "layer": "landcover",
         "zoom": {
           "min": 13,
-          "max": 24
+          "max": 13
         },
         "and": [
           {
@@ -4898,7 +4764,7 @@
         "layer": "landcover",
         "zoom": {
           "min": 13,
-          "max": 24
+          "max": 13
         },
         "and": [
           {
@@ -4912,7 +4778,7 @@
         "layer": "landcover",
         "zoom": {
           "min": 13,
-          "max": 24
+          "max": 13
         },
         "and": [
           {
@@ -4926,7 +4792,7 @@
         "layer": "landcover",
         "zoom": {
           "min": 13,
-          "max": 24
+          "max": 13
         },
         "and": [
           {
@@ -4939,6 +4805,141 @@
     ],
     "paint": {
       "line-width": "0.3",
+      "line-color": "rgba(255,255,229,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_hospital"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_clinic"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_university"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_college"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_school"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_kindergarten"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_community_centre"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_social_facility"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_arts_centre"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": "0.4",
       "line-color": "rgba(255,255,229,1)"
     },
     "attachment": "low-zoom"
@@ -5032,6 +5033,7 @@
     ],
     "paint": {
       "polygon-fill": "rgba(243,227,221,1)",
+      "polygon-opacity": "0.25",
       "line-color": "rgba(255,85,85,1)",
       "line-opacity": "0.24",
       "line-width": "1",
@@ -5100,6 +5102,7 @@
     ],
     "paint": {
       "polygon-fill": "rgba(243,227,221,1)",
+      "polygon-opacity": "0.25",
       "line-color": "rgba(255,85,85,1)",
       "line-opacity": "0.24",
       "line-width": "2",
@@ -21759,7 +21762,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(240,243,247,1)"
+      "polygon-fill": "rgba(240,242,245,1)"
     }
   },
   {
@@ -21795,7 +21798,7 @@
     ],
     "paint": {
       "line-width": "0.5",
-      "line-color": "rgba(240,243,247,1)",
+      "line-color": "rgba(240,242,245,1)",
       "line-cap": "square"
     }
   },
@@ -21832,7 +21835,7 @@
     ],
     "paint": {
       "line-width": "1",
-      "line-color": "rgba(240,243,247,1)",
+      "line-color": "rgba(240,242,245,1)",
       "line-cap": "square"
     }
   },
@@ -21869,7 +21872,7 @@
     ],
     "paint": {
       "line-width": "2",
-      "line-color": "rgba(240,243,247,1)",
+      "line-color": "rgba(240,242,245,1)",
       "line-cap": "square"
     }
   },
@@ -21906,7 +21909,7 @@
     ],
     "paint": {
       "line-width": "4",
-      "line-color": "rgba(240,243,247,1)",
+      "line-color": "rgba(240,242,245,1)",
       "line-cap": "square"
     }
   },
@@ -664042,7 +664045,7 @@
       "line/line-dasharray": "0, 1, 24, 1",
       "dash/line-dasharray": "0, 1, 1, 22, 1, 1",
       "center/line-dasharray": "0, 2, 22, 2",
-      "center/line-color": "rgba(240,243,247,1)",
+      "center/line-color": "rgba(240,242,245,1)",
       "center/line-join": "round"
     }
   },

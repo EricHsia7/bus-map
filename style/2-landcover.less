@@ -457,11 +457,8 @@
   &[feature='amenity_community_centre'],
   &[feature='amenity_social_facility'],
   &[feature='amenity_arts_centre'] {
-    --polygon-fill: zoom-gradient(@built-up-lowzoom 10z 11z, @built-up-z12 12z);
-    &:zoom(13) {
-      --line-width: 0.3;
-      --line-color: @societal_amenities;
-    }
+    --line-width: zoom-gradient(0.3 13z, 0.4 14z);
+    --line-color: @societal_amenities;
   }
 
   &[feature='amenity_fire_station']:zoom(8),
@@ -469,6 +466,7 @@
   &[feature='amenity_fire_station']:zoom(13),
   &[feature='amenity_police']:zoom(13) {
     --polygon-fill: #f3e3dd;
+    --polygon-opacity: 0.25;
     --line-color: @military;
     --line-opacity: 0.24;
     --line-width: zoom-gradient(1, 2 15z);
