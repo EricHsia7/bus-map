@@ -177244,7 +177244,7 @@
       "marker-placement": "line",
       "marker-spacing": "180",
       "marker-max-error": "0.5",
-      "marker-file": "\"url('symbols/oneway.svg')\""
+      "marker-symbol": "\"url('symbols/oneway.svg')\""
     },
     "attachment": "directions"
   },
@@ -178116,7 +178116,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/oneway-reverse.svg')\""
+      "marker-symbol": "\"url('symbols/oneway-reverse.svg')\""
     },
     "attachment": "directions"
   },
@@ -197002,7 +197002,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/power_tower_small.svg')\"",
+      "marker-symbol": "\"url('symbols/man_made/power_tower_small.svg')\"",
       "marker-width": "3"
     }
   },
@@ -197024,7 +197024,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/power_tower.svg')\"",
+      "marker-symbol": "\"url('symbols/man_made/power_tower.svg')\"",
       "marker-width": "5"
     }
   },
@@ -197046,7 +197046,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/power_tower.svg')\"",
+      "marker-symbol": "\"url('symbols/man_made/power_tower.svg')\"",
       "marker-width": "7"
     }
   },
@@ -197068,7 +197068,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/square.svg')\"",
+      "marker-symbol": "\"url('symbols/square.svg')\"",
       "marker-fill": "rgba(146,143,143,1)",
       "marker-width": "3"
     }
@@ -199884,7 +199884,7 @@
       "marker-fill": "rgba(188,210,230,1)",
       "marker-allow-overlap": "true",
       "marker-ignore-placement": "true",
-      "marker-file": "\"url('symbols/rect.svg')\"",
+      "marker-symbol": "\"url('symbols/rect.svg')\"",
       "marker-opacity": "0"
     }
   },
@@ -199901,7 +199901,7 @@
     ],
     "paint": {
       "marker-opacity": "1",
-      "marker-file": "\"url('symbols/square.svg')\""
+      "marker-symbol": "\"url('symbols/square.svg')\""
     }
   },
   {
@@ -199933,7 +199933,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/corners.svg')\""
+      "marker-symbol": "\"url('symbols/corners.svg')\""
     }
   },
   {
@@ -199964,7 +199964,7 @@
     ],
     "paint": {
       "marker-fill": "rgba(188,210,230,1)",
-      "marker-file": "\"url('symbols/rectdiag.svg')\""
+      "marker-symbol": "\"url('symbols/rectdiag.svg')\""
     }
   },
   {
@@ -199985,7 +199985,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/entrance.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/entrance.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -200036,7 +200036,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/square.svg')\"",
+      "marker-symbol": "\"url('symbols/square.svg')\"",
       "marker-fill": "rgba(121,129,176,1)",
       "marker-clip": "false"
     }
@@ -200222,7 +200222,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/square.svg')\"",
+      "marker-symbol": "\"url('symbols/square.svg')\"",
       "marker-fill": "rgba(121,129,176,1)",
       "marker-width": "4",
       "marker-clip": "false"
@@ -200246,7 +200246,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/square.svg')\"",
+      "marker-symbol": "\"url('symbols/square.svg')\"",
       "marker-fill": "rgba(121,129,176,1)",
       "marker-width": "6",
       "marker-clip": "false"
@@ -200299,7 +200299,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/square.svg')\"",
+      "marker-symbol": "\"url('symbols/square.svg')\"",
       "marker-fill": "rgba(121,129,176,1)",
       "marker-width": "4",
       "marker-clip": "false"
@@ -200376,7 +200376,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/square.svg')\"",
+      "marker-symbol": "\"url('symbols/square.svg')\"",
       "marker-fill": "rgba(121,129,176,1)",
       "marker-width": "4",
       "marker-clip": "false"
@@ -200400,7 +200400,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/square.svg')\"",
+      "marker-symbol": "\"url('symbols/square.svg')\"",
       "marker-fill": "rgba(121,129,176,1)",
       "marker-width": "6",
       "marker-clip": "false"
@@ -200481,7 +200481,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/shelter.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/shelter.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -200547,7 +200547,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/tourism/wilderness_hut.svg')\""
+      "marker-symbol": "\"url('symbols/tourism/wilderness_hut.svg')\""
     }
   },
   {
@@ -200611,7 +200611,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/tourism/alpinehut.svg')\""
+      "marker-symbol": "\"url('symbols/tourism/alpinehut.svg')\""
     }
   },
   {
@@ -200760,7 +200760,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/atm.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/atm.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -200783,7 +200783,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/bureau_de_change.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/bureau_de_change.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -200806,7 +200806,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/bank.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/bank.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -201247,7 +201247,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/bar.svg')\""
+      "marker-symbol": "\"url('symbols/amenity/bar.svg')\""
     }
   },
   {
@@ -201406,7 +201406,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/biergarten.svg')\""
+      "marker-symbol": "\"url('symbols/amenity/biergarten.svg')\""
     }
   },
   {
@@ -201565,7 +201565,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/cafe.svg')\""
+      "marker-symbol": "\"url('symbols/amenity/cafe.svg')\""
     }
   },
   {
@@ -201724,7 +201724,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/fast_food.svg')\""
+      "marker-symbol": "\"url('symbols/amenity/fast_food.svg')\""
     }
   },
   {
@@ -202035,7 +202035,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/restaurant.svg')\""
+      "marker-symbol": "\"url('symbols/amenity/restaurant.svg')\""
     }
   },
   {
@@ -202194,7 +202194,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/ice_cream.svg')\""
+      "marker-symbol": "\"url('symbols/amenity/ice_cream.svg')\""
     }
   },
   {
@@ -202353,7 +202353,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/pub.svg')\""
+      "marker-symbol": "\"url('symbols/amenity/pub.svg')\""
     }
   },
   {
@@ -202374,7 +202374,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/internet_cafe.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/internet_cafe.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -202397,7 +202397,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/bbq.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/bbq.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -202446,7 +202446,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/public_bookcase.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/public_bookcase.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -202469,7 +202469,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/rental_bicycle.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/rental_bicycle.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -202492,7 +202492,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/square.svg')\"",
+      "marker-symbol": "\"url('symbols/square.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -202515,7 +202515,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/highway/bus_stop.svg')\"",
+      "marker-symbol": "\"url('symbols/highway/bus_stop.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -202564,7 +202564,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/highway/elevator.svg')\"",
+      "marker-symbol": "\"url('symbols/highway/elevator.svg')\"",
       "marker-fill": "rgba(0,146,218,1)"
     }
   },
@@ -202586,7 +202586,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/bus_station.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/bus_station.svg')\"",
       "marker-clip": "false"
     }
   },
@@ -202608,7 +202608,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/taxi.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/taxi.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -202658,7 +202658,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/excrement_bags.svg')\""
+      "marker-symbol": "\"url('symbols/amenity/excrement_bags.svg')\""
     }
   },
   {
@@ -202684,7 +202684,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/parking_tickets.svg')\""
+      "marker-symbol": "\"url('symbols/amenity/parking_tickets.svg')\""
     }
   },
   {
@@ -202710,7 +202710,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/public_transport_tickets.svg')\""
+      "marker-symbol": "\"url('symbols/amenity/public_transport_tickets.svg')\""
     }
   },
   {
@@ -202774,7 +202774,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/parcel_locker.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/parcel_locker.svg')\"",
       "marker-clip": "false"
     }
   },
@@ -202796,7 +202796,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/highway/traffic_light.svg')\"",
+      "marker-symbol": "\"url('symbols/highway/traffic_light.svg')\"",
       "marker-fill": "rgba(84,84,84,1)",
       "marker-clip": "false"
     }
@@ -202819,7 +202819,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/barrier/toll_booth.svg')\"",
+      "marker-symbol": "\"url('symbols/barrier/toll_booth.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -202868,7 +202868,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/tourism/artwork.svg')\""
+      "marker-symbol": "\"url('symbols/tourism/artwork.svg')\""
     }
   },
   {
@@ -202894,7 +202894,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/historic/statue.svg')\""
+      "marker-symbol": "\"url('symbols/historic/statue.svg')\""
     }
   },
   {
@@ -202920,7 +202920,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/historic/bust.svg')\""
+      "marker-symbol": "\"url('symbols/historic/bust.svg')\""
     }
   },
   {
@@ -202941,7 +202941,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/tourism/camping.svg')\"",
+      "marker-symbol": "\"url('symbols/tourism/camping.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -202964,7 +202964,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/highway/ford.svg')\"",
+      "marker-symbol": "\"url('symbols/highway/ford.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -202987,7 +202987,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/tourism/caravan_park.svg')\"",
+      "marker-symbol": "\"url('symbols/tourism/caravan_park.svg')\"",
       "marker-clip": "false",
       "marker-fill": "rgba(0,146,218,1)"
     }
@@ -203010,7 +203010,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/rental_car.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/rental_car.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -203033,7 +203033,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/car_wash.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/car_wash.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -203056,7 +203056,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/tourism/chalet.svg')\"",
+      "marker-symbol": "\"url('symbols/tourism/chalet.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -203079,7 +203079,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/cinema.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/cinema.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -203102,7 +203102,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/public_bath.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/public_bath.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -203125,7 +203125,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/nightclub.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/nightclub.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -203148,7 +203148,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/firestation.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/firestation.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -203244,7 +203244,7 @@
       }
     ],
     "paint": {
-      "nozzle/marker-file": "\"url('symbols/amenity/fountain.svg')\"",
+      "nozzle/marker-symbol": "\"url('symbols/amenity/fountain.svg')\"",
       "nozzle/marker-clip": "false"
     },
     "attachment": "nozzle"
@@ -203267,7 +203267,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/charging_station.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/charging_station.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -203316,7 +203316,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/fuel.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/fuel.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -203339,7 +203339,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/tourism/guest_house.svg')\"",
+      "marker-symbol": "\"url('symbols/tourism/guest_house.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -203362,7 +203362,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/tourism/apartment.svg')\"",
+      "marker-symbol": "\"url('symbols/tourism/apartment.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -203385,7 +203385,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/bicycle_repair_station.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/bicycle_repair_station.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -203434,7 +203434,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/casino.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/casino.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -203457,7 +203457,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/art.svg')\"",
+      "marker-symbol": "\"url('symbols/shop/art.svg')\"",
       "marker-clip": "false",
       "marker-fill": "rgba(115,74,8,1)"
     }
@@ -203480,7 +203480,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/tourism/hostel.svg')\"",
+      "marker-symbol": "\"url('symbols/tourism/hostel.svg')\"",
       "marker-clip": "false",
       "marker-fill": "rgba(0,146,218,1)"
     }
@@ -203503,7 +203503,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/tourism/hotel.svg')\"",
+      "marker-symbol": "\"url('symbols/tourism/hotel.svg')\"",
       "marker-clip": "false",
       "marker-fill": "rgba(0,146,218,1)"
     }
@@ -203526,7 +203526,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/tourism/motel.svg')\"",
+      "marker-symbol": "\"url('symbols/tourism/motel.svg')\"",
       "marker-clip": "false",
       "marker-fill": "rgba(0,146,218,1)"
     }
@@ -203609,7 +203609,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/tourism/audioguide.svg')\""
+      "marker-symbol": "\"url('symbols/tourism/audioguide.svg')\""
     }
   },
   {
@@ -203654,7 +203654,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/tourism/board.svg')\""
+      "marker-symbol": "\"url('symbols/tourism/board.svg')\""
     }
   },
   {
@@ -203699,7 +203699,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/tourism/guidepost.svg')\""
+      "marker-symbol": "\"url('symbols/tourism/guidepost.svg')\""
     }
   },
   {
@@ -203744,7 +203744,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/tourism/office.svg')\"",
+      "marker-symbol": "\"url('symbols/tourism/office.svg')\"",
       "marker-fill": "rgba(115,74,8,1)"
     }
   },
@@ -203828,7 +203828,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/tourism/map.svg')\""
+      "marker-symbol": "\"url('symbols/tourism/map.svg')\""
     }
   },
   {
@@ -203873,7 +203873,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/tourism/terminal.svg')\""
+      "marker-symbol": "\"url('symbols/tourism/terminal.svg')\""
     }
   },
   {
@@ -203894,7 +203894,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/library.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/library.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -203917,7 +203917,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/courthouse.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/courthouse.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -203940,7 +203940,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/community_centre.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/community_centre.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -203963,7 +203963,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/shower.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/shower.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -204012,7 +204012,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/social_facility.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/social_facility.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -204035,7 +204035,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/town_hall.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/town_hall.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -204210,7 +204210,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/mast.svg')\"",
+      "marker-symbol": "\"url('symbols/man_made/mast.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -204385,7 +204385,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/mast_lighting.svg')\""
+      "marker-symbol": "\"url('symbols/man_made/mast_lighting.svg')\""
     }
   },
   {
@@ -204558,7 +204558,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/mast_communications.svg')\""
+      "marker-symbol": "\"url('symbols/man_made/mast_communications.svg')\""
     }
   },
   {
@@ -204726,7 +204726,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/tower_generic.svg')\"",
+      "marker-symbol": "\"url('symbols/man_made/tower_generic.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -204896,7 +204896,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/tower_defensive.svg')\""
+      "marker-symbol": "\"url('symbols/man_made/tower_defensive.svg')\""
     }
   },
   {
@@ -205064,7 +205064,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/tower_observation.svg')\""
+      "marker-symbol": "\"url('symbols/man_made/tower_observation.svg')\""
     }
   },
   {
@@ -205232,7 +205232,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/bell_tower.svg')\""
+      "marker-symbol": "\"url('symbols/man_made/bell_tower.svg')\""
     }
   },
   {
@@ -205400,7 +205400,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/tower_cooling.svg')\""
+      "marker-symbol": "\"url('symbols/man_made/tower_cooling.svg')\""
     }
   },
   {
@@ -205568,7 +205568,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/tower_lattice.svg')\""
+      "marker-symbol": "\"url('symbols/man_made/tower_lattice.svg')\""
     }
   },
   {
@@ -205736,7 +205736,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/tower_dish.svg')\""
+      "marker-symbol": "\"url('symbols/man_made/tower_dish.svg')\""
     }
   },
   {
@@ -205904,7 +205904,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/tower_dome.svg')\""
+      "marker-symbol": "\"url('symbols/man_made/tower_dome.svg')\""
     }
   },
   {
@@ -206072,7 +206072,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/tower_cantilever_communication.svg')\""
+      "marker-symbol": "\"url('symbols/man_made/tower_cantilever_communication.svg')\""
     }
   },
   {
@@ -206240,7 +206240,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/tower_lattice_communication.svg')\""
+      "marker-symbol": "\"url('symbols/man_made/tower_lattice_communication.svg')\""
     }
   },
   {
@@ -206408,7 +206408,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/tower_dish.svg')\""
+      "marker-symbol": "\"url('symbols/man_made/tower_dish.svg')\""
     }
   },
   {
@@ -206576,7 +206576,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/tower_dome.svg')\""
+      "marker-symbol": "\"url('symbols/man_made/tower_dome.svg')\""
     }
   },
   {
@@ -206744,7 +206744,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/tower_lighting.svg')\""
+      "marker-symbol": "\"url('symbols/man_made/tower_lighting.svg')\""
     }
   },
   {
@@ -206912,7 +206912,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/tower_lattice_lighting.svg')\""
+      "marker-symbol": "\"url('symbols/man_made/tower_lattice_lighting.svg')\""
     }
   },
   {
@@ -206933,7 +206933,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/communications_tower.svg')\"",
+      "marker-symbol": "\"url('symbols/man_made/communications_tower.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -206994,7 +206994,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/chimney.svg')\"",
+      "marker-symbol": "\"url('symbols/man_made/chimney.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -207036,7 +207036,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/crane.svg')\"",
+      "marker-symbol": "\"url('symbols/man_made/crane.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -207087,7 +207087,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/telescope_dish.svg')\"",
+      "marker-symbol": "\"url('symbols/man_made/telescope_dish.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -207152,7 +207152,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/telescope_dome.svg')\"",
+      "marker-symbol": "\"url('symbols/man_made/telescope_dome.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -207175,7 +207175,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/historic/city_gate.svg')\"",
+      "marker-symbol": "\"url('symbols/historic/city_gate.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -207198,7 +207198,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/tourism/museum.svg')\"",
+      "marker-symbol": "\"url('symbols/tourism/museum.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -207235,7 +207235,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/doctors.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/doctors.svg')\"",
       "marker-fill": "rgba(191,0,0,1)",
       "marker-clip": "false"
     }
@@ -207302,7 +207302,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/dentist.svg')\""
+      "marker-symbol": "\"url('symbols/amenity/dentist.svg')\""
     }
   },
   {
@@ -207323,7 +207323,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/hospital.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/hospital.svg')\"",
       "marker-fill": "rgba(191,0,0,1)",
       "marker-clip": "false"
     }
@@ -207346,7 +207346,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/pharmacy.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/pharmacy.svg')\"",
       "marker-fill": "rgba(191,0,0,1)",
       "marker-clip": "false"
     }
@@ -207369,7 +207369,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/veterinary.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/veterinary.svg')\"",
       "marker-fill": "rgba(191,0,0,1)",
       "marker-clip": "false"
     }
@@ -207392,7 +207392,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/place_of_worship.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/place_of_worship.svg')\"",
       "marker-fill": "rgba(0,0,0,1)",
       "marker-clip": "false"
     }
@@ -207420,7 +207420,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/religion/christian.svg')\""
+      "marker-symbol": "\"url('symbols/religion/christian.svg')\""
     }
   },
   {
@@ -207523,7 +207523,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/place_of_worship.svg')\""
+      "marker-symbol": "\"url('symbols/amenity/place_of_worship.svg')\""
     }
   },
   {
@@ -207549,7 +207549,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/religion/muslim.svg')\""
+      "marker-symbol": "\"url('symbols/religion/muslim.svg')\""
     }
   },
   {
@@ -207575,7 +207575,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/religion/sikhist.svg')\""
+      "marker-symbol": "\"url('symbols/religion/sikhist.svg')\""
     }
   },
   {
@@ -207601,7 +207601,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/religion/jewish.svg')\""
+      "marker-symbol": "\"url('symbols/religion/jewish.svg')\""
     }
   },
   {
@@ -207627,7 +207627,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/religion/hinduist.svg')\""
+      "marker-symbol": "\"url('symbols/religion/hinduist.svg')\""
     }
   },
   {
@@ -207653,7 +207653,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/religion/buddhist.svg')\""
+      "marker-symbol": "\"url('symbols/religion/buddhist.svg')\""
     }
   },
   {
@@ -207679,7 +207679,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/religion/shintoist.svg')\""
+      "marker-symbol": "\"url('symbols/religion/shintoist.svg')\""
     }
   },
   {
@@ -207705,7 +207705,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/religion/taoist.svg')\""
+      "marker-symbol": "\"url('symbols/religion/taoist.svg')\""
     }
   },
   {
@@ -207740,7 +207740,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/storage_tank.svg')\"",
+      "marker-symbol": "\"url('symbols/man_made/storage_tank.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -207763,7 +207763,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/police.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/police.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -207786,7 +207786,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/vehicle_inspection.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/vehicle_inspection.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -207809,7 +207809,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/post_box.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/post_box.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -207832,7 +207832,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/post_office.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/post_office.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -207874,7 +207874,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/recycling.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/recycling.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -207947,7 +207947,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/telephone.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/telephone.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -207970,7 +207970,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/emergency_phone.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/emergency_phone.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -207993,7 +207993,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/theatre.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/theatre.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -208016,7 +208016,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/arts_centre.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/arts_centre.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -208058,7 +208058,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/toilets.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/toilets.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -208131,7 +208131,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/drinking_water.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/drinking_water.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -208180,7 +208180,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/prison.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/prison.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -208327,7 +208327,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/tourism/viewpoint.svg')\"",
+      "marker-symbol": "\"url('symbols/tourism/viewpoint.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -208350,7 +208350,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/water_tower.svg')\"",
+      "marker-symbol": "\"url('symbols/man_made/water_tower.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -208536,7 +208536,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/historic/memorial.svg')\"",
+      "marker-symbol": "\"url('symbols/historic/memorial.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -208762,7 +208762,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/historic/bust.svg')\""
+      "marker-symbol": "\"url('symbols/historic/bust.svg')\""
     }
   },
   {
@@ -209203,7 +209203,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/historic/plaque.svg')\""
+      "marker-symbol": "\"url('symbols/historic/plaque.svg')\""
     }
   },
   {
@@ -209427,7 +209427,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/historic/statue.svg')\""
+      "marker-symbol": "\"url('symbols/historic/statue.svg')\""
     }
   },
   {
@@ -209651,7 +209651,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/historic/stone.svg')\""
+      "marker-symbol": "\"url('symbols/historic/stone.svg')\""
     }
   },
   {
@@ -209672,7 +209672,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/historic/obelisk.svg')\"",
+      "marker-symbol": "\"url('symbols/historic/obelisk.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -209695,7 +209695,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/historic/monument.svg')\"",
+      "marker-symbol": "\"url('symbols/historic/monument.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -209718,7 +209718,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/historic/fort.svg')\"",
+      "marker-symbol": "\"url('symbols/historic/fort.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -209803,7 +209803,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/historic/castle.svg')\"",
+      "marker-symbol": "\"url('symbols/historic/castle.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -210004,7 +210004,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/historic/palace.svg')\""
+      "marker-symbol": "\"url('symbols/historic/palace.svg')\""
     }
   },
   {
@@ -210203,7 +210203,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/historic/manor.svg')\""
+      "marker-symbol": "\"url('symbols/historic/manor.svg')\""
     }
   },
   {
@@ -210690,7 +210690,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/historic/fortress.svg')\""
+      "marker-symbol": "\"url('symbols/historic/fortress.svg')\""
     }
   },
   {
@@ -210711,7 +210711,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/historic/archaeological_site.svg')\"",
+      "marker-symbol": "\"url('symbols/historic/archaeological_site.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -210736,7 +210736,7 @@
     "paint": {
       "marker-clip": "false",
       "marker-fill": "rgba(172,57,172,1)",
-      "marker-file": "\"url('symbols/shop/marketplace.svg')\""
+      "marker-symbol": "\"url('symbols/shop/marketplace.svg')\""
     }
   },
   {
@@ -210901,7 +210901,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/supermarket.svg')\""
+      "marker-symbol": "\"url('symbols/shop/supermarket.svg')\""
     }
   },
   {
@@ -210927,7 +210927,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/art.svg')\""
+      "marker-symbol": "\"url('symbols/shop/art.svg')\""
     }
   },
   {
@@ -210953,7 +210953,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/bag.svg')\""
+      "marker-symbol": "\"url('symbols/shop/bag.svg')\""
     }
   },
   {
@@ -210979,7 +210979,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/bakery.svg')\""
+      "marker-symbol": "\"url('symbols/shop/bakery.svg')\""
     }
   },
   {
@@ -211005,7 +211005,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/beauty.svg')\""
+      "marker-symbol": "\"url('symbols/shop/beauty.svg')\""
     }
   },
   {
@@ -211031,7 +211031,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/bed.svg')\""
+      "marker-symbol": "\"url('symbols/shop/bed.svg')\""
     }
   },
   {
@@ -211057,7 +211057,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/beverages.svg')\""
+      "marker-symbol": "\"url('symbols/shop/beverages.svg')\""
     }
   },
   {
@@ -211083,7 +211083,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/bookmaker.svg')\""
+      "marker-symbol": "\"url('symbols/shop/bookmaker.svg')\""
     }
   },
   {
@@ -211109,7 +211109,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/library.svg')\""
+      "marker-symbol": "\"url('symbols/amenity/library.svg')\""
     }
   },
   {
@@ -211135,7 +211135,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/butcher.svg')\""
+      "marker-symbol": "\"url('symbols/shop/butcher.svg')\""
     }
   },
   {
@@ -211161,7 +211161,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/carpet.svg')\""
+      "marker-symbol": "\"url('symbols/shop/carpet.svg')\""
     }
   },
   {
@@ -211187,7 +211187,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/charity.svg')\""
+      "marker-symbol": "\"url('symbols/shop/charity.svg')\""
     }
   },
   {
@@ -211213,7 +211213,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/chemist.svg')\""
+      "marker-symbol": "\"url('symbols/shop/chemist.svg')\""
     }
   },
   {
@@ -211258,7 +211258,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/clothes.svg')\""
+      "marker-symbol": "\"url('symbols/shop/clothes.svg')\""
     }
   },
   {
@@ -211284,7 +211284,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/coffee.svg')\""
+      "marker-symbol": "\"url('symbols/shop/coffee.svg')\""
     }
   },
   {
@@ -211310,7 +211310,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/computer.svg')\""
+      "marker-symbol": "\"url('symbols/shop/computer.svg')\""
     }
   },
   {
@@ -211336,7 +211336,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/convenience.svg')\""
+      "marker-symbol": "\"url('symbols/shop/convenience.svg')\""
     }
   },
   {
@@ -211400,7 +211400,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/confectionery.svg')\""
+      "marker-symbol": "\"url('symbols/shop/confectionery.svg')\""
     }
   },
   {
@@ -211426,7 +211426,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/copyshop.svg')\""
+      "marker-symbol": "\"url('symbols/shop/copyshop.svg')\""
     }
   },
   {
@@ -211471,7 +211471,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/perfumery.svg')\""
+      "marker-symbol": "\"url('symbols/shop/perfumery.svg')\""
     }
   },
   {
@@ -211497,7 +211497,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/deli.svg')\""
+      "marker-symbol": "\"url('symbols/shop/deli.svg')\""
     }
   },
   {
@@ -211523,7 +211523,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/department_store.svg')\""
+      "marker-symbol": "\"url('symbols/shop/department_store.svg')\""
     }
   },
   {
@@ -211568,7 +211568,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/diy.svg')\""
+      "marker-symbol": "\"url('symbols/shop/diy.svg')\""
     }
   },
   {
@@ -211613,7 +211613,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/laundry.svg')\""
+      "marker-symbol": "\"url('symbols/shop/laundry.svg')\""
     }
   },
   {
@@ -211639,7 +211639,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/fabric.svg')\""
+      "marker-symbol": "\"url('symbols/shop/fabric.svg')\""
     }
   },
   {
@@ -211665,7 +211665,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/seafood.svg')\""
+      "marker-symbol": "\"url('symbols/shop/seafood.svg')\""
     }
   },
   {
@@ -211691,7 +211691,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/florist.svg')\""
+      "marker-symbol": "\"url('symbols/shop/florist.svg')\""
     }
   },
   {
@@ -211717,7 +211717,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/garden_centre.svg')\""
+      "marker-symbol": "\"url('symbols/shop/garden_centre.svg')\""
     }
   },
   {
@@ -211762,7 +211762,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/greengrocer.svg')\""
+      "marker-symbol": "\"url('symbols/shop/greengrocer.svg')\""
     }
   },
   {
@@ -211788,7 +211788,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/hairdresser.svg')\""
+      "marker-symbol": "\"url('symbols/shop/hairdresser.svg')\""
     }
   },
   {
@@ -211814,7 +211814,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/hifi.svg')\""
+      "marker-symbol": "\"url('symbols/shop/hifi.svg')\""
     }
   },
   {
@@ -211840,7 +211840,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/houseware.svg')\""
+      "marker-symbol": "\"url('symbols/shop/houseware.svg')\""
     }
   },
   {
@@ -211866,7 +211866,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/car.svg')\""
+      "marker-symbol": "\"url('symbols/shop/car.svg')\""
     }
   },
   {
@@ -211892,7 +211892,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/car_parts.svg')\""
+      "marker-symbol": "\"url('symbols/shop/car_parts.svg')\""
     }
   },
   {
@@ -211918,7 +211918,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/car_repair.svg')\""
+      "marker-symbol": "\"url('symbols/shop/car_repair.svg')\""
     }
   },
   {
@@ -211944,7 +211944,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/motorcycle_repair.svg')\""
+      "marker-symbol": "\"url('symbols/shop/motorcycle_repair.svg')\""
     }
   },
   {
@@ -211970,7 +211970,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/dairy.svg')\""
+      "marker-symbol": "\"url('symbols/shop/dairy.svg')\""
     }
   },
   {
@@ -211996,7 +211996,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/bicycle.svg')\""
+      "marker-symbol": "\"url('symbols/shop/bicycle.svg')\""
     }
   },
   {
@@ -212022,7 +212022,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/pet.svg')\""
+      "marker-symbol": "\"url('symbols/shop/pet.svg')\""
     }
   },
   {
@@ -212067,7 +212067,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/photo.svg')\""
+      "marker-symbol": "\"url('symbols/shop/photo.svg')\""
     }
   },
   {
@@ -212093,7 +212093,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/paint.svg')\""
+      "marker-symbol": "\"url('symbols/shop/paint.svg')\""
     }
   },
   {
@@ -212119,7 +212119,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/shoes.svg')\""
+      "marker-symbol": "\"url('symbols/shop/shoes.svg')\""
     }
   },
   {
@@ -212145,7 +212145,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/gift.svg')\""
+      "marker-symbol": "\"url('symbols/shop/gift.svg')\""
     }
   },
   {
@@ -212171,7 +212171,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/electronics.svg')\""
+      "marker-symbol": "\"url('symbols/shop/electronics.svg')\""
     }
   },
   {
@@ -212216,7 +212216,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/alcohol.svg')\""
+      "marker-symbol": "\"url('symbols/shop/alcohol.svg')\""
     }
   },
   {
@@ -212242,7 +212242,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/optician.svg')\""
+      "marker-symbol": "\"url('symbols/shop/optician.svg')\""
     }
   },
   {
@@ -212268,7 +212268,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/hearing_aids.svg')\""
+      "marker-symbol": "\"url('symbols/shop/hearing_aids.svg')\""
     }
   },
   {
@@ -212294,7 +212294,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/outdoor.svg')\""
+      "marker-symbol": "\"url('symbols/shop/outdoor.svg')\""
     }
   },
   {
@@ -212320,7 +212320,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/furniture.svg')\""
+      "marker-symbol": "\"url('symbols/shop/furniture.svg')\""
     }
   },
   {
@@ -212346,7 +212346,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/interior_decoration.svg')\""
+      "marker-symbol": "\"url('symbols/shop/interior_decoration.svg')\""
     }
   },
   {
@@ -212372,7 +212372,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/massage.svg')\"",
+      "marker-symbol": "\"url('symbols/shop/massage.svg')\"",
       "marker-fill": "rgba(23,68,25,1)"
     }
   },
@@ -212399,7 +212399,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/medical_supply.svg')\""
+      "marker-symbol": "\"url('symbols/shop/medical_supply.svg')\""
     }
   },
   {
@@ -212425,7 +212425,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/mobile_phone.svg')\""
+      "marker-symbol": "\"url('symbols/shop/mobile_phone.svg')\""
     }
   },
   {
@@ -212451,7 +212451,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/motorcycle.svg')\""
+      "marker-symbol": "\"url('symbols/shop/motorcycle.svg')\""
     }
   },
   {
@@ -212477,7 +212477,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/music.svg')\""
+      "marker-symbol": "\"url('symbols/shop/music.svg')\""
     }
   },
   {
@@ -212503,7 +212503,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/musical_instrument.svg')\""
+      "marker-symbol": "\"url('symbols/shop/musical_instrument.svg')\""
     }
   },
   {
@@ -212548,7 +212548,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/newsagent.svg')\""
+      "marker-symbol": "\"url('symbols/shop/newsagent.svg')\""
     }
   },
   {
@@ -212574,7 +212574,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/jewelry.svg')\""
+      "marker-symbol": "\"url('symbols/shop/jewelry.svg')\""
     }
   },
   {
@@ -212600,7 +212600,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/toys.svg')\""
+      "marker-symbol": "\"url('symbols/shop/toys.svg')\""
     }
   },
   {
@@ -212626,7 +212626,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/travel_agency.svg')\""
+      "marker-symbol": "\"url('symbols/shop/travel_agency.svg')\""
     }
   },
   {
@@ -212652,7 +212652,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/second_hand.svg')\""
+      "marker-symbol": "\"url('symbols/shop/second_hand.svg')\""
     }
   },
   {
@@ -212678,7 +212678,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/sports.svg')\""
+      "marker-symbol": "\"url('symbols/shop/sports.svg')\""
     }
   },
   {
@@ -212704,7 +212704,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/stationery.svg')\""
+      "marker-symbol": "\"url('symbols/shop/stationery.svg')\""
     }
   },
   {
@@ -212730,7 +212730,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/tobacco.svg')\""
+      "marker-symbol": "\"url('symbols/shop/tobacco.svg')\""
     }
   },
   {
@@ -212756,7 +212756,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/tea.svg')\""
+      "marker-symbol": "\"url('symbols/shop/tea.svg')\""
     }
   },
   {
@@ -212782,7 +212782,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/ticket.svg')\""
+      "marker-symbol": "\"url('symbols/shop/ticket.svg')\""
     }
   },
   {
@@ -212808,7 +212808,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/trade.svg')\""
+      "marker-symbol": "\"url('symbols/shop/trade.svg')\""
     }
   },
   {
@@ -212834,7 +212834,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/trade.svg')\""
+      "marker-symbol": "\"url('symbols/shop/trade.svg')\""
     }
   },
   {
@@ -212860,7 +212860,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/tyres.svg')\""
+      "marker-symbol": "\"url('symbols/shop/tyres.svg')\""
     }
   },
   {
@@ -212886,7 +212886,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/variety_store.svg')\""
+      "marker-symbol": "\"url('symbols/shop/variety_store.svg')\""
     }
   },
   {
@@ -212912,7 +212912,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/video.svg')\""
+      "marker-symbol": "\"url('symbols/shop/video.svg')\""
     }
   },
   {
@@ -212938,7 +212938,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/video_games.svg')\""
+      "marker-symbol": "\"url('symbols/shop/video_games.svg')\""
     }
   },
   {
@@ -212959,7 +212959,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/advertising_column.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/advertising_column.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -213006,7 +213006,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/office/embassy.svg')\"",
+      "marker-symbol": "\"url('symbols/office/embassy.svg')\"",
       "marker-fill": "rgba(72,99,160,1)",
       "marker-clip": "false"
     }
@@ -213029,7 +213029,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/office/consulate.svg')\"",
+      "marker-symbol": "\"url('symbols/office/consulate.svg')\"",
       "marker-fill": "rgba(72,99,160,1)",
       "marker-clip": "false"
     }
@@ -213085,7 +213085,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/leisure/water_park.svg')\"",
+      "marker-symbol": "\"url('symbols/leisure/water_park.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -213122,7 +213122,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/leisure/fitness.svg')\"",
+      "marker-symbol": "\"url('symbols/leisure/fitness.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -213190,7 +213190,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/shop/pet.svg')\"",
+      "marker-symbol": "\"url('symbols/shop/pet.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -213239,7 +213239,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/leisure/playground.svg')\"",
+      "marker-symbol": "\"url('symbols/leisure/playground.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -213288,7 +213288,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/leisure/miniature_golf.svg')\"",
+      "marker-symbol": "\"url('symbols/leisure/miniature_golf.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -213311,7 +213311,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/leisure/golf.svg')\"",
+      "marker-symbol": "\"url('symbols/leisure/golf.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -213334,7 +213334,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/tourism/picnic.svg')\"",
+      "marker-symbol": "\"url('symbols/tourism/picnic.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -213383,7 +213383,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/tourism/picnic.svg')\"",
+      "marker-symbol": "\"url('symbols/tourism/picnic.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -213432,7 +213432,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/leisure/firepit.svg')\"",
+      "marker-symbol": "\"url('symbols/leisure/firepit.svg')\"",
       "marker-fill": "rgba(115,74,8,1)",
       "marker-clip": "false"
     }
@@ -213481,7 +213481,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/leisure/sauna.svg')\"",
+      "marker-symbol": "\"url('symbols/leisure/sauna.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -213504,7 +213504,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/leisure/beach_resort.svg')\"",
+      "marker-symbol": "\"url('symbols/leisure/beach_resort.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -213527,7 +213527,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/leisure/bowling_alley.svg')\"",
+      "marker-symbol": "\"url('symbols/leisure/bowling_alley.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -213550,7 +213550,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/leisure/outdoor_seating.svg')\"",
+      "marker-symbol": "\"url('symbols/leisure/outdoor_seating.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -213573,7 +213573,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/leisure/bird_hide.svg')\"",
+      "marker-symbol": "\"url('symbols/leisure/bird_hide.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -213596,7 +213596,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/leisure/amusement_arcade.svg')\"",
+      "marker-symbol": "\"url('symbols/leisure/amusement_arcade.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -213619,7 +213619,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/leisure/fishing.svg')\"",
+      "marker-symbol": "\"url('symbols/leisure/fishing.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -213642,7 +213642,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/leisure/dance.svg')\"",
+      "marker-symbol": "\"url('symbols/leisure/dance.svg')\"",
       "marker-fill": "rgba(23,68,25,1)",
       "marker-clip": "false"
     }
@@ -213665,7 +213665,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/leisure/slipway.svg')\"",
+      "marker-symbol": "\"url('symbols/leisure/slipway.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -213688,7 +213688,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/boat_rental.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/boat_rental.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -213711,7 +213711,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/helipad.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/helipad.svg')\"",
       "marker-clip": "false",
       "marker-fill": "rgba(132,97,196,1)"
     }
@@ -213806,7 +213806,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/aerodrome.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/aerodrome.svg')\"",
       "marker-clip": "false",
       "marker-fill": "rgba(132,97,196,1)"
     }
@@ -213829,7 +213829,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/ferry.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/ferry.svg')\"",
       "marker-clip": "false",
       "marker-fill": "rgba(132,97,196,1)"
     }
@@ -213852,7 +213852,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/lighthouse.svg')\"",
+      "marker-symbol": "\"url('symbols/man_made/lighthouse.svg')\"",
       "marker-clip": "false",
       "marker-fill": "rgba(102,102,102,1)"
     }
@@ -213875,7 +213875,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/natural/peak.svg')\"",
+      "marker-symbol": "\"url('symbols/natural/peak.svg')\"",
       "marker-fill": "rgba(208,143,85,1)",
       "marker-clip": "false"
     }
@@ -213898,7 +213898,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/natural/peak.svg')\"",
+      "marker-symbol": "\"url('symbols/natural/peak.svg')\"",
       "marker-fill": "rgba(212,0,0,1)",
       "marker-clip": "false"
     }
@@ -213921,7 +213921,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/natural/saddle.svg')\"",
+      "marker-symbol": "\"url('symbols/natural/saddle.svg')\"",
       "marker-fill": "rgba(208,143,85,1)",
       "marker-clip": "false"
     }
@@ -213944,7 +213944,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/natural/saddle.svg')\"",
+      "marker-symbol": "\"url('symbols/natural/saddle.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -213967,7 +213967,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/natural/spring.svg')\"",
+      "marker-symbol": "\"url('symbols/natural/spring.svg')\"",
       "marker-fill": "rgba(122,188,236,1)",
       "marker-clip": "false"
     }
@@ -213990,7 +213990,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/natural/cave.svg')\"",
+      "marker-symbol": "\"url('symbols/natural/cave.svg')\"",
       "marker-clip": "false"
     }
   },
@@ -214069,7 +214069,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/natural/waterfall.svg')\"",
+      "marker-symbol": "\"url('symbols/natural/waterfall.svg')\"",
       "marker-clip": "false",
       "marker-fill": "rgba(53,139,162,1)"
     }
@@ -214092,7 +214092,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/bunker.svg')\"",
+      "marker-symbol": "\"url('symbols/man_made/bunker.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -214158,7 +214158,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/generator_wind.svg')\"",
+      "marker-symbol": "\"url('symbols/man_made/generator_wind.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -214181,7 +214181,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/windmill.svg')\"",
+      "marker-symbol": "\"url('symbols/man_made/windmill.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -214204,7 +214204,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/hunting_stand.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/hunting_stand.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -214232,7 +214232,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/waste_disposal.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/waste_disposal.svg')\"",
       "marker-fill": "rgba(102,102,102,1)"
     }
   },
@@ -214684,7 +214684,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/parking.svg')\""
+      "marker-symbol": "\"url('symbols/amenity/parking.svg')\""
     }
   },
   {
@@ -214939,7 +214939,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/parking_subtle.svg')\""
+      "marker-symbol": "\"url('symbols/amenity/parking_subtle.svg')\""
     }
   },
   {
@@ -215194,7 +215194,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/bicycle_parking.svg')\""
+      "marker-symbol": "\"url('symbols/amenity/bicycle_parking.svg')\""
     }
   },
   {
@@ -215449,7 +215449,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/motorcycle_parking.svg')\""
+      "marker-symbol": "\"url('symbols/amenity/motorcycle_parking.svg')\""
     }
   },
   {
@@ -215704,7 +215704,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/parking_entrance_underground.svg')\""
+      "marker-symbol": "\"url('symbols/amenity/parking_entrance_underground.svg')\""
     }
   },
   {
@@ -215959,7 +215959,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/parking_entrance_multistorey.svg')\""
+      "marker-symbol": "\"url('symbols/amenity/parking_entrance_multistorey.svg')\""
     }
   },
   {
@@ -216249,7 +216249,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/cross.svg')\"",
+      "marker-symbol": "\"url('symbols/man_made/cross.svg')\"",
       "marker-fill": "rgba(0,0,0,1)",
       "marker-clip": "false"
     }
@@ -216272,7 +216272,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/historic/shrine.svg')\"",
+      "marker-symbol": "\"url('symbols/historic/shrine.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -216309,7 +216309,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/barrier/level_crossing.svg')\"",
+      "marker-symbol": "\"url('symbols/barrier/level_crossing.svg')\"",
       "marker-fill": "rgba(77,77,77,1)",
       "marker-clip": "false"
     },
@@ -216347,7 +216347,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/barrier/level_crossing2.svg')\"",
+      "marker-symbol": "\"url('symbols/barrier/level_crossing2.svg')\"",
       "marker-fill": "rgba(77,77,77,1)",
       "marker-clip": "false"
     },
@@ -216371,7 +216371,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/barrier/gate.svg')\"",
+      "marker-symbol": "\"url('symbols/barrier/gate.svg')\"",
       "marker-clip": "false"
     },
     "attachment": "barrier"
@@ -216408,7 +216408,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/barrier/lift_gate.svg')\"",
+      "marker-symbol": "\"url('symbols/barrier/lift_gate.svg')\"",
       "marker-fill": "rgba(63,63,63,1)",
       "marker-clip": "false"
     },
@@ -216432,7 +216432,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/barrier/cattle_grid.svg')\"",
+      "marker-symbol": "\"url('symbols/barrier/cattle_grid.svg')\"",
       "marker-fill": "rgba(63,63,63,1)",
       "marker-clip": "false"
     },
@@ -216456,7 +216456,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/barrier/stile.svg')\"",
+      "marker-symbol": "\"url('symbols/barrier/stile.svg')\"",
       "marker-fill": "rgba(63,63,63,1)",
       "marker-clip": "false"
     },
@@ -216480,7 +216480,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/barrier/motorcycle_barrier.svg')\"",
+      "marker-symbol": "\"url('symbols/barrier/motorcycle_barrier.svg')\"",
       "marker-fill": "rgba(63,63,63,1)",
       "marker-clip": "false"
     },
@@ -216504,7 +216504,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/barrier/cycle_barrier.svg')\"",
+      "marker-symbol": "\"url('symbols/barrier/cycle_barrier.svg')\"",
       "marker-fill": "rgba(63,63,63,1)",
       "marker-clip": "false"
     },
@@ -216528,7 +216528,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/barrier/full-height_turnstile.svg')\"",
+      "marker-symbol": "\"url('symbols/barrier/full-height_turnstile.svg')\"",
       "marker-fill": "rgba(63,63,63,1)",
       "marker-clip": "false"
     },
@@ -216552,7 +216552,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/barrier/kissing_gate.svg')\"",
+      "marker-symbol": "\"url('symbols/barrier/kissing_gate.svg')\"",
       "marker-fill": "rgba(63,63,63,1)",
       "marker-clip": "false"
     },
@@ -216706,7 +216706,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/bench.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/bench.svg')\"",
       "marker-fill": "rgba(102,102,102,1)"
     },
     "attachment": "amenity"
@@ -216756,7 +216756,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/waste_basket.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/waste_basket.svg')\"",
       "marker-fill": "rgba(102,102,102,1)"
     },
     "attachment": "amenity"
@@ -216811,7 +216811,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/waste_disposal.svg')\"",
+      "marker-symbol": "\"url('symbols/amenity/waste_disposal.svg')\"",
       "marker-fill": "rgba(102,102,102,1)"
     },
     "attachment": "amenity"
@@ -662717,7 +662717,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/man_made/ceremonial_gate.svg')\"",
+      "marker-symbol": "\"url('symbols/man_made/ceremonial_gate.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false"
     }
@@ -662783,7 +662783,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/highway/ford.svg')\"",
+      "marker-symbol": "\"url('symbols/highway/ford.svg')\"",
       "marker-fill": "rgba(0,146,218,1)"
     }
   },
@@ -662805,7 +662805,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/leisure/slipway.svg')\"",
+      "marker-symbol": "\"url('symbols/leisure/slipway.svg')\"",
       "marker-fill": "rgba(0,146,218,1)"
     }
   },
@@ -670093,7 +670093,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/leisure/golf_pin.svg')\"",
+      "marker-symbol": "\"url('symbols/leisure/golf_pin.svg')\"",
       "marker-fill": "rgba(102,102,102,1)",
       "marker-clip": "false",
       "marker-transform": "translate(0, -5)"
