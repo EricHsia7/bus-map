@@ -399,32 +399,32 @@
       --marker-symbol: 'map';
     }
     &[information='terminal'] {
-      --marker-symbol: "url('symbols/tourism/terminal.svg')";
+      --marker-symbol: 'info_i';
     }
     --marker-fill: @man-made-icon;
     --marker-clip: false;
   }
 
   &[feature='amenity_library']:zoom(16) {
-    --marker-symbol: "url('symbols/amenity/library.svg')";
+    --marker-symbol: 'local_library';
     --marker-fill: @culture;
     --marker-clip: false;
   }
 
   &[feature='amenity_courthouse']:zoom(16) {
-    --marker-symbol: "url('symbols/amenity/courthouse.svg')";
+    --marker-symbol: 'gavel';
     --marker-fill: @public-service;
     --marker-clip: false;
   }
 
   &[feature='amenity_community_centre']:zoom(17) {
-    --marker-symbol: "url('symbols/amenity/community_centre.svg')";
+    --marker-symbol: 'family_group';
     --marker-fill: @culture;
     --marker-clip: false;
   }
 
   &[feature='amenity_shower']:zoom(18) {
-    --marker-symbol: "url('symbols/amenity/shower.svg')";
+    --marker-symbol: 'shower';
     --marker-fill: @amenity-brown;
     --marker-clip: false;
     &[int_access='restricted'] {
@@ -433,13 +433,13 @@
   }
 
   &[feature='amenity_social_facility']:zoom(17) {
-    --marker-symbol: "url('symbols/amenity/social_facility.svg')";
+    --marker-symbol: 'groups';
     --marker-fill: @public-service;
     --marker-clip: false;
   }
 
   &[feature='amenity_townhall']:zoom(16) {
-    --marker-symbol: "url('symbols/amenity/town_hall.svg')";
+    --marker-symbol: 'castle';
     --marker-fill: @public-service;
     --marker-clip: false;
   }
@@ -451,14 +451,14 @@
     &:gte(height, 40):zoom(16),
     &:gte(height, 20):zoom(17),
     &:zoom(18) {
-      --marker-symbol: "url('symbols/man_made/mast.svg')";
+      --marker-symbol: 'align_flex_end';
       --marker-fill: @man-made-icon;
       --marker-clip: false;
       &["tower:type"='lighting'] {
-        --marker-symbol: "url('symbols/man_made/mast_lighting.svg')";
+        --marker-symbol: 'table_lamp';
       }
       &["tower:type"='communication'] {
-        --marker-symbol: "url('symbols/man_made/mast_communications.svg')";
+        --marker-symbol: 'cell_tower';
       }
     }
   }
@@ -472,11 +472,11 @@
     &:gte(height, 80):zoom(15),
     &:gte(height, 40):zoom(16),
     &:zoom(17) {
-      --marker-symbol: "url('symbols/man_made/tower_generic.svg')";
+      --marker-symbol: 'align_flex_end';
       --marker-fill: @man-made-icon;
       --marker-clip: false;
       &["tower:type"='defensive'] {
-        --marker-symbol: "url('symbols/man_made/tower_defensive.svg')";
+        --marker-symbol: 'fort';
       }
       &["tower:type"='observation'],
       &["tower:type"='watchtower'] {
