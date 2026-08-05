@@ -1,4 +1,5 @@
 const { getOrientation, projectCoordinate, tileToBoundingbox, getTileViewbox, getCentroid } = require('./coordinate');
+const measureTextWidth = require('./text-width');
 
 // Project + transform a ring/line into pixel space, dropping non-finite points.
 function projectTransform(path, transformX, transformY) {
@@ -149,9 +150,10 @@ function plotPolygonLabel(polygon, x0, y0, x1, y1, quantization = 1024) {
  * distance in that coordinate space.
  */
 function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, tileSize = 512, quantization = 1024, center = true, keepUpright = true) {
-  if (!Array.isArray(lineString.coordinates) || lineString.coordinates.length < 2) return '';
-  if (!label || label.length === 0) return '';
-  if (!(textSize > 0)) return '';
+  if (!Array.isArray(lineString.coordinates) || lineString.coordinates.length < 2) return null;
+  if (!label || label.length === 0) return null;
+  if (!(textSize > 0)) return null;
+  const labelLength = label.length;
 
   const dX = x1 - x0;
   const dY = y1 - y0;
@@ -161,42 +163,43 @@ function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, tileSi
   const transformX = (x) => (x - x0) * scaleX;
   const transformY = (y) => (dY - (y - y0)) * scaleY;
 
-  const points = projectTransform(lineString.coordinates, transformX, transformY);
+  const coordinates = projectTransform(lineString.coordinates, transformX, transformY);
 
   // text-size is authored against a 256x256 tile; scale it into whatever
   // pixel space `coordinates` live in.
-  const size = textSize * (tileSize / 256);
-  const textWidth = size * label.length;
+  const fontSize = textSize * (tileSize / 256);
+  const textWidth = measureTextWidth(label, fontSize);
 
   // Decide traversal direction so text doesn't render upside-down: compare
   // net horizontal displacement from the first point to the last point.
-  let pts = points;
+  let points = coordinates;
   if (keepUpright) {
-    const netDx = points[points.length - 1][0] - points[0][0];
-    if (netDx < 0) pts = points.slice().reverse();
+    const netDx = coordinates[coordinates.length - 1][0] - coordinates[0][0];
+    if (netDx < 0) points = coordinates.slice().reverse();
   }
+  const pointsLength = points.length;
 
   // Arc length per segment + total.
-  const segLengths = [];
+  const segments = [];
   let totalLength = 0;
-  for (let i = 0; i < pts.length - 1; i++) {
-    const dx = pts[i + 1][0] - pts[i][0];
-    const dy = pts[i + 1][1] - pts[i][1];
-    const len = Math.hypot(dx, dy);
-    segLengths.push(len);
-    totalLength += len;
+  for (let i = 0; i < pointsLength - 1; i++) {
+    const ABx = points[i + 1][0] - points[i][0];
+    const ABy = points[i + 1][1] - points[i][1];
+    const AB = Math.hypot(ABx, ABy);
+    segments.push(AB);
+    totalLength += AB;
   }
 
-  if (totalLength < textWidth) return ''; // line too short to fit the label
+  if (totalLength < textWidth) return null; // line too short to fit the label
 
   function sampleAtDistance(dist) {
     let remaining = Math.max(0, Math.min(dist, totalLength));
-    for (let i = 0; i < segLengths.length; i++) {
-      const segLen = segLengths[i];
-      if (remaining <= segLen || i === segLengths.length - 1) {
+    for (let i = 0; i < segments.length; i++) {
+      const segLen = segments[i];
+      if (remaining <= segLen || i === segments.length - 1) {
         const t = segLen === 0 ? 0 : remaining / segLen;
-        const p0 = pts[i];
-        const p1 = pts[i + 1];
+        const p0 = points[i];
+        const p1 = points[i + 1];
         return {
           x: p0[0] + (p1[0] - p0[0]) * t,
           y: p0[1] + (p1[1] - p0[1]) * t,
@@ -205,19 +208,36 @@ function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, tileSi
       }
       remaining -= segLen;
     }
-    const last = pts[pts.length - 1];
-    return { x: last[0], y: last[1], angle: 0 };
+    const last = points[points.length - 1];
+    return {
+      x: last[0],
+      y: last[1],
+      angle: 0
+    };
   }
 
-  const startOffset = center ? (totalLength - textWidth) / 2 : 0;
+  const charWidths = new Array(labelLength).fill(0);
+  for (let i = 0; i < labelLength; i++) {
+    charWidths[i] = measureTextWidth(label[i], fontSize);
+  }
 
   const outCoordinates = [];
   const angles = [];
-  for (let i = 0; i < label.length; i++) {
-    const charCenterDist = startOffset + size * i + size / 2;
-    const { x, y, angle } = sampleAtDistance(charCenterDist);
-    outCoordinates.push([Math.floor(x * quantization), Math.floor(y * quantization)]);
+  let charStart = center ? (totalLength - textWidth) / 2 : 0;
+  for (let i = 0; i < labelLength; i++) {
+    const { x, y, angle } = sampleAtDistance(charStart + charWidths[i] / 2);
+    charStart += charWidths[i];
+    outCoordinates.push([x, y]);
     angles.push(angle);
+  }
+
+  for (let i = 1; i < labelLength - 1; i++) {
+    outCoordinates[i] = [(outCoordinates[i - 1][0] + outCoordinates[i][0] + outCoordinates[i + 1][0]) / 3, (outCoordinates[i - 1][1] + outCoordinates[i][1] + outCoordinates[i + 1][1]) / 3];
+    angles[i] = (angles[i - 1] + angles[i] + angles[i + 1]) / 3;
+  }
+
+  for (let i = 0; i < labelLength; i++) {
+    outCoordinates[i] = [Math.floor((outCoordinates[i][0] / tileSize) * quantization), Math.floor((outCoordinates[i][1] / tileSize) * quantization)];
   }
 
   return { type: 'LineString', coordinates: outCoordinates, angles };
