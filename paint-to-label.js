@@ -131,7 +131,7 @@ function paintToLabels(paint, tags = {}) {
     }
 
     // ---- ellipse/circle marker with no image (marker-fill only) ----
-    if (props['marker-fill'] !== undefined && props['marker-file'] === undefined) {
+    if (props['marker-fill'] !== undefined && props['marker-symbol'] === undefined) {
       out.push({
         kind: 'circle',
         instance,

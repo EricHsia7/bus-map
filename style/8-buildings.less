@@ -46,11 +46,11 @@
     --marker-fill: @entrance-normal;
     --marker-allow-overlap: true;
     --marker-ignore-placement: true;
-    --marker-file: "url('symbols/rect.svg')";
+    --marker-symbol: "url('symbols/rect.svg')";
     --marker-opacity: 0;
     &["entrance"='main'] {
       --marker-opacity: 1;
-      --marker-file: "url('symbols/square.svg')";
+      --marker-symbol: "url('symbols/square.svg')";
     }
   }
   &:zoom(19) {
@@ -64,7 +64,7 @@
       --marker-width: 6;
       --marker-height: 6;
       &["entrance"='service'] {
-        --marker-file: "url('symbols/corners.svg')";
+        --marker-symbol: "url('symbols/corners.svg')";
       }
     }
     &["access"='yes'],
@@ -73,7 +73,7 @@
     }
     &["access"='no'] {
       --marker-fill: @entrance-normal;
-      --marker-file: "url('symbols/rectdiag.svg')";
+      --marker-symbol: "url('symbols/rectdiag.svg')";
     }
   }
 }
