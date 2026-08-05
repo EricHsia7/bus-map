@@ -1,4 +1,5 @@
 const { getOrientation, projectCoordinate, tileToBoundingbox, getTileViewbox, getCentroid } = require('./coordinate');
+const { smoothPath } = require('./smooth');
 const measureTextWidth = require('./text-width');
 
 // Project + transform a ring/line into pixel space, dropping non-finite points.
@@ -170,9 +171,9 @@ function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, tileSi
   const fontSize = textSize * (tileSize / 256);
   const textWidth = measureTextWidth(label, fontSize);
 
-  // Decide traversal direction so text doesn't render upside-down: compare
-  // net horizontal displacement from the first point to the last point.
-  let points = coordinates;
+  // Decide traversal direction so text doesn't render upside-down: compare net horizontal displacement from the first point to the last point.
+  // Smooth the path to ensure fidelity
+  let points = smoothPath(coordinates);
   if (keepUpright) {
     const netDx = coordinates[coordinates.length - 1][0] - coordinates[0][0];
     if (netDx < 0) points = coordinates.slice().reverse();
@@ -231,12 +232,17 @@ function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, tileSi
     angles.push(angle);
   }
 
-  for (let i = 1; i < labelLength - 1; i++) {
-    outCoordinates[i] = [(outCoordinates[i - 1][0] + outCoordinates[i][0] + outCoordinates[i + 1][0]) / 3, (outCoordinates[i - 1][1] + outCoordinates[i][1] + outCoordinates[i + 1][1]) / 3];
-    angles[i] = (angles[i - 1] + angles[i] + angles[i + 1]) / 3;
+  if (labelLength >= 3) {
+    angles[0] = (angles[0] + angles[1]) / 2;
+    for (let i = 1; i < labelLength - 1; i++) {
+      // outCoordinates[i] = [(outCoordinates[i - 1][0] + outCoordinates[i][0] + outCoordinates[i + 1][0]) / 3, (outCoordinates[i - 1][1] + outCoordinates[i][1] + outCoordinates[i + 1][1]) / 3];
+      angles[i] = (angles[i - 1] + angles[i] + angles[i + 1]) / 3;
+    }
+    angles[labelLength - 1] = (angles[labelLength - 1] + angles[labelLength - 2]) / 2;
   }
 
   for (let i = 0; i < labelLength; i++) {
+    angles[i] = Math.floor((angles[i] / (2 * Math.PI)) * quantization);
     outCoordinates[i] = [Math.floor((outCoordinates[i][0] / tileSize) * quantization), Math.floor((outCoordinates[i][1] / tileSize) * quantization)];
   }
 
