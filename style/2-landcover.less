@@ -1,12 +1,12 @@
 // --- Parks, woods, other green things ---
 
-@grass: #c8facc; // also grassland, meadow, village_green, garden, allotments
-@scrub: #bef2c2;
-@forest: #b5eab7;
+@grass: #cbf8d1; // also grassland, meadow, village_green, garden, allotments
+@scrub: #c6f3cd;
+@forest: #bdedc2;
 @forest-text: #1f3a20;
-@park: #abe2ad;
-@allotments: #a2daa2;
-@orchard: #98d298; // also vineyard, plant_nursery
+@park: #b9e7bd;
+@allotments: #b4e2b7;
+@orchard: #afdeb2; // also vineyard, plant_nursery
 @hedge: @forest;
 
 // --- "Base" landuses ---
@@ -59,7 +59,7 @@
 @societal_amenities: #ffffe5;
 @tourism: #660033;
 @quarry: #c5c3c3;
-@military: #f55;
+@military: #fe604b;
 @beach: #fff1ba;
 @wastewater_plant: @industrial;
 @wastewater_plant-line: @industrial-line;
@@ -665,10 +665,8 @@
   }
 
   &[military='danger_area']:zoom(9) {
-    --polygon-fill: #ff5555;
+    --polygon-fill: @military;
     --polygon-opacity: 0.1;
-    --polygon-pattern-file: "url('patterns/danger_red_hatch.svg')";
-    --polygon-pattern-alignment: global;
     --line-color: @military;
     --line-opacity: 0.2;
     --line-width: 2;
