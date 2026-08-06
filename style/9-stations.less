@@ -3,7 +3,7 @@
 
 #stations {
   &[railway='subway_entrance']:zoom(18) {
-    --marker-symbol: "url('symbols/amenity/entrance.svg')";
+    --marker-symbol: 'door_front';
     --marker-fill: @transportation-icon;
     --marker-clip: false;
     &:zoom(19) {
@@ -19,7 +19,7 @@
   }
 
   &[railway='station']:zoom(12) {
-    --marker-symbol: "url('symbols/square.svg')";
+    --marker-symbol: 'square';
     --marker-fill: @station-color;
     --marker-clip: false;
     &:not([station='subway']) {
@@ -53,7 +53,7 @@
 
   &[railway='halt'] {
     &:zoom(13) {
-      --marker-symbol: "url('symbols/square.svg')";
+      --marker-symbol: 'square';
       --marker-fill: @station-color;
       --marker-width: zoom-gradient(4, 6 15z);
       --marker-clip: false;
@@ -73,7 +73,7 @@
 
   &[aerialway='station']::aerialway {
     &:zoom(13) {
-      --marker-symbol: "url('symbols/square.svg')";
+      --marker-symbol: 'square';
       --marker-fill: @station-color;
       --marker-width: 4;
       --marker-clip: false;
@@ -96,7 +96,7 @@
 
   &[railway='tram_stop'] {
     &:zoom(14) {
-      --marker-symbol: "url('symbols/square.svg')";
+      --marker-symbol: 'square';
       --marker-fill: @station-color;
       --marker-width: zoom-gradient(4, 6 15z);
       --marker-clip: false;

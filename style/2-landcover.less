@@ -125,13 +125,7 @@
   }
 
   &[feature='landuse_orchard'] {
-    &:zoom(5) {
-      --polygon-fill: @orchard;
-    }
-    &:zoom(13) {
-      --polygon-pattern-file: "url('patterns/orchard.svg')";
-      --polygon-pattern-alignment: global;
-    }
+    --polygon-fill: @orchard;
   }
 
   &[feature='leisure_garden'] {

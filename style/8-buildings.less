@@ -46,34 +46,34 @@
     --marker-fill: @entrance-normal;
     --marker-allow-overlap: true;
     --marker-ignore-placement: true;
-    --marker-symbol: "url('symbols/rect.svg')";
+    --marker-symbol: 'door_back';
     --marker-opacity: 0;
-    &["entrance"='main'] {
+    &[entrance='main'] {
       --marker-opacity: 1;
-      --marker-symbol: "url('symbols/square.svg')";
+      --marker-symbol: 'door_front';
     }
   }
   &:zoom(19) {
-    &["entrance"='yes'],
-    &["entrance"='main'],
-    &["entrance"='home'],
-    &["entrance"='service'],
-    &["entrance"='staircase'],
-    &["entrance"='shop'] {
+    &[entrance='yes'],
+    &[entrance='main'],
+    &[entrance='home'],
+    &[entrance='service'],
+    &[entrance='staircase'],
+    &[entrance='shop'] {
       --marker-opacity: 1;
       --marker-width: 6;
       --marker-height: 6;
-      &["entrance"='service'] {
-        --marker-symbol: "url('symbols/corners.svg')";
+      &[entrance='service'] {
+        --marker-symbol: 'crop_free';
       }
     }
-    &["access"='yes'],
-    &["access"='permissive'] {
+    &[access='yes'],
+    &[access='permissive'] {
       --marker-fill: @entrance-permissive;
     }
-    &["access"='no'] {
+    &[access='no'] {
       --marker-fill: @entrance-normal;
-      --marker-symbol: "url('symbols/rectdiag.svg')";
+      --marker-symbol: 'pattern';
     }
   }
 }

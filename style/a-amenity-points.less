@@ -483,43 +483,43 @@
         --marker-symbol: "url('symbols/man_made/tower_observation.svg')";
       }
       &["tower:type"='bell_tower'] {
-        --marker-symbol: "url('symbols/man_made/bell_tower.svg')";
+        --marker-symbol: 'doorbell';
       }
       &["tower:type"='cooling'] {
-        --marker-symbol: "url('symbols/man_made/tower_cooling.svg')";
+        --marker-symbol: 'cool_to_dry';
       }
       &["tower:construction"='lattice'] {
-        --marker-symbol: "url('symbols/man_made/tower_lattice.svg')";
+        --marker-symbol: 'background_grid_small';
       }
       &["tower:construction"='dish'] {
-        --marker-symbol: "url('symbols/man_made/tower_dish.svg')";
+        --marker-symbol: 'radar';
       }
       &["tower:construction"='dome'] {
-        --marker-symbol: "url('symbols/man_made/tower_dome.svg')";
+        --marker-symbol: 'mosque';
       }
       &["tower:type"='communication'] {
-        --marker-symbol: "url('symbols/man_made/tower_cantilever_communication.svg')";
-        &["tower:construction"='lattice'] {
-          --marker-symbol: "url('symbols/man_made/tower_lattice_communication.svg')";
-        }
-        &["tower:construction"='dish'] {
-          --marker-symbol: "url('symbols/man_made/tower_dish.svg')";
-        }
-        &["tower:construction"='dome'] {
-          --marker-symbol: "url('symbols/man_made/tower_dome.svg')";
-        }
+        --marker-symbol: 'cell_tower';
+        // &["tower:construction"='lattice'] {
+        //   --marker-symbol: "url('symbols/man_made/tower_lattice_communication.svg')";
+        // }
+        // &["tower:construction"='dish'] {
+        //   --marker-symbol: "url('symbols/man_made/tower_dish.svg')";
+        // }
+        // &["tower:construction"='dome'] {
+        //   --marker-symbol: "url('symbols/man_made/tower_dome.svg')";
+        // }
       }
       &["tower:type"='lighting'] {
-        --marker-symbol: "url('symbols/man_made/tower_lighting.svg')";
-        &["tower:construction"='lattice'] {
-          --marker-symbol: "url('symbols/man_made/tower_lattice_lighting.svg')";
-        }
+        --marker-symbol: 'lightbulb_2';
+        // &["tower:construction"='lattice'] {
+        //   --marker-symbol: "url('symbols/man_made/tower_lattice_lighting.svg')";
+        // }
       }
     }
   }
 
   &[feature='man_made_communications_tower']:zoom(14) {
-    --marker-symbol: "url('symbols/man_made/communications_tower.svg')";
+    --marker-symbol: 'cell_tower';
     --marker-fill: @man-made-icon;
     --marker-clip: false;
   }
@@ -572,14 +572,14 @@
   }
 
   &[feature='tourism_museum']:zoom(16) {
-    --marker-symbol: "url('symbols/tourism/museum.svg')";
+    --marker-symbol: 'museum';
     --marker-fill: @culture;
     --marker-clip: false;
   }
 
   &[feature='amenity_clinic']:zoom(17),
   &[feature='amenity_doctors']:zoom(17) {
-    --marker-symbol: "url('symbols/amenity/doctors.svg')";
+    --marker-symbol: 'medical_services';
     --marker-fill: @health-color;
     --marker-clip: false;
   }
@@ -590,26 +590,26 @@
       --marker-line-width: 0;
     }
     &:zoom(18) {
-      --marker-symbol: "url('symbols/amenity/dentist.svg')";
+      --marker-symbol: 'dentistry';
     }
     --marker-fill: @health-color;
     --marker-clip: false;
   }
 
   &[feature='amenity_hospital']:zoom(15) {
-    --marker-symbol: "url('symbols/amenity/hospital.svg')";
+    --marker-symbol: 'local_hospital';
     --marker-fill: @health-color;
     --marker-clip: false;
   }
 
   &[feature='amenity_pharmacy']:zoom(17) {
-    --marker-symbol: "url('symbols/amenity/pharmacy.svg')";
+    --marker-symbol: 'local_pharmacy';
     --marker-fill: @health-color;
     --marker-clip: false;
   }
 
   &[feature='amenity_veterinary']:zoom(17) {
-    --marker-symbol: "url('symbols/amenity/veterinary.svg')";
+    --marker-symbol: 'pets';
     --marker-fill: @health-color;
     --marker-clip: false;
   }
@@ -653,38 +653,38 @@
 
   &[feature='man_made_storage_tank']:zoom(18),
   &[feature='man_made_silo']:zoom(18) {
-    --marker-symbol: "url('symbols/man_made/storage_tank.svg')";
+    --marker-symbol: 'inventory_2';
     --marker-fill: @man-made-icon;
     --marker-clip: false;
   }
 
   &[feature='amenity_police']:zoom(16) {
-    --marker-symbol: "url('symbols/amenity/police.svg')";
+    --marker-symbol: 'local_police';
     --marker-fill: @public-service;
     --marker-clip: false;
   }
 
   &[feature='amenity_vehicle_inspection']:zoom(17) {
-    --marker-symbol: "url('symbols/amenity/vehicle_inspection.svg')";
+    --marker-symbol: 'no_crash';
     --marker-fill: @public-service;
     --marker-clip: false;
   }
 
   &[feature='amenity_post_box']:zoom(18) {
-    --marker-symbol: "url('symbols/amenity/post_box.svg')";
+    --marker-symbol: 'inbox';
     --marker-fill: @amenity-brown;
     --marker-clip: false;
   }
 
   &[feature='amenity_post_office']:zoom(17) {
-    --marker-symbol: "url('symbols/amenity/post_office.svg')";
+    --marker-symbol: 'local_post_office';
     --marker-fill: @public-service;
     --marker-clip: false;
   }
 
   &[feature='amenity_recycling'][recycling_type='centre']:zoom(17),
   &[feature='amenity_recycling']:zoom(19) {
-    --marker-symbol: "url('symbols/amenity/recycling.svg')";
+    --marker-symbol: 'recycling';
     --marker-fill: @amenity-brown;
     --marker-clip: false;
     &[int_access='restricted'] {
@@ -693,25 +693,25 @@
   }
 
   &[feature='amenity_telephone']:zoom(17) {
-    --marker-symbol: "url('symbols/amenity/telephone.svg')";
+    --marker-symbol: 'call';
     --marker-fill: @amenity-brown;
     --marker-clip: false;
   }
 
   &[feature='emergency_phone']:zoom(18) {
-    --marker-symbol: "url('symbols/amenity/emergency_phone.svg')";
+    --marker-symbol: 'emergency';
     --marker-fill: @amenity-brown;
     --marker-clip: false;
   }
 
   &[feature='amenity_theatre']:zoom(16) {
-    --marker-symbol: "url('symbols/amenity/theatre.svg')";
+    --marker-symbol: 'theater_comedy';
     --marker-fill: @culture;
     --marker-clip: false;
   }
 
   &[feature='amenity_arts_centre']:zoom(17) {
-    --marker-symbol: "url('symbols/amenity/arts_centre.svg')";
+    --marker-symbol: 'wall_art';
     --marker-fill: @culture;
     --marker-clip: false;
   }
@@ -719,7 +719,7 @@
   &[feature='amenity_toilets'] {
     &[int_access='yes']:zoom(18),
     &:zoom(19) {
-      --marker-symbol: "url('symbols/amenity/toilets.svg')";
+      --marker-symbol: 'wc';
       --marker-fill: @amenity-brown;
       --marker-clip: false;
       &[int_access='restricted'] {
@@ -729,7 +729,7 @@
   }
 
   &[feature='amenity_drinking_water']:zoom(17) {
-    --marker-symbol: "url('symbols/amenity/drinking_water.svg')";
+    --marker-symbol: 'local_drink';
     --marker-fill: @amenity-brown;
     --marker-clip: false;
     &[int_access='restricted'] {
@@ -761,13 +761,13 @@
   }
 
   &[feature='tourism_viewpoint']:zoom(16) {
-    --marker-symbol: "url('symbols/tourism/viewpoint.svg')";
+    --marker-symbol: 'attractions';
     --marker-fill: @amenity-brown;
     --marker-clip: false;
   }
 
   &[feature='man_made_water_tower']:zoom(17) {
-    --marker-symbol: "url('symbols/man_made/water_tower.svg')";
+    --marker-symbol: 'water_bottle_large';
     --marker-fill: @man-made-icon;
     --marker-clip: false;
   }
