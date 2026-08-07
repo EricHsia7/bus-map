@@ -1,6 +1,5 @@
 @building-fill: #dae6f1;
 @building-line: darken(@building-fill, 8%);
-@building-low-zoom: darken(@building-fill, 4%);
 
 @building-major-fill: darken(@building-fill, 10%);
 @building-major-line: darken(@building-major-fill, 15%);
@@ -11,13 +10,12 @@
 @entrance-normal: @building-line;
 
 #buildings {
-  &:zoom(14) {
-    --polygon-fill: zoom-gradient(@building-low-zoom, @building-fill 15z);
-    --polygon-clip: false;
+  &:zoom(13) {
+    --polygon-fill: @building-fill;
+    --polygon-opacity: zoom-gradient(0.25 13z, 1 15z);
     &:zoom(15) {
       --line-color: @building-line;
       --line-width: 0.75;
-      --line-clip: false;
     }
     &[amenity='place_of_worship'],
     &[aeroway='terminal'],
@@ -48,30 +46,30 @@
     --marker-ignore-placement: true;
     --marker-file: "url('symbols/rect.svg')";
     --marker-opacity: 0;
-    &["entrance"='main'] {
+    &[entrance='main'] {
       --marker-opacity: 1;
       --marker-file: "url('symbols/square.svg')";
     }
   }
   &:zoom(19) {
-    &["entrance"='yes'],
-    &["entrance"='main'],
-    &["entrance"='home'],
-    &["entrance"='service'],
-    &["entrance"='staircase'],
-    &["entrance"='shop'] {
+    &[entrance='yes'],
+    &[entrance='main'],
+    &[entrance='home'],
+    &[entrance='service'],
+    &[entrance='staircase'],
+    &[entrance='shop'] {
       --marker-opacity: 1;
       --marker-width: 6;
       --marker-height: 6;
-      &["entrance"='service'] {
+      &[entrance='service'] {
         --marker-file: "url('symbols/corners.svg')";
       }
     }
-    &["access"='yes'],
-    &["access"='permissive'] {
+    &[access='yes'],
+    &[access='permissive'] {
       --marker-fill: @entrance-permissive;
     }
-    &["access"='no'] {
+    &[access='no'] {
       --marker-fill: @entrance-normal;
       --marker-file: "url('symbols/rectdiag.svg')";
     }

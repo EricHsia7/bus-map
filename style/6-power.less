@@ -1,17 +1,17 @@
 @power-line-color: #888888;
 
 #power-line {
-  &:zoom(13) {
-    --line-width: 0.5; // zoom-gradient(0.5, 0.6 15z, 0.7 16z 17z, 1 18z, 1.2 19z);
-    --line-opacity: zoom-gradient(1, 1 13z, 0 16z);
+  &:zoom(12) {
+    --line-width: 0.5;
+    --line-opacity: zoom-gradient(1, 1 12z, 0 16z);
     --line-color: @power-line-color;
   }
 }
 
 #power-minorline {
-  &:zoom(13) {
-    --line-width: 0.3; // zoom-gradient(0.3, 0.4 17z, 0.5 18z);
-    --line-opacity: zoom-gradient(1, 1 13z, 0 16z);
+  &:zoom(12) {
+    --line-width: 0.3;
+    --line-opacity: zoom-gradient(1, 1 12z, 0 16z);
     --line-color: @power-line-color;
   }
 }
