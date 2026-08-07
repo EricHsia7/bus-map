@@ -390,7 +390,7 @@ async function renderChunk(cX, cY, cZ) {
     // `extent` is what tells the client these are tile-local integers; drop it and the worker would read them as lon/lat and place everything at the antimeridian.
     fs.writeFileSync(path.join(labelsDir, tZ.toString(), tX.toString(), `${tY}.gz`), Buffer.from(gzipSync(encoder.encode(JSON.stringify({ type: 'FeatureCollection', extent: labelQuantization, features: labels })))));
     const endTime = performance.now();
-    console.log(`[${count}/${total}] Rendered (${tX} ${tY} ${tZ}) in (${cX} ${cY} ${cZ}) in ${((endTime - startTime) / 1000).toFixed(2)}s.`);
+    console.log(`[${count}/${total}] Rendered (${tX} ${tY} ${tZ}) in (${cX} ${cY} ${cZ}) in ${(endTime - startTime).toFixed(2)}ms.`);
   }
   return true;
 }

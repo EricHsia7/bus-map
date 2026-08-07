@@ -8,14 +8,14 @@
   },
   "chunks": {
     "dir": "./chunks",
-    "baseZ": 13,
+    "baseZ": 12,
     "output": "chunk.sh"
   },
   "tiles": {
     "dir": "./tiles",
-    "z": { "min": 13, "max": 16 },
+    "z": { "min": 12, "max": 16 },
     "size": 1024,
-    "labelQuantization": 1024,
+    "labelQuantization": 2048,
     "precision": 2048,
     "background": "#f0f2f5"
   }
