@@ -1411,7 +1411,7 @@
 @track-fill: #996600;
 
 /* Designated walking paths, sidewalks, or footbridges. */
-@footway-fill: #b9bfc6;
+@footway-fill: #91969b;
 @footway-fill-noaccess: @footway-fill;
 @footway-casing: @footway-fill;
 
@@ -1494,8 +1494,8 @@
 @cycleway-width-z18: 0.7;
 @cycleway-width-z19: 0.6;
 
-@footway-width-z14: 2.5;
-@footway-width-z15: 2;
+@footway-width-z14: 1.5;
+@footway-width-z15: 1.5;
 @footway-width-z16: 1.5;
 @footway-width-z18: 1.1;
 @footway-width-z19: 0.9;
@@ -3263,7 +3263,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --line-opacity: zoom-gradient(0.25 14z, 1 16z);
 
       &:zoom(15) {
-        --line-dasharray: 4, 6;
+        --line-cap: round;
+        --line-dasharray: 0 10;
       }
 
       --line-color: @footway-fill;
@@ -3861,6 +3862,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
   &[feature='highway_footway']:zoom(14),
   &[feature='highway_pedestrian']:zoom(14) {
+    --line-cap: round;
     --line-join: round;
     --line-width: zoom-gradient(@footway-width-z14 14z, @footway-width-z15 15z, @footway-width-z16 16z 17z, @footway-width-z18 18z, @footway-width-z19 19z);
     --line-opacity: zoom-gradient(0.25 14z, 1 16z);
