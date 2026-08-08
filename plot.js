@@ -2,14 +2,13 @@ const { getOrientation, projectCoordinate, tileToBoundingbox, getTileViewbox, ge
 const { smoothPath } = require('./smooth');
 const measureTextWidth = require('./text-width');
 
-// Project + transform a ring/line into pixel space, dropping non-finite points.
-function projectTransform(path, transformX, transformY) {
+// Transform a ring/line into pixel space, dropping non-finite points.
+function transform(path, transformX, transformY) {
   const out = [];
   for (const coordinate of path) {
-    const p = projectCoordinate(coordinate[0], coordinate[1]);
-    if (!Number.isFinite(p[0]) || !Number.isFinite(p[1])) continue;
-    const x = transformX(p[0]);
-    const y = transformY(p[1]);
+    if (!Number.isFinite(coordinate[0]) || !Number.isFinite(coordinate[1])) continue;
+    const x = transformX(coordinate[0]);
+    const y = transformY(coordinate[1]);
     if (!Number.isFinite(x) || !Number.isFinite(y)) continue;
     out.push([x, y]);
   }
@@ -65,14 +64,14 @@ function plotPolygon(polygon, x0, y0, x1, y1, tileSize = 512, precision = 2048, 
   if (!rings || rings.length === 0 || !rings[0] || rings[0].length < 3) return '';
 
   const bbox = [Infinity, Infinity, -Infinity, -Infinity];
-  const outer = projectTransform(rings[0], transformX, transformY);
+  const outer = transform(rings[0], transformX, transformY);
   if (outer.length < 3) return '';
   bboxOf(outer, bbox);
 
   const holes = [];
   for (let i = 1; i < rings.length; i++) {
     if (!rings[i] || rings[i].length < 3) continue;
-    const h = projectTransform(rings[i], transformX, transformY);
+    const h = transform(rings[i], transformX, transformY);
     if (h.length >= 3) {
       holes.push(h);
       bboxOf(h, bbox);
@@ -103,7 +102,7 @@ function plotLineString(lineString, x0, y0, x1, y1, tileSize = 512, precision = 
 
   const coords = lineString.coordinates;
   if (!coords || coords.length < 2) return '';
-  const points = projectTransform(coords, transformX, transformY);
+  const points = transform(coords, transformX, transformY);
   if (points.length < 2) return '';
 
   const bbox = [Infinity, Infinity, -Infinity, -Infinity];
@@ -126,7 +125,7 @@ function plotPolygonLabel(polygon, x0, y0, x1, y1, quantization = 1024) {
   const coords = polygon.coordinates;
   const centroid = getCentroid(coords);
   // if (centroid && centroid[0] >= 0 && centroid[0] <= quantization && centroid[1] >= 0 && centroid[1] <= quantization) {
-  return { type: 'Point', coordinates: projectTransform([centroid], transformX, transformY)[0] };
+  return { type: 'Point', coordinates: transform([centroid], transformX, transformY)[0] };
   //}
 }
 
@@ -164,7 +163,7 @@ function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, tileSi
   const transformX = (x) => (x - x0) * scaleX;
   const transformY = (y) => (dY - (y - y0)) * scaleY;
 
-  const coordinates = projectTransform(lineString.coordinates, transformX, transformY);
+  const coordinates = transform(lineString.coordinates, transformX, transformY);
 
   // text-size is authored against a 256x256 tile; scale it into whatever
   // pixel space `coordinates` live in.
@@ -257,7 +256,7 @@ function plotPointLabel(point, x0, y0, x1, y1, quantization = 1024) {
   const scaleY = quantization / dY;
   const transformX = (x) => Math.floor((x - x0) * scaleX);
   const transformY = (y) => Math.floor((dY - (y - y0)) * scaleY);
-  return { type: 'Point', coordinates: projectTransform([point], transformX, transformY)[0] };
+  return { type: 'Point', coordinates: transform([point], transformX, transformY)[0] };
 }
 
 module.exports = {

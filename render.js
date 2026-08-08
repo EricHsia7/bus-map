@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { decompressSync, gzipSync } = require('fflate');
 const { plotPolygon, plotLineString, plotPolygonLabel, plotPointLabel, plotLineStringLabel } = require('./plot.js');
-const { getTileViewbox, getSubTiles, areaToTiles, getParentTile, tileToBoundingbox, getCentroid } = require('./coordinate.js');
+const { getTileViewbox, getSubTiles, areaToTiles, getParentTile, tileToBoundingbox, getCentroid, projectLatitude, projectLongitude } = require('./coordinate.js');
 const style = require('./style.json');
 const mml = require('./mml.json');
 const M = require('./match-rule.js');
@@ -84,9 +84,20 @@ const encoder = new TextEncoder();
 // WGS84 lon/lat, as required by the GeoJSON spec.
 const labelsDir = (config.labels && config.labels.dir) || path.join(tilesDir, '..', 'labels');
 
+async function loadFileformat() {
+  const root = await protobuf.load('./fileformat.proto');
+  const BlobHeaderType = root.lookupType('OSMPBF.BlobHeader');
+  const BlobType = root.lookupType('OSMPBF.Blob');
+  const HeaderBlock = root.lookupType('OSMPBF.HeaderBlock');
+  const PrimitiveBlock = root.lookupType('OSMPBF.PrimitiveBlock');
+  const Node = root.lookupType('OSMPBF.Node');
+  const Way = root.lookupType('OSMPBF.Way');
+  const Relation = root.lookupType('OSMPBF.Relation');
+  return { BlobHeaderType, BlobType, HeaderBlock, PrimitiveBlock, Node, Way, Relation };
+}
 // Parse one chunk's .osm.pbf into { nodeMap, ways, relations }.
 // Returns null when the chunk file does not exist.
-async function parseChunk(cX, cY, cZ) {
+async function parseChunk(cX, cY, cZ, fileformat) {
   const key = `${cZ}_${cX}_${cY}`;
   const file = path.join(chunksDir, `${cZ}_${cX}_${cY}.osm.pbf`);
   if (!fs.existsSync(file)) return null;
@@ -94,15 +105,7 @@ async function parseChunk(cX, cY, cZ) {
   const buf = fs.readFileSync(file);
   const view = new DataView(buf.buffer);
 
-  const root = await protobuf.load('./fileformat.proto');
-  const BlobHeaderType = root.lookupType('OSMPBF.BlobHeader');
-  const BlobType = root.lookupType('OSMPBF.Blob');
-  const HeaderBlock = root.lookupType('OSMPBF.HeaderBlock');
-  const PrimitiveBlock = root.lookupType('OSMPBF.PrimitiveBlock');
-
-  const Node = root.lookupType('OSMPBF.Node');
-  const Way = root.lookupType('OSMPBF.Way');
-  const Relation = root.lookupType('OSMPBF.Relation');
+  const { BlobHeaderType, BlobType, HeaderBlock, PrimitiveBlock, Node, Way, Relation } = fileformat;
 
   const nodeMap = new Map();
   let nodes = [];
@@ -171,13 +174,18 @@ async function parseChunk(cX, cY, cZ) {
           // --- regular Nodes ---
           for (const n of group.nodes) {
             const id = Number(n.id);
-            nodes.push({
-              id: id,
-              lat: toDeg(n.lat, latOff),
-              lon: toDeg(n.lon, lonOff),
-              tags: tags(n.keys, n.vals)
-            });
-            nodeMap.set(id, [toDeg(n.lon, lonOff), toDeg(n.lat, latOff)]);
+            const longitude = projectLongitude(toDeg(n.lon, lonOff));
+            const latitude = projectLatitude(toDeg(n.lat, latOff));
+            const t = tags(n.keys, n.vals);
+            if (Object.keys(t).length > 0) {
+              nodes.push({
+                id: id,
+                lon: longitude,
+                lat: latitude,
+                tags: t
+              });
+            }
+            nodeMap.set(id, [longitude, latitude]);
           }
 
           // --- DenseNodes (this is where nodes usually are!) ---
@@ -200,8 +208,17 @@ async function parseChunk(cX, cY, cZ) {
                 t[st[k]] = st[v];
               }
               kv++; // skip the 0 delimiter
-              nodes.push({ id, lat: toDeg(lat, latOff), lon: toDeg(lon, lonOff), tags: t });
-              nodeMap.set(id, [toDeg(lon, lonOff), toDeg(lat, latOff)]);
+              const longitude = projectLongitude(toDeg(lon, lonOff));
+              const latitude = projectLatitude(toDeg(lat, latOff));
+              if (Object.keys(t).length > 0) {
+                nodes.push({
+                  id,
+                  lon: longitude,
+                  lat: latitude,
+                  tags: t
+                });
+              }
+              nodeMap.set(id, [longitude, latitude]);
             }
           }
 
@@ -209,7 +226,11 @@ async function parseChunk(cX, cY, cZ) {
           for (const w of group.ways) {
             let ref = 0;
             const refs = w.refs.map((r) => (ref += Number(r)));
-            ways.push({ id: Number(w.id), refs, tags: tags(w.keys, w.vals) });
+            ways.push({
+              id: Number(w.id),
+              refs,
+              tags: tags(w.keys, w.vals)
+            });
           }
 
           // --- Relations (memids delta-coded, roles are string IDs) ---
@@ -220,7 +241,11 @@ async function parseChunk(cX, cY, cZ) {
               ref: (mid += Number(m)),
               role: st[r.rolesSid[i]]
             }));
-            relations.push({ id: Number(r.id), members, tags: tags(r.keys, r.vals) });
+            relations.push({
+              id: Number(r.id),
+              members,
+              tags: tags(r.keys, r.vals)
+            });
           }
         }
         break;
@@ -232,15 +257,12 @@ async function parseChunk(cX, cY, cZ) {
     }
   }
 
-  // Only tagged nodes are potential POI/marker/label anchors; untagged nodes
-  // are pure geometry vertices and would bloat memory.
-  const taggedNodes = nodes.filter((n) => n.tags && Object.keys(n.tags).length);
-  const result = { nodeMap, nodes: taggedNodes, ways, relations };
+  const result = { nodeMap, nodes, ways, relations };
   return result;
 }
 
-async function renderChunk(cX, cY, cZ) {
-  const center = await parseChunk(cX, cY, cZ);
+async function renderChunk(cX, cY, cZ, fileformat) {
+  const center = await parseChunk(cX, cY, cZ, fileformat);
   if (!center) return false;
   const { nodeMap, ways, relations } = center;
 
@@ -259,7 +281,6 @@ async function renderChunk(cX, cY, cZ) {
   for (const [tX, tY, tZ] of subTiles) {
     count++;
     const [x0, y0, x1, y1] = getTileViewbox(tX, tY, tZ);
-    const [tw, ts, te, tn] = tileToBoundingbox(tX, tY, tZ); // lon/lat bounds of this tile
     const fills = []; // { order, svg } collected across ways + relations
     const lineEls = []; // { order, svg }
     const labels = []; // GeoJSON features for the text/marker overlay
@@ -354,7 +375,7 @@ async function renderChunk(cX, cY, cZ) {
     // which are never drawn as background geometry. Emit each only for the tile
     // whose bbox contains it, so a point lands in exactly one tile.
     for (const node of center.nodes) {
-      if (node.lon < tw || node.lon > te || node.lat < ts || node.lat > tn) continue;
+      if (node.lon < x0 || node.lon > x1 || node.lat < y0 || node.lat > y1) continue;
       const nlayers = I.inferLayers(node.tags, { geometry: 'point', zoom: tZ });
       for (const layer of nlayers) {
         const feat = { ...node.tags, ...layer.row };
@@ -390,7 +411,7 @@ async function renderChunk(cX, cY, cZ) {
     // `extent` is what tells the client these are tile-local integers; drop it and the worker would read them as lon/lat and place everything at the antimeridian.
     fs.writeFileSync(path.join(labelsDir, tZ.toString(), tX.toString(), `${tY}.gz`), Buffer.from(gzipSync(encoder.encode(JSON.stringify({ type: 'FeatureCollection', extent: labelQuantization, features: labels })))));
     const endTime = performance.now();
-    console.log(`[${count}/${total}] Rendered (${tX} ${tY} ${tZ}) in (${cX} ${cY} ${cZ}) in ${(endTime - startTime).toFixed(2)}ms.`);
+    console.log(`[${count}/${total}] Rendered (${tX} ${tY} ${tZ}) in (${cX} ${cY} ${cZ}) in ${Math.floor(endTime - startTime)}ms.`);
   }
   return true;
 }
@@ -410,12 +431,12 @@ async function main() {
   const east = config.bbox.east;
   const north = config.bbox.north;
   const baseZ = config.chunks.baseZ;
+  const fileformat = await loadFileformat();
   const chunkTiles = areaToTiles(west, south, east, north, baseZ);
-
   const groups = splitByLength(chunkTiles, 4);
   for (const group of groups) {
     try {
-      const groupResults = await Promise.allSettled(group.map((tile) => renderChunk(tile[0], tile[1], baseZ)));
+      const groupResults = await Promise.allSettled(group.map((tile) => renderChunk(tile[0], tile[1], baseZ, fileformat)));
       console.log(groupResults);
     } catch (err) {
       console.log(baseZ, err);

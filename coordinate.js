@@ -83,6 +83,18 @@ function projectCoordinate(lon, lat) {
   return [R * lon * degToRad, R * Math.log(Math.tan(Math.PI / 4 + (lat * degToRad) / 2))];
 }
 
+function projectLongitude(lon) {
+  const R = 6378137;
+  const degToRad = Math.PI / 180;
+  return R * lon * degToRad;
+}
+
+function projectLatitude(lat) {
+  const R = 6378137;
+  const degToRad = Math.PI / 180;
+  return R * Math.log(Math.tan(Math.PI / 4 + (lat * degToRad) / 2));
+}
+
 /**
  * Determines the orientation of a polygon path.
  *
@@ -129,6 +141,8 @@ module.exports = {
   getSubTiles,
   getTileViewbox,
   projectCoordinate,
+  projectLongitude,
+  projectLatitude,
   getOrientation,
   getCentroid
 };
