@@ -335,7 +335,7 @@ async function renderChunk(cX, cY, cZ, fileformat) {
           const textScale = Array.isArray(desc.properties['text-scale']) ? desc.properties['text-scale'][0] : desc.properties['text-scale'] || 1; // resolve the placement at discrete scale (tZ)
           const labelGeometry = closed ? plotPolygonLabel(shape, x0, y0, x1, y1, labelQuantization) : plotLineStringLabel(shape, x0, y0, x1, y1, desc.properties.label, desc.properties['text-size'], textScale, tileSize, labelQuantization);
           if (!labelGeometry) continue;
-          labels.push({ type: 'Feature', id: `w${way.id}`, geometry: labelGeometry, properties: internStyle(styleTables, desc, layer.id) });
+          labels.push({ base, label: { type: 'Feature', id: `w${way.id}`, geometry: labelGeometry, properties: internStyle(styleTables, desc, layer.id) } });
         }
       }
     }
@@ -372,7 +372,8 @@ async function renderChunk(cX, cY, cZ, fileformat) {
         if (feat.polygons[0]) {
           const labelGeometry = plotPolygonLabel(feat.polygons[0], x0, y0, x1, y1, labelQuantization);
           for (const desc of descs) {
-            labels.push({ type: 'Feature', id: `r${layer.id}:${labelGeometry.coordinates[0]}:${labelGeometry.coordinates[1]}`, geometry: labelGeometry, properties: internStyle(styleTables, desc, layer.id) });
+            const properties = internStyle(styleTables, desc, layer.id);
+            labels.push({ base, label: { type: 'Feature', id: `r${layer.id}:${labelGeometry.coordinates[0]}:${labelGeometry.coordinates[1]}`, geometry: labelGeometry, properties } });
           }
         }
       }
@@ -392,9 +393,11 @@ async function renderChunk(cX, cY, cZ, fileformat) {
         for (const idx of idxs) Object.assign(labelPaint, style[idx].paint);
         const descs = paintToLabels(labelPaint, feat);
         if (!descs) continue;
+        const base = orderOf(layer.id);
         const labelGeometry = plotPointLabel([node.lon, node.lat], x0, y0, x1, y1, labelQuantization);
         for (const desc of descs) {
-          labels.push({ type: 'Feature', id: `n${node.id}`, geometry: labelGeometry, properties: internStyle(styleTables, desc, layer.id) });
+          const properties = internStyle(styleTables, desc, layer.id);
+          labels.push({ base, label: { type: 'Feature', id: `n${node.id}`, geometry: labelGeometry, properties } });
         }
       }
     }
@@ -412,10 +415,7 @@ async function renderChunk(cX, cY, cZ, fileformat) {
     // `layer` moved into the style entry, so read it back through resolveStyle.
     // Ordering is the project.mml paint order (orderOf), the same authority used for fills and lines.
     labels.sort(function (a, b) {
-      const aOrder = orderOf(resolveStyle(styleTables, a.properties).layer);
-      const bOrder = orderOf(resolveStyle(styleTables, b.properties).layer);
-      if (aOrder !== bOrder) return aOrder - bOrder;
-      return a.id.localeCompare(b.id);
+      return a.base - b.base;
     });
     const polygonElements = fills.map((f) => f.svg).join('');
     const lineElements = lineEls.map((l) => l.svg).join('');
@@ -424,7 +424,7 @@ async function renderChunk(cX, cY, cZ, fileformat) {
     await rasterize(svg, path.join(tilesDir, tZ.toString(), tX.toString(), tY.toString()));
     await makeDirectory(path.join(labelsDir, tZ.toString(), tX.toString()));
     // `extent` is what tells the client these are tile-local integers; drop it and the worker would read them as lon/lat and place everything at the antimeridian.
-    fs.writeFileSync(path.join(labelsDir, tZ.toString(), tX.toString(), `${tY}.gz`), Buffer.from(gzipSync(encoder.encode(JSON.stringify({ type: 'FeatureCollection', extent: labelQuantization, zoom: tZ, features: labels, ...finalize(styleTables) })))));
+    fs.writeFileSync(path.join(labelsDir, tZ.toString(), tX.toString(), `${tY}.gz`), Buffer.from(gzipSync(encoder.encode(JSON.stringify({ type: 'FeatureCollection', extent: labelQuantization, zoom: tZ, features: labels.map((l) => l.label), ...finalize(styleTables) })))));
     const endTime = performance.now();
     console.log(`[${count}/${total}] Rendered (${tX} ${tY} ${tZ}) in (${cX} ${cY} ${cZ}) in ${Math.floor(endTime - startTime)}ms.`);
   }
