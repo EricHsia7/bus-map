@@ -165,11 +165,11 @@
 @cycleway-width-z18: 0.7;
 @cycleway-width-z19: 0.6;
 
-@footway-width-z14: 1.5;
-@footway-width-z15: 1.5;
-@footway-width-z16: 1.5;
-@footway-width-z18: 1.1;
-@footway-width-z19: 0.9;
+@footway-width-z14: 1.2;
+@footway-width-z15: 1.1;
+@footway-width-z16: 0.9;
+@footway-width-z18: 0.5;
+@footway-width-z19: 0.3;
 
 @living-street-width-z13: 2;
 @living-street-width-z14: 3;
@@ -1933,9 +1933,14 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --line-width: zoom-gradient(@footway-width-z14 14z, @footway-width-z15 15z, @footway-width-z16 16z 17z, @footway-width-z18 18z, @footway-width-z19 19z);
       --line-opacity: zoom-gradient(0.25 14z, 1 16z);
 
-      &:zoom(15) {
+      &:zoom(14) {
         --line-cap: round;
         --line-dasharray: 0 10;
+      }
+
+      &:zoom(15) {
+        --line-cap: round;
+        --line-dasharray: 0 6;
       }
 
       --line-color: @footway-fill;
