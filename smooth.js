@@ -80,7 +80,7 @@ function smoothCorners(points, maxAngle = (30 * Math.PI) / 180) {
 }
 
 function smoothPath(coords) {
-  return smoothCorners(laplacianSmooth(simplify(coords, 0.1), 0.5), (60 * Math.PI) / 180);
+  return smoothCorners(laplacianSmooth(simplify(coords, 0.1), 0.6), (60 * Math.PI) / 180);
 }
 
 module.exports = {
