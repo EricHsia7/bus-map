@@ -14,6 +14,7 @@ const config = require('./config.json');
 const { rasterize } = require('./rasterize.js');
 const { makeDirectory } = require('./files.js');
 const { paintToLabels } = require('./paint-to-label.js');
+const { createStyleTables, internStyle, resolveStyle, finalize } = require('./label-styles.js');
 
 const toObjectOptions = {
   enums: String, // enums as string names
@@ -284,6 +285,11 @@ async function renderChunk(cX, cY, cZ, fileformat) {
     const fills = []; // { order, svg } collected across ways + relations
     const lineEls = []; // { order, svg }
     const labels = []; // GeoJSON features for the text/marker overlay
+    // Rule-level label style, interned per tile. Everything paintToLabels emits
+    // except `kind` and `label` is a verbatim copy of the compiled paint, so it
+    // is hoisted here and the feature keeps only an index. `${style}:${label}`
+    // is then a complete glyph-cache key.
+    const styleTables = createStyleTables();
     const startTime = performance.now();
     for (const way of ways) {
       if (memberWayIds.has(way.id)) continue; // drawn via its parent multipolygon
@@ -329,7 +335,7 @@ async function renderChunk(cX, cY, cZ, fileformat) {
           const textScale = Array.isArray(desc.properties['text-scale']) ? desc.properties['text-scale'][0] : desc.properties['text-scale'] || 1; // resolve the placement at discrete scale (tZ)
           const labelGeometry = closed ? plotPolygonLabel(shape, x0, y0, x1, y1, labelQuantization) : plotLineStringLabel(shape, x0, y0, x1, y1, desc.properties.label, desc.properties['text-size'], textScale, tileSize, labelQuantization);
           if (!labelGeometry) continue;
-          labels.push({ type: 'Feature', id: `w${way.id}`, geometry: labelGeometry, properties: { layer: layer.id, minzoom: tZ, ...desc.properties } });
+          labels.push({ type: 'Feature', id: `w${way.id}`, geometry: labelGeometry, properties: internStyle(styleTables, desc, layer.id) });
         }
       }
     }
@@ -366,7 +372,7 @@ async function renderChunk(cX, cY, cZ, fileformat) {
         if (feat.polygons[0]) {
           const labelGeometry = plotPolygonLabel(feat.polygons[0], x0, y0, x1, y1, labelQuantization);
           for (const desc of descs) {
-            labels.push({ type: 'Feature', id: `r${layer.id}:${labelGeometry.coordinates[0]}:${labelGeometry.coordinates[1]}`, geometry: labelGeometry, properties: { layer: layer.id, minzoom: tZ, ...desc.properties } });
+            labels.push({ type: 'Feature', id: `r${layer.id}:${labelGeometry.coordinates[0]}:${labelGeometry.coordinates[1]}`, geometry: labelGeometry, properties: internStyle(styleTables, desc, layer.id) });
           }
         }
       }
@@ -388,7 +394,7 @@ async function renderChunk(cX, cY, cZ, fileformat) {
         if (!descs) continue;
         const labelGeometry = plotPointLabel([node.lon, node.lat], x0, y0, x1, y1, labelQuantization);
         for (const desc of descs) {
-          labels.push({ type: 'Feature', id: `n${node.id}`, geometry: labelGeometry, properties: { layer: layer.id, minzoom: tZ, ...desc.properties } });
+          labels.push({ type: 'Feature', id: `n${node.id}`, geometry: labelGeometry, properties: internStyle(styleTables, desc, layer.id) });
         }
       }
     }
@@ -403,8 +409,12 @@ async function renderChunk(cX, cY, cZ, fileformat) {
       if (a.base !== b.base) return a.base - b.base;
       return a.index - b.index;
     });
+    // `layer` moved into the style entry, so read it back through resolveStyle.
+    // Ordering is the project.mml paint order (orderOf), the same authority used for fills and lines.
     labels.sort(function (a, b) {
-      if (a.properties.layer !== b.properties.layer) return a.properties.layer - b.properties.layer;
+      const aOrder = orderOf(resolveStyle(styleTables, a.properties).layer);
+      const bOrder = orderOf(resolveStyle(styleTables, b.properties).layer);
+      if (aOrder !== bOrder) return aOrder - bOrder;
       return a.id.localeCompare(b.id);
     });
     const polygonElements = fills.map((f) => f.svg).join('');
@@ -414,7 +424,7 @@ async function renderChunk(cX, cY, cZ, fileformat) {
     await rasterize(svg, path.join(tilesDir, tZ.toString(), tX.toString(), tY.toString()));
     await makeDirectory(path.join(labelsDir, tZ.toString(), tX.toString()));
     // `extent` is what tells the client these are tile-local integers; drop it and the worker would read them as lon/lat and place everything at the antimeridian.
-    fs.writeFileSync(path.join(labelsDir, tZ.toString(), tX.toString(), `${tY}.gz`), Buffer.from(gzipSync(encoder.encode(JSON.stringify({ type: 'FeatureCollection', extent: labelQuantization, features: labels })))));
+    fs.writeFileSync(path.join(labelsDir, tZ.toString(), tX.toString(), `${tY}.gz`), Buffer.from(gzipSync(encoder.encode(JSON.stringify({ type: 'FeatureCollection', extent: labelQuantization, zoom: tZ, features: labels, ...finalize(styleTables) })))));
     const endTime = performance.now();
     console.log(`[${count}/${total}] Rendered (${tX} ${tY} ${tZ}) in (${cX} ${cY} ${cZ}) in ${Math.floor(endTime - startTime)}ms.`);
   }
