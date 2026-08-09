@@ -135135,6 +135135,16 @@
             "key": "highway",
             "op": "=",
             "value": "motorway_junction"
+          },
+          {
+            "key": "name",
+            "op": "!=",
+            "value": "null"
+          },
+          {
+            "key": "ref",
+            "op": "=",
+            "value": "null"
           }
         ]
       }
@@ -135156,12 +135166,22 @@
             "key": "highway",
             "op": "=",
             "value": "motorway_junction"
+          },
+          {
+            "key": "name",
+            "op": "!=",
+            "value": "null"
+          },
+          {
+            "key": "ref",
+            "op": "!=",
+            "value": "null"
           }
         ]
       }
     ],
     "paint": {
-      "text-name": "[name] + '\\n' + [ref]"
+      "text-name": "'[name]\\n[ref]'"
     }
   },
   {
@@ -155030,6 +155050,152 @@
       }
     ],
     "paint": {
+      "text-size": "4"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "living_street"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "living_street"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "6"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 17,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "living_street"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 17,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 17,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "living_street"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 17,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
       "text-size": "8"
     }
   },
@@ -155038,152 +155204,6 @@
       {
         "layer": "roads-text-name",
         "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "living_street"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "living_street"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "text-size": "9"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 17,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "living_street"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 17,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 17,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "living_street"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 17,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "text-size": "11"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-text-name",
-        "zoom": {
           "min": 19,
           "max": 24
         },
@@ -155249,7 +155269,7 @@
       }
     ],
     "paint": {
-      "text-size": "12"
+      "text-size": "10"
     }
   },
   {
@@ -155323,7 +155343,7 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-fill": "rgba(0,0,0,1)",
+      "text-fill": "rgba(51,51,51,1)",
       "text-spacing": "300",
       "text-clip": "false",
       "text-placement": "line",
@@ -155556,7 +155576,7 @@
       }
     ],
     "paint": {
-      "text-size": "8",
+      "text-size": "4",
       "text-dy": "5"
     }
   },
@@ -155597,7 +155617,7 @@
       }
     ],
     "paint": {
-      "text-size": "9",
+      "text-size": "6",
       "text-dy": "7"
     }
   },
@@ -155638,7 +155658,7 @@
       }
     ],
     "paint": {
-      "text-size": "11",
+      "text-size": "8",
       "text-dy": "9"
     }
   },
@@ -155860,7 +155880,7 @@
       }
     ],
     "paint": {
-      "text-size": "9",
+      "text-size": "6",
       "text-dy": "7"
     }
   },
@@ -156033,7 +156053,7 @@
       }
     ],
     "paint": {
-      "text-size": "11",
+      "text-size": "8",
       "text-dy": "9"
     }
   },
@@ -173872,7 +173892,7 @@
     ],
     "paint": {
       "text-name": "'→'",
-      "text-size": "15",
+      "text-size": "2",
       "text-clip": "false",
       "text-spacing": "180",
       "text-placement": "line",
@@ -180171,12 +180191,12 @@
     "paint": {
       "text-name": "'[name]'",
       "text-face-name": "'Noto Sans', 'Noto Sans'",
-      "text-size": "10",
+      "text-size": "5",
       "text-fill": "rgba(73,88,173,1)",
       "text-dy": "10",
       "text-halo-radius": "1.5",
       "text-halo-fill": "rgba(255,255,255,0.6)",
-      "text-wrap-width": "30",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5"
     }
   },
@@ -180247,12 +180267,12 @@
     "paint": {
       "text-name": "'[name]'",
       "text-face-name": "'Noto Sans'",
-      "text-size": "10",
+      "text-size": "5",
       "text-fill": "rgba(73,88,173,1)",
       "text-dy": "10",
       "text-halo-radius": "1.5",
       "text-halo-fill": "rgba(255,255,255,0.6)",
-      "text-wrap-width": "30",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5"
     },
     "attachment": "aerialway"
@@ -180325,12 +180345,12 @@
     "paint": {
       "text-name": "'[name]'",
       "text-face-name": "'Noto Sans'",
-      "text-size": "10",
+      "text-size": "5",
       "text-fill": "rgba(73,88,173,1)",
       "text-dy": "10",
       "text-halo-radius": "1.5",
       "text-halo-fill": "rgba(255,255,255,0.6)",
-      "text-wrap-width": "30",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5"
     }
   },
@@ -182378,8 +182398,8 @@
       {
         "layer": "amenity-points",
         "zoom": {
-          "min": 16,
-          "max": 16
+          "min": 14,
+          "max": 14
         },
         "and": [
           {
@@ -182391,9 +182411,8 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/square.svg')\"",
-      "marker-fill": "rgba(0,146,218,1)",
-      "marker-clip": "false"
+      "marker-fill": "rgba(50,156,255,1)",
+      "marker-width": "6"
     }
   },
   {
@@ -182401,7 +182420,29 @@
       {
         "layer": "amenity-points",
         "zoom": {
-          "min": 17,
+          "min": 15,
+          "max": 15
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_bus_stop"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "marker-fill": "rgba(50,156,255,1)",
+      "marker-width": "4.5"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "amenity-points",
+        "zoom": {
+          "min": 16,
           "max": 24
         },
         "and": [
@@ -182414,30 +182455,8 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/highway/bus_stop.svg')\"",
-      "marker-fill": "rgba(0,146,218,1)",
-      "marker-clip": "false"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "amenity-points",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_bus_stop"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "marker-width": "6"
+      "marker-fill": "rgba(50,156,255,1)",
+      "marker-width": "3"
     }
   },
   {
@@ -197684,8 +197703,8 @@
     "paint": {
       "text-name": "'[name]'",
       "text-fill": "rgba(174,101,0,1)",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-dy": "11",
       "text-face-name": "'Noto Sans'",
@@ -198233,8 +198252,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(115,74,8,1)",
       "text-dy": "11",
@@ -198898,8 +198917,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(115,74,8,1)",
       "text-dy": "11",
@@ -198969,8 +198988,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(28,82,33,1)",
       "text-dy": "11",
@@ -199124,8 +199143,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,102,255,1)",
       "text-face-name": "'Noto Sans'",
@@ -200347,8 +200366,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(115,74,8,1)",
       "text-dy": "11",
@@ -201858,8 +201877,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(115,74,8,1)",
       "text-dy": "10",
@@ -204072,8 +204091,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(115,74,8,1)",
       "text-dy": "10",
@@ -204510,8 +204529,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,0,51,1)",
       "text-dy": "12",
@@ -204553,8 +204572,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-dy": "12",
       "text-fill": "rgba(153,51,153,1)",
@@ -204708,8 +204727,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(110,68,30,1)",
       "text-dy": "7",
@@ -205343,8 +205362,8 @@
     "paint": {
       "text-name": "'[name]'",
       "text-fill": "rgba(0,0,0,1)",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-face-name": "'Noto Sans'",
       "text-halo-radius": "1",
@@ -205432,8 +205451,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,0,0,1)",
       "text-face-name": "'Noto Sans'",
@@ -205692,8 +205711,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(53,139,162,1)",
       "text-dy": "10",
@@ -206185,8 +206204,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(51,51,51,1)",
       "text-face-name": "'Noto Sans'",
@@ -214391,8 +214410,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(115,74,8,1)",
       "text-dy": "11",
@@ -214434,8 +214453,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(51,51,51,1)",
       "text-dy": "10",
@@ -214505,8 +214524,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(28,82,33,1)",
       "text-face-name": "'Noto Sans'",
@@ -214614,8 +214633,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(28,82,33,1)",
       "text-dy": "11",
@@ -214793,8 +214812,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-dy": "13",
       "text-fill": "rgba(28,82,33,1)",
@@ -634586,7 +634605,7 @@
     "paint": {
       "text-name": "'[name]'",
       "text-size": "10",
-      "text-wrap-width": "30",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(53,139,162,1)",
       "text-face-name": "'Noto Sans'",
@@ -634638,8 +634657,8 @@
     ],
     "paint": {
       "text-name": "'[operator]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-dy": "10",
       "text-fill": "rgba(115,74,8,1)",
@@ -634737,8 +634756,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-dy": "10",
       "text-fill": "rgba(115,74,8,1)",
@@ -635088,8 +635107,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,102,255,1)",
       "text-dy": "11",
@@ -639168,8 +639187,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,102,255,1)",
       "text-dy": "11",
@@ -639267,8 +639286,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,102,255,1)",
       "text-dy": "11",
@@ -639581,8 +639600,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(87,109,223,1)",
       "text-dy": "4",
@@ -639610,8 +639629,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(87,109,223,1)",
       "text-dy": "10",
@@ -639681,8 +639700,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(51,51,51,1)",
       "text-dy": "10",
@@ -639762,8 +639781,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(115,74,8,1)",
       "text-dy": "10",
@@ -639806,8 +639825,8 @@
     "paint": {
       "text-name": "'[name]'",
       "text-fill": "rgba(191,0,0,1)",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-dy": "10",
       "text-face-name": "'Noto Sans'",
@@ -639960,8 +639979,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-dy": "12",
       "text-fill": "rgba(191,0,0,1)",
@@ -640074,8 +640093,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-dy": "8",
       "text-fill": "rgba(153,51,153,1)",
@@ -640127,8 +640146,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-dy": "12",
       "text-fill": "rgba(153,51,153,1)",
@@ -640280,8 +640299,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-dy": "8",
       "text-fill": "rgba(72,99,160,1)",
@@ -640351,8 +640370,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-dy": "10",
       "text-fill": "rgba(72,99,160,1)",
@@ -640422,8 +640441,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-dy": "12",
       "text-fill": "rgba(153,51,153,1)",
@@ -640465,8 +640484,8 @@
     ],
     "paint": {
       "text-name": "'[ref]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,0,0,1)",
       "text-face-name": "'Noto Sans'",
@@ -641776,8 +641795,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(132,97,196,1)",
       "text-dy": "-10",
@@ -641963,8 +641982,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(94,59,158,1)",
       "text-dy": "10",
@@ -642006,8 +642025,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(94,59,158,1)",
       "text-dy": "10",
@@ -642049,8 +642068,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-dy": "10",
       "text-fill": "rgba(51,51,51,1)",
@@ -642078,8 +642097,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,128,0,1)",
       "text-dy": "7",
@@ -642107,8 +642126,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,128,0,1)",
       "text-dy": "8",
@@ -642136,8 +642155,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,128,0,1)",
       "text-dy": "11",
@@ -642165,8 +642184,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,128,0,1)",
       "text-dy": "18",
@@ -642209,8 +642228,8 @@
     "paint": {
       "text-name": "'[name]'",
       "text-fill": "rgba(115,74,8,1)",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-dy": "10",
       "text-face-name": "'Noto Sans'",
@@ -642261,8 +642280,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(102,0,51,1)",
       "text-halo-radius": "1",
@@ -642397,8 +642416,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,102,255,1)",
       "text-dy": "9",
@@ -642942,8 +642961,8 @@
     "paint": {
       "text-name": "'[name]'",
       "text-dy": "10",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(115,74,8,1)",
       "text-face-name": "'Noto Sans'",
@@ -642998,8 +643017,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(51,51,51,1)",
       "text-dy": "6",
@@ -643142,8 +643161,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(51,51,51,1)",
       "text-dy": "10",
@@ -643469,8 +643488,8 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "10",
-      "text-wrap-width": "30",
+      "text-size": "5",
+      "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,102,255,1)",
       "text-dy": "13",
@@ -650076,7 +650095,13 @@
           "min": 17,
           "max": 24
         },
-        "and": []
+        "and": [
+          {
+            "key": "addr_housenumber",
+            "op": "!=",
+            "value": "null"
+          }
+        ]
       }
     ],
     "paint": {
@@ -650091,11 +650116,22 @@
           "min": 17,
           "max": 24
         },
-        "and": []
+        "and": [
+          {
+            "key": "addr_housenumber",
+            "op": "!=",
+            "value": "null"
+          },
+          {
+            "key": "addr_housename",
+            "op": "!=",
+            "value": "null"
+          }
+        ]
       }
     ],
     "paint": {
-      "text-name": "[addr_housenumber] + '\\n' + [addr_housename]"
+      "text-name": "'[addr_housenumber]\\n[addr_housename]'"
     }
   },
   {
@@ -650121,11 +650157,22 @@
           "min": 18,
           "max": 24
         },
-        "and": []
+        "and": [
+          {
+            "key": "addr_unit",
+            "op": "!=",
+            "value": "null"
+          },
+          {
+            "key": "addr_housenumber",
+            "op": "=",
+            "value": "null"
+          }
+        ]
       }
     ],
     "paint": {
-      "text-name": "[addr_unit]"
+      "text-name": "'[addr_unit]'"
     }
   },
   {
@@ -650136,11 +650183,22 @@
           "min": 18,
           "max": 24
         },
-        "and": []
+        "and": [
+          {
+            "key": "addr_flats",
+            "op": "!=",
+            "value": "null"
+          },
+          {
+            "key": "addr_housenumber",
+            "op": "=",
+            "value": "null"
+          }
+        ]
       }
     ],
     "paint": {
-      "text-name": "[addr_flats]"
+      "text-name": "'[addr_flats]'"
     }
   },
   {
@@ -650151,11 +650209,17 @@
           "min": 18,
           "max": 24
         },
-        "and": []
+        "and": [
+          {
+            "key": "addr_unit",
+            "op": "!=",
+            "value": "null"
+          }
+        ]
       }
     ],
     "paint": {
-      "text-name": "[addr_housenumber] + ' ' + [addr_unit]"
+      "text-name": "'[addr_housenumber] [addr_unit]'"
     }
   },
   {
@@ -650166,11 +650230,22 @@
           "min": 18,
           "max": 24
         },
-        "and": []
+        "and": [
+          {
+            "key": "addr_unit",
+            "op": "!=",
+            "value": "null"
+          },
+          {
+            "key": "addr_housename",
+            "op": "!=",
+            "value": "null"
+          }
+        ]
       }
     ],
     "paint": {
-      "text-name": "[addr_housenumber] + ' ' + [addr_unit] + '\\n' + [addr_housename]"
+      "text-name": "'[addr_housenumber] [addr_unit]\\n[addr_housename]'"
     }
   },
   {
@@ -650181,11 +650256,17 @@
           "min": 18,
           "max": 24
         },
-        "and": []
+        "and": [
+          {
+            "key": "addr_flats",
+            "op": "!=",
+            "value": "null"
+          }
+        ]
       }
     ],
     "paint": {
-      "text-name": "[addr_housenumber] + ' ' + [addr_flats]"
+      "text-name": "'[addr_housenumber] [addr_flats]'"
     }
   },
   {
@@ -650196,11 +650277,22 @@
           "min": 18,
           "max": 24
         },
-        "and": []
+        "and": [
+          {
+            "key": "addr_flats",
+            "op": "!=",
+            "value": "null"
+          },
+          {
+            "key": "addr_housename",
+            "op": "!=",
+            "value": "null"
+          }
+        ]
       }
     ],
     "paint": {
-      "text-name": "[addr_housenumber] + ' ' + [addr_flats] + '\\n' + [addr_housename]"
+      "text-name": "'[addr_housenumber] [addr_flats]\\n[addr_housename]'"
     }
   },
   {

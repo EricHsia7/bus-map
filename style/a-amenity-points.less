@@ -25,6 +25,7 @@
 @religious-icon: #000000;
 @cable: #646568;
 @cable-dash: #5d5e61;
+@bus-stop: #329cff;
 
 @landcover-font-size: 10;
 @landcover-wrap-width-size: 30; // 3 em
@@ -37,8 +38,8 @@
 @landcover-line-spacing-size-bigger: -2.25; // -0.15 em
 @landcover-face-name: @oblique-fonts;
 
-@standard-font-size: 10;
-@standard-wrap-width: 30; // 3 em
+@standard-font-size: 5;
+@standard-wrap-width: 25;
 @standard-line-spacing-size: -1.5; // -0.15 em
 @standard-font: @book-fonts;
 
@@ -148,13 +149,9 @@
     --marker-clip: false;
   }
 
-  &[feature='highway_bus_stop'] {
-    --marker-file: zoom-gradient("url('symbols/square.svg')" 16z 16z, "url('symbols/highway/bus_stop.svg')" 17z);
-    --marker-fill: zoom-gradient(@transportation-icon 16z 16z, @transportation-icon 17z);
-    --marker-clip: zoom-gradient(false 16z 16z, false 17z);
-    &:zoom(16, 16) {
-      --marker-width: 6;
-    }
+  &[feature='highway_bus_stop']:zoom(14) {
+    --marker-fill: @bus-stop;
+    --marker-width: zoom-gradient(6 14z, 3 16z);
   }
 
   &[feature='highway_elevator']:zoom(18) {

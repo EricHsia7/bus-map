@@ -2635,11 +2635,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --text-wrap-width: 2; // effectively break after every wrap character
       --text-line-spacing: -1.5; // -0.15 em
       &:zoom(14) {
-        &["name" !='null']["ref"='null'] {
+        &:not([name='null'])[ref='null'] {
           --text-name: '[name]';
         }
-        &["name" !='null']["ref" !='null'] {
-          --text-name: [name] + '\n' + [ref];
+        &:not([name='null']):not([ref='null']) {
+          --text-name: '[name]\n[ref]';
         }
       }
       &:zoom(15) {
@@ -3127,10 +3127,10 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[highway='pedestrian'],
   &[highway='construction'][construction='living_street']:zoom(16),
   &[highway='construction'][construction='pedestrian']:zoom(16) {
-    --text-size: zoom-gradient(8 15z, 9 16z, 11 17z 18z, 12 19z);
+    --text-size: zoom-gradient(4 15z, 6 16z, 8 17z 18z, 10 19z);
     &:zoom(15) {
       --text-name: '[name]';
-      --text-fill: black;
+      --text-fill: #333333;
       --text-spacing: 300;
       --text-clip: false;
       --text-placement: line;
@@ -3161,7 +3161,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 #paths-text-name {
   &[highway='track'],
   &[highway='construction'][construction='track']:zoom(16) {
-    --text-size: zoom-gradient(8 15z, 9 16z, 11 17z);
+    --text-size: zoom-gradient(4 15z, 6 16z, 8 17z);
     --text-dy: zoom-gradient(5 15z, 7 16z, 9 17z);
     &:zoom(15) {
       --text-name: '[name]';
@@ -3187,7 +3187,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[highway='construction'][construction='cycleway'],
   &[highway='construction'][construction='path'],
   &[highway='construction'][construction='steps'] {
-    --text-size: zoom-gradient(9 16z, 11 17z);
+    --text-size: zoom-gradient(6 16z, 8 17z);
     --text-dy: zoom-gradient(7 16z, 9 17z);
     &:zoom(16) {
       --text-name: '[name]';
@@ -3287,7 +3287,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     &[highway='bridleway'] {
       &:not([oneway='null']) {
         --text-name: '→';
-        --text-size: 15;
+        --text-size: 2;
         --text-clip: false;
         --text-spacing: 180;
         --text-placement: line;

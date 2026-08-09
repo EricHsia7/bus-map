@@ -365,7 +365,7 @@ async function renderChunk(cX, cY, cZ, fileformat) {
         if (feat.polygons[0]) {
           const labelGeometry = plotPolygonLabel(feat.polygons[0], x0, y0, x1, y1, labelQuantization);
           for (const desc of descs) {
-            labels.push({ type: 'Feature', id: `r${layer.id}:${labelGeometry.coordinates[0]}:${labelGeometry.coordinates[1]}`, geometry: labelGeometry, properties: { layer: layer.id, minzoom: tZ, ...desc.properties } });
+            labels.push({ type: 'Feature', id: `r${layer.id}`, geometry: labelGeometry, properties: { layer: layer.id, minzoom: tZ, ...desc.properties } });
           }
         }
       }
@@ -376,8 +376,8 @@ async function renderChunk(cX, cY, cZ, fileformat) {
     // whose bbox contains it, so a point lands in exactly one tile.
     for (const node of center.nodes) {
       if (node.lon < x0 || node.lon > x1 || node.lat < y0 || node.lat > y1) continue;
-      const nlayers = I.inferLayers(node.tags, { geometry: 'point', zoom: tZ });
-      for (const layer of nlayers) {
+      const layers = I.inferLayers(node.tags, { geometry: 'point', zoom: tZ });
+      for (const layer of layers) {
         const feat = { ...node.tags, ...layer.row };
         const idxs = M.matchRules(feat, layer.id, tZ);
         if (idxs.length === 0) continue;
@@ -401,6 +401,10 @@ async function renderChunk(cX, cY, cZ, fileformat) {
     lineEls.sort(function (a, b) {
       if (a.base !== b.base) return a.base - b.base;
       return a.index - b.index;
+    });
+    labels.sort(function (a, b) {
+      if (a.properties.layer !== b.properties.layer) return a.properties.layer - b.properties.layer;
+      return a.id.localeCompare(b.id);
     });
     const polygonElements = fills.map((f) => f.svg).join('');
     const lineElements = lineEls.map((l) => l.svg).join('');

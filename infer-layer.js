@@ -35,14 +35,47 @@ function loadMml(file = path.join(__dirname, 'mml.json')) {
   MML = JSON.parse(fs.readFileSync(file, 'utf8'));
   return MML;
 }
-function setMml(arr) { MML = arr; return MML; }
+function setMml(arr) {
+  MML = arr;
+  return MML;
+}
 
 /* Sentinel for "cannot be determined from tags" (render-time / spatial). */
 const UNKNOWN = Symbol('UNKNOWN');
-const RENDER_TOKENS = new Set([
-  '__bbox__', '__pixel_width__', '__pixel_height__', '__scale_denominator__',
-  'way', 'way_area',
+const RENDER_TOKENS = new Set(['__bbox__', '__pixel_width__', '__pixel_height__', '__scale_denominator__', 'way', 'way_area']);
+
+/* Spatial / render-time predicates. These gate on the tile or geometry, never on tags, so in boolean context they must PASS. Nearly every layer's base Datasource WHERE is exactly `way && !bbox!` (compiled to ARRAYOVERLAPS), so excluding them would reject every layer. */
+const SPATIAL_PREDICATES = new Set([
+  'ARRAYOVERLAPS', // the `&&` operator: way && !bbox!
+  'ST_INTERSECTS',
+  'ST_DWITHIN',
+  'ST_CONTAINS',
+  'ST_WITHIN',
+  'ST_COVERS',
+  'ST_COVEREDBY',
+  'ST_OVERLAPS',
+  'ST_CROSSES',
+  'ST_TOUCHES',
+  'ST_DISJOINT',
+  'ST_EQUALS',
+  'ST_ISVALID',
+  'ST_ISEMPTY',
+  'ST_INTERSECTSBOX2DF'
 ]);
+
+/** True if any part of this expression tree touches a render-time/spatial
+ * token (way, way_area, !bbox!, !scale_denominator!, ...). Such a term cannot
+ * be decided from tags, so it must be treated permissively. */
+function touchesRenderToken(n) {
+  if (n == null || typeof n !== 'object') return false;
+  if (Array.isArray(n)) return n.some(touchesRenderToken);
+  if (n.t === 'col' && RENDER_TOKENS.has(n.name)) return true;
+  if (n.t === 'tag' && n.key != null && RENDER_TOKENS.has(n.key)) return true;
+  for (const v of Object.values(n)) {
+    if (v && typeof v === 'object' && touchesRenderToken(v)) return true;
+  }
+  return false;
+}
 
 /* ----------------------------------------------------------------------- */
 /* Custom SQL function registry (extend for exact osm-carto behaviour)      */
@@ -50,7 +83,8 @@ const RENDER_TOKENS = new Set([
 const registry = {
   // Approximate: real definition lives in osm-carto functions.sql.
   carto_path_type(bicycle, horse) {
-    const b = norm(bicycle), h = norm(horse);
+    const b = norm(bicycle),
+      h = norm(horse);
     if (b === 'designated' && h !== 'designated') return 'cycleway';
     if (h === 'designated' && b !== 'designated') return 'bridleway';
     return 'path';
@@ -58,18 +92,16 @@ const registry = {
   carto_highway_int_surface(surface) {
     const s = norm(surface);
     if (s == null) return null;
-    const paved = new Set(['paved', 'asphalt', 'concrete', 'concrete:lanes', 'concrete:plates',
-      'paving_stones', 'sett', 'unhewn_cobblestone', 'cobblestone', 'metal', 'wood', 'stepping_stones',
-      'chipseal', 'bricks', 'paving_stones:lanes']);
-    const unpaved = new Set(['unpaved', 'compacted', 'fine_gravel', 'gravel', 'gravel_turf', 'rock',
-      'pebblestone', 'ground', 'dirt', 'earth', 'grass', 'grass_paver', 'mud', 'sand', 'woodchips',
-      'snow', 'ice', 'salt', 'clay', 'tartan', 'artificial_turf', 'acrylic', 'carpet']);
+    const paved = new Set(['paved', 'asphalt', 'concrete', 'concrete:lanes', 'concrete:plates', 'paving_stones', 'sett', 'unhewn_cobblestone', 'cobblestone', 'metal', 'wood', 'stepping_stones', 'chipseal', 'bricks', 'paving_stones:lanes']);
+    const unpaved = new Set(['unpaved', 'compacted', 'fine_gravel', 'gravel', 'gravel_turf', 'rock', 'pebblestone', 'ground', 'dirt', 'earth', 'grass', 'grass_paver', 'mud', 'sand', 'woodchips', 'snow', 'ice', 'salt', 'clay', 'tartan', 'artificial_turf', 'acrylic', 'carpet']);
     if (paved.has(s)) return 'paved';
     if (unpaved.has(s)) return 'unpaved';
     return null;
-  },
+  }
 };
-function norm(v) { return v === UNKNOWN || v == null ? null : String(v); }
+function norm(v) {
+  return v === UNKNOWN || v == null ? null : String(v);
+}
 
 /* -----------------------------------------------------------------------
  * hstore / array tag predicates (osm2pgsql). Their first argument is the
@@ -81,10 +113,12 @@ function norm(v) { return v === UNKNOWN || v == null ? null : String(v); }
 const HSTORE_PREDICATES = new Set(['ARRAYCONTAINSALL', 'ARRAYCONTAINSANY', 'ARRAYCONTAINS']);
 function parseHstoreLiteral(s) {
   // 'a=>x, b=>y' -> [['a','x'],['b','y']];  bare 'a' -> ['a', undefined] (key exists)
-  return String(s).split(',').map((pair) => {
-    const [k, v] = pair.split('=>');
-    return [k.trim(), v === undefined ? undefined : v.trim()];
-  });
+  return String(s)
+    .split(',')
+    .map((pair) => {
+      const [k, v] = pair.split('=>');
+      return [k.trim(), v === undefined ? undefined : v.trim()];
+    });
 }
 function evalHstorePredicate(name, args, row) {
   const pairs = [];
@@ -116,10 +150,14 @@ function refValue(name, row) {
 function evalVal(n, row) {
   if (n == null) return null;
   switch (n.t) {
-    case 'col': return refValue(n.name, row);
-    case 'tag': return n.key == null ? UNKNOWN : refValue(n.key, row);
-    case 'lit': return n.v === null ? null : (n.s ? n.v : n.v);
-    case 'cast': return evalVal(n.x, row);
+    case 'col':
+      return refValue(n.name, row);
+    case 'tag':
+      return n.key == null ? UNKNOWN : refValue(n.key, row);
+    case 'lit':
+      return n.v === null ? null : n.s ? n.v : n.v;
+    case 'cast':
+      return evalVal(n.x, row);
     case 'has': {
       const v = row[n.key];
       return v !== undefined && v !== null && v !== '';
@@ -136,8 +174,11 @@ function evalVal(n, row) {
       let sawUnknown = false;
       for (const a of n.args) {
         const v = evalVal(a, row);
-        if (v === UNKNOWN) { sawUnknown = true; continue; }
-        if (v === null) return null;        // SQL: NULL || x = NULL
+        if (v === UNKNOWN) {
+          sawUnknown = true;
+          continue;
+        }
+        if (v === null) return null; // SQL: NULL || x = NULL
         out += String(v);
       }
       return sawUnknown && out === '' ? UNKNOWN : out;
@@ -154,17 +195,25 @@ function evalVal(n, row) {
       const fn = registry[(n.name || '').toLowerCase()] || registry[n.name];
       if (!fn) return UNKNOWN;
       const args = n.args.map((a) => evalVal(a, row));
-      try { return fn(...args); } catch { return UNKNOWN; }
+      try {
+        return fn(...args);
+      } catch {
+        return UNKNOWN;
+      }
     }
     case 'arith': {
-      const l = evalVal(n.l, row), r = evalVal(n.r, row);
+      const l = evalVal(n.l, row),
+        r = evalVal(n.r, row);
       if (l === UNKNOWN || r === UNKNOWN) return UNKNOWN;
-      const a = Number(l), b = Number(r);
+      const a = Number(l),
+        b = Number(r);
       if (Number.isNaN(a) || Number.isNaN(b)) return null;
       return n.op === '+' ? a + b : n.op === '-' ? a - b : n.op === '*' ? a * b : a / b;
     }
-    case 'raw': return UNKNOWN;
-    default: return UNKNOWN;
+    case 'raw':
+      return UNKNOWN;
+    default:
+      return UNKNOWN;
   }
 }
 
@@ -176,12 +225,15 @@ function evalVal(n, row) {
 function evalBool(n, row) {
   if (n == null) return true;
   switch (n.t) {
-    case 'and': return n.x.every((c) => evalBool(c, row));
-    case 'or': return n.x.some((c) => evalBool(c, row));
-    case 'not': return !evalBool(n.x, row);
+    case 'and':
+      return n.x.every((c) => evalBool(c, row));
+    case 'or':
+      return n.x.some((c) => evalBool(c, row));
+    case 'not':
+      return !evalBool(n.x, row);
     case 'isnull': {
       const v = evalVal(n.x, row);
-      if (v === UNKNOWN) return false;          // spatial cols are not null
+      if (v === UNKNOWN) return false; // spatial cols are not null
       return v === null || v === '';
     }
     case 'in': {
@@ -197,23 +249,37 @@ function evalBool(n, row) {
       if (l === null) return false;
       const pat = evalVal(n.pat, row);
       if (pat === UNKNOWN || pat === null) return true;
-      try { return new RegExp(String(pat)).test(String(l)); } catch { return true; }
+      try {
+        return new RegExp(String(pat)).test(String(l));
+      } catch {
+        return true;
+      }
     }
     case 'cmp': {
-      const l = evalVal(n.l, row), r = evalVal(n.r, row);
-      if (l === UNKNOWN || r === UNKNOWN) return true;   // render-time: pass
-      if (l === null || r === null) return false;        // NULL comparison
+      const l = evalVal(n.l, row),
+        r = evalVal(n.r, row);
+      if (l === UNKNOWN || r === UNKNOWN) return true; // render-time: pass
+      if (l === null || r === null) return false; // NULL comparison
       switch (n.op) {
-        case '=': return String(l) === String(r);
-        case '!=': return String(l) !== String(r);
+        case '=':
+          return String(l) === String(r);
+        case '!=':
+          return String(l) !== String(r);
         default: {
-          const a = Number(l), b = Number(r);
+          const a = Number(l),
+            b = Number(r);
           if (Number.isNaN(a) || Number.isNaN(b)) return false;
           return n.op === '>' ? a > b : n.op === '>=' ? a >= b : n.op === '<' ? a < b : a <= b;
         }
       }
     }
     case 'func': {
+      // Spatial / render-time predicates (way && !bbox!, ST_Intersects, ...)
+      // gate on the tile, not on tags: PASS. Without this, the bbox predicate
+      // that forms the entire base WHERE of most layers (notably every point
+      // layer) would reject the feature and inferLayers would return [].
+      const fname = (n.name || '').toUpperCase();
+      if (SPATIAL_PREDICATES.has(fname) || touchesRenderToken(n)) return true;
       const v = evalVal(n, row);
       // An unknown FUNCTION predicate in a layer's WHERE almost always tests
       // tags to SELECT features (e.g. ARRAYCONTAINSALL, hstore ops). Treating
@@ -222,10 +288,14 @@ function evalBool(n, row) {
       if (v === UNKNOWN) return false;
       return v === true || v === 'yes' || v === 't' || v === 'true';
     }
-    case 'has': return evalVal(n, row) === true;
-    case 'lit': return n.v === true;
-    case 'raw': return true;                             // unparseable: pass
-    default: return true;
+    case 'has':
+      return evalVal(n, row) === true;
+    case 'lit':
+      return n.v === true;
+    case 'raw':
+      return true; // unparseable: pass
+    default:
+      return true;
   }
 }
 
@@ -269,7 +339,10 @@ function inferLayers(tags, opts = {}) {
       let row = applyColumns(base.columns, tags);
       let ok = true;
       for (const w of layer.wrappers) {
-        if (!evalBool(w.where, row)) { ok = false; break; }
+        if (!evalBool(w.where, row)) {
+          ok = false;
+          break;
+        }
         row = applyColumns(w.columns, row);
       }
       if (!ok) continue;
@@ -290,11 +363,18 @@ function inferAndMatch(tags, opts = {}) {
   return layers.map(({ id, feature, row }) => ({
     layer: id,
     feature,
-    ruleIndices: M.matchRules(row, id, opts.zoom),
+    ruleIndices: M.matchRules(row, id, opts.zoom)
   }));
 }
 
 module.exports = {
-  loadMml, setMml, inferLayers, inferAndMatch,
-  evalBool, evalVal, applyColumns, registry, UNKNOWN,
+  loadMml,
+  setMml,
+  inferLayers,
+  inferAndMatch,
+  evalBool,
+  evalVal,
+  applyColumns,
+  registry,
+  UNKNOWN
 };

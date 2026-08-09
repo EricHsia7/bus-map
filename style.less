@@ -3964,11 +3964,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --text-wrap-width: 2; // effectively break after every wrap character
       --text-line-spacing: -1.5; // -0.15 em
       &:zoom(14) {
-        &["name" !='null']["ref"='null'] {
+        &:not([name='null'])[ref='null'] {
           --text-name: '[name]';
         }
-        &["name" !='null']["ref" !='null'] {
-          --text-name: [name] + '\n' + [ref];
+        &:not([name='null']):not([ref='null']) {
+          --text-name: '[name]\n[ref]';
         }
       }
       &:zoom(15) {
@@ -4456,10 +4456,10 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[highway='pedestrian'],
   &[highway='construction'][construction='living_street']:zoom(16),
   &[highway='construction'][construction='pedestrian']:zoom(16) {
-    --text-size: zoom-gradient(8 15z, 9 16z, 11 17z 18z, 12 19z);
+    --text-size: zoom-gradient(4 15z, 6 16z, 8 17z 18z, 10 19z);
     &:zoom(15) {
       --text-name: '[name]';
-      --text-fill: black;
+      --text-fill: #333333;
       --text-spacing: 300;
       --text-clip: false;
       --text-placement: line;
@@ -4490,7 +4490,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 #paths-text-name {
   &[highway='track'],
   &[highway='construction'][construction='track']:zoom(16) {
-    --text-size: zoom-gradient(8 15z, 9 16z, 11 17z);
+    --text-size: zoom-gradient(4 15z, 6 16z, 8 17z);
     --text-dy: zoom-gradient(5 15z, 7 16z, 9 17z);
     &:zoom(15) {
       --text-name: '[name]';
@@ -4516,7 +4516,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[highway='construction'][construction='cycleway'],
   &[highway='construction'][construction='path'],
   &[highway='construction'][construction='steps'] {
-    --text-size: zoom-gradient(9 16z, 11 17z);
+    --text-size: zoom-gradient(6 16z, 8 17z);
     --text-dy: zoom-gradient(7 16z, 9 17z);
     &:zoom(16) {
       --text-name: '[name]';
@@ -4616,7 +4616,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     &[highway='bridleway'] {
       &:not([oneway='null']) {
         --text-name: '→';
-        --text-size: 15;
+        --text-size: 2;
         --text-clip: false;
         --text-spacing: 180;
         --text-placement: line;
@@ -5390,6 +5390,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 @religious-icon: #000000;
 @cable: #646568;
 @cable-dash: #5d5e61;
+@bus-stop: #329cff;
 
 @landcover-font-size: 10;
 @landcover-wrap-width-size: 30; // 3 em
@@ -5402,8 +5403,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 @landcover-line-spacing-size-bigger: -2.25; // -0.15 em
 @landcover-face-name: @oblique-fonts;
 
-@standard-font-size: 10;
-@standard-wrap-width: 30; // 3 em
+@standard-font-size: 5;
+@standard-wrap-width: 25;
 @standard-line-spacing-size: -1.5; // -0.15 em
 @standard-font: @book-fonts;
 
@@ -5513,13 +5514,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --marker-clip: false;
   }
 
-  &[feature='highway_bus_stop'] {
-    --marker-file: zoom-gradient("url('symbols/square.svg')" 16z 16z, "url('symbols/highway/bus_stop.svg')" 17z);
-    --marker-fill: zoom-gradient(@transportation-icon 16z 16z, @transportation-icon 17z);
-    --marker-clip: zoom-gradient(false 16z 16z, false 17z);
-    &:zoom(16, 16) {
-      --marker-width: 6;
-    }
+  &[feature='highway_bus_stop']:zoom(14) {
+    --marker-fill: @bus-stop;
+    --marker-width: zoom-gradient(6 14z, 3 16z);
   }
 
   &[feature='highway_elevator']:zoom(18) {
@@ -8824,10 +8821,10 @@ Then all three layers are added to the rendering with comp-op: darken, so that t
 #addresses {
   &:zoom(17) {
     --text-name: '[addr_housename]';
-    &["addr_housenumber" !='null'] {
+    &:not([addr_housenumber='null']) {
       --text-name: [addr_housenumber];
-      &["addr_housename" !='null'] {
-        --text-name: [addr_housenumber] + '\n' + [addr_housename];
+      &:not([addr_housename='null']) {
+        --text-name: '[addr_housenumber]\n[addr_housename]';
       }
     }
     --text-face-name: @book-fonts;
@@ -8840,22 +8837,22 @@ Then all three layers are added to the rendering with comp-op: darken, so that t
     --text-margin: 3; // 0.3 em
     &:zoom(18) {
       --text-halo-radius: @standard-halo-radius * 1.25;
-      &["addr_unit" !='null']["addr_housenumber"='null'] {
-        --text-name: [addr_unit];
+      &:not([addr_unit='null'])[addr_housenumber='null'] {
+        --text-name: '[addr_unit]';
       }
-      &["addr_flats" !='null']["addr_housenumber"='null'] {
-        --text-name: [addr_flats];
+      &:not([addr_flats='null'])[addr_housenumber='null'] {
+        --text-name: '[addr_flats]';
       }
-      &["addr_unit" !='null'] {
-        --text-name: [addr_housenumber] + ' ' + [addr_unit];
-        &["addr_housename" !='null'] {
-          --text-name: [addr_housenumber] + ' ' + [addr_unit] + '\n' + [addr_housename];
+      &:not([addr_unit='null']) {
+        --text-name: '[addr_housenumber] [addr_unit]';
+        &:not([addr_housename='null']) {
+          --text-name: '[addr_housenumber] [addr_unit]\n[addr_housename]';
         }
       }
-      &["addr_flats" !='null'] {
-        --text-name: [addr_housenumber] + ' ' + [addr_flats];
-        &["addr_housename" !='null'] {
-          --text-name: [addr_housenumber] + ' ' + [addr_flats] + '\n' + [addr_housename];
+      &:not([addr_flats='null']) {
+        --text-name: '[addr_housenumber] [addr_flats]';
+        &:not([addr_housename='null']) {
+          --text-name: '[addr_housenumber] [addr_flats]\n[addr_housename]';
         }
       }
     }
@@ -8867,8 +8864,7 @@ Then all three layers are added to the rendering with comp-op: darken, so that t
   }
 }
 
-/* Building names (rendered differently from addresses because they are
-no official postal addresses) */
+/* Building names (rendered differently from addresses because they are no official postal addresses) */
 
 #building-text {
   &:zoom(14) {

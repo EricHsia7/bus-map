@@ -36,9 +36,11 @@ function num(v) {
 /** strip directory + extension from an icon path -> a MapLibre sprite id. */
 function iconId(file) {
   if (file == null) return undefined;
-  return String(file)
-    .replace(/^.*[\\/]/, '')
-    .replace(/\.(svg|png|jpg|jpeg)$/i, '') || undefined;
+  return (
+    String(file)
+      .replace(/^.*[\\/]/, '')
+      .replace(/\.(svg|png|jpg|jpeg)$/i, '') || undefined
+  );
 }
 
 /** drop undefined/null props so the GeoJSON stays compact. */
@@ -57,7 +59,9 @@ function prune(o) {
  */
 function resolveField(expr, tags = {}) {
   if (expr == null) return null;
-  const s = String(expr).trim().replace(/^['"]|['"]$/g, '');
+  const s = String(expr)
+    .trim()
+    .replace(/^['"]|['"]$/g, '');
   if (!s) return null;
   // pure single field reference
   const single = s.match(/^\[([^\]]+)\]$/);
@@ -67,10 +71,12 @@ function resolveField(expr, tags = {}) {
   }
   // interpolated / mixed literal + fields
   if (s.includes('[')) {
-    const out = s.replace(/\[([^\]]+)\]/g, (_, k) => {
-      const v = tags[k];
-      return v == null ? '' : String(v);
-    }).trim();
+    const out = s
+      .replace(/\[([^\]]+)\]/g, (_, k) => {
+        const v = tags[k];
+        return v == null ? '' : String(v);
+      })
+      .trim();
     return out || null;
   }
   return s;
@@ -95,7 +101,7 @@ function paintToLabels(paint, tags = {}) {
           kind: 'text',
           instance,
           properties: prune({
-            kind: 'text',
+            'kind': 'text',
             label,
             'text-size': num(props['text-size']),
             'text-fill': props['text-fill'],
@@ -119,24 +125,24 @@ function paintToLabels(paint, tags = {}) {
         kind: mp,
         instance,
         properties: prune({
-          kind: mp,
-          icon: iconId(file),
+          'kind': mp,
+          'icon': iconId(file),
           'icon-width': num(props[mp + '-width']),
           'icon-height': num(props[mp + '-height']),
           // shields carry their own text
-          label: mp === 'shield' && props['shield-name'] !== undefined ? resolveField(props['shield-name'], tags) : undefined,
+          'label': mp === 'shield' && props['shield-name'] !== undefined ? resolveField(props['shield-name'], tags) : undefined,
           'shield-size': mp === 'shield' ? num(props['shield-size']) : undefined
         })
       });
     }
 
     // ---- ellipse/circle marker with no image (marker-fill only) ----
-    if (props['marker-fill'] !== undefined && props['marker-file'] === undefined) {
+    if (props['marker-fill'] !== undefined) {
       out.push({
         kind: 'circle',
         instance,
         properties: prune({
-          kind: 'circle',
+          'kind': 'circle',
           'marker-fill': props['marker-fill'],
           'marker-line-color': props['marker-line-color'],
           'marker-width': num(props['marker-width'])
