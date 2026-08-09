@@ -152287,10 +152287,10 @@
       }
     ],
     "paint": {
-      "text-size": "8",
+      "text-size": "6",
       "text-scale": [
         1,
-        1.125
+        1
       ]
     }
   },
@@ -152397,10 +152397,10 @@
       }
     ],
     "paint": {
-      "text-size": "8",
+      "text-size": "6",
       "text-scale": [
-        1.125,
-        1.25
+        1,
+        1.1666666666666667
       ]
     }
   },
@@ -152507,10 +152507,10 @@
       }
     ],
     "paint": {
-      "text-size": "8",
+      "text-size": "6",
       "text-scale": [
-        1.25,
-        1.25
+        1.1666666666666667,
+        1.1666666666666667
       ]
     }
   },
@@ -152617,229 +152617,9 @@
       }
     ],
     "paint": {
-      "text-size": "8",
+      "text-size": "6",
       "text-scale": [
-        1.25,
-        1.375
-      ]
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "motorway"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "trunk"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "primary"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "motorway"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "trunk"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "primary"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "text-size": "8",
-      "text-scale": [
-        1.375,
-        1.375
-      ]
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 18,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "motorway"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 18,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "trunk"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 18,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "primary"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 18,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "motorway"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 18,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "trunk"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 18,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "primary"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "text-size": "8",
-      "text-scale": [
-        1.375,
+        1.1666666666666667,
         1.5
       ]
     }
@@ -152849,8 +152629,8 @@
       {
         "layer": "roads-text-name",
         "zoom": {
-          "min": 19,
-          "max": 24
+          "min": 17,
+          "max": 17
         },
         "and": [
           {
@@ -152863,8 +152643,8 @@
       {
         "layer": "roads-text-name",
         "zoom": {
-          "min": 19,
-          "max": 24
+          "min": 17,
+          "max": 17
         },
         "and": [
           {
@@ -152877,8 +152657,8 @@
       {
         "layer": "roads-text-name",
         "zoom": {
-          "min": 19,
-          "max": 24
+          "min": 17,
+          "max": 17
         },
         "and": [
           {
@@ -152891,8 +152671,8 @@
       {
         "layer": "roads-text-name",
         "zoom": {
-          "min": 19,
-          "max": 24
+          "min": 17,
+          "max": 17
         },
         "and": [
           {
@@ -152910,8 +152690,8 @@
       {
         "layer": "roads-text-name",
         "zoom": {
-          "min": 19,
-          "max": 24
+          "min": 17,
+          "max": 17
         },
         "and": [
           {
@@ -152929,8 +152709,8 @@
       {
         "layer": "roads-text-name",
         "zoom": {
-          "min": 19,
-          "max": 24
+          "min": 17,
+          "max": 17
         },
         "and": [
           {
@@ -152947,10 +152727,120 @@
       }
     ],
     "paint": {
-      "text-size": "8",
+      "text-size": "6",
       "text-scale": [
         1.5,
-        1.5
+        1.8333333333333333
+      ]
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "motorway"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "trunk"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "primary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "motorway"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "trunk"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "primary"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "6",
+      "text-scale": [
+        1.8333333333333333,
+        1.8333333333333333
       ]
     }
   },
@@ -153706,7 +153596,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 13,
-          "max": 13
+          "max": 14
         },
         "and": [
           {
@@ -153720,7 +153610,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 13,
-          "max": 13
+          "max": 14
         },
         "and": [
           {
@@ -153737,54 +153627,10 @@
       }
     ],
     "paint": {
-      "text-size": "8",
+      "text-size": "6",
       "text-scale": [
         1,
-        1.125
-      ]
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 14,
-          "max": 14
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "secondary"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 14,
-          "max": 14
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "secondary"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "text-size": "8",
-      "text-scale": [
-        1.125,
-        1.25
+        1
       ]
     }
   },
@@ -153825,10 +153671,10 @@
       }
     ],
     "paint": {
-      "text-size": "8",
+      "text-size": "6",
       "text-scale": [
-        1.25,
-        1.25
+        1,
+        1.1666666666666667
       ]
     }
   },
@@ -153869,10 +153715,10 @@
       }
     ],
     "paint": {
-      "text-size": "8",
+      "text-size": "6",
       "text-scale": [
-        1.25,
-        1.375
+        1.1666666666666667,
+        1.3333333333333333
       ]
     }
   },
@@ -153913,10 +153759,10 @@
       }
     ],
     "paint": {
-      "text-size": "8",
+      "text-size": "6",
       "text-scale": [
-        1.375,
-        1.375
+        1.3333333333333333,
+        1.6666666666666667
       ]
     }
   },
@@ -153957,10 +153803,10 @@
       }
     ],
     "paint": {
-      "text-size": "8",
+      "text-size": "6",
       "text-scale": [
-        1.375,
-        1.5
+        1.6666666666666667,
+        1.8333333333333333
       ]
     }
   },
@@ -154001,10 +153847,10 @@
       }
     ],
     "paint": {
-      "text-size": "8",
+      "text-size": "6",
       "text-scale": [
-        1.5,
-        1.5
+        1.8333333333333333,
+        1.8333333333333333
       ]
     }
   },
@@ -154093,7 +153939,7 @@
       }
     ],
     "paint": {
-      "text-size": "9",
+      "text-size": "6",
       "text-scale": [
         1,
         1
@@ -154137,10 +153983,10 @@
       }
     ],
     "paint": {
-      "text-size": "9",
+      "text-size": "6",
       "text-scale": [
         1,
-        1.2222222222222223
+        1.1666666666666667
       ]
     }
   },
@@ -154181,10 +154027,10 @@
       }
     ],
     "paint": {
-      "text-size": "9",
+      "text-size": "6",
       "text-scale": [
-        1.2222222222222223,
-        1.2222222222222223
+        1.1666666666666667,
+        1.5
       ]
     }
   },
@@ -154225,10 +154071,10 @@
       }
     ],
     "paint": {
-      "text-size": "9",
+      "text-size": "6",
       "text-scale": [
-        1.2222222222222223,
-        1.3333333333333333
+        1.5,
+        1.8333333333333333
       ]
     }
   },
@@ -154269,10 +154115,10 @@
       }
     ],
     "paint": {
-      "text-size": "9",
+      "text-size": "6",
       "text-scale": [
-        1.3333333333333333,
-        1.3333333333333333
+        1.8333333333333333,
+        1.8333333333333333
       ]
     }
   },
@@ -154348,10 +154194,10 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "9",
+      "text-size": "6",
       "text-scale": [
         1,
-        1.2222222222222223
+        1.1666666666666667
       ],
       "text-fill": "rgba(0,0,0,1)",
       "text-spacing": "300",
@@ -154387,10 +154233,10 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "9",
+      "text-size": "6",
       "text-scale": [
-        1.2222222222222223,
-        1.2222222222222223
+        1.1666666666666667,
+        1.5
       ],
       "text-fill": "rgba(0,0,0,1)",
       "text-spacing": "400",
@@ -154426,10 +154272,10 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "9",
+      "text-size": "6",
       "text-scale": [
-        1.2222222222222223,
-        1.3333333333333333
+        1.5,
+        1.8333333333333333
       ],
       "text-fill": "rgba(0,0,0,1)",
       "text-spacing": "400",
@@ -154465,10 +154311,10 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "9",
+      "text-size": "6",
       "text-scale": [
-        1.3333333333333333,
-        1.3333333333333333
+        1.8333333333333333,
+        1.8333333333333333
       ],
       "text-fill": "rgba(0,0,0,1)",
       "text-spacing": "400",
@@ -154486,7 +154332,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 15,
-          "max": 15
+          "max": 16
         },
         "and": [
           {
@@ -154500,7 +154346,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 15,
-          "max": 15
+          "max": 16
         },
         "and": [
           {
@@ -154514,7 +154360,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 15,
-          "max": 15
+          "max": 16
         },
         "and": [
           {
@@ -154528,7 +154374,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 15,
-          "max": 15
+          "max": 16
         },
         "and": [
           {
@@ -154547,7 +154393,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 15,
-          "max": 15
+          "max": 16
         },
         "and": [
           {
@@ -154566,7 +154412,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 15,
-          "max": 15
+          "max": 16
         },
         "and": [
           {
@@ -154585,7 +154431,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 15,
-          "max": 15
+          "max": 16
         },
         "and": [
           {
@@ -154605,137 +154451,7 @@
       "text-size": "8",
       "text-scale": [
         1,
-        1.125
-      ],
-      "text-spacing": "300"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "residential"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "unclassified"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "road"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "null"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "residential"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "unclassified"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "road"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "text-size": "8",
-      "text-scale": [
-        1.125,
-        1.375
+        1
       ],
       "text-spacing": "300"
     }
@@ -154746,7 +154462,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
-          "max": 17
+          "max": 24
         },
         "and": [
           {
@@ -154760,7 +154476,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
-          "max": 17
+          "max": 24
         },
         "and": [
           {
@@ -154774,7 +154490,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
-          "max": 17
+          "max": 24
         },
         "and": [
           {
@@ -154788,7 +154504,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
-          "max": 17
+          "max": 24
         },
         "and": [
           {
@@ -154807,7 +154523,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
-          "max": 17
+          "max": 24
         },
         "and": [
           {
@@ -154826,7 +154542,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
-          "max": 17
+          "max": 24
         },
         "and": [
           {
@@ -154845,266 +154561,6 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "road"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "text-size": "8",
-      "text-scale": [
-        1.375,
-        1.375
-      ],
-      "text-spacing": "400"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 18,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "residential"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 18,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "unclassified"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 18,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "road"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 18,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "null"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 18,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "residential"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 18,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "unclassified"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 18,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "road"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "text-size": "8",
-      "text-scale": [
-        1.375,
-        1.5
-      ],
-      "text-spacing": "400"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 19,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "residential"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 19,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "unclassified"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 19,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "road"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 19,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "null"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 19,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "residential"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 19,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "unclassified"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 19,
           "max": 24
         },
         "and": [
@@ -155124,8 +154580,8 @@
     "paint": {
       "text-size": "8",
       "text-scale": [
-        1.5,
-        1.5
+        1,
+        1
       ],
       "text-spacing": "400"
     }
@@ -155428,7 +154884,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 16,
-          "max": 16
+          "max": 24
         },
         "and": [
           {
@@ -155442,7 +154898,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 16,
-          "max": 16
+          "max": 24
         },
         "and": [
           {
@@ -155456,7 +154912,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 16,
-          "max": 16
+          "max": 24
         },
         "and": [
           {
@@ -155470,90 +154926,32 @@
             "value": "raceway"
           }
         ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 17,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "service"
+          }
+        ]
       }
     ],
     "paint": {
-      "text-size": "9",
+      "text-size": "7",
       "text-scale": [
         1,
-        1.2222222222222223
-      ]
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "raceway"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "service"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "raceway"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "service"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "text-size": "9",
-      "text-scale": [
-        1.2222222222222223,
-        1.2222222222222223
+        1
       ]
     }
   },
@@ -155829,7 +155227,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 15,
-          "max": 15
+          "max": 24
         },
         "and": [
           {
@@ -155843,7 +155241,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 15,
-          "max": 15
+          "max": 24
         },
         "and": [
           {
@@ -155852,321 +155250,51 @@
             "value": "pedestrian"
           }
         ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 16,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "living_street"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 16,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "pedestrian"
+          }
+        ]
       }
     ],
     "paint": {
-      "text-size": "4",
+      "text-size": "7",
       "text-scale": [
         1,
-        1.5
-      ]
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "living_street"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "living_street"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "text-size": "4",
-      "text-scale": [
-        1.5,
-        2
-      ]
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "living_street"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "living_street"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "text-size": "4",
-      "text-scale": [
-        2,
-        2
-      ]
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 18,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "living_street"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 18,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 18,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "living_street"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 18,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "text-size": "4",
-      "text-scale": [
-        2,
-        2.5
-      ]
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 19,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "living_street"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 19,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 19,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "living_street"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 19,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "text-size": "4",
-      "text-scale": [
-        2.5,
-        2.5
+        1
       ]
     }
   },
@@ -156450,7 +155578,7 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "11",
+      "text-size": "9",
       "text-face-name": "'Noto Sans TC'",
       "text-wrap-width": "30",
       "text-line-spacing": "-1.7"
@@ -156474,10 +155602,10 @@
       }
     ],
     "paint": {
-      "text-size": "4",
+      "text-size": "6",
       "text-scale": [
         1,
-        1.5
+        1
       ],
       "text-dy": "5"
     }
@@ -156519,10 +155647,10 @@
       }
     ],
     "paint": {
-      "text-size": "4",
+      "text-size": "6",
       "text-scale": [
-        1.5,
-        2
+        1,
+        1
       ],
       "text-dy": "7"
     }
@@ -156564,10 +155692,10 @@
       }
     ],
     "paint": {
-      "text-size": "4",
+      "text-size": "6",
       "text-scale": [
-        2,
-        2
+        1,
+        1
       ],
       "text-dy": "9"
     }
@@ -156793,7 +155921,7 @@
       "text-size": "6",
       "text-scale": [
         1,
-        1.3333333333333333
+        1
       ],
       "text-dy": "7"
     }
@@ -156969,8 +156097,8 @@
     "paint": {
       "text-size": "6",
       "text-scale": [
-        1.3333333333333333,
-        1.3333333333333333
+        1,
+        1
       ],
       "text-dy": "9"
     }
@@ -645800,6 +644928,2981 @@
       "trunk/marker-ignore-placement": "true"
     },
     "attachment": "trunk"
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_water"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_water"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "10"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_reservoir"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_reservoir"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "10"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_wood"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_wood"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "10"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_forest"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_forest"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "10"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "boundary_national_park"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "boundary_national_park"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "10"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_nature_reserve"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_nature_reserve"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "10"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "boundary_aboriginal_lands"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "boundary_aboriginal_lands"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "10"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "boundary_protected_area"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "boundary_protected_area"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "10"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_military"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_military"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "10"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "military_danger_area"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "military_danger_area"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "10"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_glacier"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_glacier"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "10"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_wetland"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_wetland"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "10"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_grassland"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_grassland"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "10"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_heath"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_heath"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "10"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_farmland"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_farmland"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "10"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "place_island"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "place_island"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "10"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_university"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_university"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "10"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "aeroway_apron"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "aeroway_apron"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "10"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_park"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_park"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_residential"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_residential"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_industrial"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_industrial"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_commercial"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_commercial"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_retail"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_retail"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_cemetery"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_cemetery"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_quarry"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_quarry"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_recreation_ground"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_recreation_ground"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_meadow"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_meadow"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_vineyard"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_vineyard"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_orchard"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_orchard"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_allotments"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_allotments"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_farmyard"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_farmyard"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "tourism_theme_park"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "tourism_theme_park"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "tourism_zoo"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "tourism_zoo"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_stadium"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_stadium"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_college"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_college"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_school"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_school"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_basin"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_basin"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "waterway_dock"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "waterway_dock"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "place_islet"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "place_islet"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_village_green"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_village_green"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_scrub"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_scrub"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_beach"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_beach"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_sand"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_sand"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_greenhouse_horticulture"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_greenhouse_horticulture"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_plant_nursery"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_plant_nursery"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_brownfield"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_brownfield"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_landfill"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_landfill"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_construction"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_construction"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_railway"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_railway"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_garages"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_garages"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_salt_pond"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_salt_pond"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_grass"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_grass"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_religious"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_religious"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_grave_yard"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_grave_yard"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_garden"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_garden"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "8"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_sports_centre"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_sports_centre"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "8"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_swimming_pool"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_swimming_pool"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "8"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_marina"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_marina"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "8"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_track"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_track"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "8"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_ice_rink"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_ice_rink"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "8"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_pitch"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_pitch"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "8"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_kindergarten"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_kindergarten"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "8"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_nursing_home"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_nursing_home"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "8"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_childcare"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_childcare"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "8"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "power_plant"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "power_plant"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "8"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "power_substation"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "power_substation"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "8"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "power_generator"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "power_generator"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "8"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "man_made_works"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "man_made_works"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "8"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "man_made_water_works"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "man_made_water_works"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "8"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "man_made_wastewater_plant"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "man_made_wastewater_plant"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "8"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_services"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_services"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "8"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_rest_area"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_rest_area"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "8"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "shop"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "shop"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "8"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_spring"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_spring"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "8"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_reef"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_reef"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "8"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_shoal"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_shoal"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "8"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_mud"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_mud"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "8"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "waterway_dam"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "waterway_dam"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "7"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "waterway_weir"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "waterway_weir"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "7"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "man_made_breakwater"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "man_made_breakwater"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "7"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "man_made_groyne"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "man_made_groyne"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "7"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "man_made_pier"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "man_made_pier"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "7"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_scree"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_scree"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "7"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_shingle"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_shingle"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "7"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-poly-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_bare_rock"
+          }
+        ]
+      },
+      {
+        "layer": "text-point",
+        "zoom": {
+          "min": 0,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_bare_rock"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "7"
+    }
   },
   {
     "groups": [
