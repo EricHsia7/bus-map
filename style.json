@@ -6184,7 +6184,7 @@
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-fill": "rgba(153,153,153,1)",
       "text-size": "10",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-placement": "line",
       "text-dy": "8",
       "text-vertical-alignment": "middle",
@@ -19049,7 +19049,7 @@
     ],
     "paint": {
       "text-name": "'[lock_name]'",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-placement": "line",
       "text-fill": "rgba(53,139,162,1)",
       "text-spacing": "500",
@@ -19088,7 +19088,11 @@
     "paint": {
       "text-name": "'[name]'",
       "text-size": "10",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-scale": [
+        1,
+        1.2
+      ],
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-fill": "rgba(53,139,162,1)",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -19126,8 +19130,12 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "12",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-size": "10",
+      "text-scale": [
+        1.2,
+        1.2
+      ],
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-fill": "rgba(53,139,162,1)",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -19166,7 +19174,11 @@
     "paint": {
       "text-name": "'[name]'",
       "text-size": "10",
-      "text-face-name": "'Noto Sans'",
+      "text-scale": [
+        1,
+        1.2
+      ],
+      "text-face-name": "'Noto Sans TC'",
       "text-fill": "rgba(53,139,162,1)",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -19204,8 +19216,12 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "12",
-      "text-face-name": "'Noto Sans'",
+      "text-size": "10",
+      "text-scale": [
+        1.2,
+        1.2
+      ],
+      "text-face-name": "'Noto Sans TC'",
       "text-fill": "rgba(53,139,162,1)",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -19292,7 +19308,7 @@
     "paint": {
       "text-name": "'[name]'",
       "text-size": "10",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-fill": "rgba(53,139,162,1)",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -19394,7 +19410,7 @@
       }
     ],
     "paint": {
-      "text-face-name": "'Noto Sans', 'Noto Sans'"
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'"
     }
   },
   {
@@ -19431,7 +19447,11 @@
     "paint": {
       "text-name": "'[name]'",
       "text-size": "10",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-scale": [
+        1,
+        1.2
+      ],
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-fill": "rgba(53,139,162,1)",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -19473,8 +19493,12 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "12",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-size": "10",
+      "text-scale": [
+        1.2,
+        1.2
+      ],
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-fill": "rgba(53,139,162,1)",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -19604,7 +19628,7 @@
       "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(53,139,162,1)",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-placement": "interior"
@@ -19644,10 +19668,14 @@
     "paint": {
       "text-name": "'[name]'",
       "text-size": "10",
+      "text-scale": [
+        1,
+        1.2
+      ],
       "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(53,139,162,1)",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-placement": "interior"
@@ -19686,11 +19714,15 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "12",
+      "text-size": "10",
+      "text-scale": [
+        1.2,
+        1.2
+      ],
       "text-wrap-width": "37",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(53,139,162,1)",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-placement": "interior"
@@ -20814,7 +20846,7 @@
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-fill": "rgba(34,34,34,1)",
       "text-size": "10",
-      "text-face-name": "'Noto Sans'"
+      "text-face-name": "'Noto Sans TC'"
     }
   },
   {
@@ -21039,7 +21071,7 @@
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-fill": "rgba(34,34,34,1)",
       "text-size": "10",
-      "text-face-name": "'Noto Sans'"
+      "text-face-name": "'Noto Sans TC'"
     }
   },
   {
@@ -135070,6 +135102,39 @@
         "layer": "junctions",
         "zoom": {
           "min": 12,
+          "max": 13
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "motorway_junction"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-name": "'[ref]'",
+      "text-size": "10",
+      "text-scale": [
+        1,
+        1
+      ],
+      "text-fill": "rgba(150,0,0,1)",
+      "text-min-distance": "2",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
+      "text-halo-radius": "1",
+      "text-wrap-character": "';'",
+      "text-wrap-width": "2",
+      "text-line-spacing": "-1.5"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "junctions",
+        "zoom": {
+          "min": 14,
           "max": 14
         },
         "and": [
@@ -135084,9 +135149,13 @@
     "paint": {
       "text-name": "'[ref]'",
       "text-size": "10",
+      "text-scale": [
+        1,
+        1.1
+      ],
       "text-fill": "rgba(150,0,0,1)",
       "text-min-distance": "2",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-wrap-character": "';'",
       "text-wrap-width": "2",
@@ -135112,10 +135181,14 @@
     ],
     "paint": {
       "text-name": "'[ref]'",
-      "text-size": "11",
+      "text-size": "10",
+      "text-scale": [
+        1.1,
+        1.1
+      ],
       "text-fill": "rgba(150,0,0,1)",
       "text-min-distance": "2",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-wrap-character": "';'",
       "text-wrap-width": "2",
@@ -135211,7 +135284,7 @@
         "layer": "junctions",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -135225,6 +135298,53 @@
         "layer": "junctions",
         "zoom": {
           "min": 15,
+          "max": 15
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "traffic_signals"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-name": "'[name]'",
+      "text-size": "10",
+      "text-scale": [
+        1,
+        1
+      ],
+      "text-fill": "rgba(0,0,0,1)",
+      "text-face-name": "'Noto Sans TC'",
+      "text-halo-radius": "1",
+      "text-halo-fill": "rgba(255,255,255,0.6)",
+      "text-wrap-width": "30",
+      "text-line-spacing": "-1.5",
+      "text-min-distance": "2"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "junctions",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "junction",
+            "op": "=",
+            "value": "yes"
+          }
+        ]
+      },
+      {
+        "layer": "junctions",
+        "zoom": {
+          "min": 16,
           "max": 16
         },
         "and": [
@@ -135239,8 +135359,12 @@
     "paint": {
       "text-name": "'[name]'",
       "text-size": "10",
+      "text-scale": [
+        1,
+        1.1
+      ],
       "text-fill": "rgba(0,0,0,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-wrap-width": "30",
@@ -135281,9 +135405,13 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "11",
+      "text-size": "10",
+      "text-scale": [
+        1.1,
+        1.1
+      ],
       "text-fill": "rgba(0,0,0,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-wrap-width": "30",
@@ -135394,7 +135522,7 @@
       "text-wrap-width": "30",
       "text-line-spacing": "-1.2",
       "text-fill": "rgba(0,0,0,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-margin": "3"
@@ -149617,7 +149745,7 @@
       "shield-spacing": "760",
       "shield-repeat-distance": "400",
       "shield-margin": "40",
-      "shield-face-name": "'Noto Sans'",
+      "shield-face-name": "'Noto Sans TC'",
       "shield-clip": "false"
     }
   },
@@ -150038,7 +150166,7 @@
       "shield-spacing": "760",
       "shield-repeat-distance": "400",
       "shield-margin": "40",
-      "shield-face-name": "'Noto Sans'",
+      "shield-face-name": "'Noto Sans TC'",
       "shield-clip": "false"
     }
   },
@@ -150123,7 +150251,7 @@
       "shield-spacing": "760",
       "shield-repeat-distance": "400",
       "shield-margin": "40",
-      "shield-face-name": "'Noto Sans'",
+      "shield-face-name": "'Noto Sans TC'",
       "shield-clip": "false"
     }
   },
@@ -150208,7 +150336,7 @@
       "shield-spacing": "760",
       "shield-repeat-distance": "400",
       "shield-margin": "40",
-      "shield-face-name": "'Noto Sans'",
+      "shield-face-name": "'Noto Sans TC'",
       "shield-clip": "false"
     }
   },
@@ -151795,7 +151923,7 @@
       "text-spacing": "750",
       "text-clip": "false",
       "text-placement": "line",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-repeat-distance": "10"
@@ -151835,8 +151963,12 @@
     "paint": {
       "text-name": "'[refs]'",
       "text-size": "8",
+      "text-scale": [
+        1,
+        1.125
+      ],
       "text-fill": "rgba(0,0,0,1)",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-placement": "line",
       "text-repeat-distance": "50",
       "text-halo-radius": "1",
@@ -151878,9 +152010,13 @@
     ],
     "paint": {
       "text-name": "'[refs]'",
-      "text-size": "9",
+      "text-size": "8",
+      "text-scale": [
+        1.125,
+        1.375
+      ],
       "text-fill": "rgba(0,0,0,1)",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-placement": "line",
       "text-repeat-distance": "50",
       "text-halo-radius": "1",
@@ -151922,9 +152058,13 @@
     ],
     "paint": {
       "text-name": "'[refs]'",
-      "text-size": "11",
+      "text-size": "8",
+      "text-scale": [
+        1.375,
+        1.375
+      ],
       "text-fill": "rgba(0,0,0,1)",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-placement": "line",
       "text-repeat-distance": "50",
       "text-halo-radius": "1",
@@ -151953,10 +152093,14 @@
     "paint": {
       "text-name": "'[refs]'",
       "text-size": "8",
+      "text-scale": [
+        1,
+        1.125
+      ],
       "text-dy": "5",
       "text-clip": "false",
       "text-fill": "rgba(34,34,34,1)",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-margin": "10",
@@ -151985,11 +152129,15 @@
     ],
     "paint": {
       "text-name": "'[refs]'",
-      "text-size": "9",
+      "text-size": "8",
+      "text-scale": [
+        1.125,
+        1.375
+      ],
       "text-dy": "7",
       "text-clip": "false",
       "text-fill": "rgba(34,34,34,1)",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-margin": "10",
@@ -152018,11 +152166,15 @@
     ],
     "paint": {
       "text-name": "'[refs]'",
-      "text-size": "11",
+      "text-size": "8",
+      "text-scale": [
+        1.375,
+        1.375
+      ],
       "text-dy": "9",
       "text-clip": "false",
       "text-fill": "rgba(34,34,34,1)",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-margin": "10",
@@ -152135,7 +152287,11 @@
       }
     ],
     "paint": {
-      "text-size": "8"
+      "text-size": "8",
+      "text-scale": [
+        1,
+        1.125
+      ]
     }
   },
   {
@@ -152241,7 +152397,11 @@
       }
     ],
     "paint": {
-      "text-size": "9"
+      "text-size": "8",
+      "text-scale": [
+        1.125,
+        1.25
+      ]
     }
   },
   {
@@ -152250,7 +152410,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -152264,7 +152424,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -152278,7 +152438,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -152292,7 +152452,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -152311,7 +152471,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -152330,6 +152490,116 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 15,
+          "max": 15
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "primary"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "8",
+      "text-scale": [
+        1.25,
+        1.25
+      ]
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "motorway"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "trunk"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "primary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "motorway"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "trunk"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 16,
           "max": 16
         },
         "and": [
@@ -152347,7 +152617,11 @@
       }
     ],
     "paint": {
-      "text-size": "10"
+      "text-size": "8",
+      "text-scale": [
+        1.25,
+        1.375
+      ]
     }
   },
   {
@@ -152356,7 +152630,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -152370,7 +152644,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -152384,7 +152658,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -152398,7 +152672,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -152417,7 +152691,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -152436,6 +152710,116 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "primary"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "8",
+      "text-scale": [
+        1.375,
+        1.375
+      ]
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "motorway"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "trunk"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "primary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "motorway"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "trunk"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 18,
           "max": 18
         },
         "and": [
@@ -152453,7 +152837,11 @@
       }
     ],
     "paint": {
-      "text-size": "11"
+      "text-size": "8",
+      "text-scale": [
+        1.375,
+        1.5
+      ]
     }
   },
   {
@@ -152559,7 +152947,11 @@
       }
     ],
     "paint": {
-      "text-size": "12"
+      "text-size": "8",
+      "text-scale": [
+        1.5,
+        1.5
+      ]
     }
   },
   {
@@ -152670,7 +153062,7 @@
       "text-spacing": "300",
       "text-clip": "false",
       "text-placement": "line",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-repeat-distance": "50"
     }
   },
@@ -153345,7 +153737,11 @@
       }
     ],
     "paint": {
-      "text-size": "8"
+      "text-size": "8",
+      "text-scale": [
+        1,
+        1.125
+      ]
     }
   },
   {
@@ -153385,7 +153781,11 @@
       }
     ],
     "paint": {
-      "text-size": "9"
+      "text-size": "8",
+      "text-scale": [
+        1.125,
+        1.25
+      ]
     }
   },
   {
@@ -153394,7 +153794,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -153408,6 +153808,50 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 15,
+          "max": 15
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "secondary"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "8",
+      "text-scale": [
+        1.25,
+        1.25
+      ]
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "secondary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 16,
           "max": 16
         },
         "and": [
@@ -153425,7 +153869,11 @@
       }
     ],
     "paint": {
-      "text-size": "10"
+      "text-size": "8",
+      "text-scale": [
+        1.25,
+        1.375
+      ]
     }
   },
   {
@@ -153434,7 +153882,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -153448,6 +153896,50 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "secondary"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "8",
+      "text-scale": [
+        1.375,
+        1.375
+      ]
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "secondary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 18,
           "max": 18
         },
         "and": [
@@ -153465,7 +153957,11 @@
       }
     ],
     "paint": {
-      "text-size": "11"
+      "text-size": "8",
+      "text-scale": [
+        1.375,
+        1.5
+      ]
     }
   },
   {
@@ -153505,7 +154001,11 @@
       }
     ],
     "paint": {
-      "text-size": "12"
+      "text-size": "8",
+      "text-scale": [
+        1.5,
+        1.5
+      ]
     }
   },
   {
@@ -153550,7 +154050,7 @@
       "text-spacing": "300",
       "text-clip": "false",
       "text-placement": "line",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(206,212,218,1)",
       "text-repeat-distance": "50"
@@ -153562,7 +154062,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 14,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -153576,6 +154076,50 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 14,
+          "max": 15
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "tertiary"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9",
+      "text-scale": [
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "tertiary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 16,
           "max": 16
         },
         "and": [
@@ -153593,7 +154137,11 @@
       }
     ],
     "paint": {
-      "text-size": "9"
+      "text-size": "9",
+      "text-scale": [
+        1,
+        1.2222222222222223
+      ]
     }
   },
   {
@@ -153602,7 +154150,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -153616,6 +154164,50 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "tertiary"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "9",
+      "text-scale": [
+        1.2222222222222223,
+        1.2222222222222223
+      ]
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "tertiary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 18,
           "max": 18
         },
         "and": [
@@ -153633,7 +154225,11 @@
       }
     ],
     "paint": {
-      "text-size": "11"
+      "text-size": "9",
+      "text-scale": [
+        1.2222222222222223,
+        1.3333333333333333
+      ]
     }
   },
   {
@@ -153673,7 +154269,11 @@
       }
     ],
     "paint": {
-      "text-size": "12"
+      "text-size": "9",
+      "text-scale": [
+        1.3333333333333333,
+        1.3333333333333333
+      ]
     }
   },
   {
@@ -153718,7 +154318,7 @@
       "text-spacing": "300",
       "text-clip": "false",
       "text-placement": "line",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(206,212,218,1)",
       "text-repeat-distance": "50"
@@ -153749,13 +154349,17 @@
     "paint": {
       "text-name": "'[name]'",
       "text-size": "9",
+      "text-scale": [
+        1,
+        1.2222222222222223
+      ],
       "text-fill": "rgba(0,0,0,1)",
       "text-spacing": "300",
       "text-clip": "false",
       "text-placement": "line",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-repeat-distance": "50"
     }
   },
@@ -153765,6 +154369,45 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "null"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-name": "'[name]'",
+      "text-size": "9",
+      "text-scale": [
+        1.2222222222222223,
+        1.2222222222222223
+      ],
+      "text-fill": "rgba(0,0,0,1)",
+      "text-spacing": "400",
+      "text-clip": "false",
+      "text-placement": "line",
+      "text-halo-radius": "1",
+      "text-halo-fill": "rgba(255,255,255,0.6)",
+      "text-face-name": "'Noto Sans TC'",
+      "text-repeat-distance": "50"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 18,
           "max": 18
         },
         "and": [
@@ -153783,14 +154426,18 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "11",
+      "text-size": "9",
+      "text-scale": [
+        1.2222222222222223,
+        1.3333333333333333
+      ],
       "text-fill": "rgba(0,0,0,1)",
       "text-spacing": "400",
       "text-clip": "false",
       "text-placement": "line",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-repeat-distance": "50"
     }
   },
@@ -153818,14 +154465,18 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "12",
+      "text-size": "9",
+      "text-scale": [
+        1.3333333333333333,
+        1.3333333333333333
+      ],
       "text-fill": "rgba(0,0,0,1)",
       "text-spacing": "400",
       "text-clip": "false",
       "text-placement": "line",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-repeat-distance": "50"
     }
   },
@@ -153952,6 +154603,10 @@
     ],
     "paint": {
       "text-size": "8",
+      "text-scale": [
+        1,
+        1.125
+      ],
       "text-spacing": "300"
     }
   },
@@ -154077,7 +154732,11 @@
       }
     ],
     "paint": {
-      "text-size": "9",
+      "text-size": "8",
+      "text-scale": [
+        1.125,
+        1.375
+      ],
       "text-spacing": "300"
     }
   },
@@ -154087,7 +154746,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -154101,7 +154760,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -154115,7 +154774,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -154129,7 +154788,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -154148,7 +154807,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -154167,7 +154826,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -154186,6 +154845,136 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "road"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "8",
+      "text-scale": [
+        1.375,
+        1.375
+      ],
+      "text-spacing": "400"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "residential"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "unclassified"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "road"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "null"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "residential"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "unclassified"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 18,
           "max": 18
         },
         "and": [
@@ -154203,7 +154992,11 @@
       }
     ],
     "paint": {
-      "text-size": "11",
+      "text-size": "8",
+      "text-scale": [
+        1.375,
+        1.5
+      ],
       "text-spacing": "400"
     }
   },
@@ -154329,7 +155122,11 @@
       }
     ],
     "paint": {
-      "text-size": "12",
+      "text-size": "8",
+      "text-scale": [
+        1.5,
+        1.5
+      ],
       "text-spacing": "400"
     }
   },
@@ -154461,7 +155258,7 @@
       "text-placement": "line",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(206,212,218,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-repeat-distance": "10"
     }
   },
@@ -154676,7 +155473,11 @@
       }
     ],
     "paint": {
-      "text-size": "9"
+      "text-size": "9",
+      "text-scale": [
+        1,
+        1.2222222222222223
+      ]
     }
   },
   {
@@ -154749,7 +155550,11 @@
       }
     ],
     "paint": {
-      "text-size": "11"
+      "text-size": "9",
+      "text-scale": [
+        1.2222222222222223,
+        1.2222222222222223
+      ]
     }
   },
   {
@@ -154828,7 +155633,7 @@
       "text-clip": "false",
       "text-placement": "line",
       "text-halo-radius": "1",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-repeat-distance": "50"
     }
   },
@@ -155050,7 +155855,11 @@
       }
     ],
     "paint": {
-      "text-size": "4"
+      "text-size": "4",
+      "text-scale": [
+        1,
+        1.5
+      ]
     }
   },
   {
@@ -155123,7 +155932,11 @@
       }
     ],
     "paint": {
-      "text-size": "6"
+      "text-size": "4",
+      "text-scale": [
+        1.5,
+        2
+      ]
     }
   },
   {
@@ -155132,7 +155945,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -155146,7 +155959,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -155160,7 +155973,7 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -155179,6 +155992,83 @@
         "layer": "roads-text-name",
         "zoom": {
           "min": 17,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "4",
+      "text-scale": [
+        2,
+        2
+      ]
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "living_street"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "highway",
+            "op": "=",
+            "value": "construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "living_street"
+          }
+        ]
+      },
+      {
+        "layer": "roads-text-name",
+        "zoom": {
+          "min": 18,
           "max": 18
         },
         "and": [
@@ -155196,7 +156086,11 @@
       }
     ],
     "paint": {
-      "text-size": "8"
+      "text-size": "4",
+      "text-scale": [
+        2,
+        2.5
+      ]
     }
   },
   {
@@ -155269,7 +156163,11 @@
       }
     ],
     "paint": {
-      "text-size": "10"
+      "text-size": "4",
+      "text-scale": [
+        2.5,
+        2.5
+      ]
     }
   },
   {
@@ -155348,7 +156246,7 @@
       "text-clip": "false",
       "text-placement": "line",
       "text-halo-radius": "1",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-repeat-distance": "10"
     }
   },
@@ -155553,7 +156451,7 @@
     "paint": {
       "text-name": "'[name]'",
       "text-size": "11",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-wrap-width": "30",
       "text-line-spacing": "-1.7"
     }
@@ -155577,6 +156475,10 @@
     ],
     "paint": {
       "text-size": "4",
+      "text-scale": [
+        1,
+        1.5
+      ],
       "text-dy": "5"
     }
   },
@@ -155617,7 +156519,11 @@
       }
     ],
     "paint": {
-      "text-size": "6",
+      "text-size": "4",
+      "text-scale": [
+        1.5,
+        2
+      ],
       "text-dy": "7"
     }
   },
@@ -155658,7 +156564,11 @@
       }
     ],
     "paint": {
-      "text-size": "8",
+      "text-size": "4",
+      "text-scale": [
+        2,
+        2
+      ],
       "text-dy": "9"
     }
   },
@@ -155706,7 +156616,7 @@
       "text-spacing": "300",
       "text-clip": "false",
       "text-placement": "line",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-vertical-alignment": "middle",
       "text-repeat-distance": "50"
     }
@@ -155881,6 +156791,10 @@
     ],
     "paint": {
       "text-size": "6",
+      "text-scale": [
+        1,
+        1.3333333333333333
+      ],
       "text-dy": "7"
     }
   },
@@ -156053,7 +156967,11 @@
       }
     ],
     "paint": {
-      "text-size": "8",
+      "text-size": "6",
+      "text-scale": [
+        1.3333333333333333,
+        1.3333333333333333
+      ],
       "text-dy": "9"
     }
   },
@@ -156233,7 +157151,7 @@
       "text-spacing": "300",
       "text-clip": "false",
       "text-placement": "line",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-vertical-alignment": "middle",
       "text-repeat-distance": "50"
     }
@@ -173902,7 +174820,7 @@
       "text-dy": "3",
       "text-upright": "right",
       "text-vertical-alignment": "middle",
-      "text-face-name": "'Noto Sans'"
+      "text-face-name": "'Noto Sans TC'"
     },
     "attachment": "directions"
   },
@@ -175977,7 +176895,7 @@
         "layer": "railways-text-name",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -175991,7 +176909,7 @@
         "layer": "railways-text-name",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -176005,7 +176923,7 @@
         "layer": "railways-text-name",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -176019,7 +176937,7 @@
         "layer": "railways-text-name",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -176033,7 +176951,7 @@
         "layer": "railways-text-name",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -176047,7 +176965,7 @@
         "layer": "railways-text-name",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -176061,6 +176979,116 @@
         "layer": "railways-text-name",
         "zoom": {
           "min": 17,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "railway",
+            "op": "=",
+            "value": "tram"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "10",
+      "text-scale": [
+        1,
+        1
+      ],
+      "text-dy": "6"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "railways-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "railway",
+            "op": "=",
+            "value": "rail"
+          }
+        ]
+      },
+      {
+        "layer": "railways-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "railway",
+            "op": "=",
+            "value": "subway"
+          }
+        ]
+      },
+      {
+        "layer": "railways-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "railway",
+            "op": "=",
+            "value": "narrow_gauge"
+          }
+        ]
+      },
+      {
+        "layer": "railways-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "railway",
+            "op": "=",
+            "value": "light_rail"
+          }
+        ]
+      },
+      {
+        "layer": "railways-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "railway",
+            "op": "=",
+            "value": "funicular"
+          }
+        ]
+      },
+      {
+        "layer": "railways-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "railway",
+            "op": "=",
+            "value": "monorail"
+          }
+        ]
+      },
+      {
+        "layer": "railways-text-name",
+        "zoom": {
+          "min": 18,
           "max": 18
         },
         "and": [
@@ -176074,6 +177102,10 @@
     ],
     "paint": {
       "text-size": "10",
+      "text-scale": [
+        1,
+        1.1
+      ],
       "text-dy": "6"
     }
   },
@@ -176179,7 +177211,11 @@
       }
     ],
     "paint": {
-      "text-size": "11",
+      "text-size": "10",
+      "text-scale": [
+        1.1,
+        1.1
+      ],
       "text-dy": "7"
     }
   },
@@ -176290,7 +177326,7 @@
       "text-spacing": "900",
       "text-clip": "false",
       "text-placement": "line",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-repeat-distance": "200"
@@ -176320,6 +177356,10 @@
     ],
     "paint": {
       "text-size": "10",
+      "text-scale": [
+        1,
+        1
+      ],
       "text-dy": "3",
       "text-spacing": "300"
     }
@@ -176348,6 +177388,10 @@
     ],
     "paint": {
       "text-size": "10",
+      "text-scale": [
+        1,
+        1
+      ],
       "text-dy": "6",
       "text-spacing": "300"
     }
@@ -176358,6 +177402,38 @@
         "layer": "railways-text-name",
         "zoom": {
           "min": 14,
+          "max": 15
+        },
+        "and": [
+          {
+            "key": "railway",
+            "op": "=",
+            "value": "rail"
+          },
+          {
+            "key": "highspeed",
+            "op": "=",
+            "value": "yes"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "10",
+      "text-scale": [
+        1,
+        1
+      ],
+      "text-dy": "6",
+      "text-spacing": "600"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "railways-text-name",
+        "zoom": {
+          "min": 16,
           "max": 16
         },
         "and": [
@@ -176376,6 +177452,10 @@
     ],
     "paint": {
       "text-size": "10",
+      "text-scale": [
+        1,
+        1.1
+      ],
       "text-dy": "6",
       "text-spacing": "600"
     }
@@ -176386,6 +177466,38 @@
         "layer": "railways-text-name",
         "zoom": {
           "min": 17,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "railway",
+            "op": "=",
+            "value": "rail"
+          },
+          {
+            "key": "highspeed",
+            "op": "=",
+            "value": "yes"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "10",
+      "text-scale": [
+        1.1,
+        1.1
+      ],
+      "text-dy": "7",
+      "text-spacing": "600"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "railways-text-name",
+        "zoom": {
+          "min": 18,
           "max": 18
         },
         "and": [
@@ -176403,7 +177515,11 @@
       }
     ],
     "paint": {
-      "text-size": "11",
+      "text-size": "10",
+      "text-scale": [
+        1.1,
+        1.2
+      ],
       "text-dy": "7",
       "text-spacing": "600"
     }
@@ -176431,7 +177547,11 @@
       }
     ],
     "paint": {
-      "text-size": "12",
+      "text-size": "10",
+      "text-scale": [
+        1.2,
+        1.2
+      ],
       "text-dy": "8",
       "text-spacing": "600"
     }
@@ -176463,7 +177583,7 @@
       "text-fill": "rgba(102,102,102,1)",
       "text-clip": "false",
       "text-placement": "line",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-repeat-distance": "200"
@@ -176475,6 +177595,43 @@
         "layer": "railways-text-name",
         "zoom": {
           "min": 14,
+          "max": 15
+        },
+        "and": [
+          {
+            "key": "railway",
+            "op": "=",
+            "value": "rail"
+          },
+          {
+            "key": "highspeed",
+            "op": "!=",
+            "value": "yes"
+          },
+          {
+            "key": "usage",
+            "op": "=",
+            "value": "main"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "10",
+      "text-scale": [
+        1,
+        1
+      ],
+      "text-dy": "6",
+      "text-spacing": "300"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "railways-text-name",
+        "zoom": {
+          "min": 16,
           "max": 16
         },
         "and": [
@@ -176498,6 +177655,10 @@
     ],
     "paint": {
       "text-size": "10",
+      "text-scale": [
+        1,
+        1.1
+      ],
       "text-dy": "6",
       "text-spacing": "300"
     }
@@ -176508,6 +177669,43 @@
         "layer": "railways-text-name",
         "zoom": {
           "min": 17,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "railway",
+            "op": "=",
+            "value": "rail"
+          },
+          {
+            "key": "highspeed",
+            "op": "!=",
+            "value": "yes"
+          },
+          {
+            "key": "usage",
+            "op": "=",
+            "value": "main"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "10",
+      "text-scale": [
+        1.1,
+        1.1
+      ],
+      "text-dy": "7",
+      "text-spacing": "600"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "railways-text-name",
+        "zoom": {
+          "min": 18,
           "max": 18
         },
         "and": [
@@ -176530,7 +177728,11 @@
       }
     ],
     "paint": {
-      "text-size": "11",
+      "text-size": "10",
+      "text-scale": [
+        1.1,
+        1.2
+      ],
       "text-dy": "7",
       "text-spacing": "600"
     }
@@ -176563,7 +177765,11 @@
       }
     ],
     "paint": {
-      "text-size": "12",
+      "text-size": "10",
+      "text-scale": [
+        1.2,
+        1.2
+      ],
       "text-dy": "8",
       "text-spacing": "600"
     }
@@ -176600,7 +177806,7 @@
       "text-fill": "rgba(102,102,102,1)",
       "text-clip": "false",
       "text-placement": "line",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-repeat-distance": "200"
@@ -176612,7 +177818,7 @@
         "layer": "railways-text-name",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -176626,7 +177832,7 @@
         "layer": "railways-text-name",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -176640,6 +177846,60 @@
         "layer": "railways-text-name",
         "zoom": {
           "min": 17,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "railway",
+            "op": "=",
+            "value": "construction"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-size": "10",
+      "text-scale": [
+        1,
+        1
+      ],
+      "text-dy": "6"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "railways-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "railway",
+            "op": "=",
+            "value": "miniature"
+          }
+        ]
+      },
+      {
+        "layer": "railways-text-name",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "railway",
+            "op": "=",
+            "value": "disused"
+          }
+        ]
+      },
+      {
+        "layer": "railways-text-name",
+        "zoom": {
+          "min": 18,
           "max": 18
         },
         "and": [
@@ -176653,6 +177913,10 @@
     ],
     "paint": {
       "text-size": "10",
+      "text-scale": [
+        1,
+        1.1
+      ],
       "text-dy": "6"
     }
   },
@@ -176702,7 +177966,11 @@
       }
     ],
     "paint": {
-      "text-size": "11",
+      "text-size": "10",
+      "text-scale": [
+        1.1,
+        1.1
+      ],
       "text-dy": "7"
     }
   },
@@ -176757,7 +178025,7 @@
       "text-spacing": "900",
       "text-clip": "false",
       "text-placement": "line",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-repeat-distance": "200"
@@ -176769,6 +178037,34 @@
         "layer": "country-names",
         "zoom": {
           "min": 3,
+          "max": 3
+        },
+        "and": []
+      }
+    ],
+    "paint": {
+      "text-name": "'[name]'",
+      "text-size": "10",
+      "text-scale": [
+        1,
+        1
+      ],
+      "text-wrap-width": "35",
+      "text-line-spacing": "-1.5",
+      "text-margin": "7",
+      "text-fill": "rgba(51,49,52,1)",
+      "text-face-name": "'Noto Sans TC'",
+      "text-halo-fill": "rgba(255,255,255,0.6)",
+      "text-halo-radius": "1.5",
+      "text-character-spacing": "0.5"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "country-names",
+        "zoom": {
+          "min": 4,
           "max": 4
         },
         "and": []
@@ -176777,11 +178073,15 @@
     "paint": {
       "text-name": "'[name]'",
       "text-size": "10",
+      "text-scale": [
+        1,
+        1.2
+      ],
       "text-wrap-width": "35",
       "text-line-spacing": "-1.5",
       "text-margin": "7",
       "text-fill": "rgba(51,49,52,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-character-spacing": "0.5"
@@ -176793,6 +178093,34 @@
         "layer": "country-names",
         "zoom": {
           "min": 5,
+          "max": 5
+        },
+        "and": []
+      }
+    ],
+    "paint": {
+      "text-name": "'[name]'",
+      "text-size": "10",
+      "text-scale": [
+        1.2,
+        1.2
+      ],
+      "text-wrap-width": "45",
+      "text-line-spacing": "-1.5",
+      "text-margin": "7",
+      "text-fill": "rgba(51,49,52,1)",
+      "text-face-name": "'Noto Sans TC'",
+      "text-halo-fill": "rgba(255,255,255,0.6)",
+      "text-halo-radius": "1.5",
+      "text-character-spacing": "0.5"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "country-names",
+        "zoom": {
+          "min": 6,
           "max": 6
         },
         "and": []
@@ -176800,12 +178128,16 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "12",
+      "text-size": "10",
+      "text-scale": [
+        1.2,
+        1.3
+      ],
       "text-wrap-width": "45",
       "text-line-spacing": "-1.5",
       "text-margin": "7",
       "text-fill": "rgba(51,49,52,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-character-spacing": "0.5"
@@ -176817,6 +178149,34 @@
         "layer": "country-names",
         "zoom": {
           "min": 7,
+          "max": 7
+        },
+        "and": []
+      }
+    ],
+    "paint": {
+      "text-name": "'[name]'",
+      "text-size": "10",
+      "text-scale": [
+        1.3,
+        1.3
+      ],
+      "text-wrap-width": "50",
+      "text-line-spacing": "-1.5",
+      "text-margin": "7",
+      "text-fill": "rgba(51,49,52,1)",
+      "text-face-name": "'Noto Sans TC'",
+      "text-halo-fill": "rgba(255,255,255,0.6)",
+      "text-halo-radius": "1.5",
+      "text-character-spacing": "0.5"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "country-names",
+        "zoom": {
+          "min": 8,
           "max": 8
         },
         "and": []
@@ -176824,12 +178184,16 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "13",
+      "text-size": "10",
+      "text-scale": [
+        1.3,
+        1.4
+      ],
       "text-wrap-width": "50",
       "text-line-spacing": "-1.5",
       "text-margin": "7",
       "text-fill": "rgba(51,49,52,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-character-spacing": "0.5"
@@ -176848,12 +178212,16 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "14",
+      "text-size": "10",
+      "text-scale": [
+        1.4,
+        1.5
+      ],
       "text-wrap-width": "55",
       "text-line-spacing": "-1.5",
       "text-margin": "7",
       "text-fill": "rgba(51,49,52,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-character-spacing": "0.5"
@@ -176872,12 +178240,16 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "15",
+      "text-size": "10",
+      "text-scale": [
+        1.5,
+        1.5
+      ],
       "text-wrap-width": "60",
       "text-line-spacing": "-1.5",
       "text-margin": "7",
       "text-fill": "rgba(51,49,52,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-character-spacing": "0.5"
@@ -176969,6 +178341,32 @@
         "layer": "state-names",
         "zoom": {
           "min": 5,
+          "max": 5
+        },
+        "and": []
+      }
+    ],
+    "paint": {
+      "text-name": "'[name]'",
+      "text-size": "10",
+      "text-scale": [
+        1,
+        1
+      ],
+      "text-wrap-width": "35",
+      "text-fill": "rgba(76,76,76,1)",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
+      "text-halo-fill": "rgba(255,255,255,0.6)",
+      "text-halo-radius": "1.5",
+      "text-placement": "interior"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "state-names",
+        "zoom": {
+          "min": 6,
           "max": 6
         },
         "and": []
@@ -176977,9 +178375,13 @@
     "paint": {
       "text-name": "'[name]'",
       "text-size": "10",
+      "text-scale": [
+        1,
+        1.1
+      ],
       "text-wrap-width": "35",
       "text-fill": "rgba(76,76,76,1)",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-placement": "interior"
@@ -176991,6 +178393,32 @@
         "layer": "state-names",
         "zoom": {
           "min": 7,
+          "max": 7
+        },
+        "and": []
+      }
+    ],
+    "paint": {
+      "text-name": "'[name]'",
+      "text-size": "10",
+      "text-scale": [
+        1.1,
+        1.1
+      ],
+      "text-wrap-width": "40",
+      "text-fill": "rgba(76,76,76,1)",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
+      "text-halo-fill": "rgba(255,255,255,0.6)",
+      "text-halo-radius": "1.5",
+      "text-placement": "interior"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "state-names",
+        "zoom": {
+          "min": 8,
           "max": 8
         },
         "and": []
@@ -176998,10 +178426,14 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "11",
+      "text-size": "10",
+      "text-scale": [
+        1.1,
+        1.2
+      ],
       "text-wrap-width": "40",
       "text-fill": "rgba(76,76,76,1)",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-placement": "interior"
@@ -177020,10 +178452,14 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "12",
+      "text-size": "10",
+      "text-scale": [
+        1.2,
+        1.3
+      ],
       "text-wrap-width": "45",
       "text-fill": "rgba(76,76,76,1)",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-placement": "interior"
@@ -177035,6 +178471,34 @@
         "layer": "state-names",
         "zoom": {
           "min": 10,
+          "max": 10
+        },
+        "and": []
+      }
+    ],
+    "paint": {
+      "text-name": "'[name]'",
+      "text-size": "10",
+      "text-scale": [
+        1.3,
+        1.3
+      ],
+      "text-wrap-width": "50",
+      "text-line-spacing": "-1",
+      "text-margin": "9.1",
+      "text-fill": "rgba(76,76,76,1)",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
+      "text-halo-fill": "rgba(255,255,255,0.6)",
+      "text-halo-radius": "1.5",
+      "text-placement": "interior"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "state-names",
+        "zoom": {
+          "min": 11,
           "max": 11
         },
         "and": []
@@ -177042,12 +178506,16 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "13",
+      "text-size": "10",
+      "text-scale": [
+        1.3,
+        1.5
+      ],
       "text-wrap-width": "50",
       "text-line-spacing": "-1",
       "text-margin": "9.1",
       "text-fill": "rgba(76,76,76,1)",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-placement": "interior"
@@ -177066,12 +178534,16 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "15",
+      "text-size": "10",
+      "text-scale": [
+        1.5,
+        1.5
+      ],
       "text-wrap-width": "50",
       "text-line-spacing": "-1",
       "text-margin": "9.1",
       "text-fill": "rgba(76,76,76,1)",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-placement": "interior"
@@ -177131,7 +178603,7 @@
       "shield-text-dx": "6",
       "shield-text-dy": "6",
       "shield-name": "'[name]'",
-      "shield-face-name": "'Noto Sans'",
+      "shield-face-name": "'Noto Sans TC'",
       "shield-fill": "rgba(34,34,34,1)",
       "shield-size": "11",
       "shield-wrap-width": "30",
@@ -177174,7 +178646,7 @@
       "shield-text-dx": "6",
       "shield-text-dy": "6",
       "shield-name": "'[name]'",
-      "shield-face-name": "'Noto Sans'",
+      "shield-face-name": "'Noto Sans TC'",
       "shield-fill": "rgba(34,34,34,1)",
       "shield-size": "11",
       "shield-wrap-width": "45",
@@ -177217,7 +178689,7 @@
       "shield-text-dx": "6",
       "shield-text-dy": "6",
       "shield-name": "'[name]'",
-      "shield-face-name": "'Noto Sans'",
+      "shield-face-name": "'Noto Sans TC'",
       "shield-fill": "rgba(34,34,34,1)",
       "shield-size": "12",
       "shield-wrap-width": "60",
@@ -177260,7 +178732,7 @@
       "shield-text-dx": "7",
       "shield-text-dy": "7",
       "shield-name": "'[name]'",
-      "shield-face-name": "'Noto Sans'",
+      "shield-face-name": "'Noto Sans TC'",
       "shield-fill": "rgba(34,34,34,1)",
       "shield-size": "12",
       "shield-wrap-width": "60",
@@ -177378,6 +178850,31 @@
         "layer": "capital-names",
         "zoom": {
           "min": 8,
+          "max": 8
+        },
+        "and": []
+      }
+    ],
+    "paint": {
+      "text-name": "'[name]'",
+      "text-face-name": "'Noto Sans TC'",
+      "text-fill": "rgba(34,34,34,1)",
+      "text-size": "13",
+      "text-scale": [
+        1,
+        1
+      ],
+      "text-wrap-width": "65",
+      "text-halo-fill": "rgba(255,255,255,0.6)",
+      "text-halo-radius": "1.5"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "capital-names",
+        "zoom": {
+          "min": 9,
           "max": 9
         },
         "and": []
@@ -177385,9 +178882,13 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-fill": "rgba(34,34,34,1)",
       "text-size": "13",
+      "text-scale": [
+        1,
+        1.0769230769230769
+      ],
       "text-wrap-width": "65",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5"
@@ -177406,9 +178907,13 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-fill": "rgba(34,34,34,1)",
-      "text-size": "14",
+      "text-size": "13",
+      "text-scale": [
+        1.0769230769230769,
+        1.1538461538461537
+      ],
       "text-wrap-width": "70",
       "text-line-spacing": "-0.7",
       "text-margin": "9.8",
@@ -177429,9 +178934,13 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-fill": "rgba(34,34,34,1)",
-      "text-size": "15",
+      "text-size": "13",
+      "text-scale": [
+        1.1538461538461537,
+        1.1538461538461537
+      ],
       "text-wrap-width": "75",
       "text-line-spacing": "-0.75",
       "text-margin": "10.5",
@@ -177466,7 +178975,7 @@
       "shield-text-dx": "4",
       "shield-text-dy": "4",
       "shield-name": "'[name]'",
-      "shield-face-name": "'Noto Sans'",
+      "shield-face-name": "'Noto Sans TC'",
       "shield-fill": "rgba(34,34,34,1)",
       "shield-size": "11",
       "shield-wrap-width": "30",
@@ -177507,7 +179016,7 @@
       "shield-text-dx": "4",
       "shield-text-dy": "4",
       "shield-name": "'[name]'",
-      "shield-face-name": "'Noto Sans'",
+      "shield-face-name": "'Noto Sans TC'",
       "shield-fill": "rgba(34,34,34,1)",
       "shield-size": "11",
       "shield-wrap-width": "45",
@@ -177548,7 +179057,7 @@
       "shield-text-dx": "5",
       "shield-text-dy": "5",
       "shield-name": "'[name]'",
-      "shield-face-name": "'Noto Sans'",
+      "shield-face-name": "'Noto Sans TC'",
       "shield-fill": "rgba(34,34,34,1)",
       "shield-size": "12",
       "shield-wrap-width": "60",
@@ -177589,7 +179098,7 @@
       "shield-text-dx": "5",
       "shield-text-dy": "5",
       "shield-name": "'[name]'",
-      "shield-face-name": "'Noto Sans'",
+      "shield-face-name": "'Noto Sans TC'",
       "shield-fill": "rgba(34,34,34,1)",
       "shield-size": "12",
       "shield-wrap-width": "60",
@@ -177759,6 +179268,43 @@
         "layer": "placenames-medium",
         "zoom": {
           "min": 8,
+          "max": 8
+        },
+        "and": [
+          {
+            "key": "category",
+            "op": "=",
+            "value": "1"
+          },
+          {
+            "key": "score",
+            "op": ">=",
+            "value": "400000"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-name": "'[name]'",
+      "text-face-name": "'Noto Sans TC'",
+      "text-fill": "rgba(34,34,34,1)",
+      "text-size": "13",
+      "text-scale": [
+        1,
+        1
+      ],
+      "text-wrap-width": "65",
+      "text-halo-fill": "rgba(255,255,255,0.6)",
+      "text-halo-radius": "1.5"
+    },
+    "attachment": "high-importance"
+  },
+  {
+    "groups": [
+      {
+        "layer": "placenames-medium",
+        "zoom": {
+          "min": 9,
           "max": 9
         },
         "and": [
@@ -177777,9 +179323,13 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-fill": "rgba(34,34,34,1)",
       "text-size": "13",
+      "text-scale": [
+        1,
+        1.0769230769230769
+      ],
       "text-wrap-width": "65",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5"
@@ -177810,9 +179360,13 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-fill": "rgba(34,34,34,1)",
-      "text-size": "14",
+      "text-size": "13",
+      "text-scale": [
+        1.0769230769230769,
+        1.1538461538461537
+      ],
       "text-wrap-width": "70",
       "text-line-spacing": "-0.7",
       "text-margin": "9.8",
@@ -177845,9 +179399,13 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-fill": "rgba(34,34,34,1)",
-      "text-size": "15",
+      "text-size": "13",
+      "text-scale": [
+        1.1538461538461537,
+        1.1538461538461537
+      ],
       "text-wrap-width": "75",
       "text-line-spacing": "-0.75",
       "text-margin": "10.5",
@@ -177890,7 +179448,7 @@
       "shield-name": "'[name]'",
       "shield-size": "10",
       "shield-fill": "rgba(34,34,34,1)",
-      "shield-face-name": "'Noto Sans'",
+      "shield-face-name": "'Noto Sans TC'",
       "shield-halo-fill": "rgba(255,255,255,0.6)",
       "shield-halo-radius": "1.5",
       "shield-wrap-width": "30",
@@ -177955,7 +179513,7 @@
       "shield-name": "'[name]'",
       "shield-size": "10",
       "shield-fill": "rgba(34,34,34,1)",
-      "shield-face-name": "'Noto Sans'",
+      "shield-face-name": "'Noto Sans TC'",
       "shield-halo-fill": "rgba(255,255,255,0.6)",
       "shield-halo-radius": "1.5",
       "shield-wrap-width": "30",
@@ -178034,6 +179592,43 @@
         "layer": "placenames-medium",
         "zoom": {
           "min": 8,
+          "max": 8
+        },
+        "and": [
+          {
+            "key": "category",
+            "op": "=",
+            "value": "1"
+          },
+          {
+            "key": "score",
+            "op": "<",
+            "value": "400000"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-name": "'[name]'",
+      "text-size": "10",
+      "text-scale": [
+        1,
+        1
+      ],
+      "text-fill": "rgba(34,34,34,1)",
+      "text-face-name": "'Noto Sans TC'",
+      "text-halo-fill": "rgba(255,255,255,0.6)",
+      "text-halo-radius": "1.5",
+      "text-wrap-width": "40"
+    },
+    "attachment": "medium-importance"
+  },
+  {
+    "groups": [
+      {
+        "layer": "placenames-medium",
+        "zoom": {
+          "min": 9,
           "max": 9
         },
         "and": [
@@ -178053,8 +179648,12 @@
     "paint": {
       "text-name": "'[name]'",
       "text-size": "10",
+      "text-scale": [
+        1,
+        1.3
+      ],
       "text-fill": "rgba(34,34,34,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-wrap-width": "40"
@@ -178085,9 +179684,13 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "13",
+      "text-size": "10",
+      "text-scale": [
+        1.3,
+        1.4
+      ],
       "text-fill": "rgba(34,34,34,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-wrap-width": "65",
@@ -178102,6 +179705,45 @@
         "layer": "placenames-medium",
         "zoom": {
           "min": 11,
+          "max": 12
+        },
+        "and": [
+          {
+            "key": "category",
+            "op": "=",
+            "value": "1"
+          },
+          {
+            "key": "score",
+            "op": "<",
+            "value": "400000"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-name": "'[name]'",
+      "text-size": "10",
+      "text-scale": [
+        1.4,
+        1.4
+      ],
+      "text-fill": "rgba(34,34,34,1)",
+      "text-face-name": "'Noto Sans TC'",
+      "text-halo-fill": "rgba(255,255,255,0.6)",
+      "text-halo-radius": "1.5",
+      "text-wrap-width": "70",
+      "text-line-spacing": "-0.7",
+      "text-margin": "9.8"
+    },
+    "attachment": "medium-importance"
+  },
+  {
+    "groups": [
+      {
+        "layer": "placenames-medium",
+        "zoom": {
+          "min": 13,
           "max": 13
         },
         "and": [
@@ -178120,9 +179762,13 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "14",
+      "text-size": "10",
+      "text-scale": [
+        1.4,
+        1.5
+      ],
       "text-fill": "rgba(34,34,34,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-wrap-width": "70",
@@ -178155,9 +179801,13 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "15",
+      "text-size": "10",
+      "text-scale": [
+        1.5,
+        1.5
+      ],
       "text-fill": "rgba(34,34,34,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-wrap-width": "75",
@@ -178202,6 +179852,38 @@
         "layer": "placenames-medium",
         "zoom": {
           "min": 9,
+          "max": 10
+        },
+        "and": [
+          {
+            "key": "category",
+            "op": "=",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-name": "'[name]'",
+      "text-size": "10",
+      "text-scale": [
+        1,
+        1
+      ],
+      "text-fill": "rgba(34,34,34,1)",
+      "text-face-name": "'Noto Sans TC'",
+      "text-halo-fill": "rgba(255,255,255,0.6)",
+      "text-halo-radius": "1.5",
+      "text-wrap-width": "45"
+    },
+    "attachment": "low-importance"
+  },
+  {
+    "groups": [
+      {
+        "layer": "placenames-medium",
+        "zoom": {
+          "min": 11,
           "max": 11
         },
         "and": [
@@ -178216,8 +179898,12 @@
     "paint": {
       "text-name": "'[name]'",
       "text-size": "10",
+      "text-scale": [
+        1,
+        1.3
+      ],
       "text-fill": "rgba(34,34,34,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-wrap-width": "45"
@@ -178230,6 +179916,40 @@
         "layer": "placenames-medium",
         "zoom": {
           "min": 12,
+          "max": 12
+        },
+        "and": [
+          {
+            "key": "category",
+            "op": "=",
+            "value": "2"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-name": "'[name]'",
+      "text-size": "10",
+      "text-scale": [
+        1.3,
+        1.3
+      ],
+      "text-fill": "rgba(34,34,34,1)",
+      "text-face-name": "'Noto Sans TC'",
+      "text-halo-fill": "rgba(255,255,255,0.6)",
+      "text-halo-radius": "1.5",
+      "text-wrap-width": "65",
+      "text-line-spacing": "-0.65",
+      "text-margin": "8.4"
+    },
+    "attachment": "low-importance"
+  },
+  {
+    "groups": [
+      {
+        "layer": "placenames-medium",
+        "zoom": {
+          "min": 13,
           "max": 13
         },
         "and": [
@@ -178243,9 +179963,13 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "13",
+      "text-size": "10",
+      "text-scale": [
+        1.3,
+        1.5
+      ],
       "text-fill": "rgba(34,34,34,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-wrap-width": "65",
@@ -178273,9 +179997,13 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "15",
+      "text-size": "10",
+      "text-scale": [
+        1.5,
+        1.5
+      ],
       "text-fill": "rgba(34,34,34,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-wrap-width": "75",
@@ -178315,6 +180043,38 @@
         "layer": "placenames-small",
         "zoom": {
           "min": 12,
+          "max": 12
+        },
+        "and": [
+          {
+            "key": "place",
+            "op": "=",
+            "value": "suburb"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-name": "'[name]'",
+      "text-size": "11",
+      "text-scale": [
+        1,
+        1
+      ],
+      "text-fill": "rgba(34,34,34,1)",
+      "text-face-name": "'Noto Sans TC'",
+      "text-halo-fill": "rgba(255,255,255,0.6)",
+      "text-halo-radius": "1.5",
+      "text-wrap-width": "55"
+    },
+    "attachment": "suburb"
+  },
+  {
+    "groups": [
+      {
+        "layer": "placenames-small",
+        "zoom": {
+          "min": 13,
           "max": 13
         },
         "and": [
@@ -178329,8 +180089,12 @@
     "paint": {
       "text-name": "'[name]'",
       "text-size": "11",
+      "text-scale": [
+        1,
+        1.2727272727272727
+      ],
       "text-fill": "rgba(34,34,34,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-wrap-width": "55"
@@ -178343,6 +180107,40 @@
         "layer": "placenames-small",
         "zoom": {
           "min": 14,
+          "max": 14
+        },
+        "and": [
+          {
+            "key": "place",
+            "op": "=",
+            "value": "suburb"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-name": "'[name]'",
+      "text-size": "11",
+      "text-scale": [
+        1.2727272727272727,
+        1.2727272727272727
+      ],
+      "text-fill": "rgba(34,34,34,1)",
+      "text-face-name": "'Noto Sans TC'",
+      "text-halo-fill": "rgba(255,255,255,1)",
+      "text-halo-radius": "1.5",
+      "text-wrap-width": "70",
+      "text-line-spacing": "-0.7",
+      "text-margin": "9.8"
+    },
+    "attachment": "suburb"
+  },
+  {
+    "groups": [
+      {
+        "layer": "placenames-small",
+        "zoom": {
+          "min": 15,
           "max": 15
         },
         "and": [
@@ -178356,9 +180154,13 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "14",
+      "text-size": "11",
+      "text-scale": [
+        1.2727272727272727,
+        1.3636363636363635
+      ],
       "text-fill": "rgba(34,34,34,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,1)",
       "text-halo-radius": "1.5",
       "text-wrap-width": "70",
@@ -178386,9 +180188,13 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "15",
+      "text-size": "11",
+      "text-scale": [
+        1.3636363636363635,
+        1.3636363636363635
+      ],
       "text-fill": "rgba(34,34,34,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,1)",
       "text-halo-radius": "1.5",
       "text-wrap-width": "75",
@@ -178450,6 +180256,38 @@
         "layer": "placenames-small",
         "zoom": {
           "min": 12,
+          "max": 12
+        },
+        "and": [
+          {
+            "key": "place",
+            "op": "=",
+            "value": "village"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-name": "'[name]'",
+      "text-size": "10",
+      "text-scale": [
+        1,
+        1
+      ],
+      "text-fill": "rgba(34,34,34,1)",
+      "text-face-name": "'Noto Sans TC'",
+      "text-halo-fill": "rgba(255,255,255,0.6)",
+      "text-halo-radius": "1.5",
+      "text-wrap-width": "50"
+    },
+    "attachment": "village"
+  },
+  {
+    "groups": [
+      {
+        "layer": "placenames-small",
+        "zoom": {
+          "min": 13,
           "max": 13
         },
         "and": [
@@ -178464,8 +180302,12 @@
     "paint": {
       "text-name": "'[name]'",
       "text-size": "10",
+      "text-scale": [
+        1,
+        1.3
+      ],
       "text-fill": "rgba(34,34,34,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-wrap-width": "50"
@@ -178491,9 +180333,13 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "13",
+      "text-size": "10",
+      "text-scale": [
+        1.3,
+        1.4
+      ],
       "text-fill": "rgba(119,119,119,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,1)",
       "text-halo-radius": "1.5",
       "text-wrap-width": "65",
@@ -178521,9 +180367,13 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "14",
+      "text-size": "10",
+      "text-scale": [
+        1.4,
+        1.5
+      ],
       "text-fill": "rgba(119,119,119,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,1)",
       "text-halo-radius": "1.5",
       "text-wrap-width": "70",
@@ -178551,9 +180401,13 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-size": "15",
+      "text-size": "10",
+      "text-scale": [
+        1.5,
+        1.5
+      ],
       "text-fill": "rgba(119,119,119,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,1)",
       "text-halo-radius": "1.5",
       "text-wrap-width": "75",
@@ -178607,10 +180461,14 @@
     "paint": {
       "text-name": "'[name]'",
       "text-fill": "rgba(34,34,34,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,1)",
       "text-halo-radius": "1.5",
       "text-size": "11",
+      "text-scale": [
+        1,
+        1.0909090909090908
+      ],
       "text-wrap-width": "55",
       "text-line-spacing": "-0.55",
       "text-margin": "7.7"
@@ -178637,10 +180495,14 @@
     "paint": {
       "text-name": "'[name]'",
       "text-fill": "rgba(119,119,119,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,1)",
       "text-halo-radius": "1.5",
-      "text-size": "12",
+      "text-size": "11",
+      "text-scale": [
+        1.0909090909090908,
+        1.2727272727272727
+      ],
       "text-wrap-width": "60",
       "text-line-spacing": "-0.6",
       "text-margin": "8.4"
@@ -178667,10 +180529,14 @@
     "paint": {
       "text-name": "'[name]'",
       "text-fill": "rgba(119,119,119,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,1)",
       "text-halo-radius": "1.5",
-      "text-size": "14",
+      "text-size": "11",
+      "text-scale": [
+        1.2727272727272727,
+        1.2727272727272727
+      ],
       "text-wrap-width": "70",
       "text-line-spacing": "-0.7",
       "text-margin": "9.8"
@@ -178697,10 +180563,14 @@
     "paint": {
       "text-name": "'[name]'",
       "text-fill": "rgba(34,34,34,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,1)",
       "text-halo-radius": "1.5",
       "text-size": "10",
+      "text-scale": [
+        1,
+        1.1
+      ],
       "text-wrap-width": "55",
       "text-line-spacing": "-0.55",
       "text-margin": "7.7"
@@ -178727,10 +180597,14 @@
     "paint": {
       "text-name": "'[name]'",
       "text-fill": "rgba(119,119,119,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
-      "text-size": "11",
+      "text-size": "10",
+      "text-scale": [
+        1.1,
+        1.2
+      ],
       "text-wrap-width": "45",
       "text-line-spacing": "-0.55",
       "text-margin": "7.7"
@@ -178757,10 +180631,14 @@
     "paint": {
       "text-name": "'[name]'",
       "text-fill": "rgba(119,119,119,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,1)",
       "text-halo-radius": "1.5",
-      "text-size": "12",
+      "text-size": "10",
+      "text-scale": [
+        1.2,
+        1.2
+      ],
       "text-wrap-width": "60",
       "text-line-spacing": "-0.6",
       "text-margin": "8.4"
@@ -178861,7 +180739,7 @@
       "text-name": "'[name]'",
       "text-size": "10",
       "text-fill": "rgba(34,34,34,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-wrap-width": "45",
@@ -178963,7 +180841,7 @@
       "text-line-spacing": "-1.5",
       "text-margin": "7",
       "text-fill": "rgba(110,109,113,1)",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-placement-type": "simple",
@@ -178993,7 +180871,7 @@
       }
     ],
     "paint": {
-      "text-face-name": "'Noto Sans'"
+      "text-face-name": "'Noto Sans TC'"
     }
   },
   {
@@ -179002,7 +180880,7 @@
         "layer": "county-names",
         "zoom": {
           "min": 10,
-          "max": 11
+          "max": 10
         },
         "and": [
           {
@@ -179021,6 +180899,57 @@
         "layer": "county-names",
         "zoom": {
           "min": 10,
+          "max": 10
+        },
+        "and": [
+          {
+            "key": "admin_level",
+            "op": "=",
+            "value": "6"
+          },
+          {
+            "key": "admin_level",
+            "op": "=",
+            "value": "5"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-face-name": "'Noto Sans TC'",
+      "text-size": "12",
+      "text-scale": [
+        1,
+        1
+      ],
+      "text-wrap-width": "45"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "county-names",
+        "zoom": {
+          "min": 11,
+          "max": 11
+        },
+        "and": [
+          {
+            "key": "admin_level",
+            "op": "=",
+            "value": "5"
+          },
+          {
+            "key": "admin_level",
+            "op": "=",
+            "value": "5"
+          }
+        ]
+      },
+      {
+        "layer": "county-names",
+        "zoom": {
+          "min": 11,
           "max": 11
         },
         "and": [
@@ -179038,8 +180967,12 @@
       }
     ],
     "paint": {
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-size": "12",
+      "text-scale": [
+        1,
+        1.0833333333333333
+      ],
       "text-wrap-width": "45"
     }
   },
@@ -179085,8 +181018,12 @@
       }
     ],
     "paint": {
-      "text-face-name": "'Noto Sans'",
-      "text-size": "13",
+      "text-face-name": "'Noto Sans TC'",
+      "text-size": "12",
+      "text-scale": [
+        1.0833333333333333,
+        1.0833333333333333
+      ],
       "text-wrap-width": "50"
     }
   },
@@ -179928,7 +181865,7 @@
     ],
     "paint": {
       "text-name": "[ref]",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-size": "10",
       "text-fill": "rgba(0,102,255,1)",
       "text-dy": "10",
@@ -180069,7 +182006,7 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-size": "10",
       "text-fill": "rgba(73,88,173,1)",
       "text-dy": "9",
@@ -180190,7 +182127,7 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-size": "5",
       "text-fill": "rgba(73,88,173,1)",
       "text-dy": "10",
@@ -180266,7 +182203,7 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-size": "5",
       "text-fill": "rgba(73,88,173,1)",
       "text-dy": "10",
@@ -180344,7 +182281,7 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-size": "5",
       "text-fill": "rgba(73,88,173,1)",
       "text-dy": "10",
@@ -197287,7 +199224,7 @@
       "text-size": "10",
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -197355,7 +199292,7 @@
       "text-name": "'[name]'",
       "text-size": "10",
       "text-fill": "rgba(34,34,34,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-wrap-width": "45",
@@ -197465,7 +199402,7 @@
     "paint": {
       "text-name": "'[name]'",
       "text-size": "11",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-halo-radius": "1.5",
       "text-wrap-width": "45",
@@ -197707,7 +199644,7 @@
       "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-dy": "11",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -198257,7 +200194,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(115,74,8,1)",
       "text-dy": "11",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -198922,7 +200859,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(115,74,8,1)",
       "text-dy": "11",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -198993,7 +200930,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(28,82,33,1)",
       "text-dy": "11",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -199147,7 +201084,7 @@
       "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,102,255,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -200371,7 +202308,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(115,74,8,1)",
       "text-dy": "11",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -201882,7 +203819,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(115,74,8,1)",
       "text-dy": "10",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -204096,7 +206033,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(115,74,8,1)",
       "text-dy": "10",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -204534,7 +206471,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,0,51,1)",
       "text-dy": "12",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -204577,7 +206514,7 @@
       "text-line-spacing": "-1.5",
       "text-dy": "12",
       "text-fill": "rgba(153,51,153,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -204732,7 +206669,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(110,68,30,1)",
       "text-dy": "7",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -205365,7 +207302,7 @@
       "text-size": "5",
       "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -205455,7 +207392,7 @@
       "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,0,0,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-dy": "11"
@@ -205716,7 +207653,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(53,139,162,1)",
       "text-dy": "10",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -206208,7 +208145,7 @@
       "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(51,51,51,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -214415,7 +216352,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(115,74,8,1)",
       "text-dy": "11",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -214458,7 +216395,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(51,51,51,1)",
       "text-dy": "10",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -214528,7 +216465,7 @@
       "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(28,82,33,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-dy": "13"
@@ -214638,7 +216575,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(28,82,33,1)",
       "text-dy": "11",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -214690,7 +216627,7 @@
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(87,109,223,1)",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -214817,7 +216754,7 @@
       "text-line-spacing": "-1.5",
       "text-dy": "13",
       "text-fill": "rgba(28,82,33,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
   },
@@ -215610,7 +217547,7 @@
       "text-size": "10",
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -219904,7 +221841,7 @@
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(226,28,1,1)",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -219956,7 +221893,7 @@
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(105,101,69,1)",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -226625,7 +228562,7 @@
       "text-size": "10",
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -520748,7 +522685,7 @@
     ],
     "paint": {
       "text-fill": "rgba(102,0,51,1)",
-      "text-face-name": "'Noto Sans', 'Noto Sans'"
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'"
     }
   },
   {
@@ -634608,7 +636545,7 @@
       "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(53,139,162,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-dy": "7"
@@ -634664,7 +636601,7 @@
       "text-fill": "rgba(115,74,8,1)",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
-      "text-face-name": "'Noto Sans'"
+      "text-face-name": "'Noto Sans TC'"
     }
   },
   {
@@ -634763,7 +636700,7 @@
       "text-fill": "rgba(115,74,8,1)",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
-      "text-face-name": "'Noto Sans'"
+      "text-face-name": "'Noto Sans TC'"
     }
   },
   {
@@ -635112,7 +637049,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,102,255,1)",
       "text-dy": "11",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -639192,7 +641129,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,102,255,1)",
       "text-dy": "11",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -639291,7 +641228,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,102,255,1)",
       "text-dy": "11",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -639576,7 +641513,7 @@
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(87,109,223,1)",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -639605,7 +641542,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(87,109,223,1)",
       "text-dy": "4",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -639634,7 +641571,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(87,109,223,1)",
       "text-dy": "10",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -639705,7 +641642,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(51,51,51,1)",
       "text-dy": "10",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -639786,7 +641723,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(115,74,8,1)",
       "text-dy": "10",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -639829,7 +641766,7 @@
       "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-dy": "10",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -639984,7 +641921,7 @@
       "text-line-spacing": "-1.5",
       "text-dy": "12",
       "text-fill": "rgba(191,0,0,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -640053,7 +641990,7 @@
       "text-size": "10",
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-dy": "8",
@@ -640098,7 +642035,7 @@
       "text-line-spacing": "-1.5",
       "text-dy": "8",
       "text-fill": "rgba(153,51,153,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -640151,7 +642088,7 @@
       "text-line-spacing": "-1.5",
       "text-dy": "12",
       "text-fill": "rgba(153,51,153,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -640304,7 +642241,7 @@
       "text-line-spacing": "-1.5",
       "text-dy": "8",
       "text-fill": "rgba(72,99,160,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -640375,7 +642312,7 @@
       "text-line-spacing": "-1.5",
       "text-dy": "10",
       "text-fill": "rgba(72,99,160,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -640446,7 +642383,7 @@
       "text-line-spacing": "-1.5",
       "text-dy": "12",
       "text-fill": "rgba(153,51,153,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -640488,7 +642425,7 @@
       "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,0,0,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -640616,7 +642553,7 @@
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(82,109,142,1)",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -640781,7 +642718,7 @@
       "text-size": "10",
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -641615,7 +643552,7 @@
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(62,62,74,1)",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -641705,7 +643642,7 @@
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(182,53,53,1)",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -641757,7 +643694,7 @@
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(31,193,227,1)",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -641800,7 +643737,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(132,97,196,1)",
       "text-dy": "-10",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -641987,7 +643924,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(94,59,158,1)",
       "text-dy": "10",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -642030,7 +643967,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(94,59,158,1)",
       "text-dy": "10",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -642073,7 +644010,7 @@
       "text-line-spacing": "-1.5",
       "text-dy": "10",
       "text-fill": "rgba(51,51,51,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -642102,7 +644039,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,128,0,1)",
       "text-dy": "7",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -642131,7 +644068,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,128,0,1)",
       "text-dy": "8",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -642160,7 +644097,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,128,0,1)",
       "text-dy": "11",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -642189,7 +644126,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,128,0,1)",
       "text-dy": "18",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -642232,7 +644169,7 @@
       "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-dy": "10",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -642286,7 +644223,7 @@
       "text-fill": "rgba(102,0,51,1)",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
-      "text-face-name": "'Noto Sans'"
+      "text-face-name": "'Noto Sans TC'"
     }
   },
   {
@@ -642421,7 +644358,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,102,255,1)",
       "text-dy": "9",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -642965,7 +644902,7 @@
       "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(115,74,8,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -643022,7 +644959,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(51,51,51,1)",
       "text-dy": "6",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -643166,7 +645103,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(51,51,51,1)",
       "text-dy": "10",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -643459,7 +645396,7 @@
     "paint": {
       "text-name": "'[name]'",
       "text-size": "10",
-      "text-face-name": "'Noto Sans', 'Noto Sans'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-fill": "rgba(68,153,73,1)",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -643493,7 +645430,7 @@
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,102,255,1)",
       "text-dy": "13",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -643930,7 +645867,7 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-placement": "line",
       "text-fill": "rgba(102,102,255,1)",
       "text-spacing": "1000",
@@ -644580,7 +646517,7 @@
         "layer": "text-line",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -644594,7 +646531,7 @@
         "layer": "text-line",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -644608,7 +646545,7 @@
         "layer": "text-line",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -644622,7 +646559,7 @@
         "layer": "text-line",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -644636,7 +646573,7 @@
         "layer": "text-line",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -644650,7 +646587,7 @@
         "layer": "text-line",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -644664,7 +646601,7 @@
         "layer": "text-line",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -644678,7 +646615,7 @@
         "layer": "text-line",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -644692,7 +646629,7 @@
         "layer": "text-line",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -644706,7 +646643,7 @@
         "layer": "text-line",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -644720,7 +646657,7 @@
         "layer": "text-line",
         "zoom": {
           "min": 17,
-          "max": 18
+          "max": 17
         },
         "and": [
           {
@@ -644734,6 +646671,196 @@
         "layer": "text-line",
         "zoom": {
           "min": 17,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "man_made_pipeline"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-name": "'[name]'",
+      "text-fill": "rgba(102,102,102,1)",
+      "text-size": "10",
+      "text-scale": [
+        1,
+        1
+      ],
+      "text-dy": "4",
+      "text-spacing": "900",
+      "text-clip": "false",
+      "text-placement": "line",
+      "text-repeat-distance": "200",
+      "text-margin": "18",
+      "text-face-name": "'Noto Sans TC'",
+      "text-halo-radius": "1",
+      "text-halo-fill": "rgba(255,255,255,0.6)"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "text-line",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "aerialway_cable_car"
+          }
+        ]
+      },
+      {
+        "layer": "text-line",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "aerialway_gondola"
+          }
+        ]
+      },
+      {
+        "layer": "text-line",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "aerialway_mixed_lift"
+          }
+        ]
+      },
+      {
+        "layer": "text-line",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "aerialway_goods"
+          }
+        ]
+      },
+      {
+        "layer": "text-line",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "aerialway_chair_lift"
+          }
+        ]
+      },
+      {
+        "layer": "text-line",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "aerialway_drag_lift"
+          }
+        ]
+      },
+      {
+        "layer": "text-line",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "aerialway_t-bar"
+          }
+        ]
+      },
+      {
+        "layer": "text-line",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "aerialway_j-bar"
+          }
+        ]
+      },
+      {
+        "layer": "text-line",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "aerialway_platter"
+          }
+        ]
+      },
+      {
+        "layer": "text-line",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "aerialway_rope_tow"
+          }
+        ]
+      },
+      {
+        "layer": "text-line",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "aerialway_zip_line"
+          }
+        ]
+      },
+      {
+        "layer": "text-line",
+        "zoom": {
+          "min": 18,
           "max": 18
         },
         "and": [
@@ -644749,13 +646876,17 @@
       "text-name": "'[name]'",
       "text-fill": "rgba(102,102,102,1)",
       "text-size": "10",
+      "text-scale": [
+        1,
+        1.1
+      ],
       "text-dy": "4",
       "text-spacing": "900",
       "text-clip": "false",
       "text-placement": "line",
       "text-repeat-distance": "200",
       "text-margin": "18",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -644934,14 +647065,18 @@
     "paint": {
       "text-name": "'[name]'",
       "text-fill": "rgba(102,102,102,1)",
-      "text-size": "11",
+      "text-size": "10",
+      "text-scale": [
+        1.1,
+        1.1
+      ],
       "text-dy": "5",
       "text-spacing": "900",
       "text-clip": "false",
       "text-placement": "line",
       "text-repeat-distance": "200",
       "text-margin": "18",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
     }
@@ -649569,7 +651704,7 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-fill": "rgba(76,76,76,1)",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -649788,7 +651923,7 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-fill": "rgba(120,173,136,1)",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -650047,6 +652182,33 @@
         "layer": "addresses",
         "zoom": {
           "min": 17,
+          "max": 18
+        },
+        "and": []
+      }
+    ],
+    "paint": {
+      "text-name": "'[addr_housename]'",
+      "text-face-name": "'Noto Sans TC'",
+      "text-fill": "rgba(102,102,102,1)",
+      "text-halo-radius": "1",
+      "text-halo-fill": "rgba(255,255,255,0.6)",
+      "text-size": "10",
+      "text-scale": [
+        1,
+        1
+      ],
+      "text-wrap-width": "30",
+      "text-line-spacing": "-1.5",
+      "text-margin": "3"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "addresses",
+        "zoom": {
+          "min": 19,
           "max": 19
         },
         "and": []
@@ -650054,11 +652216,15 @@
     ],
     "paint": {
       "text-name": "'[addr_housename]'",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-fill": "rgba(102,102,102,1)",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-size": "10",
+      "text-scale": [
+        1,
+        1.1
+      ],
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
       "text-margin": "3"
@@ -650077,11 +652243,15 @@
     ],
     "paint": {
       "text-name": "'[addr_housename]'",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-fill": "rgba(102,102,102,1)",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
-      "text-size": "11",
+      "text-size": "10",
+      "text-scale": [
+        1.1,
+        1.1
+      ],
       "text-wrap-width": "22",
       "text-line-spacing": "-1.5",
       "text-margin": "3"
@@ -650324,7 +652494,7 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-fill": "rgba(68,68,68,1)",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -650510,8 +652680,12 @@
     "paint": {
       "text-placement": "line",
       "text-size": "11",
+      "text-scale": [
+        1,
+        1.1818181818181819
+      ],
       "text-fill": "rgba(102,102,102,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-name": "'[ref]'"
@@ -650541,9 +652715,13 @@
     ],
     "paint": {
       "text-placement": "line",
-      "text-size": "13",
+      "text-size": "11",
+      "text-scale": [
+        1.1818181818181819,
+        1.1818181818181819
+      ],
       "text-fill": "rgba(102,102,102,1)",
-      "text-face-name": "'Noto Sans'",
+      "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-name": "'[ref]'"

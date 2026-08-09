@@ -149,7 +149,7 @@ function plotPolygonLabel(polygon, x0, y0, x1, y1, quantization = 1024) {
  * text-size must be scaled up by (quantization / 256) before it's used as a
  * distance in that coordinate space.
  */
-function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, tileSize = 512, quantization = 1024, center = true, keepUpright = true) {
+function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, textScale, tileSize = 512, quantization = 1024, center = true, keepUpright = true) {
   if (!Array.isArray(lineString.coordinates) || lineString.coordinates.length < 2) return null;
   if (!label || label.length === 0) return null;
   if (!(textSize > 0)) return null;
@@ -167,7 +167,7 @@ function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, tileSi
 
   // text-size is authored against a 256x256 tile; scale it into whatever
   // pixel space `coordinates` live in.
-  const fontSize = textSize * (tileSize / 256);
+  const fontSize = textSize * textScale * (tileSize / 256);
   const textWidth = measureTextWidth(label, fontSize);
 
   // Decide traversal direction so text doesn't render upside-down: compare net horizontal displacement from the first point to the last point.

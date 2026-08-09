@@ -33,6 +33,20 @@ function num(v) {
   return Number.isFinite(n) ? n : undefined;
 }
 
+/**
+ * A shipped scale interval [s0, s1] covering [minzoom, minzoom + 1]: the value
+ * at this tile's zoom and at the next one. The client interpolates between them
+ * per frame and multiplies the single reference size, so cached glyphs are
+ * measured once and only transformed. Anything else is dropped.
+ */
+function pair(v) {
+  if (!Array.isArray(v) || v.length !== 2) return undefined;
+  const a = num(v[0]);
+  const b = num(v[1]);
+  if (a === undefined || b === undefined) return undefined;
+  return [a, b];
+}
+
 /** strip directory + extension from an icon path -> a MapLibre sprite id. */
 function iconId(file) {
   if (file == null) return undefined;
@@ -104,6 +118,7 @@ function paintToLabels(paint, tags = {}) {
             'kind': 'text',
             label,
             'text-size': num(props['text-size']),
+            'text-scale': pair(props['text-scale']),
             'text-fill': props['text-fill'],
             'text-halo-fill': props['text-halo-fill'],
             'text-halo-radius': num(props['text-halo-radius']),
@@ -153,4 +168,4 @@ function paintToLabels(paint, tags = {}) {
   return out.length ? out : null;
 }
 
-module.exports = { paintToLabels, resolveField };
+module.exports = { paintToLabels, resolveField, pair };

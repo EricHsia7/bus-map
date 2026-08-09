@@ -326,7 +326,8 @@ async function renderChunk(cX, cY, cZ, fileformat) {
         const descs = paintToLabels(labelPaint, feat);
         if (!descs) continue;
         for (const desc of descs) {
-          const labelGeometry = closed ? plotPolygonLabel(shape, x0, y0, x1, y1, labelQuantization) : plotLineStringLabel(shape, x0, y0, x1, y1, desc.properties.label, desc.properties['text-size'], tileSize, labelQuantization);
+          const textScale = Array.isArray(desc.properties['text-scale']) ? desc.properties['text-scale'][0] : desc.properties['text-scale'] || 1; // resolve the placement at discrete scale (tZ)
+          const labelGeometry = closed ? plotPolygonLabel(shape, x0, y0, x1, y1, labelQuantization) : plotLineStringLabel(shape, x0, y0, x1, y1, desc.properties.label, desc.properties['text-size'], textScale, tileSize, labelQuantization);
           if (!labelGeometry) continue;
           labels.push({ type: 'Feature', id: `w${way.id}`, geometry: labelGeometry, properties: { layer: layer.id, minzoom: tZ, ...desc.properties } });
         }
@@ -365,7 +366,7 @@ async function renderChunk(cX, cY, cZ, fileformat) {
         if (feat.polygons[0]) {
           const labelGeometry = plotPolygonLabel(feat.polygons[0], x0, y0, x1, y1, labelQuantization);
           for (const desc of descs) {
-            labels.push({ type: 'Feature', id: `r${layer.id}`, geometry: labelGeometry, properties: { layer: layer.id, minzoom: tZ, ...desc.properties } });
+            labels.push({ type: 'Feature', id: `r${layer.id}:${labelGeometry.coordinates[0]}:${labelGeometry.coordinates[1]}`, geometry: labelGeometry, properties: { layer: layer.id, minzoom: tZ, ...desc.properties } });
           }
         }
       }
