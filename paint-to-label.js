@@ -103,8 +103,7 @@ function paintToLabels(paint, tags = {}) {
             'text-face-name': props['text-face-name'],
             'text-placement': props['text-placement'],
             'text-dy': num(props['text-dy']),
-            'text-wrap-width': num(props['text-wrap-width']),
-            'text-transform': props['text-transform']
+            'text-wrap-width': num(props['text-wrap-width'])
           })
         });
       }
