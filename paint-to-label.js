@@ -1,27 +1,3 @@
-/**
- * paint-to-label.js
- * -------------------------------------------------------------------------
- * Companion to paint-to-svg.js. Where paint-to-svg renders the BACKGROUND
- * (fills + strokes) and deliberately drops text/shields/markers, this module
- * does the opposite: it extracts exactly those TEXT and MARKER/POINT/SHIELD
- * symbolizers and turns them into GeoJSON feature *properties* for a MapLibre
- * `symbol` layer overlay.
- *
- * Rationale: labels must NOT be baked into the raster tiles -- MapLibre needs
- * to place them live (collision detection, zoom filtering, rotation). So the
- * renderer collects "what a symbol layer should draw" and emits it as GeoJSON
- * (lon/lat, WGS84) alongside each raster tile.
- *
- *   const { paintToLabels } = require('./paint-to-label.js');
- *   const descs = paintToLabels(rule.paint, feature.tags);
- *   // -> null, or [{ kind:'text', instance:'', properties:{ label, 'text-size', ... } }, ...]
- *
- * The returned `properties` are intentionally close to the CartoCSS names so a
- * faithful MapLibre style can be generated; `label` is the RESOLVED text (the
- * text-name/shield-name field expression evaluated against the feature tags),
- * so the MapLibre style can simply use text-field: ["get", "label"].
- */
-
 const { splitInstances } = require('./paint-to-svg.js');
 
 const MARKER_PREFIXES = ['marker', 'point', 'shield'];
@@ -57,7 +33,7 @@ function iconId(file) {
   );
 }
 
-/** drop undefined/null props so the GeoJSON stays compact. */
+/** drop undefined/null props so the output stays compact. */
 function prune(o) {
   for (const k of Object.keys(o)) if (o[k] === undefined || o[k] === null || o[k] === '') delete o[k];
   return o;
@@ -101,13 +77,13 @@ function resolveField(expr, tags = {}) {
  * @param paint  merged rule.paint (from style.json)
  * @param tags   feature tags (used to resolve text-name / shield-name)
  * @returns null when there is no text/marker symbolizer, else
- *   Array<{ kind, instance, properties }> in cascade (first-seen) order.
+ *   Array<{ kind, instance, properties, styleProperties }> in cascade (first-seen) order.
  */
 function paintToLabels(paint, tags = {}) {
   const out = [];
   const instances = splitInstances(paint);
   for (const [instance, { props }] of instances) {
-    // ---- text symbolizer ----
+    // text symbolizer
     if (props['text-name'] !== undefined) {
       const label = resolveField(props['text-name'], tags);
       if (label) {
@@ -115,8 +91,10 @@ function paintToLabels(paint, tags = {}) {
           kind: 'text',
           instance,
           properties: prune({
-            'kind': 'text',
-            label,
+            kind: 'text',
+            label
+          }),
+          styleProperties: prune({
             'text-size': num(props['text-size']),
             'text-scale': pair(props['text-scale']),
             'text-fill': props['text-fill'],
@@ -132,7 +110,7 @@ function paintToLabels(paint, tags = {}) {
       }
     }
 
-    // ---- marker / point / shield symbolizers (icons) ----
+    // marker / point / shield symbolizers (icons)
     for (const mp of MARKER_PREFIXES) {
       const file = props[mp + '-file'];
       if (file === undefined) continue;
@@ -140,24 +118,28 @@ function paintToLabels(paint, tags = {}) {
         kind: mp,
         instance,
         properties: prune({
-          'kind': mp,
+          kind: mp,
+          // shields carry their own text
+          label: mp === 'shield' && props['shield-name'] !== undefined ? resolveField(props['shield-name'], tags) : undefined
+        }),
+        styleProperties: prune({
           'icon': iconId(file),
           'icon-width': num(props[mp + '-width']),
           'icon-height': num(props[mp + '-height']),
-          // shields carry their own text
-          'label': mp === 'shield' && props['shield-name'] !== undefined ? resolveField(props['shield-name'], tags) : undefined,
           'shield-size': mp === 'shield' ? num(props['shield-size']) : undefined
         })
       });
     }
 
-    // ---- ellipse/circle marker with no image (marker-fill only) ----
+    // ellipse/circle marker with marker-fill
     if (props['marker-fill'] !== undefined) {
       out.push({
         kind: 'circle',
         instance,
         properties: prune({
-          'kind': 'circle',
+          kind: 'circle'
+        }),
+        styleProperties: prune({
           'marker-fill': props['marker-fill'],
           'marker-line-color': props['marker-line-color'],
           'marker-width': num(props['marker-width'])
