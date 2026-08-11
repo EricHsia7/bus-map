@@ -4,9 +4,11 @@
 @standard-halo-radius: 1;
 @standard-halo-fill: rgba(255, 255, 255, 0.6);
 
-@book-fonts: 'Noto Sans';
-@bold-fonts: 'Noto Sans', @book-fonts;
-@oblique-fonts: 'Noto Sans', @book-fonts;
+@standard-text-fill: #333333;
+
+@book-fonts: 'Noto Sans TC';
+@bold-fonts: 'Noto Sans TC', @book-fonts;
+@oblique-fonts: 'Noto Sans TC', @book-fonts;
 #ocean-lz,
 #ocean {
   --polygon-fill: @water-color;
@@ -1085,7 +1087,8 @@
   &:not([lock='yes']):not([int_tunnel='yes']) {
     &[waterway='river']:zoom(13) {
       --text-name: '[name]';
-      --text-size: zoom-gradient(10, 12 14z);
+      --text-size: 10;
+      --text-scale: zoom-gradient(1, 1.2 14z);
       --text-face-name: @oblique-fonts;
       --text-fill: @water-text;
       --text-halo-radius: @standard-halo-radius;
@@ -1097,7 +1100,8 @@
 
     &[waterway='canal']:zoom(13) {
       --text-name: '[name]';
-      --text-size: zoom-gradient(10, 12 14z);
+      --text-size: 10;
+      --text-scale: zoom-gradient(1, 1.2 14z);
       --text-face-name: @standard-font;
       --text-fill: @water-text;
       --text-halo-radius: @standard-halo-radius;
@@ -1129,7 +1133,8 @@
   &[natural='bay']:zoom(14),
   &[natural='strait']:zoom(14) {
     --text-name: '[name]';
-    --text-size: zoom-gradient(10, 12 15z);
+    --text-size: 10;
+    --text-scale: zoom-gradient(1, 1.2 15z);
     --text-face-name: @oblique-fonts;
     --text-fill: @water-text;
     --text-halo-radius: @standard-halo-radius;
@@ -1164,7 +1169,8 @@
   &[feature='natural_bay'],
   &[feature='natural_strait'] {
     --text-name: '[name]';
-    --text-size: zoom-gradient(10, 12 15z);
+    --text-size: 10;
+    --text-scale: zoom-gradient(1, 1.2 15z);
     --text-wrap-width: zoom-gradient(25, 37 15z); // 2.5 em
     --text-line-spacing: -1.5; // -0.15 em
     --text-fill: @water-text;
@@ -3955,7 +3961,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[highway='motorway_junction'] {
     &:zoom(12) {
       --text-name: '[ref]';
-      --text-size: zoom-gradient(10, 11 15z);
+      --text-size: 10;
+      --text-scale: zoom-gradient(1, 1.1 15z);
       --text-fill: @junction-text-color;
       --text-min-distance: 2;
       --text-face-name: @oblique-fonts;
@@ -3964,11 +3971,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --text-wrap-width: 2; // effectively break after every wrap character
       --text-line-spacing: -1.5; // -0.15 em
       &:zoom(14) {
-        &["name" !='null']["ref"='null'] {
+        &:not([name='null'])[ref='null'] {
           --text-name: '[name]';
         }
-        &["name" !='null']["ref" !='null'] {
-          --text-name: [name] + '\n' + [ref];
+        &:not([name='null']):not([ref='null']) {
+          --text-name: '[name]\n[ref]';
         }
       }
       &:zoom(15) {
@@ -3981,8 +3988,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[highway='traffic_signals'] {
     &:zoom(15) {
       --text-name: '[name]';
-      --text-size: zoom-gradient(10, 11 17z);
-      --text-fill: black;
+      --text-size: 10;
+      --text-scale: zoom-gradient(1, 1.1 17z);
+      --text-fill: @standard-text-fill;
       --text-face-name: @book-fonts;
       --text-halo-radius: @standard-halo-radius;
       --text-halo-fill: @standard-halo-fill;
@@ -4007,7 +4015,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --text-size: 10;
       --text-wrap-width: 30; // 3 em
       --text-line-spacing: -1.2; // -0.15 em
-      --text-fill: black;
+      --text-fill: @standard-text-fill;
       --text-face-name: @book-fonts;
       --text-halo-radius: @standard-halo-radius;
       --text-halo-fill: @standard-halo-fill;
@@ -4300,7 +4308,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[highway='residential'] {
     &:zoom(15) {
       --text-name: '[refs]';
-      --text-size: zoom-gradient(8, 9 16z, 11 17z);
+      --text-size: 8;
+      --text-scale: zoom-gradient(1, 1.125 16z, 1.375 17z);
 
       --text-fill: #000;
       --text-face-name: @oblique-fonts;
@@ -4316,7 +4325,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[highway='track'] {
     &:zoom(15) {
       --text-name: '[refs]';
-      --text-size: zoom-gradient(8, 9 16z, 11 17z);
+      --text-size: 8;
+      --text-scale: zoom-gradient(1, 1.125 16z, 1.375 17z);
       --text-dy: zoom-gradient(5, 7 16z, 9 17z);
 
       --text-clip: false;
@@ -4340,10 +4350,14 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[highway='construction'][construction='motorway'],
   &[highway='construction'][construction='trunk'],
   &[highway='construction'][construction='primary'] {
-    --text-size: zoom-gradient(8 13z, 9 14z, 10 15z 16z, 11 17z 18z, 12 19z);
+    // Sized to the fill stroke: ink (0.72*size) must stay inside 85% of the
+    // stroke width. Narrowest member of this group (primary) governs.
+    // stroke 4/4/6.6/6.6/8/10/12 -> permitted 4.7/4.7/7.8/7.8/9.4/11.8/14.2
+    --text-size: zoom-gradient(6 13z);
+    --text-scale: zoom-gradient(1 13z 14z, (7 / 6) 15z 16z, 1.5 17z, (11 / 6) 18z);
     &:zoom(13) {
       --text-name: '[name]';
-      --text-fill: black;
+      --text-fill: @standard-text-fill;
       --text-spacing: 300;
       --text-clip: false;
       --text-placement: line;
@@ -4365,10 +4379,12 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   }
   &[highway='secondary'],
   &[highway='construction'][construction='secondary'] {
-    --text-size: zoom-gradient(8 13z, 9 14z, 10 15z 16z, 11 17z 18z, 12 19z);
+    // stroke 3.6/4.4/5.3/6.2/7/8.8/10.6 -> permitted 4.3/5.2/6.3/7.3/8.3/10.4/12.5
+    --text-size: zoom-gradient(6 13z);
+    --text-scale: zoom-gradient(1 13z 15z, (7 / 6) 16z, (8 / 6) 17z, (10 / 6) 18z, (11 / 6) 19z);
     &:zoom(13) {
       --text-name: '[name]';
-      --text-fill: black;
+      --text-fill: @standard-text-fill;
       --text-spacing: 300;
       --text-clip: false;
       --text-placement: line;
@@ -4380,10 +4396,12 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   }
   &[highway='tertiary'],
   &[highway='construction'][construction='tertiary'] {
-    --text-size: zoom-gradient(9 14z 16z, 11 17z 18z, 12 19z);
+    // stroke 4/5.8/5.8/6.4/8.4/10.4 -> permitted 4.7/6.9/6.9/7.6/9.9/12.3
+    --text-size: zoom-gradient(6 14z);
+    --text-scale: zoom-gradient(1 14z 16z, (7 / 6) 17z, 1.5 18z, (11 / 6) 19z);
     &:zoom(14) {
       --text-name: '[name]';
-      --text-fill: black;
+      --text-fill: @standard-text-fill;
       --text-spacing: 300;
       --text-clip: false;
       --text-placement: line;
@@ -4395,8 +4413,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   }
   &[highway='construction'][construction='null']:zoom(16) {
     --text-name: '[name]';
-    --text-size: zoom-gradient(9, 11 17z 18z, 12 19z);
-    --text-fill: black;
+    --text-size: 6;
+    --text-scale: zoom-gradient(1, (7 / 6) 17z, 1.5 18z, (11 / 6) 19z);
+    --text-fill: @standard-text-fill;
     --text-spacing: zoom-gradient(300, 400 17z 18z, 400 19z);
     --text-clip: false;
     --text-placement: line;
@@ -4412,11 +4431,15 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[highway='construction'][construction='residential'],
   &[highway='construction'][construction='unclassified'],
   &[highway='construction'][construction='road'] {
-    --text-size: zoom-gradient(8 15z, 9 16z, 11 17z 18z, 12 19z);
+    // MINOR ROAD EXEMPTION: the residential fill never exceeds 3.4px, which
+    // permits only ~4px of ink -- illegible. Held at a flat legible 8 instead
+    // of tracking the stroke, and no longer grown by scale (was reaching 12).
+    --text-size: zoom-gradient(8 15z);
+    --text-scale: zoom-gradient(1 15z);
     --text-spacing: zoom-gradient(300 15z 16z, 400 17z 18z, 400 19z);
     &:zoom(15) {
       --text-name: '[name]';
-      --text-fill: black;
+      --text-fill: @standard-text-fill;
       --text-clip: false;
       --text-placement: line;
       --text-halo-radius: @standard-halo-radius;
@@ -4433,10 +4456,12 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[highway='service'],
   &[highway='construction'][construction='raceway'],
   &[highway='construction'][construction='service']:zoom(17) {
-    --text-size: zoom-gradient(9 16z, 11 17z);
+    // MINOR ROAD EXEMPTION: service fill tops out at 1.9px. Flat legible 7.
+    --text-size: zoom-gradient(7 16z);
+    --text-scale: zoom-gradient(1 16z);
     &:zoom(16) {
       --text-name: '[name]';
-      --text-fill: black;
+      --text-fill: @standard-text-fill;
       --text-spacing: 300;
       --text-clip: false;
       --text-placement: line;
@@ -4456,10 +4481,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[highway='pedestrian'],
   &[highway='construction'][construction='living_street']:zoom(16),
   &[highway='construction'][construction='pedestrian']:zoom(16) {
-    --text-size: zoom-gradient(8 15z, 9 16z, 11 17z 18z, 12 19z);
+    // MINOR ROAD EXEMPTION: pedestrian/living_street fill tops out at 3.4px.
+    // Raised off the illegible 4 to a flat 7 (was reaching 10 via scale 2.5).
+    --text-size: zoom-gradient(7 15z);
+    --text-scale: zoom-gradient(1 15z);
     &:zoom(15) {
       --text-name: '[name]';
-      --text-fill: black;
+      --text-fill: #333333;
       --text-spacing: 300;
       --text-clip: false;
       --text-placement: line;
@@ -4480,7 +4508,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 #roads-area-text-name {
   &:zoom(17) {
     --text-name: '[name]';
-    --text-size: 11;
+    --text-size: 9; // area label, hierarchy tier 2
     --text-face-name: @book-fonts;
     --text-wrap-width: 30; // 2.7 em
     --text-line-spacing: -1.7; // -0.15 em
@@ -4490,7 +4518,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 #paths-text-name {
   &[highway='track'],
   &[highway='construction'][construction='track']:zoom(16) {
-    --text-size: zoom-gradient(8 15z, 9 16z, 11 17z);
+    // MINOR: track fill is ~1px. Flat legible 6 (was 4 growing to 8).
+    --text-size: zoom-gradient(6 15z);
+    --text-scale: zoom-gradient(1 15z);
     --text-dy: zoom-gradient(5 15z, 7 16z, 9 17z);
     &:zoom(15) {
       --text-name: '[name]';
@@ -4516,7 +4546,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[highway='construction'][construction='cycleway'],
   &[highway='construction'][construction='path'],
   &[highway='construction'][construction='steps'] {
-    --text-size: zoom-gradient(9 16z, 11 17z);
+    // MINOR: footway/path/steps fill is <1px. Flat legible 6 (was reaching 8).
+    --text-size: zoom-gradient(6 16z);
+    --text-scale: zoom-gradient(1 16z);
     --text-dy: zoom-gradient(7 16z, 9 17z);
     &:zoom(16) {
       --text-name: '[name]';
@@ -4616,7 +4648,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     &[highway='bridleway'] {
       &:not([oneway='null']) {
         --text-name: '→';
-        --text-size: 15;
+        --text-size: 2;
         --text-clip: false;
         --text-spacing: 180;
         --text-placement: line;
@@ -4661,7 +4693,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[railway='funicular'],
   &[railway='monorail'],
   &[railway='tram'] {
-    --text-size: zoom-gradient(10 17z 18z, 11 19z);
+    --text-size: zoom-gradient(10 17z);
+    --text-scale: zoom-gradient(1 17z 18z, 1.1 19z);
     --text-dy: zoom-gradient(6 17z 18z, 7 19z);
     &:zoom(17) {
       --text-name: '[name]';
@@ -4679,7 +4712,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     /* Render highspeed rails from z11,
        other main routes at z14. */
     &[highspeed='yes'] {
-      --text-size: zoom-gradient(10 11z 16z, 11 17z 18z, 12 19z);
+      --text-size: zoom-gradient(10 11z);
+      --text-scale: zoom-gradient(1 11z 16z, 1.1 17z 18z, 1.2 19z);
       --text-dy: zoom-gradient(3 11z 12z, 6 13z 16z, 7 17z 18z, 8 19z);
       --text-spacing: zoom-gradient(300 11z 13z, 600 14z);
       &:zoom(11) {
@@ -4694,7 +4728,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       }
     }
     &:not([highspeed='yes'])[usage='main'] {
-      --text-size: zoom-gradient(10 14z 16z, 11 17z 18z, 12 19z);
+      --text-size: zoom-gradient(10 14z);
+      --text-scale: zoom-gradient(1 14z 16z, 1.1 17z 18z, 1.2 19z);
       --text-dy: zoom-gradient(6 14z 16z, 7 17z 18z, 8 19z);
       --text-spacing: zoom-gradient(300 14z 16z, 600 17z);
       &:zoom(14) {
@@ -4717,7 +4752,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[railway='miniature'],
   &[railway='disused'],
   &[railway='construction'] {
-    --text-size: zoom-gradient(10 17z 18z, 11 19z);
+    --text-size: zoom-gradient(10 17z);
+    --text-scale: zoom-gradient(1 17z 18z, 1.1 19z);
     --text-dy: zoom-gradient(6 17z 18z, 7 19z);
     &:zoom(17) {
       --text-name: '[name]';
@@ -4771,7 +4807,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 #country-names {
   &:zoom(3) {
     --text-name: '[name]';
-    --text-size: zoom-gradient(10, 12 5z 6z, 13 7z 8z, 14 9z, 15 10z);
+    --text-size: 10;
+    --text-scale: zoom-gradient(1, 1.2 5z 6z, 1.3 7z 8z, 1.4 9z, 1.5 10z);
     --text-wrap-width: zoom-gradient(35, 45 5z 6z, 50 7z 8z, 55 9z, 60 10z); // 3.5 em
     --text-line-spacing: -1.5; // -0.15 em
     --text-margin: 7; // 0.7 em
@@ -4810,7 +4847,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 #state-names {
   &:zoom(5) {
     --text-name: '[name]';
-    --text-size: zoom-gradient(10, 11 7z 8z, 12 9z, 13 10z 11z, 15 12z);
+    --text-size: 10;
+    --text-scale: zoom-gradient(1, 1.1 7z 8z, 1.2 9z, 1.3 10z 11z, 1.5 12z);
     --text-wrap-width: zoom-gradient(35, 40 7z 8z, 45 9z, 50 10z 11z, 50 12z); // 3.5 em
     --text-line-spacing: -1.5; // -0.15 em
     --text-margin: 7; // 0.7 em
@@ -4872,7 +4910,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-name: '[name]';
     --text-face-name: @book-fonts;
     --text-fill: @placenames;
-    --text-size: zoom-gradient(13, 14 10z, 15 11z);
+    --text-size: 13;
+    --text-scale: zoom-gradient(1, (14 / 13) 10z, (15 / 13) 11z);
     --text-wrap-width: zoom-gradient(65, 70 10z, 75 11z); // 5.0 em
     --text-line-spacing: -0.65; // -0.05 em
     --text-margin: 9.1; // 0.7 em
@@ -4924,7 +4963,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --text-name: '[name]';
       --text-face-name: @book-fonts;
       --text-fill: @placenames;
-      --text-size: zoom-gradient(13, 14 10z, 15 11z);
+      --text-size: 13;
+      --text-scale: zoom-gradient(1, (14 / 13) 10z, (15 / 13) 11z);
       --text-wrap-width: zoom-gradient(65, 70 10z, 75 11z); // 5.0 em
       --text-line-spacing: -0.65; // -0.05 em
       --text-margin: 9.1; // 0.7 em
@@ -4963,7 +5003,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
     &:zoom(8) {
       --text-name: '[name]';
-      --text-size: zoom-gradient(10, 13 10z, 14 11z 13z, 15 14z);
+      --text-size: 10;
+      --text-scale: zoom-gradient(1, 1.3 10z, 1.4 11z 13z, 1.5 14z);
       --text-fill: @placenames;
       --text-face-name: @book-fonts;
       --text-halo-fill: @standard-halo-fill;
@@ -4989,7 +5030,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[category='2'] {
     &:zoom(9, 15) {
       --text-name: '[name]';
-      --text-size: zoom-gradient(10, 13 12z 13z, 15 14z);
+      --text-size: 10;
+      --text-scale: zoom-gradient(1, 1.3 12z 13z, 1.5 14z);
       --text-fill: @placenames;
       --text-face-name: @book-fonts;
       --text-halo-fill: @standard-halo-fill;
@@ -5014,7 +5056,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 #placenames-small::suburb {
   &[place='suburb']:zoom(12, 16) {
     --text-name: '[name]';
-    --text-size: zoom-gradient(11, 14 14z 15z, 15 16z);
+    --text-size: 11;
+    --text-scale: zoom-gradient(1, (14 / 11) 14z 15z, (15 / 11) 16z);
     --text-fill: @placenames;
     --text-face-name: @book-fonts;
     --text-halo-fill: zoom-gradient(@standard-halo-fill, white 14z);
@@ -5043,7 +5086,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[place='village'] {
     &:zoom(12, 16) {
       --text-name: '[name]';
-      --text-size: zoom-gradient(10, 13 14z, 14 15z, 15 16z);
+      --text-size: 10;
+      --text-scale: zoom-gradient(1, 1.3 14z, 1.4 15z, 1.5 16z);
       --text-fill: zoom-gradient(@placenames, @placenames-light 14z);
       --text-face-name: @book-fonts;
       --text-halo-fill: zoom-gradient(@standard-halo-fill, white 14z);
@@ -5073,7 +5117,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --text-face-name: @book-fonts;
       --text-halo-fill: zoom-gradient(@standard-halo-fill, white 14z);
       --text-halo-radius: @standard-halo-radius * 1.5;
-      --text-size: zoom-gradient(11 14z, 12 15z, 14 16z);
+      --text-size: zoom-gradient(11 14z);
+      --text-scale: zoom-gradient(1 14z, (12 / 11) 15z, (14 / 11) 16z);
       --text-wrap-width: zoom-gradient(55 14z, 60 15z, 70 16z);
       // 5.0 em
       --text-line-spacing: zoom-gradient(-0.55 14z, -0.6 15z, -0.7 16z);
@@ -5088,7 +5133,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --text-face-name: @book-fonts;
       --text-halo-fill: zoom-gradient(white, @standard-halo-fill 15z, white 16z);
       --text-halo-radius: @standard-halo-radius * 1.5;
-      --text-size: zoom-gradient(10 14z, 11 15z, 12 16z);
+      --text-size: zoom-gradient(10 14z);
+      --text-scale: zoom-gradient(1 14z, 1.1 15z, 1.2 16z);
       --text-wrap-width: zoom-gradient(55 14z, 45 15z, 60 16z);
       // 5.0 em
       --text-line-spacing: zoom-gradient(-0.55 14z 15z, -0.6 16z);
@@ -5148,7 +5194,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --text-placements: 'S,SE,SW,E,NE,W,NW,N';
       &[admin_level='5'] {
         --text-face-name: @book-fonts;
-        --text-size: zoom-gradient(12 10z 11z, 13 12z);
+        --text-size: zoom-gradient(12 10z);
+        --text-scale: zoom-gradient(1 10z 11z, (13 / 12) 12z);
         --text-wrap-width: zoom-gradient(45 10z 11z, 50 12z);
         &:zoom(10) {
           // 3.7 em
@@ -5390,6 +5437,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 @religious-icon: #000000;
 @cable: #646568;
 @cable-dash: #5d5e61;
+@bus-stop: #329cff;
 
 @landcover-font-size: 10;
 @landcover-wrap-width-size: 30; // 3 em
@@ -5402,8 +5450,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 @landcover-line-spacing-size-bigger: -2.25; // -0.15 em
 @landcover-face-name: @oblique-fonts;
 
-@standard-font-size: 10;
-@standard-wrap-width: 30; // 3 em
+@standard-font-size: 5;
+@standard-wrap-width: 25;
 @standard-line-spacing-size: -1.5; // -0.15 em
 @standard-font: @book-fonts;
 
@@ -5513,13 +5561,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --marker-clip: false;
   }
 
-  &[feature='highway_bus_stop'] {
-    --marker-file: zoom-gradient("url('symbols/square.svg')" 16z 16z, "url('symbols/highway/bus_stop.svg')" 17z);
-    --marker-fill: zoom-gradient(@transportation-icon 16z 16z, @transportation-icon 17z);
-    --marker-clip: zoom-gradient(false 16z 16z, false 17z);
-    &:zoom(16, 16) {
-      --marker-width: 6;
-    }
+  &[feature='highway_bus_stop']:zoom(14) {
+    --marker-fill: @bus-stop;
+    --marker-width: zoom-gradient(6 14z, 3 16z);
   }
 
   &[feature='highway_elevator']:zoom(18) {
@@ -7267,7 +7311,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-size: @standard-font-size;
     --text-wrap-width: @standard-wrap-width;
     --text-line-spacing: @standard-line-spacing-size;
-    --text-fill: darken(black, 30%);
+    --text-fill: @standard-text-fill;
     &[information='office'] {
       --text-fill: @amenity-brown;
     }
@@ -7951,7 +7995,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-size: @standard-font-size;
     --text-wrap-width: @standard-wrap-width;
     --text-line-spacing: @standard-line-spacing-size;
-    --text-fill: black;
+    --text-fill: @standard-text-fill;
     --text-face-name: @standard-font;
     --text-halo-radius: @standard-halo-radius;
     --text-halo-fill: @standard-halo-fill;
@@ -8298,6 +8342,281 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
   }
 }
+
+// tier 10: regional / landscape-scale (18 features)
+#text-poly-low-zoom,
+#text-point {
+  &[feature='natural_water'] {
+    --text-size: 10;
+  }
+  &[feature='landuse_reservoir'] {
+    --text-size: 10;
+  }
+  &[feature='natural_wood'] {
+    --text-size: 10;
+  }
+  &[feature='landuse_forest'] {
+    --text-size: 10;
+  }
+  &[feature='boundary_national_park'] {
+    --text-size: 10;
+  }
+  &[feature='leisure_nature_reserve'] {
+    --text-size: 10;
+  }
+  &[feature='boundary_aboriginal_lands'] {
+    --text-size: 10;
+  }
+  &[feature='boundary_protected_area'] {
+    --text-size: 10;
+  }
+  &[feature='landuse_military'] {
+    --text-size: 10;
+  }
+  &[feature='military_danger_area'] {
+    --text-size: 10;
+  }
+  &[feature='natural_glacier'] {
+    --text-size: 10;
+  }
+  &[feature='natural_wetland'] {
+    --text-size: 10;
+  }
+  &[feature='natural_grassland'] {
+    --text-size: 10;
+  }
+  &[feature='natural_heath'] {
+    --text-size: 10;
+  }
+  &[feature='landuse_farmland'] {
+    --text-size: 10;
+  }
+  &[feature='place_island'] {
+    --text-size: 10;
+  }
+  &[feature='amenity_university'] {
+    --text-size: 10;
+  }
+  &[feature='aeroway_apron'] {
+    --text-size: 10;
+  }
+}
+
+// tier 9: town-scale landuse (36 features)
+#text-poly-low-zoom,
+#text-point {
+  &[feature='leisure_park'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_residential'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_industrial'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_commercial'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_retail'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_cemetery'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_quarry'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_recreation_ground'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_meadow'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_vineyard'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_orchard'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_allotments'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_farmyard'] {
+    --text-size: 9;
+  }
+  &[feature='tourism_theme_park'] {
+    --text-size: 9;
+  }
+  &[feature='tourism_zoo'] {
+    --text-size: 9;
+  }
+  &[feature='leisure_stadium'] {
+    --text-size: 9;
+  }
+  &[feature='amenity_college'] {
+    --text-size: 9;
+  }
+  &[feature='amenity_school'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_basin'] {
+    --text-size: 9;
+  }
+  &[feature='waterway_dock'] {
+    --text-size: 9;
+  }
+  &[feature='place_islet'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_village_green'] {
+    --text-size: 9;
+  }
+  &[feature='natural_scrub'] {
+    --text-size: 9;
+  }
+  &[feature='natural_beach'] {
+    --text-size: 9;
+  }
+  &[feature='natural_sand'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_greenhouse_horticulture'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_plant_nursery'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_brownfield'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_landfill'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_construction'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_railway'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_garages'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_salt_pond'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_grass'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_religious'] {
+    --text-size: 9;
+  }
+  &[feature='amenity_grave_yard'] {
+    --text-size: 9;
+  }
+}
+
+// tier 8: neighbourhood facility (23 features)
+#text-poly-low-zoom,
+#text-point {
+  &[feature='leisure_garden'] {
+    --text-size: 8;
+  }
+  &[feature='leisure_sports_centre'] {
+    --text-size: 8;
+  }
+  &[feature='leisure_swimming_pool'] {
+    --text-size: 8;
+  }
+  &[feature='leisure_marina'] {
+    --text-size: 8;
+  }
+  &[feature='leisure_track'] {
+    --text-size: 8;
+  }
+  &[feature='leisure_ice_rink'] {
+    --text-size: 8;
+  }
+  &[feature='leisure_pitch'] {
+    --text-size: 8;
+  }
+  &[feature='amenity_kindergarten'] {
+    --text-size: 8;
+  }
+  &[feature='amenity_nursing_home'] {
+    --text-size: 8;
+  }
+  &[feature='amenity_childcare'] {
+    --text-size: 8;
+  }
+  &[feature='power_plant'] {
+    --text-size: 8;
+  }
+  &[feature='power_substation'] {
+    --text-size: 8;
+  }
+  &[feature='power_generator'] {
+    --text-size: 8;
+  }
+  &[feature='man_made_works'] {
+    --text-size: 8;
+  }
+  &[feature='man_made_water_works'] {
+    --text-size: 8;
+  }
+  &[feature='man_made_wastewater_plant'] {
+    --text-size: 8;
+  }
+  &[feature='highway_services'] {
+    --text-size: 8;
+  }
+  &[feature='highway_rest_area'] {
+    --text-size: 8;
+  }
+  &[feature='shop'] {
+    --text-size: 8;
+  }
+  &[feature='natural_spring'] {
+    --text-size: 8;
+  }
+  &[feature='natural_reef'] {
+    --text-size: 8;
+  }
+  &[feature='natural_shoal'] {
+    --text-size: 8;
+  }
+  &[feature='natural_mud'] {
+    --text-size: 8;
+  }
+}
+
+// tier 7: micro / incidental structure (8 features)
+#text-poly-low-zoom,
+#text-point {
+  &[feature='waterway_dam'] {
+    --text-size: 7;
+  }
+  &[feature='waterway_weir'] {
+    --text-size: 7;
+  }
+  &[feature='man_made_breakwater'] {
+    --text-size: 7;
+  }
+  &[feature='man_made_groyne'] {
+    --text-size: 7;
+  }
+  &[feature='man_made_pier'] {
+    --text-size: 7;
+  }
+  &[feature='natural_scree'] {
+    --text-size: 7;
+  }
+  &[feature='natural_shingle'] {
+    --text-size: 7;
+  }
+  &[feature='natural_bare_rock'] {
+    --text-size: 7;
+  }
+}
 @ferry-route: #66f;
 @ferry-route-text: @ferry-route;
 
@@ -8458,7 +8777,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     &:zoom(17) {
       --text-name: '[name]';
       --text-fill: #666666;
-      --text-size: zoom-gradient(10, 11 19z);
+      --text-size: 10;
+      --text-scale: zoom-gradient(1, 1.1 19z);
       --text-dy: zoom-gradient(4, 5 19z);
       --text-spacing: 900;
       --text-clip: false;
@@ -8824,38 +9144,39 @@ Then all three layers are added to the rendering with comp-op: darken, so that t
 #addresses {
   &:zoom(17) {
     --text-name: '[addr_housename]';
-    &["addr_housenumber" !='null'] {
+    &:not([addr_housenumber='null']) {
       --text-name: [addr_housenumber];
-      &["addr_housename" !='null'] {
-        --text-name: [addr_housenumber] + '\n' + [addr_housename];
+      &:not([addr_housename='null']) {
+        --text-name: '[addr_housenumber]\n[addr_housename]';
       }
     }
     --text-face-name: @book-fonts;
     --text-fill: @address-color;
     --text-halo-radius: @standard-halo-radius;
     --text-halo-fill: @standard-halo-fill;
-    --text-size: zoom-gradient(10, 11 20z);
+    --text-size: 10;
+    --text-scale: zoom-gradient(1, 1.1 20z);
     --text-wrap-width: zoom-gradient(30, 22 20z); // 3.0 em
     --text-line-spacing: -1.5; // -0.15 em
     --text-margin: 3; // 0.3 em
     &:zoom(18) {
       --text-halo-radius: @standard-halo-radius * 1.25;
-      &["addr_unit" !='null']["addr_housenumber"='null'] {
-        --text-name: [addr_unit];
+      &:not([addr_unit='null'])[addr_housenumber='null'] {
+        --text-name: '[addr_unit]';
       }
-      &["addr_flats" !='null']["addr_housenumber"='null'] {
-        --text-name: [addr_flats];
+      &:not([addr_flats='null'])[addr_housenumber='null'] {
+        --text-name: '[addr_flats]';
       }
-      &["addr_unit" !='null'] {
-        --text-name: [addr_housenumber] + ' ' + [addr_unit];
-        &["addr_housename" !='null'] {
-          --text-name: [addr_housenumber] + ' ' + [addr_unit] + '\n' + [addr_housename];
+      &:not([addr_unit='null']) {
+        --text-name: '[addr_housenumber] [addr_unit]';
+        &:not([addr_housename='null']) {
+          --text-name: '[addr_housenumber] [addr_unit]\n[addr_housename]';
         }
       }
-      &["addr_flats" !='null'] {
-        --text-name: [addr_housenumber] + ' ' + [addr_flats];
-        &["addr_housename" !='null'] {
-          --text-name: [addr_housenumber] + ' ' + [addr_flats] + '\n' + [addr_housename];
+      &:not([addr_flats='null']) {
+        --text-name: '[addr_housenumber] [addr_flats]';
+        &:not([addr_housename='null']) {
+          --text-name: '[addr_housenumber] [addr_flats]\n[addr_housename]';
         }
       }
     }
@@ -8867,8 +9188,7 @@ Then all three layers are added to the rendering with comp-op: darken, so that t
   }
 }
 
-/* Building names (rendered differently from addresses because they are
-no official postal addresses) */
+/* Building names (rendered differently from addresses because they are no official postal addresses) */
 
 #building-text {
   &:zoom(14) {
@@ -8923,7 +9243,8 @@ no official postal addresses) */
 #text-line:zoom(16) {
   &[feature='golf_hole']:not([ref='']) {
     --text-placement: line;
-    --text-size: zoom-gradient(11, 13 17z);
+    --text-size: 11;
+    --text-scale: zoom-gradient(1, (13 / 11) 17z);
     --text-fill: @golf-color;
     --text-face-name: @book-fonts;
     --text-halo-radius: @standard-halo-radius;

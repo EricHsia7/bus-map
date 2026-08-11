@@ -7,7 +7,8 @@
 #country-names {
   &:zoom(3) {
     --text-name: '[name]';
-    --text-size: zoom-gradient(10, 12 5z 6z, 13 7z 8z, 14 9z, 15 10z);
+    --text-size: 10;
+    --text-scale: zoom-gradient(1, 1.2 5z 6z, 1.3 7z 8z, 1.4 9z, 1.5 10z);
     --text-wrap-width: zoom-gradient(35, 45 5z 6z, 50 7z 8z, 55 9z, 60 10z); // 3.5 em
     --text-line-spacing: -1.5; // -0.15 em
     --text-margin: 7; // 0.7 em
@@ -46,7 +47,8 @@
 #state-names {
   &:zoom(5) {
     --text-name: '[name]';
-    --text-size: zoom-gradient(10, 11 7z 8z, 12 9z, 13 10z 11z, 15 12z);
+    --text-size: 10;
+    --text-scale: zoom-gradient(1, 1.1 7z 8z, 1.2 9z, 1.3 10z 11z, 1.5 12z);
     --text-wrap-width: zoom-gradient(35, 40 7z 8z, 45 9z, 50 10z 11z, 50 12z); // 3.5 em
     --text-line-spacing: -1.5; // -0.15 em
     --text-margin: 7; // 0.7 em
@@ -108,7 +110,8 @@
     --text-name: '[name]';
     --text-face-name: @book-fonts;
     --text-fill: @placenames;
-    --text-size: zoom-gradient(13, 14 10z, 15 11z);
+    --text-size: 13;
+    --text-scale: zoom-gradient(1, (14 / 13) 10z, (15 / 13) 11z);
     --text-wrap-width: zoom-gradient(65, 70 10z, 75 11z); // 5.0 em
     --text-line-spacing: -0.65; // -0.05 em
     --text-margin: 9.1; // 0.7 em
@@ -160,7 +163,8 @@
       --text-name: '[name]';
       --text-face-name: @book-fonts;
       --text-fill: @placenames;
-      --text-size: zoom-gradient(13, 14 10z, 15 11z);
+      --text-size: 13;
+      --text-scale: zoom-gradient(1, (14 / 13) 10z, (15 / 13) 11z);
       --text-wrap-width: zoom-gradient(65, 70 10z, 75 11z); // 5.0 em
       --text-line-spacing: -0.65; // -0.05 em
       --text-margin: 9.1; // 0.7 em
@@ -199,7 +203,8 @@
     }
     &:zoom(8) {
       --text-name: '[name]';
-      --text-size: zoom-gradient(10, 13 10z, 14 11z 13z, 15 14z);
+      --text-size: 10;
+      --text-scale: zoom-gradient(1, 1.3 10z, 1.4 11z 13z, 1.5 14z);
       --text-fill: @placenames;
       --text-face-name: @book-fonts;
       --text-halo-fill: @standard-halo-fill;
@@ -225,7 +230,8 @@
   &[category='2'] {
     &:zoom(9, 15) {
       --text-name: '[name]';
-      --text-size: zoom-gradient(10, 13 12z 13z, 15 14z);
+      --text-size: 10;
+      --text-scale: zoom-gradient(1, 1.3 12z 13z, 1.5 14z);
       --text-fill: @placenames;
       --text-face-name: @book-fonts;
       --text-halo-fill: @standard-halo-fill;
@@ -250,7 +256,8 @@
 #placenames-small::suburb {
   &[place='suburb']:zoom(12, 16) {
     --text-name: '[name]';
-    --text-size: zoom-gradient(11, 14 14z 15z, 15 16z);
+    --text-size: 11;
+    --text-scale: zoom-gradient(1, (14 / 11) 14z 15z, (15 / 11) 16z);
     --text-fill: @placenames;
     --text-face-name: @book-fonts;
     --text-halo-fill: zoom-gradient(@standard-halo-fill, white 14z);
@@ -279,7 +286,8 @@
   &[place='village'] {
     &:zoom(12, 16) {
       --text-name: '[name]';
-      --text-size: zoom-gradient(10, 13 14z, 14 15z, 15 16z);
+      --text-size: 10;
+      --text-scale: zoom-gradient(1, 1.3 14z, 1.4 15z, 1.5 16z);
       --text-fill: zoom-gradient(@placenames, @placenames-light 14z);
       --text-face-name: @book-fonts;
       --text-halo-fill: zoom-gradient(@standard-halo-fill, white 14z);
@@ -309,7 +317,8 @@
       --text-face-name: @book-fonts;
       --text-halo-fill: zoom-gradient(@standard-halo-fill, white 14z);
       --text-halo-radius: @standard-halo-radius * 1.5;
-      --text-size: zoom-gradient(11 14z, 12 15z, 14 16z);
+      --text-size: zoom-gradient(11 14z);
+      --text-scale: zoom-gradient(1 14z, (12 / 11) 15z, (14 / 11) 16z);
       --text-wrap-width: zoom-gradient(55 14z, 60 15z, 70 16z);
       // 5.0 em
       --text-line-spacing: zoom-gradient(-0.55 14z, -0.6 15z, -0.7 16z);
@@ -324,7 +333,8 @@
       --text-face-name: @book-fonts;
       --text-halo-fill: zoom-gradient(white, @standard-halo-fill 15z, white 16z);
       --text-halo-radius: @standard-halo-radius * 1.5;
-      --text-size: zoom-gradient(10 14z, 11 15z, 12 16z);
+      --text-size: zoom-gradient(10 14z);
+      --text-scale: zoom-gradient(1 14z, 1.1 15z, 1.2 16z);
       --text-wrap-width: zoom-gradient(55 14z, 45 15z, 60 16z);
       // 5.0 em
       --text-line-spacing: zoom-gradient(-0.55 14z 15z, -0.6 16z);
@@ -384,7 +394,8 @@
       --text-placements: 'S,SE,SW,E,NE,W,NW,N';
       &[admin_level='5'] {
         --text-face-name: @book-fonts;
-        --text-size: zoom-gradient(12 10z 11z, 13 12z);
+        --text-size: zoom-gradient(12 10z);
+        --text-scale: zoom-gradient(1 10z 11z, (13 / 12) 12z);
         --text-wrap-width: zoom-gradient(45 10z 11z, 50 12z);
         &:zoom(10) {
           // 3.7 em

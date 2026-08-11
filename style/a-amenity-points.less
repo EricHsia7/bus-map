@@ -25,6 +25,7 @@
 @religious-icon: #000000;
 @cable: #646568;
 @cable-dash: #5d5e61;
+@bus-stop: #329cff;
 
 @landcover-font-size: 10;
 @landcover-wrap-width-size: 30; // 3 em
@@ -37,8 +38,8 @@
 @landcover-line-spacing-size-bigger: -2.25; // -0.15 em
 @landcover-face-name: @oblique-fonts;
 
-@standard-font-size: 10;
-@standard-wrap-width: 30; // 3 em
+@standard-font-size: 5;
+@standard-wrap-width: 25;
 @standard-line-spacing-size: -1.5; // -0.15 em
 @standard-font: @book-fonts;
 
@@ -148,13 +149,9 @@
     --marker-clip: false;
   }
 
-  &[feature='highway_bus_stop'] {
-    --marker-file: zoom-gradient("url('symbols/square.svg')" 16z 16z, "url('symbols/highway/bus_stop.svg')" 17z);
-    --marker-fill: zoom-gradient(@transportation-icon 16z 16z, @transportation-icon 17z);
-    --marker-clip: zoom-gradient(false 16z 16z, false 17z);
-    &:zoom(16, 16) {
-      --marker-width: 6;
-    }
+  &[feature='highway_bus_stop']:zoom(14) {
+    --marker-fill: @bus-stop;
+    --marker-width: zoom-gradient(6 14z, 3 16z);
   }
 
   &[feature='highway_elevator']:zoom(18) {
@@ -1902,7 +1899,7 @@
     --text-size: @standard-font-size;
     --text-wrap-width: @standard-wrap-width;
     --text-line-spacing: @standard-line-spacing-size;
-    --text-fill: darken(black, 30%);
+    --text-fill: @standard-text-fill;
     &[information='office'] {
       --text-fill: @amenity-brown;
     }
@@ -2586,7 +2583,7 @@
     --text-size: @standard-font-size;
     --text-wrap-width: @standard-wrap-width;
     --text-line-spacing: @standard-line-spacing-size;
-    --text-fill: black;
+    --text-fill: @standard-text-fill;
     --text-face-name: @standard-font;
     --text-halo-radius: @standard-halo-radius;
     --text-halo-fill: @standard-halo-fill;
@@ -2931,5 +2928,280 @@
       --trunk__marker-line-width: 0;
       --trunk__marker-ignore-placement: true;
     }
+  }
+}
+
+// tier 10: regional / landscape-scale (18 features)
+#text-poly-low-zoom,
+#text-point {
+  &[feature='natural_water'] {
+    --text-size: 10;
+  }
+  &[feature='landuse_reservoir'] {
+    --text-size: 10;
+  }
+  &[feature='natural_wood'] {
+    --text-size: 10;
+  }
+  &[feature='landuse_forest'] {
+    --text-size: 10;
+  }
+  &[feature='boundary_national_park'] {
+    --text-size: 10;
+  }
+  &[feature='leisure_nature_reserve'] {
+    --text-size: 10;
+  }
+  &[feature='boundary_aboriginal_lands'] {
+    --text-size: 10;
+  }
+  &[feature='boundary_protected_area'] {
+    --text-size: 10;
+  }
+  &[feature='landuse_military'] {
+    --text-size: 10;
+  }
+  &[feature='military_danger_area'] {
+    --text-size: 10;
+  }
+  &[feature='natural_glacier'] {
+    --text-size: 10;
+  }
+  &[feature='natural_wetland'] {
+    --text-size: 10;
+  }
+  &[feature='natural_grassland'] {
+    --text-size: 10;
+  }
+  &[feature='natural_heath'] {
+    --text-size: 10;
+  }
+  &[feature='landuse_farmland'] {
+    --text-size: 10;
+  }
+  &[feature='place_island'] {
+    --text-size: 10;
+  }
+  &[feature='amenity_university'] {
+    --text-size: 10;
+  }
+  &[feature='aeroway_apron'] {
+    --text-size: 10;
+  }
+}
+
+// tier 9: town-scale landuse (36 features)
+#text-poly-low-zoom,
+#text-point {
+  &[feature='leisure_park'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_residential'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_industrial'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_commercial'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_retail'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_cemetery'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_quarry'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_recreation_ground'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_meadow'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_vineyard'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_orchard'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_allotments'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_farmyard'] {
+    --text-size: 9;
+  }
+  &[feature='tourism_theme_park'] {
+    --text-size: 9;
+  }
+  &[feature='tourism_zoo'] {
+    --text-size: 9;
+  }
+  &[feature='leisure_stadium'] {
+    --text-size: 9;
+  }
+  &[feature='amenity_college'] {
+    --text-size: 9;
+  }
+  &[feature='amenity_school'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_basin'] {
+    --text-size: 9;
+  }
+  &[feature='waterway_dock'] {
+    --text-size: 9;
+  }
+  &[feature='place_islet'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_village_green'] {
+    --text-size: 9;
+  }
+  &[feature='natural_scrub'] {
+    --text-size: 9;
+  }
+  &[feature='natural_beach'] {
+    --text-size: 9;
+  }
+  &[feature='natural_sand'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_greenhouse_horticulture'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_plant_nursery'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_brownfield'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_landfill'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_construction'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_railway'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_garages'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_salt_pond'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_grass'] {
+    --text-size: 9;
+  }
+  &[feature='landuse_religious'] {
+    --text-size: 9;
+  }
+  &[feature='amenity_grave_yard'] {
+    --text-size: 9;
+  }
+}
+
+// tier 8: neighbourhood facility (23 features)
+#text-poly-low-zoom,
+#text-point {
+  &[feature='leisure_garden'] {
+    --text-size: 8;
+  }
+  &[feature='leisure_sports_centre'] {
+    --text-size: 8;
+  }
+  &[feature='leisure_swimming_pool'] {
+    --text-size: 8;
+  }
+  &[feature='leisure_marina'] {
+    --text-size: 8;
+  }
+  &[feature='leisure_track'] {
+    --text-size: 8;
+  }
+  &[feature='leisure_ice_rink'] {
+    --text-size: 8;
+  }
+  &[feature='leisure_pitch'] {
+    --text-size: 8;
+  }
+  &[feature='amenity_kindergarten'] {
+    --text-size: 8;
+  }
+  &[feature='amenity_nursing_home'] {
+    --text-size: 8;
+  }
+  &[feature='amenity_childcare'] {
+    --text-size: 8;
+  }
+  &[feature='power_plant'] {
+    --text-size: 8;
+  }
+  &[feature='power_substation'] {
+    --text-size: 8;
+  }
+  &[feature='power_generator'] {
+    --text-size: 8;
+  }
+  &[feature='man_made_works'] {
+    --text-size: 8;
+  }
+  &[feature='man_made_water_works'] {
+    --text-size: 8;
+  }
+  &[feature='man_made_wastewater_plant'] {
+    --text-size: 8;
+  }
+  &[feature='highway_services'] {
+    --text-size: 8;
+  }
+  &[feature='highway_rest_area'] {
+    --text-size: 8;
+  }
+  &[feature='shop'] {
+    --text-size: 8;
+  }
+  &[feature='natural_spring'] {
+    --text-size: 8;
+  }
+  &[feature='natural_reef'] {
+    --text-size: 8;
+  }
+  &[feature='natural_shoal'] {
+    --text-size: 8;
+  }
+  &[feature='natural_mud'] {
+    --text-size: 8;
+  }
+}
+
+// tier 7: micro / incidental structure (8 features)
+#text-poly-low-zoom,
+#text-point {
+  &[feature='waterway_dam'] {
+    --text-size: 7;
+  }
+  &[feature='waterway_weir'] {
+    --text-size: 7;
+  }
+  &[feature='man_made_breakwater'] {
+    --text-size: 7;
+  }
+  &[feature='man_made_groyne'] {
+    --text-size: 7;
+  }
+  &[feature='man_made_pier'] {
+    --text-size: 7;
+  }
+  &[feature='natural_scree'] {
+    --text-size: 7;
+  }
+  &[feature='natural_shingle'] {
+    --text-size: 7;
+  }
+  &[feature='natural_bare_rock'] {
+    --text-size: 7;
   }
 }

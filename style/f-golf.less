@@ -39,7 +39,8 @@
 #text-line:zoom(16) {
   &[feature='golf_hole']:not([ref='']) {
     --text-placement: line;
-    --text-size: zoom-gradient(11, 13 17z);
+    --text-size: 11;
+    --text-scale: zoom-gradient(1, (13 / 11) 17z);
     --text-fill: @golf-color;
     --text-face-name: @book-fonts;
     --text-halo-radius: @standard-halo-radius;

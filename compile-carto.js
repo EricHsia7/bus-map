@@ -64,6 +64,12 @@ const ZOOM_MAX = 24;
 
 const dark = process?.argv && Array.isArray(process.argv) && process.argv.includes('--dark');
 
+// --keep-scales: do NOT fold `*-scale` into its sibling size. The size stays a
+// single reference value and the scale ships as a separate per-zoom scalar, so a
+// client can rasterize glyphs once at the reference size and scale them on the GPU.
+// Mapnik has no such property, so this is only for the label/GPU consumer.
+const keepScales = process?.argv && Array.isArray(process.argv) && process.argv.includes('--keep-scales');
+
 const rawVars = new Map();
 const resolvedVars = new Map();
 const resolving = new Set();
@@ -416,25 +422,259 @@ function evalLadder(value, z, prop, resolve = resolveValue) {
   return undefined;
 }
 
+/* ----------------------------------------------------------------------- */
+/* Scale properties: --text-scale folds into --text-size (pure)            */
+/* ----------------------------------------------------------------------- */
+
+// Mapnik has no `text-scale` symbolizer property -- a text size is a single
+// constant at a given zoom. `--text-scale` is therefore SOURCE sugar, exactly
+// like step()/interpolate(): it lets a stylesheet state a reference size once
+// and express the zoom ladder as a multiplier of it.
+//
+//   --text-size: 10;
+//   --text-scale: zoom-gradient(1, 1.2 14z);
+//     z0-13 -> text-size 10,  z14+ -> text-size 12
+//
+// The compiler multiplies the two and emits only `text-size`, so `text-scale`
+// never reaches the output JSON and downstream consumers (paint-to-label.js,
+// paint-to-svg.js) need no changes. Add further pairs here if other sizes ever
+// want the same treatment (e.g. 'shield-scale': 'shield-size').
+const SCALE_TARGETS = { 'text-scale': 'text-size' };
+
+// `casing/text-scale` -> ['casing/', 'text-scale']; `text-scale` -> ['', 'text-scale'].
+// A scale only ever applies to the size of its OWN instance.
+function splitInstanceKey(key) {
+  const sep = key.lastIndexOf('/');
+  return sep === -1 ? ['', key] : [key.slice(0, sep + 1), key.slice(sep + 1)];
+}
+
+/* Exact decimal arithmetic (BigInt rationals).
+ *
+ * A reference size times a ratio such as 11/9 has to come back as exactly 11,
+ * not 11.000000000000002. Floating point would leave that noise in the emitted
+ * JSON and every folded size would differ from the hand-written ladder it
+ * replaced, so the fold is done on rationals and only rounded as a fallback. */
+function ratGcd(a, b) {
+  a = a < 0n ? -a : a;
+  b = b < 0n ? -b : b;
+  while (b) {
+    const t = a % b;
+    a = b;
+    b = t;
+  }
+  return a;
+}
+
+function ratReduce(n, d) {
+  if (d === 0n) return undefined;
+  const g = ratGcd(n, d) || 1n;
+  let rn = n / g;
+  let rd = d / g;
+  if (rd < 0n) {
+    rn = -rn;
+    rd = -rd;
+  }
+  return { n: rn, d: rd };
+}
+
+function ratFromDecimal(text) {
+  const m = String(text)
+    .trim()
+    .match(/^([+-]?)(\d*)(?:\.(\d+))?$/);
+  if (!m || (m[2] === '' && m[3] === undefined)) return undefined;
+  const sign = m[1] === '-' ? -1n : 1n;
+  const frac = m[3] || '';
+  return ratReduce(sign * BigInt((m[2] || '0') + frac), 10n ** BigInt(frac.length));
+}
+
+// A unitless number, or a division of two such numbers -- `11 / 9`, `(11 / 9)`.
+// Division is the one shape a ratio needs that a decimal cannot always express.
+function ratFromValue(text) {
+  const raw = String(text)
+    .trim()
+    .replace(/^\((.*)\)$/s, '$1')
+    .trim();
+  const div = raw.split('/');
+  if (div.length === 2) {
+    const a = ratFromDecimal(div[0]);
+    const b = ratFromDecimal(div[1]);
+    if (a === undefined || b === undefined || b.n === 0n) return undefined;
+    return ratReduce(a.n * b.d, a.d * b.n);
+  }
+  return ratFromDecimal(raw);
+}
+
+// Exact decimal string, or undefined when the fraction does not terminate.
+function ratToDecimalString(r) {
+  let d = r.d;
+  let twos = 0;
+  let fives = 0;
+  while (d % 2n === 0n) {
+    d /= 2n;
+    twos++;
+  }
+  while (d % 5n === 0n) {
+    d /= 5n;
+    fives++;
+  }
+  if (d !== 1n) return undefined;
+  const digits = Math.max(twos, fives);
+  const scaled = ((r.n < 0n ? -r.n : r.n) * 10n ** BigInt(digits)) / r.d;
+  const text = scaled.toString().padStart(digits + 1, '0');
+  const intPart = digits ? text.slice(0, -digits) : text;
+  const frac = digits ? text.slice(-digits).replace(/0+$/, '') : '';
+  return `${r.n < 0n ? '-' : ''}${intPart}${frac ? `.${frac}` : ''}`;
+}
+
+// size * scale, exactly where possible.
+function multiplyScaled(sizeValue, scaleValue, prop, resolve = resolveValue) {
+  const size = ratFromValue(sizeValue);
+  const scale = ratFromValue(scaleValue);
+  if (size !== undefined && scale !== undefined) {
+    const product = ratReduce(size.n * scale.n, size.d * scale.d);
+    const exact = product && ratToDecimalString(product);
+    if (exact !== undefined && exact !== null) return exact;
+  }
+
+  // Fallback: let the normal value pipeline reduce each side (variables,
+  // arithmetic) and multiply numerically, rounded like every other ladder value.
+  const sizeNum = Number(resolve(sizeValue));
+  const scaleNum = Number(resolve(scaleValue));
+  if (!Number.isFinite(sizeNum) || !Number.isFinite(scaleNum)) {
+    throw new Error(`${prop}: cannot scale "${sizeValue}" by "${scaleValue}" (both must be numbers)`);
+  }
+  return String(round4(sizeNum * scaleNum));
+}
+
+// Fold every `*-scale` into its sibling size and drop the scale key.
+// Returns the new paint plus the size keys that were rewritten.
+function foldScales(paint, resolve = resolveValue) {
+  // In --keep-scales mode the scale is a shipped property, not sugar: pass it
+  // through untouched so the reference size and the scalar stay separate.
+  if (keepScales) return { paint: { ...paint }, folded: new Set() };
+
+  const out = { ...paint };
+  const folded = new Set();
+  for (const key of Object.keys(paint)) {
+    const [instance, bare] = splitInstanceKey(key);
+    const target = SCALE_TARGETS[bare];
+    if (target === undefined) continue;
+
+    delete out[key];
+    const sizeKey = instance + target;
+    // A scale with nothing to scale is inert: the size is not set at this zoom
+    // (a gated ladder below its first stop), so there is no size to multiply.
+    if (!(sizeKey in out)) continue;
+    out[sizeKey] = multiplyScaled(out[sizeKey], paint[key], sizeKey, resolve);
+    folded.add(sizeKey);
+  }
+  return { paint: out, folded };
+}
+
 // The paint object as it applies at one integer zoom.
 function paintAtZoom(paint, z, resolve = resolveValue) {
-  const out = {};
+  // Stage 1: sample ladders WITHOUT resolving, so a ratio like `(11 / 9)`
+  // reaches the fold intact instead of arriving as a rounded decimal.
+  const raw = {};
+  const sampled = new Set();
   for (const [prop, value] of Object.entries(paint)) {
     if (!isLadder(value)) {
-      out[prop] = value;
+      raw[prop] = value;
       continue;
     }
-    const v = evalLadder(value, z, prop, resolve);
-    if (v !== undefined) out[prop] = v;
+    const v = evalLadder(value, z, prop, (x) => x);
+    if (v !== undefined) {
+      raw[prop] = v;
+      sampled.add(prop);
+    }
+  }
+
+  // Stage 2: fold scales into sizes.
+  const { paint: merged, folded } = foldScales(raw, resolve);
+
+  // Stage 3: resolve what stage 1 sampled or stage 2 rewrote. Everything else
+  // was already resolved when the rule was read, so it is passed through
+  // untouched and rules without ladders compile exactly as before.
+  const out = {};
+  for (const [prop, value] of Object.entries(merged)) {
+    out[prop] = sampled.has(prop) || folded.has(prop) ? resolve(value) : value;
   }
   return out;
+}
+
+// nextRef * scale / curRef, exactly where possible.
+//
+// The shipped pair is anchored to ONE reference size (the one at z), but a rule
+// can change its reference between z and z+1. Re-expressing the upper scale
+// against the lower reference keeps a single `text-size` sufficient:
+//   curRef * s1' === nextRef * s1
+function renormalizeScale(curRef, nextRef, scaleValue, prop, resolve = resolveValue) {
+  const a = ratFromValue(nextRef);
+  const b = ratFromValue(curRef);
+  const s = ratFromValue(scaleValue);
+  if (a !== undefined && b !== undefined && s !== undefined && b.n !== 0n) {
+    const product = ratReduce(a.n * s.n * b.d, a.d * s.d * b.n);
+    const exact = product && ratToDecimalString(product);
+    if (exact !== undefined && exact !== null) return exact;
+  }
+
+  const cr = Number(resolve(curRef));
+  const nr = Number(resolve(nextRef));
+  const sv = Number(resolve(scaleValue));
+  if (!Number.isFinite(cr) || !Number.isFinite(nr) || !Number.isFinite(sv) || cr === 0) {
+    throw new Error(`${prop}: cannot re-anchor scale across a reference-size change`);
+  }
+  return round4((nr * sv) / cr);
+}
+
+function asNumber(value, resolve = resolveValue) {
+  const n = Number(resolve(value));
+  return Number.isFinite(n) ? n : value;
+}
+
+// The paint as SHIPPED at one integer zoom. Identical to paintAtZoom unless
+// --keep-scales, in which case every scale becomes the interval [s0, s1] that
+// covers [z, z+1] -- exactly the range over which tile zoom z is displayed.
+//
+// Doing the lookahead here rather than in render.js means the label pass keeps
+// its single matchRules/inferLayers call at tZ: layer membership can change
+// with zoom, and sampling it twice would have to reconcile two memberships.
+function shipPaintAtZoom(paint, z, resolve = resolveValue) {
+  const cur = paintAtZoom(paint, z, resolve);
+  if (!keepScales) return cur;
+
+  // At ZOOM_MAX there is no next zoom to grow into, so the interval is flat.
+  const next = z >= ZOOM_MAX ? cur : paintAtZoom(paint, z + 1, resolve);
+
+  for (const key of Object.keys(cur)) {
+    const [instance, bare] = splitInstanceKey(key);
+    const target = SCALE_TARGETS[bare];
+    if (target === undefined) continue;
+
+    const sizeKey = instance + target;
+    const curRef = cur[sizeKey];
+    const s0 = cur[key];
+    let s1 = next[key];
+    const nextRef = next[sizeKey];
+
+    if (s1 === undefined || curRef === undefined || nextRef === undefined) {
+      // The rule stops emitting a size at z+1 (a gated ladder ending, or
+      // ZOOM_MAX): hold the value rather than interpolate toward nothing.
+      s1 = s0;
+    } else if (String(nextRef) !== String(curRef)) {
+      s1 = renormalizeScale(curRef, nextRef, s1, key, resolve);
+    }
+
+    cur[key] = [asNumber(s0, resolve), asNumber(s1, resolve)];
+  }
+  return cur;
 }
 
 // Collapse zooms 0..24 into maximal runs that share an identical paint object.
 function zoomBands(paint, resolve = resolveValue) {
   const bands = [];
   for (let z = ZOOM_MIN; z <= ZOOM_MAX; z++) {
-    const p = paintAtZoom(paint, z, resolve);
+    const p = shipPaintAtZoom(paint, z, resolve);
     if (!Object.keys(p).length) continue;
     const key = JSON.stringify(p);
     const prev = bands[bands.length - 1];
@@ -575,8 +815,12 @@ function main() {
     const groups = buildGroups(chain, parseSelector);
 
     // Fast path: no zoom ladder, so the rule maps 1:1 onto one output rule.
-    if (!Object.values(paint).some(isLadder)) {
-      out.push(attachment ? { groups, paint, attachment } : { groups, paint });
+    // A constant --text-scale still has to be folded away here.
+    const hasShippedScale = keepScales && Object.keys(paint).some((k) => SCALE_TARGETS[splitInstanceKey(k)[1]] !== undefined);
+
+    if (!hasShippedScale && !Object.values(paint).some(isLadder)) {
+      const flat = foldScales(paint).paint;
+      out.push(attachment ? { groups, paint: flat, attachment } : { groups, paint: flat });
       return;
     }
 
@@ -606,6 +850,11 @@ module.exports = {
   parseStops,
   toZoomGradient,
   evalLadder,
+  splitInstanceKey,
+  multiplyScaled,
+  foldScales,
+  shipPaintAtZoom,
+  renormalizeScale,
   paintAtZoom,
   zoomBands,
   clipGroupsToBand

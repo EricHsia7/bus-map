@@ -14,6 +14,8 @@ const config = require('./config.json');
 const { rasterize } = require('./rasterize.js');
 const { makeDirectory } = require('./files.js');
 const { paintToLabels } = require('./paint-to-label.js');
+const { createStyleTables, registerStyle } = require('./label-styles.js');
+const { registerChars, dumpCharsets } = require('./label-charset.js');
 
 const toObjectOptions = {
   enums: String, // enums as string names
@@ -284,6 +286,12 @@ async function renderChunk(cX, cY, cZ, fileformat) {
     const fills = []; // { order, svg } collected across ways + relations
     const lineEls = []; // { order, svg }
     const labels = []; // GeoJSON features for the text/marker overlay
+    // Rule-level label style, interned per tile. Everything paintToLabels emits
+    // except `kind` and `label` is a verbatim copy of the compiled paint, so it
+    // is hoisted here and the feature keeps only an index. `${style}:${label}`
+    // is then a complete glyph-cache key.
+    const styleTables = createStyleTables();
+    const charsets = new Map();
     const startTime = performance.now();
     for (const way of ways) {
       if (memberWayIds.has(way.id)) continue; // drawn via its parent multipolygon
@@ -318,17 +326,30 @@ async function renderChunk(cX, cY, cZ, fileformat) {
           }
         }
 
-        // Collect the text/markers this feature should render (placed live by
-        // MapLibre, not rasterized). Lines keep their geometry for line
-        // placement; closed areas get a representative point.
+        // Collect the text/markers this feature should render.
+        // Lines keep their geometry for line placement; closed areas get a representative point.
         const labelPaint = {};
         for (const idx of idxs) Object.assign(labelPaint, style[idx].paint);
         const descs = paintToLabels(labelPaint, feat);
         if (!descs) continue;
         for (const desc of descs) {
-          const labelGeometry = closed ? plotPolygonLabel(shape, x0, y0, x1, y1, labelQuantization) : plotLineStringLabel(shape, x0, y0, x1, y1, desc.properties.label, desc.properties['text-size'], tileSize, labelQuantization);
+          // descriptor
+          const textSize = desc.styleProperties['text-size'];
+          if (!textSize) continue;
+          const textScale = Array.isArray(desc.styleProperties['text-scale']) ? desc.styleProperties['text-scale'][0] : desc.styleProperties['text-scale'] || 1; // resolve the placement at discrete zoom level (tZ)
+          const labelGeometry = closed ? plotPolygonLabel(shape, x0, y0, x1, y1, labelQuantization) : plotLineStringLabel(shape, x0, y0, x1, y1, desc.properties.label, textSize, textScale, tileSize, labelQuantization);
           if (!labelGeometry) continue;
-          labels.push({ type: 'Feature', id: `w${way.id}`, geometry: labelGeometry, properties: { layer: layer.id, minzoom: tZ, ...desc.properties } });
+          const styleReference = registerStyle(styleTables, desc);
+          const charIndices = desc.properties.label ? registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference) : [];
+          labels.push({
+            base,
+            label: {
+              type: 'Feature',
+              id: `w${way.id}`,
+              geometry: labelGeometry,
+              properties: { ...desc.properties, style: styleReference, chars: charIndices }
+            }
+          });
         }
       }
     }
@@ -365,7 +386,17 @@ async function renderChunk(cX, cY, cZ, fileformat) {
         if (feat.polygons[0]) {
           const labelGeometry = plotPolygonLabel(feat.polygons[0], x0, y0, x1, y1, labelQuantization);
           for (const desc of descs) {
-            labels.push({ type: 'Feature', id: `r${layer.id}:${labelGeometry.coordinates[0]}:${labelGeometry.coordinates[1]}`, geometry: labelGeometry, properties: { layer: layer.id, minzoom: tZ, ...desc.properties } });
+            const styleReference = registerStyle(styleTables, desc);
+            const charIndices = desc.properties.label ? registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference) : [];
+            labels.push({
+              base,
+              label: {
+                type: 'Feature',
+                id: `r${layer.id}:${labelGeometry.coordinates[0]}:${labelGeometry.coordinates[1]}`,
+                geometry: labelGeometry,
+                properties: { ...desc.properties, style: styleReference, chars: charIndices }
+              }
+            });
           }
         }
       }
@@ -376,8 +407,8 @@ async function renderChunk(cX, cY, cZ, fileformat) {
     // whose bbox contains it, so a point lands in exactly one tile.
     for (const node of center.nodes) {
       if (node.lon < x0 || node.lon > x1 || node.lat < y0 || node.lat > y1) continue;
-      const nlayers = I.inferLayers(node.tags, { geometry: 'point', zoom: tZ });
-      for (const layer of nlayers) {
+      const layers = I.inferLayers(node.tags, { geometry: 'point', zoom: tZ });
+      for (const layer of layers) {
         const feat = { ...node.tags, ...layer.row };
         const idxs = M.matchRules(feat, layer.id, tZ);
         if (idxs.length === 0) continue;
@@ -385,15 +416,25 @@ async function renderChunk(cX, cY, cZ, fileformat) {
         for (const idx of idxs) Object.assign(labelPaint, style[idx].paint);
         const descs = paintToLabels(labelPaint, feat);
         if (!descs) continue;
+        const base = orderOf(layer.id);
         const labelGeometry = plotPointLabel([node.lon, node.lat], x0, y0, x1, y1, labelQuantization);
         for (const desc of descs) {
-          labels.push({ type: 'Feature', id: `n${node.id}`, geometry: labelGeometry, properties: { layer: layer.id, minzoom: tZ, ...desc.properties } });
+          const styleReference = registerStyle(styleTables, desc);
+          const charIndices = desc.properties.label ? registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference) : [];
+          labels.push({
+            base,
+            label: {
+              type: 'Feature',
+              id: `n${node.id}`,
+              geometry: labelGeometry,
+              properties: { ...desc.properties, style: styleReference, chars: charIndices }
+            }
+          });
         }
       }
     }
 
-    // Emit in OSM Carto layer order (stable sort keeps intra-layer feature
-    // order). Fills first, then lines, so casings/labels stay on top.
+    // Emit in OSM Carto layer order (stable sort keeps intra-layer feature order). Fills first, then lines, so casings/labels stay on top.
     fills.sort(function (a, b) {
       if (a.base !== b.base) return a.base - b.base;
       return a.index - b.index;
@@ -402,6 +443,9 @@ async function renderChunk(cX, cY, cZ, fileformat) {
       if (a.base !== b.base) return a.base - b.base;
       return a.index - b.index;
     });
+    labels.sort(function (a, b) {
+      return a.base - b.base;
+    });
     const polygonElements = fills.map((f) => f.svg).join('');
     const lineElements = lineEls.map((l) => l.svg).join('');
     const svg = `<svg width="${tileSize}" height="${tileSize}" viewBox="0 0 ${tileSize} ${tileSize}" xmlns="http://www.w3.org/2000/svg">${backgroundElement}${polygonElements}${lineElements}</svg>`;
@@ -409,7 +453,25 @@ async function renderChunk(cX, cY, cZ, fileformat) {
     await rasterize(svg, path.join(tilesDir, tZ.toString(), tX.toString(), tY.toString()));
     await makeDirectory(path.join(labelsDir, tZ.toString(), tX.toString()));
     // `extent` is what tells the client these are tile-local integers; drop it and the worker would read them as lon/lat and place everything at the antimeridian.
-    fs.writeFileSync(path.join(labelsDir, tZ.toString(), tX.toString(), `${tY}.gz`), Buffer.from(gzipSync(encoder.encode(JSON.stringify({ type: 'FeatureCollection', extent: labelQuantization, features: labels })))));
+    fs.writeFileSync(
+      path.join(labelsDir, tZ.toString(), tX.toString(), `${tY}.gz`),
+      Buffer.from(
+        gzipSync(
+          encoder.encode(
+            JSON.stringify({
+              type: 'FeatureCollection',
+              extent: labelQuantization,
+              zoom: tZ,
+              features: labels.map((l) => l.label),
+              textStyles: styleTables.textStyles,
+              iconStyles: styleTables.iconStyles,
+              circleStyles: styleTables.circleStyles,
+              charsets: dumpCharsets(charsets)
+            })
+          )
+        )
+      )
+    );
     const endTime = performance.now();
     console.log(`[${count}/${total}] Rendered (${tX} ${tY} ${tZ}) in (${cX} ${cY} ${cZ}) in ${Math.floor(endTime - startTime)}ms.`);
   }
