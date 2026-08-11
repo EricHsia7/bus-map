@@ -135316,7 +135316,7 @@
         1,
         1
       ],
-      "text-fill": "rgba(0,0,0,1)",
+      "text-fill": "rgba(51,51,51,1)",
       "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -135363,7 +135363,7 @@
         1,
         1.1
       ],
-      "text-fill": "rgba(0,0,0,1)",
+      "text-fill": "rgba(51,51,51,1)",
       "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -135410,7 +135410,7 @@
         1.1,
         1.1
       ],
-      "text-fill": "rgba(0,0,0,1)",
+      "text-fill": "rgba(51,51,51,1)",
       "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -135521,7 +135521,7 @@
       "text-size": "10",
       "text-wrap-width": "30",
       "text-line-spacing": "-1.2",
-      "text-fill": "rgba(0,0,0,1)",
+      "text-fill": "rgba(51,51,51,1)",
       "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -152948,7 +152948,7 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-fill": "rgba(0,0,0,1)",
+      "text-fill": "rgba(51,51,51,1)",
       "text-spacing": "300",
       "text-clip": "false",
       "text-placement": "line",
@@ -153892,7 +153892,7 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-fill": "rgba(0,0,0,1)",
+      "text-fill": "rgba(51,51,51,1)",
       "text-spacing": "300",
       "text-clip": "false",
       "text-placement": "line",
@@ -154160,7 +154160,7 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-fill": "rgba(0,0,0,1)",
+      "text-fill": "rgba(51,51,51,1)",
       "text-spacing": "300",
       "text-clip": "false",
       "text-placement": "line",
@@ -154199,7 +154199,7 @@
         1,
         1.1666666666666667
       ],
-      "text-fill": "rgba(0,0,0,1)",
+      "text-fill": "rgba(51,51,51,1)",
       "text-spacing": "300",
       "text-clip": "false",
       "text-placement": "line",
@@ -154238,7 +154238,7 @@
         1.1666666666666667,
         1.5
       ],
-      "text-fill": "rgba(0,0,0,1)",
+      "text-fill": "rgba(51,51,51,1)",
       "text-spacing": "400",
       "text-clip": "false",
       "text-placement": "line",
@@ -154277,7 +154277,7 @@
         1.5,
         1.8333333333333333
       ],
-      "text-fill": "rgba(0,0,0,1)",
+      "text-fill": "rgba(51,51,51,1)",
       "text-spacing": "400",
       "text-clip": "false",
       "text-placement": "line",
@@ -154316,7 +154316,7 @@
         1.8333333333333333,
         1.8333333333333333
       ],
-      "text-fill": "rgba(0,0,0,1)",
+      "text-fill": "rgba(51,51,51,1)",
       "text-spacing": "400",
       "text-clip": "false",
       "text-placement": "line",
@@ -154709,7 +154709,7 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-fill": "rgba(0,0,0,1)",
+      "text-fill": "rgba(51,51,51,1)",
       "text-clip": "false",
       "text-placement": "line",
       "text-halo-radius": "1",
@@ -155026,7 +155026,7 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-fill": "rgba(0,0,0,1)",
+      "text-fill": "rgba(51,51,51,1)",
       "text-spacing": "300",
       "text-clip": "false",
       "text-placement": "line",
@@ -206519,7 +206519,7 @@
       "text-size": "5",
       "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
-      "text-fill": "rgba(0,0,0,1)",
+      "text-fill": "rgba(51,51,51,1)",
       "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -641552,7 +641552,7 @@
       "text-size": "5",
       "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
-      "text-fill": "rgba(0,0,0,1)",
+      "text-fill": "rgba(51,51,51,1)",
       "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"

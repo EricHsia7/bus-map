@@ -2655,7 +2655,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --text-name: '[name]';
       --text-size: 10;
       --text-scale: zoom-gradient(1, 1.1 17z);
-      --text-fill: black;
+      --text-fill: @standard-text-fill;
       --text-face-name: @book-fonts;
       --text-halo-radius: @standard-halo-radius;
       --text-halo-fill: @standard-halo-fill;
@@ -2680,7 +2680,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --text-size: 10;
       --text-wrap-width: 30; // 3 em
       --text-line-spacing: -1.2; // -0.15 em
-      --text-fill: black;
+      --text-fill: @standard-text-fill;
       --text-face-name: @book-fonts;
       --text-halo-radius: @standard-halo-radius;
       --text-halo-fill: @standard-halo-fill;
@@ -3022,7 +3022,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-scale: zoom-gradient(1 13z 14z, (7 / 6) 15z 16z, 1.5 17z, (11 / 6) 18z);
     &:zoom(13) {
       --text-name: '[name]';
-      --text-fill: black;
+      --text-fill: @standard-text-fill;
       --text-spacing: 300;
       --text-clip: false;
       --text-placement: line;
@@ -3049,7 +3049,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-scale: zoom-gradient(1 13z 15z, (7 / 6) 16z, (8 / 6) 17z, (10 / 6) 18z, (11 / 6) 19z);
     &:zoom(13) {
       --text-name: '[name]';
-      --text-fill: black;
+      --text-fill: @standard-text-fill;
       --text-spacing: 300;
       --text-clip: false;
       --text-placement: line;
@@ -3066,7 +3066,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-scale: zoom-gradient(1 14z 16z, (7 / 6) 17z, 1.5 18z, (11 / 6) 19z);
     &:zoom(14) {
       --text-name: '[name]';
-      --text-fill: black;
+      --text-fill: @standard-text-fill;
       --text-spacing: 300;
       --text-clip: false;
       --text-placement: line;
@@ -3080,7 +3080,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-name: '[name]';
     --text-size: 6;
     --text-scale: zoom-gradient(1, (7 / 6) 17z, 1.5 18z, (11 / 6) 19z);
-    --text-fill: black;
+    --text-fill: @standard-text-fill;
     --text-spacing: zoom-gradient(300, 400 17z 18z, 400 19z);
     --text-clip: false;
     --text-placement: line;
@@ -3104,7 +3104,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-spacing: zoom-gradient(300 15z 16z, 400 17z 18z, 400 19z);
     &:zoom(15) {
       --text-name: '[name]';
-      --text-fill: black;
+      --text-fill: @standard-text-fill;
       --text-clip: false;
       --text-placement: line;
       --text-halo-radius: @standard-halo-radius;
@@ -3126,7 +3126,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-scale: zoom-gradient(1 16z);
     &:zoom(16) {
       --text-name: '[name]';
-      --text-fill: black;
+      --text-fill: @standard-text-fill;
       --text-spacing: 300;
       --text-clip: false;
       --text-placement: line;
