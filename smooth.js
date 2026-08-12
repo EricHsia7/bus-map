@@ -68,7 +68,7 @@ function smoothCorners(points, maxAngle = (30 * Math.PI) / 180) {
 
     const dot = (ax * bx + ay * by) / (la * lb);
 
-    const angle = Math.acos(Math.max(-1, Math.min(1, dot)));
+    const angle = Math.acos(dot);
 
     if (angle < maxAngle) {
       out[i][0] = (a[0] + c[0]) * 0.5;
