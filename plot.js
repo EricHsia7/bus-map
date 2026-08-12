@@ -1,6 +1,6 @@
 const { getOrientation, projectCoordinate, tileToBoundingbox, getTileViewbox, getCentroid } = require('./coordinate');
+const { planTextPlacement } = require('./plan-text-placement');
 const { smoothPath } = require('./smooth');
-const measureTextWidth = require('./text-width');
 
 // Transform a ring/line into pixel space, dropping non-finite points.
 function transform(path, transformX, transformY) {
@@ -165,87 +165,21 @@ function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, textSc
 
   const coordinates = transform(lineString.coordinates, transformX, transformY);
 
-  // text-size is authored against a 256x256 tile; scale it into whatever
-  // pixel space `coordinates` live in.
+  // text-size is authored against a 256x256 tile; scale it into whatever pixel space `coordinates` live in.
   const fontSize = textSize * textScale * (tileSize / 256);
-  const textWidth = measureTextWidth(label, fontSize);
-
-  // Decide traversal direction so text doesn't render upside-down: compare net horizontal displacement from the first point to the last point.
-  // Smooth the path to ensure fidelity
-  let points = smoothPath(coordinates);
-  if (keepUpright) {
-    const netDx = coordinates[coordinates.length - 1][0] - coordinates[0][0];
-    if (netDx < 0) points = coordinates.slice().reverse();
-  }
-  const pointsLength = points.length;
-
-  // Arc length per segment + total.
-  const segments = [];
-  let totalLength = 0;
-  for (let i = 0; i < pointsLength - 1; i++) {
-    const ABx = points[i + 1][0] - points[i][0];
-    const ABy = points[i + 1][1] - points[i][1];
-    const AB = Math.hypot(ABx, ABy);
-    segments.push(AB);
-    totalLength += AB;
-  }
-
-  if (totalLength < textWidth) return null; // line too short to fit the label
-
-  function sampleAtDistance(dist) {
-    let remaining = Math.max(0, Math.min(dist, totalLength));
-    for (let i = 0; i < segments.length; i++) {
-      const segLen = segments[i];
-      if (remaining <= segLen || i === segments.length - 1) {
-        const t = segLen === 0 ? 0 : remaining / segLen;
-        const p0 = points[i];
-        const p1 = points[i + 1];
-        return {
-          x: p0[0] + (p1[0] - p0[0]) * t,
-          y: p0[1] + (p1[1] - p0[1]) * t,
-          angle: Math.atan2(p1[1] - p0[1], p1[0] - p0[0])
-        };
-      }
-      remaining -= segLen;
-    }
-    const last = points[points.length - 1];
-    return {
-      x: last[0],
-      y: last[1],
-      angle: 0
-    };
-  }
-
-  const charWidths = new Array(labelLength).fill(0);
-  for (let i = 0; i < labelLength; i++) {
-    charWidths[i] = measureTextWidth(label[i], fontSize);
-  }
-
-  const outCoordinates = [];
+  const placements = planTextPlacement(coordinates, label, fontSize);
+  if (!placements || placements?.length === 0) return null;
+  const glyphs = placements[0].glyphs;
+  const outputCoordinates = [];
   const angles = [];
-  let charStart = center ? (totalLength - textWidth) / 2 : 0;
-  for (let i = 0; i < labelLength; i++) {
-    const { x, y, angle } = sampleAtDistance(charStart + charWidths[i] / 2);
-    charStart += charWidths[i];
-    outCoordinates.push([x, y]);
-    angles.push(angle);
+  for (const glyph of glyphs) {
+    let { cx: x, cy: y, angle } = glyph;
+    angle = (angle + 2 * Math.PI) % (2 * Math.PI);
+    outputCoordinates.push([Math.floor((x / tileSize) * quantization), Math.floor((y / tileSize) * quantization)]);
+    angles.push((angle / (2 * Math.PI)) * quantization);
   }
 
-  if (labelLength >= 3) {
-    angles[0] = (angles[0] + angles[1]) / 2;
-    for (let i = 1; i < labelLength - 1; i++) {
-      // outCoordinates[i] = [(outCoordinates[i - 1][0] + outCoordinates[i][0] + outCoordinates[i + 1][0]) / 3, (outCoordinates[i - 1][1] + outCoordinates[i][1] + outCoordinates[i + 1][1]) / 3];
-      angles[i] = (angles[i - 1] + angles[i] + angles[i + 1]) / 3;
-    }
-    angles[labelLength - 1] = (angles[labelLength - 1] + angles[labelLength - 2]) / 2;
-  }
-
-  for (let i = 0; i < labelLength; i++) {
-    angles[i] = Math.floor((angles[i] / (2 * Math.PI)) * quantization);
-    outCoordinates[i] = [Math.floor((outCoordinates[i][0] / tileSize) * quantization), Math.floor((outCoordinates[i][1] / tileSize) * quantization)];
-  }
-
-  return { type: 'LineString', coordinates: outCoordinates, angles };
+  return { type: 'LineString', coordinates: outputCoordinates, angles };
 }
 
 function plotPointLabel(point, x0, y0, x1, y1, quantization = 1024) {
