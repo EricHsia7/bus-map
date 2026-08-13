@@ -340,14 +340,14 @@ async function renderChunk(cX, cY, cZ, fileformat) {
           const labelGeometry = closed ? plotPolygonLabel(shape, x0, y0, x1, y1, labelQuantization) : plotLineStringLabel(shape, x0, y0, x1, y1, desc.properties.label, textSize, textScale, tileSize, labelQuantization);
           if (!labelGeometry) continue;
           const styleReference = registerStyle(styleTables, desc);
-          const charIndices = desc.properties.label ? registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference) : [];
+          if (desc.properties.label) registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference);
           labels.push({
             base,
             label: {
               type: 'Feature',
               id: `w${way.id}`,
               geometry: labelGeometry,
-              properties: { ...desc.properties, style: styleReference, chars: charIndices }
+              properties: { ...desc.properties, style: styleReference }
             }
           });
         }
@@ -387,14 +387,14 @@ async function renderChunk(cX, cY, cZ, fileformat) {
           const labelGeometry = plotPolygonLabel(feat.polygons[0], x0, y0, x1, y1, labelQuantization);
           for (const desc of descs) {
             const styleReference = registerStyle(styleTables, desc);
-            const charIndices = desc.properties.label ? registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference) : [];
+            if (desc.properties.label) registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference);
             labels.push({
               base,
               label: {
                 type: 'Feature',
                 id: `r${layer.id}:${labelGeometry.coordinates[0]}:${labelGeometry.coordinates[1]}`,
                 geometry: labelGeometry,
-                properties: { ...desc.properties, style: styleReference, chars: charIndices }
+                properties: { ...desc.properties, style: styleReference }
               }
             });
           }
@@ -420,14 +420,14 @@ async function renderChunk(cX, cY, cZ, fileformat) {
         const labelGeometry = plotPointLabel([node.lon, node.lat], x0, y0, x1, y1, labelQuantization);
         for (const desc of descs) {
           const styleReference = registerStyle(styleTables, desc);
-          const charIndices = desc.properties.label ? registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference) : [];
+          if (desc.properties.label) registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference);
           labels.push({
             base,
             label: {
               type: 'Feature',
               id: `n${node.id}`,
               geometry: labelGeometry,
-              properties: { ...desc.properties, style: styleReference, chars: charIndices }
+              properties: { ...desc.properties, style: styleReference }
             }
           });
         }
