@@ -5282,7 +5282,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     &[entrance='shop'] {
       --marker-opacity: 1;
       --marker-width: 6;
-      --marker-height: 6;
       &[entrance='service'] {
         --marker-file: "url('symbols/corners.svg')";
       }
@@ -5297,7 +5296,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
   }
 }
-@station-color: #7981b0;
+@station-color: #50b7d4;
 @station-text: darken(saturate(@station-color, 15%), 10%);
 
 #stations {
@@ -5318,15 +5317,15 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   }
 
   &[railway='station']:zoom(12) {
-    --marker-file: "url('symbols/square.svg')";
     --marker-fill: @station-color;
     --marker-clip: false;
     &:not([station='subway']) {
       --marker-width: 4;
+      --marker-scale: zoom-gradient(1 12z, 1.5 13z, 2.25 15z);
     }
-    &:not([station='subway']):zoom(13),
     &[station='subway']:zoom(14) {
       --marker-width: 6;
+      --marker-scale: zoom-gradient(1 14z, 1.5 16z);
     }
     &:not([station='subway']):zoom(14),
     &:zoom(15) {
@@ -5342,7 +5341,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
     &:not([station='subway']):zoom(15),
     &:zoom(16) {
-      --marker-width: 9;
       --text-size: 11;
       --text-wrap-width: 33; // 3 em
       --text-line-spacing: -1.65; // -0.15 em
@@ -5352,7 +5350,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
   &[railway='halt'] {
     &:zoom(13) {
-      --marker-file: "url('symbols/square.svg')";
       --marker-fill: @station-color;
       --marker-width: 4;
       --marker-scale: zoom-gradient(1 13z, 1.5 15z);
@@ -5373,7 +5370,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
   &[aerialway='station']::aerialway {
     &:zoom(13) {
-      --marker-file: "url('symbols/square.svg')";
       --marker-fill: @station-color;
       --marker-width: 4;
       --marker-clip: false;
@@ -5396,7 +5392,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
   &[railway='tram_stop'] {
     &:zoom(14) {
-      --marker-file: "url('symbols/square.svg')";
       --marker-fill: @station-color;
       --marker-width: 4;
       --marker-scale: zoom-gradient(1 14z, 1.5 15z);
@@ -5710,7 +5705,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         --marker-allow-overlap: true;
         --marker-line-width: 0;
         --marker-width: 10;
-        --marker-height: 10;
         --marker-ignore-placement: true;
       }
     }
@@ -5719,7 +5713,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       &:zoom(17, 17) {
         --nozzle__marker-line-width: 0;
         --nozzle__marker-width: 3;
-        --nozzle__marker-height: 3;
       }
       &:zoom(18) {
         --nozzle__marker-file: "url('symbols/amenity/fountain.svg')";
