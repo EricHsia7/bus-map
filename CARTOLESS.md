@@ -285,8 +285,8 @@ styles actually mean by a default.
 Both desugar to this component and share its sampler, so there is exactly one
 implementation of the semantics:
 
-```less
-step(a 12, b 14) // zoom-gradient(a 12z 13z, b 14z)
+```text
+step(a 12z, b 14z) == zoom-gradient(a 12z 13z, b 14z)
 ```
 
 Use `step()`/`interpolate()` when a ladder is uniformly one kind. Reach for
