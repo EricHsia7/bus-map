@@ -10,7 +10,7 @@ CartoCSS compiler produced.
 
 ---
 
-## Paint properties are custom properties
+## Properties
 
 Mapnik symbolizer properties are prefixed with `--`, so LESS treats them as custom
 properties instead of choking on unknown declarations.
@@ -23,20 +23,45 @@ properties instead of choking on unknown declarations.
 
 ### Instances
 
-CartoCSS wrote instances as `name/prop`. A slash is not legal in a custom property
-name, so the separator is `__` (double underscore):
+CartoCSS wrote instances as `name/prop`. A slash is not legal in a custom property name, so the separator is `__` (double underscore):
 
-| CartoCSS | CartoLESS | compiled key |
-| --- | --- | --- |
-| `line-width: 2;` | `--line-width: 2;` | `line-width` |
-| `background/line-width: 2;` | `--background__line-width: 2;` | `background/line-width` |
+| CartoCSS                     | CartoLESS                       | compiled key            |
+| ---------------------------- | ------------------------------- | ----------------------- |
+| `line-width: 2;`             | `--line-width: 2;`              | `line-width`            |
+| `background/line-width: 2;`  | `--background__line-width: 2;`  | `background/line-width` |
 | `tunnelfill/line-color: @c;` | `--tunnelfill__line-color: @c;` | `tunnelfill/line-color` |
 
 Only the **first** `__` is the instance separator, so `--casing__line-dasharray`
 round-trips correctly.
 
 > [!NOTE]
-> LESS does not interpolate custom property values. `lessc` treats the right-hand side of a `--*` declaration as verbatim text, so `--line-color: @grass` is *not* substituted by LESS. This is deliberate: `compile-carto.js` performs variable substitution itself, so `@`-variables keep working and stay readable in the source. Do not run these files through `lessc` and expect resolved colors.
+> LESS does not interpolate custom property values. `lessc` treats the right-hand side of a `--*` declaration as verbatim text, so `--line-color: @grass` is _not_ substituted by LESS. This is deliberate: `compile-carto.js` performs variable substitution itself, so `@`-variables keep working and stay readable in the source. Do not run these files through `lessc` and expect resolved colors.
+
+### Scales
+
+```less
+#text:zoom(12) {
+  --text-size: zoom-gradient(10 12z, 30 15z); // text size is updated when the zoom level jumps
+}
+
+#circle:zoom(13) {
+  --marker-fill: blue;
+  --marker-width: zoom-gradient(2 12z, 5 15z);
+}
+```
+
+```less
+#text:zoom(12) {
+  --text-size: 10;
+  --text-scale: zoom-gradient(1 12z, 3 15z); // supports continuous interpolation at runtime
+}
+
+#circle:zoom(13) {
+  --marker-fill: blue;
+  --marker-width: 2;
+  --marker-scale: zoom-gradient(1 12z, 2.5 15z);
+}
+```
 
 ---
 
@@ -61,11 +86,11 @@ Unchanged, but always written last, as a pseudo-element: `::casing`, `::halo`.
 CartoCSS's single-quoted filters become standard CSS attribute selectors with
 double quotes:
 
-| CartoCSS | CartoLESS |
-| --- | --- |
+| CartoCSS           | CartoLESS          |
+| ------------------ | ------------------ |
 | `[feature='park']` | `[feature="park"]` |
-| `[ref != 'x']` | `:not([ref="x"])` |
-| `[ref != '']` | `:not([ref=""])` |
+| `[ref != 'x']`     | `:not([ref="x"])`  |
+| `[ref != '']`      | `:not([ref=""])`   |
 
 ### Nesting
 
@@ -75,7 +100,7 @@ with `&`:
 
 ```less
 #roads-fill:zoom(12) {
-  &[feature="highway_primary"] {
+  &[feature='highway_primary'] {
     --line-width: 4;
   }
 }
@@ -97,23 +122,23 @@ without complaint.
 
 Bounds are **inclusive**, and `*` means open:
 
-| CartoCSS | CartoLESS |
-| --- | --- |
-| `[zoom >= 12]` | `:zoom(12)` |
-| `[zoom >= 12][zoom < 15]` | `:zoom(12, 14)` |
-| `[zoom <= 9]` / `[zoom < 10]` | `:zoom(*, 9)` |
-| `[zoom = '9']` | `:zoom(9, 9)` |
-| any zoom | omit entirely |
+| CartoCSS                      | CartoLESS       |
+| ----------------------------- | --------------- |
+| `[zoom >= 12]`                | `:zoom(12)`     |
+| `[zoom >= 12][zoom < 15]`     | `:zoom(12, 14)` |
+| `[zoom <= 9]` / `[zoom < 10]` | `:zoom(*, 9)`   |
+| `[zoom = '9']`                | `:zoom(9, 9)`   |
+| any zoom                      | omit entirely   |
 
 ### Numeric comparisons
 
 For non-zoom numeric attributes:
 
-| CartoCSS | CartoLESS |
-| --- | --- |
-| `[height > 20]` | `:gt(height, 20)` |
-| `[height >= 20]` | `:gte(height, 20)` |
-| `[score < 400000]` | `:lt(score, 400000)` |
+| CartoCSS                 | CartoLESS                  |
+| ------------------------ | -------------------------- |
+| `[height > 20]`          | `:gt(height, 20)`          |
+| `[height >= 20]`         | `:gte(height, 20)`         |
+| `[score < 400000]`       | `:lt(score, 400000)`       |
 | `[population <= 600000]` | `:lte(population, 600000)` |
 
 ### `:range(key, lo, hi)`
@@ -190,7 +215,7 @@ blocks. In `5-roads` alone there are 417 such ladders for `--line-width` and
 into a single declaration.
 
 ```less
-#roads[feature="highway_motorway"] {
+#roads[feature='highway_motorway'] {
   --line-width: step(0.5 12, 1 14, 2 16);
   --line-color: interpolate(#cda 10, #e892a2 16);
 }
@@ -207,7 +232,7 @@ z16+ → `2`.
 
 The value varies continuously between stops, so stop zooms may be **any real
 number** (`interpolate(0 12.5, 10 16.5)` is valid). The curve is still only
-*sampled* at the integer zooms Mapnik renders, so that ladder yields z13 →
+_sampled_ at the integer zooms Mapnik renders, so that ladder yields z13 →
 `1.25`, z14 → `3.75`, z16 → `8.75`. Numbers and colors can be interpolated;
 colors blend per RGBA channel. Anything else is a compile error.
 
@@ -225,7 +250,7 @@ colors blend per RGBA channel. Anything else is a compile error.
 ### How it compiles
 
 Mapnik has no runtime zoom expression — a symbolizer property is a constant at
-a given zoom. Ladders are therefore *source* sugar. The compiler evaluates
+a given zoom. Ladders are therefore _source_ sugar. The compiler evaluates
 every property at each integer zoom, collapses zooms 0–24 into maximal bands
 that share an identical paint object, and emits one rule per band with the
 band's zoom range intersected into each selector group. Consequences:
@@ -256,16 +281,16 @@ same `parseModel` / `splitByTopLevelDelimiter` machinery as `linear-gradient()`.
 ### The `z` unit
 
 Stop positions carry a `z` unit, exactly as CSS gradient stops carry `%`. This
-is not decoration: a stop *value* can itself be a bare number, so `2.5 16`
+is not decoration: a stop _value_ can itself be a bare number, so `2.5 16`
 would be ambiguous. `2.5 16z` never is. Omitting the unit is a compile error
 rather than a silent misparse.
 
 ### Semantics
 
-| Form | Meaning |
-| --- | --- |
-| `v p1z` | a stop at zoom `p1` |
-| `v p1z p2z` | a **hard stop**: `v` is constant across `p1…p2` |
+| Form                  | Meaning                                                |
+| --------------------- | ------------------------------------------------------ |
+| `v p1z`               | a stop at zoom `p1`                                    |
+| `v p1z p2z`           | a **hard stop**: `v` is constant across `p1…p2`        |
 | `v` (first stop only) | a **base value**, held until the first positioned stop |
 
 - Two positioned stops **interpolate** between their positions, like CSS.
@@ -277,7 +302,7 @@ rather than a silent misparse.
 
 The base value is the one deliberate deviation from CSS. CSS would interpolate
 a position-less leading stop from position 0, but a leading value with nothing
-before it has nothing to interpolate *from*; holding it constant is what map
+before it has nothing to interpolate _from_; holding it constant is what map
 styles actually mean by a default.
 
 ### Relationship to `step()` and `interpolate()`
@@ -302,12 +327,25 @@ A seven-block `::casing` ladder:
   --line-width: 1;
   --line-color: mix(@roller-coaster-casing, @roller-coaster-fill, 50%);
   --line-join: round;
-  &[tunnel="yes"]:zoom(16) { --line-color: darken(@roller-coaster-casing, 20%); }
-  &:zoom(16) { --line-color: @roller-coaster-casing; --line-width: 2.5; }
-  &:zoom(17) { --line-width: 4; }
-  &:zoom(18) { --line-width: 6; }
-  &:zoom(19) { --line-width: 8; }
-  &:zoom(20) { --line-width: 12; }
+  &[tunnel='yes']:zoom(16) {
+    --line-color: darken(@roller-coaster-casing, 20%);
+  }
+  &:zoom(16) {
+    --line-color: @roller-coaster-casing;
+    --line-width: 2.5;
+  }
+  &:zoom(17) {
+    --line-width: 4;
+  }
+  &:zoom(18) {
+    --line-width: 6;
+  }
+  &:zoom(19) {
+    --line-width: 8;
+  }
+  &:zoom(20) {
+    --line-width: 12;
+  }
 }
 ```
 
@@ -318,29 +356,31 @@ collapses to two:
   --line-width: zoom-gradient(1, 2.5 16z, 4 17z, 6 18z, 8 19z, 12 20z);
   --line-color: zoom-gradient(mix(@roller-coaster-casing, @roller-coaster-fill, 50%), @roller-coaster-casing 16z);
   --line-join: round;
-  &[tunnel="yes"]:zoom(16) { --line-color: darken(@roller-coaster-casing, 20%); }
+  &[tunnel='yes']:zoom(16) {
+    --line-color: darken(@roller-coaster-casing, 20%);
+  }
 }
 ```
 
 Both compile to the same seven rules with the same paint at every zoom 0–24;
 `tools/gradient-test.js` asserts it. Note that the width stops sit at
-*consecutive integer* zooms, so interpolation and stepping coincide exactly
+_consecutive integer_ zooms, so interpolation and stepping coincide exactly
 here — there is no zoom in between at which they could differ.
 
 ### API added to `color.js`
 
 ```js
-looksLikeZoomGradientValue(value)      // -> boolean
-parseZoomGradient(value)               // -> { type, stops: [{ value, from, to }] } | undefined
-sampleZoomGradient(gradient, position) // -> string | undefined  (accepts source or parsed)
-interpolateStopValues(from, to, t)     // -> string | undefined
+looksLikeZoomGradientValue(value); // -> boolean
+parseZoomGradient(value); // -> { type, stops: [{ value, from, to }] } | undefined
+sampleZoomGradient(gradient, position); // -> string | undefined  (accepts source or parsed)
+interpolateStopValues(from, to, t); // -> string | undefined
 ```
 
 `parseZoomGradient` returns `undefined` rather than throwing, so it composes
 with the existing `looksLike…` / `parse…` pairs; the compiler turns that into a
 diagnostic. `zoom-gradient(` is matched by neither `looksLikeColorValue` nor
 `looksLikeNumericalExpression`, so the value reaches the sampler intact — which
-is precisely why it is not called `linear-gradient()`: that name *is* matched by
+is precisely why it is not called `linear-gradient()`: that name _is_ matched by
 `looksLikeColorValue`, and the value would collapse to `rgba(0,0,0,0)`.
 
 ## Collapsing the existing stylesheets
