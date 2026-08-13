@@ -151,7 +151,8 @@
 
   &[feature='highway_bus_stop']:zoom(14) {
     --marker-fill: @bus-stop;
-    --marker-width: zoom-gradient(6 14z, 3 16z);
+    --marker-width: 6;
+    --marker-scale: zoom-gradient(1 14z, 0.5 16z);
   }
 
   &[feature='highway_elevator']:zoom(18) {
@@ -292,7 +293,6 @@
         --marker-allow-overlap: true;
         --marker-line-width: 0;
         --marker-width: 10;
-        --marker-height: 10;
         --marker-ignore-placement: true;
       }
     }
@@ -301,7 +301,6 @@
       &:zoom(17, 17) {
         --nozzle__marker-line-width: 0;
         --nozzle__marker-width: 3;
-        --nozzle__marker-height: 3;
       }
       &:zoom(18) {
         --nozzle__marker-file: "url('symbols/amenity/fountain.svg')";
@@ -743,7 +742,8 @@
   &[feature='amenity_nursing_home'],
   &[feature='amenity_childcare'] {
     &:zoom(17) {
-      --marker-width: zoom-gradient(4, 6 18z);
+      --marker-width: 4;
+      --marker-scale: zoom-gradient(1 17z, 1.5 18z);
       --marker-line-width: 0;
       --marker-clip: false;
       --marker-fill: darken(@societal_amenities, 80%);
@@ -751,7 +751,8 @@
   }
 
   &[feature='amenity_driving_school']:zoom(17) {
-    --marker-width: zoom-gradient(4, 6 18z);
+    --marker-width: 4;
+    --marker-scale: zoom-gradient(1 17z, 1.5 18z);
     --marker-line-width: 0;
     --marker-clip: false;
     --marker-fill: @shop-icon;
@@ -1569,7 +1570,8 @@
   &[feature='barrier_log'],
   &[feature='barrier_turnstile'] {
     &:zoom(17) {
-      --marker-width: zoom-gradient(3, 4 18z);
+      --marker-width: 3;
+      --marker-scale: zoom-gradient(1 17z, (4/3) 18z);
       --marker-line-width: 0;
       --marker-fill: #7d7c7c;
     }
@@ -2914,13 +2916,13 @@
       --marker-allow-overlap: true;
       --marker-line-width: 0;
       --marker-ignore-placement: true;
-      --marker-width: zoom-gradient(2.5, 5 17z, 10 18z, 15 19z, 30 20z);
-      --marker-height: zoom-gradient(2.5, 5 17z, 10 18z, 15 19z, 30 20z);
+      --marker-width: 2.5;
+      --marker-scale: zoom-gradient(1, 2 17z, 4 18z, 6 19z, 12 20z);
     }
   }
   &[natural='tree']::trunk {
-    --trunk__marker-width: zoom-gradient(2 18z, 3 19z, 6 20z);
-    --trunk__marker-height: zoom-gradient(2 18z, 3 19z, 6 20z);
+    --trunk__marker-width: 2;
+    --trunk__marker-scale: zoom-gradient(1 18z, 1.5 19z, 3 20z);
     &:zoom(18) {
       --trunk__opacity: 0.4;
       --trunk__marker-fill: #6b8d5e; // Same opacity and color as forest svg patterns
