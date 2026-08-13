@@ -1,4 +1,4 @@
-@station-color: #7981b0;
+@station-color: #50b7d4;
 @station-text: darken(saturate(@station-color, 15%), 10%);
 
 #stations {
@@ -19,15 +19,15 @@
   }
 
   &[railway='station']:zoom(12) {
-    --marker-file: "url('symbols/square.svg')";
     --marker-fill: @station-color;
     --marker-clip: false;
     &:not([station='subway']) {
       --marker-width: 4;
+      --marker-scale: zoom-gradient(1 12z, 1.5 13z, 2.25 15z);
     }
-    &:not([station='subway']):zoom(13),
     &[station='subway']:zoom(14) {
       --marker-width: 6;
+      --marker-scale: zoom-gradient(1 14z, 1.5 16z);
     }
     &:not([station='subway']):zoom(14),
     &:zoom(15) {
@@ -43,7 +43,6 @@
     }
     &:not([station='subway']):zoom(15),
     &:zoom(16) {
-      --marker-width: 9;
       --text-size: 11;
       --text-wrap-width: 33; // 3 em
       --text-line-spacing: -1.65; // -0.15 em
@@ -53,7 +52,6 @@
 
   &[railway='halt'] {
     &:zoom(13) {
-      --marker-file: "url('symbols/square.svg')";
       --marker-fill: @station-color;
       --marker-width: 4;
       --marker-scale: zoom-gradient(1 13z, 1.5 15z);
@@ -74,7 +72,6 @@
 
   &[aerialway='station']::aerialway {
     &:zoom(13) {
-      --marker-file: "url('symbols/square.svg')";
       --marker-fill: @station-color;
       --marker-width: 4;
       --marker-clip: false;
@@ -97,7 +94,6 @@
 
   &[railway='tram_stop'] {
     &:zoom(14) {
-      --marker-file: "url('symbols/square.svg')";
       --marker-fill: @station-color;
       --marker-width: 4;
       --marker-scale: zoom-gradient(1 14z, 1.5 15z);

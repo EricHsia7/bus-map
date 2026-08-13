@@ -180833,8 +180833,7 @@
     ],
     "paint": {
       "marker-opacity": "1",
-      "marker-width": "6",
-      "marker-height": "6"
+      "marker-width": "6"
     }
   },
   {
@@ -181084,8 +181083,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/square.svg')\"",
-      "marker-fill": "rgba(121,129,176,1)",
+      "marker-fill": "rgba(80,183,212,1)",
       "marker-clip": "false"
     }
   },
@@ -181095,7 +181093,7 @@
         "layer": "stations",
         "zoom": {
           "min": 12,
-          "max": 24
+          "max": 12
         },
         "and": [
           {
@@ -181112,7 +181110,11 @@
       }
     ],
     "paint": {
-      "marker-width": "4"
+      "marker-width": "4",
+      "marker-scale": [
+        1,
+        1.5
+      ]
     }
   },
   {
@@ -181121,6 +181123,66 @@
         "layer": "stations",
         "zoom": {
           "min": 13,
+          "max": 13
+        },
+        "and": [
+          {
+            "key": "railway",
+            "op": "=",
+            "value": "station"
+          },
+          {
+            "key": "station",
+            "op": "!=",
+            "value": "subway"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "marker-width": "4",
+      "marker-scale": [
+        1.5,
+        1.875
+      ]
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "stations",
+        "zoom": {
+          "min": 14,
+          "max": 14
+        },
+        "and": [
+          {
+            "key": "railway",
+            "op": "=",
+            "value": "station"
+          },
+          {
+            "key": "station",
+            "op": "!=",
+            "value": "subway"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "marker-width": "4",
+      "marker-scale": [
+        1.875,
+        2.25
+      ]
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "stations",
+        "zoom": {
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -181135,11 +181197,82 @@
             "value": "subway"
           }
         ]
-      },
+      }
+    ],
+    "paint": {
+      "marker-width": "4",
+      "marker-scale": [
+        2.25,
+        2.25
+      ]
+    }
+  },
+  {
+    "groups": [
       {
         "layer": "stations",
         "zoom": {
           "min": 14,
+          "max": 14
+        },
+        "and": [
+          {
+            "key": "railway",
+            "op": "=",
+            "value": "station"
+          },
+          {
+            "key": "station",
+            "op": "=",
+            "value": "subway"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "marker-width": "6",
+      "marker-scale": [
+        1,
+        1.25
+      ]
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "stations",
+        "zoom": {
+          "min": 15,
+          "max": 15
+        },
+        "and": [
+          {
+            "key": "railway",
+            "op": "=",
+            "value": "station"
+          },
+          {
+            "key": "station",
+            "op": "=",
+            "value": "subway"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "marker-width": "6",
+      "marker-scale": [
+        1.25,
+        1.5
+      ]
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "stations",
+        "zoom": {
+          "min": 16,
           "max": 24
         },
         "and": [
@@ -181157,7 +181290,11 @@
       }
     ],
     "paint": {
-      "marker-width": "6"
+      "marker-width": "6",
+      "marker-scale": [
+        1.5,
+        1.5
+      ]
     }
   },
   {
@@ -181200,7 +181337,7 @@
       "text-name": "'[name]'",
       "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-size": "10",
-      "text-fill": "rgba(73,88,173,1)",
+      "text-fill": "rgba(30,171,211,1)",
       "text-dy": "9",
       "text-halo-radius": "1.5",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -181245,7 +181382,6 @@
       }
     ],
     "paint": {
-      "marker-width": "9",
       "text-size": "11",
       "text-wrap-width": "33",
       "text-line-spacing": "-1.65",
@@ -181270,8 +181406,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/square.svg')\"",
-      "marker-fill": "rgba(121,129,176,1)",
+      "marker-fill": "rgba(80,183,212,1)",
       "marker-width": "4",
       "marker-scale": [
         1,
@@ -181298,8 +181433,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/square.svg')\"",
-      "marker-fill": "rgba(121,129,176,1)",
+      "marker-fill": "rgba(80,183,212,1)",
       "marker-width": "4",
       "marker-scale": [
         1.25,
@@ -181326,8 +181460,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/square.svg')\"",
-      "marker-fill": "rgba(121,129,176,1)",
+      "marker-fill": "rgba(80,183,212,1)",
       "marker-width": "4",
       "marker-scale": [
         1.5,
@@ -181357,7 +181490,7 @@
       "text-name": "'[name]'",
       "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-size": "5",
-      "text-fill": "rgba(73,88,173,1)",
+      "text-fill": "rgba(30,171,211,1)",
       "text-dy": "10",
       "text-halo-radius": "1.5",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -181383,8 +181516,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/square.svg')\"",
-      "marker-fill": "rgba(121,129,176,1)",
+      "marker-fill": "rgba(80,183,212,1)",
       "marker-width": "4",
       "marker-clip": "false"
     },
@@ -181433,7 +181565,7 @@
       "text-name": "'[name]'",
       "text-face-name": "'Noto Sans TC'",
       "text-size": "5",
-      "text-fill": "rgba(73,88,173,1)",
+      "text-fill": "rgba(30,171,211,1)",
       "text-dy": "10",
       "text-halo-radius": "1.5",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -181460,8 +181592,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/square.svg')\"",
-      "marker-fill": "rgba(121,129,176,1)",
+      "marker-fill": "rgba(80,183,212,1)",
       "marker-width": "4",
       "marker-scale": [
         1,
@@ -181488,8 +181619,7 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/square.svg')\"",
-      "marker-fill": "rgba(121,129,176,1)",
+      "marker-fill": "rgba(80,183,212,1)",
       "marker-width": "4",
       "marker-scale": [
         1.5,
@@ -181519,7 +181649,7 @@
       "text-name": "'[name]'",
       "text-face-name": "'Noto Sans TC'",
       "text-size": "5",
-      "text-fill": "rgba(73,88,173,1)",
+      "text-fill": "rgba(30,171,211,1)",
       "text-dy": "10",
       "text-halo-radius": "1.5",
       "text-halo-fill": "rgba(255,255,255,0.6)",
@@ -184278,7 +184408,6 @@
       "marker-allow-overlap": "true",
       "marker-line-width": "0",
       "marker-width": "10",
-      "marker-height": "10",
       "marker-ignore-placement": "true"
     },
     "attachment": "basin"
@@ -184324,8 +184453,7 @@
     ],
     "paint": {
       "nozzle/marker-line-width": "0",
-      "nozzle/marker-width": "3",
-      "nozzle/marker-height": "3"
+      "nozzle/marker-width": "3"
     },
     "attachment": "nozzle"
   },
