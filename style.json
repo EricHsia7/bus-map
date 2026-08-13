@@ -183875,7 +183875,7 @@
       }
     ],
     "paint": {
-      "text-name": "'🅱[name]'",
+      "text-name": "'●[name]'",
       "text-face-name": "'Noto Sans TC', sans-serif",
       "text-size": "10",
       "text-scale": [
@@ -183907,7 +183907,7 @@
       }
     ],
     "paint": {
-      "text-name": "'🅱[name]'",
+      "text-name": "'●[name]'",
       "text-face-name": "'Noto Sans TC', sans-serif",
       "text-size": "10",
       "text-scale": [
@@ -183939,7 +183939,7 @@
       }
     ],
     "paint": {
-      "text-name": "'🅱[name]'",
+      "text-name": "'●[name]'",
       "text-face-name": "'Noto Sans TC', sans-serif",
       "text-size": "10",
       "text-scale": [
@@ -643931,7 +643931,7 @@
       }
     ],
     "paint": {
-      "text-name": "'🅿[name]'",
+      "text-name": "'[name]'",
       "text-size": "5",
       "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
