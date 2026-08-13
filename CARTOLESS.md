@@ -10,7 +10,7 @@ CartoCSS compiler produced.
 
 ---
 
-## 1. Paint properties are custom properties
+## Paint properties are custom properties
 
 Mapnik symbolizer properties are prefixed with `--`, so LESS treats them as custom
 properties instead of choking on unknown declarations.
@@ -27,7 +27,7 @@ CartoCSS wrote instances as `name/prop`. A slash is not legal in a custom proper
 name, so the separator is `__` (double underscore):
 
 | CartoCSS | CartoLESS | compiled key |
-|---|---|---|
+| --- | --- | --- |
 | `line-width: 2;` | `--line-width: 2;` | `line-width` |
 | `background/line-width: 2;` | `--background__line-width: 2;` | `background/line-width` |
 | `tunnelfill/line-color: @c;` | `--tunnelfill__line-color: @c;` | `tunnelfill/line-color` |
@@ -35,21 +35,16 @@ name, so the separator is `__` (double underscore):
 Only the **first** `__` is the instance separator, so `--casing__line-dasharray`
 round-trips correctly.
 
-### Caveat: LESS does not interpolate custom property values
-
-`lessc` treats the right-hand side of a `--*` declaration as verbatim text, so
-`--line-color: @grass` is *not* substituted by LESS. This is deliberate:
-`compile-carto.js` performs variable substitution itself (same as the old
-compiler did), so `@`-variables keep working and stay readable in the source.
-Do not run these files through `lessc` and expect resolved colors.
+> [!NOTE]
+> LESS does not interpolate custom property values. `lessc` treats the right-hand side of a `--*` declaration as verbatim text, so `--line-color: @grass` is *not* substituted by LESS. This is deliberate: `compile-carto.js` performs variable substitution itself, so `@`-variables keep working and stay readable in the source. Do not run these files through `lessc` and expect resolved colors.
 
 ---
 
-## 2. Selectors
+## Selectors
 
 A compound selector is written in this order:
 
-```
+```less
 #layer [attributes] :pseudo-functions ::attachment
 ```
 
@@ -67,7 +62,7 @@ CartoCSS's single-quoted filters become standard CSS attribute selectors with
 double quotes:
 
 | CartoCSS | CartoLESS |
-|---|---|
+| --- | --- |
 | `[feature='park']` | `[feature="park"]` |
 | `[ref != 'x']` | `:not([ref="x"])` |
 | `[ref != '']` | `:not([ref=""])` |
@@ -91,7 +86,7 @@ just like before.
 
 ---
 
-## 3. Zoom and numeric functions
+## Zoom and numeric functions
 
 These are the "custom functions" — they collapse the repetitive
 `[zoom >= a][zoom < b]` and `[k >= a][k <= b]` chains into one legible token.
@@ -103,7 +98,7 @@ without complaint.
 Bounds are **inclusive**, and `*` means open:
 
 | CartoCSS | CartoLESS |
-|---|---|
+| --- | --- |
 | `[zoom >= 12]` | `:zoom(12)` |
 | `[zoom >= 12][zoom < 15]` | `:zoom(12, 14)` |
 | `[zoom <= 9]` / `[zoom < 10]` | `:zoom(*, 9)` |
@@ -115,7 +110,7 @@ Bounds are **inclusive**, and `*` means open:
 For non-zoom numeric attributes:
 
 | CartoCSS | CartoLESS |
-|---|---|
+| --- | --- |
 | `[height > 20]` | `:gt(height, 20)` |
 | `[height >= 20]` | `:gte(height, 20)` |
 | `[score < 400000]` | `:lt(score, 400000)` |
@@ -132,7 +127,7 @@ A matched `>=` / `<=` pair on one key collapses into a single inclusive range:
 
 ---
 
-## 4. Two intentional behaviour changes
+## Two intentional behaviour changes
 
 The new compiler is otherwise byte-for-byte identical to the old one (verified
 rule-by-rule over all 17 stylesheets: 2230 rules / 28720 selector groups). Two
@@ -158,9 +153,9 @@ selector lists are no longer split inside `rgba(255, 255, 255, 0.6)` or
 
 ---
 
-## 5. Files
+## Files
 
-```
+```text
 style/*.less        17 converted stylesheets
 compile-carto.js    the new compiler (same CLI and JSON output as before)
 tools/mss-to-less.js  the one-shot codemod used to convert .mss -> .less
@@ -290,9 +285,8 @@ styles actually mean by a default.
 Both desugar to this component and share its sampler, so there is exactly one
 implementation of the semantics:
 
-```
-step(a 12, b 14)         ==  zoom-gradient(a 12z 13z, b 14z)
-interpolate(a 12, b 18)  ==  zoom-gradient(a 12z, b 18z)
+```less
+step(a 12, b 14) // zoom-gradient(a 12z 13z, b 14z)
 ```
 
 Use `step()`/`interpolate()` when a ladder is uniformly one kind. Reach for
@@ -359,7 +353,7 @@ single value, so they stay as selectors.
 `tools/collapse-ladders.js` performs the rewrite, and `tools/verify-collapse.js`
 proves it changed nothing visible:
 
-```
+```text
 node tools/collapse-ladders.js style            # dry run, prints counts
 node tools/collapse-ladders.js style --write    # rewrite in place
 node tools/verify-collapse.js <expanded> style  # 0 mismatches expected
