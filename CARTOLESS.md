@@ -39,9 +39,15 @@ round-trips correctly.
 
 ### Scales
 
+A size that grows with zoom can be written in two ways. Either put the ladder on
+the size itself:
+
 ```less
 #text:zoom(12) {
-  --text-size: zoom-gradient(10 12z, 30 15z); // text size is updated when the zoom level jumps
+  --text-size: zoom-gradient(
+    10 12z,
+    30 15z
+  ); // text size is updated when the zoom level jumps
 }
 
 #circle:zoom(13) {
@@ -50,10 +56,15 @@ round-trips correctly.
 }
 ```
 
+or state a reference size once and put the ladder on a `*-scale` multiplier:
+
 ```less
 #text:zoom(12) {
   --text-size: 10;
-  --text-scale: zoom-gradient(1 12z, 3 15z); // supports continuous interpolation at runtime
+  --text-scale: zoom-gradient(
+    1 12z,
+    3 15z
+  ); // supports continuous interpolation at runtime
 }
 
 #circle:zoom(13) {
@@ -62,6 +73,10 @@ round-trips correctly.
   --marker-scale: zoom-gradient(1 12z, 2.5 15z);
 }
 ```
+
+Both spellings compile to the same output by default: `--text-scale` and
+`--marker-scale` are folded into their sibling size and never reach the JSON.
+See [Scale properties](#scale-properties----text-scale-and---marker-scale).
 
 ---
 
@@ -100,7 +115,7 @@ with `&`:
 
 ```less
 #roads-fill:zoom(12) {
-  &[feature='highway_primary'] {
+  &[feature="highway_primary"] {
     --line-width: 4;
   }
 }
@@ -191,7 +206,12 @@ Usage is unchanged:
 ```sh
 node compile-carto.js style.less > style.json
 node compile-carto.js --dark style.less > style-dark.json
+node compile-carto.js --keep-scales style.less > style-labels.json
 ```
+
+`--dark` inverts every resolved colour. `--keep-scales` ships `*-scale`
+properties instead of folding them into their sibling size; see
+[Scale properties](#scale-properties----text-scale-and---marker-scale).
 
 `compile-carto.js` still requires the sibling modules `./color`, `./calc`, and
 `./invert` from your existing tree; they are untouched and are not included here.
@@ -215,7 +235,7 @@ blocks. In `5-roads` alone there are 417 such ladders for `--line-width` and
 into a single declaration.
 
 ```less
-#roads[feature='highway_motorway'] {
+#roads[feature="highway_motorway"] {
   --line-width: step(0.5 12, 1 14, 2 16);
   --line-color: interpolate(#cda 10, #e892a2 16);
 }
@@ -311,7 +331,7 @@ A seven-block `::casing` ladder:
   --line-width: 1;
   --line-color: mix(@roller-coaster-casing, @roller-coaster-fill, 50%);
   --line-join: round;
-  &[tunnel='yes']:zoom(16) {
+  &[tunnel="yes"]:zoom(16) {
     --line-color: darken(@roller-coaster-casing, 20%);
   }
   &:zoom(16) {
@@ -338,9 +358,12 @@ collapses to two:
 ```less
 &::casing {
   --line-width: zoom-gradient(1, 2.5 16z, 4 17z, 6 18z, 8 19z, 12 20z);
-  --line-color: zoom-gradient(mix(@roller-coaster-casing, @roller-coaster-fill, 50%), @roller-coaster-casing 16z);
+  --line-color: zoom-gradient(
+    mix(@roller-coaster-casing, @roller-coaster-fill, 50%),
+    @roller-coaster-casing 16z
+  );
   --line-join: round;
-  &[tunnel='yes']:zoom(16) {
+  &[tunnel="yes"]:zoom(16) {
     --line-color: darken(@roller-coaster-casing, 20%);
   }
 }
@@ -366,6 +389,71 @@ diagnostic. `zoom-gradient(` is matched by neither `looksLikeColorValue` nor
 `looksLikeNumericalExpression`, so the value reaches the sampler intact — which
 is precisely why it is not called `linear-gradient()`: that name _is_ matched by
 `looksLikeColorValue`, and the value would collapse to `rgba(0,0,0,0)`.
+
+## Scale properties
+
+Mapnik has no `text-scale` symbolizer property — a size is a single constant at
+a given zoom. `--text-scale` and `--marker-scale` are therefore source sugar,
+exactly like `step()`/`interpolate()`: a stylesheet states a reference size once
+and expresses the zoom ladder as a multiplier of it.
+
+```less
+--text-size: 10;
+--text-scale: zoom-gradient(
+  1,
+  1.2 14z
+); // z0–13 -> text-size 10, z14+ -> text-size 12
+```
+
+The pairs are fixed:
+
+| scale property   | folds into       |
+| ---------------- | ---------------- |
+| `--text-scale`   | `--text-size`    |
+| `--marker-scale` | `--marker-width` |
+
+Rules:
+
+- A scale only ever applies to the size of its **own instance**:
+  `--casing__text-scale` multiplies `casing/text-size`, never the bare one.
+- The fold happens after ladders are sampled but before values are resolved, so
+  a ratio such as `(11 / 9)` reaches the multiplication intact.
+- Multiplication is **exact**: sizes and ratios are multiplied as BigInt
+  rationals, so `9 × (11 / 9)` emits `11`, not `11.000000000000002`. Only when a
+  side is not a plain decimal or division (a variable, an expression, a
+  non-terminating fraction) does it fall back to floating point rounded to 4
+  decimals, like every other ladder value.
+- A scale with nothing to scale is inert. If the size is not emitted at that
+  zoom — a gated ladder below its first stop — the scale is simply dropped.
+- A scale that is not a number, on either side, is a compile error.
+- `text-scale` never appears in the output JSON, so `paint-to-label.js` and
+  `paint-to-svg.js` need no changes.
+
+Add further pairs in `SCALE_TARGETS` if other sizes ever want the same
+treatment (e.g. `shield-scale` → `shield-size`).
+
+### `--keep-scales`
+
+For the label/GPU consumer, the scale is not sugar but a shipped property: the
+client rasterizes glyphs once at the reference size and scales them on the GPU.
+With `--keep-scales` the compiler does not fold, and instead emits each scale as
+the **interval** `[s0, s1]` covering zooms `z` to `z + 1` — exactly the range
+over which tile zoom `z` is displayed:
+
+```json
+{ "text-size": 10, "text-scale": [1, 1.2] }
+```
+
+- The lookahead happens in the compiler, not in `render.js`, so the label pass
+  keeps its single `matchRules`/`inferLayers` call at tile zoom.
+- If a rule changes its reference size between `z` and `z + 1`, the upper scale
+  is **re-anchored** to the lower reference (`curRef × s1' === nextRef × s1`), so
+  one `text-size` remains sufficient across the interval.
+- If the size stops being emitted at `z + 1`, or `z` is the maximum zoom, the
+  interval is flat (`s1 = s0`) rather than interpolating toward nothing.
+
+Because the interval changes at every zoom, a rule carrying a scale never takes
+the no-ladder fast path under `--keep-scales`; it is banded like any ladder.
 
 ## Collapsing the existing stylesheets
 
@@ -401,6 +489,4 @@ verifier caught the mistake:
    declaration behind in the child would override the parent's gradient,
    because children cascade after the parent's own declarations.
 
-Where a ladder is genuinely smooth, `zoom-gradient()` stops can be edited by
-hand to drop the hard-stop ranges and interpolate instead. The collapser never
-makes that choice for you, because it cannot know whether a jump was intended.
+Where a ladder is genuinely smooth, `zoom-gradient()` stops can be edited by hand to drop the hard-stop ranges and interpolate instead. The collapser never makes that choice for you, because it cannot know whether a jump was intended.
