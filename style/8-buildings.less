@@ -38,8 +38,8 @@
 }
 
 #entrances {
-  --marker-width: zoom-gradient(5 18z 19z, 8 20z);
-  --marker-height: zoom-gradient(5 18z 19z, 8 20z);
+  --marker-width: 5;
+  --marker-scale: zoom-gradient(1 18z 19z, 1.6 20z);
   &:zoom(18) {
     --marker-fill: @entrance-normal;
     --marker-allow-overlap: true;
@@ -60,7 +60,6 @@
     &[entrance='shop'] {
       --marker-opacity: 1;
       --marker-width: 6;
-      --marker-height: 6;
       &[entrance='service'] {
         --marker-file: "url('symbols/corners.svg')";
       }

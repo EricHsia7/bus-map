@@ -141,7 +141,8 @@ function paintToLabels(paint, tags = {}) {
         styleProperties: prune({
           'marker-fill': props['marker-fill'],
           'marker-line-color': props['marker-line-color'],
-          'marker-width': num(props['marker-width'])
+          'marker-width': num(props['marker-width']),
+          'marker-scale': pair(props['marker-scale'])
         })
       });
     }
