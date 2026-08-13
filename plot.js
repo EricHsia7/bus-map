@@ -176,7 +176,7 @@ function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, textSc
     let { cx: x, cy: y, angle } = glyph;
     angle = (angle + 2 * Math.PI) % (2 * Math.PI);
     outputCoordinates.push([Math.floor((x / tileSize) * quantization), Math.floor((y / tileSize) * quantization)]);
-    angles.push((angle / (2 * Math.PI)) * quantization);
+    angles.push(Math.floor((angle / (2 * Math.PI)) * quantization));
   }
 
   return { type: 'LineString', coordinates: outputCoordinates, angles };
