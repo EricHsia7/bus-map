@@ -8,17 +8,13 @@ function registerChars(charsets, label, kind, styleReference) {
 
   const charset = charsets.get(key);
   const length = label.length;
-  const indices = new Array(length);
   for (let i = length - 1; i >= 0; i--) {
     if (!charset.has(label[i])) {
       const size = charset.size;
-      indices[i] = size;
       charset.set(label[i], size);
       continue;
     }
-    indices[i] = charset.get(label[i]);
   }
-  return indices;
 }
 
 function dumpCharsets(charsets) {
