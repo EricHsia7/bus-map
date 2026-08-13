@@ -149,10 +149,22 @@
     --marker-clip: false;
   }
 
-  &[feature='highway_bus_stop']:zoom(14) {
+  &[feature='highway_bus_stop']:zoom(13) {
     --marker-fill: @bus-stop;
     --marker-width: 6;
-    --marker-scale: zoom-gradient(1 14z, 0.5 16z);
+    --marker-scale: zoom-gradient(0 13z, 1 15z);
+  }
+
+  &[feature='highway_bus_stop']:zoom(14) {
+    --text-name: '🅱[name]';
+    --text-face-name: @standard-font;
+    --text-size: 10;
+    --text-scale: zoom-gradient(0.5 14z, 1 15z, 1.2 16z);
+    --text-fill: @bus-stop;
+    --text-halo-radius: @standard-halo-radius * 1.5;
+    --text-halo-fill: @standard-halo-fill;
+    --text-wrap-width: 60;
+    --text-line-spacing: -1.5;
   }
 
   &[feature='highway_elevator']:zoom(18) {
@@ -2760,22 +2772,17 @@
   &[feature='amenity_motorcycle_parking'],
   &[feature='amenity_parking_entrance'][parking='underground'] {
     &:zoom(14) {
-      --text-name: '[name]';
+      --text-name: '🅿[name]';
       --text-size: @standard-font-size;
       --text-wrap-width: @standard-wrap-width;
       --text-line-spacing: @standard-line-spacing-size;
       --text-fill: @transportation-text;
-      --text-dy: 9;
       --text-face-name: @standard-font;
       --text-halo-radius: @standard-halo-radius;
       --text-halo-fill: @standard-halo-fill;
       &[int_access='restricted'] {
         --text-opacity: @private-opacity;
         --text-halo-radius: 0;
-      }
-      &[feature='amenity_bicycle_parking'],
-      &[feature='amenity_motorcycle_parking'] {
-        --text-dy: 12;
       }
     }
   }
