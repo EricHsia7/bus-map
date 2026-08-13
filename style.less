@@ -3978,7 +3978,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           --text-name: '[name]';
         }
         &:not([name='null']):not([ref='null']) {
-          --text-name: '[name]\n[ref]';
+          --text-name: '[name] [ref]';
         }
       }
       &:zoom(15) {
@@ -5304,7 +5304,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --marker-fill: @transportation-icon;
     --marker-clip: false;
     &:zoom(19) {
-      --text-name: '[ref]';
+      --text-name: '▣[ref]';
       --text-face-name: @book-fonts;
       --text-size: 10;
       --text-fill: @transportation-text;
@@ -5327,19 +5327,18 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
     &:not([station='subway']):zoom(14),
     &:zoom(15) {
-      --text-name: '[name]';
+      --text-name: '■[name]';
       --text-face-name: @bold-fonts;
-      --text-size: 10;
+      --text-size: 8;
+      --text-scale: zoom-gradient(1 14z 15z, 1.25 16z);
       --text-fill: @station-text;
       --text-halo-radius: @standard-halo-radius * 1.5;
       --text-halo-fill: @standard-halo-fill;
-      --text-wrap-width: 30; // 3 em
+      --text-wrap-width: 50;
       --text-line-spacing: -1.5; // -0.15 em
     }
     &:not([station='subway']):zoom(15),
     &:zoom(16) {
-      --text-size: 11;
-      --text-wrap-width: 33; // 3 em
       --text-line-spacing: -1.65; // -0.15 em
     }
   }
@@ -5554,10 +5553,22 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --marker-clip: false;
   }
 
-  &[feature='highway_bus_stop']:zoom(14) {
+  &[feature='highway_bus_stop']:zoom(13) {
     --marker-fill: @bus-stop;
     --marker-width: 6;
-    --marker-scale: zoom-gradient(1 14z, 0.5 16z);
+    --marker-scale: zoom-gradient(0 13z, 1 15z);
+  }
+
+  &[feature='highway_bus_stop']:zoom(14) {
+    --text-name: '🅱[name]';
+    --text-face-name: @standard-font;
+    --text-size: 10;
+    --text-scale: zoom-gradient(0.5 14z, 1 15z, 1.2 16z);
+    --text-fill: @bus-stop;
+    --text-halo-radius: @standard-halo-radius * 1.5;
+    --text-halo-fill: @standard-halo-fill;
+    --text-wrap-width: 60;
+    --text-line-spacing: -1.5;
   }
 
   &[feature='highway_elevator']:zoom(18) {
@@ -8165,22 +8176,17 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[feature='amenity_motorcycle_parking'],
   &[feature='amenity_parking_entrance'][parking='underground'] {
     &:zoom(14) {
-      --text-name: '[name]';
+      --text-name: '🅿[name]';
       --text-size: @standard-font-size;
       --text-wrap-width: @standard-wrap-width;
       --text-line-spacing: @standard-line-spacing-size;
       --text-fill: @transportation-text;
-      --text-dy: 9;
       --text-face-name: @standard-font;
       --text-halo-radius: @standard-halo-radius;
       --text-halo-fill: @standard-halo-fill;
       &[int_access='restricted'] {
         --text-opacity: @private-opacity;
         --text-halo-radius: 0;
-      }
-      &[feature='amenity_bicycle_parking'],
-      &[feature='amenity_motorcycle_parking'] {
-        --text-dy: 12;
       }
     }
   }
@@ -9142,7 +9148,7 @@ Then all three layers are added to the rendering with comp-op: darken, so that t
     &:not([addr_housenumber='null']) {
       --text-name: [addr_housenumber];
       &:not([addr_housename='null']) {
-        --text-name: '[addr_housenumber]\n[addr_housename]';
+        --text-name: '[addr_housenumber] [addr_housename]';
       }
     }
     --text-face-name: @book-fonts;
@@ -9165,13 +9171,13 @@ Then all three layers are added to the rendering with comp-op: darken, so that t
       &:not([addr_unit='null']) {
         --text-name: '[addr_housenumber] [addr_unit]';
         &:not([addr_housename='null']) {
-          --text-name: '[addr_housenumber] [addr_unit]\n[addr_housename]';
+          --text-name: '[addr_housenumber] [addr_unit] [addr_housename]';
         }
       }
       &:not([addr_flats='null']) {
         --text-name: '[addr_housenumber] [addr_flats]';
         &:not([addr_housename='null']) {
-          --text-name: '[addr_housenumber] [addr_flats]\n[addr_housename]';
+          --text-name: '[addr_housenumber] [addr_flats] [addr_housename]';
         }
       }
     }

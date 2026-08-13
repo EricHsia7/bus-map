@@ -135278,7 +135278,7 @@
       }
     ],
     "paint": {
-      "text-name": "'[name]\\n[ref]'"
+      "text-name": "'[name] [ref]'"
     }
   },
   {
@@ -181054,7 +181054,7 @@
       }
     ],
     "paint": {
-      "text-name": "'[ref]'",
+      "text-name": "'▣[ref]'",
       "text-face-name": "'Noto Sans TC'",
       "text-size": "10",
       "text-fill": "rgba(0,102,255,1)",
@@ -181301,7 +181301,44 @@
         "layer": "stations",
         "zoom": {
           "min": 14,
-          "max": 24
+          "max": 14
+        },
+        "and": [
+          {
+            "key": "railway",
+            "op": "=",
+            "value": "station"
+          },
+          {
+            "key": "station",
+            "op": "!=",
+            "value": "subway"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-name": "'■[name]'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
+      "text-size": "8",
+      "text-scale": [
+        1,
+        1
+      ],
+      "text-fill": "rgba(30,171,211,1)",
+      "text-halo-radius": "1.5",
+      "text-halo-fill": "rgba(255,255,255,0.6)",
+      "text-wrap-width": "50",
+      "text-line-spacing": "-1.5"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "stations",
+        "zoom": {
+          "min": 15,
+          "max": 15
         },
         "and": [
           {
@@ -181320,6 +181357,57 @@
         "layer": "stations",
         "zoom": {
           "min": 15,
+          "max": 15
+        },
+        "and": [
+          {
+            "key": "railway",
+            "op": "=",
+            "value": "station"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-name": "'■[name]'",
+      "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
+      "text-size": "8",
+      "text-scale": [
+        1,
+        1.25
+      ],
+      "text-fill": "rgba(30,171,211,1)",
+      "text-halo-radius": "1.5",
+      "text-halo-fill": "rgba(255,255,255,0.6)",
+      "text-wrap-width": "50",
+      "text-line-spacing": "-1.5"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "stations",
+        "zoom": {
+          "min": 16,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "railway",
+            "op": "=",
+            "value": "station"
+          },
+          {
+            "key": "station",
+            "op": "!=",
+            "value": "subway"
+          }
+        ]
+      },
+      {
+        "layer": "stations",
+        "zoom": {
+          "min": 16,
           "max": 24
         },
         "and": [
@@ -181332,13 +181420,17 @@
       }
     ],
     "paint": {
-      "text-name": "'[name]'",
+      "text-name": "'■[name]'",
       "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
-      "text-size": "10",
+      "text-size": "8",
+      "text-scale": [
+        1.25,
+        1.25
+      ],
       "text-fill": "rgba(30,171,211,1)",
       "text-halo-radius": "1.5",
       "text-halo-fill": "rgba(255,255,255,0.6)",
-      "text-wrap-width": "30",
+      "text-wrap-width": "50",
       "text-line-spacing": "-1.5"
     }
   },
@@ -181379,8 +181471,6 @@
       }
     ],
     "paint": {
-      "text-size": "11",
-      "text-wrap-width": "33",
       "text-line-spacing": "-1.65"
     }
   },
@@ -183694,6 +183784,32 @@
       {
         "layer": "amenity-points",
         "zoom": {
+          "min": 13,
+          "max": 13
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_bus_stop"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "marker-fill": "rgba(50,156,255,1)",
+      "marker-width": "6",
+      "marker-scale": [
+        0,
+        0.5
+      ]
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "amenity-points",
+        "zoom": {
           "min": 14,
           "max": 14
         },
@@ -183710,9 +183826,67 @@
       "marker-fill": "rgba(50,156,255,1)",
       "marker-width": "6",
       "marker-scale": [
-        1,
-        0.75
+        0.5,
+        1
       ]
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "amenity-points",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_bus_stop"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "marker-fill": "rgba(50,156,255,1)",
+      "marker-width": "6",
+      "marker-scale": [
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "amenity-points",
+        "zoom": {
+          "min": 14,
+          "max": 14
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_bus_stop"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-name": "'🅱[name]'",
+      "text-face-name": "'Noto Sans TC'",
+      "text-size": "10",
+      "text-scale": [
+        0.5,
+        1
+      ],
+      "text-fill": "rgba(50,156,255,1)",
+      "text-halo-radius": "1.5",
+      "text-halo-fill": "rgba(255,255,255,0.6)",
+      "text-wrap-width": "60",
+      "text-line-spacing": "-1.5"
     }
   },
   {
@@ -183733,12 +183907,18 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(50,156,255,1)",
-      "marker-width": "6",
-      "marker-scale": [
-        0.75,
-        0.5
-      ]
+      "text-name": "'🅱[name]'",
+      "text-face-name": "'Noto Sans TC'",
+      "text-size": "10",
+      "text-scale": [
+        1,
+        1.2
+      ],
+      "text-fill": "rgba(50,156,255,1)",
+      "text-halo-radius": "1.5",
+      "text-halo-fill": "rgba(255,255,255,0.6)",
+      "text-wrap-width": "60",
+      "text-line-spacing": "-1.5"
     }
   },
   {
@@ -183759,12 +183939,18 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(50,156,255,1)",
-      "marker-width": "6",
-      "marker-scale": [
-        0.5,
-        0.5
-      ]
+      "text-name": "'🅱[name]'",
+      "text-face-name": "'Noto Sans TC'",
+      "text-size": "10",
+      "text-scale": [
+        1.2,
+        1.2
+      ],
+      "text-fill": "rgba(50,156,255,1)",
+      "text-halo-radius": "1.5",
+      "text-halo-fill": "rgba(255,255,255,0.6)",
+      "text-wrap-width": "60",
+      "text-line-spacing": "-1.5"
     }
   },
   {
@@ -643745,12 +643931,11 @@
       }
     ],
     "paint": {
-      "text-name": "'[name]'",
+      "text-name": "'🅿[name]'",
       "text-size": "5",
       "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-fill": "rgba(0,102,255,1)",
-      "text-dy": "9",
       "text-face-name": "'Noto Sans TC'",
       "text-halo-radius": "1",
       "text-halo-fill": "rgba(255,255,255,0.6)"
@@ -643924,337 +644109,6 @@
     "paint": {
       "text-opacity": "0.33",
       "text-halo-radius": "0"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "text-poly-low-zoom",
-        "zoom": {
-          "min": 14,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_parking"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_bicycle_parking"
-          }
-        ]
-      },
-      {
-        "layer": "text-poly-low-zoom",
-        "zoom": {
-          "min": 14,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_parking"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_motorcycle_parking"
-          }
-        ]
-      },
-      {
-        "layer": "text-poly-low-zoom",
-        "zoom": {
-          "min": 14,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_bicycle_parking"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_bicycle_parking"
-          }
-        ]
-      },
-      {
-        "layer": "text-poly-low-zoom",
-        "zoom": {
-          "min": 14,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_bicycle_parking"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_motorcycle_parking"
-          }
-        ]
-      },
-      {
-        "layer": "text-poly-low-zoom",
-        "zoom": {
-          "min": 14,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_motorcycle_parking"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_bicycle_parking"
-          }
-        ]
-      },
-      {
-        "layer": "text-poly-low-zoom",
-        "zoom": {
-          "min": 14,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_motorcycle_parking"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_motorcycle_parking"
-          }
-        ]
-      },
-      {
-        "layer": "text-poly-low-zoom",
-        "zoom": {
-          "min": 14,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_parking_entrance"
-          },
-          {
-            "key": "parking",
-            "op": "=",
-            "value": "underground"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_bicycle_parking"
-          }
-        ]
-      },
-      {
-        "layer": "text-poly-low-zoom",
-        "zoom": {
-          "min": 14,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_parking_entrance"
-          },
-          {
-            "key": "parking",
-            "op": "=",
-            "value": "underground"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_motorcycle_parking"
-          }
-        ]
-      },
-      {
-        "layer": "text-point",
-        "zoom": {
-          "min": 14,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_parking"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_bicycle_parking"
-          }
-        ]
-      },
-      {
-        "layer": "text-point",
-        "zoom": {
-          "min": 14,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_parking"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_motorcycle_parking"
-          }
-        ]
-      },
-      {
-        "layer": "text-point",
-        "zoom": {
-          "min": 14,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_bicycle_parking"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_bicycle_parking"
-          }
-        ]
-      },
-      {
-        "layer": "text-point",
-        "zoom": {
-          "min": 14,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_bicycle_parking"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_motorcycle_parking"
-          }
-        ]
-      },
-      {
-        "layer": "text-point",
-        "zoom": {
-          "min": 14,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_motorcycle_parking"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_bicycle_parking"
-          }
-        ]
-      },
-      {
-        "layer": "text-point",
-        "zoom": {
-          "min": 14,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_motorcycle_parking"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_motorcycle_parking"
-          }
-        ]
-      },
-      {
-        "layer": "text-point",
-        "zoom": {
-          "min": 14,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_parking_entrance"
-          },
-          {
-            "key": "parking",
-            "op": "=",
-            "value": "underground"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_bicycle_parking"
-          }
-        ]
-      },
-      {
-        "layer": "text-point",
-        "zoom": {
-          "min": 14,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_parking_entrance"
-          },
-          {
-            "key": "parking",
-            "op": "=",
-            "value": "underground"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_motorcycle_parking"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "text-dy": "12"
     }
   },
   {
@@ -654715,7 +654569,7 @@
       }
     ],
     "paint": {
-      "text-name": "'[addr_housenumber]\\n[addr_housename]'"
+      "text-name": "'[addr_housenumber] [addr_housename]'"
     }
   },
   {
@@ -654829,7 +654683,7 @@
       }
     ],
     "paint": {
-      "text-name": "'[addr_housenumber] [addr_unit]\\n[addr_housename]'"
+      "text-name": "'[addr_housenumber] [addr_unit] [addr_housename]'"
     }
   },
   {
@@ -654876,7 +654730,7 @@
       }
     ],
     "paint": {
-      "text-name": "'[addr_housenumber] [addr_flats]\\n[addr_housename]'"
+      "text-name": "'[addr_housenumber] [addr_flats] [addr_housename]'"
     }
   },
   {
