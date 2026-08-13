@@ -5301,15 +5301,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
 #stations {
   &[railway='subway_entrance']:zoom(18) {
-    --marker-file: "url('symbols/amenity/entrance.svg')";
     --marker-fill: @transportation-icon;
     --marker-clip: false;
     &:zoom(19) {
-      --text-name: [ref];
+      --text-name: '[ref]';
       --text-face-name: @book-fonts;
       --text-size: 10;
       --text-fill: @transportation-text;
-      --text-dy: 10;
       --text-halo-radius: @standard-halo-radius * 1.5;
       --text-halo-fill: @standard-halo-fill;
       --text-wrap-width: 0;
@@ -5333,7 +5331,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --text-face-name: @bold-fonts;
       --text-size: 10;
       --text-fill: @station-text;
-      --text-dy: 9;
       --text-halo-radius: @standard-halo-radius * 1.5;
       --text-halo-fill: @standard-halo-fill;
       --text-wrap-width: 30; // 3 em
@@ -5344,7 +5341,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --text-size: 11;
       --text-wrap-width: 33; // 3 em
       --text-line-spacing: -1.65; // -0.15 em
-      --text-dy: 10;
     }
   }
 
@@ -5360,7 +5356,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --text-face-name: @bold-fonts;
       --text-size: @standard-font-size;
       --text-fill: @station-text;
-      --text-dy: 10;
       --text-halo-radius: @standard-halo-radius * 1.5;
       --text-halo-fill: @standard-halo-fill;
       --text-wrap-width: @standard-wrap-width;
@@ -5382,7 +5377,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --text-face-name: @book-fonts;
       --text-size: @standard-font-size;
       --text-fill: @station-text;
-      --text-dy: 10;
       --text-halo-radius: @standard-halo-radius * 1.5;
       --text-halo-fill: @standard-halo-fill;
       --text-wrap-width: @standard-wrap-width;
@@ -5402,7 +5396,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --text-face-name: @book-fonts;
       --text-size: @standard-font-size;
       --text-fill: @station-text;
-      --text-dy: 10;
       --text-halo-radius: @standard-halo-radius * 1.5;
       --text-halo-fill: @standard-halo-fill;
       --text-wrap-width: @standard-wrap-width;

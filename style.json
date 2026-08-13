@@ -181032,7 +181032,6 @@
       }
     ],
     "paint": {
-      "marker-file": "\"url('symbols/amenity/entrance.svg')\"",
       "marker-fill": "rgba(0,146,218,1)",
       "marker-clip": "false"
     }
@@ -181055,11 +181054,10 @@
       }
     ],
     "paint": {
-      "text-name": "[ref]",
+      "text-name": "'[ref]'",
       "text-face-name": "'Noto Sans TC'",
       "text-size": "10",
       "text-fill": "rgba(0,102,255,1)",
-      "text-dy": "10",
       "text-halo-radius": "1.5",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-wrap-width": "0"
@@ -181338,7 +181336,6 @@
       "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-size": "10",
       "text-fill": "rgba(30,171,211,1)",
-      "text-dy": "9",
       "text-halo-radius": "1.5",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-wrap-width": "30",
@@ -181384,8 +181381,7 @@
     "paint": {
       "text-size": "11",
       "text-wrap-width": "33",
-      "text-line-spacing": "-1.65",
-      "text-dy": "10"
+      "text-line-spacing": "-1.65"
     }
   },
   {
@@ -181491,7 +181487,6 @@
       "text-face-name": "'Noto Sans TC', 'Noto Sans TC'",
       "text-size": "5",
       "text-fill": "rgba(30,171,211,1)",
-      "text-dy": "10",
       "text-halo-radius": "1.5",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-wrap-width": "25",
@@ -181566,7 +181561,6 @@
       "text-face-name": "'Noto Sans TC'",
       "text-size": "5",
       "text-fill": "rgba(30,171,211,1)",
-      "text-dy": "10",
       "text-halo-radius": "1.5",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-wrap-width": "25",
@@ -181650,7 +181644,6 @@
       "text-face-name": "'Noto Sans TC'",
       "text-size": "5",
       "text-fill": "rgba(30,171,211,1)",
-      "text-dy": "10",
       "text-halo-radius": "1.5",
       "text-halo-fill": "rgba(255,255,255,0.6)",
       "text-wrap-width": "25",
