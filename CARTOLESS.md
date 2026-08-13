@@ -231,38 +231,22 @@ z16+ → `2`.
 ### `interpolate(v1 z1, v2 z2, …)` — piecewise linear
 
 The value varies continuously between stops, so stop zooms may be **any real
-number** (`interpolate(0 12.5, 10 16.5)` is valid). The curve is still only
-_sampled_ at the integer zooms Mapnik renders, so that ladder yields z13 →
-`1.25`, z14 → `3.75`, z16 → `8.75`. Numbers and colors can be interpolated;
-colors blend per RGBA channel. Anything else is a compile error.
+number** (`interpolate(0 12.5z, 10 16.5z)` is valid). Numbers and colors can be interpolated; colors blend per RGBA channel. Anything else is a compile error.
 
 ### Shared rules
 
-- **Below the first stop the property is not emitted.** The rule can still
-  render there if it carries other, constant properties — those are copied into
-  every band. This matches how the hand-written ladders behave today.
-- **Above the last stop the value is clamped**, so `step(2 12)` is just "`2`
-  from z12 on".
-- Values may contain spaces and commas: `step(darken(@c, 10%) 14, rgba(1, 2, 3, 0.5) 16)`
-  parses correctly, because the zoom is the last whitespace-separated token and
-  stops are split only on top-level commas.
+- **Below the first stop the property is not emitted.** The rule can still render there if it carries other, constant properties — those are copied into every band. This matches how the hand-written ladders behave today.
+- **Above the last stop the value is clamped**, so `step(2 12z)` is just "`2` from z12 on".
+- Values may contain spaces and commas: `step(darken(@c, 10%) 14, rgba(1, 2, 3, 0.5) 16z)` parses correctly, because the zoom is the last whitespace-separated token and stops are split only on top-level commas.
 
 ### How it compiles
 
-Mapnik has no runtime zoom expression — a symbolizer property is a constant at
-a given zoom. Ladders are therefore _source_ sugar. The compiler evaluates
-every property at each integer zoom, collapses zooms 0–24 into maximal bands
-that share an identical paint object, and emits one rule per band with the
-band's zoom range intersected into each selector group. Consequences:
+The compiler evaluates every property at each integer zoom, collapses zooms 0–24 into maximal bands that share an identical paint object, and emits one rule per band with the band's zoom range intersected into each selector group. Consequences:
 
 - Two ladders on one rule union their breakpoints.
-- Bands with equal values coalesce, so `interpolate(3 10, 3 20)` emits one rule.
+- Bands with equal values coalesce, so `interpolate(3 10z, 3 20z)` emits one rule.
 - A band that cannot overlap a group's zoom range drops that group.
-- Rules with no ladder take a fast path and compile exactly as before, so
-  output for the existing stylesheets is byte-for-byte unchanged.
-
-The emitted JSON shape is unchanged: consumers such as `paint-to-svg.js` never
-see `step()` or `interpolate()`.
+- Rules with no ladder take a fast path and compile exactly as before, so output for the existing stylesheets is byte-for-byte unchanged.
 
 ## `zoom-gradient()` — the underlying component
 
