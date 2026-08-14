@@ -1,12 +1,12 @@
 // --- Parks, woods, other green things ---
 
-@grass: #cbf8d1; // also grassland, meadow, village_green, garden, allotments
-@scrub: #c6f3cd;
-@forest: #bdedc2;
+@grass: #c9f8d5; // also grassland, meadow, village_green, garden, allotments
+@scrub: #c4f3d0;
+@forest: #c4f3d0;
 @forest-text: #1f3a20;
-@park: #b9e7bd;
-@allotments: #b4e2b7;
-@orchard: #afdeb2; // also vineyard, plant_nursery
+@park: #bbe8c6;
+@allotments: #b6e2c1;
+@orchard: #afdebb; // also vineyard, plant_nursery
 @hedge: @forest;
 
 // --- "Base" landuses ---
@@ -361,13 +361,13 @@
     }
   }
 
-  &[feature='landuse_commercial']:zoom(8) {
-    --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-z12 12z, @commercial 13z);
-    &:zoom(16) {
-      --line-width: @landuse-faint-outline-width;
-      --line-color: @commercial-line;
-    }
-  }
+  // &[feature='landuse_commercial']:zoom(8) {
+  //   --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-z12 12z, @commercial 13z);
+  //   &:zoom(16) {
+  //     --line-width: @landuse-faint-outline-width;
+  //     --line-color: @commercial-line;
+  //   }
+  // }
 
   &[feature='landuse_brownfield'],
   &[feature='landuse_construction'] {

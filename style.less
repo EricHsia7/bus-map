@@ -1,10 +1,9 @@
-@land-color: #f0f2f5;
-// dark #181919
+@land-color: #f2f2f7;
 
 @standard-halo-radius: 1;
-@standard-halo-fill: rgba(255, 255, 255, 0.6);
+@standard-halo-fill: #ededf2;
 
-@standard-text-fill: #333333;
+@standard-text-fill: #2c2c2e;
 
 @book-fonts: 'Noto Sans TC', sans-serif;
 @bold-fonts: 'Noto Sans TC', sans-serif;
@@ -34,13 +33,13 @@
 }
 // --- Parks, woods, other green things ---
 
-@grass: #cbf8d1; // also grassland, meadow, village_green, garden, allotments
-@scrub: #c6f3cd;
-@forest: #bdedc2;
+@grass: #c9f8d5; // also grassland, meadow, village_green, garden, allotments
+@scrub: #c4f3d0;
+@forest: #c4f3d0;
 @forest-text: #1f3a20;
-@park: #b9e7bd;
-@allotments: #b4e2b7;
-@orchard: #afdeb2; // also vineyard, plant_nursery
+@park: #bbe8c6;
+@allotments: #b6e2c1;
+@orchard: #afdebb; // also vineyard, plant_nursery
 @hedge: @forest;
 
 // --- "Base" landuses ---
@@ -395,13 +394,13 @@
     }
   }
 
-  &[feature='landuse_commercial']:zoom(8) {
-    --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-z12 12z, @commercial 13z);
-    &:zoom(16) {
-      --line-width: @landuse-faint-outline-width;
-      --line-color: @commercial-line;
-    }
-  }
+  // &[feature='landuse_commercial']:zoom(8) {
+  //   --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-z12 12z, @commercial 13z);
+  //   &:zoom(16) {
+  //     --line-width: @landuse-faint-outline-width;
+  //     --line-color: @commercial-line;
+  //   }
+  // }
 
   &[feature='landuse_brownfield'],
   &[feature='landuse_construction'] {
@@ -784,8 +783,8 @@
     --text-spacing: 400;
   }
 }
-@water-color: #9cdff0;
-@water-text: #358ba2;
+@water-color: #9adafc;
+@water-text: #31b1f6;
 @glacier: #c7f2fa;
 @glacier-line: #b1e8f5;
 @water-tunnelfill-color: @water-color;
@@ -1336,8 +1335,8 @@
     }
   }
 }
-@default-casing: #ced4da;
-@road-fill: #ced4da;
+@default-casing: #c7c7cc;
+@road-fill: #c7c7cc;
 @road-casing: @road-fill;
 
 @access-marking: #eaeaeb;
@@ -1420,7 +1419,7 @@
 @track-fill: #996600;
 
 /* Designated walking paths, sidewalks, or footbridges. */
-@footway-fill: #91969b;
+@footway-fill: #8f9298;
 @footway-fill-noaccess: @footway-fill;
 @footway-casing: @footway-fill;
 
@@ -1457,7 +1456,7 @@
 * highway=tertiary_link
 */
 
-@bridge-casing: darken(@road-fill, 5%);
+@bridge-casing: darken(@road-fill, 3%);
 
 @tunnel-casing: #c2c9d1;
 
@@ -3270,11 +3269,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --line-join: round;
       --line-width: zoom-gradient(@footway-width-z14 14z, @footway-width-z15 15z, @footway-width-z16 16z 17z, @footway-width-z18 18z, @footway-width-z19 19z);
       --line-opacity: zoom-gradient(0.25 14z, 1 16z);
-
-      &:zoom(14) {
-        --line-cap: round;
-        --line-dasharray: 0 10;
-      }
 
       &:zoom(15) {
         --line-cap: round;
@@ -5220,8 +5214,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
   }
 }
-@building-fill: #dae6f1;
-@building-line: darken(@building-fill, 8%);
+@building-fill: #e5e5ea;
+@building-line: darken(@building-fill, 3%);
 
 @building-major-fill: darken(@building-fill, 10%);
 @building-major-line: darken(@building-major-fill, 15%);
@@ -5237,7 +5231,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --polygon-opacity: zoom-gradient(0.25 13z, 1 15z);
     &:zoom(15) {
       --line-color: @building-line;
-      --line-width: 0.75;
+      --line-width: zoom-gradient(0.75 15z, 0.4 16z);
     }
     &[amenity='place_of_worship'],
     &[aeroway='terminal'],
@@ -5429,7 +5423,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 @religious-icon: #000000;
 @cable: #646568;
 @cable-dash: #5d5e61;
-@bus-stop: #329cff;
+@bus-stop: #158cff;
 
 @landcover-font-size: 10;
 @landcover-wrap-width-size: 30; // 3 em
@@ -5560,14 +5554,14 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   }
 
   &[feature='highway_bus_stop']:zoom(14) {
-    --text-name: '●[name]';
+    --text-name: '[name]';
     --text-face-name: @standard-font;
     --text-size: 10;
-    --text-scale: zoom-gradient(0.5 14z, 1 15z, 1.2 16z);
-    --text-fill: @bus-stop;
-    --text-halo-radius: @standard-halo-radius * 1.5;
+    --text-scale: zoom-gradient(0.25 14z, 1 15z, 1.2 16z);
+    --text-fill: darken(@bus-stop, 5%);
+    --text-halo-radius: @standard-halo-radius;
     --text-halo-fill: @standard-halo-fill;
-    --text-wrap-width: 60;
+    --text-wrap-width: 50;
     --text-line-spacing: -1.5;
   }
 

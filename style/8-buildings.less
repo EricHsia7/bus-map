@@ -1,5 +1,5 @@
-@building-fill: #dae6f1;
-@building-line: darken(@building-fill, 8%);
+@building-fill: #e5e5ea;
+@building-line: darken(@building-fill, 3%);
 
 @building-major-fill: darken(@building-fill, 10%);
 @building-major-line: darken(@building-major-fill, 15%);
@@ -15,7 +15,7 @@
     --polygon-opacity: zoom-gradient(0.25 13z, 1 15z);
     &:zoom(15) {
       --line-color: @building-line;
-      --line-width: 0.75;
+      --line-width: zoom-gradient(0.75 15z, 0.4 16z);
     }
     &[amenity='place_of_worship'],
     &[aeroway='terminal'],

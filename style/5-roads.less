@@ -1,5 +1,5 @@
-@default-casing: #ced4da;
-@road-fill: #ced4da;
+@default-casing: #c7c7cc;
+@road-fill: #c7c7cc;
 @road-casing: @road-fill;
 
 @access-marking: #eaeaeb;
@@ -82,7 +82,7 @@
 @track-fill: #996600;
 
 /* Designated walking paths, sidewalks, or footbridges. */
-@footway-fill: #91969b;
+@footway-fill: #8f9298;
 @footway-fill-noaccess: @footway-fill;
 @footway-casing: @footway-fill;
 
@@ -119,7 +119,7 @@
 * highway=tertiary_link
 */
 
-@bridge-casing: darken(@road-fill, 5%);
+@bridge-casing: darken(@road-fill, 3%);
 
 @tunnel-casing: #c2c9d1;
 
@@ -1932,11 +1932,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --line-join: round;
       --line-width: zoom-gradient(@footway-width-z14 14z, @footway-width-z15 15z, @footway-width-z16 16z 17z, @footway-width-z18 18z, @footway-width-z19 19z);
       --line-opacity: zoom-gradient(0.25 14z, 1 16z);
-
-      &:zoom(14) {
-        --line-cap: round;
-        --line-dasharray: 0 10;
-      }
 
       &:zoom(15) {
         --line-cap: round;
