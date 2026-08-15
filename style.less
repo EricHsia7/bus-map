@@ -755,28 +755,28 @@
   // }
 }
 
-#landuse-overlay {
-  &[landuse='military']:zoom(8),
-  &[landuse='military']:zoom(13) {
-    --polygon-fill: @military;
-    --polygon-opacity: 0.05;
-    // --polygon-pattern-file: "url('patterns/military_red_hatch.svg')";
-    // --polygon-pattern-alignment: global;
-    --line-color: @military;
-    --line-opacity: 0.24;
-    --line-width: zoom-gradient(1, 2 15z);
-    --line-offset: zoom-gradient(-0.5, -1 15z);
-  }
+// #landuse-overlay {
+//   &[landuse='military']:zoom(8),
+//   &[landuse='military']:zoom(13) {
+//     --polygon-fill: @military;
+//     --polygon-opacity: 0.05;
+//     // --polygon-pattern-file: "url('patterns/military_red_hatch.svg')";
+//     // --polygon-pattern-alignment: global;
+//     --line-color: @military;
+//     --line-opacity: 0.24;
+//     --line-width: zoom-gradient(1, 2 15z);
+//     --line-offset: zoom-gradient(-0.5, -1 15z);
+//   }
 
-  &[military='danger_area']:zoom(9) {
-    --polygon-fill: @military;
-    --polygon-opacity: 0.1;
-    --line-color: @military;
-    --line-opacity: 0.2;
-    --line-width: 1.2;
-    --line-offset: -1;
-  }
-}
+//   &[military='danger_area']:zoom(9) {
+//     --polygon-fill: @military;
+//     --polygon-opacity: 0.1;
+//     --line-color: @military;
+//     --line-opacity: 0.2;
+//     --line-width: 1.2;
+//     --line-offset: -1;
+//   }
+// }
 
 #cliffs {
   &[natural='cliff']:zoom(13) {
