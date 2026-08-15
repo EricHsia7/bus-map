@@ -45,8 +45,8 @@
 // --- Other ----
 
 @bare_ground: #eee5dc;
-@campsite: #def6c0; // also caravan_site, picnic_site
-@cemetery: #aacbaf; // also grave_yard
+@campsite: #a9d8b5; // also caravan_site, picnic_site
+@cemetery: #a4d2b0; // also grave_yard
 @construction: #e0e0dc; // also brownfield
 @heath: #d6d99f;
 @mud: rgba(203, 177, 154, 0.3); // produces #e6dcd1 over @land
@@ -517,12 +517,12 @@
     --polygon-fill: @beach;
   }
 
-  &[feature='highway_services'],
-  &[feature='highway_rest_area'] {
-    &:zoom(10) {
-      --polygon-fill: @rest_area;
-    }
-  }
+  // &[feature='highway_services'],
+  // &[feature='highway_rest_area'] {
+  //   &:zoom(10) {
+  //     --polygon-fill: @rest_area;
+  //   }
+  // }
 
   &[feature='railway_station']:zoom(10) {
     --polygon-fill: @railway;
@@ -720,27 +720,27 @@
   }
 }
 
-#tourism-boundary {
-  &[tourism='zoo']:zoom(10),
-  &[tourism='theme_park']:zoom(10) {
-    --a__line-width: zoom-gradient(1, 2 17z);
-    --a__line-offset: zoom-gradient(-0.5, -1 17z);
-    --a__line-color: @tourism;
-    --a__line-opacity: 0.5;
-    --a__line-join: round;
-    --a__line-cap: round;
-    &:zoom(17) {
-      --b__line-width: 3.6;
-      --b__line-offset: -3;
-      --b__line-width: 2.4;
-      --b__line-offset: -2;
-      --b__line-color: @tourism;
-      --b__line-opacity: 0.3;
-      --b__line-join: round;
-      --b__line-cap: round;
-    }
-  }
-}
+// #tourism-boundary {
+//   &[tourism='zoo']:zoom(10),
+//   &[tourism='theme_park']:zoom(10) {
+//     --a__line-width: zoom-gradient(1, 2 17z);
+//     --a__line-offset: zoom-gradient(-0.5, -1 17z);
+//     --a__line-color: @tourism;
+//     --a__line-opacity: 0.5;
+//     --a__line-join: round;
+//     --a__line-cap: round;
+//     &:zoom(17) {
+//       --b__line-width: 3.6;
+//       --b__line-offset: -3;
+//       --b__line-width: 2.4;
+//       --b__line-offset: -2;
+//       --b__line-color: @tourism;
+//       --b__line-opacity: 0.3;
+//       --b__line-join: round;
+//       --b__line-cap: round;
+//     }
+//   }
+// }
 
 #text-line {
   &[feature='natural_arete']:zoom(15),
