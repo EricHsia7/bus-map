@@ -1,8 +1,6 @@
 # Bus Map
 
-| ![54889,28059,16](https://erichsia7.github.io/bus-map/tiles/16/54889/28059.webp) | ![54890,28059,16](https://erichsia7.github.io/bus-map/tiles/16/54890/28059.webp) | ![54891,28059,16](https://erichsia7.github.io/bus-map/tiles/16/54891/28059.webp) | ![54892,28059,16](https://erichsia7.github.io/bus-map/tiles/16/54892/28059.webp) |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| ![54889,28060,16](https://erichsia7.github.io/bus-map/tiles/16/54889/28060.webp) | ![54890,28060,16](https://erichsia7.github.io/bus-map/tiles/16/54890/28060.webp) | ![54891,28060,16](https://erichsia7.github.io/bus-map/tiles/16/54891/28060.webp) | ![54892,28060,16](https://erichsia7.github.io/bus-map/tiles/16/54892/28060.webp) |
+![54892,28059,16](https://erichsia7.github.io/bus-map/tiles/16/54892/28059.webp)
 
 A from-scratch OpenStreetMap renderer for Taiwan: it turns a raw `.osm.pbf` extract into raster map tiles and label overlays without a PostGIS/Mapnik server, styled with a modified [OpenStreetMap-Carto](openstreetmap-carto-master/) stylesheet, and viewed in the browser with [Bus](https://github.com/EricHsia7/bus).
 
