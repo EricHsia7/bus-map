@@ -140,8 +140,8 @@
 // --- Other ----
 
 @bare_ground: #eee5dc;
-@campsite: #a9d8b5; // also caravan_site, picnic_site
-@cemetery: #a4d2b0; // also grave_yard
+@campsite: #def6c0; // also caravan_site, picnic_site
+@cemetery: #aacbaf; // also grave_yard
 @construction: #e0e0dc; // also brownfield
 @heath: #d6d99f;
 @mud: rgba(203, 177, 154, 0.3); // produces #e6dcd1 over @land
@@ -8816,12 +8816,12 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[aerialway='gondola'],
   &[aerialway='mixed_lift'] {
     &:zoom(12) {
-      --line__line-width: 1;
+      --line__line-width: 0.2;
       --line__line-join: round;
       --line__line-cap: round;
       --line__line-color: @cable;
 
-      --dash__line-width: 3;
+      --dash__line-width: 0.6;
       --dash__line-join: round;
       --dash__line-cap: round;
       --dash__line-color: @cable-dash;
