@@ -1,4 +1,4 @@
-@golf-color: #666;
+@golf-color: @text-tertiary;
 
 #landcover:zoom(12) {
   &:zoom(12)::high-zoom {
@@ -17,11 +17,11 @@
       --polygon-fill: @sand;
     }
   }
-  &:zoom(15)::high-zoom {
-    &[feature='golf_rough'] {
-      --polygon-pattern-file: "url('symbols/golf_rough.svg')";
-    }
-  }
+  // &:zoom(15)::high-zoom {
+  // &[feature='golf_rough'] {
+  // --polygon-pattern-file: "url('symbols/golf_rough.svg')";
+  // }
+  // }
 }
 
 #golf-line:zoom(16) {

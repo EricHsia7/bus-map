@@ -2,10 +2,13 @@
 @water-text: #31b1f6;
 @glacier: #c7f2fa;
 @glacier-line: #b1e8f5;
-@water-tunnelfill-color: @water-color;
+// Underground watercourses follow the shared underground recipe.
+@water-tunnelfill-color: @underground-water;
+@waterway-bridge-casing: #646568;
+@waterway-underground-line: @underground-water;
 @waterway-text-repeat-distance: 200;
 @waterway-text-spacing: 500;
-@fishpass-fill-color: #aaa;
+@fishpass-fill-color: @neutral-500;
 
 @river-width-z8: 0.7;
 @river-width-z9: 1.2;
@@ -51,9 +54,9 @@
     &[int_intermittent='no'] {
       --polygon-fill: @water-color;
     }
-    &[int_intermittent='yes'] {
-      --polygon-pattern-file: "url('patterns/intermittent_water.svg')";
-    }
+    // &[int_intermittent='yes'] {
+    // --polygon-pattern-file: "url('patterns/intermittent_water.svg')";
+    // }
   }
 }
 
@@ -122,7 +125,7 @@
 
 #bridges:zoom(14)::casing {
   &[feature='waterway_river'] {
-    --line-color: #646568;
+    --line-color: @waterway-bridge-casing;
     --line-join: round;
     --line-width: zoom-gradient(@river-width-z14 + 1, @river-width-z15 + 1 15z, @river-width-z16 + 1 16z, @river-width-z17 + 1 17z, @river-width-z18 + 1 18z);
   }
@@ -131,7 +134,7 @@
   &[feature='waterway_drain'],
   &[feature='waterway_fish_pass']:zoom(15),
   &[feature='waterway_stream'] {
-    --line-color: #646568;
+    --line-color: @waterway-bridge-casing;
     --line-join: round;
     --line-width: @stream-width-z14 + 1;
     &[feature='waterway_stream'] {
@@ -143,7 +146,7 @@
   }
 
   &[feature='waterway_canal'] {
-    --line-color: #646568;
+    --line-color: @waterway-bridge-casing;
     --line-join: round;
     --line-width: zoom-gradient((@stream-width-z14 * @canal-scale-factor) + 1, (@stream-width-z15 * @canal-scale-factor) + 1 15z, (@stream-width-z16 * @canal-scale-factor) + 1 16z, (@stream-width-z17 * @canal-scale-factor) + 1 17z, (@stream-width-z18 * @canal-scale-factor) + 1 18z);
   }

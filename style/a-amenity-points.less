@@ -1,3 +1,17 @@
+// --- Collected literals (were inline in rule bodies) -------------------------
+@advertising-color: @neutral-600; // was a broken '@advertising-#808080'
+@emergency-color: #d40000;
+@memorial-color: #545454;
+@water-feature-icon: #7abcec;
+@survey-point-color: #4d4d4d;
+@utility-icon: #7d7c7c;
+@forest-marker: #6b8d5e;
+@office-text: #000033;
+@amenity-text: @standard-text-fill; // was #000
+// Underground amenities (parking entrances, underground malls) share the
+// below-grade tint from 0-index.less.
+@amenity-underground: @underground-text-fill;
+
 @marina-text: #576ddf; // also swimming_pool
 @wetland-text: darken(#4aa5fa, 25%); /* Also for mud */
 @shop-icon: #ac39ac;
@@ -15,14 +29,14 @@
 @culture: @amenity-brown;
 @public-service: @amenity-brown;
 @office: #4863a0;
-@man-made-icon: #666666;
+@man-made-icon: @text-tertiary;
 @advertising-grey: @man-made-icon;
 @barrier-icon: #3f3f3f;
 @landform-color: #d08f55;
 @leisure-green: darken(@park, 60%);
 @protected-area: #78ad88;
 @aboriginal: #82643a;
-@religious-icon: #000000;
+@religious-icon: @standard-text-fill;
 @cable: #646568;
 @cable-dash: #5d5e61;
 @bus-stop: #158cff;
@@ -214,7 +228,7 @@
 
   &[feature='highway_traffic_signals']:zoom(17) {
     --marker-file: "url('symbols/highway/traffic_light.svg')";
-    --marker-fill: #545454;
+    --marker-fill: @memorial-color;
     --marker-clip: false;
   }
 
@@ -1202,7 +1216,7 @@
 
   &[feature='advertising_column']:zoom(19) {
     --marker-file: "url('symbols/amenity/advertising_column.svg')";
-    --marker-fill: @advertising-#808080;
+    --marker-fill: @advertising-color;
     --marker-clip: false;
   }
 
@@ -1397,7 +1411,7 @@
 
   &[feature='natural_volcano']:zoom(11) {
     --marker-file: "url('symbols/natural/peak.svg')";
-    --marker-fill: #d40000;
+    --marker-fill: @emergency-color;
     --marker-clip: false;
   }
 
@@ -1415,7 +1429,7 @@
 
   &[feature='natural_spring']:zoom(14) {
     --marker-file: "url('symbols/natural/spring.svg')";
-    --marker-fill: #7abcec;
+    --marker-fill: @water-feature-icon;
     --marker-clip: false;
   }
 
@@ -1523,7 +1537,7 @@
   &[feature='railway_level_crossing']:zoom(14)::railway,
   &[feature='railway_crossing']:zoom(15)::railway {
     --marker-file: zoom-gradient("url('symbols/barrier/level_crossing.svg')", "url('symbols/barrier/level_crossing2.svg')" 16z);
-    --marker-fill: #4d4d4d;
+    --marker-fill: @survey-point-color;
     --marker-clip: false;
   }
 
@@ -1585,7 +1599,7 @@
       --marker-width: 3;
       --marker-scale: zoom-gradient(1 17z, (4/3) 18z);
       --marker-line-width: 0;
-      --marker-fill: #7d7c7c;
+      --marker-fill: @utility-icon;
     }
   }
 
@@ -1620,7 +1634,7 @@
   &[feature='place_island']:zoom(4),
   &[feature='place_islet']:zoom(11) {
     --text-name: '[name]';
-    --text-fill: #000;
+    --text-fill: @amenity-text;
     --text-size: @landcover-font-size;
     --text-wrap-width: @landcover-wrap-width-size;
     --text-line-spacing: @landcover-line-spacing-size;
@@ -1852,7 +1866,7 @@
     --text-size: @standard-font-size;
     --text-wrap-width: @standard-wrap-width;
     --text-line-spacing: @standard-line-spacing-size;
-    --text-fill: #000033;
+    --text-fill: @office-text;
     --text-dy: 12;
     --text-face-name: @standard-font;
     --text-halo-radius: @standard-halo-radius;
@@ -1882,7 +1896,7 @@
     --text-line-spacing: @standard-line-spacing-size;
     --text-fill: darken(@landform-color, 30%);
     &[feature='natural_volcano'] {
-      --text-fill: #d40000;
+      --text-fill: @emergency-color;
     }
     &[feature='mountain_pass'] {
       --text-fill: @transportation-text;
@@ -1898,7 +1912,7 @@
 
   &[feature='natural_cape']:zoom(14) {
     --text-name: '[name]';
-    --text-fill: #000;
+    --text-fill: @amenity-text;
     --text-size: @standard-font-size;
     --text-wrap-width: @standard-wrap-width;
     --text-line-spacing: @standard-line-spacing-size;
@@ -2770,7 +2784,9 @@
   &[feature='amenity_parking'],
   &[feature='amenity_bicycle_parking'],
   &[feature='amenity_motorcycle_parking'],
+  // Underground: one step down the text ramp (see @underground-* tokens).
   &[feature='amenity_parking_entrance'][parking='underground'] {
+    --text-fill: @amenity-underground;
     &:zoom(14) {
       --text-name: '[name]';
       --text-size: @standard-font-size;
@@ -2932,7 +2948,7 @@
     --trunk__marker-scale: zoom-gradient(1 18z, 1.5 19z, 3 20z);
     &:zoom(18) {
       --trunk__opacity: 0.4;
-      --trunk__marker-fill: #6b8d5e; // Same opacity and color as forest svg patterns
+      --trunk__marker-fill: @forest-marker; // Same opacity and color as forest svg patterns
       --trunk__marker-allow-overlap: true;
       --trunk__marker-line-width: 0;
       --trunk__marker-ignore-placement: true;

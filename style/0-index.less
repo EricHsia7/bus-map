@@ -1,9 +1,71 @@
+// =============================================================================
+// Design tokens
+// -----------------------------------------------------------------------------
+// Every colour used by the stylesheets is declared here or in the palette block
+// at the top of the sheet that owns it. No literal colours in rule bodies.
+//
+// Rendering assumptions:
+//   * background layers (landcover, roads, buildings) are baked into raster
+//     tiles for z12-z16, so every visual step has to be expressed as a *shade*
+//     that changes with zoom, never as a runtime opacity trick;
+//   * labels are rasterised separately and cross-faded at runtime, so label
+//     colour/halo only has to win against the baked background.
+// =============================================================================
+
 @land-color: #f2f2f7;
 
-@standard-halo-radius: 1;
-@standard-halo-fill: #ededf2;
+// --- Neutral ramp ------------------------------------------------------------
+// One ramp shared by roads, rail, barriers and generic symbols so that the
+// hierarchy is comparable across layers.
+@white: #ffffff;
+@neutral-50: #f7f7fa;
+@neutral-100: #f2f2f7;
+@neutral-150: #ededf2;
+@neutral-200: #e5e5ea;
+@neutral-250: #dcdce2;
+@neutral-300: #d1d1d6;
+@neutral-400: #c7c7cc;
+@neutral-500: #aeaeb2;
+@neutral-600: #8e8e93;
+@neutral-700: #6e6e73;
+@neutral-800: #48484a;
+@neutral-900: #2c2c2e;
+@neutral-950: #1c1c1e;
 
-@standard-text-fill: #2c2c2e;
+// --- Text ramp ---------------------------------------------------------------
+// Darker than the old #2c2c2e so literal content separates from the light
+// backgrounds; the ramp encodes label importance, not just colour taste.
+@standard-text-fill: #1c1c1e; // primary: places, road names
+@text-secondary: #3a3a3c; // secondary: areas, addresses
+@text-tertiary: #5f5f66; // tertiary: rail, aerialways, minor features
+@text-quaternary: #85858c; // captions, unimportant annotation
+@text-inverse: #ffffff;
+
+// --- Halos -------------------------------------------------------------------
+// Halos are near-white and slightly wider than before: labels are faded in at
+// runtime over an already busy raster, so the halo is what buys legibility.
+@standard-halo-fill: rgba(255, 255, 255, 0.9);
+@standard-halo-radius: 1.5;
+@strong-halo-fill: rgba(255, 255, 255, 0.95);
+@strong-halo-radius: 2;
+@subtle-halo-fill: rgba(255, 255, 255, 0.75);
+@subtle-halo-radius: 1;
+
+// --- Underground -------------------------------------------------------------
+// Anything below grade (road/rail tunnels, culverts, subway platforms,
+// underground parking, underground water) shares one recipe: one step lighter
+// and cooler than its surface twin, a soft dashed casing instead of a solid
+// one, and text one step down the text ramp. See the per-sheet usages of
+// @underground-* below.
+@underground-fill: #dcdce2;
+@underground-casing: #cfcfd7;
+@underground-line: darken(@underground-casing, 3%);
+@underground-rail: #b9b9c2;
+@underground-water: #cfe9f7;
+@underground-dasharray: 4, 3;
+@underground-casing-dasharray: 5, 3;
+@underground-text-fill: @text-tertiary;
+@underground-halo-fill: @subtle-halo-fill;
 
 @book-fonts: 'Noto Sans TC', sans-serif;
 @bold-fonts: 'Noto Sans TC', sans-serif;
