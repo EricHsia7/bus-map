@@ -95,18 +95,27 @@ jobs:
           echo "$HOME/osmium-install/bin" >> "$GITHUB_PATH"
           echo "LD_LIBRARY_PATH=$HOME/osmium-install/lib:$LD_LIBRARY_PATH" >> "$GITHUB_ENV"
 
+      - name: Resolve OSM replication state
+        id: osm-state
+        run: |
+          set -euo pipefail
+          seq=$(curl -fsS "https://download.geofabrik.de/asia/taiwan-updates/state.txt" \
+                | awk -F= '/^sequenceNumber=/{print $2}')
+          [ -n "$seq" ] || { echo "no sequenceNumber"; exit 1; }
+          echo "sequence-number=$seq" >> "$GITHUB_OUTPUT"
+
       - name: Restore Cached Map Data
         id: restore-cached-map-data
         uses: actions/cache/restore@v5
         with:
           path: input.osm.pbf
-          key: map-data-2026-08-02
+          key: map-data-${{ steps.osm-state.outputs.sequence-number }}
           restore-keys: |
-            map-data-
+            map-data-${{ steps.osm-state.outputs.sequence-number }}
 
       - name: Download Map Data
         if: steps.restore-cached-map-data.outputs.cache-hit != 'true'
-        run: curl --output input.osm.pbf "https://download.geofabrik.de/asia/taiwan-260802.osm.pbf"
+        run: curl -L -o input.osm.pbf "https://download.geofabrik.de/asia/taiwan-latest.osm.pbf"
 
       - name: Cache Map Data
         id: cache-map-data
@@ -115,7 +124,7 @@ jobs:
         with:
           path: input.osm.pbf
           key: ${{ steps.restore-cached-map-data.outputs.cache-primary-key }}
-      
+
       - name: Restore Cached Chunks
         id: restore-cached-chunks
         uses: actions/cache/restore@v5
