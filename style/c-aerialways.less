@@ -1,3 +1,11 @@
+// --- Collected literals ------------------------------------------------------
+@aerialway-line: @neutral-600; // was #808080
+@aerialway-line-light: @neutral-500; // was #999999
+@aerialway-line-mid: #909090;
+@aerialway-center: @neutral-300; // was #c1c1c1
+@aerialway-center-warm: #cfbfa5;
+@aerialway-text: @text-tertiary; // was #666666
+
 #aerialways {
   &[aerialway='cable_car'],
   &[aerialway='gondola'],
@@ -22,7 +30,7 @@
       --line__line-width: 1;
       --line__line-join: round;
       --line__line-cap: round;
-      --line__line-color: #808080;
+      --line__line-color: @aerialway-line;
     }
   }
 
@@ -52,11 +60,11 @@
       --line__line-width: zoom-gradient(0.7, 1 16z);
       --line__line-join: round;
       --line__line-cap: round;
-      --line__line-color: #999999;
+      --line__line-color: @aerialway-line-light;
 
       --dash__line-width: zoom-gradient(2, 3 16z);
       --dash__line-join: round;
-      --dash__line-color: #999999;
+      --dash__line-color: @aerialway-line-light;
       --dash__line-dasharray: 4, 6;
 
       &:zoom(16) {
@@ -69,11 +77,11 @@
     &:zoom(14) {
       --line__line-width: zoom-gradient(0.7, 1 15z, 1.5 16z, 2 17z, 3 18z, 4 19z);
       --line__line-join: round;
-      --line__line-color: #909090;
+      --line__line-color: @aerialway-line-mid;
       --line__line-dasharray: 0, 0.7, 14, 0.7;
       --dash__line-width: zoom-gradient(2, 2.5 15z, 3 16z, 4 17z, 5 18z, 6 19z);
       --dash__line-join: round;
-      --dash__line-color: #909090;
+      --dash__line-color: @aerialway-line-mid;
       --dash__line-dasharray: 0, 0.7, 0.7, 12.6, 0.7, 0.7;
       --center__line-width: zoom-gradient(1 17z, 2 18z, 3 19z);
       &:zoom(15) {
@@ -94,10 +102,10 @@
           --center__line-color: @water-color;
         }
         &[substance='gas'] {
-          --center__line-color: #c1c1c1;
+          --center__line-color: @aerialway-center;
         } // Lch(78,0,0)
         &[substance='oil'] {
-          --center__line-color: #cfbfa5;
+          --center__line-color: @aerialway-center-warm;
         } // Lch(78,15,83)
       }
       &:zoom(18) {
@@ -129,7 +137,7 @@
   &[feature='man_made_pipeline'] {
     &:zoom(17) {
       --text-name: '[name]';
-      --text-fill: #666666;
+      --text-fill: @aerialway-text;
       --text-size: 10;
       --text-scale: zoom-gradient(1, 1.1 19z);
       --text-dy: zoom-gradient(4, 5 19z);

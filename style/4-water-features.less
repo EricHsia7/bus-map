@@ -1,9 +1,9 @@
-@breakwater-color: #aaa; /* Also for groyne */
-@dam: #adadad;
-@dam-line: #444444;
-@weir-line: #aaa;
-@lock-gate: #aaa;
-@lock-gate-line: #aaa;
+@breakwater-color: @neutral-500; /* Also for groyne */
+@dam: @neutral-500;
+@dam-line: darken(@dam, 6%);
+@weir-line: @neutral-500;
+@lock-gate: @neutral-500;
+@lock-gate-line: @neutral-500;
 
 #water-barriers-point,
 #water-barriers-line,
@@ -117,7 +117,7 @@
       --text-name: '[name]';
       --text-halo-radius: @standard-halo-radius;
       --text-halo-fill: @standard-halo-fill;
-      --text-fill: #222;
+      --text-fill: @standard-text-fill;
       --text-size: 10;
       --text-face-name: @book-fonts;
       &#text-line {
@@ -140,7 +140,7 @@
       --text-name: '[name]';
       --text-halo-radius: @standard-halo-radius;
       --text-halo-fill: @standard-halo-fill;
-      --text-fill: #222;
+      --text-fill: @standard-text-fill;
       --text-size: 10;
       --text-face-name: @book-fonts;
       &#text-line {

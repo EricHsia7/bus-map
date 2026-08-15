@@ -1,15 +1,19 @@
 @station-color: #50b7d4;
+// Underground stations/entrances are below grade: they take the shared
+// underground tint so they read as one system with rail and road tunnels.
+@station-underground-color: @underground-rail;
+@station-underground-text: @underground-text-fill;
 @station-text: darken(saturate(@station-color, 15%), 10%);
 
 #stations {
   &[railway='subway_entrance']:zoom(18) {
-    --marker-fill: @transportation-icon;
+    --marker-fill: @station-underground-color;
     --marker-clip: false;
     &:zoom(19) {
       --text-name: '▣[ref]';
       --text-face-name: @book-fonts;
       --text-size: 10;
-      --text-fill: @transportation-text;
+      --text-fill: @station-underground-text;
       --text-halo-radius: @standard-halo-radius * 1.5;
       --text-halo-fill: @standard-halo-fill;
       --text-wrap-width: 0;
@@ -24,6 +28,7 @@
       --marker-scale: zoom-gradient(1 12z, 1.5 13z, 2.25 15z);
     }
     &[station='subway']:zoom(14) {
+      --marker-fill: @station-underground-color;
       --marker-width: 6;
       --marker-scale: zoom-gradient(1 14z, 1.5 16z);
     }

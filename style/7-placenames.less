@@ -1,5 +1,5 @@
-@placenames: #222;
-@placenames-light: #777777;
+@placenames: @standard-text-fill;
+@placenames-light: @text-tertiary;
 @country-labels: darken(@admin-boundaries-narrow, 10%);
 @state-labels: desaturate(@admin-boundaries-narrow, 5%);
 @county-labels: darken(@admin-boundaries-wide, 5%);
@@ -38,8 +38,8 @@
     }
     --text-fill: @country-labels;
     --text-face-name: @book-fonts;
-    --text-halo-fill: @standard-halo-fill;
-    --text-halo-radius: @standard-halo-radius * 1.5;
+    --text-halo-fill: @strong-halo-fill;
+    --text-halo-radius: @strong-halo-radius;
     --text-character-spacing: 0.5;
   }
 }
@@ -54,8 +54,8 @@
     --text-margin: 7; // 0.7 em
     --text-fill: @state-labels;
     --text-face-name: @oblique-fonts;
-    --text-halo-fill: @standard-halo-fill;
-    --text-halo-radius: @standard-halo-radius * 1.5;
+    --text-halo-fill: @strong-halo-fill;
+    --text-halo-radius: @strong-halo-radius;
     --text-placement: interior;
     // 3.8 em
     --text-line-spacing: zoom-gradient(-1 10z 11z, -1 12z);
@@ -115,8 +115,8 @@
     --text-wrap-width: zoom-gradient(65, 70 10z, 75 11z); // 5.0 em
     --text-line-spacing: -0.65; // -0.05 em
     --text-margin: 9.1; // 0.7 em
-    --text-halo-fill: @standard-halo-fill;
-    --text-halo-radius: @standard-halo-radius * 1.5;
+    --text-halo-fill: @strong-halo-fill;
+    --text-halo-radius: @strong-halo-radius;
     // 5.0 em
     --text-line-spacing: zoom-gradient(-0.7 10z, -0.75 11z);
     // -0.05 em
@@ -168,8 +168,8 @@
       --text-wrap-width: zoom-gradient(65, 70 10z, 75 11z); // 5.0 em
       --text-line-spacing: -0.65; // -0.05 em
       --text-margin: 9.1; // 0.7 em
-      --text-halo-fill: @standard-halo-fill;
-      --text-halo-radius: @standard-halo-radius * 1.5;
+      --text-halo-fill: @strong-halo-fill;
+      --text-halo-radius: @strong-halo-radius;
       // 5.0 em
       --text-line-spacing: zoom-gradient(-0.7 10z, -0.75 11z);
       // -0.05 em
@@ -207,8 +207,8 @@
       --text-scale: zoom-gradient(1, 1.3 10z, 1.4 11z 13z, 1.5 14z);
       --text-fill: @placenames;
       --text-face-name: @book-fonts;
-      --text-halo-fill: @standard-halo-fill;
-      --text-halo-radius: @standard-halo-radius * 1.5;
+      --text-halo-fill: @strong-halo-fill;
+      --text-halo-radius: @strong-halo-radius;
       --text-wrap-width: zoom-gradient(40, 65 10z, 70 11z 13z, 75 14z); // 4.0 em
       --text-line-spacing: -1; // -0.10 em
       --text-margin: 7;
@@ -234,8 +234,8 @@
       --text-scale: zoom-gradient(1, 1.3 12z 13z, 1.5 14z);
       --text-fill: @placenames;
       --text-face-name: @book-fonts;
-      --text-halo-fill: @standard-halo-fill;
-      --text-halo-radius: @standard-halo-radius * 1.5;
+      --text-halo-fill: @strong-halo-fill;
+      --text-halo-radius: @strong-halo-radius;
       --text-wrap-width: zoom-gradient(45, 65 12z 13z, 75 14z); // 4.5 em
       --text-line-spacing: -0.8; // -0.08 em
       --text-margin: 7;
@@ -361,8 +361,8 @@
     --text-size: 10;
     --text-fill: @placenames;
     --text-face-name: @book-fonts;
-    --text-halo-fill: @standard-halo-fill;
-    --text-halo-radius: @standard-halo-radius * 1.5;
+    --text-halo-fill: @strong-halo-fill;
+    --text-halo-radius: @strong-halo-radius;
     --text-wrap-width: 45; // 4.5 em
     --text-line-spacing: -0.8; // -0.08 em
     --text-margin: 7; // 0.7 em
@@ -388,8 +388,8 @@
       --text-margin: 7; // 0.7 em
       --text-fill: @county-labels;
       --text-face-name: @oblique-fonts;
-      --text-halo-fill: @standard-halo-fill;
-      --text-halo-radius: @standard-halo-radius * 1.5;
+      --text-halo-fill: @strong-halo-fill;
+      --text-halo-radius: @strong-halo-radius;
       --text-placement-type: simple;
       --text-placements: 'S,SE,SW,E,NE,W,NW,N';
       &[admin_level='5'] {
