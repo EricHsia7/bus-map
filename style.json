@@ -526,7 +526,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(222,246,192,1)"
+      "polygon-fill": "rgba(169,216,181,1)"
     },
     "attachment": "low-zoom"
   },
@@ -618,7 +618,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(213,244,175,1)",
+      "line-color": "rgba(156,210,170,1)",
       "line-width": "0.3"
     },
     "attachment": "low-zoom"
@@ -936,7 +936,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(170,203,175,1)"
+      "polygon-fill": "rgba(164,210,176,1)"
     },
     "attachment": "low-zoom"
   },
@@ -1150,7 +1150,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(222,246,192,1)"
+      "polygon-fill": "rgba(169,216,181,1)"
     },
     "attachment": "low-zoom"
   },
@@ -2941,70 +2941,6 @@
           {
             "key": "feature",
             "op": "=",
-            "value": "highway_services"
-          }
-        ]
-      },
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 10,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_rest_area"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_services"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_rest_area"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(239,200,200,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 10,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
             "value": "railway_station"
           }
         ]
@@ -3997,126 +3933,6 @@
     "paint": {
       "barrier/line-width": "0.3",
       "barrier/line-color": "rgba(72,72,74,1)"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "tourism-boundary",
-        "zoom": {
-          "min": 10,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "tourism",
-            "op": "=",
-            "value": "zoo"
-          }
-        ]
-      },
-      {
-        "layer": "tourism-boundary",
-        "zoom": {
-          "min": 10,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "tourism",
-            "op": "=",
-            "value": "theme_park"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "a/line-width": "1",
-      "a/line-offset": "-0.5",
-      "a/line-color": "rgba(102,0,51,1)",
-      "a/line-opacity": "0.5",
-      "a/line-join": "round",
-      "a/line-cap": "round"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "tourism-boundary",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "tourism",
-            "op": "=",
-            "value": "zoo"
-          }
-        ]
-      },
-      {
-        "layer": "tourism-boundary",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "tourism",
-            "op": "=",
-            "value": "theme_park"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "a/line-width": "2",
-      "a/line-offset": "-1",
-      "a/line-color": "rgba(102,0,51,1)",
-      "a/line-opacity": "0.5",
-      "a/line-join": "round",
-      "a/line-cap": "round"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "tourism-boundary",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "tourism",
-            "op": "=",
-            "value": "zoo"
-          }
-        ]
-      },
-      {
-        "layer": "tourism-boundary",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "tourism",
-            "op": "=",
-            "value": "theme_park"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "b/line-width": "2.4",
-      "b/line-offset": "-2",
-      "b/line-color": "rgba(102,0,51,1)",
-      "b/line-opacity": "0.3",
-      "b/line-join": "round",
-      "b/line-cap": "round"
     }
   },
   {
@@ -342566,7 +342382,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(45,73,49,1)",
+      "text-fill": "rgba(39,80,50,1)",
       "text-halo-radius": "2.25"
     }
   },
@@ -506627,7 +506443,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(99,160,23,1)",
+      "text-fill": "rgba(41,89,53,1)",
       "text-dy": "15"
     }
   },
@@ -654978,207 +654794,6 @@
     "paint": {
       "text-fill": "rgba(130,100,58,1)"
     }
-  },
-  {
-    "groups": [
-      {
-        "layer": "protected-areas",
-        "zoom": {
-          "min": 8,
-          "max": 8
-        },
-        "and": []
-      }
-    ],
-    "paint": {
-      "opacity": "0.25",
-      "line-width": "1.2",
-      "line-color": "rgba(120,173,136,1)"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "protected-areas",
-        "zoom": {
-          "min": 9,
-          "max": 9
-        },
-        "and": []
-      }
-    ],
-    "paint": {
-      "opacity": "0.25",
-      "line-width": "1.5",
-      "line-color": "rgba(120,173,136,1)"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "protected-areas",
-        "zoom": {
-          "min": 8,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "boundary",
-            "op": "=",
-            "value": "aboriginal_lands"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-color": "rgba(130,100,58,1)"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "protected-areas",
-        "zoom": {
-          "min": 10,
-          "max": 11
-        },
-        "and": []
-      }
-    ],
-    "paint": {
-      "opacity": "0.15",
-      "line-width": "3.6",
-      "line-color": "rgba(120,173,136,1)",
-      "line-join": "round",
-      "line-cap": "round"
-    },
-    "attachment": "wideline"
-  },
-  {
-    "groups": [
-      {
-        "layer": "protected-areas",
-        "zoom": {
-          "min": 12,
-          "max": 13
-        },
-        "and": []
-      }
-    ],
-    "paint": {
-      "opacity": "0.15",
-      "line-width": "4",
-      "line-offset": "-1",
-      "line-color": "rgba(120,173,136,1)",
-      "line-join": "round",
-      "line-cap": "round"
-    },
-    "attachment": "wideline"
-  },
-  {
-    "groups": [
-      {
-        "layer": "protected-areas",
-        "zoom": {
-          "min": 14,
-          "max": 24
-        },
-        "and": []
-      }
-    ],
-    "paint": {
-      "opacity": "0.15",
-      "line-width": "6",
-      "line-offset": "-2",
-      "line-color": "rgba(120,173,136,1)",
-      "line-join": "round",
-      "line-cap": "round"
-    },
-    "attachment": "wideline"
-  },
-  {
-    "groups": [
-      {
-        "layer": "protected-areas",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "boundary",
-            "op": "=",
-            "value": "aboriginal_lands"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-color": "rgba(130,100,58,1)"
-    },
-    "attachment": "wideline"
-  },
-  {
-    "groups": [
-      {
-        "layer": "protected-areas",
-        "zoom": {
-          "min": 10,
-          "max": 11
-        },
-        "and": []
-      }
-    ],
-    "paint": {
-      "opacity": "0.15",
-      "line-width": "1.8",
-      "line-color": "rgba(120,173,136,1)",
-      "line-join": "round",
-      "line-cap": "round"
-    },
-    "attachment": "narrowline"
-  },
-  {
-    "groups": [
-      {
-        "layer": "protected-areas",
-        "zoom": {
-          "min": 12,
-          "max": 24
-        },
-        "and": []
-      }
-    ],
-    "paint": {
-      "opacity": "0.15",
-      "line-width": "2",
-      "line-color": "rgba(120,173,136,1)",
-      "line-join": "round",
-      "line-cap": "round"
-    },
-    "attachment": "narrowline"
-  },
-  {
-    "groups": [
-      {
-        "layer": "protected-areas",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "boundary",
-            "op": "=",
-            "value": "aboriginal_lands"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-color": "rgba(130,100,58,1)"
-    },
-    "attachment": "narrowline"
   },
   {
     "groups": [

@@ -291,45 +291,45 @@ Then all three layers are added to the rendering with comp-op: darken, so that t
   --text-dy: -10;
 }
 
-#protected-areas {
-  &:zoom(8, 9) {
-    --opacity: 0.25;
-    --line-width: zoom-gradient(1.2, 1.5 9z);
-    --line-color: @protected-area;
-    &[boundary='aboriginal_lands'] {
-      --line-color: @aboriginal;
-    }
-  }
-  &:zoom(10) {
-    // inner line
-    &::wideline {
-      --opacity: 0.15;
-      --line-width: zoom-gradient(3.6, 4 12z 13z, 6 14z);
-      // Unlike planet_osm_line, planet_osm_polygon does not preserves the
-      // original direction of the OSM way: Following OGS at
-      // https://www.opengeospatial.org/standards/sfa always at the left
-      // is the interior and at the right the exterior of the polygon.(This
-      // also applies to inner rings of multipolygons.) So a negative
-      // line-offset is always an offset to the inner side of the polygon.
-      --line-offset: -0.9;
-      --line-color: @protected-area;
-      &[boundary='aboriginal_lands'] {
-        --line-color: @aboriginal;
-      }
-      --line-join: round;
-      --line-cap: round;
-      --line-offset: zoom-gradient(-1 12z 13z, -2 14z);
-    }
-    // outer line
-    &::narrowline {
-      --opacity: 0.15;
-      --line-width: zoom-gradient(1.8, 2 12z);
-      --line-color: @protected-area;
-      &[boundary='aboriginal_lands'] {
-        --line-color: @aboriginal;
-      }
-      --line-join: round;
-      --line-cap: round;
-    }
-  }
-}
+// #protected-areas {
+//   &:zoom(8, 9) {
+//     --opacity: 0.25;
+//     --line-width: zoom-gradient(1.2, 1.5 9z);
+//     --line-color: @protected-area;
+//     &[boundary='aboriginal_lands'] {
+//       --line-color: @aboriginal;
+//     }
+//   }
+//   &:zoom(10) {
+//     // inner line
+//     &::wideline {
+//       --opacity: 0.15;
+//       --line-width: zoom-gradient(3.6, 4 12z 13z, 6 14z);
+//       // Unlike planet_osm_line, planet_osm_polygon does not preserves the
+//       // original direction of the OSM way: Following OGS at
+//       // https://www.opengeospatial.org/standards/sfa always at the left
+//       // is the interior and at the right the exterior of the polygon.(This
+//       // also applies to inner rings of multipolygons.) So a negative
+//       // line-offset is always an offset to the inner side of the polygon.
+//       --line-offset: -0.9;
+//       --line-color: @protected-area;
+//       &[boundary='aboriginal_lands'] {
+//         --line-color: @aboriginal;
+//       }
+//       --line-join: round;
+//       --line-cap: round;
+//       --line-offset: zoom-gradient(-1 12z 13z, -2 14z);
+//     }
+//     // outer line
+//     &::narrowline {
+//       --opacity: 0.15;
+//       --line-width: zoom-gradient(1.8, 2 12z);
+//       --line-color: @protected-area;
+//       &[boundary='aboriginal_lands'] {
+//         --line-color: @aboriginal;
+//       }
+//       --line-join: round;
+//       --line-cap: round;
+//     }
+//   }
+// }
