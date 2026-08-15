@@ -526,7 +526,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(169,216,181,1)"
+      "polygon-fill": "rgba(222,246,192,1)"
     },
     "attachment": "low-zoom"
   },
@@ -618,7 +618,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(156,210,170,1)",
+      "line-color": "rgba(213,244,175,1)",
       "line-width": "0.3"
     },
     "attachment": "low-zoom"
@@ -936,7 +936,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(164,210,176,1)"
+      "polygon-fill": "rgba(170,203,175,1)"
     },
     "attachment": "low-zoom"
   },
@@ -1150,7 +1150,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(169,216,181,1)"
+      "polygon-fill": "rgba(222,246,192,1)"
     },
     "attachment": "low-zoom"
   },
@@ -342382,7 +342382,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(39,80,50,1)",
+      "text-fill": "rgba(45,73,49,1)",
       "text-halo-radius": "2.25"
     }
   },
@@ -506443,7 +506443,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(41,89,53,1)",
+      "text-fill": "rgba(99,160,23,1)",
       "text-dy": "15"
     }
   },
@@ -648758,11 +648758,11 @@
       }
     ],
     "paint": {
-      "line/line-width": "1",
+      "line/line-width": "0.2",
       "line/line-join": "round",
       "line/line-cap": "round",
       "line/line-color": "rgba(100,101,104,1)",
-      "dash/line-width": "3",
+      "dash/line-width": "0.6",
       "dash/line-join": "round",
       "dash/line-cap": "round",
       "dash/line-color": "rgba(93,94,97,1)",
