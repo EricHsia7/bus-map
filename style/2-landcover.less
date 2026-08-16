@@ -1,5 +1,4 @@
-// --- Parks, woods, other green things ---
-
+// Parks, woods, other green things
 @grass: #c9f8d5; // also grassland, meadow, village_green, garden, allotments
 @scrub: #c4f3d0;
 @forest: #c4f3d0;
@@ -9,8 +8,7 @@
 @orchard: #afdebb; // also vineyard, plant_nursery
 @hedge: @forest;
 
-// --- "Base" landuses ---
-
+// Basic landuses
 @built-up-lowzoom: #dce0e4;
 @built-up-z12: #e3e6e8;
 @residential: #e5eaf0;
@@ -31,8 +29,7 @@
 // and needs to be sufficiently narrow that it does not interfere with barrier render.
 @landuse-faint-outline-width: 0.3;
 
-// --- Transport ----
-
+// Transport
 @transportation-area: #e9e7e2;
 @apron: #dadae0;
 @garages: #dfddce;
@@ -42,8 +39,7 @@
 @railway-line: @industrial-line;
 @rest_area: #efc8c8; // also services
 
-// --- Other ----
-
+// Other
 @bare_ground: #eee5dc;
 @campsite: #def6c0; // also caravan_site, picnic_site
 @cemetery: #aacbaf; // also grave_yard
@@ -66,7 +62,6 @@
 @water_works: @industrial;
 @water_works-line: @industrial-line;
 
-// --- Collected literals (were inline in rule bodies) -------------------------
 @prison: #8e8e8e;
 @prison-line: darken(@prison, 4%);
 @landfill: #b6b592;
@@ -75,8 +70,7 @@
 @barrier-line-light: lighten(@neutral-800, 20%);
 @landcover-text: @text-tertiary;
 
-// --- Sports ---
-
+// Sports
 @pitch: #c4e5c6;
 @track: darken(@pitch, 5%);
 @stadium: @leisure; // also sports_centre
@@ -642,7 +636,7 @@
 
   //Also landuse = forest, converted in the SQL
   // &[natural='wood']:zoom(13)::wood {
-  // --polygon-pattern-file: "url('symbols/leaftype_unknown.svg')"; // Lch(55,30,135)
+  // --polygon-pattern-file: "url('symbols/leaftype_unknown.svg')";
   // &[leaf_type='broadleaved'] {
   // --polygon-pattern-file: "url('symbols/leaftype_broadleaved.svg')";
   // }
