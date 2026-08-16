@@ -1,20 +1,8 @@
-// =============================================================================
-// Roads, rail and aeroways
-// -----------------------------------------------------------------------------
-// Hierarchy model for the z12-z16 raster range:
-//   * every class that exists at z16 also exists at z12 - it is drawn in a
-//     lighter *shade*, never at a lower opacity and never omitted, so no road
-//     class appears or disappears between two adjacent zoom levels;
-//   * separation between classes comes from width first and shade second;
-//   * casings are hairlines (flat design), so a road no longer eats the
-//     footprint of the building next to it.
-// =============================================================================
-
 @default-casing: #c7c7cc;
 @road-fill: #c7c7cc;
 @road-casing: @road-fill;
 
-// --- Zoom shades -------------------------------------------------------------
+// Zoom shades
 // Minor classes fade *in shade*, from a light tint at z12 to the full road
 // colour at z15/z16. Major classes go the other way: slightly firmer at z12,
 // where they carry the whole map, then settling to the common road colour.
@@ -26,7 +14,7 @@
 @major-road-z12: darken(@road-fill, 3%);
 @major-road-z13: darken(@road-fill, 2%);
 
-// --- Rail / misc greys (collected from inline literals) ----------------------
+// Rail / misc greys
 @rail-line: @neutral-600; // was #808080 / #787878
 @rail-line-dark: @neutral-700; // was #6e6e6e / #707070 / #777 / #666
 @rail-line-light: @neutral-500; // was #999 / #aaa
@@ -155,7 +143,7 @@
 
 @bridge-casing: darken(@road-fill, 2%);
 
-// --- Underground -------------------------------------------------------------
+// Underground
 // Every below-grade variant resolves to the shared @underground-* tokens, so
 // road tunnels, rail tunnels and underground platforms read as one system:
 // lighter and cooler than the surface class, dashed casing, no bridge-style
@@ -436,14 +424,13 @@
 @track-oneway-arrow-color: darken(@track-fill, 10%);
 @bridleway-oneway-arrow-color: darken(@bridleway-fill, 15%);
 
-// Shield’s line wrap is based on OpenStreetMap data and not on line-wrap-width,
-// but lines are typically rather short, so we use narrow line spacing.
+// Shield’s line wrap is based on OpenStreetMap data and not on line-wrap-width, but lines are typically rather short, so we use narrow line spacing.
 @shield-size: 10;
-@shield-line-spacing: -1.5; // -0.15 em
+@shield-line-spacing: -1.5;
 @shield-size-z16: 11;
-@shield-line-spacing-z16: -1.65; // -0.15 em
+@shield-line-spacing-z16: -1.65;
 @shield-size-z18: 12;
-@shield-line-spacing-z18: -1.8; // -0.15 em
+@shield-line-spacing-z18: -1.8;
 @shield-spacing: 760;
 @shield-repeat-distance: 400;
 @shield-margin: 50;
@@ -2669,7 +2656,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --text-halo-radius: @standard-halo-radius;
       --text-wrap-character: ';';
       --text-wrap-width: 2; // effectively break after every wrap character
-      --text-line-spacing: -1.5; // -0.15 em
+      --text-line-spacing: -1.5;
       &:zoom(14) {
         &:not([name='null'])[ref='null'] {
           --text-name: '[name]';
@@ -2679,7 +2666,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         }
       }
       &:zoom(15) {
-        --text-line-spacing: -1.65; // -0.15 em
+        --text-line-spacing: -1.65;
       }
     }
   }
@@ -2694,11 +2681,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --text-face-name: @book-fonts;
       --text-halo-radius: @standard-halo-radius;
       --text-halo-fill: @standard-halo-fill;
-      --text-wrap-width: 30; // 3.0 em
-      --text-line-spacing: -1.5; // -0.15 em
+      --text-wrap-width: 30; 
+      --text-line-spacing: -1.5;
       --text-min-distance: 2;
       &:zoom(17) {
-        --text-line-spacing: -1.65; // -0.15 em
+        --text-line-spacing: -1.65;
         /* Offset name on traffic_signals on zoomlevels where they are displayed in order not to hide the text */
         &[highway='traffic_signals'] {
           --text-dy: 9;
@@ -2713,13 +2700,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     &:zoom(12) {
       --text-name: '[name]';
       --text-size: 10;
-      --text-wrap-width: 30; // 3 em
-      --text-line-spacing: -1.2; // -0.15 em
+      --text-wrap-width: 30; 
+      --text-line-spacing: -1.2;
       --text-fill: @standard-text-fill;
       --text-face-name: @book-fonts;
       --text-halo-radius: @standard-halo-radius;
       --text-halo-fill: @standard-halo-fill;
-      --text-margin: 3; // 0.3 em
+      --text-margin: 3; 
       --text-wrap-width: 30;
     }
   }
@@ -3131,9 +3118,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[highway='construction'][construction='residential'],
   &[highway='construction'][construction='unclassified'],
   &[highway='construction'][construction='road'] {
-    // MINOR ROAD EXEMPTION: the residential fill never exceeds 3.4px, which
-    // permits only ~4px of ink -- illegible. Held at a flat legible 8 instead
-    // of tracking the stroke, and no longer grown by scale (was reaching 12).
+    // MINOR ROAD EXEMPTION: the residential fill never exceeds 3.4px, which permits only ~4px of ink -- illegible. Held at a flat legible 8 instead of tracking the stroke, and no longer grown by scale (was reaching 12).
     --text-size: zoom-gradient(8 15z);
     --text-scale: zoom-gradient(1 15z);
     --text-spacing: zoom-gradient(300 15z 16z, 400 17z 18z, 400 19z);
@@ -3210,8 +3195,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-name: '[name]';
     --text-size: 9; // area label, hierarchy tier 2
     --text-face-name: @book-fonts;
-    --text-wrap-width: 30; // 2.7 em
-    --text-line-spacing: -1.7; // -0.15 em
+    --text-wrap-width: 30;
+    --text-line-spacing: -1.7;
   }
 }
 
@@ -3409,8 +3394,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
   }
   &[railway='rail'] {
-    /* Render highspeed rails from z11,
-       other main routes at z14. */
+    /* Render highspeed rails from z11, other main routes at z14. */
     &[highspeed='yes'] {
       --text-size: zoom-gradient(10 11z);
       --text-scale: zoom-gradient(1 11z 16z, 1.1 17z 18z, 1.2 19z);

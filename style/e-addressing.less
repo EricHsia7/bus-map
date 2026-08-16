@@ -25,9 +25,9 @@
     --text-halo-fill: @standard-halo-fill;
     --text-size: 10;
     --text-scale: zoom-gradient(1, 1.1 20z);
-    --text-wrap-width: zoom-gradient(30, 22 20z); // 3.0 em
-    --text-line-spacing: -1.5; // -0.15 em
-    --text-margin: 3; // 0.3 em
+    --text-wrap-width: zoom-gradient(30, 22 20z);
+    --text-line-spacing: -1.5;
+    --text-margin: 3;
     &:zoom(18) {
       --text-halo-radius: @standard-halo-radius * 1.25;
       &:not([addr_unit='null'])[addr_housenumber='null'] {
@@ -50,9 +50,8 @@
       }
     }
     &:zoom(20) {
-      // 2.0 em
-      --text-line-spacing: -1.65; // -0.15 em
-      --text-margin: 3.3; // 0.3 em
+      --text-line-spacing: -1.65;
+      --text-margin: 3.3;
     }
   }
 }
@@ -67,7 +66,7 @@
     --text-halo-radius: @standard-halo-radius;
     --text-halo-fill: @standard-halo-fill;
     --text-size: 11;
-    --text-wrap-width: 22; // 2.0 em
-    --text-line-spacing: -1.65; // -0.15 em
+    --text-wrap-width: 22;
+    --text-line-spacing: -1.65;
   }
 }
