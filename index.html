@@ -16,63 +16,12 @@
         position: absolute;
         inset: 0;
       }
-      #hud {
-        position: absolute;
-        z-index: 1;
-        left: 8px;
-        bottom: 8px;
-        font:
-          12px/1.4 system-ui,
-          sans-serif;
-        background: rgba(255, 255, 255, 0.85);
-        padding: 4px 8px;
-        border-radius: 4px;
-        pointer-events: none;
-      }
     </style>
   </head>
   <body>
     <div id="map"></div>
-    <div id="hud">labels: …</div>
     <script>
-      const { Decompress } = fflate;
-
-      function concatChunks(chunks) {
-        const size = chunks.reduce((n, c) => n + c.length, 0);
-        const result = new Uint8Array(size);
-        let pos = 0;
-        for (const chunk of chunks) {
-          result.set(chunk, pos);
-          pos += chunk.length;
-        }
-        return result;
-      }
-
-      async function streamInflate(url) {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        if (!response.body) throw new Error('No response body to stream');
-
-        const inflater = new Decompress();
-        const chunks = [];
-        inflater.ondata = (chunk, final) => {
-          chunks.push(chunk);
-        };
-
-        const reader = response.body.getReader();
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-          inflater.push(value, false); // feed compressed bytes incrementally
-        }
-
-        inflater.push(new Uint8Array(0), true); // final = true -> flush the tail
-
-        return concatChunks(chunks);
-      }
-
       const TILE_URL = './tiles/{z}/{x}/{y}.webp';
-      const LABEL_URL = './labels/{z}/{x}/{y}.geojson.gz'; // per-tile GeoJSON emitted by render.js
       const CENTER = [25.0331668, 121.5646286]; // [lat, lng] — Taipei
       const MIN_NATIVE = 12;
       const MAX_NATIVE = 16;
@@ -87,19 +36,13 @@
         maxZoom: MAX_ZOOM,
         style: {
           version: 8,
-          // sprite: './sprites/basemap',
           sources: {
             'raster-tiles': {
               type: 'raster',
               tiles: [TILE_URL],
-              tileSize: 128,
-              minzoom: MIN_NATIVE, // lowest zoom with real tiles
-              maxzoom: MAX_NATIVE // highest zoom with real tiles -> overzoom above this
-            },
-            // Starts empty; the lazy loader below feeds it visible tiles only.
-            'labels': {
-              type: 'geojson',
-              data: { type: 'FeatureCollection', features: [] }
+              tileSize: 256,
+              minzoom: MIN_NATIVE,
+              maxzoom: MAX_NATIVE
             }
           },
           layers: [
@@ -114,171 +57,12 @@
               id: 'raster-layer',
               type: 'raster',
               source: 'raster-tiles'
-              // paint: { 'raster-resampling': 'nearest' }, // crisper overzoom, see note
-            },
-            // Icon markers (needs the `sprite` above). Only features with `icon`.
-            {
-              id: 'label-markers',
-              type: 'symbol',
-              source: 'labels',
-              filter: ['has', 'icon'],
-              layout: {
-                'icon-image': ['get', 'icon'],
-                'icon-size': 1,
-                'icon-allow-overlap': false,
-                'icon-optional': true
-              }
-            },
-            // Text labels. `symbol-placement` cannot be a data expression, so
-            // we split by geometry: line labels follow the line, point labels
-            // anchor at the point.
-            {
-              id: 'label-text-line',
-              type: 'symbol',
-              source: 'labels',
-              filter: ['all', ['has', 'label'], ['==', ['geometry-type'], 'LineString']],
-              layout: {
-                'text-field': ['get', 'label'],
-                'text-font': ['literal', ['Open Sans Regular']], // must exist on the glyph server
-                'text-size': ['coalesce', ['get', 'text-size'], 11],
-                'symbol-placement': 'line',
-                'text-allow-overlap': false
-              },
-              paint: {
-                'text-color': ['coalesce', ['get', 'text-fill'], '#333333'],
-                'text-halo-color': ['coalesce', ['get', 'text-halo-fill'], '#ffffff'],
-                'text-halo-width': ['coalesce', ['get', 'text-halo-radius'], 1.2]
-              }
-            },
-            {
-              id: 'label-text-point',
-              type: 'symbol',
-              source: 'labels',
-              filter: ['all', ['has', 'label'], ['!=', ['geometry-type'], 'LineString']],
-              layout: {
-                'text-field': ['get', 'label'],
-                'text-font': ['literal', ['Open Sans Regular']], // must exist on the glyph server
-                'text-size': ['coalesce', ['get', 'text-size'], 11],
-                'symbol-placement': 'point',
-                'text-anchor': 'top',
-                'text-offset': [0, 0.6],
-                'text-allow-overlap': false
-              },
-              paint: {
-                'text-color': ['coalesce', ['get', 'text-fill'], '#333333'],
-                'text-halo-color': ['coalesce', ['get', 'text-halo-fill'], '#ffffff'],
-                'text-halo-width': ['coalesce', ['get', 'text-halo-radius'], 1.2]
-              }
             }
-            // Visible fallback so lazy loading is provable even without a glyph
-            // server or sprite: every loaded label/marker shows as a dot.
-            // {
-            //   id: 'label-dots',
-            //   type: 'circle',
-            //   source: 'labels',
-            //   paint: {
-            //     'circle-radius': 3,
-            //     'circle-color': '#e11d48',
-            //     'circle-stroke-color': '#ffffff',
-            //     'circle-stroke-width': 1
-            //   }
-            // }
           ]
         }
       });
 
-      map.addControl(new maplibregl.NavigationControl());
-
-      /* --------------------------------------------------------------------
-       * Lazy GeoJSON loading, tile by tile.
-       *
-       * A MapLibre `geojson` source cannot fetch {z}/{x}/{y} on its own — it
-       * loads a single `data` value. So we emulate tile behavior: on every
-       * moveend we work out which label tiles are visible, fetch just those
-       * (cached), and setData the union of the *currently visible* tiles. Tiles
-       * that scroll off are dropped from the source, so memory stays bounded.
-       * ------------------------------------------------------------------ */
-      const hud = document.getElementById('hud');
-      const labelCache = new Map(); // "z/x/y" -> Feature[]  (LRU; [] means empty/missing)
-      const CACHE_MAX = 400;
-      let reqSeq = 0; // guards against out-of-order responses
-
-      // Web-Mercator lon/lat -> tile x/y (matches render.js coordinate.js).
-      function lngLatToTile(lng, lat, z) {
-        const n = 2 ** z;
-        const x = Math.floor(((lng + 180) / 360) * n);
-        const latRad = (lat * Math.PI) / 180;
-        const y = Math.floor(((1 - Math.asinh(Math.tan(latRad)) / Math.PI) / 2) * n);
-        return [x, y];
-      }
-
-      const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
-
-      const decoder = new TextDecoder();
-      async function fetchTile(z, x, y) {
-        const key = z + '/' + x + '/' + y;
-        if (labelCache.has(key)) {
-          const v = labelCache.get(key); // LRU touch
-          labelCache.delete(key);
-          labelCache.set(key, v);
-          return v;
-        }
-        let feats = [];
-        try {
-          const data = await streamInflate(LABEL_URL.replace('{z}', z).replace('{x}', x).replace('{y}', y));
-          const geojson = JSON.parse(decoder.decode(data));
-          feats = (geojson && geojson.features) || [];
-        } catch (e) {
-          /* missing tile -> treat as empty, and cache so we don't refetch */
-        }
-        labelCache.set(key, feats);
-        if (labelCache.size > CACHE_MAX) {
-          labelCache.delete(labelCache.keys().next().value); // evict oldest
-        }
-        return feats;
-      }
-
-      async function refreshLabels() {
-        const src = map.getSource('labels');
-        if (!src) return;
-
-        // Match the raster tile the map is showing (overzoom clamps to native).
-        const z = clamp(Math.floor(map.getZoom()), MIN_NATIVE, MAX_NATIVE);
-        const maxIdx = 2 ** z - 1;
-        const b = map.getBounds();
-        const [xW, yN] = lngLatToTile(b.getWest(), b.getNorth(), z); // north => smaller y
-        const [xE, yS] = lngLatToTile(b.getEast(), b.getSouth(), z);
-        const x0 = clamp(Math.min(xW, xE), 0, maxIdx);
-        const x1 = clamp(Math.max(xW, xE), 0, maxIdx);
-        const y0 = clamp(Math.min(yN, yS), 0, maxIdx);
-        const y1 = clamp(Math.max(yN, yS), 0, maxIdx);
-
-        const seq = ++reqSeq;
-        const keys = [];
-        for (let x = x0; x <= x1; x++) for (let y = y0; y <= y1; y++) keys.push([z, x, y]);
-
-        const groups = await Promise.all(keys.map(([z, x, y]) => fetchTile(z, x, y)));
-        if (seq !== reqSeq) return; // a newer move superseded this one
-
-        // Merge visible tiles; dedup line labels that span multiple tiles by id.
-        const byId = new Map();
-        const anon = [];
-        for (const feats of groups) {
-          for (const f of feats) {
-            if (f.id != null) {
-              if (!byId.has(f.id)) byId.set(f.id, f);
-            } else {
-              anon.push(f);
-            }
-          }
-        }
-        const features = [...byId.values(), ...anon];
-        src.setData({ type: 'FeatureCollection', features });
-        hud.textContent = 'labels: ' + features.length + ' @ z' + z + ' (' + keys.length + ' tiles)';
-      }
-
-      map.on('moveend', refreshLabels);
-      map.on('load', refreshLabels);
+      // map.addControl(new maplibregl.NavigationControl());
     </script>
   </body>
 </html>
