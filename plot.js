@@ -183,10 +183,12 @@ function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, textSc
 
   const labelLength = label.length;
   const charAdvances = new Float32Array(labelLength);
+  const advancePrefix = new Float32Array(labelLength + 1);
   let totalAdvance = 0;
   for (let i = 0; i < labelLength; i++) {
     const advance = measureTextWidth(label[i], fontSize, 0, 0);
     charAdvances[i] = advance;
+    advancePrefix[i + 1] = advancePrefix[i] + advance;
     totalAdvance += advance;
   }
 
@@ -292,11 +294,6 @@ function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, textSc
   const outputAngles = [];
   const quantizeComponent = (x) => Math.floor((x / tileSize) * quantization);
   const quantizeAngle = (angle) => Math.floor((((angle + 2 * Math.PI) % (2 * Math.PI)) / (2 * Math.PI)) * quantization);
-
-  const advancePrefix = new Float32Array(labelLength + 1);
-  for (let i = 0; i < labelLength; i++) {
-    advancePrefix[i + 1] = advancePrefix[i] + charAdvances[i];
-  }
 
   for (let i = 0; i < labelLength; i++) {
     const offset = advancePrefix[i] + charAdvances[i] / 2;
