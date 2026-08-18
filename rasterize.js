@@ -6,7 +6,7 @@ const tileSize = config.tiles.size;
 const options = {
   shapeRendering: 2,
   textRendering: 0,
-  imageRendering: 1,
+  imageRendering: 0,
   dpi: 96,
   fitTo: {
     mode: 'width',
