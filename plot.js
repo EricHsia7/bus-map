@@ -1,6 +1,6 @@
 const { getOrientation, projectCoordinate, tileToBoundingbox, getTileViewbox, getCentroid } = require('./coordinate');
-const { planTextPlacement } = require('./plan-text-placement');
 const { smoothPath } = require('./smooth');
+const measureTextWidth = require('./text-width');
 
 // Transform a ring/line into pixel space, dropping non-finite points.
 function transform(path, transformX, transformY) {
@@ -149,11 +149,21 @@ function plotPolygonLabel(polygon, x0, y0, x1, y1, quantization = 1024) {
  * text-size must be scaled up by (quantization / 256) before it's used as a
  * distance in that coordinate space.
  */
-function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, textScale, tileSize = 512, quantization = 1024, center = true, keepUpright = true) {
+
+function clamp(value, min, max) {
+  if (value < min) {
+    return min;
+  } else if (value > max) {
+    return max;
+  } else {
+    return value;
+  }
+}
+
+function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, textScale, tileSize = 512, quantization = 1024, keepUpright = true) {
   if (!Array.isArray(lineString.coordinates) || lineString.coordinates.length < 2) return null;
   if (!label || label.length === 0) return null;
-  if (!(textSize > 0)) return null;
-  const labelLength = label.length;
+  if (textSize < 0 || textScale < 0) return null;
 
   const dX = x1 - x0;
   const dY = y1 - y0;
@@ -167,19 +177,136 @@ function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, textSc
 
   // text-size is authored against a 256x256 tile; scale it into whatever pixel space `coordinates` live in.
   const fontSize = textSize * textScale * (tileSize / 256);
-  const placements = planTextPlacement(coordinates, label, fontSize);
-  if (!placements || placements?.length === 0) return null;
-  const glyphs = placements[0].glyphs;
-  const outputCoordinates = [];
-  const angles = [];
-  for (const glyph of glyphs) {
-    let { cx: x, cy: y, angle } = glyph;
-    angle = (angle + 2 * Math.PI) % (2 * Math.PI);
-    outputCoordinates.push([Math.floor((x / tileSize) * quantization), Math.floor((y / tileSize) * quantization)]);
-    angles.push(Math.floor((angle / (2 * Math.PI)) * quantization));
+  const sampleRateRatio = 2;
+
+  const labelLength = label.length;
+  const charAdvances = new Float32Array(labelLength);
+  let totalAdvance = 0;
+  for (let i = 0; i < labelLength; i++) {
+    const advance = measureTextWidth(label[i], fontSize, 0, 0);
+    charAdvances[i] = advance;
+    totalAdvance += advance;
   }
 
-  return { type: 'LineString', coordinates: outputCoordinates, angles };
+  const coordinatesLength = coordinates.length;
+  const segmentLengths = new Float32Array(coordinatesLength - 1);
+  const segmentTotalLengths = new Float32Array(coordinatesLength - 1);
+  const segmentDeltaX = new Float32Array(coordinatesLength - 1);
+  const segmentDeltaY = new Float32Array(coordinatesLength - 1);
+  const segmentAbsoluteSlopes = new Float32Array(coordinatesLength - 1);
+  const segmentAngles = new Float32Array(coordinatesLength - 1);
+  const segmentTurns = new Float32Array(coordinatesLength - 1);
+  let totalLength = 0;
+  let totalTurn = 0;
+  let maxDistance = -Infinity;
+  for (let i = 1; i < coordinatesLength; i++) {
+    const s = i - 1; // segment index
+    const px = coordinates[i - 1][0];
+    const py = coordinates[i - 1][1];
+    const dx = coordinates[i][0] - px;
+    const dy = coordinates[i][1] - py;
+
+    segmentDeltaX[s] = dx;
+    segmentDeltaY[s] = dy;
+    const distance = Math.hypot(dx, dy);
+    segmentLengths[s] = distance;
+    segmentTotalLengths[s] = totalLength; // arc length at segment start
+    totalLength += distance;
+    segmentAbsoluteSlopes[s] = Math.abs(dy / dx);
+    const angle = Math.atan2(dy, dx);
+    segmentAngles[s] = angle;
+    segmentTurns[s] = totalTurn;
+    totalTurn += s === 0 ? 0 : Math.abs(angle - segmentAngles[s - 1]);
+  }
+
+  // Reject short path
+  if (totalAdvance + charAdvances[0] + charAdvances[labelLength - 1] > totalLength) return null;
+
+  const resampledX = [];
+  const resampledY = [];
+  const resampledToSegement = [];
+  for (let i = 0; i < coordinatesLength - 1; i++) {
+    resampledX.push(coordinates[i][0]);
+    resampledY.push(coordinates[i][1]);
+    resampledToSegement.push(i);
+    const sampleCount = Math.max(1, (segmentLengths[i] / fontSize) * sampleRateRatio);
+    for (let j = 1; j < sampleCount; j++) {
+      const t = j / sampleCount;
+      resampledX.push(coordinates[i][0] + segmentDeltaX[i] * t);
+      resampledY.push(coordinates[i][1] + segmentDeltaY[i] * t);
+      resampledToSegement.push(i);
+    }
+  }
+  const resampledLength = resampledX.length;
+
+  const halfSlidingWindow = Math.ceil((labelLength * sampleRateRatio) / 2);
+  let minScore = Infinity;
+  let minScoreIndex = -1;
+  for (let i = halfSlidingWindow; i < resampledLength - halfSlidingWindow - 1; i++) {
+    const planTotalTurn = segmentTurns[resampledToSegement[i + halfSlidingWindow]] - segmentTurns[resampledToSegement[i - halfSlidingWindow]];
+    const centerAbsoluteSlope = segmentAbsoluteSlopes[resampledToSegement[i]];
+    const score = planTotalTurn + centerAbsoluteSlope;
+    if (score < minScore) {
+      minScore = score;
+      minScoreIndex = i;
+    }
+  }
+
+  function sampleAtDistance(dist) {
+    let remaining = clamp(dist, 0, totalLength);
+    for (let i = 0; i < coordinatesLength - 1; i++) {
+      const segLen = segmentLengths[i];
+      if (remaining <= segLen || i === coordinatesLength - 2) {
+        const t = segLen === 0 ? 0 : remaining / segLen;
+        return {
+          x: coordinates[i][0] + segmentDeltaX[i] * t,
+          y: coordinates[i][1] + segmentDeltaY[i] * t,
+          angle: segmentAngles[i]
+        };
+      }
+      remaining -= segLen;
+    }
+    const last = coordinates[coordinatesLength - 1];
+    return {
+      x: last[0],
+      y: last[1],
+      angle: 0
+    };
+  }
+
+  const start = segmentTotalLengths[resampledToSegement[minScoreIndex - halfSlidingWindow]];
+  const end = start + totalAdvance;
+  const startPoint = sampleAtDistance(start);
+  const endPoint = sampleAtDistance(end);
+
+  const dirX = endPoint.x - startPoint.x;
+  const dirY = endPoint.y - startPoint.y;
+  const EPS = 1e-6;
+  const flip = dirX < -EPS || (Math.abs(dirX) <= EPS && dirY > 0);
+
+  const outputCoordinates = [];
+  const outputAngles = [];
+  const quantizeComponent = (x) => Math.floor((x / tileSize) * quantization);
+  const quantizeAngle = (angle) => Math.floor((((angle + 2 * Math.PI) % (2 * Math.PI)) / (2 * Math.PI)) * quantization);
+
+  const advancePrefix = new Float32Array(labelLength + 1);
+  for (let i = 0; i < labelLength; i++) {
+    advancePrefix[i + 1] = advancePrefix[i] + charAdvances[i];
+  }
+
+  for (let i = 0; i < labelLength; i++) {
+    const offset = advancePrefix[i] + charAdvances[i] / 2;
+
+    // Flipped: glyph 0 starts at the far end and we walk backwards, so glyph 0 still lands on the left-hand side of the screen.
+    const d = flip ? end - offset : start + offset;
+
+    const { x, y, angle } = sampleAtDistance(d);
+
+    outputCoordinates.push([quantizeComponent(x), quantizeComponent(y)]);
+    outputAngles.push(quantizeAngle(flip ? angle + Math.PI : angle));
+  }
+
+  return { type: 'LineString', coordinates: outputCoordinates, angles: outputAngles };
 }
 
 function plotPointLabel(point, x0, y0, x1, y1, quantization = 1024) {
