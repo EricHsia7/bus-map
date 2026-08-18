@@ -160,6 +160,9 @@ function clamp(value, min, max) {
   }
 }
 
+const maxTotalTurn = (60 / 180) * Math.PI;
+const sampleRateRatio = 2;
+
 function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, textScale, tileSize = 512, quantization = 1024, keepUpright = true) {
   if (!Array.isArray(lineString.coordinates) || lineString.coordinates.length < 2) return null;
   if (!label || label.length === 0) return null;
@@ -177,7 +180,6 @@ function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, textSc
 
   // text-size is authored against a 256x256 tile; scale it into whatever pixel space `coordinates` live in.
   const fontSize = textSize * textScale * (tileSize / 256);
-  const sampleRateRatio = 2;
 
   const labelLength = label.length;
   const charAdvances = new Float32Array(labelLength);
@@ -239,18 +241,20 @@ function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, textSc
   }
   const resampledLength = resampledX.length;
 
-  const halfSlidingWindow = Math.ceil((labelLength * sampleRateRatio) / 2);
+  const halfSlidingWindow = Math.ceil((labelLength * sampleRateRatio) / 2) + 1;
   let minScore = Infinity;
   let minScoreIndex = -1;
   for (let i = halfSlidingWindow; i < resampledLength - halfSlidingWindow - 1; i++) {
     const planTotalTurn = segmentTurns[resampledToSegement[i + halfSlidingWindow]] - segmentTurns[resampledToSegement[i - halfSlidingWindow]];
     const centerAbsoluteSlope = segmentAbsoluteSlopes[resampledToSegement[i]];
     const score = planTotalTurn + centerAbsoluteSlope;
-    if (score < minScore) {
+    if (planTotalTurn < maxTotalTurn && score < minScore) {
       minScore = score;
       minScoreIndex = i;
     }
   }
+
+  if (minScoreIndex < 0) return null;
 
   function sampleAtDistance(dist) {
     let remaining = clamp(dist, 0, totalLength);
