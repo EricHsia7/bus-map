@@ -1013,7 +1013,7 @@
     "paint": {
       "polygon-fill": "rgba(199,242,250,1)",
       "line-width": "0.3",
-      "line-color": "rgba(184,224,194,1)"
+      "line-color": "rgba(187,237,200,1)"
     },
     "attachment": "low-zoom"
   },
@@ -2371,7 +2371,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(177,221,188,1)"
+      "polygon-fill": "rgba(179,235,194,1)"
     },
     "attachment": "low-zoom"
   },
@@ -2408,7 +2408,7 @@
     ],
     "paint": {
       "line-width": "0.3",
-      "line-color": "rgba(159,213,173,1)"
+      "line-color": "rgba(159,230,178,1)"
     },
     "attachment": "low-zoom"
   },
@@ -2444,7 +2444,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(195,229,203,1)"
+      "polygon-fill": "rgba(199,240,210,1)"
     },
     "attachment": "low-zoom"
   },
@@ -2481,7 +2481,7 @@
     ],
     "paint": {
       "line-width": "0.3",
-      "line-color": "rgba(177,221,188,1)"
+      "line-color": "rgba(179,235,194,1)"
     },
     "attachment": "low-zoom"
   },
@@ -31377,6 +31377,548 @@
         "layer": "roads-casing",
         "zoom": {
           "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_subway"
+          }
+        ]
+      },
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "subway"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_subway"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "subway"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_subway"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "subway"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": "5.5",
+      "line-color": "rgba(194,194,199,1)",
+      "line-join": "round"
+    },
+    "attachment": "casing"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_light_rail"
+          }
+        ]
+      },
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_funicular"
+          }
+        ]
+      },
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_narrow_gauge"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_light_rail"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_funicular"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_narrow_gauge"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_light_rail"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_funicular"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_narrow_gauge"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": "5.5",
+      "line-color": "rgba(194,194,199,1)",
+      "line-join": "round"
+    },
+    "attachment": "casing"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_rail"
+          }
+        ]
+      },
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_monorail"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_rail"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_monorail"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_rail"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_monorail"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": "6.5",
+      "line-color": "rgba(194,194,199,1)",
+      "line-join": "round"
+    },
+    "attachment": "casing"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_INT-spur-siding-yard"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_INT-spur-siding-yard"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_INT-spur-siding-yard"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": "5.7",
+      "line-color": "rgba(194,194,199,1)",
+      "line-join": "round"
+    },
+    "attachment": "casing"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_disused"
+          }
+        ]
+      },
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_construction"
+          },
+          {
+            "key": "construction",
+            "op": "!=",
+            "value": "subway"
+          }
+        ]
+      },
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_miniature"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_disused"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_construction"
+          },
+          {
+            "key": "construction",
+            "op": "!=",
+            "value": "subway"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_miniature"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_disused"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_construction"
+          },
+          {
+            "key": "construction",
+            "op": "!=",
+            "value": "subway"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_miniature"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": "6",
+      "line-color": "rgba(194,194,199,1)",
+      "line-join": "round"
+    },
+    "attachment": "casing"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 14,
           "max": 14
         },
         "and": [
@@ -35233,6 +35775,744 @@
     ],
     "paint": {
       "line-width": "0.8400000000000001"
+    },
+    "attachment": "bridges_and_tunnels_background"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_bus_guideway"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_bus_guideway"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_bus_guideway"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": "5",
+      "line-color": "rgba(242,242,247,1)",
+      "line-join": "round"
+    },
+    "attachment": "bridges_and_tunnels_background"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_rail"
+          }
+        ]
+      },
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_monorail"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_rail"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_monorail"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_rail"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_monorail"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": "5",
+      "line-color": "rgba(242,242,247,1)",
+      "line-join": "round"
+    },
+    "attachment": "bridges_and_tunnels_background"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_INT-spur-siding-yard"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_INT-spur-siding-yard"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_INT-spur-siding-yard"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": "4",
+      "line-color": "rgba(242,242,247,1)",
+      "line-join": "round"
+    },
+    "attachment": "bridges_and_tunnels_background"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_disused"
+          }
+        ]
+      },
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_construction"
+          },
+          {
+            "key": "construction",
+            "op": "!=",
+            "value": "subway"
+          }
+        ]
+      },
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_miniature"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_disused"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_construction"
+          },
+          {
+            "key": "construction",
+            "op": "!=",
+            "value": "subway"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_miniature"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_disused"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_construction"
+          },
+          {
+            "key": "construction",
+            "op": "!=",
+            "value": "subway"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_miniature"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": "4.5",
+      "line-color": "rgba(242,242,247,1)",
+      "line-join": "round"
+    },
+    "attachment": "bridges_and_tunnels_background"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 13,
+          "max": 14
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_tram"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 13,
+          "max": 14
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_tram"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 13,
+          "max": 14
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_tram"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": "3",
+      "line-color": "rgba(242,242,247,1)"
+    },
+    "attachment": "bridges_and_tunnels_background"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_tram"
+          }
+        ]
+      },
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_tram-service"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_tram"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_tram-service"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_tram"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_tram-service"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": "4",
+      "line-color": "rgba(242,242,247,1)"
+    },
+    "attachment": "bridges_and_tunnels_background"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_subway"
+          }
+        ]
+      },
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "subway"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_subway"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "subway"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_subway"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_construction"
+          },
+          {
+            "key": "construction",
+            "op": "=",
+            "value": "subway"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": "4",
+      "line-color": "rgba(242,242,247,1)",
+      "line-join": "round"
+    },
+    "attachment": "bridges_and_tunnels_background"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_light_rail"
+          }
+        ]
+      },
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_funicular"
+          }
+        ]
+      },
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_narrow_gauge"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_light_rail"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_funicular"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_narrow_gauge"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_light_rail"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_funicular"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_narrow_gauge"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": "4",
+      "line-color": "rgba(242,242,247,1)",
+      "line-join": "round"
     },
     "attachment": "bridges_and_tunnels_background"
   },
@@ -123409,6 +124689,7 @@
       "dark/line-color": "rgba(199,199,204,1)",
       "light/line-width": "1",
       "light/line-color": "rgba(255,255,255,1)",
+      "light/line-dasharray": "0, 1, 8, 1",
       "light/line-join": "round"
     },
     "attachment": "fill"
@@ -125230,6 +126511,7 @@
       "dark/line-color": "rgba(199,199,204,1)",
       "light/line-width": "1",
       "light/line-color": "rgba(255,255,255,1)",
+      "light/line-dasharray": "0, 1, 8, 1",
       "light/line-join": "round"
     },
     "attachment": "fill"
@@ -125503,6 +126785,7 @@
       "dark/line-color": "rgba(199,199,204,1)",
       "light/line-width": "1",
       "light/line-color": "rgba(255,255,255,1)",
+      "light/line-dasharray": "0, 1, 8, 1",
       "light/line-join": "round"
     },
     "attachment": "fill"
@@ -615139,7 +616422,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(59,135,78,1)"
+      "text-fill": "rgba(44,166,77,1)"
     }
   },
   {
@@ -631398,7 +632681,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(67,153,87,1)"
+      "text-fill": "rgba(50,185,86,1)"
     }
   },
   {
@@ -639854,7 +641137,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(195,229,203,1)",
+      "line-color": "rgba(199,240,210,1)",
       "line-join": "round",
       "line-cap": "round",
       "line-width": "1"
@@ -639872,7 +641155,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(195,229,203,1)",
+      "line-color": "rgba(199,240,210,1)",
       "line-join": "round",
       "line-cap": "round",
       "line-width": "2"
@@ -639890,7 +641173,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(195,229,203,1)",
+      "line-color": "rgba(199,240,210,1)",
       "line-join": "round",
       "line-cap": "round",
       "line-width": "4"
@@ -639908,7 +641191,7 @@
       }
     ],
     "paint": {
-      "bridgecasing/line-color": "rgba(64,207,97,1)",
+      "bridgecasing/line-color": "rgba(56,230,103,1)",
       "bridgecasing/line-join": "round",
       "bridgecasing/line-width": "1.25"
     }
@@ -639925,7 +641208,7 @@
       }
     ],
     "paint": {
-      "bridgecasing/line-color": "rgba(64,207,97,1)",
+      "bridgecasing/line-color": "rgba(56,230,103,1)",
       "bridgecasing/line-join": "round",
       "bridgecasing/line-width": "2.5"
     }
@@ -639942,7 +641225,7 @@
       }
     ],
     "paint": {
-      "bridgecasing/line-color": "rgba(64,207,97,1)",
+      "bridgecasing/line-color": "rgba(56,230,103,1)",
       "bridgecasing/line-join": "round",
       "bridgecasing/line-width": "5"
     }
@@ -640087,7 +641370,7 @@
       "text-name": "'[name]'",
       "text-size": "10",
       "text-face-name": "'Noto Sans TC', sans-serif",
-      "text-fill": "rgba(67,153,87,1)",
+      "text-fill": "rgba(50,185,86,1)",
       "text-halo-radius": "1.5",
       "text-halo-fill": "rgba(255,255,255,0.9)",
       "text-placement": "line",
@@ -650095,7 +651378,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(195,229,203,1)"
+      "polygon-fill": "rgba(199,240,210,1)"
     },
     "attachment": "high-zoom"
   },
