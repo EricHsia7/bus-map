@@ -149703,20 +149703,6 @@
           {
             "key": "highway",
             "op": "=",
-            "value": "cycleway"
-          }
-        ]
-      },
-      {
-        "layer": "paths-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
             "value": "path"
           }
         ]
@@ -149770,25 +149756,6 @@
             "key": "construction",
             "op": "=",
             "value": "footway"
-          }
-        ]
-      },
-      {
-        "layer": "paths-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "cycleway"
           }
         ]
       },
@@ -149880,20 +149847,6 @@
           {
             "key": "highway",
             "op": "=",
-            "value": "cycleway"
-          }
-        ]
-      },
-      {
-        "layer": "paths-text-name",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
             "value": "path"
           }
         ]
@@ -149947,25 +149900,6 @@
             "key": "construction",
             "op": "=",
             "value": "footway"
-          }
-        ]
-      },
-      {
-        "layer": "paths-text-name",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "cycleway"
           }
         ]
       },
@@ -150057,20 +149991,6 @@
           {
             "key": "highway",
             "op": "=",
-            "value": "cycleway"
-          }
-        ]
-      },
-      {
-        "layer": "paths-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
             "value": "path"
           }
         ]
@@ -150124,25 +150044,6 @@
             "key": "construction",
             "op": "=",
             "value": "footway"
-          }
-        ]
-      },
-      {
-        "layer": "paths-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "cycleway"
           }
         ]
       },
@@ -150248,25 +150149,6 @@
           {
             "key": "highway",
             "op": "=",
-            "value": "cycleway"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "steps"
-          }
-        ]
-      },
-      {
-        "layer": "paths-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
             "value": "path"
           },
           {
@@ -150335,30 +150217,6 @@
             "key": "construction",
             "op": "=",
             "value": "footway"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "steps"
-          }
-        ]
-      },
-      {
-        "layer": "paths-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "construction"
-          },
-          {
-            "key": "construction",
-            "op": "=",
-            "value": "cycleway"
           },
           {
             "key": "highway",
@@ -167650,25 +167508,6 @@
           {
             "key": "highway",
             "op": "=",
-            "value": "cycleway"
-          },
-          {
-            "key": "oneway",
-            "op": "!=",
-            "value": "null"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
             "value": "footway"
           },
           {
@@ -167746,25 +167585,6 @@
             "key": "highway",
             "op": "=",
             "value": "steps"
-          },
-          {
-            "key": "oneway",
-            "op": "!=",
-            "value": "null"
-          }
-        ]
-      },
-      {
-        "layer": "paths-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "cycleway"
           },
           {
             "key": "oneway",
@@ -167902,30 +167722,6 @@
           {
             "key": "highway",
             "op": "=",
-            "value": "cycleway"
-          },
-          {
-            "key": "oneway",
-            "op": "!=",
-            "value": "null"
-          },
-          {
-            "key": "oneway",
-            "op": "=",
-            "value": "-1"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
             "value": "footway"
           },
           {
@@ -168023,30 +167819,6 @@
             "key": "highway",
             "op": "=",
             "value": "steps"
-          },
-          {
-            "key": "oneway",
-            "op": "!=",
-            "value": "null"
-          },
-          {
-            "key": "oneway",
-            "op": "=",
-            "value": "-1"
-          }
-        ]
-      },
-      {
-        "layer": "paths-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "cycleway"
           },
           {
             "key": "oneway",
@@ -168223,54 +167995,6 @@
           {
             "key": "highway",
             "op": "=",
-            "value": "cycleway"
-          },
-          {
-            "key": "oneway",
-            "op": "!=",
-            "value": "null"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "path"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "cycleway"
-          },
-          {
-            "key": "oneway",
-            "op": "!=",
-            "value": "null"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "footway"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
             "value": "footway"
           },
           {
@@ -168488,54 +168212,6 @@
             "key": "highway",
             "op": "=",
             "value": "steps"
-          },
-          {
-            "key": "oneway",
-            "op": "!=",
-            "value": "null"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "footway"
-          }
-        ]
-      },
-      {
-        "layer": "paths-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "cycleway"
-          },
-          {
-            "key": "oneway",
-            "op": "!=",
-            "value": "null"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "path"
-          }
-        ]
-      },
-      {
-        "layer": "paths-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "cycleway"
           },
           {
             "key": "oneway",
@@ -168783,30 +168459,6 @@
           {
             "key": "highway",
             "op": "=",
-            "value": "cycleway"
-          },
-          {
-            "key": "oneway",
-            "op": "!=",
-            "value": "null"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "steps"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
             "value": "footway"
           },
           {
@@ -168904,30 +168556,6 @@
             "key": "highway",
             "op": "=",
             "value": "steps"
-          },
-          {
-            "key": "oneway",
-            "op": "!=",
-            "value": "null"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "steps"
-          }
-        ]
-      },
-      {
-        "layer": "paths-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "cycleway"
           },
           {
             "key": "oneway",
@@ -169065,326 +168693,6 @@
           {
             "key": "highway",
             "op": "=",
-            "value": "cycleway"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "cycleway"
-          },
-          {
-            "key": "oneway",
-            "op": "!=",
-            "value": "null"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "cycleway"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "footway"
-          },
-          {
-            "key": "oneway",
-            "op": "!=",
-            "value": "null"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "cycleway"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "path"
-          },
-          {
-            "key": "oneway",
-            "op": "!=",
-            "value": "null"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "cycleway"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "track"
-          },
-          {
-            "key": "oneway",
-            "op": "!=",
-            "value": "null"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "cycleway"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "bridleway"
-          },
-          {
-            "key": "oneway",
-            "op": "!=",
-            "value": "null"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "cycleway"
-          }
-        ]
-      },
-      {
-        "layer": "paths-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "steps"
-          },
-          {
-            "key": "oneway",
-            "op": "!=",
-            "value": "null"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "cycleway"
-          }
-        ]
-      },
-      {
-        "layer": "paths-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "cycleway"
-          },
-          {
-            "key": "oneway",
-            "op": "!=",
-            "value": "null"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "cycleway"
-          }
-        ]
-      },
-      {
-        "layer": "paths-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "footway"
-          },
-          {
-            "key": "oneway",
-            "op": "!=",
-            "value": "null"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "cycleway"
-          }
-        ]
-      },
-      {
-        "layer": "paths-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "path"
-          },
-          {
-            "key": "oneway",
-            "op": "!=",
-            "value": "null"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "cycleway"
-          }
-        ]
-      },
-      {
-        "layer": "paths-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "track"
-          },
-          {
-            "key": "oneway",
-            "op": "!=",
-            "value": "null"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "cycleway"
-          }
-        ]
-      },
-      {
-        "layer": "paths-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "bridleway"
-          },
-          {
-            "key": "oneway",
-            "op": "!=",
-            "value": "null"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "cycleway"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "text-fill": "rgba(23,137,100,1)"
-    },
-    "attachment": "directions"
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "steps"
-          },
-          {
-            "key": "oneway",
-            "op": "!=",
-            "value": "null"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "track"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "cycleway"
-          },
-          {
-            "key": "oneway",
-            "op": "!=",
-            "value": "null"
-          },
-          {
-            "key": "highway",
-            "op": "=",
             "value": "track"
           }
         ]
@@ -169496,30 +168804,6 @@
             "key": "highway",
             "op": "=",
             "value": "steps"
-          },
-          {
-            "key": "oneway",
-            "op": "!=",
-            "value": "null"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "track"
-          }
-        ]
-      },
-      {
-        "layer": "paths-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "cycleway"
           },
           {
             "key": "oneway",
@@ -169671,30 +168955,6 @@
           {
             "key": "highway",
             "op": "=",
-            "value": "cycleway"
-          },
-          {
-            "key": "oneway",
-            "op": "!=",
-            "value": "null"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "bridleway"
-          }
-        ]
-      },
-      {
-        "layer": "roads-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
             "value": "footway"
           },
           {
@@ -169792,30 +169052,6 @@
             "key": "highway",
             "op": "=",
             "value": "steps"
-          },
-          {
-            "key": "oneway",
-            "op": "!=",
-            "value": "null"
-          },
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "bridleway"
-          }
-        ]
-      },
-      {
-        "layer": "paths-text-name",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "highway",
-            "op": "=",
-            "value": "cycleway"
           },
           {
             "key": "oneway",
