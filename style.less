@@ -1819,7 +1819,7 @@
 
       &#roads-casing {
         --line-join: round;
-        --line-cap: round;
+        --line-cap: butt;
       }
 
       &#tunnels {
@@ -1847,7 +1847,7 @@
 
       &#roads-casing {
         --line-join: round;
-        --line-cap: round;
+        --line-cap: butt;
       }
 
       &#tunnels {
@@ -1856,10 +1856,9 @@
 
       &#bridges:zoom(13) {
         --line-join: round;
-        // --line-color: @bridge-casing;
+        --line-color: @bridge-casing;
         --line-cap: butt;
         --line-dasharray: none;
-        --line-color: orange; // rgba(255,165,0,1)
       }
     }
 
@@ -1876,7 +1875,7 @@
 
       &#roads-casing {
         --line-join: round;
-        --line-cap: round;
+        --line-cap: butt;
       }
 
       &#tunnels {
@@ -1906,7 +1905,7 @@
 
       &#roads-casing {
         --line-join: round;
-        --line-cap: round;
+        --line-cap: butt;
       }
 
       &#tunnels {
@@ -1915,11 +1914,9 @@
 
       &#bridges:zoom(13) {
         --line-join: round;
-        // --line-color: @bridge-casing;
         --line-dasharray: none;
         --line-cap: butt;
-        --line-dasharray: none;
-        --line-color: blue;
+        --line-color: @bridge-casing;
       }
     }
 
@@ -1933,7 +1930,7 @@
 
       &#roads-casing {
         --line-join: round;
-        --line-cap: round;
+        --line-cap: butt;
       }
 
       &#tunnels {
@@ -1955,15 +1952,16 @@
 
       &#roads-casing {
         --line-join: round;
-        --line-cap: round;
+        --line-cap: butt;
       }
       &#tunnels {
         --line-dasharray: @underground-casing-dasharray;
       }
       &#bridges:zoom(14) {
-        // --line-color: @bridge-casing;
+        --line-color: @bridge-casing;
         --line-join: round;
-        --line-color: red;
+        --line-cap: butt;
+        --line-dasharray: none;
       }
     }
 
@@ -1974,7 +1972,7 @@
 
       &#roads-casing {
         --line-join: round;
-        --line-cap: round;
+        --line-cap: butt;
       }
 
       &#tunnels {
@@ -1984,6 +1982,8 @@
       &#bridges {
         --line-color: @bridge-casing;
         --line-join: round;
+        --line-cap: butt;
+        --line-dasharray: none;
       }
     }
 
@@ -2002,7 +2002,7 @@
 
         &#roads-casing {
           --line-join: round;
-          --line-cap: round;
+          --line-cap: butt;
         }
 
         &#tunnels {
@@ -2012,6 +2012,8 @@
         &#bridges {
           --line-color: @bridge-casing;
           --line-join: round;
+          --line-cap: butt;
+          --line-dasharray: none;
         }
       }
     }
@@ -2023,7 +2025,7 @@
 
       &#roads-casing {
         --line-join: round;
-        --line-cap: round;
+        --line-cap: butt;
       }
 
       &#tunnels {
@@ -2033,6 +2035,8 @@
       &#bridges {
         --line-color: @bridge-casing;
         --line-join: round;
+        --line-cap: butt;
+        --line-dasharray: none;
       }
     }
 
@@ -2041,7 +2045,7 @@
       --line-width: zoom-gradient(@living-street-width-z13, @living-street-width-z14 14z, @living-street-width-z15 15z, @living-street-width-z16 16z, @living-street-width-z17 17z, @living-street-width-z18 18z, @living-street-width-z19 19z);
 
       &#roads-casing {
-        --line-cap: round;
+        --line-cap: butt;
         --line-join: round;
       }
 
@@ -2052,6 +2056,8 @@
       &#bridges:zoom(14) {
         --line-color: @bridge-casing;
         --line-join: round;
+        --line-cap: butt;
+        --line-dasharray: none;
       }
     }
 
@@ -2290,7 +2296,7 @@
         &:not([access='no']):zoom(13),
         &:zoom(15) {
           --line-color: @bridleway-casing;
-          --line-cap: round;
+          --line-cap: butt;
           --line-join: round;
           --line-width: zoom-gradient(@bridleway-width-z13 + 2 * @paths-background-width, @bridleway-width-z15 + 2 * @paths-background-width 15z);
         }
@@ -2310,7 +2316,7 @@
         &:not([access='no']):zoom(14),
         &:zoom(15) {
           --line-color: @tunnel-casing;
-          --line-cap: round;
+          --line-cap: butt;
           --line-join: round;
           --line-width: zoom-gradient(@path-width-z14 + 2 * @paths-background-width, @path-width-z15 + 2 * @paths-background-width 15z, @path-width-z16 + 2 * @paths-background-width 16z 17z, @path-width-z18 + 2 * @paths-background-width 18z, @path-width-z19 + 2 * @paths-background-width 19z);
         }
@@ -2350,7 +2356,7 @@
         &:not([access='no']):zoom(13),
         &:zoom(15) {
           --line-color: @cycleway-casing;
-          --line-cap: round;
+          --line-cap: butt;
           --line-join: round;
           --line-width: zoom-gradient(@cycleway-width-z13 + 2 * @paths-background-width, @cycleway-width-z15 + 2 * @paths-background-width 15z, @cycleway-width-z16 + 2 * @paths-background-width 16z 17z, @cycleway-width-z18 + 2 * @paths-background-width 18z, @cycleway-width-z19 + 2 * @paths-background-width 19z);
         }
@@ -2370,7 +2376,7 @@
         &:not([access='no']):zoom(14),
         &:zoom(15) {
           --line-color: @steps-casing;
-          --line-cap: round;
+          --line-cap: butt;
           --line-join: round;
           --line-width: zoom-gradient(@steps-width-z14 + 2 * @paths-background-width, @steps-width-z15 + 2 * @paths-background-width 15z);
         }
@@ -2408,7 +2414,7 @@
         &:zoom(15) {
           --line-color: @track-casing;
           --line-join: round;
-          --line-cap: round;
+          --line-cap: butt;
           --line-width: zoom-gradient(@track-width-z13 + 2 * @paths-background-width, @track-width-z15 + 2 * @paths-background-width 15z);
           /* With the heavier dasharrays on grade1 and grade2 it helps to make the casing a bit larger */
           &[tracktype='grade1'] {
