@@ -13,21 +13,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       
       - name: Setup Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: 24
-
-      - name: Set up Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: '3.11'
       
       - name: Restore cached Node dependencies
         id: restore-cached-node-dependencies
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: |
             ./node_modules
@@ -42,7 +37,7 @@ jobs:
 
       - name: Cache Node dependencies
         id: cache-node-dependencies
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         if: steps.restore-cached-node-dependencies.outputs.cache-hit != 'true'
         with:
           path: |
@@ -57,7 +52,7 @@ jobs:
 
       - name: Restore Cached Osmium
         id: restore-cached-osmium
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: ~/osmium-install
           key: osmium-${{ runner.os }}-libosmium2.20.0-tool1.16.0
@@ -86,7 +81,7 @@ jobs:
 
       - name: Cache Osmium
         id: cache-osmium
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         if: steps.restore-cached-osmium.outputs.cache-hit != 'true'
         with:
           path: ~/osmium-install
@@ -108,7 +103,7 @@ jobs:
 
       - name: Restore Cached Map Data
         id: restore-cached-map-data
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: input.osm.pbf
           key: map-data-${{ steps.osm-state.outputs.sequence-number }}
@@ -122,14 +117,14 @@ jobs:
       - name: Cache Map Data
         id: cache-map-data
         if: steps.restore-cached-map-data.outputs.cache-hit != 'true'
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           path: input.osm.pbf
           key: ${{ steps.restore-cached-map-data.outputs.cache-primary-key }}
 
       - name: Restore Cached Chunks
         id: restore-cached-chunks
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: chunks
           key: chunks-${{ hashFiles('input.osm.pbf') }}-${{ hashFiles('chunk.js') }}-${{ hashFiles('config.json') }}
@@ -147,14 +142,14 @@ jobs:
       - name: Cache Chunks
         id: cache-chunks
         if: steps.restore-cached-chunks.outputs.cache-hit != 'true'
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           path: chunks
           key: ${{ steps.restore-cached-chunks.outputs.cache-primary-key }}
 
       - name: Restore Cached Tiles and Labels
         id: restore-cached-tiles-labels
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: ./tiles
           key: tiles-${{ hashFiles('input.osm.pbf') }}-${{ hashFiles('chunk.js') }}-${{ hashFiles('config.json') }}-${{ hashFiles('render.js') }}
@@ -171,7 +166,7 @@ jobs:
       - name: Cache Tiles and Labels
         id: cache-tiles-labels
         if: steps.restore-cached-tiles-labels.outputs.cache-hit != 'true'
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           path: |
             chunks
