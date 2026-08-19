@@ -1527,19 +1527,26 @@
 
 @unimportant-road: @road-fill;
 
-@bridge-casing-width-z12: 0.1;
-@bridge-casing-width-z13: 0.2;
-@bridge-casing-width-z14: 0.2;
-@bridge-casing-width-z15: 0.3;
-@bridge-casing-width-z16: 0.3;
-@bridge-casing-width-z17: 0.32;
-@bridge-casing-width-z18: 0.32;
-@bridge-casing-width-z19: 0.32;
-@bridge-casing-width-z20: 0.32;
+@bridge-casing-factor: 1.25;
+
+@bridge-casing-width-z12: @casing-width-z12 * @bridge-casing-factor;
+@bridge-casing-width-z13: @casing-width-z13 * @bridge-casing-factor;
+@bridge-casing-width-z14: @casing-width-z14 * @bridge-casing-factor;
+@bridge-casing-width-z15: @casing-width-z15 * @bridge-casing-factor;
+@bridge-casing-width-z16: @casing-width-z16 * @bridge-casing-factor;
+@bridge-casing-width-z17: @casing-width-z17 * @bridge-casing-factor;
+@bridge-casing-width-z18: @casing-width-z18 * @bridge-casing-factor;
+@bridge-casing-width-z19: @casing-width-z19 * @bridge-casing-factor;
+@bridge-casing-width-z20: @casing-width-z20 * @bridge-casing-factor;
 
 @bridleway-width-z13: 0.22;
 @bridleway-width-z15: 0.86;
 
+// Casing widths are class-independent: one ladder drives every hierarchy
+// level, so an outline is the same weight whether it wraps a motorway or a
+// service road. Hierarchy lives in the fill width and colour instead.
+// To thin every casing at once, scale these ten numbers and nothing else.
+@casing-width-z11: 0.12;
 @casing-width-z12: 0.12;
 @casing-width-z13: 0.2;
 @casing-width-z14: 0.22;
@@ -1571,26 +1578,26 @@
 @living-street-width-z18: 9.36;
 @living-street-width-z19: 12.24;
 
-@major-bridge-casing-width-z12: 0.2;
-@major-bridge-casing-width-z13: 0.2;
-@major-bridge-casing-width-z14: 0.24;
-@major-bridge-casing-width-z15: 0.3;
-@major-bridge-casing-width-z16: 0.3;
-@major-bridge-casing-width-z17: 0.4;
-@major-bridge-casing-width-z18: 0.4;
-@major-bridge-casing-width-z19: 0.4;
-@major-bridge-casing-width-z20: 0.4;
+@major-bridge-casing-width-z12: @casing-width-z12 * @bridge-casing-factor;
+@major-bridge-casing-width-z13: @casing-width-z13 * @bridge-casing-factor;
+@major-bridge-casing-width-z14: @casing-width-z14 * @bridge-casing-factor;
+@major-bridge-casing-width-z15: @casing-width-z15 * @bridge-casing-factor;
+@major-bridge-casing-width-z16: @casing-width-z16 * @bridge-casing-factor;
+@major-bridge-casing-width-z17: @casing-width-z17 * @bridge-casing-factor;
+@major-bridge-casing-width-z18: @casing-width-z18 * @bridge-casing-factor;
+@major-bridge-casing-width-z19: @casing-width-z19 * @bridge-casing-factor;
+@major-bridge-casing-width-z20: @casing-width-z20 * @bridge-casing-factor;
 
-@major-casing-width-z11: 0.12;
-@major-casing-width-z12: 0.2;
-@major-casing-width-z13: 0.2;
-@major-casing-width-z14: 0.24;
-@major-casing-width-z15: 0.28;
-@major-casing-width-z16: 0.28;
-@major-casing-width-z17: 0.4;
-@major-casing-width-z18: 0.4;
-@major-casing-width-z19: 0.4;
-@major-casing-width-z20: 0.4;
+@major-casing-width-z11: @casing-width-z11;
+@major-casing-width-z12: @casing-width-z12;
+@major-casing-width-z13: @casing-width-z13;
+@major-casing-width-z14: @casing-width-z14;
+@major-casing-width-z15: @casing-width-z15;
+@major-casing-width-z16: @casing-width-z16;
+@major-casing-width-z17: @casing-width-z17;
+@major-casing-width-z18: @casing-width-z18;
+@major-casing-width-z19: @casing-width-z19;
+@major-casing-width-z20: @casing-width-z20;
 
 @mini-roundabout-width: 3;
 
@@ -1628,9 +1635,11 @@
 @path-width-z18: 0.72;
 @path-width-z19: 0.65;
 
-@paths-background-width: 0.1;
-@paths-bridge-casing-width: 0.13;
-@paths-tunnel-casing-width: 0.17;
+@paths-casing-factor: 0.35;
+@tunnel-casing-factor: 1.5;
+@paths-background-width: @casing-width-z17 * @paths-casing-factor;
+@paths-bridge-casing-width: @paths-background-width * @bridge-casing-factor;
+@paths-tunnel-casing-width: @paths-background-width * @tunnel-casing-factor;
 
 @pedestrian-width-z14: 1.44;
 @pedestrian-width-z15: 2.16;
@@ -1657,7 +1666,7 @@
 @primary-width-z18: 8.64;
 @primary-width-z19: 10.08;
 
-@residential-casing-width-z13: 0.1;
+@residential-casing-width-z13: @casing-width-z13;
 @residential-width-z13: 0.72;
 @residential-width-z14: 1.44;
 @residential-width-z15: 2.16;
@@ -1672,15 +1681,15 @@
 @road-width-z18: 6.12;
 @road-width-z19: 7.92;
 
-@secondary-casing-width-z12: 0.1;
-@secondary-casing-width-z13: 0.1;
-@secondary-casing-width-z14: 0.12;
-@secondary-casing-width-z15: 0.14;
-@secondary-casing-width-z16: 0.16;
-@secondary-casing-width-z17: 0.2;
-@secondary-casing-width-z18: 0.24;
-@secondary-casing-width-z19: 0.28;
-@secondary-casing-width-z20: 0.32;
+@secondary-casing-width-z12: @casing-width-z12;
+@secondary-casing-width-z13: @casing-width-z13;
+@secondary-casing-width-z14: @casing-width-z14;
+@secondary-casing-width-z15: @casing-width-z15;
+@secondary-casing-width-z16: @casing-width-z16;
+@secondary-casing-width-z17: @casing-width-z17;
+@secondary-casing-width-z18: @casing-width-z18;
+@secondary-casing-width-z19: @casing-width-z19;
+@secondary-casing-width-z20: @casing-width-z20;
 
 @secondary-link-width-z12: 1.08;
 @secondary-link-width-z13: 2.16;
