@@ -4612,12 +4612,12 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
   &[highway='bridleway'],
   &[highway='footway'],
-  &[highway='cycleway'],
+  // &[highway='cycleway'],
   &[highway='path'],
   &[highway='steps'],
   &[highway='construction'][construction='bridleway'],
   &[highway='construction'][construction='footway'],
-  &[highway='construction'][construction='cycleway'],
+  // &[highway='construction'][construction='cycleway'],
   &[highway='construction'][construction='path'],
   &[highway='construction'][construction='steps'] {
     // MINOR: footway/path/steps fill is <1px. Flat legible 6 (was reaching 8).
@@ -4715,7 +4715,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
 
     &[highway='steps'],
-    &[highway='cycleway'],
+    // &[highway='cycleway'],
     &[highway='footway'],
     &[highway='path'],
     &[highway='track'],
@@ -4744,9 +4744,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         &[highway='steps'] {
           --text-fill: @steps-oneway-arrow-color;
         }
-        &[highway='cycleway'] {
-          --text-fill: @cycleway-oneway-arrow-color;
-        }
+        // &[highway='cycleway'] {
+        //   --text-fill: @cycleway-oneway-arrow-color;
+        // }
         &[highway='track'] {
           --text-fill: @track-oneway-arrow-color;
         }
