@@ -145,7 +145,7 @@
 @landcover-text: @text-tertiary;
 
 // Sports
-@pitch: #c3e5cb;
+@pitch: #c7f0d2;
 @track: darken(@pitch, 5%);
 @stadium: @leisure; // also sports_centre
 @golf_course: @campsite;
@@ -2203,61 +2203,61 @@
       }
     }
 
-    // &[feature='railway_subway'],
-    // &[feature='railway_construction'][construction='subway'] {
-    //   &#bridges {
-    //     &:zoom(14) {
-    //       --line-width: 5.5;
-    //       --line-color: @bridge-casing;
-    //       --line-join: round;
-    //     }
-    //   }
-    // }
+    &[feature='railway_subway'],
+    &[feature='railway_construction'][construction='subway'] {
+      &#bridges {
+        &:zoom(14) {
+          --line-width: 5.5;
+          --line-color: @bridge-casing;
+          --line-join: round;
+        }
+      }
+    }
 
-    // &[feature='railway_light_rail'],
-    // &[feature='railway_funicular'],
-    // &[feature='railway_narrow_gauge'] {
-    //   &#bridges {
-    //     &:zoom(14) {
-    //       --line-width: 5.5;
-    //       --line-color: @bridge-casing;
-    //       --line-join: round;
-    //     }
-    //   }
-    // }
+    &[feature='railway_light_rail'],
+    &[feature='railway_funicular'],
+    &[feature='railway_narrow_gauge'] {
+      &#bridges {
+        &:zoom(14) {
+          --line-width: 5.5;
+          --line-color: @bridge-casing;
+          --line-join: round;
+        }
+      }
+    }
 
-    // &[feature='railway_rail'],
-    // &[feature='railway_monorail']:zoom(14) {
-    //   &#bridges {
-    //     &:zoom(13) {
-    //       --line-width: 6.5;
-    //       --line-color: @bridge-casing;
-    //       --line-join: round;
-    //     }
-    //   }
-    // }
+    &[feature='railway_rail'],
+    &[feature='railway_monorail']:zoom(14) {
+      &#bridges {
+        &:zoom(13) {
+          --line-width: 6.5;
+          --line-color: @bridge-casing;
+          --line-join: round;
+        }
+      }
+    }
 
-    // &[feature='railway_INT-spur-siding-yard'] {
-    //   &#bridges {
-    //     &:zoom(13) {
-    //       --line-width: 5.7;
-    //       --line-color: @bridge-casing;
-    //       --line-join: round;
-    //     }
-    //   }
-    // }
+    &[feature='railway_INT-spur-siding-yard'] {
+      &#bridges {
+        &:zoom(13) {
+          --line-width: 5.7;
+          --line-color: @bridge-casing;
+          --line-join: round;
+        }
+      }
+    }
 
-    //   &[feature='railway_disused']:zoom(15),
-    //   &[feature='railway_construction']:not([construction='subway']),
-    //   &[feature='railway_miniature']:zoom(15) {
-    //     &#bridges {
-    //       &:zoom(13) {
-    //         --line-width: 6;
-    //         --line-color: @bridge-casing;
-    //         --line-join: round;
-    //       }
-    //     }
-    //   }
+    &[feature='railway_disused']:zoom(15),
+    &[feature='railway_construction']:not([construction='subway']),
+    &[feature='railway_miniature']:zoom(15) {
+      &#bridges {
+        &:zoom(13) {
+          --line-width: 6;
+          --line-color: @bridge-casing;
+          --line-join: round;
+        }
+      }
+    }
   }
 
   &::bridges_and_tunnels_background {
@@ -2414,77 +2414,77 @@
       }
     }
 
-    // &[feature='highway_bus_guideway']:zoom(13) {
-    //   &#bridges {
-    //     --line-width: 5;
-    //     --line-color: white;
-    //     --line-join: round;
-    //   }
-    // }
+    &[feature='highway_bus_guideway']:zoom(13) {
+      &#bridges {
+        --line-width: 5;
+        --line-color: @land-color;
+        --line-join: round;
+      }
+    }
 
-    // &[feature='railway_rail']:zoom(13),
-    // &[feature='railway_monorail']:zoom(14) {
-    //   &#bridges {
-    //     --line-width: 5;
-    //     --line-color: white;
-    //     --line-join: round;
-    //   }
-    // }
+    &[feature='railway_rail']:zoom(13),
+    &[feature='railway_monorail']:zoom(14) {
+      &#bridges {
+        --line-width: 5;
+        --line-color: @land-color;
+        --line-join: round;
+      }
+    }
 
-    // &[feature='railway_INT-spur-siding-yard'] {
-    //   &#bridges {
-    //     &:zoom(13) {
-    //       --line-width: 4;
-    //       --line-color: white;
-    //       --line-join: round;
-    //     }
-    //   }
-    // }
+    &[feature='railway_INT-spur-siding-yard'] {
+      &#bridges {
+        &:zoom(13) {
+          --line-width: 4;
+          --line-color: @land-color;
+          --line-join: round;
+        }
+      }
+    }
 
-    // &[feature='railway_disused']:zoom(15),
-    // &[feature='railway_construction']:not([construction='subway']),
-    // &[feature='railway_miniature']:zoom(15) {
-    //   &#bridges {
-    //     &:zoom(13) {
-    //       --line-width: 4.5;
-    //       --line-color: white;
-    //       --line-join: round;
-    //     }
-    //   }
-    // }
+    &[feature='railway_disused']:zoom(15),
+    &[feature='railway_construction']:not([construction='subway']),
+    &[feature='railway_miniature']:zoom(15) {
+      &#bridges {
+        &:zoom(13) {
+          --line-width: 4.5;
+          --line-color: @land-color;
+          --line-join: round;
+        }
+      }
+    }
 
-    // &[feature='railway_tram'],
-    // &[feature='railway_tram-service']:zoom(15) {
-    //   &#bridges {
-    //     &:zoom(13) {
-    //       --line-width: zoom-gradient(3, 4 15z);
-    //       --line-color: white;
-    //     }
-    //   }
-    // }
+    &[feature='railway_tram'],
+    &[feature='railway_tram-service']:zoom(15) {
+      &#bridges {
+        &:zoom(13) {
+          --line-width: zoom-gradient(3, 4 15z);
+          --line-color: @land-color;
+        }
+      }
+    }
 
-    // &[feature='railway_subway'],
-    // &[feature='railway_construction'][construction='subway'] {
-    //   &#bridges {
-    //     &:zoom(14) {
-    //       --line-width: 4;
-    //       --line-color: white;
-    //       --line-join: round;
-    //     }
-    //   }
-    // }
+    &[feature='railway_subway'],
+    &[feature='railway_construction'][construction='subway'] {
+      &#bridges {
+        &:zoom(14) {
+          --line-width: 4;
+          --line-color: @land-color;
+          --line-join: round;
+        }
+      }
+    }
 
-    // &[feature='railway_light_rail'],
-    // &[feature='railway_funicular'],
-    // &[feature='railway_narrow_gauge'] {
-    //   &#bridges {
-    //     &:zoom(14) {
-    //       --line-width: 4;
-    //       --line-color: white;
-    //       --line-join: round;
-    //     }
-    //   }
-    // }
+    &[feature='railway_light_rail'],
+    &[feature='railway_funicular'],
+    &[feature='railway_narrow_gauge'] {
+      &#bridges {
+        &:zoom(14) {
+          --line-width: 4;
+          --line-color: @land-color;
+          --line-join: round;
+        }
+      }
+    }
   }
 }
 
@@ -3535,7 +3535,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
             --dark__line-color: @rail-line-light;
             --light__line-width: 1;
             --light__line-color: white;
-            // --light__line-dasharray: 0, 1, 8, 1;
+            --light__line-dasharray: 0, 1, 8, 1;
             --light__line-join: round;
           }
         }
@@ -3596,7 +3596,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
             --dark__line-color: @rail-line-light;
             --light__line-width: 1;
             --light__line-color: white;
-            // --light__line-dasharray: 0, 1, 8, 1;
+            --light__line-dasharray: 0, 1, 8, 1;
             --light__line-join: round;
           }
         }
@@ -3617,7 +3617,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
             --dark__line-color: @rail-line-light;
             --light__line-width: 1;
             --light__line-color: white;
-            // --light__line-dasharray: 0, 1, 8, 1;
+            --light__line-dasharray: 0, 1, 8, 1;
             --light__line-join: round;
           }
         }
