@@ -29081,7 +29081,7 @@
       }
     ],
     "paint": {
-      "line-width": "1.54",
+      "line-width": "1.43",
       "line-color": "rgba(194,194,199,1)",
       "line-join": "round"
     },
@@ -29529,7 +29529,7 @@
         "layer": "roads-casing",
         "zoom": {
           "min": 13,
-          "max": 14
+          "max": 13
         },
         "and": [
           {
@@ -29548,7 +29548,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 13,
-          "max": 14
+          "max": 13
         },
         "and": [
           {
@@ -29567,7 +29567,7 @@
         "layer": "tunnels",
         "zoom": {
           "min": 13,
-          "max": 14
+          "max": 13
         },
         "and": [
           {
@@ -29585,6 +29585,72 @@
     ],
     "paint": {
       "line-width": "1.62",
+      "line-color": "rgba(207,207,215,1)"
+    },
+    "attachment": "casing"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 14,
+          "max": 14
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_cycleway"
+          },
+          {
+            "key": "access",
+            "op": "!=",
+            "value": "no"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 14,
+          "max": 14
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_cycleway"
+          },
+          {
+            "key": "access",
+            "op": "!=",
+            "value": "no"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 14,
+          "max": 14
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_cycleway"
+          },
+          {
+            "key": "access",
+            "op": "!=",
+            "value": "no"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": "1.51",
       "line-color": "rgba(207,207,215,1)"
     },
     "attachment": "casing"
@@ -33359,8 +33425,8 @@
       }
     ],
     "paint": {
-      "line-width": "1.28",
-      "line-color": "rgba(199,199,204,1)",
+      "line-width": "1.17",
+      "line-color": "rgba(31,214,162,1)",
       "line-join": "round"
     },
     "attachment": "bridges_and_tunnels_background"
@@ -33469,7 +33535,7 @@
     ],
     "paint": {
       "line-width": "1.06",
-      "line-color": "rgba(199,199,204,1)",
+      "line-color": "rgba(31,214,162,1)",
       "line-join": "round"
     },
     "attachment": "bridges_and_tunnels_background"
@@ -33578,7 +33644,7 @@
     ],
     "paint": {
       "line-width": "0.8500000000000001",
-      "line-color": "rgba(199,199,204,1)",
+      "line-color": "rgba(31,214,162,1)",
       "line-join": "round"
     },
     "attachment": "bridges_and_tunnels_background"
@@ -33687,7 +33753,7 @@
     ],
     "paint": {
       "line-width": "0.7",
-      "line-color": "rgba(199,199,204,1)",
+      "line-color": "rgba(31,214,162,1)",
       "line-join": "round"
     },
     "attachment": "bridges_and_tunnels_background"
@@ -33796,7 +33862,7 @@
     ],
     "paint": {
       "line-width": "0.63",
-      "line-color": "rgba(199,199,204,1)",
+      "line-color": "rgba(31,214,162,1)",
       "line-join": "round"
     },
     "attachment": "bridges_and_tunnels_background"
@@ -33807,7 +33873,7 @@
         "layer": "roads-casing",
         "zoom": {
           "min": 13,
-          "max": 14
+          "max": 13
         },
         "and": [
           {
@@ -33826,7 +33892,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 13,
-          "max": 14
+          "max": 13
         },
         "and": [
           {
@@ -33845,7 +33911,7 @@
         "layer": "tunnels",
         "zoom": {
           "min": 13,
-          "max": 14
+          "max": 13
         },
         "and": [
           {
@@ -33862,7 +33928,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(199,199,204,1)",
+      "line-color": "rgba(31,214,162,1)",
       "line-cap": "butt",
       "line-join": "round",
       "line-width": "1.28"
@@ -33874,6 +33940,74 @@
       {
         "layer": "roads-casing",
         "zoom": {
+          "min": 14,
+          "max": 14
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_cycleway"
+          },
+          {
+            "key": "access",
+            "op": "!=",
+            "value": "no"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 14,
+          "max": 14
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_cycleway"
+          },
+          {
+            "key": "access",
+            "op": "!=",
+            "value": "no"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 14,
+          "max": 14
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_cycleway"
+          },
+          {
+            "key": "access",
+            "op": "!=",
+            "value": "no"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-color": "rgba(31,214,162,1)",
+      "line-cap": "butt",
+      "line-join": "round",
+      "line-width": "1.17"
+    },
+    "attachment": "bridges_and_tunnels_background"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-casing",
+        "zoom": {
           "min": 15,
           "max": 15
         },
@@ -33972,7 +34106,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(199,199,204,1)",
+      "line-color": "rgba(31,214,162,1)",
       "line-cap": "butt",
       "line-join": "round",
       "line-width": "1.06"
@@ -34082,7 +34216,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(199,199,204,1)",
+      "line-color": "rgba(31,214,162,1)",
       "line-cap": "butt",
       "line-join": "round",
       "line-width": "0.8500000000000001"
@@ -34192,7 +34326,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(199,199,204,1)",
+      "line-color": "rgba(31,214,162,1)",
       "line-cap": "butt",
       "line-join": "round",
       "line-width": "0.7"
@@ -34302,7 +34436,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(199,199,204,1)",
+      "line-color": "rgba(31,214,162,1)",
       "line-cap": "butt",
       "line-join": "round",
       "line-width": "0.63"
@@ -114202,9 +114336,11 @@
       }
     ],
     "paint": {
-      "line/line-join": "round",
-      "line/line-cap": "round",
-      "line/line-color": "rgba(255,195,8,1)"
+      "line-join": "round",
+      "line-cap": "butt",
+      "line-width": "0.97",
+      "line-dasharray": "4 4",
+      "line-color": "rgba(64,223,172,1)"
     },
     "attachment": "fill"
   },
@@ -114254,10 +114390,11 @@
       }
     ],
     "paint": {
-      "line/line-join": "round",
-      "line/line-cap": "round",
-      "line/line-width": "0.86",
-      "line/line-color": "rgba(255,195,8,1)"
+      "line-join": "round",
+      "line-cap": "butt",
+      "line-width": "0.86",
+      "line-dasharray": "4 4",
+      "line-color": "rgba(64,223,172,1)"
     },
     "attachment": "fill"
   },
@@ -114307,10 +114444,11 @@
       }
     ],
     "paint": {
-      "line/line-join": "round",
-      "line/line-cap": "round",
-      "line/line-width": "0.65",
-      "line/line-color": "rgba(255,195,8,1)"
+      "line-join": "round",
+      "line-cap": "butt",
+      "line-width": "0.65",
+      "line-dasharray": "4 4",
+      "line-color": "rgba(64,223,172,1)"
     },
     "attachment": "fill"
   },
@@ -114360,10 +114498,11 @@
       }
     ],
     "paint": {
-      "line/line-join": "round",
-      "line/line-cap": "round",
-      "line/line-width": "0.5",
-      "line/line-color": "rgba(255,195,8,1)"
+      "line-join": "round",
+      "line-cap": "butt",
+      "line-width": "0.5",
+      "line-dasharray": "4 4",
+      "line-color": "rgba(64,223,172,1)"
     },
     "attachment": "fill"
   },
@@ -114413,94 +114552,11 @@
       }
     ],
     "paint": {
-      "line/line-join": "round",
-      "line/line-cap": "round",
-      "line/line-width": "0.43",
-      "line/line-color": "rgba(255,195,8,1)"
-    },
-    "attachment": "fill"
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-low-zoom",
-        "zoom": {
-          "min": 14,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_cycleway"
-          },
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          }
-        ]
-      },
-      {
-        "layer": "roads-fill",
-        "zoom": {
-          "min": 14,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_cycleway"
-          },
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 14,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_cycleway"
-          },
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          }
-        ]
-      },
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 14,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_cycleway"
-          },
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line/line-color": "rgba(255,195,8,1)"
+      "line-join": "round",
+      "line-cap": "butt",
+      "line-width": "0.43",
+      "line-dasharray": "4 4",
+      "line-color": "rgba(64,223,172,1)"
     },
     "attachment": "fill"
   },
@@ -171695,7 +171751,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(135,103,0,1)"
+      "text-fill": "rgba(23,137,100,1)"
     },
     "attachment": "directions"
   },
