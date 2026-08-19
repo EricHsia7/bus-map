@@ -19182,7 +19182,7 @@
     ],
     "paint": {
       "line-join": "round",
-      "line-cap": "round"
+      "line-cap": "butt"
     },
     "attachment": "casing"
   },
@@ -20184,7 +20184,7 @@
     ],
     "paint": {
       "line-join": "round",
-      "line-cap": "round"
+      "line-cap": "butt"
     },
     "attachment": "casing"
   },
@@ -20285,9 +20285,9 @@
     ],
     "paint": {
       "line-join": "round",
+      "line-color": "rgba(194,194,199,1)",
       "line-cap": "butt",
-      "line-dasharray": "none",
-      "line-color": "rgba(255,165,0,1)"
+      "line-dasharray": "none"
     },
     "attachment": "casing"
   },
@@ -21186,7 +21186,7 @@
     ],
     "paint": {
       "line-join": "round",
-      "line-cap": "round"
+      "line-cap": "butt"
     },
     "attachment": "casing"
   },
@@ -22188,7 +22188,7 @@
     ],
     "paint": {
       "line-join": "round",
-      "line-cap": "round"
+      "line-cap": "butt"
     },
     "attachment": "casing"
   },
@@ -22291,7 +22291,7 @@
       "line-join": "round",
       "line-dasharray": "none",
       "line-cap": "butt",
-      "line-color": "rgba(0,0,255,1)"
+      "line-color": "rgba(194,194,199,1)"
     },
     "attachment": "casing"
   },
@@ -23075,7 +23075,7 @@
     ],
     "paint": {
       "line-join": "round",
-      "line-cap": "round"
+      "line-cap": "butt"
     },
     "attachment": "casing"
   },
@@ -23829,7 +23829,7 @@
     ],
     "paint": {
       "line-join": "round",
-      "line-cap": "round"
+      "line-cap": "butt"
     },
     "attachment": "casing"
   },
@@ -24013,8 +24013,10 @@
       }
     ],
     "paint": {
+      "line-color": "rgba(194,194,199,1)",
       "line-join": "round",
-      "line-color": "rgba(255,0,0,1)"
+      "line-cap": "butt",
+      "line-dasharray": "none"
     },
     "attachment": "casing"
   },
@@ -24320,7 +24322,7 @@
     ],
     "paint": {
       "line-join": "round",
-      "line-cap": "round"
+      "line-cap": "butt"
     },
     "attachment": "casing"
   },
@@ -24371,7 +24373,9 @@
     ],
     "paint": {
       "line-color": "rgba(194,194,199,1)",
-      "line-join": "round"
+      "line-join": "round",
+      "line-cap": "butt",
+      "line-dasharray": "none"
     },
     "attachment": "casing"
   },
@@ -26144,7 +26148,7 @@
     ],
     "paint": {
       "line-join": "round",
-      "line-cap": "round"
+      "line-cap": "butt"
     },
     "attachment": "casing"
   },
@@ -26389,7 +26393,9 @@
     ],
     "paint": {
       "line-color": "rgba(194,194,199,1)",
-      "line-join": "round"
+      "line-join": "round",
+      "line-cap": "butt",
+      "line-dasharray": "none"
     },
     "attachment": "casing"
   },
@@ -26695,7 +26701,7 @@
     ],
     "paint": {
       "line-join": "round",
-      "line-cap": "round"
+      "line-cap": "butt"
     },
     "attachment": "casing"
   },
@@ -26796,7 +26802,9 @@
     ],
     "paint": {
       "line-color": "rgba(194,194,199,1)",
-      "line-join": "round"
+      "line-join": "round",
+      "line-cap": "butt",
+      "line-dasharray": "none"
     },
     "attachment": "casing"
   },
@@ -27203,7 +27211,7 @@
       }
     ],
     "paint": {
-      "line-cap": "round",
+      "line-cap": "butt",
       "line-join": "round"
     },
     "attachment": "casing"
@@ -27305,7 +27313,9 @@
     ],
     "paint": {
       "line-color": "rgba(194,194,199,1)",
-      "line-join": "round"
+      "line-join": "round",
+      "line-cap": "butt",
+      "line-dasharray": "none"
     },
     "attachment": "casing"
   },
@@ -32161,7 +32171,7 @@
     ],
     "paint": {
       "line-color": "rgba(157,207,157,1)",
-      "line-cap": "round",
+      "line-cap": "butt",
       "line-join": "round",
       "line-width": "0.42000000000000004"
     },
@@ -32271,7 +32281,7 @@
     ],
     "paint": {
       "line-color": "rgba(157,207,157,1)",
-      "line-cap": "round",
+      "line-cap": "butt",
       "line-join": "round",
       "line-width": "1.06"
     },
@@ -32842,7 +32852,7 @@
     ],
     "paint": {
       "line-color": "rgba(207,207,215,1)",
-      "line-cap": "round",
+      "line-cap": "butt",
       "line-join": "round",
       "line-width": "1.14"
     },
@@ -32952,7 +32962,7 @@
     ],
     "paint": {
       "line-color": "rgba(207,207,215,1)",
-      "line-cap": "round",
+      "line-cap": "butt",
       "line-join": "round",
       "line-width": "1.06"
     },
@@ -33062,7 +33072,7 @@
     ],
     "paint": {
       "line-color": "rgba(207,207,215,1)",
-      "line-cap": "round",
+      "line-cap": "butt",
       "line-join": "round",
       "line-width": "0.99"
     },
@@ -33172,7 +33182,7 @@
     ],
     "paint": {
       "line-color": "rgba(207,207,215,1)",
-      "line-cap": "round",
+      "line-cap": "butt",
       "line-join": "round",
       "line-width": "0.9199999999999999"
     },
@@ -33282,7 +33292,7 @@
     ],
     "paint": {
       "line-color": "rgba(207,207,215,1)",
-      "line-cap": "round",
+      "line-cap": "butt",
       "line-join": "round",
       "line-width": "0.8500000000000001"
     },
@@ -33853,7 +33863,7 @@
     ],
     "paint": {
       "line-color": "rgba(199,199,204,1)",
-      "line-cap": "round",
+      "line-cap": "butt",
       "line-join": "round",
       "line-width": "1.28"
     },
@@ -33963,7 +33973,7 @@
     ],
     "paint": {
       "line-color": "rgba(199,199,204,1)",
-      "line-cap": "round",
+      "line-cap": "butt",
       "line-join": "round",
       "line-width": "1.06"
     },
@@ -34073,7 +34083,7 @@
     ],
     "paint": {
       "line-color": "rgba(199,199,204,1)",
-      "line-cap": "round",
+      "line-cap": "butt",
       "line-join": "round",
       "line-width": "0.8500000000000001"
     },
@@ -34183,7 +34193,7 @@
     ],
     "paint": {
       "line-color": "rgba(199,199,204,1)",
-      "line-cap": "round",
+      "line-cap": "butt",
       "line-join": "round",
       "line-width": "0.7"
     },
@@ -34293,7 +34303,7 @@
     ],
     "paint": {
       "line-color": "rgba(199,199,204,1)",
-      "line-cap": "round",
+      "line-cap": "butt",
       "line-join": "round",
       "line-width": "0.63"
     },
@@ -34537,7 +34547,7 @@
     ],
     "paint": {
       "line-color": "rgba(199,199,204,1)",
-      "line-cap": "round",
+      "line-cap": "butt",
       "line-join": "round",
       "line-width": "0.8500000000000001"
     },
@@ -34647,7 +34657,7 @@
     ],
     "paint": {
       "line-color": "rgba(199,199,204,1)",
-      "line-cap": "round",
+      "line-cap": "butt",
       "line-join": "round",
       "line-width": "2.3600000000000003"
     },
@@ -35125,7 +35135,7 @@
     "paint": {
       "line-color": "rgba(255,255,255,1)",
       "line-join": "round",
-      "line-cap": "round",
+      "line-cap": "butt",
       "line-width": "0.56"
     },
     "attachment": "bridges_and_tunnels_background"
@@ -35235,7 +35245,7 @@
     "paint": {
       "line-color": "rgba(255,255,255,1)",
       "line-join": "round",
-      "line-cap": "round",
+      "line-cap": "butt",
       "line-width": "1.28"
     },
     "attachment": "bridges_and_tunnels_background"
