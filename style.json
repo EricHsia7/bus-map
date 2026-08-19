@@ -526,7 +526,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(222,246,192,1)"
+      "polygon-fill": "rgba(201,247,201,1)"
     },
     "attachment": "low-zoom"
   },
@@ -618,7 +618,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(213,244,175,1)",
+      "line-color": "rgba(184,244,184,1)",
       "line-width": "0.3"
     },
     "attachment": "low-zoom"
@@ -1113,7 +1113,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(222,246,192,1)"
+      "polygon-fill": "rgba(201,247,201,1)"
     },
     "attachment": "low-zoom"
   },
@@ -502600,7 +502600,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(99,160,23,1)",
+      "text-fill": "rgba(25,168,25,1)",
       "text-dy": "15"
     }
   },
