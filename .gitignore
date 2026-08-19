@@ -9,4 +9,5 @@ tiles
 output/tiles
 __pycache__
 log.txt
+*.log
 labels
