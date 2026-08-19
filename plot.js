@@ -248,9 +248,10 @@ function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, textSc
   let minScoreIndex = -1;
   for (let i = halfSlidingWindow; i < resampledLength - halfSlidingWindow - 1; i++) {
     const planTotalTurn = segmentTurns[resampledToSegement[i + halfSlidingWindow]] - segmentTurns[resampledToSegement[i - halfSlidingWindow]];
+    if (planTotalTurn >= maxTotalTurn) continue;
     const centerAbsoluteSlope = segmentAbsoluteSlopes[resampledToSegement[i]];
     const score = planTotalTurn + centerAbsoluteSlope;
-    if (planTotalTurn < maxTotalTurn && score < minScore) {
+    if (score < minScore) {
       minScore = score;
       minScoreIndex = i;
     }
