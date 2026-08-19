@@ -112066,97 +112066,6 @@
   {
     "groups": [
       {
-        "layer": "roads-low-zoom",
-        "zoom": {
-          "min": 16,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_platform"
-          },
-          {
-            "key": "surface",
-            "op": "!=",
-            "value": "unpaved"
-          }
-        ]
-      },
-      {
-        "layer": "roads-fill",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_platform"
-          },
-          {
-            "key": "surface",
-            "op": "!=",
-            "value": "unpaved"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_platform"
-          },
-          {
-            "key": "surface",
-            "op": "!=",
-            "value": "unpaved"
-          }
-        ]
-      },
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_platform"
-          },
-          {
-            "key": "surface",
-            "op": "!=",
-            "value": "unpaved"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-join": "round",
-      "line-width": "4.5",
-      "line-color": "rgba(174,174,178,1)",
-      "line-cap": "round",
-      "b/line-width": "4",
-      "b/line-color": "rgba(174,174,178,1)",
-      "b/line-cap": "round",
-      "b/line-join": "round"
-    },
-    "attachment": "fill"
-  },
-  {
-    "groups": [
-      {
         "layer": "roads-fill",
         "zoom": {
           "min": 14,
@@ -114295,7 +114204,7 @@
     "paint": {
       "line/line-join": "round",
       "line/line-cap": "round",
-      "line/line-color": "rgba(25,180,237,1)"
+      "line/line-color": "rgba(255,195,8,1)"
     },
     "attachment": "fill"
   },
@@ -114348,7 +114257,7 @@
       "line/line-join": "round",
       "line/line-cap": "round",
       "line/line-width": "0.86",
-      "line/line-color": "rgba(25,180,237,1)"
+      "line/line-color": "rgba(255,195,8,1)"
     },
     "attachment": "fill"
   },
@@ -114401,7 +114310,7 @@
       "line/line-join": "round",
       "line/line-cap": "round",
       "line/line-width": "0.65",
-      "line/line-color": "rgba(25,180,237,1)"
+      "line/line-color": "rgba(255,195,8,1)"
     },
     "attachment": "fill"
   },
@@ -114454,7 +114363,7 @@
       "line/line-join": "round",
       "line/line-cap": "round",
       "line/line-width": "0.5",
-      "line/line-color": "rgba(25,180,237,1)"
+      "line/line-color": "rgba(255,195,8,1)"
     },
     "attachment": "fill"
   },
@@ -114507,7 +114416,7 @@
       "line/line-join": "round",
       "line/line-cap": "round",
       "line/line-width": "0.43",
-      "line/line-color": "rgba(25,180,237,1)"
+      "line/line-color": "rgba(255,195,8,1)"
     },
     "attachment": "fill"
   },
@@ -114591,7 +114500,7 @@
       }
     ],
     "paint": {
-      "line/line-color": "rgba(25,180,237,1)"
+      "line/line-color": "rgba(255,195,8,1)"
     },
     "attachment": "fill"
   },
@@ -171786,7 +171695,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(10,94,125,1)"
+      "text-fill": "rgba(135,103,0,1)"
     },
     "attachment": "directions"
   },

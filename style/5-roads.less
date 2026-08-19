@@ -113,7 +113,7 @@
 @footway-paved-casing: @footway-paved-fill;
 
 /* Dedicated bicycle paths or separated cycle tracks. */
-@cycleway-fill: #19b4ed;
+@cycleway-fill: #ffc308;
 @cycleway-fill-noaccess: @cycleway-fill;
 @cycleway-casing: @road-fill;
 
@@ -1891,18 +1891,18 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     //   }
     // }
 
-    &[feature='highway_platform']:not([surface='unpaved']) {
-      &:zoom(16) {
-        --line-join: round;
-        --line-width: 4.5;
-        --line-color: @rail-line;
-        --line-cap: round;
-        --b__line-width: 4;
-        --b__line-color: @platform-fill;
-        --b__line-cap: round;
-        --b__line-join: round;
-      }
-    }
+    // &[feature='highway_platform']:not([surface='unpaved']) {
+    //   &:zoom(16) {
+    //     --line-join: round;
+    //     --line-width: 4.5;
+    //     --line-color: @rail-line;
+    //     --line-cap: round;
+    //     --b__line-width: 4;
+    //     --b__line-color: @platform-fill;
+    //     --b__line-cap: round;
+    //     --b__line-join: round;
+    //   }
+    // }
 
     // &[feature='highway_platform'][surface='unpaved'] {
     //   &:zoom(16) {
