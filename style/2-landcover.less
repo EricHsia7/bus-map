@@ -30,13 +30,13 @@
 @garages: #edeef4;
 @parking: #edeef4;
 @railway: @industrial;
-@rest_area: #efc8c8; // also services
+@rest_area: #f2edf2; // also services
 
 // Other
 @bare_ground: #eee5dc;
 @campsite: #c9f7c9; // also caravan_site, picnic_site
 @cemetery: #b7ebc3; // also grave_yard
-@construction: #e0e0dc; // also brownfield
+@construction: #eaeaec; // also brownfield
 @heath: #aeeabc;
 @mud: #c2f5cf; // #CBB19A
 @place_of_worship: #d0d0d0; // also landuse_religious
@@ -57,9 +57,7 @@
 @military: #fe604b;
 @beach: #fff1ba;
 @wastewater_plant: @industrial;
-// @wastewater_plant-line: @industrial-line;
 @water_works: @industrial;
-// @water_works-line: @industrial-line;
 
 @prison: #8e8e8e;
 @prison-line: darken(@prison, 4%);
@@ -115,13 +113,12 @@
     --polygon-fill: @railway;
   }
 
-  // &[feature='landuse_brownfield'],
-  // &[feature='landuse_construction'] {
-  //  &:zoom(10) {
-  //    --polygon-fill: @construction;
-  //    --polygon-opacity: 0;
-  //  }
-  // }
+  &[feature='landuse_brownfield'],
+  &[feature='landuse_construction'] {
+    &:zoom(10) {
+      --polygon-fill: @construction;
+    }
+  }
 
   // &[feature='landuse_landfill'] {
   //  &:zoom(10) {
@@ -145,18 +142,10 @@
 
   &[feature='man_made_wastewater_plant'] {
     --polygon-fill: @wastewater_plant;
-    // &:zoom(16) {
-    //  --line-width: @landuse-faint-outline-width;
-    //  --line-color: @wastewater_plant-line;
-    // }
   }
 
   &[feature='man_made_water_works'] {
     --polygon-fill: @water_works;
-    // &:zoom(16) {
-    //  --line-width: @landuse-faint-outline-width;
-    //  --line-color: @water_works-line;
-    // }
   }
 
   // amenity + transport grounds (contain their own grass and yards)
@@ -176,9 +165,9 @@
 
   // &[feature='highway_services'],
   // &[feature='highway_rest_area'] {
-  //  &:zoom(10) {
-  //    --polygon-fill: @rest_area;
-  //  }
+  //   &:zoom(10) {
+  //     --polygon-fill: @rest_area;
+  //   }
   // }
 
   &[feature='amenity_prison']:zoom(10) {
@@ -208,10 +197,6 @@
   &[feature='amenity_post_office']:zoom(15),
   &[feature='amenity_library']:zoom(15) {
     --polygon-fill: @civic_amenities;
-    &:zoom(17) {
-      --line-width: @landuse-faint-outline-width;
-      --line-color: darken(@civic_amenities, 6%);
-    }
   }
 
   &[feature='tourism_museum']:zoom(15),
@@ -219,10 +204,6 @@
   &[feature='amenity_theatre']:zoom(15),
   &[feature='amenity_cinema']:zoom(15) {
     --polygon-fill: @culture_amenities;
-    &:zoom(17) {
-      --line-width: @landuse-faint-outline-width;
-      --line-color: darken(@culture_amenities, 6%);
-    }
   }
 
   &[feature='amenity_childcare']:zoom(15),
@@ -230,10 +211,6 @@
   &[feature='amenity_public_bath']:zoom(15),
   &[feature='amenity_shelter']:zoom(16) {
     --polygon-fill: @care_amenities;
-    &:zoom(17) {
-      --line-width: @landuse-faint-outline-width;
-      --line-color: darken(@care_amenities, 6%);
-    }
   }
 
   // &[feature='amenity_place_of_worship']:zoom(13),
@@ -486,10 +463,6 @@
 
   &[feature='leisure_swimming_pool']:zoom(14) {
     --polygon-fill: @water-color;
-    &:zoom(17) {
-      --line-width: 0.3;
-      --line-color: darken(@water-color, 5%);
-    }
   }
 
   &[feature='landuse_flowerbed'] {
@@ -672,10 +645,6 @@
     &:zoom(15) {
       --line-width: zoom-gradient(1 15z, 1.5 16z, 2 17z, 3 18z, 4 19z, 5 20z);
       --line-color: @barrier-line-light;
-    }
-    &:zoom(17) {
-      --barrier__line-width: 0.3;
-      --barrier__line-color: @barrier-line;
     }
   }
 }
