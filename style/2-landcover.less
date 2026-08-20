@@ -122,28 +122,15 @@
     --polygon-fill: @societal_amenities;
   }
 
-  [feature='landuse_garages'][zoom >='13'] {
-    --polygon-fill: @garages;
-  }
-
-  &[feature='amenity_parking'],
-  &[feature='amenity_bicycle_parking'],
-  &[feature='amenity_motorcycle_parking'],
-  &[feature='amenity_taxi'] {
-    &:zoom(14) {
-      --polygon-fill: @parking;
-    }
-  }
-
-  &[feature='amenity_parking_space']:zoom(18) {
-    --polygon-fill: @parking;
-  }
-
-  &[feature='leisure_swimming_pool']:zoom(14) {
-    --polygon-fill: @water-color;
-    &:zoom(17) {
-      --line-width: 0.3;
-      --line-color: darken(@water-color, 5%);
+  &[feature='leisure_sports_centre'],
+  &[feature='leisure_water_park'],
+  &[feature='leisure_stadium'] {
+    &:zoom(10) {
+      --polygon-fill: @stadium;
+      &:zoom(13) {
+        --line-width: 0.3;
+        --line-color: darken(@stadium, 8.8%);
+      }
     }
   }
 
@@ -340,6 +327,14 @@
     --polygon-fill: @water-color;
   }
 
+  &[feature='leisure_swimming_pool']:zoom(14) {
+    --polygon-fill: @water-color;
+    &:zoom(17) {
+      --line-width: 0.3;
+      --line-color: darken(@water-color, 5%);
+    }
+  }
+
   &[feature='natural_bare_rock']:zoom(5) {
     --polygon-fill: @bare_ground;
     // &:zoom(13) {
@@ -433,18 +428,6 @@
     --polygon-fill: @railway;
   }
 
-  &[feature='leisure_sports_centre'],
-  &[feature='leisure_water_park'],
-  &[feature='leisure_stadium'] {
-    &:zoom(10) {
-      --polygon-fill: @stadium;
-      &:zoom(13) {
-        --line-width: 0.3;
-        --line-color: darken(@stadium, 8.8%);
-      }
-    }
-  }
-
   &[feature='leisure_track']:zoom(10) {
     --polygon-fill: @track;
     &:zoom(15) {
@@ -459,6 +442,23 @@
       --line-width: 0.3;
       --line-color: darken(@pitch, 5%);
     }
+  }
+
+  &[feature='landuse_garages']:zoom(13) {
+    --polygon-fill: @garages;
+  }
+
+  &[feature='amenity_parking'],
+  &[feature='amenity_bicycle_parking'],
+  &[feature='amenity_motorcycle_parking'],
+  &[feature='amenity_taxi'] {
+    &:zoom(14) {
+      --polygon-fill: @parking;
+    }
+  }
+
+  &[feature='amenity_parking_space']:zoom(18) {
+    --polygon-fill: @parking;
   }
 }
 
