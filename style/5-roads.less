@@ -99,9 +99,9 @@
 @pedestrian-fill: @road-fill;
 
 /* Roads used for agricultural or forestry access. Usually unpaved and sub-tagged with surface quality (tracktype=grade1 to grade5). */
-@track-casing: #ddf8e4;
-@track-fill-noaccess: #92e8a6;
-@track-fill: #75e68f;
+@track-casing: #f3f1ec; // farmland
+@track-fill-noaccess: #dfdbce;
+@track-fill: #dad6c8;
 
 /* Designated walking paths, sidewalks, or footbridges. */
 @footway-fill: #8f9298;
@@ -204,11 +204,11 @@
 @cycleway-width-z18: 0.5;
 @cycleway-width-z19: 0.43;
 
-@footway-width-z14: 0.86;
-@footway-width-z15: 0.79;
-@footway-width-z16: 0.65;
-@footway-width-z18: 0.36;
-@footway-width-z19: 0.22;
+@footway-width-z14: 0.688;
+@footway-width-z15: 0.632;
+@footway-width-z16: 0.52;
+@footway-width-z18: 0.288;
+@footway-width-z19: 0.176;
 
 @living-street-width-z13: 1.44;
 @living-street-width-z14: 2.16;
@@ -1994,11 +1994,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --line-width: zoom-gradient(@footway-width-z14 14z, @footway-width-z15 15z, @footway-width-z16 16z 17z, @footway-width-z18 18z, @footway-width-z19 19z);
 
       &:zoom(15) {
-        --line-cap: round;
-        --line-dasharray: 0 6;
+        --line-cap: butt;
+        --line-dasharray: 6 9;
       }
 
-      --line-color: zoom-gradient(lighten(@footway-fill, 33%) 14z, lighten(@footway-fill, 22%) 15z, @footway-fill 16z);
+      --line-color: zoom-gradient(lighten(@footway-fill, 22%) 14z, lighten(@footway-fill, 11%) 15z, @footway-fill 16z);
       &[access='no'] {
         --line-color: @footway-fill-noaccess;
       }
@@ -2016,68 +2016,48 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     &[feature='highway_track'] {
       &:not([access='no']):zoom(13),
       &:zoom(15) {
-        /* The white casing that you mainly see against forests and other dark features */
-        &#roads-fill:zoom(15) {
-          --background__line-opacity: 0.4;
-          --background__line-color: @track-casing;
-          --background__line-join: round;
-          --background__line-cap: round;
-          --background__line-width: @track-width-z15 + 2 * @paths-background-width;
-          /* With the heavier dasharrays on grade1 and grade2 it helps to make the casing a bit larger */
-          &[tracktype='grade1'] {
-            --background__line-width: @track-grade1-width-z15 + 2 * @paths-background-width;
-          }
-          &[tracktype='grade2'] {
-            --background__line-width: @track-grade2-width-z15 + 2 * @paths-background-width;
-          }
-        }
-
-        /* Set the properties of the brown inside */
         --line__line-color: @track-fill;
         &[access='no'] {
           --line__line-color: @track-fill-noaccess;
         }
-        --line__line-dasharray: 5, 2, 4;
         --line__line-cap: round;
         --line__line-join: round;
-        --line__line-opacity: 0.8;
-        --line__line-clip: false;
 
         --line__line-width: zoom-gradient(@track-width-z13, @track-width-z15 15z);
 
-        &[tracktype='grade1'] {
-          --line__line-dasharray: 100, 0;
-        }
-        &[tracktype='grade2'] {
-          --line__line-dasharray: 8.8, 3.2;
-        }
-        &[tracktype='grade3'] {
-          --line__line-dasharray: 5.6, 4;
-        }
-        &[tracktype='grade4'] {
-          --line__line-dasharray: 2.2, 4.8;
-        }
-        &[tracktype='grade5'] {
-          --line__line-dasharray: 1.6, 6.4;
-        }
+        // &[tracktype='grade1'] {
+        //   --line__line-dasharray: 100, 0;
+        // }
+        // &[tracktype='grade2'] {
+        //   --line__line-dasharray: 8.8, 3.2;
+        // }
+        // &[tracktype='grade3'] {
+        //   --line__line-dasharray: 5.6, 4;
+        // }
+        // &[tracktype='grade4'] {
+        //   --line__line-dasharray: 2.2, 4.8;
+        // }
+        // &[tracktype='grade5'] {
+        //   --line__line-dasharray: 1.6, 6.4;
+        // }
 
-        &:zoom(15) {
-          &[tracktype='grade1'] {
-            --line__line-dasharray: 100, 0;
-          }
-          &[tracktype='grade2'] {
-            --line__line-dasharray: 11, 4;
-          }
-          &[tracktype='grade3'] {
-            --line__line-dasharray: 7, 5;
-          }
-          &[tracktype='grade4'] {
-            --line__line-dasharray: 4, 6;
-          }
-          &[tracktype='grade5'] {
-            --line__line-dasharray: 2, 8;
-          }
-        }
+        // &:zoom(15) {
+        //   &[tracktype='grade1'] {
+        //     --line__line-dasharray: 100, 0;
+        //   }
+        //   &[tracktype='grade2'] {
+        //     --line__line-dasharray: 11, 4;
+        //   }
+        //   &[tracktype='grade3'] {
+        //     --line__line-dasharray: 7, 5;
+        //   }
+        //   &[tracktype='grade4'] {
+        //     --line__line-dasharray: 4, 6;
+        //   }
+        //   &[tracktype='grade5'] {
+        //     --line__line-dasharray: 2, 8;
+        //   }
+        // }
       }
     }
 
