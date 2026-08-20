@@ -80,7 +80,74 @@ function touchesRenderToken(n) {
 /* ----------------------------------------------------------------------- */
 /* Custom SQL function registry (extend for exact osm-carto behaviour)      */
 /* ----------------------------------------------------------------------- */
+/**
+ * Postgres substr(string, from, count) / substring(string from x for y).
+ *
+ * The positions are 1-based and, crucially, positions below 1 are skipped but
+ * still consume `count`. project.mml relies on exactly that quirk to strip the
+ * '_link' suffix:
+ *
+ *   substr('primary_link', 0, length('primary_link') - 4)
+ *     -> from = 0, count = 8, so it spans positions 0..7 and yields 'primary'
+ *
+ * Getting this wrong by treating `from` as 1-based returns 'primary_', which is
+ * why these names have to be computed rather than approximated.
+ */
+function pgSubstring(str, from, count) {
+  if (str === null || str === undefined) return null;
+
+  const s = String(str);
+  const start = Number(from);
+
+  if (Number.isNaN(start)) return null;
+
+  // Exclusive 1-based end position.
+  const end = count === undefined || count === null ? s.length + 1 : start + Number(count);
+
+  if (Number.isNaN(end)) return null;
+
+  const lo = Math.max(1, start);
+  const hi = Math.min(s.length + 1, end);
+
+  if (hi <= lo) return '';
+
+  return s.slice(lo - 1, hi - 1);
+}
+
 const registry = {
+  // compile-mml.py names known functions after their sqlglot class, uppercased
+  // (see its exp.Func branch), so `substr(...)` and `substring(...)` both
+  // arrive here as SUBSTRING and are looked up lowercased.
+  substring(str, from, count) {
+    if (str === UNKNOWN || from === UNKNOWN || count === UNKNOWN) return UNKNOWN;
+
+    // A two-argument node is ambiguous: sqlglot stores Substring as
+    // (this, start, length), so `substring(x for 8)` and `substr(x, 8)`
+    // both arrive as two arguments with no way to tell them apart. Refuse
+    // rather than silently computing the wrong name.
+    if (count === undefined) return UNKNOWN;
+
+    return pgSubstring(norm(str), from, count);
+  },
+  length(str) {
+    if (str === UNKNOWN) return UNKNOWN;
+
+    const v = norm(str);
+
+    return v === null ? null : v.length;
+  },
+  round(value, digits) {
+    if (value === UNKNOWN || digits === UNKNOWN) return UNKNOWN;
+
+    const n = Number(norm(value));
+
+    if (Number.isNaN(n)) return null;
+
+    const d = digits === undefined || digits === null ? 0 : Number(digits);
+    const f = Math.pow(10, Number.isNaN(d) ? 0 : d);
+
+    return Math.round(n * f) / f;
+  },
   // Approximate: real definition lives in osm-carto functions.sql.
   carto_path_type(bicycle, horse) {
     const b = norm(bicycle),
@@ -171,17 +238,17 @@ function evalVal(n, row) {
     }
     case 'concat': {
       let out = '';
-      let sawUnknown = false;
       for (const a of n.args) {
         const v = evalVal(a, row);
-        if (v === UNKNOWN) {
-          sawUnknown = true;
-          continue;
-        }
+        // An undeterminable operand makes the whole concatenation
+        // undeterminable. Skipping it instead would emit a truncated name such
+        // as 'highway_' that no style rule can ever match, and applyColumns
+        // would store that as if it were a real feature name.
+        if (v === UNKNOWN) return UNKNOWN;
         if (v === null) return null; // SQL: NULL || x = NULL
         out += String(v);
       }
-      return sawUnknown && out === '' ? UNKNOWN : out;
+      return out;
     }
     case 'case': {
       for (const w of n.whens) {
