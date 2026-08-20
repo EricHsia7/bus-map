@@ -77,7 +77,7 @@
 @scrub: #c2f5cf;
 @forest: #c2f5cf;
 @forest-text: #1f3a20;
-@park: #c0f2cc;
+@park: #b7f1c4; // #c0f2cc;
 @allotments: #bdf0ca;
 @orchard: #bbecc7;
 @hedge: @forest;
@@ -86,11 +86,9 @@
 @built-up-lowzoom: #eaeaf1;
 @built-up-z12: #ededf3;
 @residential: #f0f0f5;
-@retail: #c5cede;
-@retail-line: #a7b4cc;
-@commercial: #c5d5de;
-@commercial-line: #a7becc;
-@industrial: #eff0f6; // Also used for railway, wastewater_plant
+@retail: #ecedf4;
+@commercial: #dbe5eb;
+@industrial: #eff0f6;
 // @industrial-line: #bad4ee; // Also used for railway-line, wastewater_plant-line
 @farmland: #f3f1ec;
 @farmyard: #efede6;
@@ -165,6 +163,10 @@
     }
   }
 
+  &[feature='landuse_commercial']:zoom(8) {
+    --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-z12 12z, @commercial 13z);
+  }
+
   &[feature='landuse_retail'],
   &[feature='shop_mall'],
   &[feature='amenity_marketplace'] {
@@ -195,6 +197,7 @@
   &[feature='amenity_arts_centre'] {
     --polygon-fill: @societal_amenities;
   }
+
   [feature='landuse_garages'][zoom >='13'] {
     --polygon-fill: @garages;
   }
@@ -379,14 +382,6 @@
   //   &:zoom(16) {
   //     --line-width: @landuse-faint-outline-width;
   //     --line-color: @power-line;
-  //   }
-  // }
-
-  // &[feature='landuse_commercial']:zoom(8) {
-  //   --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-z12 12z, @commercial 13z);
-  //   &:zoom(16) {
-  //     --line-width: @landuse-faint-outline-width;
-  //     --line-color: @commercial-line;
   //   }
   // }
 
