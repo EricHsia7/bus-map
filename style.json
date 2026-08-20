@@ -185,6 +185,488 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
+          "min": 8,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_residential"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 11
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_residential"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(234,234,241,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 12,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_residential"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(237,237,243,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 13,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_residential"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_residential"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(240,240,245,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 10,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "aeroway_aerodrome"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 13,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_ferry_terminal"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 13,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_bus_station"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "aeroway_aerodrome"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_ferry_terminal"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_bus_station"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(237,240,247,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_hospital"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_clinic"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_university"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_college"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_school"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_kindergarten"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_community_centre"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_social_facility"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_arts_centre"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_hospital"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_clinic"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_university"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_college"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_school"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_kindergarten"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_community_centre"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_social_facility"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_arts_centre"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(237,237,244,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 0,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_garages"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_garages"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(237,238,244,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
           "min": 14,
           "max": 9
         },
@@ -1686,7 +2168,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(214,217,159,1)"
+      "polygon-fill": "rgba(174,234,188,1)"
     },
     "attachment": "low-zoom"
   },
@@ -1894,7 +2376,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(214,217,159,1)"
+      "polygon-fill": "rgba(174,234,188,1)"
     },
     "attachment": "low-zoom"
   },
@@ -32712,7 +33194,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(255,255,255,1)",
+      "line-color": "rgba(221,248,228,1)",
       "line-join": "round",
       "line-width": "0.584"
     },
@@ -32924,7 +33406,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(255,255,255,1)",
+      "line-color": "rgba(221,248,228,1)",
       "line-join": "round",
       "line-width": "1.304"
     },
@@ -33121,7 +33603,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(255,255,255,1)",
+      "line-color": "rgba(221,248,228,1)",
       "line-join": "round",
       "line-cap": "butt",
       "line-width": "0.584"
@@ -33231,7 +33713,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(255,255,255,1)",
+      "line-color": "rgba(221,248,228,1)",
       "line-join": "round",
       "line-cap": "butt",
       "line-width": "1.304"
@@ -111783,7 +112265,7 @@
     "paint": {
       "line-join": "round",
       "line-width": "0.86",
-      "line-color": "rgba(201,203,206,1)"
+      "line-color": "rgba(231,231,233,1)"
     },
     "attachment": "fill"
   },
@@ -111835,7 +112317,7 @@
     "paint": {
       "line-join": "round",
       "line-width": "0.79",
-      "line-color": "rgba(170,172,176,1)"
+      "line-color": "rgba(201,203,206,1)"
     },
     "attachment": "fill"
   },
@@ -112205,7 +112687,7 @@
       }
     ],
     "paint": {
-      "line/line-color": "rgba(153,102,0,1)",
+      "line/line-color": "rgba(117,230,143,1)",
       "line/line-dasharray": "5, 2, 4",
       "line/line-cap": "round",
       "line/line-join": "round",
@@ -112318,7 +112800,7 @@
       }
     ],
     "paint": {
-      "line/line-color": "rgba(153,102,0,1)",
+      "line/line-color": "rgba(117,230,143,1)",
       "line/line-dasharray": "5, 2, 4",
       "line/line-cap": "round",
       "line/line-join": "round",
@@ -112465,7 +112947,7 @@
     ],
     "paint": {
       "background/line-opacity": "0.4",
-      "background/line-color": "rgba(255,255,255,1)",
+      "background/line-color": "rgba(221,248,228,1)",
       "background/line-join": "round",
       "background/line-cap": "round",
       "background/line-width": "1.304"
@@ -113008,7 +113490,7 @@
       }
     ],
     "paint": {
-      "line/line-color": "rgba(226,197,187,1)"
+      "line/line-color": "rgba(146,232,166,1)"
     },
     "attachment": "fill"
   },
@@ -128250,7 +128732,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(153,102,0,1)",
+      "line-color": "rgba(117,230,143,1)",
       "line-width": "6",
       "line-cap": "round"
     }
@@ -128273,7 +128755,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(153,102,0,1)",
+      "line-color": "rgba(117,230,143,1)",
       "line-width": "10",
       "line-cap": "round"
     }
@@ -128532,7 +129014,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(255,255,255,1)"
+      "line-color": "rgba(221,248,228,1)"
     },
     "attachment": "circle"
   },
@@ -168886,7 +169368,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(102,68,0,1)"
+      "text-fill": "rgba(74,222,108,1)"
     },
     "attachment": "directions"
   },
@@ -183007,7 +183489,7 @@
       ],
       "marker-line-width": "0",
       "marker-clip": "false",
-      "marker-fill": "rgba(76,76,0,1)"
+      "marker-fill": "rgba(28,28,45,1)"
     }
   },
   {
@@ -183049,7 +183531,7 @@
       ],
       "marker-line-width": "0",
       "marker-clip": "false",
-      "marker-fill": "rgba(76,76,0,1)"
+      "marker-fill": "rgba(28,28,45,1)"
     }
   },
   {
@@ -214844,7 +215326,7 @@
       "text-size": "10",
       "text-wrap-width": "30",
       "text-line-spacing": "-1.5",
-      "text-fill": "rgba(105,101,69,1)",
+      "text-fill": "rgba(86,94,140,1)",
       "text-face-name": "'Noto Sans TC', sans-serif",
       "text-halo-radius": "1.5",
       "text-halo-fill": "rgba(255,255,255,0.9)"
@@ -343449,7 +343931,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(78,104,136,1)"
+      "text-fill": "rgba(92,92,138,1)"
     }
   },
   {
@@ -548148,7 +548630,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(76,76,0,1)"
+      "text-fill": "rgba(28,28,45,1)"
     }
   },
   {
@@ -564414,7 +564896,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(119,123,49,1)"
+      "text-fill": "rgba(42,162,70,1)"
     }
   },
   {
@@ -634946,7 +635428,7 @@
       "text-halo-radius": "1.5",
       "text-halo-fill": "rgba(255,255,255,0.9)",
       "text-dy": "8",
-      "text-fill": "rgba(76,76,0,1)"
+      "text-fill": "rgba(28,28,45,1)"
     }
   },
   {

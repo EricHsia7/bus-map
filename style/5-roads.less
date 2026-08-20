@@ -99,9 +99,9 @@
 @pedestrian-fill: @road-fill;
 
 /* Roads used for agricultural or forestry access. Usually unpaved and sub-tagged with surface quality (tracktype=grade1 to grade5). */
-@track-casing: #ffffff;
-@track-fill-noaccess: #e2c5bb;
-@track-fill: #996600;
+@track-casing: #ddf8e4;
+@track-fill-noaccess: #92e8a6;
+@track-fill: #75e68f;
 
 /* Designated walking paths, sidewalks, or footbridges. */
 @footway-fill: #8f9298;
@@ -1998,7 +1998,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         --line-dasharray: 0 6;
       }
 
-      --line-color: zoom-gradient(lighten(@footway-fill, 22%) 14z, lighten(@footway-fill, 10%) 15z, @footway-fill 16z);
+      --line-color: zoom-gradient(lighten(@footway-fill, 33%) 14z, lighten(@footway-fill, 22%) 15z, @footway-fill 16z);
       &[access='no'] {
         --line-color: @footway-fill-noaccess;
       }
