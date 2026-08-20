@@ -450,7 +450,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(219,229,235,1)"
+      "polygon-fill": "rgba(235,241,244,1)"
     },
     "attachment": "low-zoom"
   },
@@ -465430,7 +465430,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(53,79,95,1)"
+      "text-fill": "rgba(61,95,112,1)"
     }
   },
   {
