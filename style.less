@@ -695,8 +695,8 @@
   }
   &[feature='historic_citywalls'],
   &[feature='barrier_city_wall'] {
-    --line-width: zoom-gradient(1 15z, 1.5 16z, 2 17z, 3 18z, 4 19z, 5 20z);
     &:zoom(15) {
+      --line-width: zoom-gradient(1 15z, 1.5 16z, 2 17z, 3 18z, 4 19z, 5 20z);
       --line-color: @barrier-line-light;
     }
     &:zoom(17) {

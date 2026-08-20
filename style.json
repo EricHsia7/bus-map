@@ -3786,7 +3786,8 @@
       }
     ],
     "paint": {
-      "line-width": "1"
+      "line-width": "1",
+      "line-color": "rgba(122,122,126,1)"
     }
   },
   {
@@ -3821,7 +3822,8 @@
       }
     ],
     "paint": {
-      "line-width": "1.5"
+      "line-width": "1.5",
+      "line-color": "rgba(122,122,126,1)"
     }
   },
   {
@@ -3856,7 +3858,8 @@
       }
     ],
     "paint": {
-      "line-width": "2"
+      "line-width": "2",
+      "line-color": "rgba(122,122,126,1)"
     }
   },
   {
@@ -3891,7 +3894,8 @@
       }
     ],
     "paint": {
-      "line-width": "3"
+      "line-width": "3",
+      "line-color": "rgba(122,122,126,1)"
     }
   },
   {
@@ -3926,7 +3930,8 @@
       }
     ],
     "paint": {
-      "line-width": "4"
+      "line-width": "4",
+      "line-color": "rgba(122,122,126,1)"
     }
   },
   {
@@ -3961,41 +3966,7 @@
       }
     ],
     "paint": {
-      "line-width": "5"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "barriers",
-        "zoom": {
-          "min": 15,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "historic_citywalls"
-          }
-        ]
-      },
-      {
-        "layer": "barriers",
-        "zoom": {
-          "min": 15,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "barrier_city_wall"
-          }
-        ]
-      }
-    ],
-    "paint": {
+      "line-width": "5",
       "line-color": "rgba(122,122,126,1)"
     }
   },
