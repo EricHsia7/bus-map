@@ -752,6 +752,150 @@
           {
             "key": "feature",
             "op": "=",
+            "value": "landuse_railway"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_railway"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(239,240,246,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 10,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_quarry"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_quarry"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(229,229,230,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 1,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "man_made_wastewater_plant"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "man_made_wastewater_plant"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(239,240,246,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 1,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "man_made_water_works"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "man_made_water_works"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(239,240,246,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 10,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
             "value": "aeroway_aerodrome"
           }
         ]
@@ -829,6 +973,118 @@
     ],
     "paint": {
       "polygon-fill": "rgba(237,240,247,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 10,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_station"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_station"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(239,240,246,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 10,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "aeroway_apron"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "aeroway_apron"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(218,218,224,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 10,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_prison"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_prison"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(142,142,142,1)",
+      "polygon-opacity": "0.14",
+      "line-color": "rgba(132,132,132,1)",
+      "line-width": "1.8",
+      "line-opacity": "0.329"
     },
     "attachment": "low-zoom"
   },
@@ -1097,90 +1353,118 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 10,
+          "min": 15,
           "max": 9
         },
         "and": [
           {
             "key": "feature",
             "op": "=",
-            "value": "leisure_sports_centre"
+            "value": "amenity_townhall"
           }
         ]
       },
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 10,
+          "min": 15,
           "max": 9
         },
         "and": [
           {
             "key": "feature",
             "op": "=",
-            "value": "leisure_water_park"
+            "value": "amenity_courthouse"
           }
         ]
       },
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 10,
+          "min": 15,
           "max": 9
         },
         "and": [
           {
             "key": "feature",
             "op": "=",
-            "value": "leisure_stadium"
+            "value": "amenity_post_office"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 15,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_library"
           }
         ]
       },
       {
         "layer": "landcover",
         "zoom": {
-          "min": 10,
+          "min": 15,
           "max": 24
         },
         "and": [
           {
             "key": "feature",
             "op": "=",
-            "value": "leisure_sports_centre"
+            "value": "amenity_townhall"
           }
         ]
       },
       {
         "layer": "landcover",
         "zoom": {
-          "min": 10,
+          "min": 15,
           "max": 24
         },
         "and": [
           {
             "key": "feature",
             "op": "=",
-            "value": "leisure_water_park"
+            "value": "amenity_courthouse"
           }
         ]
       },
       {
         "layer": "landcover",
         "zoom": {
-          "min": 10,
+          "min": 15,
           "max": 24
         },
         "and": [
           {
             "key": "feature",
             "op": "=",
-            "value": "leisure_stadium"
+            "value": "amenity_post_office"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_library"
           }
         ]
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(204,245,213,1)"
+      "polygon-fill": "rgba(238,238,246,1)"
     },
     "attachment": "low-zoom"
   },
@@ -1189,183 +1473,119 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 13,
+          "min": 17,
           "max": 9
         },
         "and": [
           {
             "key": "feature",
             "op": "=",
-            "value": "leisure_sports_centre"
+            "value": "amenity_townhall"
           }
         ]
       },
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 13,
+          "min": 17,
           "max": 9
         },
         "and": [
           {
             "key": "feature",
             "op": "=",
-            "value": "leisure_water_park"
+            "value": "amenity_courthouse"
           }
         ]
       },
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 13,
+          "min": 17,
           "max": 9
         },
         "and": [
           {
             "key": "feature",
             "op": "=",
-            "value": "leisure_stadium"
+            "value": "amenity_post_office"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 17,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_library"
           }
         ]
       },
       {
         "layer": "landcover",
         "zoom": {
-          "min": 13,
+          "min": 17,
           "max": 24
         },
         "and": [
           {
             "key": "feature",
             "op": "=",
-            "value": "leisure_sports_centre"
+            "value": "amenity_townhall"
           }
         ]
       },
       {
         "layer": "landcover",
         "zoom": {
-          "min": 13,
+          "min": 17,
           "max": 24
         },
         "and": [
           {
             "key": "feature",
             "op": "=",
-            "value": "leisure_water_park"
+            "value": "amenity_courthouse"
           }
         ]
       },
       {
         "layer": "landcover",
         "zoom": {
-          "min": 13,
+          "min": 17,
           "max": 24
         },
         "and": [
           {
             "key": "feature",
             "op": "=",
-            "value": "leisure_stadium"
+            "value": "amenity_post_office"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 17,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_library"
           }
         ]
       }
     ],
     "paint": {
       "line-width": "0.3",
-      "line-color": "rgba(166,238,182,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 10,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_recreation_ground"
-          }
-        ]
-      },
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 13,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_playground"
-          }
-        ]
-      },
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 13,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_fitness_station"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_recreation_ground"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 13,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_playground"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 13,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_fitness_station"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(204,245,213,1)"
+      "line-color": "rgba(218,218,235,1)"
     },
     "attachment": "low-zoom"
   },
@@ -1381,7 +1601,7 @@
           {
             "key": "feature",
             "op": "=",
-            "value": "landuse_recreation_ground"
+            "value": "tourism_museum"
           }
         ]
       },
@@ -1395,7 +1615,7 @@
           {
             "key": "feature",
             "op": "=",
-            "value": "leisure_playground"
+            "value": "tourism_gallery"
           }
         ]
       },
@@ -1409,7 +1629,21 @@
           {
             "key": "feature",
             "op": "=",
-            "value": "leisure_fitness_station"
+            "value": "amenity_theatre"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 15,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_cinema"
           }
         ]
       },
@@ -1423,7 +1657,7 @@
           {
             "key": "feature",
             "op": "=",
-            "value": "landuse_recreation_ground"
+            "value": "tourism_museum"
           }
         ]
       },
@@ -1437,7 +1671,7 @@
           {
             "key": "feature",
             "op": "=",
-            "value": "leisure_playground"
+            "value": "tourism_gallery"
           }
         ]
       },
@@ -1451,14 +1685,453 @@
           {
             "key": "feature",
             "op": "=",
-            "value": "leisure_fitness_station"
+            "value": "amenity_theatre"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_cinema"
           }
         ]
       }
     ],
     "paint": {
-      "line-color": "rgba(140,232,160,1)",
-      "line-width": "0.3"
+      "polygon-fill": "rgba(241,237,245,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 17,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "tourism_museum"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 17,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "tourism_gallery"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 17,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_theatre"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 17,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_cinema"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 17,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "tourism_museum"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 17,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "tourism_gallery"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 17,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_theatre"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 17,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_cinema"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": "0.3",
+      "line-color": "rgba(226,217,234,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 15,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_childcare"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 15,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_nursing_home"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 15,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_public_bath"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 16,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_shelter"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_childcare"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_nursing_home"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_public_bath"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 16,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_shelter"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(236,241,245,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 17,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_childcare"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 17,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_nursing_home"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 17,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_public_bath"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 17,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_shelter"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 17,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_childcare"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 17,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_nursing_home"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 17,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_public_bath"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 17,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_shelter"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": "0.3",
+      "line-color": "rgba(216,226,234,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 10,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_cemetery"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 10,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_grave_yard"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_cemetery"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_grave_yard"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(183,235,195,1)"
     },
     "attachment": "low-zoom"
   },
@@ -1659,436 +2332,6 @@
           {
             "key": "feature",
             "op": "=",
-            "value": "landuse_quarry"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_quarry"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(229,229,230,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 5,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_vineyard"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_vineyard"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(187,236,199,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 5,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_orchard"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_orchard"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(187,236,199,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 10,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_garden"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_garden"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(197,247,210,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 10,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_flowerbed"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_flowerbed"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(197,247,210,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 10,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_plant_nursery"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_plant_nursery"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(187,236,199,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 10,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_cemetery"
-          }
-        ]
-      },
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 10,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_grave_yard"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_cemetery"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_grave_yard"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(183,235,195,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 10,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_prison"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_prison"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(142,142,142,1)",
-      "polygon-opacity": "0.14",
-      "line-color": "rgba(132,132,132,1)",
-      "line-width": "1.8",
-      "line-opacity": "0.329"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 10,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_park"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_park"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(183,241,196,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 10,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_ice_rink"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_ice_rink"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(199,242,250,1)",
-      "line-width": "0.3",
-      "line-color": "rgba(187,237,200,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 10,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_dog_park"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_dog_park"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(204,245,213,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 10,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
             "value": "leisure_golf_course"
           }
         ]
@@ -2153,7 +2396,7 @@
           {
             "key": "feature",
             "op": "=",
-            "value": "landuse_allotments"
+            "value": "leisure_park"
           }
         ]
       },
@@ -2167,13 +2410,343 @@
           {
             "key": "feature",
             "op": "=",
-            "value": "landuse_allotments"
+            "value": "leisure_park"
           }
         ]
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(189,240,202,1)"
+      "polygon-fill": "rgba(183,241,196,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 10,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_recreation_ground"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_recreation_ground"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(204,245,213,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 15,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_recreation_ground"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_recreation_ground"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-color": "rgba(140,232,160,1)",
+      "line-width": "0.3"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 10,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_sports_centre"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 10,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_water_park"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 10,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_stadium"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_sports_centre"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_water_park"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_stadium"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(204,245,213,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 13,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_sports_centre"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 13,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_water_park"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 13,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_stadium"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_sports_centre"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_water_park"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_stadium"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": "0.3",
+      "line-color": "rgba(166,238,182,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 10,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_dog_park"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_dog_park"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(204,245,213,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 10,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_garden"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_garden"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(197,247,210,1)"
     },
     "attachment": "low-zoom"
   },
@@ -2366,14 +2939,14 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 1,
+          "min": 5,
           "max": 9
         },
         "and": [
           {
             "key": "feature",
             "op": "=",
-            "value": "man_made_wastewater_plant"
+            "value": "natural_scrub"
           }
         ]
       },
@@ -2387,13 +2960,13 @@
           {
             "key": "feature",
             "op": "=",
-            "value": "man_made_wastewater_plant"
+            "value": "natural_scrub"
           }
         ]
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(239,240,246,1)"
+      "polygon-fill": "rgba(194,245,207,1)"
     },
     "attachment": "low-zoom"
   },
@@ -2402,14 +2975,14 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 1,
+          "min": 5,
           "max": 9
         },
         "and": [
           {
             "key": "feature",
             "op": "=",
-            "value": "man_made_water_works"
+            "value": "natural_heath"
           }
         ]
       },
@@ -2423,158 +2996,13 @@
           {
             "key": "feature",
             "op": "=",
-            "value": "man_made_water_works"
+            "value": "natural_heath"
           }
         ]
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(239,240,246,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 10,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_railway"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_railway"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(239,240,246,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 10,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_salt_pond"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_salt_pond"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(154,218,252,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 14,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_swimming_pool"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 14,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_swimming_pool"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(154,218,252,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 17,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_swimming_pool"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_swimming_pool"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": "0.3",
-      "line-color": "rgba(129,209,251,1)"
+      "polygon-fill": "rgba(174,234,188,1)"
     },
     "attachment": "low-zoom"
   },
@@ -2719,406 +3147,6 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 5,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "natural_heath"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "natural_heath"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(174,234,188,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 5,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "natural_scrub"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "natural_scrub"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(194,245,207,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 5,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "wetland_swamp"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "wetland_swamp"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(194,245,207,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 5,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "wetland_mangrove"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "wetland_mangrove"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(194,245,207,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 5,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "wetland_reedbed"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "wetland_reedbed"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(197,247,210,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 5,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "wetland_bog"
-          }
-        ]
-      },
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 5,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "wetland_string_bog"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "wetland_bog"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "wetland_string_bog"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(174,234,188,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 5,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "wetland_wet_meadow"
-          }
-        ]
-      },
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 5,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "wetland_fen"
-          }
-        ]
-      },
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 5,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "wetland_saltmarsh"
-          }
-        ]
-      },
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 5,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "wetland_marsh"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "wetland_wet_meadow"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "wetland_fen"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "wetland_saltmarsh"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "wetland_marsh"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(197,247,210,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 10,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "aeroway_apron"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "aeroway_apron"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(218,218,224,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
           "min": 10,
           "max": 9
         },
@@ -3190,7 +3218,7 @@
           {
             "key": "feature",
             "op": "=",
-            "value": "railway_station"
+            "value": "landuse_salt_pond"
           }
         ]
       },
@@ -3204,13 +3232,651 @@
           {
             "key": "feature",
             "op": "=",
-            "value": "railway_station"
+            "value": "landuse_salt_pond"
           }
         ]
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(239,240,246,1)"
+      "polygon-fill": "rgba(154,218,252,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 5,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "wetland_swamp"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "wetland_swamp"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(194,245,207,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 5,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "wetland_mangrove"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "wetland_mangrove"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(194,245,207,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 5,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "wetland_reedbed"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "wetland_reedbed"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(197,247,210,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 5,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "wetland_bog"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 5,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "wetland_string_bog"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "wetland_bog"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "wetland_string_bog"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(174,234,188,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 5,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "wetland_wet_meadow"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 5,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "wetland_fen"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 5,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "wetland_saltmarsh"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 5,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "wetland_marsh"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "wetland_wet_meadow"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "wetland_fen"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "wetland_saltmarsh"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "wetland_marsh"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(197,247,210,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 5,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_orchard"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_orchard"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(187,236,199,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 5,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_vineyard"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_vineyard"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(187,236,199,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 10,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_plant_nursery"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_plant_nursery"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(187,236,199,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 10,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_allotments"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_allotments"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(189,240,202,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 13,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_playground"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 13,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_fitness_station"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_playground"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 13,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_fitness_station"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(204,245,213,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 15,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_playground"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 15,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_fitness_station"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_playground"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_fitness_station"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-color": "rgba(140,232,160,1)",
+      "line-width": "0.3"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 10,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_pitch"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_pitch"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(199,240,210,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 15,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_pitch"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_pitch"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": "0.3",
+      "line-color": "rgba(179,235,194,1)"
     },
     "attachment": "low-zoom"
   },
@@ -3299,7 +3965,7 @@
           {
             "key": "feature",
             "op": "=",
-            "value": "leisure_pitch"
+            "value": "leisure_ice_rink"
           }
         ]
       },
@@ -3313,13 +3979,15 @@
           {
             "key": "feature",
             "op": "=",
-            "value": "leisure_pitch"
+            "value": "leisure_ice_rink"
           }
         ]
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(199,240,210,1)"
+      "polygon-fill": "rgba(199,242,250,1)",
+      "line-width": "0.3",
+      "line-color": "rgba(187,237,200,1)"
     },
     "attachment": "low-zoom"
   },
@@ -3328,35 +3996,107 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 15,
+          "min": 14,
           "max": 9
         },
         "and": [
           {
             "key": "feature",
             "op": "=",
-            "value": "leisure_pitch"
+            "value": "leisure_swimming_pool"
           }
         ]
       },
       {
         "layer": "landcover",
         "zoom": {
-          "min": 15,
+          "min": 14,
           "max": 24
         },
         "and": [
           {
             "key": "feature",
             "op": "=",
-            "value": "leisure_pitch"
+            "value": "leisure_swimming_pool"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(154,218,252,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 17,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_swimming_pool"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 17,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_swimming_pool"
           }
         ]
       }
     ],
     "paint": {
       "line-width": "0.3",
-      "line-color": "rgba(179,235,194,1)"
+      "line-color": "rgba(129,209,251,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 10,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_flowerbed"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_flowerbed"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(197,247,210,1)"
     },
     "attachment": "low-zoom"
   },

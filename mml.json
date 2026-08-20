@@ -26364,26 +26364,14 @@
                               ]
                             },
                             {
-                              "t": "not",
-                              "x": {
-                                "t": "isnull",
-                                "x": {
-                                  "t": "tag",
-                                  "key": "addr:unit"
-                                }
-                              }
+                              "t": "has",
+                              "key": "addr:unit"
                             }
                           ]
                         },
                         {
-                          "t": "not",
-                          "x": {
-                            "t": "isnull",
-                            "x": {
-                              "t": "tag",
-                              "key": "addr:flats"
-                            }
-                          }
+                          "t": "has",
+                          "key": "addr:flats"
                         }
                       ]
                     }
@@ -26465,8 +26453,19 @@
             ]
           },
           "addr_housenumber": {
-            "t": "col",
-            "name": "addr:housenumber"
+            "t": "func",
+            "name": "carto_shorten_list",
+            "args": [
+              {
+                "t": "col",
+                "name": "addr:housenumber"
+              },
+              {
+                "t": "lit",
+                "v": ",;",
+                "s": true
+              }
+            ]
           },
           "addr_housename": {
             "t": "col",
@@ -26477,8 +26476,19 @@
             "key": "addr:unit"
           },
           "addr_flats": {
-            "t": "tag",
-            "key": "addr:flats"
+            "t": "func",
+            "name": "carto_shorten_list",
+            "args": [
+              {
+                "t": "raw",
+                "sql": "tags -> 'addr:flats'"
+              },
+              {
+                "t": "lit",
+                "v": ";",
+                "s": true
+              }
+            ]
           },
           "way_pixels": {
             "t": "arith",
@@ -26585,26 +26595,14 @@
                       ]
                     },
                     {
-                      "t": "not",
-                      "x": {
-                        "t": "isnull",
-                        "x": {
-                          "t": "tag",
-                          "key": "addr:unit"
-                        }
-                      }
+                      "t": "has",
+                      "key": "addr:unit"
                     }
                   ]
                 },
                 {
-                  "t": "not",
-                  "x": {
-                    "t": "isnull",
-                    "x": {
-                      "t": "tag",
-                      "key": "addr:flats"
-                    }
-                  }
+                  "t": "has",
+                  "key": "addr:flats"
                 }
               ]
             }
@@ -26616,8 +26614,19 @@
             "name": "way"
           },
           "addr_housenumber": {
-            "t": "col",
-            "name": "addr:housenumber"
+            "t": "func",
+            "name": "carto_shorten_list",
+            "args": [
+              {
+                "t": "col",
+                "name": "addr:housenumber"
+              },
+              {
+                "t": "lit",
+                "v": ",;",
+                "s": true
+              }
+            ]
           },
           "addr_housename": {
             "t": "col",
@@ -26628,8 +26637,19 @@
             "key": "addr:unit"
           },
           "addr_flats": {
-            "t": "tag",
-            "key": "addr:flats"
+            "t": "func",
+            "name": "carto_shorten_list",
+            "args": [
+              {
+                "t": "raw",
+                "sql": "tags -> 'addr:flats'"
+              },
+              {
+                "t": "lit",
+                "v": ";",
+                "s": true
+              }
+            ]
           },
           "way_pixels": {
             "t": "cast",
