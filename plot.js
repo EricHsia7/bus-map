@@ -1,5 +1,4 @@
-const { getOrientation, projectCoordinate, tileToBoundingbox, getTileViewbox, getCentroid } = require('./coordinate');
-const { smoothPath } = require('./smooth');
+const { getOrientation, getCentroid } = require('./coordinate');
 const measureTextWidth = require('./text-width');
 
 // Transform a ring/line into pixel space, dropping non-finite points.
@@ -55,10 +54,10 @@ function plotPolygon(polygon, x0, y0, x1, y1, tileSize = 512, precision = 2048, 
   const dX = x1 - x0;
   const dY = y1 - y0;
   if (!dX || !dY || !Number.isFinite(dX) || !Number.isFinite(dY)) return '';
-  const scaleX = tileSize / dX;
-  const scaleY = tileSize / dY;
-  const transformX = (x) => Math.floor((x - x0) * scaleX * precision) / precision;
-  const transformY = (y) => Math.floor((dY - (y - y0)) * scaleY * precision) / precision;
+  const scaleX = precision / dX;
+  const scaleY = precision / dY;
+  const transformX = (x) => (Math.floor((x - x0) * scaleX) / precision) * tileSize;
+  const transformY = (y) => (Math.floor((dY - (y - y0)) * scaleY) / precision) * tileSize;
 
   const rings = polygon.coordinates;
   if (!rings || rings.length === 0 || !rings[0] || rings[0].length < 3) return '';
@@ -95,10 +94,10 @@ function plotLineString(lineString, x0, y0, x1, y1, tileSize = 512, precision = 
   const dX = x1 - x0;
   const dY = y1 - y0;
   if (!dX || !dY || !Number.isFinite(dX) || !Number.isFinite(dY)) return '';
-  const scaleX = tileSize / dX;
-  const scaleY = tileSize / dY;
-  const transformX = (x) => Math.floor((x - x0) * scaleX * precision) / precision;
-  const transformY = (y) => Math.floor((dY - (y - y0)) * scaleY * precision) / precision;
+  const scaleX = precision / dX;
+  const scaleY = precision / dY;
+  const transformX = (x) => (Math.floor((x - x0) * scaleX) / precision) * tileSize;
+  const transformY = (y) => (Math.floor((dY - (y - y0)) * scaleY) / precision) * tileSize;
 
   const coords = lineString.coordinates;
   if (!coords || coords.length < 2) return '';

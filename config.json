@@ -16,7 +16,7 @@
     "z": { "min": 12, "max": 16 },
     "size": 1024,
     "labelQuantization": 1024,
-    "precision": 2048,
+    "precision": 4096,
     "background": "#f2f2f7"
   }
 }
