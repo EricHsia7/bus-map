@@ -1165,7 +1165,7 @@ osm_planet_line. This is for performance reasons: osm_planet_roads contains less
 data, and is thus faster. Chosen is for zoom level 10 as cut-off, because
 tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
-#roads-low-zoom:zoom(*, 9),
+#roads-low-zoom:zoom(1, 9),
 #roads-fill:zoom(10),
 #bridges:zoom(10),
 #tunnels:zoom(10) {
@@ -2062,7 +2062,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
 
     &[feature='highway_bus_guideway']:zoom(11) {
-      &:zoom(*, 12) {
+      &:zoom(1, 12) {
         --line-width: zoom-gradient(0.6, 1 12z);
         &#roads-fill,
         &#bridges {
@@ -2097,7 +2097,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     &[feature='railway_rail']:not([preserved='yes']):zoom(10, 11),
     &[feature='railway_rail']:zoom(12),
     &[feature='railway_INT-spur-siding-yard']:zoom(13) {
-      &:zoom(*, 12) {
+      &:zoom(1, 12) {
         --line-color: @rail-line;
         --line-width: zoom-gradient(0.5, 0.8 8z 11z, 0.9 12z);
         --line-join: round;
@@ -2915,7 +2915,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   }
 }
 
-#roads-text-ref-low-zoom:zoom(*, 12) {
+#roads-text-ref-low-zoom:zoom(1, 12) {
   &[highway='motorway']:zoom(10),
   &[highway='trunk']:zoom(11),
   &[highway='primary']:zoom(11),

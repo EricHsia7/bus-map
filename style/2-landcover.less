@@ -28,10 +28,8 @@
 @transportation-area: #edf0f7;
 @apron: #dadae0;
 @garages: #edeef4;
-// @parking: #eeeeee;
-// @parking-outline: saturate(darken(@parking, 40%), 20%);
+@parking: #edeef4;
 @railway: @industrial;
-// @railway-line: @industrial-line;
 @rest_area: #efc8c8; // also services
 
 // Other
@@ -71,7 +69,7 @@
 @stadium: @leisure; // also sports_centre
 @golf_course: @campsite;
 
-#landcover-low-zoom:zoom(*, 9)::low-zoom,
+#landcover-low-zoom:zoom(1, 9)::low-zoom,
 #landcover:zoom(10)::high-zoom {
   &[feature='landuse_farmland']:zoom(5),
   &[feature='landuse_greenhouse_horticulture']:zoom(5) {
@@ -126,6 +124,19 @@
 
   [feature='landuse_garages'][zoom >='13'] {
     --polygon-fill: @garages;
+  }
+
+  &[feature='amenity_parking'],
+  &[feature='amenity_bicycle_parking'],
+  &[feature='amenity_motorcycle_parking'],
+  &[feature='amenity_taxi'] {
+    &:zoom(14) {
+      --polygon-fill: @parking;
+    }
+  }
+
+  &[feature='amenity_parking_space']:zoom(18) {
+    --polygon-fill: @parking;
   }
 
   &[feature='leisure_swimming_pool']:zoom(14) {
@@ -400,24 +411,6 @@
   //   --line-opacity: 0.24;
   //   --line-width: zoom-gradient(1, 2 15z);
   //   --line-offset: zoom-gradient(-0.5, -1 15z);
-  // }
-
-  // &[feature='amenity_parking'],
-  // &[feature='amenity_bicycle_parking'],
-  // &[feature='amenity_motorcycle_parking'],
-  // &[feature='amenity_taxi'] {
-  //   &:zoom(14) {
-  //     --polygon-fill: @parking;
-  //     &:zoom(15) {
-  //       --line-width: 0.3;
-  //       --line-color: @parking-outline;
-  //     }
-  //   }
-  // }
-
-  // &[feature='amenity_parking_space']:zoom(18) {
-  //   --line-width: 0.3;
-  //   --line-color: mix(@parking-outline, @parking, 50%);
   // }
 
   &[feature='aeroway_apron']:zoom(10) {

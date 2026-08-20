@@ -837,7 +837,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 0,
+          "min": 1,
           "max": 9
         },
         "and": [
@@ -851,7 +851,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 0,
+          "min": 1,
           "max": 9
         },
         "and": [
@@ -865,7 +865,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 0,
+          "min": 1,
           "max": 9
         },
         "and": [
@@ -879,7 +879,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 0,
+          "min": 1,
           "max": 9
         },
         "and": [
@@ -893,7 +893,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 0,
+          "min": 1,
           "max": 9
         },
         "and": [
@@ -907,7 +907,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 0,
+          "min": 1,
           "max": 9
         },
         "and": [
@@ -921,7 +921,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 0,
+          "min": 1,
           "max": 9
         },
         "and": [
@@ -935,7 +935,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 0,
+          "min": 1,
           "max": 9
         },
         "and": [
@@ -949,7 +949,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 0,
+          "min": 1,
           "max": 9
         },
         "and": [
@@ -1097,7 +1097,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 0,
+          "min": 1,
           "max": 9
         },
         "and": [
@@ -1119,6 +1119,162 @@
             "key": "feature",
             "op": "=",
             "value": "landuse_garages"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(237,238,244,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 14,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_parking"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 14,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_bicycle_parking"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 14,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_motorcycle_parking"
+          }
+        ]
+      },
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 14,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_taxi"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_parking"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_bicycle_parking"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_motorcycle_parking"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 14,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_taxi"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(237,238,244,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover-low-zoom",
+        "zoom": {
+          "min": 18,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_parking_space"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 18,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_parking_space"
           }
         ]
       }
@@ -2290,7 +2446,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 0,
+          "min": 1,
           "max": 9
         },
         "and": [
@@ -2326,7 +2482,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 0,
+          "min": 1,
           "max": 9
         },
         "and": [
@@ -112184,7 +112340,7 @@
       {
         "layer": "roads-low-zoom",
         "zoom": {
-          "min": 0,
+          "min": 1,
           "max": 9
         },
         "and": [
@@ -112538,7 +112694,7 @@
       {
         "layer": "roads-low-zoom",
         "zoom": {
-          "min": 0,
+          "min": 1,
           "max": 9
         },
         "and": [
@@ -635755,7 +635911,7 @@
       {
         "layer": "text-poly-low-zoom",
         "zoom": {
-          "min": 0,
+          "min": 1,
           "max": 9
         },
         "and": [
@@ -635769,7 +635925,7 @@
       {
         "layer": "text-poly-low-zoom",
         "zoom": {
-          "min": 0,
+          "min": 1,
           "max": 9
         },
         "and": [
@@ -635783,7 +635939,7 @@
       {
         "layer": "text-poly-low-zoom",
         "zoom": {
-          "min": 0,
+          "min": 1,
           "max": 9
         },
         "and": [
@@ -635797,7 +635953,7 @@
       {
         "layer": "text-poly-low-zoom",
         "zoom": {
-          "min": 0,
+          "min": 1,
           "max": 9
         },
         "and": [
@@ -644598,7 +644754,7 @@
       {
         "layer": "admin-low-zoom",
         "zoom": {
-          "min": 0,
+          "min": 1,
           "max": 7
         },
         "and": []
@@ -644630,7 +644786,7 @@
       {
         "layer": "admin-low-zoom",
         "zoom": {
-          "min": 0,
+          "min": 1,
           "max": 7
         },
         "and": []
@@ -644662,7 +644818,7 @@
       {
         "layer": "admin-low-zoom",
         "zoom": {
-          "min": 0,
+          "min": 1,
           "max": 7
         },
         "and": []
@@ -644694,7 +644850,7 @@
       {
         "layer": "admin-low-zoom",
         "zoom": {
-          "min": 0,
+          "min": 1,
           "max": 7
         },
         "and": []
