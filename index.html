@@ -16,6 +16,12 @@
         position: absolute;
         inset: 0;
       }
+      @media (prefers-color-scheme: dark) {
+        #map {
+          filter: invert(100%) hue-rotate(185deg);
+          -webkit-filter: invert(100%) hue-rotate(185deg);
+        }
+      }
     </style>
   </head>
   <body>

@@ -10,7 +10,7 @@ Overlapping borders are hidden by a white background line, rendered before each 
 Then all three layers are added to the rendering with comp-op: darken, so that the white lines will not show
 */
 
-#admin-low-zoom:zoom(*, 7),
+#admin-low-zoom:zoom(1, 7),
 #admin-mid-zoom:zoom(8, 12),
 #admin-high-zoom:zoom(13) {
   &[admin_level='2']::firstline {

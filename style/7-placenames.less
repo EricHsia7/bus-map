@@ -117,7 +117,7 @@
 }
 
 #placenames-medium::high-importance {
-  &[category='1']:zoom(*, 13) {
+  &[category='1']:zoom(1, 13) {
     &:gte(score, 3000000):zoom(4, 4),
     &:gte(score, 400000):zoom(5, 7) {
       --shield-file: zoom-gradient("url('symbols/place/place-4.svg')", "url('symbols/place/place-6-z7.svg')" 7z);
@@ -167,7 +167,7 @@
 }
 
 #placenames-medium::medium-importance {
-  &[category='1']:lt(score, 400000):zoom(*, 14) {
+  &[category='1']:lt(score, 400000):zoom(1, 14) {
     &:gte(score, 70000):zoom(6, 7),
     &:zoom(7, 7) {
       --shield-file: zoom-gradient("url('symbols/place/place-4.svg')", "url('symbols/place/place-4-z7.svg')" 7z);

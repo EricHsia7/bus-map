@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { decompressSync, gzipSync } = require('fflate');
 const { plotPolygon, plotLineString, plotPolygonLabel, plotPointLabel, plotLineStringLabel } = require('./plot.js');
-const { getTileViewbox, getSubTiles, areaToTiles, getParentTile, tileToBoundingbox, getCentroid, projectLatitude, projectLongitude } = require('./coordinate.js');
+const { getTileViewbox, getSubTiles, areaToTiles, projectLatitude, projectLongitude } = require('./coordinate.js');
 const style = require('./style.json');
 const mml = require('./mml.json');
 const M = require('./match-rule.js');
@@ -43,7 +43,9 @@ mml.forEach((layer, i) => {
 const orderOf = (layerId) => (layerOrder.has(layerId) ? layerOrder.get(layerId) : Infinity);
 
 // Group matched rule indices by attachment, preserving first-appearance order
-// (ascending index == stylesheet source order). Paint cascades (last-wins)
+// (ascending index == stylesheet source order). Each group also reports the
+// rule index that resolved it, so the caller can order passes by rule before
+// attachment. Paint cascades (last-wins)
 // ONLY within an attachment; each attachment (::casing, ::fill, ...) becomes a
 // separate symbolizer/stroke and must never overwrite another. Rules from a
 // different layer are never in `idxs` because matchRules is layer-scoped, so
@@ -54,14 +56,18 @@ function cascadeByAttachment(indices, style) {
   for (const index of indices) {
     const attachment = style[index].attachment || '';
     if (!byAttachment.has(attachment)) {
-      byAttachment.set(attachment, {});
+      byAttachment.set(attachment, { paint: {}, rule: index });
       order.push(attachment);
     }
-    const attachmentPaint = byAttachment.get(attachment);
+    const group = byAttachment.get(attachment);
     const paint = style[index].paint;
     for (const key in paint) {
-      attachmentPaint[key] = paint[key];
+      group.paint[key] = paint[key];
     }
+    // `indices` is ascending source order, so the highest contributor is the
+    // rule that resolved this attachment. Mapnik would have emitted a
+    // symbolizer at that rule's position, so that is where this pass draws.
+    if (index > group.rule) group.rule = index;
   }
   return order.map((attachment) => byAttachment.get(attachment));
 }
@@ -316,13 +322,14 @@ async function renderChunk(cX, cY, cZ, fileformat) {
         const passesLength = passes.length;
         const base = orderOf(layer.id);
         for (let index = 0; index < passesLength; index++) {
-          const svg = paintToSvg(passes[index], d, geometry, tileSize / 256);
+          const { paint, rule } = passes[index];
+          const svg = paintToSvg(paint, d, geometry, tileSize / 256);
           if (!svg) continue;
-          // preserve attachment order within the layer
+          // base = layer order, rule = stylesheet rule order, index = attachment
           if (closed) {
-            fills.push({ base, index, svg }); // index = attachment index
+            fills.push({ base, rule, index, svg });
           } else {
-            lineEls.push({ base, index, svg });
+            lineEls.push({ base, rule, index, svg });
           }
         }
 
@@ -330,6 +337,7 @@ async function renderChunk(cX, cY, cZ, fileformat) {
         // Lines keep their geometry for line placement; closed areas get a representative point.
         const labelPaint = {};
         for (const idx of idxs) Object.assign(labelPaint, style[idx].paint);
+        const labelRule = idxs[idxs.length - 1];
         const descs = paintToLabels(labelPaint, feat);
         if (!descs) continue;
         for (const desc of descs) {
@@ -343,6 +351,7 @@ async function renderChunk(cX, cY, cZ, fileformat) {
           if (desc.properties.label) registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference);
           labels.push({
             base,
+            rule: labelRule,
             label: {
               type: 'Feature',
               id: `w${way.id}`,
@@ -372,15 +381,17 @@ async function renderChunk(cX, cY, cZ, fileformat) {
         const passesLength = passes.length;
         const base = orderOf(layer.id);
         for (let index = 0; index < passesLength; index++) {
-          const svg = paintToSvg(passes[index], d, 'polygon', tileSize / 256);
+          const { paint, rule } = passes[index];
+          const svg = paintToSvg(paint, d, 'polygon', tileSize / 256);
           if (!svg) continue;
-          fills.push({ base, index, svg });
+          fills.push({ base, rule, index, svg });
         }
 
         // Area labels (place/landuse/building names): anchor at a
         // representative point, emitted only for the tile that contains it.
         const labelPaint = {};
         for (const idx of idxs) Object.assign(labelPaint, style[idx].paint);
+        const labelRule = idxs[idxs.length - 1];
         const descs = paintToLabels(labelPaint, featRow);
         if (!descs) continue;
         if (feat.polygons[0]) {
@@ -390,6 +401,7 @@ async function renderChunk(cX, cY, cZ, fileformat) {
             if (desc.properties.label) registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference);
             labels.push({
               base,
+              rule: labelRule,
               label: {
                 type: 'Feature',
                 id: `r${layer.id}:${labelGeometry.coordinates[0]}:${labelGeometry.coordinates[1]}`,
@@ -414,6 +426,7 @@ async function renderChunk(cX, cY, cZ, fileformat) {
         if (idxs.length === 0) continue;
         const labelPaint = {};
         for (const idx of idxs) Object.assign(labelPaint, style[idx].paint);
+        const labelRule = idxs[idxs.length - 1];
         const descs = paintToLabels(labelPaint, feat);
         if (!descs) continue;
         const base = orderOf(layer.id);
@@ -423,6 +436,7 @@ async function renderChunk(cX, cY, cZ, fileformat) {
           if (desc.properties.label) registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference);
           labels.push({
             base,
+            rule: labelRule,
             label: {
               type: 'Feature',
               id: `n${node.id}`,
@@ -434,17 +448,20 @@ async function renderChunk(cX, cY, cZ, fileformat) {
       }
     }
 
-    // Emit in OSM Carto layer order (stable sort keeps intra-layer feature order). Fills first, then lines, so casings/labels stay on top.
+    // Emit in OSM Carto paint order: layer (project.mml) first, then the order
+    // of the rules inside that layer, then the attachment. Collapsing a
+    // feature's rules into one paint per attachment must not collapse their
+    // position: two features in the same layer and attachment are separated
+    // only by which rule matched them, so `rule` has to outrank `index`.
+    // Stable sort keeps intra-rule feature order. Fills first, then lines.
     fills.sort(function (a, b) {
-      if (a.base !== b.base) return a.base - b.base;
-      return a.index - b.index;
+      return a.base - b.base || a.rule - b.rule || a.index - b.index;
     });
     lineEls.sort(function (a, b) {
-      if (a.base !== b.base) return a.base - b.base;
-      return a.index - b.index;
+      return a.base - b.base || a.rule - b.rule || a.index - b.index;
     });
     labels.sort(function (a, b) {
-      return a.base - b.base;
+      return a.base - b.base || a.rule - b.rule;
     });
     const polygonElements = fills.map((f) => f.svg).join('');
     const lineElements = lineEls.map((l) => l.svg).join('');
