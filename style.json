@@ -240,7 +240,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(243,241,236,1)"
+      "polygon-fill": "rgba(240,240,240,1)"
     },
     "attachment": "low-zoom"
   },
@@ -276,7 +276,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(239,237,230,1)"
+      "polygon-fill": "rgba(235,235,235,1)"
     },
     "attachment": "low-zoom"
   },
@@ -385112,7 +385112,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(130,120,84,1)"
+      "text-fill": "rgba(107,107,107,1)"
     }
   },
   {
@@ -401371,7 +401371,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(137,123,87,1)"
+      "text-fill": "rgba(113,113,113,1)"
     }
   },
   {
