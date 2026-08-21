@@ -1832,7 +1832,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(183,235,195,1)"
+      "polygon-fill": "rgba(198,217,190,1)"
     },
     "attachment": "low-zoom"
   },
@@ -1924,7 +1924,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(201,247,201,1)"
+      "polygon-fill": "rgba(209,225,195,1)"
     },
     "attachment": "low-zoom"
   },
@@ -2016,7 +2016,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(184,244,184,1)",
+      "line-color": "rgba(199,219,182,1)",
       "line-width": "0.3"
     },
     "attachment": "low-zoom"
@@ -2081,7 +2081,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(201,247,201,1)"
+      "polygon-fill": "rgba(209,225,195,1)"
     },
     "attachment": "low-zoom"
   },
@@ -2117,7 +2117,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(183,241,196,1)"
+      "polygon-fill": "rgba(208,226,196,1)"
     },
     "attachment": "low-zoom"
   },
@@ -2153,7 +2153,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(204,245,213,1)"
+      "polygon-fill": "rgba(216,231,206,1)"
     },
     "attachment": "low-zoom"
   },
@@ -2189,7 +2189,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(140,232,160,1)",
+      "line-color": "rgba(175,206,155,1)",
       "line-width": "0.3"
     },
     "attachment": "low-zoom"
@@ -2282,7 +2282,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(204,245,213,1)"
+      "polygon-fill": "rgba(216,231,206,1)"
     },
     "attachment": "low-zoom"
   },
@@ -2375,7 +2375,7 @@
     ],
     "paint": {
       "line-width": "0.3",
-      "line-color": "rgba(166,238,182,1)"
+      "line-color": "rgba(192,216,176,1)"
     },
     "attachment": "low-zoom"
   },
@@ -2411,7 +2411,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(204,245,213,1)"
+      "polygon-fill": "rgba(216,231,206,1)"
     },
     "attachment": "low-zoom"
   },
@@ -2447,7 +2447,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(197,247,210,1)"
+      "polygon-fill": "rgba(216,230,204,1)"
     },
     "attachment": "low-zoom"
   },
@@ -2511,7 +2511,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(194,245,207,1)"
+      "polygon-fill": "rgba(203,221,192,1)"
     },
     "attachment": "low-zoom"
   },
@@ -2631,7 +2631,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(197,247,210,1)"
+      "polygon-fill": "rgba(216,230,204,1)"
     },
     "attachment": "low-zoom"
   },
@@ -2667,7 +2667,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(194,245,207,1)"
+      "polygon-fill": "rgba(203,220,185,1)"
     },
     "attachment": "low-zoom"
   },
@@ -2703,7 +2703,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(174,234,188,1)"
+      "polygon-fill": "rgba(200,210,183,1)"
     },
     "attachment": "low-zoom"
   },
@@ -2739,7 +2739,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(238,229,220,1)"
+      "polygon-fill": "rgba(226,218,207,1)"
     },
     "attachment": "low-zoom"
   },
@@ -2803,7 +2803,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(238,229,220,1)"
+      "polygon-fill": "rgba(226,218,207,1)"
     },
     "attachment": "low-zoom"
   },
@@ -2839,7 +2839,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(245,233,198,1)"
+      "polygon-fill": "rgba(232,223,200,1)"
     },
     "attachment": "low-zoom"
   },
@@ -2903,7 +2903,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(255,241,186,1)"
+      "polygon-fill": "rgba(240,230,200,1)"
     },
     "attachment": "low-zoom"
   },
@@ -2975,7 +2975,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(194,245,207,1)"
+      "polygon-fill": "rgba(203,221,192,1)"
     },
     "attachment": "low-zoom"
   },
@@ -3011,7 +3011,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(194,245,207,1)"
+      "polygon-fill": "rgba(203,220,185,1)"
     },
     "attachment": "low-zoom"
   },
@@ -3047,7 +3047,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(197,247,210,1)"
+      "polygon-fill": "rgba(216,230,204,1)"
     },
     "attachment": "low-zoom"
   },
@@ -3111,7 +3111,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(174,234,188,1)"
+      "polygon-fill": "rgba(200,210,183,1)"
     },
     "attachment": "low-zoom"
   },
@@ -3231,7 +3231,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(197,247,210,1)"
+      "polygon-fill": "rgba(216,230,204,1)"
     },
     "attachment": "low-zoom"
   },
@@ -3267,7 +3267,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(187,236,199,1)"
+      "polygon-fill": "rgba(198,217,174,1)"
     },
     "attachment": "low-zoom"
   },
@@ -3303,7 +3303,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(187,236,199,1)"
+      "polygon-fill": "rgba(198,217,174,1)"
     },
     "attachment": "low-zoom"
   },
@@ -3339,7 +3339,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(187,236,199,1)"
+      "polygon-fill": "rgba(198,217,174,1)"
     },
     "attachment": "low-zoom"
   },
@@ -3375,7 +3375,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(189,240,202,1)"
+      "polygon-fill": "rgba(201,221,183,1)"
     },
     "attachment": "low-zoom"
   },
@@ -3439,7 +3439,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(204,245,213,1)"
+      "polygon-fill": "rgba(216,231,206,1)"
     },
     "attachment": "low-zoom"
   },
@@ -3503,7 +3503,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(140,232,160,1)",
+      "line-color": "rgba(175,206,155,1)",
       "line-width": "0.3"
     },
     "attachment": "low-zoom"
@@ -3540,7 +3540,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(199,240,210,1)"
+      "polygon-fill": "rgba(201,221,192,1)"
     },
     "attachment": "low-zoom"
   },
@@ -3577,7 +3577,7 @@
     ],
     "paint": {
       "line-width": "0.3",
-      "line-color": "rgba(179,235,194,1)"
+      "line-color": "rgba(187,212,175,1)"
     },
     "attachment": "low-zoom"
   },
@@ -3613,7 +3613,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(179,235,194,1)"
+      "polygon-fill": "rgba(181,208,169,1)"
     },
     "attachment": "low-zoom"
   },
@@ -3650,7 +3650,7 @@
     ],
     "paint": {
       "line-width": "0.3",
-      "line-color": "rgba(159,230,178,1)"
+      "line-color": "rgba(167,199,153,1)"
     },
     "attachment": "low-zoom"
   },
@@ -3688,7 +3688,7 @@
     "paint": {
       "polygon-fill": "rgba(199,242,250,1)",
       "line-width": "0.3",
-      "line-color": "rgba(187,237,200,1)"
+      "line-color": "rgba(192,216,182,1)"
     },
     "attachment": "low-zoom"
   },
@@ -3760,7 +3760,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(197,247,210,1)"
+      "polygon-fill": "rgba(216,230,204,1)"
     },
     "attachment": "low-zoom"
   },
@@ -3971,7 +3971,7 @@
       "line-width": "1.8",
       "line-join": "round",
       "line-cap": "square",
-      "line-color": "rgba(197,247,210,1)"
+      "line-color": "rgba(216,230,204,1)"
     }
   },
   {
@@ -4036,7 +4036,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(194,245,207,1)"
+      "polygon-fill": "rgba(208,226,196,1)"
     },
     "attachment": "first"
   },
@@ -4223,7 +4223,7 @@
     ],
     "paint": {
       "line-width": "1.5",
-      "line-color": "rgba(194,245,207,1)"
+      "line-color": "rgba(203,221,192,1)"
     }
   },
   {
@@ -4245,7 +4245,7 @@
     ],
     "paint": {
       "line-width": "2",
-      "line-color": "rgba(194,245,207,1)"
+      "line-color": "rgba(203,221,192,1)"
     }
   },
   {
@@ -4267,7 +4267,7 @@
     ],
     "paint": {
       "line-width": "3",
-      "line-color": "rgba(194,245,207,1)"
+      "line-color": "rgba(203,221,192,1)"
     }
   },
   {
@@ -4289,7 +4289,7 @@
     ],
     "paint": {
       "line-width": "4",
-      "line-color": "rgba(194,245,207,1)"
+      "line-color": "rgba(203,221,192,1)"
     }
   },
   {
@@ -4311,7 +4311,7 @@
     ],
     "paint": {
       "line-width": "5",
-      "line-color": "rgba(194,245,207,1)"
+      "line-color": "rgba(203,221,192,1)"
     }
   },
   {
@@ -128544,7 +128544,7 @@
         "layer": "tunnels",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -128563,7 +128563,7 @@
         "layer": "tunnels",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -128582,7 +128582,7 @@
         "layer": "tunnels",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -128601,7 +128601,7 @@
         "layer": "tunnels",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -128620,7 +128620,7 @@
         "layer": "tunnels",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -128639,7 +128639,7 @@
         "layer": "tunnels",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -128658,7 +128658,7 @@
         "layer": "tunnels",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -128677,7 +128677,7 @@
         "layer": "tunnels",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -128696,7 +128696,7 @@
         "layer": "tunnels",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -128715,7 +128715,7 @@
         "layer": "roads-fill",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -128734,7 +128734,7 @@
         "layer": "roads-fill",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -128753,7 +128753,7 @@
         "layer": "roads-fill",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -128772,7 +128772,7 @@
         "layer": "roads-fill",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -128791,7 +128791,7 @@
         "layer": "roads-fill",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -128810,7 +128810,7 @@
         "layer": "roads-fill",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -128829,7 +128829,7 @@
         "layer": "roads-fill",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -128848,7 +128848,7 @@
         "layer": "roads-fill",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -128867,7 +128867,7 @@
         "layer": "roads-fill",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -128886,7 +128886,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -128905,7 +128905,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -128924,7 +128924,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -128943,7 +128943,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -128962,7 +128962,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -128981,7 +128981,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -129000,7 +129000,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -129019,7 +129019,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -129038,7 +129038,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -129057,9 +129057,7 @@
     "paint": {
       "access/line-color": "rgba(234,234,235,1)",
       "access/line-join": "round",
-      "access/line-cap": "round",
-      "access/line-width": "3",
-      "access/line-dasharray": "0.1, 9"
+      "access/line-width": "0.632"
     },
     "attachment": "fill"
   },
@@ -129068,7 +129066,1053 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_motorway"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_trunk"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_primary"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_secondary"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_tertiary"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_unclassified"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_residential"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_living_street"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_motorway"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_trunk"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_primary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_secondary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_tertiary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_unclassified"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_residential"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_living_street"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_motorway"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_trunk"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_primary"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_secondary"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_tertiary"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_unclassified"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_residential"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_living_street"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "access/line-color": "rgba(234,234,235,1)",
+      "access/line-join": "round",
+      "access/line-width": "0.52"
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_motorway"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_trunk"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_primary"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_secondary"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_tertiary"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_unclassified"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_residential"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_living_street"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_motorway"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_trunk"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_primary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_secondary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_tertiary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_unclassified"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_residential"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_living_street"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_motorway"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_trunk"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_primary"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_secondary"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_tertiary"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_unclassified"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_residential"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_living_street"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "access/line-color": "rgba(234,234,235,1)",
+      "access/line-join": "round",
+      "access/line-width": "0.288"
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -129087,7 +130131,7 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -129106,7 +130150,7 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -129125,7 +130169,7 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -129144,7 +130188,7 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -129163,7 +130207,7 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -129182,7 +130226,7 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -129201,7 +130245,7 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -129220,7 +130264,7 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -129239,7 +130283,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -129258,7 +130302,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -129277,7 +130321,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -129296,7 +130340,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -129315,7 +130359,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -129334,7 +130378,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -129353,7 +130397,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -129372,7 +130416,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -129391,7 +130435,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -129410,7 +130454,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -129429,7 +130473,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -129448,7 +130492,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -129467,7 +130511,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -129486,7 +130530,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -129505,7 +130549,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -129524,7 +130568,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -129543,7 +130587,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -129562,7 +130606,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -129582,9 +130626,7 @@
     "paint": {
       "access/line-color": "rgba(234,234,235,1)",
       "access/line-join": "round",
-      "access/line-cap": "round",
-      "access/line-width": "6",
-      "access/line-dasharray": "0.1, 9"
+      "access/line-width": "0.176"
     },
     "attachment": "fill"
   },
@@ -132865,7 +133907,7 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -132884,7 +133926,7 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -132903,7 +133945,7 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -132922,7 +133964,7 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -132941,7 +133983,7 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -132960,7 +134002,7 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -132979,7 +134021,7 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -132998,7 +134040,7 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -133017,7 +134059,7 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -133036,7 +134078,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -133055,7 +134097,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -133074,7 +134116,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -133093,7 +134135,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -133112,7 +134154,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -133131,7 +134173,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -133150,7 +134192,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -133169,7 +134211,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -133188,7 +134230,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -133207,7 +134249,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -133226,7 +134268,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -133245,7 +134287,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -133264,7 +134306,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -133283,7 +134325,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -133302,7 +134344,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -133321,7 +134363,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -133340,7 +134382,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -133359,7 +134401,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -133377,7 +134419,8 @@
       }
     ],
     "paint": {
-      "access/line-dasharray": "0.1, 12"
+      "access/line-cap": "butt",
+      "access/dasharray": "6 9"
     },
     "attachment": "fill"
   },
@@ -133387,7 +134430,7 @@
         "layer": "tunnels",
         "zoom": {
           "min": 16,
-          "max": 16
+          "max": 17
         },
         "and": [
           {
@@ -133406,7 +134449,7 @@
         "layer": "tunnels",
         "zoom": {
           "min": 16,
-          "max": 16
+          "max": 17
         },
         "and": [
           {
@@ -133430,7 +134473,7 @@
         "layer": "roads-fill",
         "zoom": {
           "min": 16,
-          "max": 16
+          "max": 17
         },
         "and": [
           {
@@ -133449,7 +134492,7 @@
         "layer": "roads-fill",
         "zoom": {
           "min": 16,
-          "max": 16
+          "max": 17
         },
         "and": [
           {
@@ -133473,7 +134516,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 16,
-          "max": 16
+          "max": 17
         },
         "and": [
           {
@@ -133492,7 +134535,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 16,
-          "max": 16
+          "max": 17
         },
         "and": [
           {
@@ -133517,8 +134560,8 @@
       "access/line-color": "rgba(234,234,235,1)",
       "access/line-join": "round",
       "access/line-cap": "round",
-      "access/line-width": "2",
-      "access/line-dasharray": "0.1, 4"
+      "access/line-width": "0.52",
+      "access/line-dasharray": "6 9"
     },
     "attachment": "fill"
   },
@@ -133527,7 +134570,148 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_road"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_service"
+          },
+          {
+            "key": "service",
+            "op": "=",
+            "value": "INT-normal"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_road"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_service"
+          },
+          {
+            "key": "service",
+            "op": "=",
+            "value": "INT-normal"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_road"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_service"
+          },
+          {
+            "key": "service",
+            "op": "=",
+            "value": "INT-normal"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "access/line-color": "rgba(234,234,235,1)",
+      "access/line-join": "round",
+      "access/line-cap": "round",
+      "access/line-width": "0.288",
+      "access/line-dasharray": "6 9"
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -133546,7 +134730,7 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -133570,7 +134754,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -133589,7 +134773,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -133613,7 +134797,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -133632,7 +134816,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -133658,8 +134842,8 @@
       "access/line-color": "rgba(234,234,235,1)",
       "access/line-join": "round",
       "access/line-cap": "round",
-      "access/line-width": "4",
-      "access/line-dasharray": "0.1, 4"
+      "access/line-width": "0.176",
+      "access/line-dasharray": "6 9"
     },
     "attachment": "fill"
   },
@@ -134003,26 +135187,7 @@
         "layer": "tunnels",
         "zoom": {
           "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "restricted"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_road"
-          }
-        ]
-      },
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 17,
-          "max": 24
+          "max": 17
         },
         "and": [
           {
@@ -134038,7 +135203,7 @@
           {
             "key": "service",
             "op": "=",
-            "value": "INT-normal"
+            "value": "INT-minor"
           }
         ]
       },
@@ -134046,26 +135211,7 @@
         "layer": "roads-fill",
         "zoom": {
           "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "restricted"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_road"
-          }
-        ]
-      },
-      {
-        "layer": "roads-fill",
-        "zoom": {
-          "min": 17,
-          "max": 24
+          "max": 17
         },
         "and": [
           {
@@ -134081,7 +135227,7 @@
           {
             "key": "service",
             "op": "=",
-            "value": "INT-normal"
+            "value": "INT-minor"
           }
         ]
       },
@@ -134089,26 +135235,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "restricted"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_road"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 17,
-          "max": 24
+          "max": 17
         },
         "and": [
           {
@@ -134124,13 +135251,17 @@
           {
             "key": "service",
             "op": "=",
-            "value": "INT-normal"
+            "value": "INT-minor"
           }
         ]
       }
     ],
     "paint": {
-      "access/line-dasharray": "0.1, 9"
+      "access/line-color": "rgba(234,234,235,1)",
+      "access/line-join": "round",
+      "access/line-cap": "round",
+      "access/line-width": "0.52",
+      "access/line-dasharray": "6 9"
     },
     "attachment": "fill"
   },
@@ -134139,7 +135270,91 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_service"
+          },
+          {
+            "key": "service",
+            "op": "=",
+            "value": "INT-minor"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_service"
+          },
+          {
+            "key": "service",
+            "op": "=",
+            "value": "INT-minor"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "restricted"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_service"
+          },
+          {
+            "key": "service",
+            "op": "=",
+            "value": "INT-minor"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "access/line-color": "rgba(234,234,235,1)",
+      "access/line-join": "round",
+      "access/line-cap": "round",
+      "access/line-width": "0.288",
+      "access/line-dasharray": "6 9"
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -134163,7 +135378,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -134187,7 +135402,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -134213,8 +135428,8 @@
       "access/line-color": "rgba(234,234,235,1)",
       "access/line-join": "round",
       "access/line-cap": "round",
-      "access/line-width": "2",
-      "access/line-dasharray": "0.1, 4"
+      "access/line-width": "0.176",
+      "access/line-dasharray": "6 9"
     },
     "attachment": "fill"
   },
@@ -134319,7 +135534,7 @@
         "layer": "tunnels",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -134338,7 +135553,7 @@
         "layer": "tunnels",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -134357,7 +135572,7 @@
         "layer": "tunnels",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -134376,7 +135591,7 @@
         "layer": "tunnels",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -134395,7 +135610,7 @@
         "layer": "tunnels",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -134414,7 +135629,7 @@
         "layer": "tunnels",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -134433,7 +135648,7 @@
         "layer": "tunnels",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -134452,7 +135667,7 @@
         "layer": "tunnels",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -134471,7 +135686,7 @@
         "layer": "tunnels",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -134490,7 +135705,7 @@
         "layer": "roads-fill",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -134509,7 +135724,7 @@
         "layer": "roads-fill",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -134528,7 +135743,7 @@
         "layer": "roads-fill",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -134547,7 +135762,7 @@
         "layer": "roads-fill",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -134566,7 +135781,7 @@
         "layer": "roads-fill",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -134585,7 +135800,7 @@
         "layer": "roads-fill",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -134604,7 +135819,7 @@
         "layer": "roads-fill",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -134623,7 +135838,7 @@
         "layer": "roads-fill",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -134642,7 +135857,7 @@
         "layer": "roads-fill",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -134661,7 +135876,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -134680,7 +135895,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -134699,7 +135914,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -134718,7 +135933,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -134737,7 +135952,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -134756,7 +135971,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -134775,7 +135990,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -134794,7 +136009,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -134813,7 +136028,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -134833,8 +136048,8 @@
       "access/line-color": "rgba(234,234,235,1)",
       "access/line-join": "round",
       "access/line-cap": "round",
-      "access/line-width": "2",
-      "access/line-dasharray": "6, 6"
+      "access/line-width": "0.632",
+      "access/line-dasharray": "6 9"
     },
     "attachment": "fill"
   },
@@ -134843,7 +136058,1057 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_motorway"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_trunk"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_primary"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_secondary"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_tertiary"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_unclassified"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_residential"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_living_street"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_motorway"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_trunk"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_primary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_secondary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_tertiary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_unclassified"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_residential"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_living_street"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_motorway"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_trunk"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_primary"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_secondary"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_tertiary"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_unclassified"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_residential"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 16,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_living_street"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "access/line-color": "rgba(234,234,235,1)",
+      "access/line-join": "round",
+      "access/line-cap": "round",
+      "access/line-width": "0.52",
+      "access/line-dasharray": "6 9"
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_motorway"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_trunk"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_primary"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_secondary"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_tertiary"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_unclassified"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_residential"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_living_street"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_motorway"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_trunk"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_primary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_secondary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_tertiary"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_unclassified"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_residential"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_living_street"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_motorway"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_trunk"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_primary"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_secondary"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_tertiary"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_unclassified"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_residential"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_living_street"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "access/line-color": "rgba(234,234,235,1)",
+      "access/line-join": "round",
+      "access/line-cap": "round",
+      "access/line-width": "0.288",
+      "access/line-dasharray": "6 9"
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -134862,7 +137127,7 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -134881,7 +137146,7 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -134900,7 +137165,7 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -134919,7 +137184,7 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -134938,7 +137203,7 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -134957,7 +137222,7 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -134976,7 +137241,7 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -134995,7 +137260,7 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -135014,7 +137279,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -135033,7 +137298,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -135052,7 +137317,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -135071,7 +137336,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -135090,7 +137355,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -135109,7 +137374,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -135128,7 +137393,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -135147,7 +137412,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -135166,7 +137431,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -135185,7 +137450,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -135204,7 +137469,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -135223,7 +137488,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -135242,7 +137507,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -135261,7 +137526,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -135280,7 +137545,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -135299,7 +137564,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -135318,7 +137583,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -135337,7 +137602,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -135358,8 +137623,8 @@
       "access/line-color": "rgba(234,234,235,1)",
       "access/line-join": "round",
       "access/line-cap": "round",
-      "access/line-width": "6",
-      "access/line-dasharray": "6, 6"
+      "access/line-width": "0.176",
+      "access/line-dasharray": "6 9"
     },
     "attachment": "fill"
   },
@@ -140341,529 +142606,8 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_motorway"
-          }
-        ]
-      },
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_trunk"
-          }
-        ]
-      },
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_primary"
-          }
-        ]
-      },
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_secondary"
-          }
-        ]
-      },
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_tertiary"
-          }
-        ]
-      },
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_unclassified"
-          }
-        ]
-      },
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_residential"
-          }
-        ]
-      },
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_living_street"
-          }
-        ]
-      },
-      {
-        "layer": "roads-fill",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_motorway"
-          }
-        ]
-      },
-      {
-        "layer": "roads-fill",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_trunk"
-          }
-        ]
-      },
-      {
-        "layer": "roads-fill",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_primary"
-          }
-        ]
-      },
-      {
-        "layer": "roads-fill",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_secondary"
-          }
-        ]
-      },
-      {
-        "layer": "roads-fill",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_tertiary"
-          }
-        ]
-      },
-      {
-        "layer": "roads-fill",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_unclassified"
-          }
-        ]
-      },
-      {
-        "layer": "roads-fill",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_residential"
-          }
-        ]
-      },
-      {
-        "layer": "roads-fill",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "roads-fill",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_living_street"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_motorway"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_trunk"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_primary"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_secondary"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_tertiary"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_unclassified"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_residential"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_living_street"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "access/line-dasharray": "10, 12"
-    },
-    "attachment": "fill"
-  },
-  {
-    "groups": [
-      {
-        "layer": "tunnels",
-        "zoom": {
           "min": 16,
-          "max": 16
+          "max": 17
         },
         "and": [
           {
@@ -140882,7 +142626,7 @@
         "layer": "tunnels",
         "zoom": {
           "min": 16,
-          "max": 16
+          "max": 17
         },
         "and": [
           {
@@ -140906,7 +142650,7 @@
         "layer": "roads-fill",
         "zoom": {
           "min": 16,
-          "max": 16
+          "max": 17
         },
         "and": [
           {
@@ -140925,7 +142669,7 @@
         "layer": "roads-fill",
         "zoom": {
           "min": 16,
-          "max": 16
+          "max": 17
         },
         "and": [
           {
@@ -140949,7 +142693,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 16,
-          "max": 16
+          "max": 17
         },
         "and": [
           {
@@ -140968,7 +142712,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 16,
-          "max": 16
+          "max": 17
         },
         "and": [
           {
@@ -140993,8 +142737,8 @@
       "access/line-color": "rgba(234,234,235,1)",
       "access/line-join": "round",
       "access/line-cap": "round",
-      "access/line-width": "2",
-      "access/line-dasharray": "6, 8"
+      "access/line-width": "0.52",
+      "access/line-dasharray": "6 9"
     },
     "attachment": "fill"
   },
@@ -141003,7 +142747,148 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_road"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_service"
+          },
+          {
+            "key": "service",
+            "op": "=",
+            "value": "INT-normal"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_road"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_service"
+          },
+          {
+            "key": "service",
+            "op": "=",
+            "value": "INT-normal"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_road"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_service"
+          },
+          {
+            "key": "service",
+            "op": "=",
+            "value": "INT-normal"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "access/line-color": "rgba(234,234,235,1)",
+      "access/line-join": "round",
+      "access/line-cap": "round",
+      "access/line-width": "0.288",
+      "access/line-dasharray": "6 9"
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -141022,7 +142907,7 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -141046,7 +142931,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -141065,7 +142950,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -141089,7 +142974,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -141108,7 +142993,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -141134,8 +143019,8 @@
       "access/line-color": "rgba(234,234,235,1)",
       "access/line-join": "round",
       "access/line-cap": "round",
-      "access/line-width": "3",
-      "access/line-dasharray": "6, 8"
+      "access/line-width": "0.176",
+      "access/line-dasharray": "6 9"
     },
     "attachment": "fill"
   },
@@ -141479,26 +143364,7 @@
         "layer": "tunnels",
         "zoom": {
           "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_road"
-          }
-        ]
-      },
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 17,
-          "max": 24
+          "max": 17
         },
         "and": [
           {
@@ -141514,7 +143380,7 @@
           {
             "key": "service",
             "op": "=",
-            "value": "INT-normal"
+            "value": "INT-minor"
           }
         ]
       },
@@ -141522,26 +143388,7 @@
         "layer": "roads-fill",
         "zoom": {
           "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_road"
-          }
-        ]
-      },
-      {
-        "layer": "roads-fill",
-        "zoom": {
-          "min": 17,
-          "max": 24
+          "max": 17
         },
         "and": [
           {
@@ -141557,7 +143404,7 @@
           {
             "key": "service",
             "op": "=",
-            "value": "INT-normal"
+            "value": "INT-minor"
           }
         ]
       },
@@ -141565,26 +143412,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "access",
-            "op": "=",
-            "value": "no"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_road"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 17,
-          "max": 24
+          "max": 17
         },
         "and": [
           {
@@ -141600,13 +143428,17 @@
           {
             "key": "service",
             "op": "=",
-            "value": "INT-normal"
+            "value": "INT-minor"
           }
         ]
       }
     ],
     "paint": {
-      "access/line-dasharray": "8, 10"
+      "access/line-color": "rgba(234,234,235,1)",
+      "access/line-join": "round",
+      "access/line-cap": "round",
+      "access/line-width": "0.52",
+      "access/line-dasharray": "6 9"
     },
     "attachment": "fill"
   },
@@ -141615,7 +143447,91 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 17,
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_service"
+          },
+          {
+            "key": "service",
+            "op": "=",
+            "value": "INT-minor"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_service"
+          },
+          {
+            "key": "service",
+            "op": "=",
+            "value": "INT-minor"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          },
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_service"
+          },
+          {
+            "key": "service",
+            "op": "=",
+            "value": "INT-minor"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "access/line-color": "rgba(234,234,235,1)",
+      "access/line-join": "round",
+      "access/line-cap": "round",
+      "access/line-width": "0.288",
+      "access/line-dasharray": "6 9"
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -141639,7 +143555,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -141663,7 +143579,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 17,
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -141689,8 +143605,8 @@
       "access/line-color": "rgba(234,234,235,1)",
       "access/line-join": "round",
       "access/line-cap": "round",
-      "access/line-width": "2",
-      "access/line-dasharray": "6, 8"
+      "access/line-width": "0.176",
+      "access/line-dasharray": "6 9"
     },
     "attachment": "fill"
   },
@@ -186268,7 +188184,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/shop/massage.svg')\"",
-      "marker-fill": "rgba(19,99,37,1)"
+      "marker-fill": "rgba(54,78,38,1)"
     }
   },
   {
@@ -186981,7 +188897,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/leisure/water_park.svg')\"",
-      "marker-fill": "rgba(19,99,37,1)",
+      "marker-fill": "rgba(54,78,38,1)",
       "marker-clip": "false"
     }
   },
@@ -187018,7 +188934,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/leisure/fitness.svg')\"",
-      "marker-fill": "rgba(19,99,37,1)",
+      "marker-fill": "rgba(54,78,38,1)",
       "marker-clip": "false"
     }
   },
@@ -187086,7 +189002,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/shop/pet.svg')\"",
-      "marker-fill": "rgba(19,99,37,1)",
+      "marker-fill": "rgba(54,78,38,1)",
       "marker-clip": "false"
     }
   },
@@ -187135,7 +189051,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/leisure/playground.svg')\"",
-      "marker-fill": "rgba(19,99,37,1)",
+      "marker-fill": "rgba(54,78,38,1)",
       "marker-clip": "false"
     }
   },
@@ -187184,7 +189100,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/leisure/miniature_golf.svg')\"",
-      "marker-fill": "rgba(19,99,37,1)",
+      "marker-fill": "rgba(54,78,38,1)",
       "marker-clip": "false"
     }
   },
@@ -187207,7 +189123,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/leisure/golf.svg')\"",
-      "marker-fill": "rgba(19,99,37,1)",
+      "marker-fill": "rgba(54,78,38,1)",
       "marker-clip": "false"
     }
   },
@@ -187230,7 +189146,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/tourism/picnic.svg')\"",
-      "marker-fill": "rgba(19,99,37,1)",
+      "marker-fill": "rgba(54,78,38,1)",
       "marker-clip": "false"
     }
   },
@@ -187377,7 +189293,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/leisure/sauna.svg')\"",
-      "marker-fill": "rgba(19,99,37,1)",
+      "marker-fill": "rgba(54,78,38,1)",
       "marker-clip": "false"
     }
   },
@@ -187400,7 +189316,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/leisure/beach_resort.svg')\"",
-      "marker-fill": "rgba(19,99,37,1)",
+      "marker-fill": "rgba(54,78,38,1)",
       "marker-clip": "false"
     }
   },
@@ -187423,7 +189339,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/leisure/bowling_alley.svg')\"",
-      "marker-fill": "rgba(19,99,37,1)",
+      "marker-fill": "rgba(54,78,38,1)",
       "marker-clip": "false"
     }
   },
@@ -187446,7 +189362,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/leisure/outdoor_seating.svg')\"",
-      "marker-fill": "rgba(19,99,37,1)",
+      "marker-fill": "rgba(54,78,38,1)",
       "marker-clip": "false"
     }
   },
@@ -187469,7 +189385,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/leisure/bird_hide.svg')\"",
-      "marker-fill": "rgba(19,99,37,1)",
+      "marker-fill": "rgba(54,78,38,1)",
       "marker-clip": "false"
     }
   },
@@ -187492,7 +189408,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/leisure/amusement_arcade.svg')\"",
-      "marker-fill": "rgba(19,99,37,1)",
+      "marker-fill": "rgba(54,78,38,1)",
       "marker-clip": "false"
     }
   },
@@ -187515,7 +189431,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/leisure/fishing.svg')\"",
-      "marker-fill": "rgba(19,99,37,1)",
+      "marker-fill": "rgba(54,78,38,1)",
       "marker-clip": "false"
     }
   },
@@ -187538,7 +189454,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/leisure/dance.svg')\"",
-      "marker-fill": "rgba(19,99,37,1)",
+      "marker-fill": "rgba(54,78,38,1)",
       "marker-clip": "false"
     }
   },
@@ -192976,7 +194892,7 @@
       "text-size": "5",
       "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
-      "text-fill": "rgba(19,99,37,1)",
+      "text-fill": "rgba(54,78,38,1)",
       "text-dy": "11",
       "text-face-name": "'Noto Sans TC', sans-serif",
       "text-halo-radius": "1.5",
@@ -197928,7 +199844,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(19,99,37,1)"
+      "text-fill": "rgba(54,78,38,1)"
     }
   },
   {
@@ -198280,7 +200196,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(19,99,37,1)"
+      "text-fill": "rgba(54,78,38,1)"
     }
   },
   {
@@ -208512,7 +210428,7 @@
       "text-size": "5",
       "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
-      "text-fill": "rgba(19,99,37,1)",
+      "text-fill": "rgba(54,78,38,1)",
       "text-face-name": "'Noto Sans TC', sans-serif",
       "text-halo-radius": "1.5",
       "text-halo-fill": "rgba(255,255,255,0.9)",
@@ -208621,7 +210537,7 @@
       "text-size": "5",
       "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
-      "text-fill": "rgba(19,99,37,1)",
+      "text-fill": "rgba(54,78,38,1)",
       "text-dy": "11",
       "text-face-name": "'Noto Sans TC', sans-serif",
       "text-halo-radius": "1.5",
@@ -208801,7 +210717,7 @@
       "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-dy": "13",
-      "text-fill": "rgba(19,99,37,1)",
+      "text-fill": "rgba(54,78,38,1)",
       "text-face-name": "'Noto Sans TC', sans-serif",
       "text-halo-fill": "rgba(255,255,255,0.9)"
     }
@@ -209121,7 +211037,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(28,141,53,1)",
+      "text-fill": "rgba(78,112,55,1)",
       "text-halo-radius": "0"
     }
   },
@@ -212026,7 +213942,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(31,58,32,1)"
+      "text-fill": "rgba(59,80,60,1)"
     }
   },
   {
@@ -285634,7 +287550,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(19,99,37,1)"
+      "text-fill": "rgba(54,78,38,1)"
     }
   },
   {
@@ -318152,7 +320068,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(37,131,60,1)"
+      "text-fill": "rgba(71,93,43,1)"
     }
   },
   {
@@ -334411,7 +336327,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(35,128,57,1)",
+      "text-fill": "rgba(68,96,56,1)",
       "text-halo-radius": "2.25"
     }
   },
@@ -366930,7 +368846,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(23,166,60,1)"
+      "text-fill": "rgba(87,120,59,1)"
     }
   },
   {
@@ -375063,7 +376979,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(32,142,60,1)"
+      "text-fill": "rgba(73,101,48,1)"
     }
   },
   {
@@ -498472,7 +500388,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(25,168,25,1)",
+      "text-fill": "rgba(81,110,55,1)",
       "text-dy": "15"
     }
   },
@@ -563510,7 +565426,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(42,162,70,1)"
+      "text-fill": "rgba(100,116,73,1)"
     }
   },
   {
@@ -571643,7 +573559,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(19,114,43,1)"
+      "text-fill": "rgba(50,66,33,1)"
     }
   },
   {
@@ -587902,7 +589818,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(135,108,0,1)"
+      "text-fill": "rgba(105,86,29,1)"
     }
   },
   {
@@ -604161,7 +606077,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(15,77,29,1)"
+      "text-fill": "rgba(37,54,26,1)"
     }
   },
   {
@@ -612294,7 +614210,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(44,166,77,1)"
+      "text-fill": "rgba(77,112,61,1)"
     }
   },
   {
@@ -628553,7 +630469,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(50,185,86,1)"
+      "text-fill": "rgba(93,136,73,1)"
     }
   },
   {
@@ -634248,7 +636164,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(19,99,37,1)"
+      "text-fill": "rgba(54,78,38,1)"
     }
   },
   {
@@ -635351,7 +637267,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(137,102,66,1)"
+      "text-fill": "rgba(111,92,67,1)"
     }
   },
   {
@@ -635550,7 +637466,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(160,126,28,1)"
+      "text-fill": "rgba(125,104,52,1)"
     }
   },
   {
@@ -637009,7 +638925,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(199,240,210,1)",
+      "line-color": "rgba(201,221,192,1)",
       "line-join": "round",
       "line-cap": "round",
       "line-width": "1"
@@ -637027,7 +638943,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(199,240,210,1)",
+      "line-color": "rgba(201,221,192,1)",
       "line-join": "round",
       "line-cap": "round",
       "line-width": "2"
@@ -637045,7 +638961,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(199,240,210,1)",
+      "line-color": "rgba(201,221,192,1)",
       "line-join": "round",
       "line-cap": "round",
       "line-width": "4"
@@ -637063,7 +638979,7 @@
       }
     ],
     "paint": {
-      "bridgecasing/line-color": "rgba(56,230,103,1)",
+      "bridgecasing/line-color": "rgba(107,192,68,1)",
       "bridgecasing/line-join": "round",
       "bridgecasing/line-width": "1.25"
     }
@@ -637080,7 +638996,7 @@
       }
     ],
     "paint": {
-      "bridgecasing/line-color": "rgba(56,230,103,1)",
+      "bridgecasing/line-color": "rgba(107,192,68,1)",
       "bridgecasing/line-join": "round",
       "bridgecasing/line-width": "2.5"
     }
@@ -637097,7 +639013,7 @@
       }
     ],
     "paint": {
-      "bridgecasing/line-color": "rgba(56,230,103,1)",
+      "bridgecasing/line-color": "rgba(107,192,68,1)",
       "bridgecasing/line-join": "round",
       "bridgecasing/line-width": "5"
     }
@@ -637242,7 +639158,7 @@
       "text-name": "'[name]'",
       "text-size": "10",
       "text-face-name": "'Noto Sans TC', sans-serif",
-      "text-fill": "rgba(50,185,86,1)",
+      "text-fill": "rgba(93,136,73,1)",
       "text-halo-radius": "1.5",
       "text-halo-fill": "rgba(255,255,255,0.9)",
       "text-placement": "line",
@@ -637314,7 +639230,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(150,238,173,1)",
+      "line-color": "rgba(176,203,159,1)",
       "line-cap": "round",
       "line-width": "2.5"
     },
@@ -637338,7 +639254,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(150,238,173,1)",
+      "line-color": "rgba(176,203,159,1)",
       "line-cap": "round",
       "line-width": "5"
     },
@@ -637362,7 +639278,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(150,238,173,1)",
+      "line-color": "rgba(176,203,159,1)",
       "line-cap": "round",
       "line-width": "10"
     },
@@ -637386,7 +639302,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(150,238,173,1)",
+      "line-color": "rgba(176,203,159,1)",
       "line-cap": "round",
       "line-width": "15"
     },
@@ -637410,7 +639326,7 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(150,238,173,1)",
+      "line-color": "rgba(176,203,159,1)",
       "line-cap": "round",
       "line-width": "30"
     },
@@ -637434,7 +639350,7 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(150,238,173,1)",
+      "marker-fill": "rgba(176,203,159,1)",
       "marker-allow-overlap": "true",
       "marker-line-width": "0",
       "marker-ignore-placement": "true",
@@ -637464,7 +639380,7 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(150,238,173,1)",
+      "marker-fill": "rgba(176,203,159,1)",
       "marker-allow-overlap": "true",
       "marker-line-width": "0",
       "marker-ignore-placement": "true",
@@ -637494,7 +639410,7 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(150,238,173,1)",
+      "marker-fill": "rgba(176,203,159,1)",
       "marker-allow-overlap": "true",
       "marker-line-width": "0",
       "marker-ignore-placement": "true",
@@ -637524,7 +639440,7 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(150,238,173,1)",
+      "marker-fill": "rgba(176,203,159,1)",
       "marker-allow-overlap": "true",
       "marker-line-width": "0",
       "marker-ignore-placement": "true",
@@ -637554,7 +639470,7 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(150,238,173,1)",
+      "marker-fill": "rgba(176,203,159,1)",
       "marker-allow-overlap": "true",
       "marker-line-width": "0",
       "marker-ignore-placement": "true",
@@ -647228,7 +649144,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(197,247,210,1)"
+      "polygon-fill": "rgba(216,230,204,1)"
     },
     "attachment": "high-zoom"
   },
@@ -647250,7 +649166,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(199,240,210,1)"
+      "polygon-fill": "rgba(201,221,192,1)"
     },
     "attachment": "high-zoom"
   },
@@ -647272,7 +649188,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(245,233,198,1)"
+      "polygon-fill": "rgba(232,223,200,1)"
     },
     "attachment": "high-zoom"
   },
