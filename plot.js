@@ -162,7 +162,7 @@ function clamp(value, min, max) {
 const maxTotalTurn = (60 / 180) * Math.PI;
 const sampleRateRatio = 2;
 
-function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, textScale, tileSize = 512, quantization = 1024, keepUpright = true) {
+function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, textScale, tileSize = 512, quantization = 1024) {
   if (!Array.isArray(lineString.coordinates) || lineString.coordinates.length < 2) return null;
   if (!label || label.length === 0) return null;
   if (textSize < 0 || textScale < 0) return null;
