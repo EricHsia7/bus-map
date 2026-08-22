@@ -12,7 +12,7 @@
  * @param {number} [buffer=0]
  * @returns {Rings} empty array if nothing survives
  */
-function clipRings(rings, extent, buffer = 0) {
+function clipPolygon(rings, extent, buffer = 0) {
   if (!rings || rings.length === 0) return [];
 
   const lowerLimit = -buffer;
@@ -143,14 +143,14 @@ function signedArea(ring) {
   return s / 2;
 }
 
-/** @param {Ring} ring */
-function bbox(ring) {
-  if (!ring || ring.length === 0) return null;
+/** @param {Array<Point>} coordinates */
+function bbox(coordinates) {
+  if (!coordinates || coordinates.length === 0) return null;
   let minX = Infinity,
     minY = Infinity,
     maxX = -Infinity,
     maxY = -Infinity;
-  for (const [x, y] of ring) {
+  for (const [x, y] of coordinates) {
     if (x < minX) minX = x;
     if (x > maxX) maxX = x;
     if (y < minY) minY = y;
@@ -159,11 +159,136 @@ function bbox(ring) {
   return { minX, minY, maxX, maxY };
 }
 
-const P = [
-  [-10, 10],
-  [10, 10],
-  [10, -10],
-  [-10, -10]
-];
+/**
+ * @typedef {[x: number, y: number]} Point
+ * @typedef {Array<Point>} Line
+ * @typedef {Array<Line>} Lines
+ */
 
-console.log(clipRings([P], 5, 1));
+/**
+ * Clip an open polyline to B = [-buffer, extent+buffer]^2.
+ * @param {Line} line
+ * @param {number} extent
+ * @param {number} [buffer=0]
+ * @returns {Lines} zero or more contiguous pieces, in original order/direction
+ */
+function clipLine(line, extent, buffer = 0) {
+  const lowerLimit = -buffer;
+  const upperLimit = extent + buffer;
+  /** @type {Lines} */
+  const out = [];
+  if (!line || line.length === 0) return out;
+
+  if (line.length === 1) {
+    const [x, y] = line[0];
+    return x >= lowerLimit && x <= upperLimit && y >= lowerLimit && y <= upperLimit ? [[[x, y]]] : [];
+  }
+
+  /** @type {Line|null} */
+  let currentLine = null;
+
+  for (let i = 1; i < line.length; i++) {
+    const a = line[i - 1];
+    const b = line[i];
+    const seg = clipSegment(a, b, lowerLimit, upperLimit);
+
+    if (seg === null) {
+      currentLine = null; // segment falls out of B entirely -> break the piece
+      continue;
+    }
+
+    const [p, q] = seg;
+
+    if (currentLine !== null && same(currentLine[currentLine.length - 1], p)) {
+      currentLine.push(q); // path continued from where the last piece ended
+    } else {
+      currentLine = [p, q];
+      out.push(currentLine);
+    }
+
+    // if the far end was cut, the path leaves B here: force a new piece next
+    if (!same(q, b)) currentLine = null;
+  }
+
+  for (let i = out.length - 1; i >= 0; i--) {
+    out[i] = dedupeLine(out[i]);
+    if (out[i].length < 2) out.splice(i, 1);
+  }
+  return out;
+}
+
+/**
+ * Liang–Barsky. @returns {[Point, Point]|null}
+ */
+function clipSegment(a, b, lo, hi) {
+  const dx = b[0] - a[0];
+  const dy = b[1] - a[1];
+
+  if (dx === 0 && dy === 0) {
+    const inside = a[0] >= lo && a[0] <= hi && a[1] >= lo && a[1] <= hi;
+    return inside
+      ? [
+          [a[0], a[1]],
+          [a[0], a[1]]
+        ]
+      : null;
+  }
+
+  let t0 = 0;
+  let t1 = 1;
+
+  // inside condition for each boundary:  p[k] * t <= q[k]
+  const p = [-dx, dx, -dy, dy];
+  const q = [a[0] - lo, hi - a[0], a[1] - lo, hi - a[1]];
+
+  for (let k = 0; k < 4; k++) {
+    if (p[k] === 0) {
+      if (q[k] < 0) return null; // parallel to this edge and outside it
+      continue;
+    }
+    const t = q[k] / p[k]; // <-- was q[k] / -p[k]
+    if (p[k] < 0) {
+      if (t > t1) return null;
+      t0 = Math.max(t0, t); // latest entry
+    } else {
+      if (t < t0) return null;
+      t1 = Math.min(t1, t); // earliest exit
+    }
+  }
+  if (t0 > t1) return null;
+
+  return [lerp(a, dx, dy, t0, lo, hi), lerp(a, dx, dy, t1, lo, hi)];
+}
+
+/** Interpolate and clamp, so fp drift can never land outside B. @returns {Point} */
+function lerp(a, dx, dy, t, lo, hi) {
+  // if (t === 0) return [a[0], a[1]];
+  // if (t === 1) return [a[0] + dx, a[1] + dy];
+  return [Math.min(hi, Math.max(lo, a[0] + t * dx)), Math.min(hi, Math.max(lo, a[1] + t * dy))];
+}
+
+function same(u, v) {
+  return u[0] === v[0] && u[1] === v[1];
+}
+
+/** @param {Line} line @returns {Line} */
+function dedupeLine(line) {
+  const out = [];
+  for (const p of line) {
+    const q = out[out.length - 1];
+    if (!q || q[0] !== p[0] || q[1] !== p[1]) out.push(p);
+  }
+  return out;
+}
+
+/** MultiLineString: flatten every piece into one Lines array. @param {Lines} lines @returns {Lines} */
+function clipLines(lines, extent, buffer = 0) {
+  const out = [];
+  for (const l of lines) out.push(...clipLine(l, extent, buffer));
+  return out;
+}
+
+module.exports = {
+  clipPolygon,
+  clipLine
+};
