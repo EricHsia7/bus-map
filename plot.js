@@ -31,8 +31,7 @@ function bboxOf(points, bbox) {
   }
 }
 
-// Build a subpath from already-transformed points. Returns '' for < 2 points
-// so callers never emit a move-only path.
+// Build an oriented path
 function windPoints(points, drawingOrientation) {
   const n = points.length;
   if (n < 2) return '';
@@ -46,6 +45,16 @@ function windPoints(points, drawingOrientation) {
     pathCommand += `M${points[n - 1][0]} ${points[n - 1][1]}`;
     for (let i = n - 2; i >= 0; i--) pathCommand += `L${points[i][0]} ${points[i][1]}`;
   }
+  return pathCommand;
+}
+
+// Build a directionless path
+function tracePoints(points) {
+  const n = points.length;
+  if (n < 2) return '';
+  let pathCommand = '';
+  pathCommand += `M${points[0][0]} ${points[0][1]}`;
+  for (let i = 1; i < n; i++) pathCommand += `L${points[i][0]} ${points[i][1]}`;
   return pathCommand;
 }
 
@@ -109,7 +118,7 @@ function plotLineString(lineString, x0, y0, x1, y1, tileSize = 512, precision = 
   if (!intersectsViewport(bbox, tileSize, margin)) return '';
 
   // No 'Z' (a LineString is an open stroke)
-  return windPoints(points, 'clockwise');
+  return tracePoints(points);
 }
 
 function plotPolygonLabel(polygon, x0, y0, x1, y1, quantization = 1024) {
