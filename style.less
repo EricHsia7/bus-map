@@ -705,23 +705,23 @@
   }
 }
 
-#barriers {
-  &:zoom(16) {
-    --line-width: 0.3;
-    --line-color: @barrier-line;
-  }
-  &[feature='barrier_hedge']:zoom(16) {
-    --line-width: zoom-gradient(1.5, 2 17z, 3 18z, 4 19z, 5 20z);
-    --line-color: @hedge;
-  }
-  &[feature='historic_citywalls'],
-  &[feature='barrier_city_wall'] {
-    &:zoom(15) {
-      --line-width: zoom-gradient(1 15z, 1.5 16z, 2 17z, 3 18z, 4 19z, 5 20z);
-      --line-color: @barrier-line-light;
-    }
-  }
-}
+// #barriers {
+//   &:zoom(16) {
+//     --line-width: 0.3;
+//     --line-color: @barrier-line;
+//   }
+//   &[feature='barrier_hedge']:zoom(16) {
+//     --line-width: zoom-gradient(1.5, 2 17z, 3 18z, 4 19z, 5 20z);
+//     --line-color: @hedge;
+//   }
+//   &[feature='historic_citywalls'],
+//   &[feature='barrier_city_wall'] {
+//     &:zoom(15) {
+//       --line-width: zoom-gradient(1 15z, 1.5 16z, 2 17z, 3 18z, 4 19z, 5 20z);
+//       --line-color: @barrier-line-light;
+//     }
+//   }
+// }
 
 // #tourism-boundary {
 //  &[tourism='zoo']:zoom(10),
