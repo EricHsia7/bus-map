@@ -13,8 +13,8 @@
   },
   "tiles": {
     "dir": "./tiles",
-    "z": { "min": 12, "max": 16 },
-    "size": 1024,
+    "z": { "min": 12, "max": 17 },
+    "size": 512,
     "labelQuantization": 1024,
     "precision": 4096,
     "background": "#f2f2f7"
