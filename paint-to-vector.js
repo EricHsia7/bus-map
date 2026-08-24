@@ -81,10 +81,15 @@ function paintToPlan(paint) {
   return plan;
 }
 
+/**
+ * Convert to vector objects
+ * @returns Array<{ instance, kind, styleProperties }>
+ */
 function paintToVector(paint, shape, x0, y0, x1, y1, extent, buffer) {
   const isLine = shape.type === 'LineString';
   const plan = paintToPlan(paint); // geometries will be rendered 1:1 at runtime
 
+  // prepare geometries
   const geometries = new Map();
   for (const item of plan) {
     // invalidate unexpected matches
@@ -92,15 +97,14 @@ function paintToVector(paint, shape, x0, y0, x1, y1, extent, buffer) {
 
     if (item.kind === 'polygon') {
       if (geometries.has('polygon')) continue;
-      const pack = packPolygon(shape, x0, y0, x1, y1, extent, buffer);
-      if (pack) geometries.set('polygon', pack);
+      geometries.set('polygon', packPolygon(shape, x0, y0, x1, y1, extent, buffer));
     } else if (item.kind === 'line') {
       if (geometries.has('line')) continue;
-      const pack = packLineString(shape, x0, y0, x1, y1, extent, buffer);
-      if (pack) geometries.set('line', pack);
+      geometries.set('line', packLineString(shape, x0, y0, x1, y1, extent, buffer));
     }
   }
 
+  // pair every descriptor with a geometry
   const polygonDescriptors = [];
   const lineDescriptors = [];
   for (const item of plan) {
@@ -108,11 +112,11 @@ function paintToVector(paint, shape, x0, y0, x1, y1, extent, buffer) {
     if (isLine && (item.kind === 'polygon' || item.kind === 'polygon-pattern')) continue;
 
     if (item.kind === 'polygon') {
-      if (!geometries.has('polygon')) continue;
+      if (!geometries.get('polygon')) continue;
       const geometry = geometries.get('polygon');
       polygonDescriptors.push({ ...item, geometry });
     } else if (item.kind === 'line') {
-      if (!geometries.has('line')) continue;
+      if (!geometries.get('line')) continue;
       const geometry = geometries.get('line');
       lineDescriptors.push({ ...item, geometry });
     }
