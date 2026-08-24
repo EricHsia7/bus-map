@@ -1,24 +1,5 @@
 const { packPolygon, packLineString } = require('./pack');
-const { paintToPlan, splitInstances } = require('./paint-to-svg');
-
-const BACKGROUND_TYPES = ['polygon', 'line'];
-
-/* CartoCSS property -> style properties maps, per symbolizer type. */
-const LINE_PROPS = {
-  'line-color': 'stroke',
-  'line-width': 'stroke-width',
-  'line-opacity': 'stroke-opacity',
-  'line-join': 'stroke-linejoin',
-  'line-cap': 'stroke-linecap',
-  'line-dasharray': 'stroke-dasharray',
-  'opacity': 'opacity'
-};
-
-const POLYGON_PROPS = {
-  'polygon-fill': 'fill',
-  'polygon-opacity': 'fill-opacity',
-  'opacity': 'opacity'
-};
+const { splitInstances } = require('./paint-to-svg');
 
 function num(v) {
   return typeof v === 'number' ? v : parseFloat(v);
@@ -88,11 +69,11 @@ function instanceToDescriptors(props) {
  * Compile a paint object into an ordered render plan.
  * @returns Array<{ instance, kind, styleProperties }>
  */
-function paintToPlan(paint, k) {
+function paintToPlan(paint) {
   const plan = [];
   const instances = splitInstances(paint);
   for (const [instance, { props }] of instances) {
-    const descriptors = instanceToDescriptors(props, k);
+    const descriptors = instanceToDescriptors(props);
     for (const descriptor of descriptors) {
       plan.push({ instance, ...descriptor });
     }
@@ -102,7 +83,7 @@ function paintToPlan(paint, k) {
 
 function paintToVector(paint, shape, x0, y0, x1, y1, extent, buffer) {
   const isLine = shape.type === 'LineString';
-  const plan = paintToPlan(paint, 1); // geometries will be rendered 1:1 at runtime
+  const plan = paintToPlan(paint); // geometries will be rendered 1:1 at runtime
 
   const geometries = new Map();
   for (const item of plan) {
