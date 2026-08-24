@@ -25,10 +25,10 @@ function createLabelsStyleTables() {
 function registerLabelsStyle(tables, desc) {
   const { kind, styleProperties } = desc;
   const table = labelKindToTable[kind];
-  if (table === undefined) throw new Error(`lunknown kind "${kind}"`);
+  if (table === undefined) throw new Error(`unknown kind "${kind}"`);
   const key = `${table}\u0000${canonical(styleProperties)}`;
   const existingReference = tables.index.get(key);
-  if (!existingReference) {
+  if (existingReference === undefined) {
     const length = tables[table].length;
     tables[table].push(styleProperties);
     tables.index.set(key, length);

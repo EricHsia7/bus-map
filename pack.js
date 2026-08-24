@@ -45,7 +45,7 @@ function packLineString(lineString, x0, y0, x1, y1, extent = 2048, buffer = 64) 
   const transformY = (y) => Math.floor((dY - (y - y0)) * scaleY);
 
   const coords = lineString.coordinates;
-  if (!coords || coords.length === 0 || !coords[0] || coords[0].length < 3) return null;
+  if (!coords || coords.length === 0 || !coords[0]) return null;
   const coordsLength = coords.length;
 
   const transformedCoords = [];

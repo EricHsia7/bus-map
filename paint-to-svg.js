@@ -1,6 +1,6 @@
 /**
  * paint-to-svg.js
- * -------------------------------------------------------------------------
+ *---------------------------------------------------------------------
  * Convert a compiled CartoCSS rule's `paint` object (as produced by
  * compile-carto.js and stored in style.json) into SVG elements, for the
  * BACKGROUND layer only -- i.e. geometry fills and strokes. Text, shields,
@@ -11,9 +11,9 @@
  *   const svg = paintToSvg(rule.paint, d, 'polygon');
  *   // -> '<path d="..." fill="#eee" fill-rule="nonzero"/>'
  *
- * ------------------------------------------------------------------------
+ *--------------------------------------------------------------------
  * Instances (the slash prefix)
- * ------------------------------------------------------------------------
+ *--------------------------------------------------------------------
  * CartoCSS lets one rule carry several symbolizers of the same type via a
  * `name/` prefix ("instances"), e.g. `background/line-width` and
  * `line/line-width` are two independent LineSymbolizers. Each instance -->
@@ -24,9 +24,9 @@
  * symbolizer (e.g. polygon-fill + line-color); we emit fill first, stroke
  * second, matching Mapnik's paint order.
  *
- * ------------------------------------------------------------------------
+ *--------------------------------------------------------------------
  * fill-rule = nonzero (leverages path orientation)
- * ------------------------------------------------------------------------
+ *--------------------------------------------------------------------
  * plot.js winds outer rings clockwise and holes counter-clockwise. With
  * opposite winding, the winding number inside a hole is 0, so `nonzero`
  * fills the outer ring and subtracts the holes automatically -- no evenodd
@@ -50,9 +50,9 @@ const POLYGON_ATTR = {
   'polygon-opacity': 'fill-opacity'
 };
 
-/* ----------------------------------------------------------------------- */
+/*---------------------------------------------------------------*/
 /* Step 1: split a flat paint object into instances                        */
-/* ----------------------------------------------------------------------- */
+/*---------------------------------------------------------------*/
 
 /**
  * Group paint keys by instance prefix.
@@ -87,9 +87,9 @@ function typesIn(props) {
   return present;
 }
 
-/* ----------------------------------------------------------------------- */
+/*---------------------------------------------------------------*/
 /* Step 2: build element descriptors (a small, precomputable "plan")        */
-/* ----------------------------------------------------------------------- */
+/*---------------------------------------------------------------*/
 
 function num(v, k = 1) {
   return typeof v === 'number' ? v * k : parseFloat(v) * k;
@@ -109,14 +109,14 @@ function instanceElements(props, k) {
   const els = [];
   const has = (p) => props[p] !== undefined && props[p] !== null;
 
-  // ---- polygon fill (solid) ----
+  // polygon fill (solid)
   if (has('polygon-fill')) {
     const attrs = { 'fill': props['polygon-fill'], 'fill-rule': 'nonzero' };
     if (has('polygon-opacity')) attrs['fill-opacity'] = num(props['polygon-opacity']);
     els.push({ kind: 'polygon', attrs });
   }
 
-  // ---- polygon pattern fill ----
+  // polygon pattern fill
   if (has('polygon-pattern-file')) {
     els.push({
       kind: 'polygon-pattern',
@@ -128,7 +128,7 @@ function instanceElements(props, k) {
     });
   }
 
-  // ---- line stroke (solid) ----
+  // line stroke (solid)
   if (has('line-color') || has('line-width')) {
     const attrs = { fill: 'none' };
     for (const [prop, attr] of Object.entries(LINE_ATTR)) {
@@ -139,7 +139,7 @@ function instanceElements(props, k) {
     els.push({ kind: 'line', attrs });
   }
 
-  // ---- line pattern stroke ----
+  // line pattern stroke
   if (has('line-pattern-file')) {
     els.push({
       kind: 'line-pattern',
@@ -171,9 +171,9 @@ function paintToPlan(paint, k) {
   return plan;
 }
 
-/* ----------------------------------------------------------------------- */
+/*---------------------------------------------------------------*/
 /* Step 3: render a plan (or paint) to SVG using a shared geometry trace    */
-/* ----------------------------------------------------------------------- */
+/*---------------------------------------------------------------*/
 
 function esc(v) {
   return String(v).replace(/"/g, '&quot;').replace(/&/g, '&amp;');
