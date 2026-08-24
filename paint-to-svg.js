@@ -157,7 +157,7 @@ function instanceElements(props, k) {
  * at the bottom of the file): store it in the precompiled JSON and the
  * renderer just maps geometry -> attrs.
  *
- * @returns Array<{ instance, kind, attrs, patternFile?, opacity? }>
+ * @returns Array<{ instance, kind, attrs, patternFile?, groupOpacity? }>
  */
 function paintToPlan(paint, k) {
   const plan = [];

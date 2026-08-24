@@ -14,8 +14,10 @@ const config = require('./config.json');
 const { rasterize } = require('./rasterize.js');
 const { makeDirectory } = require('./files.js');
 const { paintToLabels } = require('./paint-to-label.js');
-const { createStyleTables, registerStyle } = require('./label-styles.js');
+const { createLabelsStyleTables, registerLabelsStyle } = require('./label-styles.js');
 const { registerChars, dumpCharsets } = require('./label-charset.js');
+const { paintToVector } = require('./paint-to-vector.js');
+const { createVectorStyleTables } = require('./vector-styles.js');
 
 const toObjectOptions = {
   enums: String, // enums as string names
@@ -78,8 +80,11 @@ const tilesDir = config.tiles.dir;
 const tileSize = config.tiles.size;
 const tilePrecision = config.tiles.precision;
 const labelQuantization = config.tiles.labelQuantization;
+const extent = config.tiles.extent;
+const buffer = config.tiles.buffer;
 const tileBackground = config.tiles.background;
-const tilesMaxZ = config.tiles.z.max;
+const tilesMinZ = Math.min(config.tiles.z.raster.min, config.tiles.z.vector.min);
+const tilesMaxZ = Math.max(config.tiles.z.raster.max, config.tiles.z.vector.max);
 const safeMargin = 64;
 
 const backgroundElement = `<rect x="0" y="0" width="${tileSize}" height="${tileSize}" fill="${tileBackground}"/>`;
@@ -287,17 +292,24 @@ async function renderChunk(cX, cY, cZ, fileformat) {
   const total = subTiles.length;
   let count = 0;
   for (const [tX, tY, tZ] of subTiles) {
+    if (cZ < tilesMinZ) continue;
     count++;
     const [x0, y0, x1, y1] = getTileViewbox(tX, tY, tZ);
-    const fills = []; // { order, svg } collected across ways + relations
-    const lineEls = []; // { order, svg }
-    const labels = []; // GeoJSON features for the text/marker overlay
-    // Rule-level label style, interned per tile. Everything paintToLabels emits
-    // except `kind` and `label` is a verbatim copy of the compiled paint, so it
-    // is hoisted here and the feature keeps only an index. `${style}:${label}`
-    // is then a complete glyph-cache key.
-    const styleTables = createStyleTables();
+
+    // raster
+    const polygons = []; // { base, rule, index, svg } collected across ways + relations
+    const lines = []; // { base, rule, index, svg }
+
+    // vector
+    const vectorPolygons = []; // { base, rule, index, descriptors }
+    const vectorLines = []; // { base, rule, index, descriptors }
+    const vectorStyleTables = createVectorStyleTables();
+
+    // labels
+    const labels = []; // features for the text/marker overlay
+    const labelsStyleTables = createLabelsStyleTables();
     const charsets = new Map();
+
     const startTime = performance.now();
     for (const way of ways) {
       if (memberWayIds.has(way.id)) continue; // drawn via its parent multipolygon
@@ -323,14 +335,21 @@ async function renderChunk(cX, cY, cZ, fileformat) {
         const base = orderOf(layer.id);
         for (let index = 0; index < passesLength; index++) {
           const { paint, rule } = passes[index];
+
+          // paint to svg
           const svg = paintToSvg(paint, d, geometry, tileSize / 256);
           if (!svg) continue;
-          // base = layer order, rule = stylesheet rule order, index = attachment
           if (closed) {
-            fills.push({ base, rule, index, svg });
+            polygons.push({ base, rule, index, svg });
+            // base = layer order, rule = stylesheet rule order, index = attachment
           } else {
-            lineEls.push({ base, rule, index, svg });
+            lines.push({ base, rule, index, svg });
           }
+
+          // paint to vector
+          const { polygonDescriptors, lineDescriptors } = paintToVector(paint, shape, x0, y0, x1, y1, extent, buffer);
+          if (polygonDescriptors.length > 0) vectorPolygons.push({ base, rule, index, descriptors: polygonDescriptors });
+          if (lineDescriptors.length > 0) vectorLines.push({ base, rule, index, descriptors: lineDescriptors });
         }
 
         // Collect the text/markers this feature should render.
@@ -347,7 +366,7 @@ async function renderChunk(cX, cY, cZ, fileformat) {
           const textScale = Array.isArray(desc.styleProperties['text-scale']) ? desc.styleProperties['text-scale'][0] : desc.styleProperties['text-scale'] || 1; // resolve the placement at discrete zoom level (tZ)
           const labelGeometry = closed ? plotPolygonLabel(shape, x0, y0, x1, y1, labelQuantization) : plotLineStringLabel(shape, x0, y0, x1, y1, desc.properties.label, textSize, textScale, tileSize, labelQuantization);
           if (!labelGeometry) continue;
-          const styleReference = registerStyle(styleTables, desc);
+          const styleReference = registerLabelsStyle(labelsStyleTables, desc);
           if (desc.properties.label) registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference);
           labels.push({
             base,
@@ -382,9 +401,20 @@ async function renderChunk(cX, cY, cZ, fileformat) {
         const base = orderOf(layer.id);
         for (let index = 0; index < passesLength; index++) {
           const { paint, rule } = passes[index];
+
+          // paint to svg
           const svg = paintToSvg(paint, d, 'polygon', tileSize / 256);
           if (!svg) continue;
-          fills.push({ base, rule, index, svg });
+          polygons.push({ base, rule, index, svg });
+
+          // paint to vector
+          for (const poly of feat.polygons) {
+            // The actual geometry depends on clipping and styling.
+            // For example, after clipping, the stroke of a cross-tile polygon becomes an open line.
+            const { polygonDescriptors, lineDescriptors } = paintToVector(paint, { type: 'Polygon', coordinates: poly }, x0, y0, x1, y1, extent, buffer);
+            if (polygonDescriptors.length > 0) vectorPolygons.push({ base, rule, index, descriptors: polygonDescriptors });
+            if (lineDescriptors.length > 0) vectorLines.push({ base, rule, index, descriptors: lineDescriptors });
+          }
         }
 
         // Area labels (place/landuse/building names): anchor at a
@@ -397,7 +427,7 @@ async function renderChunk(cX, cY, cZ, fileformat) {
         if (feat.polygons[0]) {
           const labelGeometry = plotPolygonLabel(feat.polygons[0], x0, y0, x1, y1, labelQuantization);
           for (const desc of descs) {
-            const styleReference = registerStyle(styleTables, desc);
+            const styleReference = registerLabelsStyle(labelsStyleTables, desc);
             if (desc.properties.label) registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference);
             labels.push({
               base,
@@ -432,7 +462,7 @@ async function renderChunk(cX, cY, cZ, fileformat) {
         const base = orderOf(layer.id);
         const labelGeometry = plotPointLabel([node.lon, node.lat], x0, y0, x1, y1, labelQuantization);
         for (const desc of descs) {
-          const styleReference = registerStyle(styleTables, desc);
+          const styleReference = registerLabelsStyle(labelsStyleTables, desc);
           if (desc.properties.label) registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference);
           labels.push({
             base,
@@ -454,22 +484,36 @@ async function renderChunk(cX, cY, cZ, fileformat) {
     // position: two features in the same layer and attachment are separated
     // only by which rule matched them, so `rule` has to outrank `index`.
     // Stable sort keeps intra-rule feature order. Fills first, then lines.
-    fills.sort(function (a, b) {
+    polygons.sort(function (a, b) {
       return a.base - b.base || a.rule - b.rule || a.index - b.index;
     });
-    lineEls.sort(function (a, b) {
+    lines.sort(function (a, b) {
       return a.base - b.base || a.rule - b.rule || a.index - b.index;
     });
     labels.sort(function (a, b) {
       return a.base - b.base || a.rule - b.rule;
     });
-    const polygonElements = fills.map((f) => f.svg).join('');
-    const lineElements = lineEls.map((l) => l.svg).join('');
-    const svg = `<svg width="${tileSize}" height="${tileSize}" viewBox="0 0 ${tileSize} ${tileSize}" xmlns="http://www.w3.org/2000/svg">${backgroundElement}${polygonElements}${lineElements}</svg>`;
+    vectorPolygons.sort(function (a, b) {
+      return a.base - b.base || a.rule - b.rule || a.index - b.index;
+    });
+    vectorLines.sort(function (a, b) {
+      return a.base - b.base || a.rule - b.rule || a.index - b.index;
+    });
+
+    // create directories
     await makeDirectory(path.join(tilesDir, tZ.toString(), tX.toString()));
-    await rasterize(svg, path.join(tilesDir, tZ.toString(), tX.toString(), tY.toString()));
     await makeDirectory(path.join(labelsDir, tZ.toString(), tX.toString()));
-    // `extent` is what tells the client these are tile-local integers; drop it and the worker would read them as lon/lat and place everything at the antimeridian.
+
+    // raster tiles
+    const polygonElements = polygons.map((f) => f.svg).join('');
+    const lineElements = lines.map((l) => l.svg).join('');
+    const svg = `<svg width="${tileSize}" height="${tileSize}" viewBox="0 0 ${tileSize} ${tileSize}" xmlns="http://www.w3.org/2000/svg">${backgroundElement}${polygonElements}${lineElements}</svg>`;
+    await rasterize(svg, path.join(tilesDir, tZ.toString(), tX.toString(), tY.toString()));
+
+    // vector tiles
+    console.log(JSON.stringify(vectorPolygons, null, 2));
+
+    // labels
     fs.writeFileSync(
       path.join(labelsDir, tZ.toString(), tX.toString(), `${tY}.gz`),
       Buffer.from(
@@ -480,15 +524,16 @@ async function renderChunk(cX, cY, cZ, fileformat) {
               extent: labelQuantization,
               zoom: tZ,
               features: labels.map((l) => l.label),
-              textStyles: styleTables.textStyles,
-              iconStyles: styleTables.iconStyles,
-              circleStyles: styleTables.circleStyles,
+              textStyles: labelsStyleTables.textStyles,
+              iconStyles: labelsStyleTables.iconStyles,
+              circleStyles: labelsStyleTables.circleStyles,
               charsets: dumpCharsets(charsets)
             })
           )
         )
       )
     );
+
     const endTime = performance.now();
     console.log(`[${count}/${total}] Rendered (${tX} ${tY} ${tZ}) in (${cX} ${cY} ${cZ}) in ${Math.floor(endTime - startTime)}ms.`);
   }
@@ -513,6 +558,8 @@ async function main() {
   const fileformat = await loadFileformat();
   const chunkTiles = areaToTiles(west, south, east, north, baseZ);
   const groups = splitByLength(chunkTiles, 4);
+  await renderChunk(3430, 1753, 12, fileformat);
+  return;
   for (const group of groups) {
     try {
       const groupResults = await Promise.allSettled(group.map((tile) => renderChunk(tile[0], tile[1], baseZ, fileformat)));

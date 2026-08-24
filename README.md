@@ -40,7 +40,7 @@ Each expensive step (npm deps, the osmium build, the downloaded extract, chunks,
 | `bbox`                                                                         | `west`/`south`/`east`/`north` bounds of the region to render                                   |
 | `chunks.dir`, `chunks.baseZ`, `chunks.output`                                  | Output dir, base zoom for tiling the extract, and generated shell script name                  |
 | `tiles.dir`, `tiles.z.min`/`max`                                               | Output dir and zoom range for rendered tiles                                                   |
-| `tiles.size`, `tiles.labelQuantization`, `tiles.precision`, `tiles.background` | Raster tile size, label coordinate quantization, geometry precision, and background fill color |
+| `tiles.size`, `tiles.extent`, `tiles.precision`, `tiles.background` | Raster tile size, label coordinate quantization, geometry precision, and background fill color |
 
 ## Supporting files
 

@@ -1,9 +1,6 @@
-const labelKindToTable = {
-  text: 'textStyles',
-  marker: 'iconStyles',
-  point: 'iconStyles',
-  shield: 'iconStyles',
-  circle: 'circleStyles'
+const vectorKindToTable = {
+  polygon: 'polygonStyles',
+  line: 'lineStyles'
 };
 
 // Key-order-independent serialization, so two styles that differ only in the order their properties were assigned intern to the same entry.
@@ -18,13 +15,13 @@ function canonical(value) {
   return JSON.stringify(value);
 }
 
-function createLabelsStyleTables() {
-  return { textStyles: [], iconStyles: [], circleStyles: [], index: new Map() };
+function createVectorStyleTables() {
+  return { polygonStyles: [], lineStyles: [], index: new Map() };
 }
 
-function registerLabelsStyle(tables, desc) {
+function registerVectorStyle(tables, desc) {
   const { kind, styleProperties } = desc;
-  const table = labelKindToTable[kind];
+  const table = vectorKindToTable[kind];
   if (table === undefined) throw new Error(`lunknown kind "${kind}"`);
   const key = `${table}\u0000${canonical(styleProperties)}`;
   const existingReference = tables.index.get(key);
@@ -38,7 +35,6 @@ function registerLabelsStyle(tables, desc) {
 }
 
 module.exports = {
-  createLabelsStyleTables,
-  registerLabelsStyle,
-  labelKindToTable
+  createVectorStyleTables,
+  registerVectorStyle
 };

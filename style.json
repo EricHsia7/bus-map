@@ -127648,33 +127648,6 @@
       {
         "layer": "highway-area-fill",
         "zoom": {
-          "min": 11,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "aeroway_runway"
-          },
-          {
-            "key": "surface",
-            "op": "=",
-            "value": "unpaved"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-pattern-file": "\"url('symbols/unpaved/unpaved_aeroway-fill.svg')\"",
-      "polygon-pattern-alignment": "global"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "highway-area-fill",
-        "zoom": {
           "min": 13,
           "max": 24
         },
@@ -127696,33 +127669,6 @@
       {
         "layer": "highway-area-fill",
         "zoom": {
-          "min": 13,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "aeroway_taxiway"
-          },
-          {
-            "key": "surface",
-            "op": "=",
-            "value": "unpaved"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-pattern-file": "\"url('symbols/unpaved/unpaved_aeroway-fill.svg')\"",
-      "polygon-pattern-alignment": "global"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "highway-area-fill",
-        "zoom": {
           "min": 16,
           "max": 24
         },
@@ -127737,33 +127683,6 @@
     ],
     "paint": {
       "polygon-fill": "rgba(203,203,206,1)"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "highway-area-fill",
-        "zoom": {
-          "min": 16,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "aeroway_helipad"
-          },
-          {
-            "key": "surface",
-            "op": "=",
-            "value": "unpaved"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-pattern-file": "\"url('symbols/unpaved/unpaved_aeroway-fill.svg')\"",
-      "polygon-pattern-alignment": "global"
     }
   },
   {
