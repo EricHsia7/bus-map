@@ -86,7 +86,7 @@ function instanceToDescriptors(props) {
 
 /**
  * Compile a paint object into an ordered render plan.
- * @returns Array<{ instance, kind, attrs, patternFile? }>
+ * @returns Array<{ instance, kind, styleProperties }>
  */
 function paintToPlan(paint, k) {
   const plan = [];
