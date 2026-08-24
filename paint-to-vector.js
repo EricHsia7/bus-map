@@ -12,7 +12,7 @@ function dash(v) {
 }
 
 /**
- * @returns Array<{ kind, styleProperties: {} }>
+ * @returns { Array<{ kind, styleProperties: {} }> }
  */
 function instanceToDescriptors(props) {
   const descriptors = [];
@@ -67,7 +67,7 @@ function instanceToDescriptors(props) {
 
 /**
  * Compile a paint object into an ordered render plan.
- * @returns Array<{ instance, kind, styleProperties }>
+ * @returns { Array<{ instance: string, kind: 'polygon' | 'line', styleProperties }> }
  */
 function paintToPlan(paint) {
   const plan = [];
@@ -83,7 +83,10 @@ function paintToPlan(paint) {
 
 /**
  * Convert to vector objects
- * @returns Array<{ instance, kind, styleProperties }>
+ * @returns {{
+ * polygonDescriptors: Array<{ instance: string, kind: 'polygon', styleProperties, geometry }>,
+ * lineDescriptors: Array<{ instance: string, kind: 'line', styleProperties, geometry }>
+ * }}
  */
 function paintToVector(paint, shape, x0, y0, x1, y1, extent, buffer) {
   const isLine = shape.type === 'LineString';
