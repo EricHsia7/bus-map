@@ -14,12 +14,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
-      
+
       - name: Setup Node
         uses: actions/setup-node@v7
         with:
           node-version: 24
-      
+
       - name: Restore cached Node dependencies
         id: restore-cached-node-dependencies
         uses: actions/cache/restore@v6
@@ -127,9 +127,9 @@ jobs:
         uses: actions/cache/restore@v6
         with:
           path: chunks
-          key: chunks-${{ hashFiles('input.osm.pbf') }}-${{ hashFiles('chunk.js') }}-${{ hashFiles('config.json') }}
+          key: chunks-${{ hashFiles('input.osm.pbf') }}-${{ hashFiles('chunk.sh') }}
           restore-keys: |
-            chunks-${{ hashFiles('input.osm.pbf') }}-${{ hashFiles('chunk.js') }}-${{ hashFiles('config.json') }}
+            chunks-${{ hashFiles('input.osm.pbf') }}-${{ hashFiles('chunk.sh') }}
 
       - name: Chunk Map Data
         if: steps.restore-cached-chunks.outputs.cache-hit != 'true'
@@ -147,31 +147,12 @@ jobs:
           path: chunks
           key: ${{ steps.restore-cached-chunks.outputs.cache-primary-key }}
 
-      - name: Restore Cached Tiles and Labels
-        id: restore-cached-tiles-labels
-        uses: actions/cache/restore@v6
-        with:
-          path: ./tiles
-          key: tiles-${{ hashFiles('input.osm.pbf') }}-${{ hashFiles('chunk.sh') }}
-          restore-keys: |
-            tiles-${{ hashFiles('input.osm.pbf') }}-${{ hashFiles('chunk.sh') }}
-
       - name: Render
         if: steps.restore-cached-tiles-labels.outputs.cache-hit != 'true'
         run: |
           mkdir -p tiles || true
           mkdir -p labels || true
           node render.js || true
-      
-      - name: Cache Tiles and Labels
-        id: cache-tiles-labels
-        if: steps.restore-cached-tiles-labels.outputs.cache-hit != 'true'
-        uses: actions/cache/save@v6
-        with:
-          path: |
-            chunks
-            labels
-          key: ${{ steps.restore-cached-tiles-labels.outputs.cache-primary-key }}
 
       - name: Configure git
         run: |
@@ -185,7 +166,6 @@ jobs:
           git add ./tiles ./labels -f || true
           git commit -m "Updates" || true
       # git rm -r --cached . >/dev/null -> unstage everything while keeping files on disk
-
       - name: Push to Dist Branch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
