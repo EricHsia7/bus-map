@@ -1,8 +1,3 @@
-const vectorKindToTable = {
-  polygon: 'polygonStyles',
-  line: 'lineStyles'
-};
-
 // Key-order-independent serialization, so two styles that differ only in the order their properties were assigned intern to the same entry.
 function canonical(value) {
   if (Array.isArray(value)) return `[${value.map(canonical).join(',')}]`;
@@ -16,18 +11,19 @@ function canonical(value) {
 }
 
 function createVectorStyleTables() {
-  return { polygonStyles: [], lineStyles: [], index: new Map() };
+  return { styles: [], index: new Map() };
 }
 
+/**
+ * @returns {number}
+ */
 function registerVectorStyle(tables, desc) {
-  const { kind, styleProperties } = desc;
-  const table = vectorKindToTable[kind];
-  if (table === undefined) throw new Error(`unknown kind "${kind}"`);
-  const key = `${table}\u0000${canonical(styleProperties)}`;
+  const { styleProperties } = desc;
+  const key = `${canonical(styleProperties)}`;
   const existingReference = tables.index.get(key);
   if (existingReference === undefined) {
-    const length = tables[table].length;
-    tables[table].push(styleProperties);
+    const length = tables.styles.length;
+    tables.styles.push(styleProperties);
     tables.index.set(key, length);
     return length;
   }

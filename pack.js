@@ -32,9 +32,9 @@ function packPolygon(polygon, x0, y0, x1, y1, extent = 2048, buffer = 64) {
   if (clippedRings.length === 0) return null;
 
   const quantizedRings = [];
-  for (let i = clippedRings.length - 1; i >= 0; i--) {
+  for (let i = 0, l = clippedRings.length; i < l; i++) {
     const quantizedLine = [];
-    for (let j = clippedRings[i].length - 1; j >= 0; j--) {
+    for (let j = 0, m = clippedRings[i].length; j < m; j++) {
       quantizedLine.push([Math.round(clippedRings[i][j][0]), Math.round(clippedRings[i][j][1])]);
     }
     quantizedRings.push(quantizedLine);
@@ -63,13 +63,13 @@ function packPolygonOutline(polygon, x0, y0, x1, y1, extent = 2048, buffer = 64)
     for (let j = 0; j < ringLength; j++) {
       transformedRing.push([transformX(rings[i][j][0]), transformY(rings[i][j][1])]);
     }
-    clippedLines.push.apply(clipLine(transformedRing, extent, buffer));
+    Array.prototype.push.apply(clippedLines, clipLine(transformedRing, extent, buffer));
   }
 
   const quantizedLines = [];
-  for (let i = clippedLines.length - 1; i >= 0; i--) {
+  for (let i = 0, l = clippedLines.length; i < l; i++) {
     const quantizedLine = [];
-    for (let j = clippedLines[i].length - 1; j >= 0; j--) {
+    for (let j = 0, m = clippedLines[i].length; j < m; j++) {
       quantizedLine.push([Math.round(clippedLines[i][j][0]), Math.round(clippedLines[i][j][1])]);
     }
     quantizedLines.push(quantizedLine);
@@ -100,9 +100,9 @@ function packLineString(lineString, x0, y0, x1, y1, extent = 2048, buffer = 64) 
   if (clippedLines.length === 0) return null;
 
   const quantizedLines = [];
-  for (let i = clippedLines.length - 1; i >= 0; i--) {
+  for (let i = 0, l = clippedLines.length; i < l; i++) {
     const quantizedLine = [];
-    for (let j = clippedLines[i].length - 1; j >= 0; j--) {
+    for (let j = 0, m = clippedLines[i].length; j < m; j++) {
       quantizedLine.push([Math.round(clippedLines[i][j][0]), Math.round(clippedLines[i][j][1])]);
     }
     quantizedLines.push(quantizedLine);

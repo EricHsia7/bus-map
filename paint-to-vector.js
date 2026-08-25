@@ -5,6 +5,10 @@ function num(v) {
   return typeof v === 'number' ? v : parseFloat(v);
 }
 
+function dash(v) {
+  return v.split(/[\s,]+/g).map((n) => parseFloat(n));
+}
+
 /**
  * @returns { Array<{ kind: 'polygon' | 'line', styleProperties: Record<string, any> }> }
  */
@@ -48,7 +52,7 @@ function instanceToDescriptors(props) {
     if (has('line-cap')) styleProperties['stroke-linecap'] = props['line-cap'];
 
     // line-dasharray -> stroke-dasharray
-    if (has('line-dasharray')) styleProperties['stroke-dasharray'] = props['line-dasharray'];
+    if (has('line-dasharray') && props['line-dasharray'] !== 'none') styleProperties['stroke-dasharray'] = dash(props['line-dasharray']);
 
     // opacity -> opacity
     if (has('opacity')) styleProperties['opacity'] = num(props['opacity']);

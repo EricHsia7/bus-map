@@ -17,7 +17,7 @@ const { paintToLabels } = require('./paint-to-label.js');
 const { createLabelsStyleTables, registerLabelsStyle } = require('./label-styles.js');
 const { registerChars, dumpCharsets } = require('./label-charset.js');
 const { paintToVector } = require('./paint-to-vector.js');
-const { createVectorStyleTables } = require('./vector-styles.js');
+const { createVectorStyleTables, registerVectorStyle } = require('./vector-styles.js');
 
 const toObjectOptions = {
   enums: String, // enums as string names
@@ -511,8 +511,50 @@ async function renderChunk(cX, cY, cZ, fileformat) {
     await rasterize(svg, path.join(tilesDir, tZ.toString(), tX.toString(), tY.toString()));
 
     // vector tiles
-
-    console.log(JSON.stringify(vectorPolygons.concat(vectorLines)));
+    const vectorDescriptors = [];
+    const vectorStyleReferences = [];
+    const vectorStyleStartIndices = [];
+    let previousStyleReference = -1;
+    let styleCount = 0;
+    for (let i = 0, l = vectorPolygons.length; i < l; i++) {
+      for (let j = 0, m = vectorPolygons[i].descriptors.length; j < m; j++) {
+        const styleReference = registerVectorStyle(vectorStyleTables, vectorPolygons[i].descriptors[j]);
+        vectorDescriptors.push({
+          type: 'polygon',
+          geometry: vectorPolygons[i].descriptors[j].geometry
+        });
+        if (styleReference !== previousStyleReference) {
+          vectorStyleReferences.push(styleReference);
+          vectorStyleStartIndices.push(styleCount++);
+          previousStyleReference = styleReference;
+        }
+      }
+    }
+    for (let i = 0, l = vectorLines.length; i < l; i++) {
+      for (let j = 0, m = vectorLines[i].descriptors.length; j < m; j++) {
+        const styleReference = registerVectorStyle(vectorStyleTables, vectorLines[i].descriptors[j]);
+        vectorDescriptors.push({
+          type: 'line',
+          geometry: vectorLines[i].descriptors[j].geometry
+        });
+        if (styleReference !== previousStyleReference) {
+          vectorStyleReferences.push(styleReference);
+          vectorStyleStartIndices.push(styleCount++);
+          previousStyleReference = styleReference;
+        }
+      }
+    }
+    const vectorTile = {
+      type: 'Vector',
+      extent,
+      buffer,
+      zoom: tZ,
+      descriptors: vectorDescriptors,
+      styleReferences: vectorStyleReferences,
+      styleStartIndices: vectorStyleStartIndices,
+      styles: vectorStyleTables.styles
+    };
+    console.log(JSON.stringify(vectorTile, null, 2));
 
     // labels
     fs.writeFileSync(
