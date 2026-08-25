@@ -95,6 +95,20 @@ function num(v, k = 1) {
   return typeof v === 'number' ? v * k : parseFloat(v) * k;
 }
 
+/**
+ * Lower end of a shipped [s0, s1] scale interval, or 1.
+ *
+ * A raster tile is a single rasterization, so it cannot interpolate: it is baked
+ * at its own zoom, which is exactly s0. This reproduces what the compiler used
+ * to do when it folded --line-scale into --line-width before emitting JSON, so
+ * raster output is unchanged by the scale work.
+ */
+function scaleBase(v) {
+  if (!Array.isArray(v) || v.length !== 2) return 1;
+  const n = typeof v[0] === 'number' ? v[0] : parseFloat(v[0]);
+  return Number.isFinite(n) ? n : 1;
+}
+
 function dash(v, k = 1) {
   if (v == null) return null;
   if (Array.isArray(v)) return v.map((n) => parseFloat(n) * k).join(',');
@@ -131,9 +145,10 @@ function instanceElements(props, k) {
   // line stroke (solid)
   if (has('line-color') || has('line-width')) {
     const attrs = { fill: 'none' };
+    const widthScale = scaleBase(props['line-scale']);
     for (const [prop, attr] of Object.entries(LINE_ATTR)) {
       if (!has(prop)) continue;
-      attrs[attr] = prop === 'line-width' ? num(props[prop], k) : prop === 'line-dasharray' ? dash(props[prop], k) : props[prop];
+      attrs[attr] = prop === 'line-width' ? num(props[prop], k) * widthScale : prop === 'line-dasharray' ? dash(props[prop], k) : props[prop];
     }
     // Mapnik defaults: round is common for map lines; only set if provided.
     els.push({ kind: 'line', attrs });

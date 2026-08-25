@@ -439,7 +439,11 @@ function evalLadder(value, z, prop, resolve = resolveValue) {
 // never reaches the output JSON and downstream consumers (paint-to-label.js,
 // paint-to-svg.js) need no changes. Add further pairs here if other sizes ever
 // want the same treatment (e.g. 'shield-scale': 'shield-size').
-const SCALE_TARGETS = { 'text-scale': 'text-size', 'marker-scale': 'marker-width' };
+const SCALE_TARGETS = {
+  'text-scale': 'text-size',
+  'marker-scale': 'marker-width',
+  'line-scale': 'line-width'
+};
 
 // `casing/text-scale` -> ['casing/', 'text-scale']; `text-scale` -> ['', 'text-scale'].
 // A scale only ever applies to the size of its OWN instance.

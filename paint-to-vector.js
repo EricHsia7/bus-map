@@ -5,6 +5,21 @@ function num(v) {
   return typeof v === 'number' ? v : parseFloat(v);
 }
 
+/**
+ * A shipped scale interval [s0, s1] covering [minzoom, minzoom + 1]: the value
+ * at this tile's zoom and at the next one. Same convention as the label
+ * pipeline's text-scale / marker-scale (see SCALE_TARGETS): the descriptor
+ * carries one reference size and the client interpolates the multiplier per
+ * frame, so a tile stays valid across its whole zoom octave.
+ */
+function pair(v) {
+  if (!Array.isArray(v) || v.length !== 2) return undefined;
+  const a = num(v[0]);
+  const b = num(v[1]);
+  if (!Number.isFinite(a) || !Number.isFinite(b)) return undefined;
+  return [a, b];
+}
+
 function dash(v) {
   if (v === undefined || v === null) return undefined;
   if (Array.isArray(v)) return v.map(Number);
@@ -58,6 +73,13 @@ function instanceToDescriptors(props) {
 
     // line-dasharray -> stroke-dasharray
     if (has('line-dasharray') && props['line-dasharray'] !== 'none') styleProperties['stroke-dasharray'] = dash(props['line-dasharray']);
+
+    // line-scale -> stroke-width-scale (SCALE_TARGETS: line-scale -> line-width)
+    // Only the width is scaled. The dash pattern keeps its authored rhythm, so a dashed casing does not visibly re-phase while zooming inside one octave.
+    if (has('line-scale')) {
+      const scale = pair(props['line-scale']);
+      if (scale) styleProperties['stroke-width-scale'] = scale;
+    }
 
     // opacity -> opacity
     if (has('opacity')) styleProperties['opacity'] = num(props['opacity']);

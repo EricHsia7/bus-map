@@ -37,7 +37,8 @@
 #water-areas {
   &[natural='glacier']::natural {
     &:zoom(5) {
-      --line-width: zoom-gradient(1, 1.5 10z);
+      --line-width: 1;
+      --line-scale: zoom-gradient(1, 1.5 10z);
       --line-color: @glacier-line;
       --polygon-fill: @glacier;
       &:zoom(10) {

@@ -2874,24 +2874,28 @@
   &:zoom(17) {
     --bridgecasing__line-color: saturate(darken(@pitch, 30%), 20%);
     --bridgecasing__line-join: round;
-    --bridgecasing__line-width: zoom-gradient(1.25, 2.5 18z, 5 19z);
+    --bridgecasing__line-width: 1.25;
+    --bridgecasing__line-scale: zoom-gradient(1, 2 18z, 4 19z);
   }
   --line-color: @pitch;
   --line-join: round;
   --line-cap: round;
-  --line-width: zoom-gradient(1, 2 18z, 4 19z);
+  --line-width: 1;
+  --line-scale: zoom-gradient(1, 2 18z, 4 19z);
 }
 
 #waterslide {
   &:zoom(17) {
     --bridgecasing__line-color: @cable;
     --bridgecasing__line-join: round;
-    --bridgecasing__line-width: zoom-gradient(1.25, 2.5 18z, 5 19z);
+    --bridgecasing__line-width: 1.25;
+    --bridgecasing__line-scale: zoom-gradient(1, 2 18z, 4 19z);
   }
   --line-color: @cable;
   --line-join: round;
   --line-cap: round;
-  --line-width: zoom-gradient(1, 2 18z, 4 19z);
+  --line-width: 1;
+  --line-scale: zoom-gradient(1, 2 18z, 4 19z);
 }
 
 #text-line {
@@ -2930,7 +2934,8 @@
     &[natural='tree_row'] {
       --line-color: darken(@forest, 10%);
       --line-cap: round;
-      --line-width: zoom-gradient(2.5, 5 17z, 10 18z, 15 19z, 30 20z);
+      --line-width: 2.5;
+      --line-scale: zoom-gradient(1, 2 17z, 4 18z, 6 19z, 12 20z);
     }
     &[natural='tree'] {
       --marker-fill: darken(@forest, 10%);

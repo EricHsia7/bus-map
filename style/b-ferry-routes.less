@@ -7,7 +7,8 @@
     --background__line-color: @water-color;
     --background__line-width: zoom-gradient(1, 1 11z); /* Needs to be a bit wider than the route itself because of antialiasing */
     --line-color: @ferry-route;
-    --line-width: zoom-gradient(0.4, 0.8 11z);
+    --line-width: 0.4;
+    --line-scale: zoom-gradient(1, 2 11z);
     --line-dasharray: 4, 4;
     &:zoom(11) {
       --line-dasharray: 6, 6;
