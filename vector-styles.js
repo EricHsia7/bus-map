@@ -20,14 +20,14 @@ function createVectorStyleTables() {
 }
 
 function registerVectorStyle(tables, desc) {
-  const { kind, attrs } = desc;
+  const { kind, styleProperties } = desc;
   const table = vectorKindToTable[kind];
   if (table === undefined) throw new Error(`unknown kind "${kind}"`);
-  const key = `${table}\u0000${canonical(attrs)}`;
+  const key = `${table}\u0000${canonical(styleProperties)}`;
   const existingReference = tables.index.get(key);
   if (existingReference === undefined) {
     const length = tables[table].length;
-    tables[table].push(attrs);
+    tables[table].push(styleProperties);
     tables.index.set(key, length);
     return length;
   }

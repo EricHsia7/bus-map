@@ -19,7 +19,7 @@
     },
     "size": 1024,
     "extent": 2048,
-    "buffer": 64,
+    "buffer": 128,
     "labelQuantization": 1024,
     "precision": 4096,
     "background": "#f2f2f7"

@@ -511,7 +511,8 @@ async function renderChunk(cX, cY, cZ, fileformat) {
     await rasterize(svg, path.join(tilesDir, tZ.toString(), tX.toString(), tY.toString()));
 
     // vector tiles
-    console.log(JSON.stringify(vectorPolygons, null, 2));
+
+    console.log(JSON.stringify(vectorPolygons.concat(vectorLines)));
 
     // labels
     fs.writeFileSync(
@@ -558,7 +559,7 @@ async function main() {
   const fileformat = await loadFileformat();
   const chunkTiles = areaToTiles(west, south, east, north, baseZ);
   const groups = splitByLength(chunkTiles, 4);
-  await renderChunk(3430, 1753, 12, fileformat);
+  await renderChunk(3424, 1756, 12, fileformat);
   return;
   for (const group of groups) {
     try {

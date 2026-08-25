@@ -7,8 +7,8 @@ function packPolygon(polygon, x0, y0, x1, y1, extent = 2048, buffer = 64) {
   if (!dX || !dY || !Number.isFinite(dX) || !Number.isFinite(dY)) return null;
   const scaleX = extent / dX;
   const scaleY = extent / dY;
-  const transformX = (x) => Math.floor((x - x0) * scaleX);
-  const transformY = (y) => Math.floor((dY - (y - y0)) * scaleY);
+  const transformX = (x) => (x - x0) * scaleX;
+  const transformY = (y) => (dY - (y - y0)) * scaleY;
 
   const rings = polygon.coordinates;
   if (!rings || rings.length === 0 || !rings[0] || rings[0].length < 3) return null;
@@ -28,11 +28,54 @@ function packPolygon(polygon, x0, y0, x1, y1, extent = 2048, buffer = 64) {
     transformedRings.push(transformedRing);
   }
 
-  const clipped = clipPolygon(transformedRings, extent, buffer);
-  if (clipped.length === 0) return null;
+  const clippedRings = clipPolygon(transformedRings, extent, buffer);
+  if (clippedRings.length === 0) return null;
 
-  // TODO: post-quantization
-  return clipped;
+  const quantizedRings = [];
+  for (let i = clippedRings.length - 1; i >= 0; i--) {
+    const quantizedLine = [];
+    for (let j = clippedRings[i].length - 1; j >= 0; j--) {
+      quantizedLine.push([Math.round(clippedRings[i][j][0]), Math.round(clippedRings[i][j][1])]);
+    }
+    quantizedRings.push(quantizedLine);
+  }
+
+  return quantizedRings;
+}
+
+function packPolygonOutline(polygon, x0, y0, x1, y1, extent = 2048, buffer = 64) {
+  const dX = x1 - x0;
+  const dY = y1 - y0;
+  if (!dX || !dY || !Number.isFinite(dX) || !Number.isFinite(dY)) return null;
+  const scaleX = extent / dX;
+  const scaleY = extent / dY;
+  const transformX = (x) => (x - x0) * scaleX;
+  const transformY = (y) => (dY - (y - y0)) * scaleY;
+
+  const rings = polygon.coordinates;
+  if (!rings || rings.length === 0 || !rings[0] || rings[0].length < 3) return null;
+  const ringsLength = rings.length;
+
+  const clippedLines = [];
+  for (let i = 0; i < ringsLength; i++) {
+    const ringLength = rings[i].length;
+    const transformedRing = [];
+    for (let j = 0; j < ringLength; j++) {
+      transformedRing.push([transformX(rings[i][j][0]), transformY(rings[i][j][1])]);
+    }
+    clippedLines.push.apply(clipLine(transformedRing, extent, buffer));
+  }
+
+  const quantizedLines = [];
+  for (let i = clippedLines.length - 1; i >= 0; i--) {
+    const quantizedLine = [];
+    for (let j = clippedLines[i].length - 1; j >= 0; j--) {
+      quantizedLine.push([Math.round(clippedLines[i][j][0]), Math.round(clippedLines[i][j][1])]);
+    }
+    quantizedLines.push(quantizedLine);
+  }
+
+  return quantizedLines;
 }
 
 function packLineString(lineString, x0, y0, x1, y1, extent = 2048, buffer = 64) {
@@ -41,8 +84,8 @@ function packLineString(lineString, x0, y0, x1, y1, extent = 2048, buffer = 64) 
   if (!dX || !dY || !Number.isFinite(dX) || !Number.isFinite(dY)) return null;
   const scaleX = extent / dX;
   const scaleY = extent / dY;
-  const transformX = (x) => Math.floor((x - x0) * scaleX);
-  const transformY = (y) => Math.floor((dY - (y - y0)) * scaleY);
+  const transformX = (x) => (x - x0) * scaleX;
+  const transformY = (y) => (dY - (y - y0)) * scaleY;
 
   const coords = lineString.coordinates;
   if (!coords || coords.length === 0 || !coords[0]) return null;
@@ -53,13 +96,23 @@ function packLineString(lineString, x0, y0, x1, y1, extent = 2048, buffer = 64) 
     transformedCoords.push([transformX(coords[i][0]), transformY(coords[i][1])]);
   }
 
-  const clipped = clipLine(transformedCoords, extent, buffer);
-  if (clipped.length === 0) return null;
+  const clippedLines = clipLine(transformedCoords, extent, buffer);
+  if (clippedLines.length === 0) return null;
 
-  return clipped;
+  const quantizedLines = [];
+  for (let i = clippedLines.length - 1; i >= 0; i--) {
+    const quantizedLine = [];
+    for (let j = clippedLines[i].length - 1; j >= 0; j--) {
+      quantizedLine.push([Math.round(clippedLines[i][j][0]), Math.round(clippedLines[i][j][1])]);
+    }
+    quantizedLines.push(quantizedLine);
+  }
+
+  return quantizedLines;
 }
 
 module.exports = {
   packPolygon,
+  packPolygonOutline,
   packLineString
 };

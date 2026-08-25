@@ -1,18 +1,12 @@
-const { packPolygon, packLineString } = require('./pack');
+const { packPolygon, packLineString, packPolygonOutline } = require('./pack');
 const { splitInstances } = require('./paint-to-svg');
 
 function num(v) {
   return typeof v === 'number' ? v : parseFloat(v);
 }
 
-function dash(v) {
-  if (v == null) return null;
-  if (Array.isArray(v)) return v.map((n) => parseFloat(n)).join(',');
-  return String(v).trim().replace(/\s+/g, ',');
-}
-
 /**
- * @returns { Array<{ kind, styleProperties: {} }> }
+ * @returns { Array<{ kind: 'polygon' | 'line', styleProperties: Record<string, any> }> }
  */
 function instanceToDescriptors(props) {
   const descriptors = [];
@@ -39,10 +33,10 @@ function instanceToDescriptors(props) {
   if (has('line-color') || has('line-width')) {
     const styleProperties = {};
     // line-color -> stroke
-    styleProperties['stroke'] = props['line-color'] || 'none';
+    styleProperties['stroke'] = props['line-color'] || 'rgba(0,0,0,1)';
 
     // line-width -> stroke-width
-    if (has('line-width')) styleProperties['stroke-width'] = num(props['line-width']);
+    styleProperties['stroke-width'] = has('line-width') ? num(props['line-width']) : 1;
 
     // line-opacity -> stroke-opacity
     if (has('line-opacity')) styleProperties['stroke-opacity'] = num(props['line-opacity']);
@@ -54,7 +48,7 @@ function instanceToDescriptors(props) {
     if (has('line-cap')) styleProperties['stroke-linecap'] = props['line-cap'];
 
     // line-dasharray -> stroke-dasharray
-    if (has('line-dasharray')) styleProperties['stroke-dasharray'] = dash(props['line-dasharray']);
+    if (has('line-dasharray')) styleProperties['stroke-dasharray'] = props['line-dasharray'];
 
     // opacity -> opacity
     if (has('opacity')) styleProperties['opacity'] = num(props['opacity']);
@@ -103,7 +97,7 @@ function paintToVector(paint, shape, x0, y0, x1, y1, extent, buffer) {
       geometries.set('polygon', packPolygon(shape, x0, y0, x1, y1, extent, buffer));
     } else if (item.kind === 'line') {
       if (geometries.has('line')) continue;
-      geometries.set('line', packLineString(shape, x0, y0, x1, y1, extent, buffer));
+      geometries.set('line', isLine ? packLineString(shape, x0, y0, x1, y1, extent, buffer) : packPolygonOutline(shape, x0, y0, x1, y1, extent, buffer));
     }
   }
 
