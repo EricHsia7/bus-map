@@ -15,13 +15,14 @@
     "dir": "./tiles",
     "z": {
       "raster": { "min": 16, "max": 16 },
-      "vector": { "min": 12, "max": 17 }
+      "vector": { "min": 12, "max": 17 },
+      "labels": { "min": 12, "max": 17 }
     },
     "size": 1024,
+    "precision": 4096,
     "extent": 2048,
     "buffer": 128,
     "labelQuantization": 1024,
-    "precision": 4096,
     "background": "#f2f2f7"
   }
 }
