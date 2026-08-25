@@ -537,8 +537,11 @@ async function renderChunk(cX, cY, cZ, fileformat) {
       const vectorDescriptors = [];
       const vectorStyleReferences = [];
       const vectorStyleStartIndices = [];
+
+      const vectorPolygonsLength = vectorPolygons.length;
+      const vectorLinesLength = vectorLines.length;
       let previousStyleReference = -1;
-      for (let i = 0, l = vectorPolygons.length; i < l; i++) {
+      for (let i = 0; i < vectorPolygonsLength; i++) {
         for (let j = 0, m = vectorPolygons[i].descriptors.length; j < m; j++) {
           const styleReference = registerVectorStyle(vectorStyleTables, vectorPolygons[i].descriptors[j]);
           vectorDescriptors.push({
@@ -552,7 +555,7 @@ async function renderChunk(cX, cY, cZ, fileformat) {
           }
         }
       }
-      for (let i = 0, l = vectorLines.length; i < l; i++) {
+      for (let i = 0; i < vectorLinesLength; i++) {
         for (let j = 0, m = vectorLines[i].descriptors.length; j < m; j++) {
           const styleReference = registerVectorStyle(vectorStyleTables, vectorLines[i].descriptors[j]);
           vectorDescriptors.push({
@@ -566,6 +569,8 @@ async function renderChunk(cX, cY, cZ, fileformat) {
           }
         }
       }
+      vectorStyleStartIndices.push(vectorDescriptors.length);
+
       fs.writeFileSync(
         path.join(tilesDir, tZ.toString(), tX.toString(), `${tY}.gz`),
         Buffer.from(

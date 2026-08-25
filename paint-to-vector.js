@@ -6,7 +6,12 @@ function num(v) {
 }
 
 function dash(v) {
-  return v.split(/[\s,]+/g).map((n) => parseFloat(n));
+  if (v === undefined || v === null) return undefined;
+  if (Array.isArray(v)) return v.map(Number);
+  const s = String(v).trim();
+  if (s === '' || s === 'none') return [];
+  const out = s.split(/[\s,]+/g).map((n) => Number(n.trim()));
+  return out.every((n) => Number.isFinite(n) && n >= 0) ? out : [];
 }
 
 /**
