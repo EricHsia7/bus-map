@@ -87,8 +87,10 @@ const tilesMinZ = Math.min(config.tiles.z.raster.min, config.tiles.z.vector.min)
 const tilesMaxZ = Math.max(config.tiles.z.raster.max, config.tiles.z.vector.max);
 const safeMargin = 64;
 
-const backgroundElement = `<rect x="0" y="0" width="${tileSize}" height="${tileSize}" fill="${tileBackground}"/>`;
+const gzipOptions = { level: 9 };
 const encoder = new TextEncoder();
+
+const backgroundElement = `<rect x="0" y="0" width="${tileSize}" height="${tileSize}" fill="${tileBackground}"/>`;
 
 // Overlay label/marker output. Text and point symbols are intentionally NOT
 // rasterized (see paint-to-svg.js); instead we collect the features a MapLibre
@@ -317,7 +319,6 @@ async function renderChunk(cX, cY, cZ, fileformat) {
     const labelsStyleTables = createLabelsStyleTables();
     const charsets = new Map();
 
-    const startTime = performance.now();
     for (const way of ways) {
       if (memberWayIds.has(way.id)) continue; // drawn via its parent multipolygon
       const coords = way.refs.map((id) => nodeMap.get(id)).filter(Boolean);
@@ -534,42 +535,53 @@ async function renderChunk(cX, cY, cZ, fileformat) {
 
     // vector tiles
     if (shouldRenderVector) {
-      const vectorDescriptors = [];
+      // Flat parallel arrays instead of nested [[[x, y], ...], ...] descriptors,
+      // so the client can adopt each one with a single typed-array constructor
+      // (`new Int16Array(parsed.coordinates)`) and never allocate per point.
+      // Nesting is carried by three levels of offsets:
+      //   style run -> descriptor -> part (ring / line) -> point
+      const vectorCoordinates = []; // interleaved x, y; Int16-safe: [-buffer, extent + buffer]
+      const vectorPartStartIndices = [0]; // point offset of each part
+      const vectorDescriptorStartIndices = [0]; // part offset of each descriptor
+      const vectorDescriptorTypes = []; // 0 = polygon, 1 = line
       const vectorStyleReferences = [];
-      const vectorStyleStartIndices = [];
+      const vectorStyleStartIndices = []; // descriptor offset of each style run
+
+      let previousStyleReference = -1;
+
+      // Append one descriptor's geometry and open a new style run when the style changes.
+      const pushVectorDescriptor = (typeCode, geometry, styleReference) => {
+        for (let p = 0, parts = geometry.length; p < parts; p++) {
+          const part = geometry[p];
+          for (let k = 0, points = part.length; k < points; k++) {
+            vectorCoordinates.push(part[k][0], part[k][1]);
+          }
+          vectorPartStartIndices.push(vectorCoordinates.length / 2);
+        }
+        vectorDescriptorTypes.push(typeCode);
+        vectorDescriptorStartIndices.push(vectorPartStartIndices.length - 1);
+        if (styleReference !== previousStyleReference) {
+          vectorStyleReferences.push(styleReference);
+          vectorStyleStartIndices.push(vectorDescriptorTypes.length - 1);
+          previousStyleReference = styleReference;
+        }
+      };
 
       const vectorPolygonsLength = vectorPolygons.length;
       const vectorLinesLength = vectorLines.length;
-      let previousStyleReference = -1;
       for (let i = 0; i < vectorPolygonsLength; i++) {
         for (let j = 0, m = vectorPolygons[i].descriptors.length; j < m; j++) {
-          const styleReference = registerVectorStyle(vectorStyleTables, vectorPolygons[i].descriptors[j]);
-          vectorDescriptors.push({
-            type: 'polygon',
-            geometry: vectorPolygons[i].descriptors[j].geometry
-          });
-          if (styleReference !== previousStyleReference) {
-            vectorStyleReferences.push(styleReference);
-            vectorStyleStartIndices.push(vectorDescriptors.length - 1);
-            previousStyleReference = styleReference;
-          }
+          const descriptor = vectorPolygons[i].descriptors[j];
+          pushVectorDescriptor(0, descriptor.geometry, registerVectorStyle(vectorStyleTables, descriptor));
         }
       }
       for (let i = 0; i < vectorLinesLength; i++) {
         for (let j = 0, m = vectorLines[i].descriptors.length; j < m; j++) {
-          const styleReference = registerVectorStyle(vectorStyleTables, vectorLines[i].descriptors[j]);
-          vectorDescriptors.push({
-            type: 'line',
-            geometry: vectorLines[i].descriptors[j].geometry
-          });
-          if (styleReference !== previousStyleReference) {
-            vectorStyleReferences.push(styleReference);
-            vectorStyleStartIndices.push(vectorDescriptors.length - 1);
-            previousStyleReference = styleReference;
-          }
+          const descriptor = vectorLines[i].descriptors[j];
+          pushVectorDescriptor(1, descriptor.geometry, registerVectorStyle(vectorStyleTables, descriptor));
         }
       }
-      vectorStyleStartIndices.push(vectorDescriptors.length);
+      vectorStyleStartIndices.push(vectorDescriptorTypes.length);
 
       fs.writeFileSync(
         path.join(tilesDir, tZ.toString(), tX.toString(), `${tY}.gz`),
@@ -581,12 +593,16 @@ async function renderChunk(cX, cY, cZ, fileformat) {
                 extent,
                 buffer,
                 zoom: tZ,
-                descriptors: vectorDescriptors,
+                coordinates: vectorCoordinates,
+                partStartIndices: vectorPartStartIndices,
+                descriptorStartIndices: vectorDescriptorStartIndices,
+                descriptorTypes: vectorDescriptorTypes,
                 styleReferences: vectorStyleReferences,
                 styleStartIndices: vectorStyleStartIndices,
                 styles: vectorStyleTables.styles
               })
-            )
+            ),
+            gzipOptions
           )
         )
       );
@@ -609,14 +625,14 @@ async function renderChunk(cX, cY, cZ, fileformat) {
                 circleStyles: labelsStyleTables.circleStyles,
                 charsets: dumpCharsets(charsets)
               })
-            )
+            ),
+            gzipOptions
           )
         )
       );
     }
 
-    const endTime = performance.now();
-    console.log(`[${count}/${total}] Rendered (${tX} ${tY} ${tZ}) in (${cX} ${cY} ${cZ}) in ${Math.floor(endTime - startTime)}ms.`);
+    if (count % 16 === 0 || count === total) console.log(`[${cX} ${cY} ${cZ}] ${Math.round((count / total) * 100)}%`);
   }
   return true;
 }
