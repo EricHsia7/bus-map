@@ -152,9 +152,9 @@ jobs:
         uses: actions/cache/restore@v6
         with:
           path: ./tiles
-          key: tiles-${{ hashFiles('input.osm.pbf') }}-${{ hashFiles('chunk.js') }}-${{ hashFiles('config.json') }}-${{ hashFiles('render.js') }}
+          key: tiles-${{ hashFiles('input.osm.pbf') }}-${{ hashFiles('chunk.sh') }}
           restore-keys: |
-            tiles-${{ hashFiles('input.osm.pbf') }}-${{ hashFiles('chunk.js') }}-${{ hashFiles('config.json') }}-${{ hashFiles('render.js') }}
+            tiles-${{ hashFiles('input.osm.pbf') }}-${{ hashFiles('chunk.sh') }}
 
       - name: Render
         if: steps.restore-cached-tiles-labels.outputs.cache-hit != 'true'
