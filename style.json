@@ -375,45 +375,9 @@
   {
     "groups": [
       {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 8,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_residential"
-          }
-        ]
-      },
-      {
         "layer": "landcover",
         "zoom": {
-          "min": 10,
-          "max": 11
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_residential"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(234,234,241,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 12,
+          "min": 13,
           "max": 24
         },
         "and": [
@@ -469,64 +433,6 @@
   {
     "groups": [
       {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 8,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_commercial"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 11
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_commercial"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(234,234,241,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 12,
-          "max": 12
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_commercial"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(237,237,243,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
         "layer": "landcover",
         "zoom": {
           "min": 13,
@@ -549,151 +455,9 @@
   {
     "groups": [
       {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 8,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_retail"
-          }
-        ]
-      },
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 8,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "shop_mall"
-          }
-        ]
-      },
-      {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 8,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_marketplace"
-          }
-        ]
-      },
-      {
         "layer": "landcover",
         "zoom": {
-          "min": 10,
-          "max": 11
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_retail"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 11
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "shop_mall"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 11
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_marketplace"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(234,234,241,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 12,
-          "max": 12
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_retail"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 12,
-          "max": 12
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "shop_mall"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 12,
-          "max": 12
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_marketplace"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(237,237,243,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 13,
+          "min": 14,
           "max": 24
         },
         "and": [
@@ -707,7 +471,7 @@
       {
         "layer": "landcover",
         "zoom": {
-          "min": 13,
+          "min": 14,
           "max": 24
         },
         "and": [
@@ -721,7 +485,7 @@
       {
         "layer": "landcover",
         "zoom": {
-          "min": 13,
+          "min": 14,
           "max": 24
         },
         "and": [
@@ -741,67 +505,9 @@
   {
     "groups": [
       {
-        "layer": "landcover-low-zoom",
-        "zoom": {
-          "min": 8,
-          "max": 9
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_industrial"
-          }
-        ]
-      },
-      {
         "layer": "landcover",
         "zoom": {
-          "min": 10,
-          "max": 11
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_industrial"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(234,234,241,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 12,
-          "max": 12
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_industrial"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(237,237,243,1)"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 13,
+          "min": 14,
           "max": 24
         },
         "and": [
@@ -937,7 +643,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 10,
+          "min": 14,
           "max": 9
         },
         "and": [
@@ -951,7 +657,7 @@
       {
         "layer": "landcover",
         "zoom": {
-          "min": 10,
+          "min": 14,
           "max": 24
         },
         "and": [
@@ -1933,7 +1639,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 10,
+          "min": 13,
           "max": 9
         },
         "and": [
@@ -1947,7 +1653,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 10,
+          "min": 13,
           "max": 9
         },
         "and": [
@@ -1961,7 +1667,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 10,
+          "min": 13,
           "max": 9
         },
         "and": [
@@ -1975,7 +1681,7 @@
       {
         "layer": "landcover",
         "zoom": {
-          "min": 10,
+          "min": 13,
           "max": 24
         },
         "and": [
@@ -1989,7 +1695,7 @@
       {
         "layer": "landcover",
         "zoom": {
-          "min": 10,
+          "min": 13,
           "max": 24
         },
         "and": [
@@ -2003,7 +1709,7 @@
       {
         "layer": "landcover",
         "zoom": {
-          "min": 10,
+          "min": 13,
           "max": 24
         },
         "and": [
@@ -2025,7 +1731,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 13,
+          "min": 14,
           "max": 9
         },
         "and": [
@@ -2039,7 +1745,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 13,
+          "min": 14,
           "max": 9
         },
         "and": [
@@ -2053,7 +1759,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 13,
+          "min": 14,
           "max": 9
         },
         "and": [
@@ -2067,7 +1773,7 @@
       {
         "layer": "landcover",
         "zoom": {
-          "min": 13,
+          "min": 14,
           "max": 24
         },
         "and": [
@@ -2081,7 +1787,7 @@
       {
         "layer": "landcover",
         "zoom": {
-          "min": 13,
+          "min": 14,
           "max": 24
         },
         "and": [
@@ -2095,7 +1801,7 @@
       {
         "layer": "landcover",
         "zoom": {
-          "min": 13,
+          "min": 14,
           "max": 24
         },
         "and": [
@@ -2291,7 +1997,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 10,
+          "min": 14,
           "max": 9
         },
         "and": [
@@ -2305,7 +2011,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 10,
+          "min": 14,
           "max": 9
         },
         "and": [
@@ -2319,7 +2025,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 10,
+          "min": 14,
           "max": 9
         },
         "and": [
@@ -2333,7 +2039,7 @@
       {
         "layer": "landcover",
         "zoom": {
-          "min": 10,
+          "min": 14,
           "max": 24
         },
         "and": [
@@ -2347,7 +2053,7 @@
       {
         "layer": "landcover",
         "zoom": {
-          "min": 10,
+          "min": 14,
           "max": 24
         },
         "and": [
@@ -2361,7 +2067,7 @@
       {
         "layer": "landcover",
         "zoom": {
-          "min": 10,
+          "min": 14,
           "max": 24
         },
         "and": [
@@ -2383,7 +2089,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 13,
+          "min": 15,
           "max": 9
         },
         "and": [
@@ -2397,7 +2103,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 13,
+          "min": 15,
           "max": 9
         },
         "and": [
@@ -2411,7 +2117,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 13,
+          "min": 15,
           "max": 9
         },
         "and": [
@@ -2425,7 +2131,7 @@
       {
         "layer": "landcover",
         "zoom": {
-          "min": 13,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -2439,7 +2145,7 @@
       {
         "layer": "landcover",
         "zoom": {
-          "min": 13,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -2453,7 +2159,7 @@
       {
         "layer": "landcover",
         "zoom": {
-          "min": 13,
+          "min": 15,
           "max": 24
         },
         "and": [
@@ -2476,7 +2182,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 10,
+          "min": 14,
           "max": 9
         },
         "and": [
@@ -2490,7 +2196,7 @@
       {
         "layer": "landcover",
         "zoom": {
-          "min": 10,
+          "min": 14,
           "max": 24
         },
         "and": [
@@ -2512,7 +2218,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 10,
+          "min": 14,
           "max": 9
         },
         "and": [
@@ -2526,7 +2232,7 @@
       {
         "layer": "landcover",
         "zoom": {
-          "min": 10,
+          "min": 14,
           "max": 24
         },
         "and": [
@@ -3605,7 +3311,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 10,
+          "min": 14,
           "max": 9
         },
         "and": [
@@ -3619,7 +3325,7 @@
       {
         "layer": "landcover",
         "zoom": {
-          "min": 10,
+          "min": 14,
           "max": 24
         },
         "and": [
@@ -3678,7 +3384,7 @@
       {
         "layer": "landcover-low-zoom",
         "zoom": {
-          "min": 10,
+          "min": 14,
           "max": 9
         },
         "and": [
@@ -3692,7 +3398,7 @@
       {
         "layer": "landcover",
         "zoom": {
-          "min": 10,
+          "min": 14,
           "max": 24
         },
         "and": [
@@ -131485,7 +131191,7 @@
     ],
     "paint": {
       "line-cap": "butt",
-      "line-dasharray": "6 9"
+      "line-dasharray": "4, 6"
     },
     "attachment": "fill"
   },
@@ -194661,82 +194367,6 @@
       {
         "layer": "buildings",
         "zoom": {
-          "min": 12,
-          "max": 12
-        },
-        "and": []
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(240,240,243,1)"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 13,
-          "max": 13
-        },
-        "and": []
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(237,237,241,1)"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 14,
-          "max": 14
-        },
-        "and": []
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(233,233,237,1)"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 15,
-          "max": 24
-        },
-        "and": []
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(229,229,234,1)"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 14,
-          "max": 14
-        },
-        "and": []
-      }
-    ],
-    "paint": {
-      "line-color": "rgba(225,225,230,1)",
-      "line-width": "0.2"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "buildings",
-        "zoom": {
           "min": 15,
           "max": 15
         },
@@ -194744,7 +194374,8 @@
       }
     ],
     "paint": {
-      "line-color": "rgba(221,221,227,1)",
+      "polygon-fill": "rgba(233,233,237,1)",
+      "line-color": "rgba(225,225,230,1)",
       "line-width": "0.3"
     }
   },
@@ -194760,239 +194391,9 @@
       }
     ],
     "paint": {
+      "polygon-fill": "rgba(229,229,234,1)",
       "line-color": "rgba(221,221,227,1)",
       "line-width": "0.35"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 12,
-          "max": 12
-        },
-        "and": [
-          {
-            "key": "amenity",
-            "op": "=",
-            "value": "place_of_worship"
-          }
-        ]
-      },
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 12,
-          "max": 12
-        },
-        "and": [
-          {
-            "key": "aeroway",
-            "op": "=",
-            "value": "terminal"
-          }
-        ]
-      },
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 12,
-          "max": 12
-        },
-        "and": [
-          {
-            "key": "aerialway",
-            "op": "=",
-            "value": "station"
-          }
-        ]
-      },
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 12,
-          "max": 12
-        },
-        "and": [
-          {
-            "key": "building",
-            "op": "=",
-            "value": "train_station"
-          }
-        ]
-      },
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 12,
-          "max": 12
-        },
-        "and": [
-          {
-            "key": "public_transport",
-            "op": "=",
-            "value": "station"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(229,229,234,1)"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 13,
-          "max": 13
-        },
-        "and": [
-          {
-            "key": "amenity",
-            "op": "=",
-            "value": "place_of_worship"
-          }
-        ]
-      },
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 13,
-          "max": 13
-        },
-        "and": [
-          {
-            "key": "aeroway",
-            "op": "=",
-            "value": "terminal"
-          }
-        ]
-      },
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 13,
-          "max": 13
-        },
-        "and": [
-          {
-            "key": "aerialway",
-            "op": "=",
-            "value": "station"
-          }
-        ]
-      },
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 13,
-          "max": 13
-        },
-        "and": [
-          {
-            "key": "building",
-            "op": "=",
-            "value": "train_station"
-          }
-        ]
-      },
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 13,
-          "max": 13
-        },
-        "and": [
-          {
-            "key": "public_transport",
-            "op": "=",
-            "value": "station"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(223,223,230,1)"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 14,
-          "max": 14
-        },
-        "and": [
-          {
-            "key": "amenity",
-            "op": "=",
-            "value": "place_of_worship"
-          }
-        ]
-      },
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 14,
-          "max": 14
-        },
-        "and": [
-          {
-            "key": "aeroway",
-            "op": "=",
-            "value": "terminal"
-          }
-        ]
-      },
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 14,
-          "max": 14
-        },
-        "and": [
-          {
-            "key": "aerialway",
-            "op": "=",
-            "value": "station"
-          }
-        ]
-      },
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 14,
-          "max": 14
-        },
-        "and": [
-          {
-            "key": "building",
-            "op": "=",
-            "value": "train_station"
-          }
-        ]
-      },
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 14,
-          "max": 14
-        },
-        "and": [
-          {
-            "key": "public_transport",
-            "op": "=",
-            "value": "station"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": "rgba(219,219,226,1)"
     }
   },
   {
@@ -195154,7 +194555,7 @@
       {
         "layer": "buildings",
         "zoom": {
-          "min": 14,
+          "min": 16,
           "max": 24
         },
         "and": [
@@ -195168,7 +194569,7 @@
       {
         "layer": "buildings",
         "zoom": {
-          "min": 14,
+          "min": 16,
           "max": 24
         },
         "and": [
@@ -195182,7 +194583,7 @@
       {
         "layer": "buildings",
         "zoom": {
-          "min": 14,
+          "min": 16,
           "max": 24
         },
         "and": [
@@ -195196,7 +194597,7 @@
       {
         "layer": "buildings",
         "zoom": {
-          "min": 14,
+          "min": 16,
           "max": 24
         },
         "and": [
@@ -195210,7 +194611,7 @@
       {
         "layer": "buildings",
         "zoom": {
-          "min": 14,
+          "min": 16,
           "max": 24
         },
         "and": [

@@ -85,26 +85,26 @@
     --polygon-fill: @farmyard;
   }
 
-  &[feature='landuse_residential']:zoom(8) {
+  &[feature='landuse_residential']:zoom(13) {
     --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-z12 12z);
     &:zoom(13) {
       --polygon-fill: @residential;
     }
   }
 
-  &[feature='landuse_commercial']:zoom(8) {
+  &[feature='landuse_commercial']:zoom(13) {
     --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-z12 12z, @commercial 13z);
   }
 
   &[feature='landuse_retail'],
   &[feature='shop_mall'],
   &[feature='amenity_marketplace'] {
-    &:zoom(8) {
+    &:zoom(14) {
       --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-z12 12z, @retail 13z);
     }
   }
 
-  &[feature='landuse_industrial']:zoom(8),
+  &[feature='landuse_industrial']:zoom(14),
   &[feature='man_made_works']:zoom(16) {
     --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-z12 12z, @industrial 13z);
   }
@@ -126,7 +126,7 @@
   //  }
   // }
 
-  &[feature='landuse_quarry']:zoom(10) {
+  &[feature='landuse_quarry']:zoom(14) {
     --polygon-fill: @quarry;
   }
 
@@ -248,9 +248,9 @@
   &[feature='tourism_camp_site'],
   &[feature='tourism_caravan_site'],
   &[feature='tourism_picnic_site'] {
-    &:zoom(10) {
+    &:zoom(13) {
       --polygon-fill: @campsite;
-      &:zoom(13) {
+      &:zoom(14) {
         --line-color: darken(@campsite, 3.8%);
         --line-width: 0.3;
       }
@@ -292,9 +292,9 @@
   &[feature='leisure_sports_centre'],
   &[feature='leisure_water_park'],
   &[feature='leisure_stadium'] {
-    &:zoom(10) {
+    &:zoom(14) {
       --polygon-fill: @stadium;
-      &:zoom(13) {
+      &:zoom(15) {
         --line-width: 0.3;
         --line-color: darken(@stadium, 8.8%);
       }
@@ -302,7 +302,7 @@
   }
 
   &[feature='leisure_dog_park'] {
-    &:zoom(10) {
+    &:zoom(14) {
       --polygon-fill: @leisure;
     }
     // &:zoom(16) {
@@ -312,7 +312,7 @@
   }
 
   &[feature='leisure_garden'] {
-    &:zoom(10) {
+    &:zoom(14) {
       --polygon-fill: @grass;
     }
   }
@@ -437,7 +437,7 @@
     }
   }
 
-  &[feature='leisure_pitch']:zoom(10) {
+  &[feature='leisure_pitch']:zoom(14) {
     --polygon-fill: @pitch;
     &:zoom(15) {
       --line-width: 0.3;
@@ -445,7 +445,7 @@
     }
   }
 
-  &[feature='leisure_track']:zoom(10) {
+  &[feature='leisure_track']:zoom(14) {
     --polygon-fill: @track;
     &:zoom(15) {
       --line-width: 0.3;
@@ -461,8 +461,10 @@
     }
   }
 
-  &[feature='leisure_swimming_pool']:zoom(14) {
-    --polygon-fill: @water-color;
+  &[feature='leisure_swimming_pool'] {
+    &:zoom(14) {
+      --polygon-fill: @water-color;
+    }
   }
 
   &[feature='landuse_flowerbed'] {

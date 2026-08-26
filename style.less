@@ -160,26 +160,26 @@
     --polygon-fill: @farmyard;
   }
 
-  &[feature='landuse_residential']:zoom(8) {
+  &[feature='landuse_residential']:zoom(13) {
     --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-z12 12z);
     &:zoom(13) {
       --polygon-fill: @residential;
     }
   }
 
-  &[feature='landuse_commercial']:zoom(8) {
+  &[feature='landuse_commercial']:zoom(13) {
     --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-z12 12z, @commercial 13z);
   }
 
   &[feature='landuse_retail'],
   &[feature='shop_mall'],
   &[feature='amenity_marketplace'] {
-    &:zoom(8) {
+    &:zoom(14) {
       --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-z12 12z, @retail 13z);
     }
   }
 
-  &[feature='landuse_industrial']:zoom(8),
+  &[feature='landuse_industrial']:zoom(14),
   &[feature='man_made_works']:zoom(16) {
     --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-z12 12z, @industrial 13z);
   }
@@ -201,7 +201,7 @@
   //  }
   // }
 
-  &[feature='landuse_quarry']:zoom(10) {
+  &[feature='landuse_quarry']:zoom(14) {
     --polygon-fill: @quarry;
   }
 
@@ -323,9 +323,9 @@
   &[feature='tourism_camp_site'],
   &[feature='tourism_caravan_site'],
   &[feature='tourism_picnic_site'] {
-    &:zoom(10) {
+    &:zoom(13) {
       --polygon-fill: @campsite;
-      &:zoom(13) {
+      &:zoom(14) {
         --line-color: darken(@campsite, 3.8%);
         --line-width: 0.3;
       }
@@ -367,9 +367,9 @@
   &[feature='leisure_sports_centre'],
   &[feature='leisure_water_park'],
   &[feature='leisure_stadium'] {
-    &:zoom(10) {
+    &:zoom(14) {
       --polygon-fill: @stadium;
-      &:zoom(13) {
+      &:zoom(15) {
         --line-width: 0.3;
         --line-color: darken(@stadium, 8.8%);
       }
@@ -377,7 +377,7 @@
   }
 
   &[feature='leisure_dog_park'] {
-    &:zoom(10) {
+    &:zoom(14) {
       --polygon-fill: @leisure;
     }
     // &:zoom(16) {
@@ -387,7 +387,7 @@
   }
 
   &[feature='leisure_garden'] {
-    &:zoom(10) {
+    &:zoom(14) {
       --polygon-fill: @grass;
     }
   }
@@ -512,7 +512,7 @@
     }
   }
 
-  &[feature='leisure_pitch']:zoom(10) {
+  &[feature='leisure_pitch']:zoom(14) {
     --polygon-fill: @pitch;
     &:zoom(15) {
       --line-width: 0.3;
@@ -520,7 +520,7 @@
     }
   }
 
-  &[feature='leisure_track']:zoom(10) {
+  &[feature='leisure_track']:zoom(14) {
     --polygon-fill: @track;
     &:zoom(15) {
       --line-width: 0.3;
@@ -536,8 +536,10 @@
     }
   }
 
-  &[feature='leisure_swimming_pool']:zoom(14) {
-    --polygon-fill: @water-color;
+  &[feature='leisure_swimming_pool'] {
+    &:zoom(14) {
+      --polygon-fill: @water-color;
+    }
   }
 
   &[feature='landuse_flowerbed'] {
@@ -3195,7 +3197,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
       &:zoom(15) {
         --line-cap: butt;
-        --line-dasharray: 6 9;
+        --line-dasharray: 4, 6;
       }
 
       --line-color: zoom-gradient(lighten(@footway-fill, 22%) 14z, lighten(@footway-fill, 11%) 15z, @footway-fill 16z);
@@ -5124,37 +5126,22 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
   }
 }
-// =============================================================================
 // Buildings
-// -----------------------------------------------------------------------------
-// Buildings enter the map at z12 (not z13) and are graded by *shade* rather
-// than by polygon-opacity: the tiles are raster, buildings overlap landuse and
-// each other, and a partially transparent building stacked on a partially
-// transparent landuse reads as a third colour. A building that is worth seeing
-// at z16 is therefore already visible - fainter, but present - at z12, so
-// nothing pops in or out between two neighbouring zoom levels.
-// =============================================================================
 
 @building-fill: #e5e5ea;
 @building-line: darken(@building-fill, 3%);
 
 // Zoom shades: same hue, progressively more contrast against @land-color.
-@building-fill-z12: lighten(@building-fill, 4%);
-@building-fill-z13: lighten(@building-fill, 3%);
-@building-fill-z14: lighten(@building-fill, 1.5%);
+@building-fill-z15: lighten(@building-fill, 1.5%);
 
 // Major buildings (stations, terminals, places of worship) keep one clear step
 // of separation from ordinary buildings at every zoom.
 @building-major-fill: darken(@building-fill, 6%);
 @building-major-line: darken(@building-major-fill, 3%);
-@building-major-z12: darken(@building-fill-z12, 4%);
-@building-major-z13: darken(@building-fill-z13, 5%);
-@building-major-z14: darken(@building-fill-z14, 5%);
 @building-major-z15: darken(@building-major-fill, 1%);
 
 // Outlines are hairlines: flat design, just enough to separate adjacent blocks.
-@building-line-z14: lighten(@building-line, 1.5%);
-@building-outline-width-z14: 0.2;
+@building-line-z15: lighten(@building-line, 1.5%);
 @building-outline-width-z15: 0.3;
 @building-outline-width-z16: 0.35;
 
@@ -5164,20 +5151,18 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 @bridge-area-fill: @neutral-300;
 
 #buildings {
-  &:zoom(12) {
-    --polygon-fill: zoom-gradient(@building-fill-z12 12z, @building-fill-z13 13z, @building-fill-z14 14z, @building-fill 15z);
-    // Deliberately no --polygon-opacity: overlapping footprints must not blend.
-    &:zoom(14) {
-      --line-color: zoom-gradient(@building-line-z14 14z, @building-line 15z);
-      --line-width: zoom-gradient(@building-outline-width-z14 14z, @building-outline-width-z15 15z, @building-outline-width-z16 16z);
-    }
+  &:zoom(15) {
+    --polygon-fill: zoom-gradient(@building-fill-z15 15z, @building-fill 16z);
+    --line-color: zoom-gradient(@building-line-z15 15z, @building-line 16z);
+    --line-width: zoom-gradient(@building-outline-width-z15 15z, @building-outline-width-z16 16z);
+
     &[amenity='place_of_worship'],
     &[aeroway='terminal'],
     &[aerialway='station'],
     &[building='train_station'],
     &[public_transport='station'] {
-      --polygon-fill: zoom-gradient(@building-major-z12 12z, @building-major-z13 13z, @building-major-z14 14z, @building-major-z15 15z, @building-major-fill 16z);
-      &:zoom(14) {
+      --polygon-fill: zoom-gradient(@building-major-z14 14z, @building-major-z15 15z, @building-major-fill 16z);
+      &:zoom(16) {
         --line-color: @building-major-line;
       }
     }
