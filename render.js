@@ -137,7 +137,7 @@ const tilesMinZ = Math.min(config.tiles.z.raster.min, config.tiles.z.vector.min)
 const tilesMaxZ = Math.max(config.tiles.z.raster.max, config.tiles.z.vector.max);
 const safeMargin = 64;
 
-const gzipOptions = { level: 9 };
+const gzipOptions = { level: 7 };
 const encoder = new TextEncoder();
 
 const backgroundElement = `<rect x="0" y="0" width="${tileSize}" height="${tileSize}" fill="${tileBackground}"/>`;

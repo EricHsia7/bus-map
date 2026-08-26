@@ -151,12 +151,12 @@
 #landcover-low-zoom:zoom(1, 9)::low-zoom,
 #landcover:zoom(10)::high-zoom {
   // abstract landuse zones (largest, purely administrative)
-  &[feature='landuse_farmland']:zoom(5),
-  &[feature='landuse_greenhouse_horticulture']:zoom(5) {
+  &[feature='landuse_farmland']:zoom(13),
+  &[feature='landuse_greenhouse_horticulture']:zoom(13) {
     --polygon-fill: @farmland;
   }
 
-  &[feature='landuse_farmyard']:zoom(10) {
+  &[feature='landuse_farmyard']:zoom(13) {
     --polygon-fill: @farmyard;
   }
 
@@ -171,25 +171,25 @@
     --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-z12 12z, @commercial 13z);
   }
 
-  &[feature='landuse_retail'],
-  &[feature='shop_mall'],
-  &[feature='amenity_marketplace'] {
-    &:zoom(14) {
+  &[feature='landuse_retail']:zoom(13),
+  &[feature='shop_mall']:zoom(16),
+  &[feature='amenity_marketplace']:zoom(16) {
+    &:zoom(8) {
       --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-z12 12z, @retail 13z);
     }
   }
 
-  &[feature='landuse_industrial']:zoom(14),
+  &[feature='landuse_industrial']:zoom(13),
   &[feature='man_made_works']:zoom(16) {
     --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-z12 12z, @industrial 13z);
   }
 
-  &[feature='landuse_railway']:zoom(10) {
+  &[feature='landuse_railway']:zoom(13) {
     --polygon-fill: @railway;
   }
 
-  &[feature='landuse_brownfield'],
-  &[feature='landuse_construction'] {
+  &[feature='landuse_brownfield']:zoom(13),
+  &[feature='landuse_construction']:zoom(13) {
     &:zoom(10) {
       --polygon-fill: @construction;
     }
@@ -201,7 +201,7 @@
   //  }
   // }
 
-  &[feature='landuse_quarry']:zoom(14) {
+  &[feature='landuse_quarry']:zoom(13) {
     --polygon-fill: @quarry;
   }
 
@@ -225,8 +225,8 @@
 
   // amenity + transport grounds (contain their own grass and yards)
   &[feature='aeroway_aerodrome']:zoom(10),
-  &[feature='amenity_ferry_terminal']:zoom(13),
-  &[feature='amenity_bus_station']:zoom(13) {
+  &[feature='amenity_ferry_terminal']:zoom(16),
+  &[feature='amenity_bus_station']:zoom(16) {
     --polygon-fill: @transportation-area;
   }
 
@@ -245,45 +245,45 @@
   //   }
   // }
 
-  &[feature='amenity_prison']:zoom(14) {
+  &[feature='amenity_prison']:zoom(13) {
+    --polygon-fill: @prison;
+    --polygon-opacity: 0.14;
     --line-color: @prison-line;
     --line-width: 1.8;
     --line-opacity: 0.329;
   }
 
-  &[feature='amenity_hospital'],
-  &[feature='amenity_clinic'],
-  &[feature='amenity_university'],
-  &[feature='amenity_college'],
-  &[feature='amenity_school'],
-  &[feature='amenity_kindergarten'],
-  &[feature='amenity_community_centre'],
-  &[feature='amenity_social_facility'],
-  &[feature='amenity_arts_centre'] {
-    &:zoom(14) {
-      --polygon-fill: @societal_amenities;
-    }
+  &[feature='amenity_hospital']:zoom(13),
+  &[feature='amenity_clinic']:zoom(16),
+  &[feature='amenity_university']:zoom(13),
+  &[feature='amenity_college']:zoom(13),
+  &[feature='amenity_school']:zoom(13),
+  &[feature='amenity_kindergarten']:zoom(16),
+  &[feature='amenity_community_centre']:zoom(16),
+  &[feature='amenity_social_facility']:zoom(16),
+  &[feature='amenity_arts_centre']:zoom(16) {
+    --polygon-fill: @societal_amenities;
   }
 
   // Social amenities. These are building-sized rather than
   // neighbourhood-sized, so they wait for z15 and outline only at z17.
-  &[feature='amenity_townhall']:zoom(15),
-  &[feature='amenity_courthouse']:zoom(15),
-  &[feature='amenity_post_office']:zoom(15),
-  &[feature='amenity_library']:zoom(15) {
+  &[feature='amenity_townhall']:zoom(16),
+  &[feature='amenity_courthouse']:zoom(16),
+  &[feature='amenity_post_office']:zoom(16),
+  &[feature='amenity_library']:zoom(16) {
     --polygon-fill: @civic_amenities;
   }
 
-  &[feature='tourism_museum']:zoom(15),
-  &[feature='tourism_gallery']:zoom(15),
-  &[feature='amenity_theatre']:zoom(15),
-  &[feature='amenity_cinema']:zoom(15) {
+  &[feature='tourism_museum']:zoom(16),
+  &[feature='tourism_gallery']:zoom(16),
+  &[feature='amenity_theatre']:zoom(16),
+  &[feature='amenity_cinema']:zoom(16) {
     --polygon-fill: @culture_amenities;
   }
 
-  &[feature='amenity_childcare']:zoom(15),
-  &[feature='amenity_nursing_home']:zoom(15),
-  &[feature='amenity_public_bath']:zoom(15),
+  &[feature='amenity_childcare']:zoom(16),
+  &[feature='amenity_nursing_home']:zoom(16),
+  &[feature='amenity_public_bath']:zoom(16),
   &[feature='amenity_shelter']:zoom(16) {
     --polygon-fill: @care_amenities;
   }
@@ -299,8 +299,8 @@
   //  }
   // }
 
-  &[feature='landuse_cemetery'],
-  &[feature='amenity_grave_yard'] {
+  &[feature='landuse_cemetery']:zoom(14),
+  &[feature='amenity_grave_yard']:zoom(14) {
     &:zoom(10) {
       --polygon-fill: @cemetery;
     }
@@ -320,12 +320,12 @@
     // }
   }
 
-  &[feature='tourism_camp_site'],
-  &[feature='tourism_caravan_site'],
-  &[feature='tourism_picnic_site'] {
-    &:zoom(13) {
+  &[feature='tourism_camp_site']:zoom(16),
+  &[feature='tourism_caravan_site']:zoom(16),
+  &[feature='tourism_picnic_site']:zoom(16) {
+    &:zoom(10) {
       --polygon-fill: @campsite;
-      &:zoom(14) {
+      &:zoom(13) {
         --line-color: darken(@campsite, 3.8%);
         --line-width: 0.3;
       }
@@ -345,18 +345,16 @@
   // }
 
   // leisure grounds (contain pitches, lawns, water)
-  &[feature='leisure_golf_course']:zoom(10),
-  &[feature='leisure_miniature_golf']:zoom(15) {
+  &[feature='leisure_golf_course']:zoom(14),
+  &[feature='leisure_miniature_golf']:zoom(16) {
     --polygon-fill: @golf_course;
   }
 
-  &[feature='leisure_park'] {
-    &:zoom(10) {
-      --polygon-fill: @park;
-    }
+  &[feature='leisure_park']:zoom(10) {
+    --polygon-fill: @park;
   }
 
-  &[feature='landuse_recreation_ground']:zoom(10) {
+  &[feature='landuse_recreation_ground']:zoom(14) {
     --polygon-fill: @leisure;
     &:zoom(15) {
       --line-color: darken(@leisure, 15%);
@@ -364,32 +362,22 @@
     }
   }
 
-  &[feature='leisure_sports_centre'],
-  &[feature='leisure_water_park'],
-  &[feature='leisure_stadium'] {
-    &:zoom(14) {
-      --polygon-fill: @stadium;
-      &:zoom(15) {
-        --line-width: 0.3;
-        --line-color: darken(@stadium, 8.8%);
-      }
+  &[feature='leisure_sports_centre']:zoom(14),
+  &[feature='leisure_water_park']:zoom(16),
+  &[feature='leisure_stadium']:zoom(14) {
+    --polygon-fill: @stadium;
+    &:zoom(16) {
+      --line-width: 0.3;
+      --line-color: darken(@stadium, 8.8%);
     }
   }
 
-  &[feature='leisure_dog_park'] {
-    &:zoom(14) {
-      --polygon-fill: @leisure;
-    }
-    // &:zoom(16) {
-    // --polygon-pattern-file: "url('patterns/dog_park.svg')";
-    // --polygon-pattern-alignment: global;
-    // }
+  &[feature='leisure_dog_park']:zoom(14) {
+    --polygon-fill: @leisure;
   }
 
-  &[feature='leisure_garden'] {
-    &:zoom(14) {
-      --polygon-fill: @grass;
-    }
+  &[feature='leisure_garden']:zoom(14) {
+    --polygon-fill: @grass;
   }
 
   // physical land cover drawn inside the grounds above
@@ -478,33 +466,25 @@
   }
 
   // cultivated cover (sits inside farmland)
-  &[feature='landuse_orchard'] {
-    &:zoom(5) {
-      --polygon-fill: @orchard;
-    }
+  &[feature='landuse_orchard']:zoom(13) {
+    --polygon-fill: @orchard;
   }
 
-  &[feature='landuse_vineyard'] {
-    &:zoom(5) {
-      --polygon-fill: @orchard;
-    }
+  &[feature='landuse_vineyard']:zoom(13) {
+    --polygon-fill: @orchard;
   }
 
-  &[feature='landuse_plant_nursery'] {
-    &:zoom(10) {
-      --polygon-fill: @orchard;
-    }
+  &[feature='landuse_plant_nursery']:zoom(13) {
+    --polygon-fill: @orchard;
   }
 
-  &[feature='landuse_allotments'] {
-    &:zoom(10) {
-      --polygon-fill: @allotments;
-    }
+  &[feature='landuse_allotments']:zoom(13) {
+    --polygon-fill: @allotments;
   }
 
   // small built features on top of the cover
-  &[feature='leisure_playground']:zoom(13),
-  &[feature='leisure_fitness_station']:zoom(13) {
+  &[feature='leisure_playground']:zoom(14),
+  &[feature='leisure_fitness_station']:zoom(16) {
     --polygon-fill: @leisure;
     &:zoom(15) {
       --line-color: darken(@leisure, 15%);
@@ -528,18 +508,14 @@
     }
   }
 
-  &[feature='leisure_ice_rink'] {
-    &:zoom(10) {
-      --polygon-fill: @glacier;
-      --line-width: 0.3;
-      --line-color: darken(@pitch, 3%);
-    }
+  &[feature='leisure_ice_rink']:zoom(16) {
+    --polygon-fill: @glacier;
+    --line-width: 0.3;
+    --line-color: darken(@pitch, 3%);
   }
 
-  &[feature='leisure_swimming_pool'] {
-    &:zoom(14) {
-      --polygon-fill: @water-color;
-    }
+  &[feature='leisure_swimming_pool']:zoom(16) {
+    --polygon-fill: @water-color;
   }
 
   &[feature='landuse_flowerbed'] {
@@ -553,10 +529,10 @@
     --polygon-fill: @garages;
   }
 
-  &[feature='amenity_parking'],
-  &[feature='amenity_bicycle_parking'],
-  &[feature='amenity_motorcycle_parking'],
-  &[feature='amenity_taxi'] {
+  &[feature='amenity_parking']:zoom(16),
+  &[feature='amenity_bicycle_parking']:zoom(16),
+  &[feature='amenity_motorcycle_parking']:zoom(16),
+  &[feature='amenity_taxi']:zoom(16) {
     &:zoom(14) {
       --polygon-fill: @parking;
     }
@@ -1776,7 +1752,7 @@
 #bridges,
 #tunnels {
   &::casing {
-    &[feature='highway_service']:zoom(13) {
+    &[feature='highway_service']:zoom(16) {
       &[service='INT-normal']:zoom(13),
       &[service='INT-minor']:zoom(15) {
         --line-color: @service-casing;
@@ -1809,7 +1785,7 @@
       }
     }
 
-    &[feature='highway_living_street']:zoom(13) {
+    &[feature='highway_living_street']:zoom(15) {
       --line-color: zoom-gradient(@residential-casing, @living-street-casing 14z);
       --line-width: @living-street-width;
       --line-scale: zoom-gradient(@road-scale-z6, @road-scale-z8 8z, @road-scale-z10 10z, @road-scale-z12 12z, @road-scale-z14 14z, @road-scale-z16 16z, @road-scale-z18 18z, @road-scale-z20 20z);
@@ -1831,7 +1807,7 @@
       }
     }
 
-    &[feature='highway_path'] {
+    &[feature='highway_path']:zoom(16) {
       &#bridges {
         &:not([access='no']):zoom(14),
         &:zoom(15) {
@@ -1850,7 +1826,7 @@
       }
     }
 
-    &[feature='highway_motorway']:zoom(12) {
+    &[feature='highway_motorway']:zoom(13) {
       --line-width: @motorway-width;
       --line-scale: zoom-gradient(@road-scale-z6, @road-scale-z8 8z, @road-scale-z10 10z, @road-scale-z12 12z, @road-scale-z14 14z, @road-scale-z16 16z, @road-scale-z18 18z, @road-scale-z20 20z);
       &[link='yes'] {
@@ -1880,7 +1856,7 @@
       }
     }
 
-    &[feature='highway_trunk']:zoom(12) {
+    &[feature='highway_trunk']:zoom(13) {
       --line-color: @trunk-low-zoom-casing;
       &:zoom(13) {
         --line-color: @trunk-casing;
@@ -1910,7 +1886,7 @@
       }
     }
 
-    &[feature='highway_primary']:zoom(12) {
+    &[feature='highway_primary']:zoom(13) {
       --line-color: @primary-low-zoom-casing;
       &:zoom(13) {
         --line-color: @primary-casing;
@@ -1942,7 +1918,7 @@
       }
     }
 
-    &[feature='highway_secondary']:zoom(12) {
+    &[feature='highway_secondary']:zoom(13) {
       --line-color: @secondary-low-zoom-casing;
       &:zoom(13) {
         --line-color: @secondary-casing;
@@ -1972,7 +1948,7 @@
       }
     }
 
-    &[feature='highway_tertiary']:zoom(12) {
+    &[feature='highway_tertiary']:zoom(13) {
       --line-color: @tertiary-casing;
 
       --line-width: @tertiary-width;
@@ -1999,8 +1975,8 @@
       }
     }
 
-    &[feature='highway_residential']:zoom(13),
-    &[feature='highway_unclassified']:zoom(13) {
+    &[feature='highway_residential']:zoom(15),
+    &[feature='highway_unclassified']:zoom(15) {
       --line-color: @residential-casing;
       --line-width: @residential-width;
       --line-scale: zoom-gradient(@road-scale-z6, @road-scale-z8 8z, @road-scale-z10 10z, @road-scale-z12 12z, @road-scale-z14 14z, @road-scale-z16 16z, @road-scale-z18 18z, @road-scale-z20 20z);
@@ -2020,7 +1996,7 @@
       }
     }
 
-    &[feature='highway_road']:zoom(14) {
+    &[feature='highway_road']:zoom(15) {
       --line-color: @road-casing;
 
       --line-width: @road-width;
@@ -2043,7 +2019,7 @@
       }
     }
 
-    &[feature='highway_pedestrian']:zoom(14) {
+    &[feature='highway_pedestrian']:zoom(15) {
       --line-color: @pedestrian-casing;
 
       --line-width: @pedestrian-width;
@@ -2066,7 +2042,7 @@
       }
     }
 
-    &[feature='highway_steps'] {
+    &[feature='highway_steps']:zoom(16) {
       &#bridges {
         &:not([access='no']):zoom(14),
         &:zoom(15) {
@@ -2086,7 +2062,7 @@
       }
     }
 
-    &[feature='highway_bridleway'] {
+    &[feature='highway_bridleway']:zoom(16) {
       &#bridges {
         &:not([access='no']):zoom(14),
         &:zoom(15) {
@@ -2142,7 +2118,7 @@
     //   }
     // }
 
-    &[feature='highway_track'] {
+    &[feature='highway_track']:zoom(16) {
       &#bridges {
         &:not([access='no']):zoom(13) {
           --line-color: @bridge-casing;
@@ -2270,7 +2246,7 @@
   }
 
   &::bridges_and_tunnels_background {
-    &[feature='highway_bridleway'] {
+    &[feature='highway_bridleway']:zoom(16) {
       &#bridges {
         &:not([access='no']):zoom(14),
         &:zoom(15) {
@@ -2290,7 +2266,7 @@
       }
     }
 
-    &[feature='highway_path'] {
+    &[feature='highway_path']:zoom(16) {
       &#bridges {
         &:not([access='no']):zoom(14),
         &:zoom(15) {
@@ -2350,7 +2326,7 @@
     //   }
     // }
 
-    &[feature='highway_steps'] {
+    &[feature='highway_steps']:zoom(16) {
       &#bridges {
         &:not([access='no']):zoom(14),
         &:zoom(15) {
@@ -2371,7 +2347,7 @@
       }
     }
 
-    &[feature='highway_track'] {
+    &[feature='highway_track']:zoom(16) {
       /* We don't set opacity here, so it's 1.0. Aside from that, it's basically a copy of roads-fill::background in the track part of ::fill */
       &#bridges {
         &:not([access='no']):zoom(13) {
@@ -2506,8 +2482,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
 #roads-low-zoom:zoom(1, 9),
 #roads-fill:zoom(10),
-#bridges:zoom(10),
-#tunnels:zoom(10) {
+#bridges:zoom(13),
+#tunnels:zoom(13) {
   // &::halo {
   //   &[feature='highway_secondary']:zoom(9, 9) {
   //     --line-color: @halo-color-for-minor-road;
@@ -2698,9 +2674,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       }
     }
 
-    &#roads-fill[feature='highway_service'],
-    &#bridges[feature='highway_service'],
-    &#tunnels[feature='highway_service'] {
+    &#roads-fill[feature='highway_service']:zoom(16),
+    &#bridges[feature='highway_service']:zoom(16),
+    &#tunnels[feature='highway_service']:zoom(16) {
       &[service='INT-normal']:zoom(14),
       &[service='INT-minor']:zoom(16) {
         --line-color: zoom-gradient(@service-road-z14 14z, @service-road-z15 15z, @service-fill 16z);
@@ -2730,9 +2706,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       }
     }
 
-    &#roads-fill[feature='highway_living_street']:not([surface='unpaved']),
-    &#bridges[feature='highway_living_street']:not([surface='unpaved']),
-    &#tunnels[feature='highway_living_street'] {
+    &#roads-fill[feature='highway_living_street']:not([surface='unpaved']):zoom(15),
+    &#bridges[feature='highway_living_street']:not([surface='unpaved']):zoom(15),
+    &#tunnels[feature='highway_living_street']:zoom(15) {
       &:zoom(13) {
         --line-width: @living-street-width - 2 * @casing-width;
         --line-scale: zoom-gradient(@road-scale-z6, @road-scale-z8 8z, @road-scale-z10 10z, @road-scale-z12 12z, @road-scale-z14 14z, @road-scale-z16 16z, @road-scale-z18 18z, @road-scale-z20 20z);
@@ -2751,7 +2727,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       }
     }
 
-    &[feature='highway_path'] {
+    &[feature='highway_path']:zoom(16) {
       --background__line-cap: round;
       --background__line-join: round;
       --background__line-width: zoom-gradient(@path-width-z14 + 2 * @paths-background-width 14z, @path-width-z15 + 2 * @paths-background-width 15z, @path-width-z16 + 2 * @paths-background-width 16z 17z, @path-width-z18 + 2 * @paths-background-width 18z, @path-width-z19 + 2 * @paths-background-width 19z);
@@ -3077,8 +3053,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       }
     }
 
-    &[feature='highway_residential']:zoom(13),
-    &[feature='highway_unclassified']:zoom(13) {
+    &[feature='highway_residential']:zoom(15),
+    &[feature='highway_unclassified']:zoom(15) {
       --line-cap: round;
       --line-join: round;
       --line-width: @residential-width - 2 * @casing-width;
@@ -3098,7 +3074,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       }
     }
 
-    &[feature='highway_road'] {
+    &[feature='highway_road']:zoom(15) {
       &:zoom(10) {
         --line-width: 1;
         --line-color: zoom-gradient(@minor-road-z12 12z, @minor-road-z13 13z, @minor-road-z14 14z, @unimportant-road 15z);
@@ -3122,9 +3098,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       }
     }
 
-    &#roads-fill[feature='highway_pedestrian']:not([surface='unpaved']),
-    &#bridges[feature='highway_pedestrian']:not([surface='unpaved']),
-    &#tunnels[feature='highway_pedestrian'] {
+    &#roads-fill[feature='highway_pedestrian']:not([surface='unpaved']):zoom(15),
+    &#bridges[feature='highway_pedestrian']:not([surface='unpaved']):zoom(15),
+    &#tunnels[feature='highway_pedestrian']:zoom(15) {
       &:zoom(14) {
         --line-width: @pedestrian-width - 2 * @casing-width;
         --line-scale: zoom-gradient(@road-scale-z6, @road-scale-z8 8z, @road-scale-z10 10z, @road-scale-z12 12z, @road-scale-z14 14z, @road-scale-z16 16z, @road-scale-z18 18z, @road-scale-z20 20z);
@@ -3148,7 +3124,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       }
     }
 
-    &[feature='highway_steps'] {
+    &[feature='highway_steps']:zoom(16) {
       &:not([access='no']):zoom(14),
       &:zoom(15) {
         &#roads-fill:zoom(15) {
@@ -3166,7 +3142,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       }
     }
 
-    &[feature='highway_bridleway'] {
+    &[feature='highway_bridleway']:zoom(16) {
       &:not([access='no']):zoom(13),
       &:zoom(15) {
         &#roads-fill:zoom(15) {
@@ -3191,13 +3167,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       }
     }
 
-    &[feature='highway_footway']:zoom(14) {
+    &[feature='highway_footway']:zoom(16) {
       --line-join: round;
       --line-width: zoom-gradient(@footway-width-z14 14z, @footway-width-z15 15z, @footway-width-z16 16z 17z, @footway-width-z18 18z, @footway-width-z19 19z);
 
       &:zoom(15) {
         --line-cap: butt;
-        --line-dasharray: 4, 6;
+        --line-dasharray: 6 9;
       }
 
       --line-color: zoom-gradient(lighten(@footway-fill, 22%) 14z, lighten(@footway-fill, 11%) 15z, @footway-fill 16z);
@@ -3228,7 +3204,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     //   --line-color: @cycleway-fill;
     // }
 
-    &[feature='highway_track'] {
+    &[feature='highway_track']:zoom(16) {
       &:not([access='no']):zoom(13),
       &:zoom(15) {
         --line__line-color: @track-fill;
@@ -3777,7 +3753,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --line-cap: round;
   }
 
-  &[type='mini_roundabout']::circle {
+  &[type='mini_roundabout']:zoom(15)::circle {
     --line-width: @mini-roundabout-width;
     --line-cap: round;
 
@@ -3810,15 +3786,15 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 }
 
 #highway-area-casing {
-  &[feature='highway_service'] {
+  &[feature='highway_service']:zoom(16) {
     &:zoom(14) {
       --line-color: @rail-line-light;
       --line-width: 1;
     }
   }
 
-  &[feature='highway_footway']:zoom(14),
-  &[feature='highway_pedestrian']:zoom(14) {
+  &[feature='highway_footway']:zoom(16),
+  &[feature='highway_pedestrian']:zoom(15) {
     --line-cap: round;
     --line-join: round;
     --line-width: zoom-gradient(@footway-width-z14 14z, @footway-width-z15 15z, @footway-width-z16 16z 17z, @footway-width-z18 18z, @footway-width-z19 19z);
@@ -3980,23 +3956,23 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     &[feature='highway_primary'],
     &[feature='highway_secondary'],
     &[feature='highway_tertiary'],
-    &[feature='highway_unclassified'],
-    &[feature='highway_residential'],
-    &[feature='highway_pedestrian'],
-    &[feature='highway_living_street'] {
+    &[feature='highway_unclassified']:zoom(15),
+    &[feature='highway_residential']:zoom(15),
+    &[feature='highway_pedestrian']:zoom(15),
+    &[feature='highway_living_street']:zoom(15) {
       &:zoom(15) {
         --access__line-color: @access-marking;
         &[surface='unpaved'] {
           --access__line-color: @access-marking-white-unpaved;
         }
         &[feature='highway_primary'],
-        &[feature='highway_pedestrian'] {
+        &[feature='highway_pedestrian']:zoom(15) {
           --access__line-color: @access-marking-light;
         }
         &[feature='highway_secondary'] {
           --access__line-color: @access-marking-secondary;
         }
-        &[feature='highway_living_street'] {
+        &[feature='highway_living_street']:zoom(15) {
           --access__line-color: @access-marking-living-street;
         }
 
@@ -4009,14 +3985,14 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         }
       }
     }
-    &[feature='highway_road'],
-    &[feature='highway_service'][service='INT-normal'] {
+    &[feature='highway_road']:zoom(15),
+    &[feature='highway_service'][service='INT-normal']:zoom(16) {
       &:zoom(16) {
         --access__line-color: @access-marking;
         &[surface='unpaved'] {
           --access__line-color: @access-marking-white-unpaved;
         }
-        &[feature='highway_road'] {
+        &[feature='highway_road']:zoom(15) {
           --access__line-color: @access-marking-light;
         }
         --access__line-join: round;
@@ -4025,7 +4001,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         --access__line-dasharray: 6 9;
       }
     }
-    &[feature='highway_service'][service='INT-minor'] {
+    &[feature='highway_service'][service='INT-minor']:zoom(16) {
       &:zoom(17) {
         --access__line-color: @access-marking;
         &[surface='unpaved'] {
@@ -4044,27 +4020,27 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     &[feature='highway_primary'],
     &[feature='highway_secondary'],
     &[feature='highway_tertiary'],
-    &[feature='highway_unclassified'],
-    &[feature='highway_residential'],
-    &[feature='highway_pedestrian'],
-    &[feature='highway_living_street'] {
+    &[feature='highway_unclassified']:zoom(15),
+    &[feature='highway_residential']:zoom(15),
+    &[feature='highway_pedestrian']:zoom(15),
+    &[feature='highway_living_street']:zoom(15) {
       &:zoom(15) {
         --access__line-color: @access-marking;
         &[feature='highway_tertiary'],
-        &[feature='highway_unclassified'],
-        &[feature='highway_residential'] {
+        &[feature='highway_unclassified']:zoom(15),
+        &[feature='highway_residential']:zoom(15) {
           &[surface='unpaved'] {
             --access__line-color: @access-marking-white-unpaved;
           }
         }
         &[feature='highway_primary'],
-        &[feature='highway_pedestrian'] {
+        &[feature='highway_pedestrian']:zoom(15) {
           --access__line-color: @access-marking-light;
         }
         &[feature='highway_secondary'] {
           --access__line-color: @access-marking-secondary;
         }
-        &[feature='highway_living_street'] {
+        &[feature='highway_living_street']:zoom(15) {
           --access__line-color: @access-marking-living-street;
         }
         --access__line-join: round;
@@ -4073,14 +4049,14 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         --access__line-dasharray: 6 9;
       }
     }
-    &[feature='highway_road'],
-    &[feature='highway_service'][service='INT-normal'] {
+    &[feature='highway_road']:zoom(15),
+    &[feature='highway_service'][service='INT-normal']:zoom(16) {
       &:zoom(16) {
         --access__line-color: @access-marking;
         &[surface='unpaved'] {
           --access__line-color: @access-marking-white-unpaved;
         }
-        &[feature='highway_road'] {
+        &[feature='highway_road']:zoom(15) {
           --access__line-color: @access-marking-light;
         }
         --access__line-join: round;
@@ -5176,9 +5152,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 }
 
 #entrances {
-  --marker-width: 5;
-  --marker-scale: zoom-gradient(1 18z 19z, 1.6 20z);
   &:zoom(18) {
+    --marker-width: 5;
+    --marker-scale: zoom-gradient(1 18z 19z, 1.6 20z);
     --marker-fill: @entrance-normal;
     --marker-allow-overlap: true;
     --marker-ignore-placement: true;
@@ -5383,17 +5359,17 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 @private-opacity: 0.33;
 
 #amenity-points {
-  &[feature='tourism_alpine_hut']:zoom(13),
-  &[feature='tourism_wilderness_hut']:zoom(13),
+  &[feature='tourism_alpine_hut']:zoom(16),
+  &[feature='tourism_wilderness_hut']:zoom(16),
   &[feature='amenity_shelter']:zoom(16) {
     --marker-file: "url('symbols/amenity/shelter.svg')";
-    &[feature='tourism_wilderness_hut'] {
+    &[feature='tourism_wilderness_hut']:zoom(16) {
       --marker-file: "url('symbols/tourism/wilderness_hut.svg')";
     }
-    &[feature='tourism_alpine_hut'] {
+    &[feature='tourism_alpine_hut']:zoom(16) {
       --marker-file: "url('symbols/tourism/alpinehut.svg')";
     }
-    &[feature='amenity_shelter'] {
+    &[feature='amenity_shelter']:zoom(16) {
       --marker-fill: @man-made-icon;
     }
     --marker-fill: @accommodation-icon;
@@ -5635,7 +5611,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --marker-clip: false;
   }
 
-  &[feature='amenity_fountain'] {
+  &[feature='amenity_fountain']:zoom(16) {
     &::basin {
       &:zoom(17, 17) {
         --marker-fill: @water-color;
@@ -6061,7 +6037,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --marker-clip: false;
   }
 
-  &[feature='amenity_toilets'] {
+  &[feature='amenity_toilets']:zoom(16) {
     &[int_access='yes']:zoom(18),
     &:zoom(19) {
       --marker-file: "url('symbols/amenity/toilets.svg')";
@@ -6088,8 +6064,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --marker-clip: false;
   }
 
-  &[feature='amenity_nursing_home'],
-  &[feature='amenity_childcare'] {
+  &[feature='amenity_nursing_home']:zoom(16),
+  &[feature='amenity_childcare']:zoom(16) {
     &:zoom(17) {
       --marker-width: 4;
       --marker-scale: zoom-gradient(1 17z, 1.5 18z);
@@ -6714,7 +6690,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --marker-fill: @airtransport;
   }
 
-  &[feature='amenity_ferry_terminal']:zoom(15) {
+  &[feature='amenity_ferry_terminal']:zoom(16) {
     --marker-file: "url('symbols/amenity/ferry.svg')";
     --marker-clip: false;
     --marker-fill: @airtransport;
@@ -6808,30 +6784,30 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
   }
 
-  &[feature='amenity_parking'],
-  &[feature='amenity_bicycle_parking'],
-  &[feature='amenity_motorcycle_parking'],
-  &[feature='amenity_parking_entrance'] {
+  &[feature='amenity_parking']:zoom(16),
+  &[feature='amenity_bicycle_parking']:zoom(16),
+  &[feature='amenity_motorcycle_parking']:zoom(16),
+  &[feature='amenity_parking_entrance']:zoom(16) {
     &[parking !='street_side'][parking !='lane']:zoom(14),
     &[parking !='street_side'][parking !='lane'][feature='amenity_parking']:zoom(17),
     &:zoom(18) {
-      &[feature='amenity_parking'] {
+      &[feature='amenity_parking']:zoom(16) {
         --marker-file: "url('symbols/amenity/parking.svg')";
       }
-      &[parking='street_side'][feature='amenity_parking'],
-      &[parking='lane'][feature='amenity_parking'] {
+      &[parking='street_side'][feature='amenity_parking']:zoom(16),
+      &[parking='lane'][feature='amenity_parking']:zoom(16) {
         --marker-file: "url('symbols/amenity/parking_subtle.svg')";
       }
-      &[feature='amenity_bicycle_parking'] {
+      &[feature='amenity_bicycle_parking']:zoom(16) {
         --marker-file: "url('symbols/amenity/bicycle_parking.svg')";
       }
-      &[feature='amenity_motorcycle_parking'] {
+      &[feature='amenity_motorcycle_parking']:zoom(16) {
         --marker-file: "url('symbols/amenity/motorcycle_parking.svg')";
       }
-      &[parking='underground'][feature='amenity_parking_entrance'] {
+      &[parking='underground'][feature='amenity_parking_entrance']:zoom(16) {
         --marker-file: "url('symbols/amenity/parking_entrance_underground.svg')";
       }
-      &[parking='multi-storey'][feature='amenity_parking_entrance'] {
+      &[parking='multi-storey'][feature='amenity_parking_entrance']:zoom(16) {
         --marker-file: "url('symbols/amenity/parking_entrance_multistorey.svg')";
       }
       --marker-clip: false;
@@ -7015,19 +6991,19 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-face-name: @standard-font;
     --text-halo-radius: @standard-halo-radius;
     --text-halo-fill: @standard-halo-fill;
-    &[feature='amenity_bar'] {
+    &[feature='amenity_bar']:zoom(16) {
       --text-dy: 13;
     }
   }
 
-  &[feature='amenity_library'],
-  &[feature='tourism_museum'],
-  &[feature='amenity_theatre'],
-  &[feature='amenity_cinema'],
-  &[feature='amenity_arts_centre'],
-  &[feature='amenity_community_centre'],
+  &[feature='amenity_library']:zoom(16),
+  &[feature='tourism_museum']:zoom(16),
+  &[feature='amenity_theatre']:zoom(16),
+  &[feature='amenity_cinema']:zoom(16),
+  &[feature='amenity_arts_centre']:zoom(16),
+  &[feature='amenity_community_centre']:zoom(16),
   &[feature='historic_archaeological_site'],
-  &[feature='amenity_nightclub'] {
+  &[feature='amenity_nightclub']:zoom(16) {
     &:zoom(17) {
       --text-name: '[name]';
       --text-size: @standard-font-size;
@@ -7035,13 +7011,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --text-line-spacing: @standard-line-spacing-size;
       --text-fill: @culture;
       --text-dy: 11;
-      &[feature='amenity_community_centre'] {
+      &[feature='amenity_community_centre']:zoom(16) {
         --text-dy: 10;
       }
       --text-face-name: @standard-font;
       --text-halo-radius: @standard-halo-radius;
       --text-halo-fill: @standard-halo-fill;
-      &[feature='amenity_nightclub'] {
+      &[feature='amenity_nightclub']:zoom(16) {
         --text-dy: 12;
       }
     }
@@ -7082,19 +7058,19 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-wrap-width: @standard-wrap-width;
     --text-line-spacing: @standard-line-spacing-size;
     --text-fill: @transportation-text;
-    &[feature='amenity_car_rental'] {
+    &[feature='amenity_car_rental']:zoom(16) {
       --text-dy: 10;
     }
-    &[feature='amenity_bicycle_rental'] {
+    &[feature='amenity_bicycle_rental']:zoom(16) {
       --text-dy: 10;
     }
-    &[feature='amenity_boat_rental'] {
+    &[feature='amenity_boat_rental']:zoom(16) {
       --text-dy: 13;
     }
     &[feature='barrier_toll_booth'] {
       --text-dy: 13;
     }
-    &[feature='leisure_slipway'] {
+    &[feature='leisure_slipway']:zoom(16) {
       --text-dy: 13;
     }
     --text-face-name: @standard-font;
@@ -7116,16 +7092,16 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-line-spacing: @standard-line-spacing-size;
     --text-fill: @public-service;
     --text-dy: 11;
-    &[feature='amenity_courthouse'] {
+    &[feature='amenity_courthouse']:zoom(16) {
       --text-dy: 13;
     }
-    &[feature='amenity_townhall'] {
+    &[feature='amenity_townhall']:zoom(16) {
       --text-dy: 13;
     }
-    &[feature='amenity_prison'] {
+    &[feature='amenity_prison']:zoom(13) {
       --text-dy: 12;
     }
-    &[feature='amenity_bank'] {
+    &[feature='amenity_bank']:zoom(16) {
       --text-dy: 9;
     }
     --text-face-name: @standard-font;
@@ -7147,12 +7123,12 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-wrap-width: @standard-wrap-width;
     --text-line-spacing: @standard-line-spacing-size;
     --text-fill: @amenity-brown;
-    &[feature='leisure_outdoor_seating'],
-    &[feature='leisure_fishing'],
-    &[feature='leisure_bowling_alley'],
-    &[feature='leisure_bird_hide'],
-    &[feature='leisure_amusement_arcade'],
-    &[feature='leisure_beach_resort'] {
+    &[feature='leisure_outdoor_seating']:zoom(16),
+    &[feature='leisure_fishing']:zoom(16),
+    &[feature='leisure_bowling_alley']:zoom(16),
+    &[feature='leisure_bird_hide']:zoom(16),
+    &[feature='leisure_amusement_arcade']:zoom(16),
+    &[feature='leisure_beach_resort']:zoom(16) {
       --text-fill: @leisure-green;
     }
     --text-dy: 10;
@@ -7171,7 +7147,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-wrap-width: @standard-wrap-width;
     --text-line-spacing: @standard-line-spacing-size;
     --text-fill: @amenity-brown;
-    &[feature='tourism_picnic_site'] {
+    &[feature='tourism_picnic_site']:zoom(16) {
       --text-fill: @leisure-green;
     }
     --text-dy: 10;
@@ -7225,7 +7201,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --text-fill: @transportation-text;
     }
     --text-dy: 7;
-    &[feature='tourism_viewpoint'] {
+    &[feature='tourism_viewpoint']:zoom(16) {
       --text-dy: 11;
     }
     --text-face-name: @standard-font;
@@ -7383,7 +7359,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-halo-fill: @standard-halo-fill;
   }
 
-  &[feature='leisure_swimming_pool'][is_building='no'] {
+  &[feature='leisure_swimming_pool'][is_building='no']:zoom(16) {
     &:zoom(14) {
       --text-name: '[name]';
       --text-size: @landcover-font-size;
@@ -7396,10 +7372,10 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
   }
 
-  &[feature='leisure_playground'],
-  &[feature='leisure_dog_park'],
-  &[feature='leisure_fitness_centre'],
-  &[feature='leisure_fitness_station'] {
+  &[feature='leisure_playground']:zoom(14),
+  &[feature='leisure_dog_park']:zoom(14),
+  &[feature='leisure_fitness_centre']:zoom(16),
+  &[feature='leisure_fitness_station']:zoom(16) {
     &:zoom(17) {
       --text-name: '[name]';
       --text-size: @standard-font-size;
@@ -7409,7 +7385,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --text-fill: @leisure-green;
       --text-face-name: @standard-font;
       --text-halo-fill: @standard-halo-fill;
-      &[feature='leisure_dog_park'] {
+      &[feature='leisure_dog_park']:zoom(14) {
         --text-halo-radius: @standard-halo-radius * 1.5; /* Extra halo needed to stand out from paw pattern. */
       }
       &[int_access='restricted'] {
@@ -7419,7 +7395,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
   }
 
-  &[feature='landuse_military'],
+  &[feature='landuse_military']:zoom(13),
   &[feature='natural_wood'],
   &[feature='landuse_forest'],
   &[feature='boundary_national_park'],
@@ -7435,7 +7411,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --text-face-name: @landcover-face-name;
       --text-halo-radius: @standard-halo-radius;
       --text-halo-fill: @standard-halo-fill;
-      &[feature='landuse_military'] {
+      &[feature='landuse_military']:zoom(13) {
         --text-fill: darken(@military, 40%);
       }
       &[feature='boundary_aboriginal_lands'] {
@@ -7453,7 +7429,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
   }
 
-  &[feature='military_danger_area'][is_building='no'] {
+  &[feature='military_danger_area'][is_building='no']:zoom(13) {
     &:zoom(9) {
       --text-name: '[name]';
       --text-size: @landcover-font-size;
@@ -7481,53 +7457,53 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
   &[feature='natural_wetland'],
   &[feature='natural_mud'],
-  &[feature='leisure_park'],
-  &[feature='landuse_recreation_ground'],
-  &[feature='landuse_village_green'],
-  &[feature='leisure_garden'],
-  &[feature='landuse_quarry'],
-  &[feature='landuse_vineyard'],
-  &[feature='landuse_orchard'],
-  &[feature='landuse_plant_nursery'],
-  &[feature='landuse_cemetery'],
-  &[feature='amenity_grave_yard'],
-  &[feature='landuse_residential'],
-  &[feature='landuse_meadow'],
+  &[feature='leisure_park']:zoom(14),
+  &[feature='landuse_recreation_ground']:zoom(14),
+  &[feature='landuse_village_green']:zoom(14),
+  &[feature='leisure_garden']:zoom(14),
+  &[feature='landuse_quarry']:zoom(13),
+  &[feature='landuse_vineyard']:zoom(13),
+  &[feature='landuse_orchard']:zoom(13),
+  &[feature='landuse_plant_nursery']:zoom(13),
+  &[feature='landuse_cemetery']:zoom(14),
+  &[feature='amenity_grave_yard']:zoom(14),
+  &[feature='landuse_residential']:zoom(13),
+  &[feature='landuse_meadow']:zoom(14),
   &[feature='natural_grassland'],
-  &[feature='landuse_grass'],
-  &[feature='landuse_allotments'],
-  &[feature='landuse_farmyard'],
-  &[feature='landuse_farmland'],
-  &[feature='landuse_greenhouse_horticulture'],
+  &[feature='landuse_grass']:zoom(14),
+  &[feature='landuse_allotments']:zoom(13),
+  &[feature='landuse_farmyard']:zoom(13),
+  &[feature='landuse_farmland']:zoom(13),
+  &[feature='landuse_greenhouse_horticulture']:zoom(13),
   &[feature='shop'][shop='mall']:not([location='underground']),
-  &[feature='landuse_retail'],
-  &[feature='landuse_industrial'],
-  &[feature='landuse_railway'],
+  &[feature='landuse_retail']:zoom(13),
+  &[feature='landuse_industrial']:zoom(13),
+  &[feature='landuse_railway']:zoom(13),
   &[feature='man_made_works'],
   &[feature='man_made_water_works'],
   &[feature='man_made_wastewater_plant'],
-  &[feature='landuse_commercial'],
-  &[feature='landuse_brownfield'],
-  &[feature='landuse_landfill'],
-  &[feature='landuse_construction'],
+  &[feature='landuse_commercial']:zoom(13),
+  &[feature='landuse_brownfield']:zoom(13),
+  &[feature='landuse_landfill']:zoom(13),
+  &[feature='landuse_construction']:zoom(13),
   &[feature='landuse_salt_pond'],
-  &[feature='tourism_theme_park'],
-  &[feature='tourism_zoo'],
-  &[feature='amenity_kindergarten'],
-  &[feature='amenity_school'],
-  &[feature='amenity_college'],
-  &[feature='amenity_university'],
-  &[feature='landuse_religious'],
+  &[feature='tourism_theme_park']:zoom(16),
+  &[feature='tourism_zoo']:zoom(16),
+  &[feature='amenity_kindergarten']:zoom(16),
+  &[feature='amenity_school']:zoom(13),
+  &[feature='amenity_college']:zoom(13),
+  &[feature='amenity_university']:zoom(13),
+  &[feature='landuse_religious']:zoom(13),
   &[feature='natural_heath'],
   &[feature='natural_scrub'],
   &[feature='natural_beach'],
   &[feature='natural_shoal'],
   &[feature='natural_reef'],
-  &[feature='leisure_sports_centre']:not([sport='swimming']),
-  &[feature='leisure_stadium'],
-  &[feature='leisure_track'],
-  &[feature='leisure_ice_rink'],
-  &[feature='leisure_pitch'] {
+  &[feature='leisure_sports_centre']:not([sport='swimming']):zoom(14),
+  &[feature='leisure_stadium']:zoom(14),
+  &[feature='leisure_track']:zoom(14),
+  &[feature='leisure_ice_rink']:zoom(16),
+  &[feature='leisure_pitch']:zoom(14) {
     &[is_building='no']:zoom(10),
     &[feature='shop'][shop='mall']:zoom(10),
     &[feature='shop'][shop='mall']:zoom(17) {
@@ -7544,78 +7520,78 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       &[feature='landuse_salt_pond'] {
         --text-fill: @wetland-text;
       }
-      &[feature='leisure_park'],
-      &[feature='landuse_recreation_ground'],
-      &[feature='landuse_village_green'],
-      &[feature='leisure_garden'] {
+      &[feature='leisure_park']:zoom(14),
+      &[feature='landuse_recreation_ground']:zoom(14),
+      &[feature='landuse_village_green']:zoom(14),
+      &[feature='leisure_garden']:zoom(14) {
         --text-fill: @leisure-green;
       }
-      &[feature='landuse_quarry'] {
+      &[feature='landuse_quarry']:zoom(13) {
         --text-fill: darken(@quarry, 60%);
       }
-      &[feature='landuse_vineyard'],
-      &[feature='landuse_orchard'],
-      &[feature='landuse_plant_nursery'] {
+      &[feature='landuse_vineyard']:zoom(13),
+      &[feature='landuse_orchard']:zoom(13),
+      &[feature='landuse_plant_nursery']:zoom(13) {
         --text-fill: darken(@orchard, 50%);
       }
-      &[feature='landuse_cemetery'],
-      &[feature='amenity_grave_yard'] {
+      &[feature='landuse_cemetery']:zoom(14),
+      &[feature='amenity_grave_yard']:zoom(14) {
         --text-fill: darken(@cemetery, 50%);
         --text-halo-radius: @standard-halo-radius * 1.5; /* extra halo needed to overpower the cemetery polygon pattern */
       }
-      &[feature='landuse_residential'] {
+      &[feature='landuse_residential']:zoom(13) {
         --text-fill: darken(@residential, 50%);
       }
-      &[feature='landuse_meadow'],
+      &[feature='landuse_meadow']:zoom(14),
       &[feature='natural_grassland'],
-      &[feature='landuse_grass'] {
+      &[feature='landuse_grass']:zoom(14) {
         --text-fill: darken(@grass, 50%);
       }
-      &[feature='landuse_allotments'] {
+      &[feature='landuse_allotments']:zoom(13) {
         --text-fill: darken(@allotments, 50%);
       }
-      &[feature='landuse_farmyard'] {
+      &[feature='landuse_farmyard']:zoom(13) {
         --text-fill: darken(@farmyard, 50%);
       }
-      &[feature='landuse_farmland'],
-      &[feature='landuse_greenhouse_horticulture'] {
+      &[feature='landuse_farmland']:zoom(13),
+      &[feature='landuse_greenhouse_horticulture']:zoom(13) {
         --text-fill: darken(@farmland, 50%);
       }
       &[feature='shop'][shop='mall'],
-      &[feature='landuse_retail'] {
+      &[feature='landuse_retail']:zoom(13) {
         --text-fill: darken(@retail, 50%);
       }
-      &[feature='landuse_industrial'],
-      &[feature='landuse_railway'],
+      &[feature='landuse_industrial']:zoom(13),
+      &[feature='landuse_railway']:zoom(13),
       &[feature='man_made_wastewater_plant'],
       &[feature='man_made_water_works'],
       &[feature='man_made_works'] {
         --text-fill: darken(@industrial, 60%);
       }
-      &[feature='landuse_commercial'] {
+      &[feature='landuse_commercial']:zoom(13) {
         --text-fill: darken(@commercial, 60%);
       }
-      &[feature='landuse_brownfield'],
-      &[feature='landuse_landfill'],
-      &[feature='landuse_construction'] {
+      &[feature='landuse_brownfield']:zoom(13),
+      &[feature='landuse_landfill']:zoom(13),
+      &[feature='landuse_construction']:zoom(13) {
         --text-fill: darken(@construction, 50%);
       }
-      &[feature='tourism_caravan_site'] {
+      &[feature='tourism_caravan_site']:zoom(16) {
         --text-fill: darken(@campsite, 50%);
         --text-dy: 15;
       }
-      &[feature='tourism_theme_park'],
-      &[feature='tourism_zoo'] {
+      &[feature='tourism_theme_park']:zoom(16),
+      &[feature='tourism_zoo']:zoom(16) {
         --text-fill: @tourism;
         --text-face-name: @bold-fonts; /*rendered bold to improve visibility since theme parks tend to have crowded backgrounds*/
       }
-      &[feature='amenity_kindergarten'],
-      &[feature='amenity_school'],
-      &[feature='amenity_college'],
-      &[feature='amenity_university'] {
+      &[feature='amenity_kindergarten']:zoom(16),
+      &[feature='amenity_school']:zoom(13),
+      &[feature='amenity_college']:zoom(13),
+      &[feature='amenity_university']:zoom(13) {
         --text-fill: darken(@societal_amenities, 80%);
       }
-      &[feature='landuse_religious'] {
+      &[feature='landuse_religious']:zoom(13) {
         --text-fill: darken(@place_of_worship, 50%);
       }
       &[feature='natural_heath'] {
@@ -7628,15 +7604,15 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       &[feature='natural_shoal'] {
         --text-fill: darken(@beach, 60%);
       }
-      &[feature='leisure_sports_centre'],
-      &[feature='leisure_stadium'] {
+      &[feature='leisure_sports_centre']:zoom(14),
+      &[feature='leisure_stadium']:zoom(14) {
         --text-fill: darken(@stadium, 70%);
       }
-      &[feature='leisure_track'] {
+      &[feature='leisure_track']:zoom(14) {
         --text-fill: darken(@track, 40%);
       }
-      &[feature='leisure_ice_rink'],
-      &[feature='leisure_pitch'] {
+      &[feature='leisure_ice_rink']:zoom(16),
+      &[feature='leisure_pitch']:zoom(14) {
         --text-fill: darken(@pitch, 40%);
       }
     }
@@ -7680,7 +7656,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-face-name: @standard-font;
   }
 
-  &[feature='tourism_alpine_hut']:zoom(14),
+  &[feature='tourism_alpine_hut']:zoom(16),
   &[feature='amenity_shelter']:zoom(17),
   &[feature='leisure_picnic_table']:zoom(17),
   &[feature='tourism_hotel']:zoom(17),
@@ -7689,7 +7665,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[feature='tourism_chalet']:zoom(18),
   &[feature='tourism_guest_house']:zoom(18),
   &[feature='tourism_apartment']:zoom(18),
-  &[feature='tourism_wilderness_hut']:zoom(14),
+  &[feature='tourism_wilderness_hut']:zoom(16),
   &[feature='tourism_camp_site']:zoom(17),
   &[feature='tourism_caravan_site']:zoom(17) {
     --text-name: '[name]';
@@ -7701,20 +7677,20 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-face-name: @standard-font;
     --text-halo-radius: @standard-halo-radius;
     --text-halo-fill: @standard-halo-fill;
-    &[feature='tourism_motel'] {
+    &[feature='tourism_motel']:zoom(16) {
       --text-dy: 13;
     }
-    &[feature='tourism_camp_site'],
-    &[feature='tourism_caravan_site'] {
+    &[feature='tourism_camp_site']:zoom(16),
+    &[feature='tourism_caravan_site']:zoom(16) {
       --text-dy: 15;
     }
     &[feature='leisure_picnic_table']:zoom(17),
-    &[feature='amenity_shelter'] {
+    &[feature='amenity_shelter']:zoom(16) {
       --text-fill: @man-made-icon;
     }
-    &[feature='tourism_alpine_hut'],
-    &[feature='tourism_wilderness_hut'],
-    &[feature='amenity_shelter'] {
+    &[feature='tourism_alpine_hut']:zoom(16),
+    &[feature='tourism_wilderness_hut']:zoom(16),
+    &[feature='amenity_shelter']:zoom(16) {
       &[int_access='restricted'] {
         --text-opacity: @private-opacity;
         --text-halo-radius: 0;
@@ -7735,8 +7711,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   }
 
   &[feature='highway_bus_stop'],
-  &[feature='amenity_fuel'],
-  &[feature='amenity_bus_station'] {
+  &[feature='amenity_fuel']:zoom(16),
+  &[feature='amenity_bus_station']:zoom(16) {
     &:zoom(17) {
       --text-name: '[name]';
       --text-size: @standard-font-size;
@@ -7757,7 +7733,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
   }
 
-  &[feature='leisure_marina']:zoom(15) {
+  &[feature='leisure_marina']:zoom(16) {
     --text-name: '[name]';
     --text-size: @landcover-font-size;
     --text-wrap-width: @landcover-wrap-width-size;
@@ -7818,11 +7794,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-halo-fill: @standard-halo-fill;
   }
 
-  &[feature='amenity_clinic'],
-  &[feature='amenity_pharmacy'],
-  &[feature='amenity_doctors'],
-  &[feature='amenity_dentist'],
-  &[feature='amenity_veterinary'] {
+  &[feature='amenity_clinic']:zoom(16),
+  &[feature='amenity_pharmacy']:zoom(16),
+  &[feature='amenity_doctors']:zoom(16),
+  &[feature='amenity_dentist']:zoom(16),
+  &[feature='amenity_veterinary']:zoom(16) {
     &:zoom(17) {
       --text-name: '[name]';
       --text-size: @standard-font-size;
@@ -7836,8 +7812,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
   }
 
-  &[feature='amenity_nursing_home'],
-  &[feature='amenity_childcare'] {
+  &[feature='amenity_nursing_home']:zoom(16),
+  &[feature='amenity_childcare']:zoom(16) {
     &:zoom(18) {
       --text-name: '[name]';
       --text-size: @landcover-font-size;
@@ -7851,7 +7827,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
   }
 
-  &[feature='amenity_driving_school'] {
+  &[feature='amenity_driving_school']:zoom(16) {
     &:zoom(18) {
       --text-name: '[name]';
       --text-size: @standard-font-size;
@@ -7914,8 +7890,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
   }
 
-  &[feature='shop_supermarket'],
-  &[feature='shop_department_store'] {
+  &[feature='shop_supermarket']:zoom(16),
+  &[feature='shop_department_store']:zoom(16) {
     &:zoom(16) {
       --text-name: '[name]';
       --text-size: @standard-font-size;
@@ -8045,7 +8021,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-halo-fill: @standard-halo-fill;
   }
 
-  &[feature='amenity_ferry_terminal']:zoom(15) {
+  &[feature='amenity_ferry_terminal']:zoom(16) {
     --text-name: '[name]';
     --text-size: @standard-font-size;
     --text-wrap-width: @standard-wrap-width;
@@ -8104,11 +8080,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-face-name: @standard-font;
   }
 
-  &[feature='amenity_parking'],
-  &[feature='amenity_bicycle_parking'],
-  &[feature='amenity_motorcycle_parking'],
+  &[feature='amenity_parking']:zoom(16),
+  &[feature='amenity_bicycle_parking']:zoom(16),
+  &[feature='amenity_motorcycle_parking']:zoom(16),
   // Underground: one step down the text ramp (see @underground-* tokens).
-  &[feature='amenity_parking_entrance'][parking='underground'] {
+  &[feature='amenity_parking_entrance'][parking='underground']:zoom(16) {
     --text-fill: @amenity-underground;
     &:zoom(14) {
       --text-name: '[name]';
@@ -8202,11 +8178,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --bridgecasing__line-width: 1.25;
     --bridgecasing__line-scale: zoom-gradient(1, 2 18z, 4 19z);
   }
-  --line-color: @pitch;
-  --line-join: round;
-  --line-cap: round;
-  --line-width: 1;
-  --line-scale: zoom-gradient(1, 2 18z, 4 19z);
+  &:zoom(15) {
+    --line-color: @pitch;
+    --line-join: round;
+    --line-cap: round;
+    --line-width: 1;
+    --line-scale: zoom-gradient(1, 2 18z, 4 19z);
+  }
 }
 
 #waterslide {
@@ -8216,15 +8194,17 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --bridgecasing__line-width: 1.25;
     --bridgecasing__line-scale: zoom-gradient(1, 2 18z, 4 19z);
   }
-  --line-color: @cable;
-  --line-join: round;
-  --line-cap: round;
-  --line-width: 1;
-  --line-scale: zoom-gradient(1, 2 18z, 4 19z);
+  &:zoom(15) {
+    --line-color: @cable;
+    --line-join: round;
+    --line-cap: round;
+    --line-width: 1;
+    --line-scale: zoom-gradient(1, 2 18z, 4 19z);
+  }
 }
 
 #text-line {
-  &[feature='leisure_track'],
+  &[feature='leisure_track']:zoom(14),
   &[feature='attraction_water_slide'] {
     &:zoom(19) {
       --text-name: '[name]';
@@ -8311,10 +8291,10 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[feature='boundary_protected_area'] {
     --text-size: 10;
   }
-  &[feature='landuse_military'] {
+  &[feature='landuse_military']:zoom(13) {
     --text-size: 10;
   }
-  &[feature='military_danger_area'] {
+  &[feature='military_danger_area']:zoom(13) {
     --text-size: 10;
   }
   &[feature='natural_glacier'] {
@@ -8329,13 +8309,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[feature='natural_heath'] {
     --text-size: 10;
   }
-  &[feature='landuse_farmland'] {
+  &[feature='landuse_farmland']:zoom(13) {
     --text-size: 10;
   }
   &[feature='place_island'] {
     --text-size: 10;
   }
-  &[feature='amenity_university'] {
+  &[feature='amenity_university']:zoom(13) {
     --text-size: 10;
   }
   &[feature='aeroway_apron'] {
@@ -8346,58 +8326,58 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 // tier 9: town-scale landuse (36 features)
 #text-poly-low-zoom,
 #text-point {
-  &[feature='leisure_park'] {
+  &[feature='leisure_park']:zoom(14) {
     --text-size: 9;
   }
-  &[feature='landuse_residential'] {
+  &[feature='landuse_residential']:zoom(13) {
     --text-size: 9;
   }
-  &[feature='landuse_industrial'] {
+  &[feature='landuse_industrial']:zoom(13) {
     --text-size: 9;
   }
-  &[feature='landuse_commercial'] {
+  &[feature='landuse_commercial']:zoom(13) {
     --text-size: 9;
   }
-  &[feature='landuse_retail'] {
+  &[feature='landuse_retail']:zoom(13) {
     --text-size: 9;
   }
-  &[feature='landuse_cemetery'] {
+  &[feature='landuse_cemetery']:zoom(14) {
     --text-size: 9;
   }
-  &[feature='landuse_quarry'] {
+  &[feature='landuse_quarry']:zoom(13) {
     --text-size: 9;
   }
-  &[feature='landuse_recreation_ground'] {
+  &[feature='landuse_recreation_ground']:zoom(14) {
     --text-size: 9;
   }
-  &[feature='landuse_meadow'] {
+  &[feature='landuse_meadow']:zoom(14) {
     --text-size: 9;
   }
-  &[feature='landuse_vineyard'] {
+  &[feature='landuse_vineyard']:zoom(13) {
     --text-size: 9;
   }
-  &[feature='landuse_orchard'] {
+  &[feature='landuse_orchard']:zoom(13) {
     --text-size: 9;
   }
-  &[feature='landuse_allotments'] {
+  &[feature='landuse_allotments']:zoom(13) {
     --text-size: 9;
   }
-  &[feature='landuse_farmyard'] {
+  &[feature='landuse_farmyard']:zoom(13) {
     --text-size: 9;
   }
-  &[feature='tourism_theme_park'] {
+  &[feature='tourism_theme_park']:zoom(16) {
     --text-size: 9;
   }
-  &[feature='tourism_zoo'] {
+  &[feature='tourism_zoo']:zoom(16) {
     --text-size: 9;
   }
-  &[feature='leisure_stadium'] {
+  &[feature='leisure_stadium']:zoom(14) {
     --text-size: 9;
   }
-  &[feature='amenity_college'] {
+  &[feature='amenity_college']:zoom(13) {
     --text-size: 9;
   }
-  &[feature='amenity_school'] {
+  &[feature='amenity_school']:zoom(13) {
     --text-size: 9;
   }
   &[feature='landuse_basin'] {
@@ -8409,7 +8389,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[feature='place_islet'] {
     --text-size: 9;
   }
-  &[feature='landuse_village_green'] {
+  &[feature='landuse_village_green']:zoom(14) {
     --text-size: 9;
   }
   &[feature='natural_scrub'] {
@@ -8421,22 +8401,22 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[feature='natural_sand'] {
     --text-size: 9;
   }
-  &[feature='landuse_greenhouse_horticulture'] {
+  &[feature='landuse_greenhouse_horticulture']:zoom(13) {
     --text-size: 9;
   }
-  &[feature='landuse_plant_nursery'] {
+  &[feature='landuse_plant_nursery']:zoom(13) {
     --text-size: 9;
   }
-  &[feature='landuse_brownfield'] {
+  &[feature='landuse_brownfield']:zoom(13) {
     --text-size: 9;
   }
-  &[feature='landuse_landfill'] {
+  &[feature='landuse_landfill']:zoom(13) {
     --text-size: 9;
   }
-  &[feature='landuse_construction'] {
+  &[feature='landuse_construction']:zoom(13) {
     --text-size: 9;
   }
-  &[feature='landuse_railway'] {
+  &[feature='landuse_railway']:zoom(13) {
     --text-size: 9;
   }
   &[feature='landuse_garages'] {
@@ -8445,13 +8425,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[feature='landuse_salt_pond'] {
     --text-size: 9;
   }
-  &[feature='landuse_grass'] {
+  &[feature='landuse_grass']:zoom(14) {
     --text-size: 9;
   }
-  &[feature='landuse_religious'] {
+  &[feature='landuse_religious']:zoom(13) {
     --text-size: 9;
   }
-  &[feature='amenity_grave_yard'] {
+  &[feature='amenity_grave_yard']:zoom(14) {
     --text-size: 9;
   }
 }
@@ -8459,34 +8439,34 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 // tier 8: neighbourhood facility (23 features)
 #text-poly-low-zoom,
 #text-point {
-  &[feature='leisure_garden'] {
+  &[feature='leisure_garden']:zoom(14) {
     --text-size: 8;
   }
-  &[feature='leisure_sports_centre'] {
+  &[feature='leisure_sports_centre']:zoom(14) {
     --text-size: 8;
   }
-  &[feature='leisure_swimming_pool'] {
+  &[feature='leisure_swimming_pool']:zoom(16) {
     --text-size: 8;
   }
-  &[feature='leisure_marina'] {
+  &[feature='leisure_marina']:zoom(16) {
     --text-size: 8;
   }
-  &[feature='leisure_track'] {
+  &[feature='leisure_track']:zoom(14) {
     --text-size: 8;
   }
-  &[feature='leisure_ice_rink'] {
+  &[feature='leisure_ice_rink']:zoom(16) {
     --text-size: 8;
   }
-  &[feature='leisure_pitch'] {
+  &[feature='leisure_pitch']:zoom(14) {
     --text-size: 8;
   }
-  &[feature='amenity_kindergarten'] {
+  &[feature='amenity_kindergarten']:zoom(16) {
     --text-size: 8;
   }
-  &[feature='amenity_nursing_home'] {
+  &[feature='amenity_nursing_home']:zoom(16) {
     --text-size: 8;
   }
-  &[feature='amenity_childcare'] {
+  &[feature='amenity_childcare']:zoom(16) {
     --text-size: 8;
   }
   &[feature='power_plant'] {
