@@ -245,9 +245,7 @@
   //   }
   // }
 
-  &[feature='amenity_prison']:zoom(10) {
-    --polygon-fill: @prison;
-    --polygon-opacity: 0.14;
+  &[feature='amenity_prison']:zoom(14) {
     --line-color: @prison-line;
     --line-width: 1.8;
     --line-opacity: 0.329;
@@ -262,7 +260,9 @@
   &[feature='amenity_community_centre'],
   &[feature='amenity_social_facility'],
   &[feature='amenity_arts_centre'] {
-    --polygon-fill: @societal_amenities;
+    &:zoom(14) {
+      --polygon-fill: @societal_amenities;
+    }
   }
 
   // Social amenities. These are building-sized rather than
