@@ -332,7 +332,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(240,240,240,1)"
+      "polygon-fill": "rgba(242,242,242,1)"
     },
     "attachment": "low-zoom"
   },
@@ -368,7 +368,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(235,235,235,1)"
+      "polygon-fill": "rgba(237,237,237,1)"
     },
     "attachment": "low-zoom"
   },
@@ -390,7 +390,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(237,237,243,1)"
+      "polygon-fill": "rgba(246,246,249,1)"
     },
     "attachment": "low-zoom"
   },
@@ -412,7 +412,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(236,236,242,1)"
+      "polygon-fill": "rgba(245,245,248,1)"
     },
     "attachment": "low-zoom"
   },
@@ -434,7 +434,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(234,234,241,1)"
+      "polygon-fill": "rgba(243,243,247,1)"
     },
     "attachment": "low-zoom"
   },
@@ -456,7 +456,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(237,237,243,1)"
+      "polygon-fill": "rgba(242,242,246,1)"
     },
     "attachment": "low-zoom"
   },
@@ -487,6 +487,50 @@
       {
         "layer": "landcover",
         "zoom": {
+          "min": 12,
+          "max": 12
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_commercial"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(246,246,249,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 13,
+          "max": 13
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "landuse_commercial"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(243,245,248,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover",
+        "zoom": {
           "min": 14,
           "max": 14
         },
@@ -500,7 +544,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(234,234,241,1)"
+      "polygon-fill": "rgba(241,244,247,1)"
     },
     "attachment": "low-zoom"
   },
@@ -522,7 +566,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(235,238,243,1)"
+      "polygon-fill": "rgba(238,242,245,1)"
     },
     "attachment": "low-zoom"
   },
@@ -594,7 +638,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(234,234,241,1)"
+      "polygon-fill": "rgba(246,246,249,1)"
     },
     "attachment": "low-zoom"
   },
@@ -644,7 +688,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(235,236,243,1)"
+      "polygon-fill": "rgba(241,242,247,1)"
     },
     "attachment": "low-zoom"
   },
@@ -730,7 +774,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(234,234,241,1)"
+      "polygon-fill": "rgba(246,246,249,1)"
     },
     "attachment": "low-zoom"
   },
@@ -766,7 +810,7 @@
       }
     ],
     "paint": {
-      "polygon-fill": "rgba(237,237,244,1)"
+      "polygon-fill": "rgba(243,243,248,1)"
     },
     "attachment": "low-zoom"
   },
@@ -1221,10 +1265,10 @@
   {
     "groups": [
       {
-        "layer": "landcover-low-zoom",
+        "layer": "landcover",
         "zoom": {
-          "min": 14,
-          "max": 9
+          "min": 12,
+          "max": 12
         },
         "and": [
           {
@@ -1235,10 +1279,10 @@
         ]
       },
       {
-        "layer": "landcover-low-zoom",
+        "layer": "landcover",
         "zoom": {
-          "min": 14,
-          "max": 9
+          "min": 12,
+          "max": 12
         },
         "and": [
           {
@@ -1249,10 +1293,10 @@
         ]
       },
       {
-        "layer": "landcover-low-zoom",
+        "layer": "landcover",
         "zoom": {
-          "min": 14,
-          "max": 9
+          "min": 12,
+          "max": 12
         },
         "and": [
           {
@@ -1263,10 +1307,10 @@
         ]
       },
       {
-        "layer": "landcover-low-zoom",
+        "layer": "landcover",
         "zoom": {
-          "min": 14,
-          "max": 9
+          "min": 12,
+          "max": 12
         },
         "and": [
           {
@@ -1277,10 +1321,10 @@
         ]
       },
       {
-        "layer": "landcover-low-zoom",
+        "layer": "landcover",
         "zoom": {
-          "min": 14,
-          "max": 9
+          "min": 12,
+          "max": 12
         },
         "and": [
           {
@@ -1291,10 +1335,10 @@
         ]
       },
       {
-        "layer": "landcover-low-zoom",
+        "layer": "landcover",
         "zoom": {
-          "min": 14,
-          "max": 9
+          "min": 12,
+          "max": 12
         },
         "and": [
           {
@@ -1305,10 +1349,10 @@
         ]
       },
       {
-        "layer": "landcover-low-zoom",
+        "layer": "landcover",
         "zoom": {
-          "min": 14,
-          "max": 9
+          "min": 12,
+          "max": 12
         },
         "and": [
           {
@@ -1319,10 +1363,10 @@
         ]
       },
       {
-        "layer": "landcover-low-zoom",
+        "layer": "landcover",
         "zoom": {
-          "min": 14,
-          "max": 9
+          "min": 12,
+          "max": 12
         },
         "and": [
           {
@@ -1333,10 +1377,10 @@
         ]
       },
       {
-        "layer": "landcover-low-zoom",
+        "layer": "landcover",
         "zoom": {
-          "min": 14,
-          "max": 9
+          "min": 12,
+          "max": 12
         },
         "and": [
           {
@@ -1345,7 +1389,149 @@
             "value": "amenity_arts_centre"
           }
         ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(246,246,249,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 13,
+          "max": 13
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_hospital"
+          }
+        ]
       },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 13,
+          "max": 13
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_clinic"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 13,
+          "max": 13
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_university"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 13,
+          "max": 13
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_college"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 13,
+          "max": 13
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_school"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 13,
+          "max": 13
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_kindergarten"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 13,
+          "max": 13
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_community_centre"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 13,
+          "max": 13
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_social_facility"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 13,
+          "max": 13
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_arts_centre"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": "rgba(242,242,247,1)"
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
       {
         "layer": "landcover",
         "zoom": {
@@ -400663,7 +400849,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(107,107,107,1)"
+      "text-fill": "rgba(110,110,110,1)"
     }
   },
   {
@@ -416922,7 +417108,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(113,113,113,1)"
+      "text-fill": "rgba(114,114,114,1)"
     }
   },
   {

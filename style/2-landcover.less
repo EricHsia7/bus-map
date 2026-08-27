@@ -10,15 +10,14 @@
 @heath: #aacdba;
 
 // Basic landuses
-@built-up-lowzoom: #eaeaf1;
-@built-up-12z: #ededf3;
+@built-up-lowzoom: #f6f6f9;
 @residential: #f0f0f5;
 @retail: #ecedf4;
 @commercial: #ebf1f4;
 @industrial: #eff0f6;
 // @industrial-line: #bad4ee; // Also used for railway-line, wastewater_plant-line
-@farmland: #f0f0f0;
-@farmyard: #ebebeb;
+@farmland: #f2f2f2;
+@farmyard: #ededed;
 
 // line width used for faint outline of larger landuses, i.e. where outline is not an
 // intrinsic part of design. Should not appear at lower zoom levels than typical barriers
@@ -86,11 +85,11 @@
   }
 
   &[feature='landuse_residential']:zoom(12) {
-    --polygon-fill: zoom-gradient(@built-up-12z 12z, @built-up-lowzoom 14z, @residential 16z);
+    --polygon-fill: zoom-gradient(@built-up-lowzoom 12z, @residential 16z);
   }
 
-  &[feature='landuse_commercial']:zoom(14) {
-    --polygon-fill: zoom-gradient(@built-up-lowzoom 14z, @commercial 16z);
+  &[feature='landuse_commercial']:zoom(12) {
+    --polygon-fill: zoom-gradient(@built-up-lowzoom 12z, @commercial 16z);
   }
 
   &[feature='landuse_retail'],
@@ -132,7 +131,7 @@
   // &[feature='power_plant']:zoom(10),
   // &[feature='power_generator']:zoom(10),
   // &[feature='power_substation']:zoom(13) {
-  //  --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-12z 12z, @industrial 13z 14z, @power 15z);
+  //  --polygon-fill: zoom-gradient(@built-up-lowzoom, @industrial 13z 14z, @power 15z);
   //  &:zoom(16) {
   //    --line-width: @landuse-faint-outline-width;
   //    --line-color: @power-line;
@@ -186,8 +185,8 @@
   &[feature='amenity_community_centre'],
   &[feature='amenity_social_facility'],
   &[feature='amenity_arts_centre'] {
-    &:zoom(14) {
-      --polygon-fill: @societal_amenities;
+    &:zoom(12) {
+      --polygon-fill: zoom-gradient(@built-up-lowzoom 12z, @societal_amenities 14z);
     }
   }
 
