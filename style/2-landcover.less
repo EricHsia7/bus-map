@@ -229,20 +229,6 @@
     &:zoom(10) {
       --polygon-fill: @cemetery;
     }
-    // &:zoom(13) {
-    // &[religion='jewish'] {
-    // --polygon-pattern-file: "url('patterns/grave_yard_jewish.svg')";
-    // }
-    // &[religion='christian'] {
-    // --polygon-pattern-file: "url('patterns/grave_yard_christian.svg')";
-    // }
-    // &[religion='muslim'] {
-    // --polygon-pattern-file: "url('patterns/grave_yard_muslim.svg')";
-    // }
-    // &[religion='INT-generic'] {
-    // --polygon-pattern-file: "url('patterns/grave_yard_generic.svg')";
-    // }
-    // }
   }
 
   &[feature='tourism_camp_site'],
@@ -305,10 +291,6 @@
     &:zoom(10) {
       --polygon-fill: @leisure;
     }
-    // &:zoom(16) {
-    // --polygon-pattern-file: "url('patterns/dog_park.svg')";
-    // --polygon-pattern-alignment: global;
-    // }
   }
 
   &[feature='leisure_garden'] {
@@ -342,18 +324,12 @@
 
   &[feature='natural_bare_rock']:zoom(5) {
     --polygon-fill: @bare_ground;
-    // &:zoom(13) {
-    // --polygon-pattern-file: "url('symbols/rock_overlay.png')";
-    // }
   }
 
   &[feature='natural_scree'],
   &[feature='natural_shingle'] {
     &:zoom(5) {
       --polygon-fill: @bare_ground;
-      // &:zoom(13) {
-      // --polygon-pattern-file: "url('symbols/scree_overlay.png')";
-      // }
     }
   }
 
@@ -395,10 +371,6 @@
   &[feature='wetland_marsh'] {
     &:zoom(5) {
       --polygon-fill: @grass;
-      // &[feature='wetland_saltmarsh']:zoom(13) {
-      // --polygon-pattern-file: "url('symbols/salt-dots-2.png')";
-      // --polygon-pattern-alignment: global;
-      // }
     }
   }
 
@@ -513,85 +485,6 @@
       }
     }
   }
-
-  // &:not([int_wetland='null']):zoom(10) {
-  // --polygon-pattern-file: "url('symbols/wetland.png')";
-  // --polygon-pattern-alignment: global;
-  // }
-  // &[natural='reef']:zoom(10) {
-  // --polygon-pattern-file: "url('symbols/reef.png')";
-  // --polygon-pattern-alignment: global;
-  // }
-  // &:zoom(13) {
-  // &[int_wetland='marsh'],
-  // &[int_wetland='saltmarsh'],
-  // &[int_wetland='wet_meadow'] {
-  // --polygon-pattern-file: "url('symbols/wetland_marsh.png')";
-  // --polygon-pattern-alignment: global;
-  // }
-  // &[int_wetland='reedbed'] {
-  // --polygon-pattern-file: "url('symbols/wetland_reed.png')";
-  // --polygon-pattern-alignment: global;
-  // }
-  // &[int_wetland='mangrove'] {
-  // --polygon-pattern-file: "url('symbols/wetland_mangrove.png')";
-  // --polygon-pattern-alignment: global;
-  // }
-  // &[int_wetland='swamp'] {
-  // --polygon-pattern-file: "url('symbols/wetland_swamp.png')";
-  // --polygon-pattern-alignment: global;
-  // }
-  // &[int_wetland='bog'],
-  // &[int_wetland='fen'],
-  // &[int_wetland='string_bog'] {
-  // --polygon-pattern-file: "url('symbols/wetland_bog.png')";
-  // --polygon-pattern-alignment: global;
-  // }
-  // &[landuse='salt_pond'] {
-  // --polygon-pattern-file: "url('symbols/salt_pond.png')";
-  // --polygon-pattern-alignment: global;
-  // }
-  // &[natural='beach'],
-  // &[natural='shoal'] {
-  // &[surface='sand'] {
-  // --polygon-pattern-file: "url('symbols/beach.png')";
-  // --polygon-pattern-alignment: global;
-  // }
-  // &[surface='gravel'],
-  // &[surface='fine_gravel'],
-  // &[surface='pebbles'],
-  // &[surface='pebblestone'],
-  // &[surface='shingle'],
-  // &[surface='stones'],
-  // &[surface='shells'] {
-  // --polygon-pattern-file: "url('symbols/beach_coarse.png')";
-  // --polygon-pattern-alignment: global;
-  // }
-  // }
-  // &[natural='scrub'] {
-  // --polygon-pattern-file: "url('symbols/scrub.png')";
-  // --polygon-pattern-alignment: global;
-  // }
-  // }
-
-  //Also landuse = forest, converted in the SQL
-  // &[natural='wood']:zoom(13)::wood {
-  // --polygon-pattern-file: "url('symbols/leaftype_unknown.svg')";
-  // &[leaf_type='broadleaved'] {
-  // --polygon-pattern-file: "url('symbols/leaftype_broadleaved.svg')";
-  // }
-  // &[leaf_type='needleleaved'] {
-  // --polygon-pattern-file: "url('symbols/leaftype_needleleaved.svg')";
-  // }
-  // &[leaf_type='mixed'] {
-  // --polygon-pattern-file: "url('symbols/leaftype_mixed.svg')";
-  // }
-  // &[leaf_type='leafless'] {
-  // --polygon-pattern-file: "url('symbols/leaftype_leafless.svg')";
-  // }
-  // --polygon-pattern-alignment: global;
-  // --opacity: 0.4; // The entire layer has opacity to handle overlapping forests
-  // }
 }
 
 // #landuse-overlay {
@@ -599,8 +492,6 @@
 //  &[landuse='military']:zoom(13) {
 //    --polygon-fill: @military;
 //    --polygon-opacity: 0.05;
-//    // --polygon-pattern-file: "url('patterns/military_red_hatch.svg')";
-//    // --polygon-pattern-alignment: global;
 //    --line-color: @military;
 //    --line-opacity: 0.24;
 //    --line-width: zoom-gradient(1, 2 15z);

@@ -4658,11 +4658,6 @@
             "key": "waterway",
             "op": "=",
             "value": "dock"
-          },
-          {
-            "key": "int_intermittent",
-            "op": "=",
-            "value": "no"
           }
         ]
       },
@@ -4677,11 +4672,6 @@
             "key": "landuse",
             "op": "=",
             "value": "basin"
-          },
-          {
-            "key": "int_intermittent",
-            "op": "=",
-            "value": "no"
           }
         ]
       },
@@ -4696,11 +4686,6 @@
             "key": "natural",
             "op": "=",
             "value": "water"
-          },
-          {
-            "key": "int_intermittent",
-            "op": "=",
-            "value": "no"
           }
         ]
       },
@@ -4715,11 +4700,6 @@
             "key": "landuse",
             "op": "=",
             "value": "reservoir"
-          },
-          {
-            "key": "int_intermittent",
-            "op": "=",
-            "value": "no"
           }
         ]
       },
@@ -4734,11 +4714,6 @@
             "key": "waterway",
             "op": "=",
             "value": "riverbank"
-          },
-          {
-            "key": "int_intermittent",
-            "op": "=",
-            "value": "no"
           }
         ]
       }

@@ -2525,10 +2525,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 #highway-area-fill {
   // &[feature='highway_living_street']:zoom(14) {
   //   --polygon-fill: @living-street-fill;
-  //   &[surface='unpaved'] {
-  //     --polygon-pattern-file: "url('symbols/unpaved/unpaved_living-street-fill.svg')";
-  //     --polygon-pattern-alignment: global;
-  //   }
   // }
 
   // &[feature='highway_service'] {
@@ -2541,10 +2537,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   // &[feature='highway_pedestrian'] {
   //   &:zoom(15) {
   //     --polygon-fill: @pedestrian-fill;
-  //     &[surface='unpaved'] {
-  //       --polygon-pattern-file: "url('symbols/unpaved/unpaved_pedestrian-fill.svg')";
-  //       --polygon-pattern-alignment: global;
-  //     }
   //   }
   // }
 
@@ -2552,35 +2544,19 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[feature='railway_platform'] {
     &:zoom(16) {
       --polygon-fill: @platform-fill;
-      // &[surface='unpaved'] {
-      //   --polygon-pattern-file: "url('symbols/unpaved/unpaved_platform-fill.svg')";
-      //   --polygon-pattern-alignment: global;
-      // }
     }
   }
 
   &[feature='aeroway_runway']:zoom(11) {
     --polygon-fill: @runway-fill;
-    // &[surface='unpaved'] {
-    //   --polygon-pattern-file: "url('symbols/unpaved/unpaved_aeroway-fill.svg')";
-    //   --polygon-pattern-alignment: global;
-    // }
   }
 
   &[feature='aeroway_taxiway']:zoom(13) {
     --polygon-fill: @taxiway-fill;
-    // &[surface='unpaved'] {
-    //   --polygon-pattern-file: "url('symbols/unpaved/unpaved_aeroway-fill.svg')";
-    //   --polygon-pattern-alignment: global;
-    // }
   }
 
   &[feature='aeroway_helipad']:zoom(16) {
     --polygon-fill: @helipad-fill;
-    // &[surface='unpaved'] {
-    //   --polygon-pattern-file: "url('symbols/unpaved/unpaved_aeroway-fill.svg')";
-    //   --polygon-pattern-alignment: global;
-    // }
   }
 }
 
