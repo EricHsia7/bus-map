@@ -18,6 +18,7 @@ const { createLabelsStyleTables, registerLabelsStyle } = require('./label-styles
 const { registerChars, dumpCharsets } = require('./label-charset.js');
 const { paintToVector } = require('./paint-to-vector.js');
 const { createVectorStyleTables, registerVectorStyle } = require('./vector-styles.js');
+const { deltaEncode } = require('./delta.js');
 
 const toObjectOptions = {
   enums: String, // enums as string names
@@ -593,12 +594,12 @@ async function renderChunk(cX, cY, cZ, fileformat) {
                 extent,
                 buffer,
                 zoom: tZ,
-                coordinates: vectorCoordinates,
-                partStartIndices: vectorPartStartIndices,
-                descriptorStartIndices: vectorDescriptorStartIndices,
+                coordinates: deltaEncode(vectorCoordinates, 2),
+                partStartIndices: deltaEncode(vectorPartStartIndices, 1),
+                descriptorStartIndices: deltaEncode(vectorDescriptorStartIndices, 1),
                 descriptorTypes: vectorDescriptorTypes,
-                styleReferences: vectorStyleReferences,
-                styleStartIndices: vectorStyleStartIndices,
+                styleReferences: deltaEncode(vectorStyleReferences, 1),
+                styleStartIndices: deltaEncode(vectorStyleStartIndices, 1),
                 styles: vectorStyleTables.styles
               })
             ),
