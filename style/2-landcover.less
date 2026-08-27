@@ -11,7 +11,7 @@
 
 // Basic landuses
 @built-up-lowzoom: #eaeaf1;
-@built-up-z12: #ededf3;
+@built-up-12z: #ededf3;
 @residential: #f0f0f5;
 @retail: #ecedf4;
 @commercial: #ebf1f4;
@@ -76,46 +76,45 @@
 #landcover-low-zoom:zoom(1, 9)::low-zoom,
 #landcover:zoom(10)::high-zoom {
   // abstract landuse zones (largest, purely administrative)
-  &[feature='landuse_farmland']:zoom(13),
-  &[feature='landuse_greenhouse_horticulture']:zoom(13) {
+  &[feature='landuse_farmland']:zoom(5),
+  &[feature='landuse_greenhouse_horticulture']:zoom(5) {
     --polygon-fill: @farmland;
   }
 
-  &[feature='landuse_farmyard']:zoom(13) {
+  &[feature='landuse_farmyard']:zoom(10) {
     --polygon-fill: @farmyard;
   }
 
-  &[feature='landuse_residential']:zoom(13) {
-    --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-z12 12z);
-    &:zoom(13) {
-      --polygon-fill: @residential;
+  &[feature='landuse_residential']:zoom(12) {
+    --polygon-fill: zoom-gradient(@built-up-12z 12z, @built-up-lowzoom 14z, @residential 16z);
+  }
+
+  &[feature='landuse_commercial']:zoom(14) {
+    --polygon-fill: zoom-gradient(@built-up-lowzoom 14z, @commercial 16z);
+  }
+
+  &[feature='landuse_retail'],
+  &[feature='shop_mall'],
+  &[feature='amenity_marketplace'] {
+    &:zoom(14) {
+      --polygon-fill: zoom-gradient(@built-up-lowzoom 14z, @retail 16z);
     }
   }
 
-  &[feature='landuse_commercial']:zoom(13) {
-    --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-z12 12z, @commercial 13z);
-  }
-
-  &[feature='landuse_retail']:zoom(13),
-  &[feature='shop_mall']:zoom(16),
-  &[feature='amenity_marketplace']:zoom(16) {
-    &:zoom(8) {
-      --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-z12 12z, @retail 13z);
+  &[feature='landuse_industrial'],
+  &[feature='man_made_works'] {
+    &:zoom(14) {
+      --polygon-fill: zoom-gradient(@built-up-lowzoom 14z, @industrial 16z);
     }
-  }
-
-  &[feature='landuse_industrial']:zoom(13),
-  &[feature='man_made_works']:zoom(16) {
-    --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-z12 12z, @industrial 13z);
   }
 
   &[feature='landuse_railway']:zoom(13) {
     --polygon-fill: @railway;
   }
 
-  &[feature='landuse_brownfield']:zoom(13),
-  &[feature='landuse_construction']:zoom(13) {
-    &:zoom(10) {
+  &[feature='landuse_brownfield'],
+  &[feature='landuse_construction'] {
+    &:zoom(14) {
       --polygon-fill: @construction;
     }
   }
@@ -126,14 +125,14 @@
   //  }
   // }
 
-  &[feature='landuse_quarry']:zoom(13) {
+  &[feature='landuse_quarry']:zoom(10) {
     --polygon-fill: @quarry;
   }
 
   // &[feature='power_plant']:zoom(10),
   // &[feature='power_generator']:zoom(10),
   // &[feature='power_substation']:zoom(13) {
-  //  --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-z12 12z, @industrial 13z 14z, @power 15z);
+  //  --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-12z 12z, @industrial 13z 14z, @power 15z);
   //  &:zoom(16) {
   //    --line-width: @landuse-faint-outline-width;
   //    --line-color: @power-line;
@@ -150,8 +149,8 @@
 
   // amenity + transport grounds (contain their own grass and yards)
   &[feature='aeroway_aerodrome']:zoom(10),
-  &[feature='amenity_ferry_terminal']:zoom(16),
-  &[feature='amenity_bus_station']:zoom(16) {
+  &[feature='amenity_ferry_terminal']:zoom(13),
+  &[feature='amenity_bus_station']:zoom(13) {
     --polygon-fill: @transportation-area;
   }
 
@@ -170,7 +169,7 @@
   //   }
   // }
 
-  &[feature='amenity_prison']:zoom(13) {
+  &[feature='amenity_prison']:zoom(14) {
     --polygon-fill: @prison;
     --polygon-opacity: 0.14;
     --line-color: @prison-line;
@@ -178,37 +177,39 @@
     --line-opacity: 0.329;
   }
 
-  &[feature='amenity_hospital']:zoom(13),
-  &[feature='amenity_clinic']:zoom(16),
-  &[feature='amenity_university']:zoom(13),
-  &[feature='amenity_college']:zoom(13),
-  &[feature='amenity_school']:zoom(13),
-  &[feature='amenity_kindergarten']:zoom(16),
-  &[feature='amenity_community_centre']:zoom(16),
-  &[feature='amenity_social_facility']:zoom(16),
-  &[feature='amenity_arts_centre']:zoom(16) {
-    --polygon-fill: @societal_amenities;
+  &[feature='amenity_hospital'],
+  &[feature='amenity_clinic'],
+  &[feature='amenity_university'],
+  &[feature='amenity_college'],
+  &[feature='amenity_school'],
+  &[feature='amenity_kindergarten'],
+  &[feature='amenity_community_centre'],
+  &[feature='amenity_social_facility'],
+  &[feature='amenity_arts_centre'] {
+    &:zoom(14) {
+      --polygon-fill: @societal_amenities;
+    }
   }
 
   // Social amenities. These are building-sized rather than
   // neighbourhood-sized, so they wait for z15 and outline only at z17.
-  &[feature='amenity_townhall']:zoom(16),
-  &[feature='amenity_courthouse']:zoom(16),
-  &[feature='amenity_post_office']:zoom(16),
-  &[feature='amenity_library']:zoom(16) {
+  &[feature='amenity_townhall']:zoom(15),
+  &[feature='amenity_courthouse']:zoom(15),
+  &[feature='amenity_post_office']:zoom(15),
+  &[feature='amenity_library']:zoom(15) {
     --polygon-fill: @civic_amenities;
   }
 
-  &[feature='tourism_museum']:zoom(16),
-  &[feature='tourism_gallery']:zoom(16),
-  &[feature='amenity_theatre']:zoom(16),
-  &[feature='amenity_cinema']:zoom(16) {
+  &[feature='tourism_museum']:zoom(15),
+  &[feature='tourism_gallery']:zoom(15),
+  &[feature='amenity_theatre']:zoom(15),
+  &[feature='amenity_cinema']:zoom(15) {
     --polygon-fill: @culture_amenities;
   }
 
-  &[feature='amenity_childcare']:zoom(16),
-  &[feature='amenity_nursing_home']:zoom(16),
-  &[feature='amenity_public_bath']:zoom(16),
+  &[feature='amenity_childcare']:zoom(15),
+  &[feature='amenity_nursing_home']:zoom(15),
+  &[feature='amenity_public_bath']:zoom(15),
   &[feature='amenity_shelter']:zoom(16) {
     --polygon-fill: @care_amenities;
   }
@@ -224,8 +225,8 @@
   //  }
   // }
 
-  &[feature='landuse_cemetery']:zoom(14),
-  &[feature='amenity_grave_yard']:zoom(14) {
+  &[feature='landuse_cemetery'],
+  &[feature='amenity_grave_yard'] {
     &:zoom(10) {
       --polygon-fill: @cemetery;
     }
@@ -245,9 +246,9 @@
     // }
   }
 
-  &[feature='tourism_camp_site']:zoom(16),
-  &[feature='tourism_caravan_site']:zoom(16),
-  &[feature='tourism_picnic_site']:zoom(16) {
+  &[feature='tourism_camp_site'],
+  &[feature='tourism_caravan_site'],
+  &[feature='tourism_picnic_site'] {
     &:zoom(10) {
       --polygon-fill: @campsite;
       &:zoom(13) {
@@ -270,16 +271,18 @@
   // }
 
   // leisure grounds (contain pitches, lawns, water)
-  &[feature='leisure_golf_course']:zoom(14),
-  &[feature='leisure_miniature_golf']:zoom(16) {
+  &[feature='leisure_golf_course']:zoom(10),
+  &[feature='leisure_miniature_golf']:zoom(15) {
     --polygon-fill: @golf_course;
   }
 
-  &[feature='leisure_park']:zoom(10) {
-    --polygon-fill: @park;
+  &[feature='leisure_park'] {
+    &:zoom(10) {
+      --polygon-fill: @park;
+    }
   }
 
-  &[feature='landuse_recreation_ground']:zoom(14) {
+  &[feature='landuse_recreation_ground']:zoom(10) {
     --polygon-fill: @leisure;
     &:zoom(15) {
       --line-color: darken(@leisure, 15%);
@@ -287,22 +290,32 @@
     }
   }
 
-  &[feature='leisure_sports_centre']:zoom(14),
-  &[feature='leisure_water_park']:zoom(16),
-  &[feature='leisure_stadium']:zoom(14) {
-    --polygon-fill: @stadium;
-    &:zoom(16) {
-      --line-width: 0.3;
-      --line-color: darken(@stadium, 8.8%);
+  &[feature='leisure_sports_centre'],
+  &[feature='leisure_water_park'],
+  &[feature='leisure_stadium'] {
+    &:zoom(10) {
+      --polygon-fill: @stadium;
+      &:zoom(15) {
+        --line-width: 0.3;
+        --line-color: darken(@stadium, 8.8%);
+      }
     }
   }
 
-  &[feature='leisure_dog_park']:zoom(14) {
-    --polygon-fill: @leisure;
+  &[feature='leisure_dog_park'] {
+    &:zoom(10) {
+      --polygon-fill: @leisure;
+    }
+    // &:zoom(16) {
+    // --polygon-pattern-file: "url('patterns/dog_park.svg')";
+    // --polygon-pattern-alignment: global;
+    // }
   }
 
-  &[feature='leisure_garden']:zoom(14) {
-    --polygon-fill: @grass;
+  &[feature='leisure_garden'] {
+    &:zoom(10) {
+      --polygon-fill: @grass;
+    }
   }
 
   // physical land cover drawn inside the grounds above
@@ -391,25 +404,33 @@
   }
 
   // cultivated cover (sits inside farmland)
-  &[feature='landuse_orchard']:zoom(13) {
-    --polygon-fill: @orchard;
+  &[feature='landuse_orchard'] {
+    &:zoom(5) {
+      --polygon-fill: @orchard;
+    }
   }
 
-  &[feature='landuse_vineyard']:zoom(13) {
-    --polygon-fill: @orchard;
+  &[feature='landuse_vineyard'] {
+    &:zoom(5) {
+      --polygon-fill: @orchard;
+    }
   }
 
-  &[feature='landuse_plant_nursery']:zoom(13) {
-    --polygon-fill: @orchard;
+  &[feature='landuse_plant_nursery'] {
+    &:zoom(10) {
+      --polygon-fill: @orchard;
+    }
   }
 
-  &[feature='landuse_allotments']:zoom(13) {
-    --polygon-fill: @allotments;
+  &[feature='landuse_allotments'] {
+    &:zoom(10) {
+      --polygon-fill: @allotments;
+    }
   }
 
   // small built features on top of the cover
-  &[feature='leisure_playground']:zoom(14),
-  &[feature='leisure_fitness_station']:zoom(16) {
+  &[feature='leisure_playground']:zoom(13),
+  &[feature='leisure_fitness_station']:zoom(13) {
     --polygon-fill: @leisure;
     &:zoom(15) {
       --line-color: darken(@leisure, 15%);
@@ -417,7 +438,7 @@
     }
   }
 
-  &[feature='leisure_pitch']:zoom(14) {
+  &[feature='leisure_pitch']:zoom(10) {
     --polygon-fill: @pitch;
     &:zoom(15) {
       --line-width: 0.3;
@@ -425,7 +446,7 @@
     }
   }
 
-  &[feature='leisure_track']:zoom(14) {
+  &[feature='leisure_track']:zoom(10) {
     --polygon-fill: @track;
     &:zoom(15) {
       --line-width: 0.3;
@@ -433,13 +454,15 @@
     }
   }
 
-  &[feature='leisure_ice_rink']:zoom(16) {
-    --polygon-fill: @glacier;
-    --line-width: 0.3;
-    --line-color: darken(@pitch, 3%);
+  &[feature='leisure_ice_rink'] {
+    &:zoom(10) {
+      --polygon-fill: @glacier;
+      --line-width: 0.3;
+      --line-color: darken(@pitch, 3%);
+    }
   }
 
-  &[feature='leisure_swimming_pool']:zoom(16) {
+  &[feature='leisure_swimming_pool']:zoom(14) {
     --polygon-fill: @water-color;
   }
 
@@ -454,11 +477,11 @@
     --polygon-fill: @garages;
   }
 
-  &[feature='amenity_parking']:zoom(16),
-  &[feature='amenity_bicycle_parking']:zoom(16),
-  &[feature='amenity_motorcycle_parking']:zoom(16),
-  &[feature='amenity_taxi']:zoom(16) {
-    &:zoom(14) {
+  &[feature='amenity_parking'],
+  &[feature='amenity_bicycle_parking'],
+  &[feature='amenity_motorcycle_parking'],
+  &[feature='amenity_taxi'] {
+    &:zoom(16) {
       --polygon-fill: @parking;
     }
   }

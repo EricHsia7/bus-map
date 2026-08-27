@@ -13,9 +13,7 @@
 @building-major-z15: darken(@building-major-fill, 1%);
 
 // Outlines are hairlines: flat design, just enough to separate adjacent blocks.
-@building-line-z15: lighten(@building-line, 1.5%);
-@building-outline-width-z15: 0.3;
-@building-outline-width-z16: 0.35;
+@building-outline-width: 0.35;
 
 @entrance-permissive: darken(@building-line, 6%);
 @entrance-normal: @building-line;
@@ -23,32 +21,36 @@
 @bridge-area-fill: @neutral-300;
 
 #buildings {
-  &:zoom(15) {
-    --polygon-fill: zoom-gradient(@building-fill-z15 15z, @building-fill 16z);
-    --line-color: zoom-gradient(@building-line-z15 15z, @building-line 16z);
-    --line-width: zoom-gradient(@building-outline-width-z15 15z, @building-outline-width-z16 16z);
-
-    &[amenity='place_of_worship'],
-    &[aeroway='terminal'],
-    &[aerialway='station'],
-    &[building='train_station'],
-    &[public_transport='station'] {
-      --polygon-fill: zoom-gradient(@building-major-z14 14z, @building-major-z15 15z, @building-major-fill 16z);
+  &[amenity='place_of_worship'],
+  &[aeroway='terminal'],
+  &[aerialway='station'],
+  &[building='train_station'],
+  &[public_transport='station'] {
+    &:zoom(15) {
+      --polygon-fill: zoom-gradient(@building-major-z15 15z, @building-major-fill 16z);
       &:zoom(16) {
         --line-color: @building-major-line;
       }
     }
   }
-}
 
-#bridge {
-  &:zoom(12) {
-    --polygon-fill: @bridge-area-fill;
+  &:zoom(16) {
+    --polygon-fill: zoom-gradient(@building-fill-z15 15z, @building-fill 16z);
+    &:zoom(17) {
+      --line-color: @building-line;
+      --line-width: @building-outline-width;
+    }
   }
 }
 
+// #bridge {
+//   &:zoom(12) {
+//     --polygon-fill: @bridge-area-fill;
+//   }
+// }
+
 #entrances {
-  &:zoom(18) {
+  &:zoom(16) {
     --marker-width: 5;
     --marker-scale: zoom-gradient(1 18z 19z, 1.6 20z);
     --marker-fill: @entrance-normal;
@@ -61,7 +63,7 @@
       --marker-file: "url('symbols/square.svg')";
     }
   }
-  &:zoom(19) {
+  &:zoom(17) {
     &[entrance='yes'],
     &[entrance='main'],
     &[entrance='home'],
