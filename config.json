@@ -22,8 +22,6 @@
     "precision": 4096,
     "extent": 2048,
     "buffer": 128,
-    "scaleFrameTolerance": 0.02,
-    "scaleFrameMax": 8,
     "labelQuantization": 1024,
     "background": "#f2f2f7"
   }

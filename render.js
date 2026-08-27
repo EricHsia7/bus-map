@@ -74,56 +74,6 @@ function cascadeByAttachment(indices, style) {
   return order.map((attachment) => byAttachment.get(attachment));
 }
 
-/*---------------------------------------------------------------------
- * Fractional-zoom frames
- *--------------------------------------------------------------------
- * A tile rendered for zoom z stays on screen for view zooms [z, z + 1). Every
- * scaled property ships as an interval [s0, s1] spanning exactly that octave,
- * so the client can evaluate it at dz = viewZoom - z instead of stepping at
- * integer zooms only.
- *
- * The server does the counting because it is the only place that already knows
- * the whole style table: if nothing in this tile is zoom-dependent, one frame is
- * valid for the entire octave and the worker must not waste time (or 4 MB of
- * bitmap) rasterizing more. Most tiles land in that case.
- */
-
-// Relative size error that is invisible at typical DPR. 2% of a 4px casing is
-// well under a tenth of a pixel, so more frames buy nothing perceptible.
-const scaleFrameTolerance = config.tiles.scaleFrameTolerance || 0.02;
-// Cap on rasterizations per tile: bitmaps are the expensive, evictable half.
-const scaleFrameMax = config.tiles.scaleFrameMax || 8;
-
-/** Largest relative change any scaled property undergoes across [z, z + 1]. */
-function computeScaleSpread(styles) {
-  let spread = 0;
-  for (let i = 0, l = styles.length; i < l; i++) {
-    const scale = styles[i] && styles[i]['stroke-width-scale'];
-    if (!Array.isArray(scale) || scale.length !== 2) continue;
-    const s0 = scale[0];
-    const s1 = scale[1];
-    if (!Number.isFinite(s0) || !Number.isFinite(s1) || Math.abs(s0) < 1e-9) continue;
-    const relative = Math.abs(s1 / s0 - 1);
-    if (relative > spread) spread = relative;
-  }
-  return spread;
-}
-
-/**
- * Fractional zoom offsets worth rasterizing, always starting at 0 so the
- * worker can hand back the tile's own zoom immediately and refine later.
- * A scale-invariant tile yields exactly [0].
- */
-function computeFrameDeltaZooms(spread) {
-  if (!(spread > scaleFrameTolerance)) return [0];
-  // The epsilon matters: 1.06 / 1 - 1 is 0.06000000000000005, and a bare ceil()
-  // would round that up to a 4th frame (4 MB) for no perceptible gain.
-  const count = Math.min(scaleFrameMax, Math.max(1, Math.ceil(spread / scaleFrameTolerance - 1e-9)));
-  const frames = [];
-  for (let i = 0; i < count; i++) frames.push(i / count);
-  return frames;
-}
-
 const chunksDir = config.chunks.dir;
 
 const tilesDir = config.tiles.dir;
@@ -633,11 +583,6 @@ async function renderChunk(cX, cY, cZ, fileformat) {
       }
       vectorStyleStartIndices.push(vectorDescriptorTypes.length);
 
-      // How much this tile actually changes across its octave, and therefore
-      // how many frames the worker should bother rendering.
-      const scaleSpread = computeScaleSpread(vectorStyleTables.styles);
-      const frameDeltaZooms = computeFrameDeltaZooms(scaleSpread);
-
       fs.writeFileSync(
         path.join(tilesDir, tZ.toString(), tX.toString(), `${tY}.gz`),
         Buffer.from(
@@ -654,9 +599,7 @@ async function renderChunk(cX, cY, cZ, fileformat) {
                 descriptorTypes: vectorDescriptorTypes,
                 styleReferences: vectorStyleReferences,
                 styleStartIndices: vectorStyleStartIndices,
-                styles: vectorStyleTables.styles,
-                scaleSpread,
-                frameDeltaZooms
+                styles: vectorStyleTables.styles
               })
             ),
             gzipOptions
