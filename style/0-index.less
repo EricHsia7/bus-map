@@ -16,6 +16,13 @@
 @neutral-900: #2c2c2e;
 @neutral-950: #1c1c1e;
 
+// Rail
+@rail-800: #4e5560;
+@rail-700: #5f6773;
+@rail-600: #737c8a;
+@rail-500: #8b939f;
+@rail-400: #a6adb8;
+
 // Darker than the old #2c2c2e so literal content separates from the light backgrounds; the ramp encodes label importance, not just colour taste.
 @standard-text-fill: #1c1c1e; // primary: places, road names
 @text-secondary: #3a3a3c; // secondary: areas, addresses
@@ -31,20 +38,23 @@
 @subtle-halo-fill: rgba(255, 255, 255, 0.75);
 @subtle-halo-radius: 1;
 
-// Anything below grade (road/rail tunnels, culverts, subway platforms,
-// underground parking, underground water) shares one recipe: one step lighter
-// and cooler than its surface twin, a soft dashed casing instead of a solid
-// one, and text one step down the text ramp. See the per-sheet usages of
-// @underground-* below.
+// Dash
+@dash-provisional: 2, 4; // under construction
+@dash-abandoned: 3, 3; // disused / dismantled
+@dash-intermittent: 4, 3; // seasonal water, culverts
+@dash-roadworks: 6, 4; // z13-15
+@dash-roadworks-wide: 8, 6; // z16+
+@dash-roadworks-fine: 2, 6; // paths and tracks, where the core is ~1px
+
+// Underground
 @underground-fill: #dcdce2;
 @underground-casing: #cfcfd7;
 @underground-line: darken(@underground-casing, 3%);
-@underground-rail: #b9b9c2;
+@underground-rail: #a9b0bd;
 @underground-water: #b0d9fd;
-@underground-dasharray: 4, 3;
-@underground-casing-dasharray: 5, 3;
 @underground-text-fill: @text-tertiary;
 @underground-halo-fill: @subtle-halo-fill;
+@underground-dasharray: @dash-intermittent;
 
 @book-fonts: 'Noto Sans TC', sans-serif;
 @bold-fonts: 'Noto Sans TC', sans-serif;

@@ -16,6 +16,13 @@
 @neutral-900: #2c2c2e;
 @neutral-950: #1c1c1e;
 
+// Rail
+@rail-800: #4e5560;
+@rail-700: #5f6773;
+@rail-600: #737c8a;
+@rail-500: #8b939f;
+@rail-400: #a6adb8;
+
 // Darker than the old #2c2c2e so literal content separates from the light backgrounds; the ramp encodes label importance, not just colour taste.
 @standard-text-fill: #1c1c1e; // primary: places, road names
 @text-secondary: #3a3a3c; // secondary: areas, addresses
@@ -31,20 +38,23 @@
 @subtle-halo-fill: rgba(255, 255, 255, 0.75);
 @subtle-halo-radius: 1;
 
-// Anything below grade (road/rail tunnels, culverts, subway platforms,
-// underground parking, underground water) shares one recipe: one step lighter
-// and cooler than its surface twin, a soft dashed casing instead of a solid
-// one, and text one step down the text ramp. See the per-sheet usages of
-// @underground-* below.
+// Dash
+@dash-provisional: 2, 4; // under construction
+@dash-abandoned: 3, 3; // disused / dismantled
+@dash-intermittent: 4, 3; // seasonal water, culverts
+@dash-roadworks: 6, 4; // z13-15
+@dash-roadworks-wide: 8, 6; // z16+
+@dash-roadworks-fine: 2, 6; // paths and tracks, where the core is ~1px
+
+// Underground
 @underground-fill: #dcdce2;
 @underground-casing: #cfcfd7;
 @underground-line: darken(@underground-casing, 3%);
-@underground-rail: #b9b9c2;
+@underground-rail: #a9b0bd;
 @underground-water: #b0d9fd;
-@underground-dasharray: 4, 3;
-@underground-casing-dasharray: 5, 3;
 @underground-text-fill: @text-tertiary;
 @underground-halo-fill: @subtle-halo-fill;
+@underground-dasharray: @dash-intermittent;
 
 @book-fonts: 'Noto Sans TC', sans-serif;
 @bold-fonts: 'Noto Sans TC', sans-serif;
@@ -1223,13 +1233,13 @@
 @major-road-z12: darken(@road-fill, 3%);
 @major-road-z13: darken(@road-fill, 2%);
 
-// Rail / misc greys
-@rail-line: @neutral-500;
-@rail-line-dark: @neutral-600;
-@rail-line-light: @neutral-400;
-@rail-line-lighter: @neutral-300;
+// Rail
+@rail-line-dark: @rail-700; // mainline, tram, monorail beam
+@rail-line: @rail-600; // mainline at low zoom, platform edge
+@rail-line-light: @rail-500; // spur / siding / yard, subway, light rail
+@rail-line-lighter: @rail-400; // faintest classes
 @rail-casing: @white;
-@platform-line: @neutral-500;
+@platform-line: @rail-500;
 @turning-circle-line: @neutral-500;
 @highway-area-line: @neutral-600;
 
@@ -1353,17 +1363,13 @@
 @bridge-casing: darken(@road-fill, 2%);
 
 // Underground
-// Every below-grade variant resolves to the shared @underground-* tokens, so
-// road tunnels, rail tunnels and underground platforms read as one system:
-// lighter and cooler than the surface class, dashed casing, no bridge-style
-// hard outline. See 0-index.less for the tokens themselves.
 @tunnel-casing: @underground-casing;
 @tunnel-fill: @underground-fill;
 @tunnel-rail-fill: @underground-rail;
 @tunnel-platform-fill: @underground-fill;
 @tunnel-text-fill: @underground-text-fill;
 
-@platform-fill: @neutral-500;
+@platform-fill: @rail-400; // interior of a platform, inside a @rail-line edge
 
 @private-marking-for-red: #c26363;
 @private-marking: #efa9a9;
@@ -1681,14 +1687,13 @@
         }
 
         &#tunnels {
-          --line-dasharray: @underground-casing-dasharray;
+          --line-color: @tunnel-casing;
         }
 
         &#bridges {
           --line-color: @bridge-casing;
           --line-join: round;
           --line-cap: round; // TODO: butt or round?
-          --line-dasharray: none;
         }
       }
     }
@@ -1704,14 +1709,13 @@
       }
 
       &#tunnels {
-        --line-dasharray: @underground-casing-dasharray;
+        --line-color: @tunnel-casing;
       }
 
       &#bridges {
         --line-color: @bridge-casing;
         --line-join: round;
         --line-cap: butt;
-        --line-dasharray: none;
       }
     }
 
@@ -1753,14 +1757,13 @@
       }
 
       &#tunnels {
-        --line-dasharray: @underground-casing-dasharray;
+        --line-color: @tunnel-casing;
       }
 
       &#bridges {
         --line-join: round;
         --line-color: @bridge-casing;
         --line-cap: butt;
-        --line-dasharray: none;
       }
     }
 
@@ -1783,14 +1786,13 @@
       }
 
       &#tunnels {
-        --line-dasharray: @underground-casing-dasharray;
+        --line-color: @tunnel-casing;
       }
 
       &#bridges {
         --line-join: round;
         --line-color: @bridge-casing;
         --line-cap: butt;
-        --line-dasharray: none;
       }
     }
 
@@ -1813,14 +1815,13 @@
       }
 
       &#tunnels {
-        --line-dasharray: @underground-casing-dasharray;
+        --line-color: @tunnel-casing;
       }
 
       &#bridges {
         --line-join: round;
         --line-cap: butt; // Make the roads connected
         --line-color: @bridge-casing;
-        --line-dasharray: none;
       }
     }
 
@@ -1843,12 +1844,11 @@
       }
 
       &#tunnels {
-        --line-dasharray: @underground-casing-dasharray;
+        --line-color: @tunnel-casing;
       }
 
       &#bridges {
         --line-join: round;
-        --line-dasharray: none;
         --line-cap: butt;
         --line-color: @bridge-casing;
       }
@@ -1870,13 +1870,12 @@
       }
 
       &#tunnels {
-        --line-dasharray: @underground-casing-dasharray;
+        --line-color: @tunnel-casing;
       }
 
       &#bridges {
         --line-color: @bridge-casing;
         --line-join: round;
-        --line-dasharray: none;
         --line-cap: butt;
       }
     }
@@ -1893,14 +1892,13 @@
       }
 
       &#tunnels {
-        --line-dasharray: @underground-casing-dasharray;
+        --line-color: @tunnel-casing;
       }
 
       &#bridges {
         --line-color: @bridge-casing;
         --line-join: round;
         --line-cap: butt;
-        --line-dasharray: none;
       }
     }
 
@@ -1923,7 +1921,6 @@
         --line-color: @bridge-casing;
         --line-join: round;
         --line-cap: butt;
-        --line-dasharray: none;
       }
     }
 
@@ -1939,14 +1936,13 @@
       }
 
       &#tunnels {
-        --line-dasharray: @underground-casing-dasharray;
+        --line-color: @tunnel-casing;
       }
 
       &#bridges {
         --line-color: @bridge-casing;
         --line-join: round;
         --line-cap: butt;
-        --line-dasharray: none;
       }
     }
 
@@ -2487,10 +2483,10 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         --b__line-scale: zoom-gradient(1, 1.75 13z 15z, 3.5 16z, 3.5 17z);
         --b__line-color: white; // TODO: adjust low-zoom color
         &:zoom(13) {
-          --b__line-dasharray: 6, 4;
+          --b__line-dasharray: @dash-roadworks;
         }
         &:zoom(16) {
-          --b__line-dasharray: 8, 6;
+          --b__line-dasharray: @dash-roadworks-wide;
           &[construction='secondary_link'] {
             --line-width: @secondary-link-width-z15;
             --b__line-width: @secondary-link-width-z15 - 2 * @casing-width-z15;
@@ -2509,9 +2505,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         --b__line-color: white;
         --line-width: zoom-gradient(@residential-width-z14, @residential-width-z15 15z, @residential-width-z16 16z, 8 17z);
         --b__line-width: zoom-gradient(@residential-width-z14 - 2 * @casing-width-z13, @residential-width-z15 - 2 * @casing-width-z15 15z, @residential-width-z16 - 2 * @casing-width-z16 16z, 7 17z);
-        --b__line-dasharray: 6, 4;
+        --b__line-dasharray: @dash-roadworks;
         &:zoom(16) {
-          --b__line-dasharray: 8, 6;
+          --b__line-dasharray: @dash-roadworks-wide;
         }
       }
 
@@ -2520,9 +2516,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         --b__line-color: @living-street-fill;
         --line-width: zoom-gradient(@living-street-width-z14, @living-street-width-z15 15z, @living-street-width-z16 16z, 8 17z);
         --b__line-width: zoom-gradient(@living-street-width-z14 - 2 * @casing-width-z13, @living-street-width-z15 - 2 * @casing-width-z15 15z, @living-street-width-z16 - 2 * @casing-width-z16 16z, 7 17z);
-        --b__line-dasharray: 6, 4;
+        --b__line-dasharray: @dash-roadworks;
         &:zoom(16) {
-          --b__line-dasharray: 8, 6;
+          --b__line-dasharray: @dash-roadworks-wide;
         }
       }
 
@@ -2531,9 +2527,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         --b__line-color: @pedestrian-fill;
         --line-width: zoom-gradient(@pedestrian-width-z14, @pedestrian-width-z15 15z, @pedestrian-width-z16 16z, 8 17z);
         --b__line-width: zoom-gradient(@pedestrian-width-z14 - 2 * @casing-width-z13, @pedestrian-width-z15 - 2 * @casing-width-z15 15z, @pedestrian-width-z16 - 2 * @casing-width-z16 16z, 7 17z);
-        --b__line-dasharray: 6, 4;
+        --b__line-dasharray: @dash-roadworks;
         &:zoom(16) {
-          --b__line-dasharray: 8, 6;
+          --b__line-dasharray: @dash-roadworks-wide;
         }
       }
 
@@ -2542,18 +2538,18 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         &[service='INT-minor']:zoom(17) {
           --line-color: @minor-construction;
           --b__line-color: white;
-          --b__line-dasharray: 6, 4;
+          --b__line-dasharray: @dash-roadworks;
           &[service='INT-normal'] {
             --line-width: zoom-gradient(@service-width-z14, @service-width-z16 16z, @service-width-z17 17z, 8 18z);
             --b__line-width: zoom-gradient(@service-width-z14, @service-width-z16 - 2 * @casing-width-z16 16z, @service-width-z17 - 2 * @casing-width-z17 17z, 7 18z);
             &:zoom(16) {
-              --b__line-dasharray: 8, 6;
+              --b__line-dasharray: @dash-roadworks-wide;
             }
           }
           &[service='INT-minor'] {
             --line-width: zoom-gradient(@minor-service-width-z17, @minor-service-width-z18 18z, @minor-service-width-z19 - 2 * @casing-width-z19 19z);
             --b__line-width: zoom-gradient(@minor-service-width-z17 - 2 * @casing-width-z17, @minor-service-width-z18 - 2 * @casing-width-z18 18z, @minor-service-width-z19 - 4 * @casing-width-z19 19z);
-            --b__line-dasharray: 8, 6;
+            --b__line-dasharray: @dash-roadworks-wide;
           }
         }
       }
@@ -2564,9 +2560,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         --b__line-color: @road-fill;
         --line-width: zoom-gradient(@road-width-z14, @road-width-z16 16z, @road-width-z17 17z, 8 18z);
         --b__line-width: zoom-gradient(@road-width-z14, @road-width-z16 - 2 * @casing-width-z16 16z, @road-width-z17 - 2 * @casing-width-z17 17z, 7 18z);
-        --b__line-dasharray: 6, 4;
+        --b__line-dasharray: @dash-roadworks;
         &:zoom(16) {
-          --b__line-dasharray: 8, 6;
+          --b__line-dasharray: @dash-roadworks-wide;
         }
       }
 
@@ -2581,7 +2577,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         // --line-opacity: 0.4;
         --b__line-width: 1.2;
         --b__line-color: @minor-construction;
-        --b__line-dasharray: 2, 6;
+        --b__line-dasharray: @dash-roadworks-fine;
       }
     }
 
@@ -3179,7 +3175,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         }
         &#tunnels {
           --line-color: @bus-guideway-tunnel-fill;
-          --line-dasharray: 5, 2;
         }
       }
       &:zoom(13) {
@@ -3213,7 +3208,10 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         --line-join: round;
         &#roads_low_zoom[int_tunnel='yes'],
         &#tunnels {
-          --line-dasharray: 5, 2;
+          // Sub-pixel stroke: too thin for the ghost to register, so this is
+          // the one below-grade case that still earns a dash.
+          --line-color: @tunnel-rail-fill;
+          --line-dasharray: @underground-dasharray;
         }
       }
       &:zoom(12) {
@@ -3221,20 +3219,25 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         &#bridges {
           --dark__line-join: round;
           &:zoom(16) {
-            --light__line-color: white;
+            --light__line-color: @white;
             --light__line-join: round;
           }
           &[feature='railway_rail'] {
             --dark__line-color: @rail-line-dark;
             --dark__line-width: 2;
             --dark__line-scale: zoom-gradient(1, 1.5 13z 17z, 2 18z);
-            &:zoom(16) {
+            // Modern rail: a grey casing with a continuous white core, not a
+            // hatched line. The hatch was a plate-engraving convention for
+            // sleepers; at screen resolution it aliases into a dotted mess,
+            // collides with every other dashed line on the map, and breaks the
+            // one property a rail line should have -- reading as continuous
+            // track. Casing + core keeps the ladder-like double edge at a
+            // glance and survives being 2px wide.
+            &:zoom(14) {
+              --light__line-color: @white;
+              --light__line-join: round;
               --light__line-width: 0.75;
               --light__line-scale: zoom-gradient(1, (1 / 0.75) 13z 17z, (2 / 0.75) 18z);
-              --light__line-dasharray: 8, 8;
-              &:not([preserved='yes']) {
-                --light__line-dasharray: 0, 8, 8, 1;
-              }
             }
           }
           &[feature='railway_INT-spur-siding-yard'] {
@@ -3244,7 +3247,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
             &:zoom(16) {
               --light__line-width: 0.8;
               --light__line-scale: zoom-gradient(1, 1.25 18z);
-              --light__line-dasharray: 0, 8, 8, 1;
             }
           }
           &[preserved='yes'] {
@@ -3252,24 +3254,23 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
             --dark__line-color: @rail-line-dark;
             &:zoom(16) {
               --light__line-width: 1;
-              --light__line-color: white;
-              --light__line-dasharray: 0, 1, 8, 1;
+              --light__line-color: @white;
             }
           }
         }
         &#tunnels {
-          --line-color: @rail-line;
+          // Below grade: same width and continuity as the surface track, no
+          // white core, one step lighter. The missing core is what reads as
+          // "covered" -- the track is there, the rails are not visible.
+          --line-color: @tunnel-rail-fill;
           --line-width: 2.8;
-          --line-dasharray: 6, 4;
           --line-clip: false;
           &[feature='railway_INT-spur-siding-yard'] {
-            --line-color: @rail-line-light;
+            --line-color: @underground-casing;
             --line-width: 1.9;
             --line-scale: zoom-gradient(1, (2.7 / 1.9) 18z);
-            --line-dasharray: 2, 3;
           }
           &[feature='railway_rail']:zoom(18) {
-            --line-dasharray: 8, 6;
             --line-width: 3.8;
           }
         }
@@ -3289,42 +3290,35 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         &:zoom(13) {
           --line-color: @rail-line-dark;
         }
+        // Urban rail is one thin stroke: no casing, no core. A casing with a
+        // core is the *road* idiom -- an outline wrapped around a fill -- so
+        // building rail out of the same two parts is what made it read as
+        // another class of street, however the colours were tuned. Weight now
+        // carries the distinction instead: roads are wide and light, rail is
+        // thin and dark. Thin also happens to be true to the thing, which a
+        // 4px casing was not.
         --line-width: 1;
-        &:zoom(13) {
-          --line-width: 2;
-        }
+        --line-scale: zoom-gradient(0.8, 1 14z, 1.4 16z, 1.8 18z);
         &[preserved='yes']:zoom(13) {
-          &#roads-fill,
-          &#bridges {
-            --dark__line-width: 3;
-            --dark__line-color: @rail-line-light;
-            --light__line-width: 1;
-            --light__line-color: white;
-            --light__line-dasharray: 0, 1, 8, 1;
-            --light__line-join: round;
-          }
+          // Preserved differs in value, not in structure.
+          --line-color: @rail-line-lighter;
         }
         &#tunnels {
-          --line-dasharray: 5, 3;
+          --line-color: @tunnel-rail-fill;
         }
       }
     }
 
     &[feature='railway_miniature'] {
       &:zoom(15) {
-        --line__line-width: 1.2;
+        --line__line-width: 3;
         --line__line-color: @rail-line-light;
-        --dashes__line-width: 3;
-        --dashes__line-color: @rail-line-light;
-        --dashes__line-dasharray: 1, 10;
+        --core__line-width: 1;
+        --core__line-color: @white;
+        --core__line-join: round;
 
         &[preserved='yes'] {
-          --line__line-width: 3;
           --line__line-color: @rail-line-lighter;
-          --dashes__line-width: 1;
-          --dashes__line-color: white;
-          --dashes__line-dasharray: 0, 1, 8, 1;
-          --dashes__line-join: round;
         }
       }
     }
@@ -3333,68 +3327,43 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     &[feature='railway_tram-service']:zoom(15) {
       &:zoom(12) {
         --line-color: @rail-line-dark;
-        --line-width: 0.75;
-        --line-scale: zoom-gradient(1, (1 / 0.75) 14z, 2 15z 16z, (2 / 0.75) 17z);
-        &:zoom(15) {
-          &[feature='railway_tram-service'] {
-            --line-width: 0.5;
-          }
-        }
-        &:zoom(17) {
-          &[feature='railway_tram-service'] {
-            --line-width: 1;
-          }
-        }
-        &:zoom(18) {
-          &[feature='railway_tram-service'] {
-            --line-width: 1.5;
-          }
-        }
-        &:zoom(19) {
-          &[feature='railway_tram-service'] {
-            --line-width: 2;
-          }
+        // Tram is the lightest gauge in the family, so it stays the thinnest
+        // stroke. A single ladder now drives every zoom, and tram-service
+        // rides the same scale from a smaller base -- which is what the four
+        // hand-written width overrides at z15/17/18/19 were approximating.
+        --line-width: 1;
+        --line-scale: zoom-gradient(0.6, 0.8 14z, 1 16z, 1.3 18z);
+        &[feature='railway_tram-service'] {
+          --line-width: 0.5;
         }
         &[preserved='yes']:zoom(15) {
-          &#roads-fill,
-          &#bridges {
-            --dark__line-width: 3;
-            --dark__line-color: @rail-line-light;
-            --light__line-width: 1;
-            --light__line-color: white;
-            --light__line-dasharray: 0, 1, 8, 1;
-            --light__line-join: round;
-          }
+          --line-color: @rail-line-lighter;
         }
         &#tunnels {
-          --line-dasharray: 5, 3;
+          --line-color: @tunnel-rail-fill;
         }
       }
     }
 
     &[feature='railway_subway'] {
       &:zoom(12) {
-        --line-width: 2;
-        --line-color: @rail-line-light;
+        // One step darker than @rail-line-light: dropping from 4px to 1.6px
+        // costs contrast, so the colour has to pay it back.
+        --line-color: @rail-line;
+        --line-width: 1;
+        --line-scale: zoom-gradient(0.8, 1 14z, 1.3 16z, 1.6 18z);
         &[preserved='yes']:zoom(15) {
-          &#roads-fill,
-          &#bridges {
-            --dark__line-width: 3;
-            --dark__line-color: @rail-line-light;
-            --light__line-width: 1;
-            --light__line-color: white;
-            --light__line-dasharray: 0, 1, 8, 1;
-            --light__line-join: round;
-          }
+          --line-color: @rail-line-lighter;
         }
         &#tunnels {
-          --line-dasharray: 5, 3;
+          --line-color: @tunnel-rail-fill;
         }
       }
       &#bridges {
         &:zoom(14) {
-          --line-width: 2;
-          --line-color: @rail-line-light;
+          --line-width: 1;
+          --line-scale: zoom-gradient(0.8, 1 14z, 1.3 16z, 1.6 18z);
+          --line-color: @rail-line;
         }
       }
     }
@@ -3405,37 +3374,36 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         --background__line-color: @rail-casing;
         --background__line-cap: round;
         --background__line-join: round;
+        // A monorail is a continuous elevated beam; a dashed beam read as
+        // "under construction". The white casing separates it from whatever it
+        // flies over, which is what the dash was really doing.
         --line__line-width: 3;
         --line__line-color: @rail-line-dark;
-        --line__line-dasharray: 2, 3;
         --line__line-cap: round;
         --line__line-join: round;
 
         &[preserved='yes'] {
           --line__line-color: @rail-line-light;
-          --background__line-color: white;
-          --background__line-dasharray: 0, 1, 8, 1;
+          --background__line-color: @white;
         }
 
         &#tunnels {
-          --line__line-dasharray: 2, 4;
+          --line__line-color: @tunnel-rail-fill;
         }
       }
     }
 
+    // The two classes that keep a dash, because for these the broken line
+    // *is* the statement: planned track, and track that has stopped being
+    // track. Both now spend a token from the shared vocabulary, so they cannot
+    // drift into looking like each other or like a tunnel.
     &[feature='railway_construction'] {
       &:zoom(13) {
         --line-color: @rail-line;
         --line-width: 2;
         --line-scale: zoom-gradient(1, 1.5 15z);
-        --line-dasharray: 2, 4;
+        --line-dasharray: @dash-provisional;
         --line-join: round;
-        &:zoom(14) {
-          --line-dasharray: 2, 3;
-        }
-        &:zoom(15) {
-          --line-dasharray: 2, 3;
-        }
       }
     }
 
@@ -3443,7 +3411,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       &:zoom(15) {
         --line-color: @rail-line-light;
         --line-width: 2;
-        --line-dasharray: 2, 4;
+        --line-dasharray: @dash-abandoned;
         --line-join: round;
       }
     }
@@ -4460,8 +4428,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         --text-clip: false;
         --text-spacing: 180;
         --text-placement: line;
-        --text-halo-fill: @standard-halo-fill;
-        --text-halo-radius: 1.5;
+        // --text-halo-fill: @standard-halo-fill;
+        // --text-halo-radius: 1.5;
         --text-margin: 2;
         --text-dy: 3;
         --text-upright: right;
@@ -4501,7 +4469,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[railway='funicular'],
   &[railway='monorail'],
   &[railway='tram'] {
-    --text-size: zoom-gradient(10 17z);
+    --text-size: 10;
     --text-scale: zoom-gradient(1 17z 18z, 1.1 19z);
     --text-dy: zoom-gradient(6 17z 18z, 7 19z);
     &:zoom(17) {
@@ -4519,7 +4487,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[railway='rail'] {
     /* Render highspeed rails from z11, other main routes at z14. */
     &[highspeed='yes'] {
-      --text-size: zoom-gradient(10 11z);
+      --text-size: 10;
       --text-scale: zoom-gradient(1 11z 16z, 1.1 17z 18z, 1.2 19z);
       --text-dy: zoom-gradient(3 11z 12z, 6 13z 16z, 7 17z 18z, 8 19z);
       --text-spacing: zoom-gradient(300 11z 13z, 600 14z);
@@ -4535,7 +4503,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       }
     }
     &:not([highspeed='yes'])[usage='main'] {
-      --text-size: zoom-gradient(10 14z);
+      --text-size: 10;
       --text-scale: zoom-gradient(1 14z 16z, 1.1 17z 18z, 1.2 19z);
       --text-dy: zoom-gradient(6 14z 16z, 7 17z 18z, 8 19z);
       --text-spacing: zoom-gradient(300 14z 16z, 600 17z);
