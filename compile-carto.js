@@ -99,7 +99,7 @@ function resolveValue(str) {
       }
     }
   } else if (looksLikeNumericalExpression(substituted)) {
-    const evaluated = calc(substituted);
+    const evaluated = round4(calc(substituted));
     if (typeof evaluated === 'number' && Number.isFinite(evaluated)) {
       return String(evaluated);
     }

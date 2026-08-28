@@ -765,7 +765,7 @@ function mixRGBA(color1, color2, weight) {
 
 function rgbaToString(rgba) {
   const [r, g, b, a] = rgba;
-  const alpha = Math.round(a * 1000) / 1000;
+  const alpha = Math.round(a * 100) / 100;
   return `rgba(${Math.round(r)},${Math.round(g)},${Math.round(b)},${alpha})`;
 }
 
@@ -1085,12 +1085,7 @@ function interpolateStopValues(from, to, t) {
     const rgbaA = extractRGBA(modelA);
     const rgbaB = extractRGBA(modelB);
     if (Array.isArray(rgbaA) && Array.isArray(rgbaB)) {
-      return rgbaToString([
-        Math.round(rgbaA[0] + (rgbaB[0] - rgbaA[0]) * t),
-        Math.round(rgbaA[1] + (rgbaB[1] - rgbaA[1]) * t),
-        Math.round(rgbaA[2] + (rgbaB[2] - rgbaA[2]) * t),
-        rgbaA[3] + (rgbaB[3] - rgbaA[3]) * t
-      ]);
+      return rgbaToString([Math.round(rgbaA[0] + (rgbaB[0] - rgbaA[0]) * t), Math.round(rgbaA[1] + (rgbaB[1] - rgbaA[1]) * t), Math.round(rgbaA[2] + (rgbaB[2] - rgbaA[2]) * t), rgbaA[3] + (rgbaB[3] - rgbaA[3]) * t]);
     }
   }
 
