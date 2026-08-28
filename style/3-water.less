@@ -37,7 +37,8 @@
 #water-areas {
   &[natural='glacier']::natural {
     &:zoom(5) {
-      --line-width: zoom-gradient(1, 1.5 10z);
+      --line-width: 1;
+      --line-scale: zoom-gradient(1, 1.5 10z);
       --line-color: @glacier-line;
       --polygon-fill: @glacier;
       &:zoom(10) {
@@ -51,12 +52,7 @@
   &[natural='water'],
   &[landuse='reservoir'],
   &[waterway='riverbank'] {
-    &[int_intermittent='no'] {
-      --polygon-fill: @water-color;
-    }
-    // &[int_intermittent='yes'] {
-    // --polygon-pattern-file: "url('patterns/intermittent_water.svg')";
-    // }
+    --polygon-fill: @water-color;
   }
 }
 

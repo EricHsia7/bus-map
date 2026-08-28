@@ -1,4 +1,4 @@
-const kindToTable = {
+const labelKindToTable = {
   text: 'textStyles',
   marker: 'iconStyles',
   point: 'iconStyles',
@@ -18,17 +18,17 @@ function canonical(value) {
   return JSON.stringify(value);
 }
 
-function createStyleTables() {
-  return { textStyles: [], iconStyles: [], circleStyles: [], charsets: [], index: new Map(), charIndex: new Map() };
+function createLabelsStyleTables() {
+  return { textStyles: [], iconStyles: [], circleStyles: [], index: new Map() };
 }
 
-function registerStyle(tables, desc) {
-  const { kind, properties, styleProperties } = desc;
-  const table = kindToTable[kind];
-  if (table === undefined) throw new Error(`lunknown kind "${kind}"`);
+function registerLabelsStyle(tables, desc) {
+  const { kind, styleProperties } = desc;
+  const table = labelKindToTable[kind];
+  if (table === undefined) throw new Error(`unknown kind "${kind}"`);
   const key = `${table}\u0000${canonical(styleProperties)}`;
   const existingReference = tables.index.get(key);
-  if (!existingReference) {
+  if (existingReference === undefined) {
     const length = tables[table].length;
     tables[table].push(styleProperties);
     tables.index.set(key, length);
@@ -38,7 +38,7 @@ function registerStyle(tables, desc) {
 }
 
 module.exports = {
-  createStyleTables,
-  registerStyle,
-  kindToTable
+  createLabelsStyleTables,
+  registerLabelsStyle,
+  labelKindToTable
 };

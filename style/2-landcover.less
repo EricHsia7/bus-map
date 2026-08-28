@@ -10,15 +10,14 @@
 @heath: #aacdba;
 
 // Basic landuses
-@built-up-lowzoom: #eaeaf1;
-@built-up-z12: #ededf3;
+@built-up-lowzoom: #f6f6f9;
 @residential: #f0f0f5;
 @retail: #ecedf4;
 @commercial: #ebf1f4;
 @industrial: #eff0f6;
 // @industrial-line: #bad4ee; // Also used for railway-line, wastewater_plant-line
-@farmland: #f0f0f0;
-@farmyard: #ebebeb;
+@farmland: #f2f2f2;
+@farmyard: #ededed;
 
 // line width used for faint outline of larger landuses, i.e. where outline is not an
 // intrinsic part of design. Should not appear at lower zoom levels than typical barriers
@@ -85,37 +84,36 @@
     --polygon-fill: @farmyard;
   }
 
-  &[feature='landuse_residential']:zoom(8) {
-    --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-z12 12z);
-    &:zoom(13) {
-      --polygon-fill: @residential;
-    }
+  &[feature='landuse_residential']:zoom(12) {
+    --polygon-fill: zoom-gradient(@built-up-lowzoom 12z, @residential 16z);
   }
 
-  &[feature='landuse_commercial']:zoom(8) {
-    --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-z12 12z, @commercial 13z);
+  &[feature='landuse_commercial']:zoom(12) {
+    --polygon-fill: zoom-gradient(@built-up-lowzoom 12z, @commercial 16z);
   }
 
   &[feature='landuse_retail'],
   &[feature='shop_mall'],
   &[feature='amenity_marketplace'] {
-    &:zoom(8) {
-      --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-z12 12z, @retail 13z);
+    &:zoom(14) {
+      --polygon-fill: zoom-gradient(@built-up-lowzoom 14z, @retail 16z);
     }
   }
 
-  &[feature='landuse_industrial']:zoom(8),
-  &[feature='man_made_works']:zoom(16) {
-    --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-z12 12z, @industrial 13z);
+  &[feature='landuse_industrial'],
+  &[feature='man_made_works'] {
+    &:zoom(14) {
+      --polygon-fill: zoom-gradient(@built-up-lowzoom 14z, @industrial 16z);
+    }
   }
 
-  &[feature='landuse_railway']:zoom(10) {
+  &[feature='landuse_railway']:zoom(13) {
     --polygon-fill: @railway;
   }
 
   &[feature='landuse_brownfield'],
   &[feature='landuse_construction'] {
-    &:zoom(10) {
+    &:zoom(14) {
       --polygon-fill: @construction;
     }
   }
@@ -133,7 +131,7 @@
   // &[feature='power_plant']:zoom(10),
   // &[feature='power_generator']:zoom(10),
   // &[feature='power_substation']:zoom(13) {
-  //  --polygon-fill: zoom-gradient(@built-up-lowzoom, @built-up-z12 12z, @industrial 13z 14z, @power 15z);
+  //  --polygon-fill: zoom-gradient(@built-up-lowzoom, @industrial 13z 14z, @power 15z);
   //  &:zoom(16) {
   //    --line-width: @landuse-faint-outline-width;
   //    --line-color: @power-line;
@@ -170,7 +168,7 @@
   //   }
   // }
 
-  &[feature='amenity_prison']:zoom(10) {
+  &[feature='amenity_prison']:zoom(14) {
     --polygon-fill: @prison;
     --polygon-opacity: 0.14;
     --line-color: @prison-line;
@@ -187,7 +185,9 @@
   &[feature='amenity_community_centre'],
   &[feature='amenity_social_facility'],
   &[feature='amenity_arts_centre'] {
-    --polygon-fill: @societal_amenities;
+    &:zoom(12) {
+      --polygon-fill: zoom-gradient(@built-up-lowzoom 12z, @societal_amenities 14z);
+    }
   }
 
   // Social amenities. These are building-sized rather than
@@ -229,20 +229,6 @@
     &:zoom(10) {
       --polygon-fill: @cemetery;
     }
-    // &:zoom(13) {
-    // &[religion='jewish'] {
-    // --polygon-pattern-file: "url('patterns/grave_yard_jewish.svg')";
-    // }
-    // &[religion='christian'] {
-    // --polygon-pattern-file: "url('patterns/grave_yard_christian.svg')";
-    // }
-    // &[religion='muslim'] {
-    // --polygon-pattern-file: "url('patterns/grave_yard_muslim.svg')";
-    // }
-    // &[religion='INT-generic'] {
-    // --polygon-pattern-file: "url('patterns/grave_yard_generic.svg')";
-    // }
-    // }
   }
 
   &[feature='tourism_camp_site'],
@@ -294,7 +280,7 @@
   &[feature='leisure_stadium'] {
     &:zoom(10) {
       --polygon-fill: @stadium;
-      &:zoom(13) {
+      &:zoom(15) {
         --line-width: 0.3;
         --line-color: darken(@stadium, 8.8%);
       }
@@ -305,10 +291,6 @@
     &:zoom(10) {
       --polygon-fill: @leisure;
     }
-    // &:zoom(16) {
-    // --polygon-pattern-file: "url('patterns/dog_park.svg')";
-    // --polygon-pattern-alignment: global;
-    // }
   }
 
   &[feature='leisure_garden'] {
@@ -342,18 +324,12 @@
 
   &[feature='natural_bare_rock']:zoom(5) {
     --polygon-fill: @bare_ground;
-    // &:zoom(13) {
-    // --polygon-pattern-file: "url('symbols/rock_overlay.png')";
-    // }
   }
 
   &[feature='natural_scree'],
   &[feature='natural_shingle'] {
     &:zoom(5) {
       --polygon-fill: @bare_ground;
-      // &:zoom(13) {
-      // --polygon-pattern-file: "url('symbols/scree_overlay.png')";
-      // }
     }
   }
 
@@ -395,10 +371,6 @@
   &[feature='wetland_marsh'] {
     &:zoom(5) {
       --polygon-fill: @grass;
-      // &[feature='wetland_saltmarsh']:zoom(13) {
-      // --polygon-pattern-file: "url('symbols/salt-dots-2.png')";
-      // --polygon-pattern-alignment: global;
-      // }
     }
   }
 
@@ -480,7 +452,7 @@
   &[feature='amenity_bicycle_parking'],
   &[feature='amenity_motorcycle_parking'],
   &[feature='amenity_taxi'] {
-    &:zoom(14) {
+    &:zoom(16) {
       --polygon-fill: @parking;
     }
   }
@@ -498,7 +470,8 @@
     --line-cap: square;
     --line-color: @grass;
     &:zoom(16) {
-      --line-width: zoom-gradient(6, 12 18z);
+      --line-width: 6;
+      --line-scale: zoom-gradient(1, 2 18z);
     }
   }
 }
@@ -512,85 +485,6 @@
       }
     }
   }
-
-  // &:not([int_wetland='null']):zoom(10) {
-  // --polygon-pattern-file: "url('symbols/wetland.png')";
-  // --polygon-pattern-alignment: global;
-  // }
-  // &[natural='reef']:zoom(10) {
-  // --polygon-pattern-file: "url('symbols/reef.png')";
-  // --polygon-pattern-alignment: global;
-  // }
-  // &:zoom(13) {
-  // &[int_wetland='marsh'],
-  // &[int_wetland='saltmarsh'],
-  // &[int_wetland='wet_meadow'] {
-  // --polygon-pattern-file: "url('symbols/wetland_marsh.png')";
-  // --polygon-pattern-alignment: global;
-  // }
-  // &[int_wetland='reedbed'] {
-  // --polygon-pattern-file: "url('symbols/wetland_reed.png')";
-  // --polygon-pattern-alignment: global;
-  // }
-  // &[int_wetland='mangrove'] {
-  // --polygon-pattern-file: "url('symbols/wetland_mangrove.png')";
-  // --polygon-pattern-alignment: global;
-  // }
-  // &[int_wetland='swamp'] {
-  // --polygon-pattern-file: "url('symbols/wetland_swamp.png')";
-  // --polygon-pattern-alignment: global;
-  // }
-  // &[int_wetland='bog'],
-  // &[int_wetland='fen'],
-  // &[int_wetland='string_bog'] {
-  // --polygon-pattern-file: "url('symbols/wetland_bog.png')";
-  // --polygon-pattern-alignment: global;
-  // }
-  // &[landuse='salt_pond'] {
-  // --polygon-pattern-file: "url('symbols/salt_pond.png')";
-  // --polygon-pattern-alignment: global;
-  // }
-  // &[natural='beach'],
-  // &[natural='shoal'] {
-  // &[surface='sand'] {
-  // --polygon-pattern-file: "url('symbols/beach.png')";
-  // --polygon-pattern-alignment: global;
-  // }
-  // &[surface='gravel'],
-  // &[surface='fine_gravel'],
-  // &[surface='pebbles'],
-  // &[surface='pebblestone'],
-  // &[surface='shingle'],
-  // &[surface='stones'],
-  // &[surface='shells'] {
-  // --polygon-pattern-file: "url('symbols/beach_coarse.png')";
-  // --polygon-pattern-alignment: global;
-  // }
-  // }
-  // &[natural='scrub'] {
-  // --polygon-pattern-file: "url('symbols/scrub.png')";
-  // --polygon-pattern-alignment: global;
-  // }
-  // }
-
-  //Also landuse = forest, converted in the SQL
-  // &[natural='wood']:zoom(13)::wood {
-  // --polygon-pattern-file: "url('symbols/leaftype_unknown.svg')";
-  // &[leaf_type='broadleaved'] {
-  // --polygon-pattern-file: "url('symbols/leaftype_broadleaved.svg')";
-  // }
-  // &[leaf_type='needleleaved'] {
-  // --polygon-pattern-file: "url('symbols/leaftype_needleleaved.svg')";
-  // }
-  // &[leaf_type='mixed'] {
-  // --polygon-pattern-file: "url('symbols/leaftype_mixed.svg')";
-  // }
-  // &[leaf_type='leafless'] {
-  // --polygon-pattern-file: "url('symbols/leaftype_leafless.svg')";
-  // }
-  // --polygon-pattern-alignment: global;
-  // --opacity: 0.4; // The entire layer has opacity to handle overlapping forests
-  // }
 }
 
 // #landuse-overlay {
@@ -598,8 +492,6 @@
 //  &[landuse='military']:zoom(13) {
 //    --polygon-fill: @military;
 //    --polygon-opacity: 0.05;
-//    // --polygon-pattern-file: "url('patterns/military_red_hatch.svg')";
-//    // --polygon-pattern-alignment: global;
 //    --line-color: @military;
 //    --line-opacity: 0.24;
 //    --line-width: zoom-gradient(1, 2 15z);

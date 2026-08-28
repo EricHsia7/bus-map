@@ -14,8 +14,11 @@ const config = require('./config.json');
 const { rasterize } = require('./rasterize.js');
 const { makeDirectory } = require('./files.js');
 const { paintToLabels } = require('./paint-to-label.js');
-const { createStyleTables, registerStyle } = require('./label-styles.js');
+const { createLabelsStyleTables, registerLabelsStyle } = require('./label-styles.js');
 const { registerChars, dumpCharsets } = require('./label-charset.js');
+const { paintToVector } = require('./paint-to-vector.js');
+const { createVectorStyleTables, registerVectorStyle } = require('./vector-styles.js');
+const { deltaEncode } = require('./delta.js');
 
 const toObjectOptions = {
   enums: String, // enums as string names
@@ -78,12 +81,17 @@ const tilesDir = config.tiles.dir;
 const tileSize = config.tiles.size;
 const tilePrecision = config.tiles.precision;
 const labelQuantization = config.tiles.labelQuantization;
+const extent = config.tiles.extent;
+const buffer = config.tiles.buffer;
 const tileBackground = config.tiles.background;
-const tilesMaxZ = config.tiles.z.max;
+const tilesMinZ = Math.min(config.tiles.z.raster.min, config.tiles.z.vector.min);
+const tilesMaxZ = Math.max(config.tiles.z.raster.max, config.tiles.z.vector.max);
 const safeMargin = 64;
 
-const backgroundElement = `<rect x="0" y="0" width="${tileSize}" height="${tileSize}" fill="${tileBackground}"/>`;
+const gzipOptions = { level: 7 };
 const encoder = new TextEncoder();
+
+const backgroundElement = `<rect x="0" y="0" width="${tileSize}" height="${tileSize}" fill="${tileBackground}"/>`;
 
 // Overlay label/marker output. Text and point symbols are intentionally NOT
 // rasterized (see paint-to-svg.js); instead we collect the features a MapLibre
@@ -287,18 +295,31 @@ async function renderChunk(cX, cY, cZ, fileformat) {
   const total = subTiles.length;
   let count = 0;
   for (const [tX, tY, tZ] of subTiles) {
+    if (cZ < tilesMinZ) continue;
     count++;
     const [x0, y0, x1, y1] = getTileViewbox(tX, tY, tZ);
-    const fills = []; // { order, svg } collected across ways + relations
-    const lineEls = []; // { order, svg }
-    const labels = []; // GeoJSON features for the text/marker overlay
-    // Rule-level label style, interned per tile. Everything paintToLabels emits
-    // except `kind` and `label` is a verbatim copy of the compiled paint, so it
-    // is hoisted here and the feature keeps only an index. `${style}:${label}`
-    // is then a complete glyph-cache key.
-    const styleTables = createStyleTables();
+
+    // conditional rendering
+    const shouldRenderRaster = config.tiles.z.raster.min <= tZ && tZ <= config.tiles.z.raster.max;
+    const shouldRenderVector = config.tiles.z.vector.min <= tZ && tZ <= config.tiles.z.vector.max;
+    const shouldRenderLabels = config.tiles.z.labels.min <= tZ && tZ <= config.tiles.z.labels.max;
+
+    if (!shouldRenderRaster && !shouldRenderVector && !shouldRenderLabels) continue;
+
+    // raster
+    const polygons = []; // { base, rule, index, svg } collected across ways + relations
+    const lines = []; // { base, rule, index, svg }
+
+    // vector
+    const vectorPolygons = []; // { base, rule, index, descriptors }
+    const vectorLines = []; // { base, rule, index, descriptors }
+    const vectorStyleTables = createVectorStyleTables();
+
+    // labels
+    const labels = []; // features for the text/marker overlay
+    const labelsStyleTables = createLabelsStyleTables();
     const charsets = new Map();
-    const startTime = performance.now();
+
     for (const way of ways) {
       if (memberWayIds.has(way.id)) continue; // drawn via its parent multipolygon
       const coords = way.refs.map((id) => nodeMap.get(id)).filter(Boolean);
@@ -323,42 +344,55 @@ async function renderChunk(cX, cY, cZ, fileformat) {
         const base = orderOf(layer.id);
         for (let index = 0; index < passesLength; index++) {
           const { paint, rule } = passes[index];
-          const svg = paintToSvg(paint, d, geometry, tileSize / 256);
-          if (!svg) continue;
-          // base = layer order, rule = stylesheet rule order, index = attachment
-          if (closed) {
-            fills.push({ base, rule, index, svg });
-          } else {
-            lineEls.push({ base, rule, index, svg });
+
+          // raster
+          if (shouldRenderRaster) {
+            const svg = paintToSvg(paint, d, geometry, tileSize / 256);
+            if (svg) {
+              if (closed) {
+                polygons.push({ base, rule, index, svg });
+                // base = layer order, rule = stylesheet rule order, index = attachment
+              } else {
+                lines.push({ base, rule, index, svg });
+              }
+            }
+          }
+
+          // vector
+          if (shouldRenderVector) {
+            const { polygonDescriptors, lineDescriptors } = paintToVector(paint, shape, x0, y0, x1, y1, extent, buffer);
+            if (polygonDescriptors.length > 0) vectorPolygons.push({ base, rule, index, descriptors: polygonDescriptors });
+            if (lineDescriptors.length > 0) vectorLines.push({ base, rule, index, descriptors: lineDescriptors });
           }
         }
 
-        // Collect the text/markers this feature should render.
-        // Lines keep their geometry for line placement; closed areas get a representative point.
-        const labelPaint = {};
-        for (const idx of idxs) Object.assign(labelPaint, style[idx].paint);
-        const labelRule = idxs[idxs.length - 1];
-        const descs = paintToLabels(labelPaint, feat);
-        if (!descs) continue;
-        for (const desc of descs) {
-          // descriptor
-          const textSize = desc.styleProperties['text-size'];
-          if (!textSize) continue;
-          const textScale = Array.isArray(desc.styleProperties['text-scale']) ? desc.styleProperties['text-scale'][0] : desc.styleProperties['text-scale'] || 1; // resolve the placement at discrete zoom level (tZ)
-          const labelGeometry = closed ? plotPolygonLabel(shape, x0, y0, x1, y1, labelQuantization) : plotLineStringLabel(shape, x0, y0, x1, y1, desc.properties.label, textSize, textScale, tileSize, labelQuantization);
-          if (!labelGeometry) continue;
-          const styleReference = registerStyle(styleTables, desc);
-          if (desc.properties.label) registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference);
-          labels.push({
-            base,
-            rule: labelRule,
-            label: {
-              type: 'Feature',
-              id: `w${way.id}`,
-              geometry: labelGeometry,
-              properties: { ...desc.properties, style: styleReference }
-            }
-          });
+        // labels
+        if (shouldRenderLabels) {
+          const labelPaint = {};
+          for (const idx of idxs) Object.assign(labelPaint, style[idx].paint);
+          const labelRule = idxs[idxs.length - 1];
+          const descs = paintToLabels(labelPaint, feat);
+          if (!descs) continue;
+          for (const desc of descs) {
+            // descriptor
+            const textSize = desc.styleProperties['text-size'];
+            if (!textSize) continue;
+            const textScale = Array.isArray(desc.styleProperties['text-scale']) ? desc.styleProperties['text-scale'][0] : desc.styleProperties['text-scale'] || 1; // resolve the placement at discrete zoom level (tZ)
+            const labelGeometry = closed ? plotPolygonLabel(shape, x0, y0, x1, y1, labelQuantization) : plotLineStringLabel(shape, x0, y0, x1, y1, desc.properties.label, textSize, textScale, tileSize, labelQuantization);
+            if (!labelGeometry) continue;
+            const styleReference = registerLabelsStyle(labelsStyleTables, desc);
+            if (desc.properties.label) registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference);
+            labels.push({
+              base,
+              rule: labelRule,
+              label: {
+                type: 'Feature',
+                id: `w${way.id}`,
+                geometry: labelGeometry,
+                properties: { ...desc.properties, style: styleReference }
+              }
+            });
+          }
         }
       }
     }
@@ -382,33 +416,48 @@ async function renderChunk(cX, cY, cZ, fileformat) {
         const base = orderOf(layer.id);
         for (let index = 0; index < passesLength; index++) {
           const { paint, rule } = passes[index];
-          const svg = paintToSvg(paint, d, 'polygon', tileSize / 256);
-          if (!svg) continue;
-          fills.push({ base, rule, index, svg });
+
+          // raster
+          if (shouldRenderRaster) {
+            const svg = paintToSvg(paint, d, 'polygon', tileSize / 256);
+            if (svg) polygons.push({ base, rule, index, svg });
+          }
+
+          // vector
+          if (shouldRenderVector) {
+            for (const poly of feat.polygons) {
+              // The actual geometry depends on clipping and styling.
+              // For example, after clipping, the stroke of a cross-tile polygon becomes an open line.
+              const { polygonDescriptors, lineDescriptors } = paintToVector(paint, { type: 'Polygon', coordinates: poly }, x0, y0, x1, y1, extent, buffer);
+              if (polygonDescriptors.length > 0) vectorPolygons.push({ base, rule, index, descriptors: polygonDescriptors });
+              if (lineDescriptors.length > 0) vectorLines.push({ base, rule, index, descriptors: lineDescriptors });
+            }
+          }
         }
 
-        // Area labels (place/landuse/building names): anchor at a
-        // representative point, emitted only for the tile that contains it.
-        const labelPaint = {};
-        for (const idx of idxs) Object.assign(labelPaint, style[idx].paint);
-        const labelRule = idxs[idxs.length - 1];
-        const descs = paintToLabels(labelPaint, featRow);
-        if (!descs) continue;
-        if (feat.polygons[0]) {
-          const labelGeometry = plotPolygonLabel(feat.polygons[0], x0, y0, x1, y1, labelQuantization);
-          for (const desc of descs) {
-            const styleReference = registerStyle(styleTables, desc);
-            if (desc.properties.label) registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference);
-            labels.push({
-              base,
-              rule: labelRule,
-              label: {
-                type: 'Feature',
-                id: `r${layer.id}:${labelGeometry.coordinates[0]}:${labelGeometry.coordinates[1]}`,
-                geometry: labelGeometry,
-                properties: { ...desc.properties, style: styleReference }
-              }
-            });
+        // labels
+        if (shouldRenderLabels) {
+          const labelPaint = {};
+          for (const idx of idxs) Object.assign(labelPaint, style[idx].paint);
+          const labelRule = idxs[idxs.length - 1];
+          const descs = paintToLabels(labelPaint, featRow);
+          if (!descs) continue;
+          if (feat.polygons[0]) {
+            const labelGeometry = plotPolygonLabel(feat.polygons[0], x0, y0, x1, y1, labelQuantization);
+            for (const desc of descs) {
+              const styleReference = registerLabelsStyle(labelsStyleTables, desc);
+              if (desc.properties.label) registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference);
+              labels.push({
+                base,
+                rule: labelRule,
+                label: {
+                  type: 'Feature',
+                  id: `r${layer.id}:${labelGeometry.coordinates[0]}:${labelGeometry.coordinates[1]}`,
+                  geometry: labelGeometry,
+                  properties: { ...desc.properties, style: styleReference }
+                }
+              });
+            }
           }
         }
       }
@@ -417,33 +466,36 @@ async function renderChunk(cX, cY, cZ, fileformat) {
     // Point features (POIs / place names / stations) live on tagged nodes,
     // which are never drawn as background geometry. Emit each only for the tile
     // whose bbox contains it, so a point lands in exactly one tile.
-    for (const node of center.nodes) {
-      if (node.lon < x0 || node.lon > x1 || node.lat < y0 || node.lat > y1) continue;
-      const layers = I.inferLayers(node.tags, { geometry: 'point', zoom: tZ });
-      for (const layer of layers) {
-        const feat = { ...node.tags, ...layer.row };
-        const idxs = M.matchRules(feat, layer.id, tZ);
-        if (idxs.length === 0) continue;
-        const labelPaint = {};
-        for (const idx of idxs) Object.assign(labelPaint, style[idx].paint);
-        const labelRule = idxs[idxs.length - 1];
-        const descs = paintToLabels(labelPaint, feat);
-        if (!descs) continue;
-        const base = orderOf(layer.id);
-        const labelGeometry = plotPointLabel([node.lon, node.lat], x0, y0, x1, y1, labelQuantization);
-        for (const desc of descs) {
-          const styleReference = registerStyle(styleTables, desc);
-          if (desc.properties.label) registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference);
-          labels.push({
-            base,
-            rule: labelRule,
-            label: {
-              type: 'Feature',
-              id: `n${node.id}`,
-              geometry: labelGeometry,
-              properties: { ...desc.properties, style: styleReference }
-            }
-          });
+
+    if (shouldRenderLabels) {
+      for (const node of center.nodes) {
+        if (node.lon < x0 || node.lon > x1 || node.lat < y0 || node.lat > y1) continue;
+        const layers = I.inferLayers(node.tags, { geometry: 'point', zoom: tZ });
+        for (const layer of layers) {
+          const feat = { ...node.tags, ...layer.row };
+          const idxs = M.matchRules(feat, layer.id, tZ);
+          if (idxs.length === 0) continue;
+          const labelPaint = {};
+          for (const idx of idxs) Object.assign(labelPaint, style[idx].paint);
+          const labelRule = idxs[idxs.length - 1];
+          const descs = paintToLabels(labelPaint, feat);
+          if (!descs) continue;
+          const base = orderOf(layer.id);
+          const labelGeometry = plotPointLabel([node.lon, node.lat], x0, y0, x1, y1, labelQuantization);
+          for (const desc of descs) {
+            const styleReference = registerLabelsStyle(labelsStyleTables, desc);
+            if (desc.properties.label) registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference);
+            labels.push({
+              base,
+              rule: labelRule,
+              label: {
+                type: 'Feature',
+                id: `n${node.id}`,
+                geometry: labelGeometry,
+                properties: { ...desc.properties, style: styleReference }
+              }
+            });
+          }
         }
       }
     }
@@ -454,43 +506,134 @@ async function renderChunk(cX, cY, cZ, fileformat) {
     // position: two features in the same layer and attachment are separated
     // only by which rule matched them, so `rule` has to outrank `index`.
     // Stable sort keeps intra-rule feature order. Fills first, then lines.
-    fills.sort(function (a, b) {
+    polygons.sort(function (a, b) {
       return a.base - b.base || a.rule - b.rule || a.index - b.index;
     });
-    lineEls.sort(function (a, b) {
+    lines.sort(function (a, b) {
       return a.base - b.base || a.rule - b.rule || a.index - b.index;
     });
     labels.sort(function (a, b) {
       return a.base - b.base || a.rule - b.rule;
     });
-    const polygonElements = fills.map((f) => f.svg).join('');
-    const lineElements = lineEls.map((l) => l.svg).join('');
-    const svg = `<svg width="${tileSize}" height="${tileSize}" viewBox="0 0 ${tileSize} ${tileSize}" xmlns="http://www.w3.org/2000/svg">${backgroundElement}${polygonElements}${lineElements}</svg>`;
+    vectorPolygons.sort(function (a, b) {
+      return a.base - b.base || a.rule - b.rule || a.index - b.index;
+    });
+    vectorLines.sort(function (a, b) {
+      return a.base - b.base || a.rule - b.rule || a.index - b.index;
+    });
+
+    // create directories
     await makeDirectory(path.join(tilesDir, tZ.toString(), tX.toString()));
-    await rasterize(svg, path.join(tilesDir, tZ.toString(), tX.toString(), tY.toString()));
     await makeDirectory(path.join(labelsDir, tZ.toString(), tX.toString()));
-    // `extent` is what tells the client these are tile-local integers; drop it and the worker would read them as lon/lat and place everything at the antimeridian.
-    fs.writeFileSync(
-      path.join(labelsDir, tZ.toString(), tX.toString(), `${tY}.gz`),
-      Buffer.from(
-        gzipSync(
-          encoder.encode(
-            JSON.stringify({
-              type: 'FeatureCollection',
-              extent: labelQuantization,
-              zoom: tZ,
-              features: labels.map((l) => l.label),
-              textStyles: styleTables.textStyles,
-              iconStyles: styleTables.iconStyles,
-              circleStyles: styleTables.circleStyles,
-              charsets: dumpCharsets(charsets)
-            })
+
+    // raster tiles
+    if (shouldRenderRaster) {
+      const polygonElements = polygons.map((f) => f.svg).join('');
+      const lineElements = lines.map((l) => l.svg).join('');
+      const svg = `<svg width="${tileSize}" height="${tileSize}" viewBox="0 0 ${tileSize} ${tileSize}" xmlns="http://www.w3.org/2000/svg">${backgroundElement}${polygonElements}${lineElements}</svg>`;
+      await rasterize(svg, path.join(tilesDir, tZ.toString(), tX.toString(), tY.toString()));
+    }
+
+    // vector tiles
+    if (shouldRenderVector) {
+      // Flat parallel arrays instead of nested [[[x, y], ...], ...] descriptors,
+      // so the client can adopt each one with a single typed-array constructor
+      // (`new Int16Array(parsed.coordinates)`) and never allocate per point.
+      // Nesting is carried by three levels of offsets:
+      //   style run -> descriptor -> part (ring / line) -> point
+      const vectorCoordinates = []; // interleaved x, y; Int16-safe: [-buffer, extent + buffer]
+      const vectorPartStartIndices = [0]; // point offset of each part
+      const vectorDescriptorStartIndices = [0]; // part offset of each descriptor
+      const vectorDescriptorTypes = []; // 0 = polygon, 1 = line
+      const vectorStyleReferences = [];
+      const vectorStyleStartIndices = []; // descriptor offset of each style run
+
+      let previousStyleReference = -1;
+
+      // Append one descriptor's geometry and open a new style run when the style changes.
+      const pushVectorDescriptor = (typeCode, geometry, styleReference) => {
+        for (let p = 0, parts = geometry.length; p < parts; p++) {
+          const part = geometry[p];
+          for (let k = 0, points = part.length; k < points; k++) {
+            vectorCoordinates.push(part[k][0], part[k][1]);
+          }
+          vectorPartStartIndices.push(vectorCoordinates.length / 2);
+        }
+        vectorDescriptorTypes.push(typeCode);
+        vectorDescriptorStartIndices.push(vectorPartStartIndices.length - 1);
+        if (styleReference !== previousStyleReference) {
+          vectorStyleReferences.push(styleReference);
+          vectorStyleStartIndices.push(vectorDescriptorTypes.length - 1);
+          previousStyleReference = styleReference;
+        }
+      };
+
+      const vectorPolygonsLength = vectorPolygons.length;
+      const vectorLinesLength = vectorLines.length;
+      for (let i = 0; i < vectorPolygonsLength; i++) {
+        for (let j = 0, m = vectorPolygons[i].descriptors.length; j < m; j++) {
+          const descriptor = vectorPolygons[i].descriptors[j];
+          pushVectorDescriptor(0, descriptor.geometry, registerVectorStyle(vectorStyleTables, descriptor));
+        }
+      }
+      for (let i = 0; i < vectorLinesLength; i++) {
+        for (let j = 0, m = vectorLines[i].descriptors.length; j < m; j++) {
+          const descriptor = vectorLines[i].descriptors[j];
+          pushVectorDescriptor(1, descriptor.geometry, registerVectorStyle(vectorStyleTables, descriptor));
+        }
+      }
+      vectorStyleStartIndices.push(vectorDescriptorTypes.length);
+
+      fs.writeFileSync(
+        path.join(tilesDir, tZ.toString(), tX.toString(), `${tY}.gz`),
+        Buffer.from(
+          gzipSync(
+            encoder.encode(
+              JSON.stringify({
+                type: 'Vector',
+                extent,
+                buffer,
+                zoom: tZ,
+                coordinates: deltaEncode(vectorCoordinates, 2),
+                partStartIndices: deltaEncode(vectorPartStartIndices, 1),
+                descriptorStartIndices: deltaEncode(vectorDescriptorStartIndices, 1),
+                descriptorTypes: vectorDescriptorTypes,
+                styleReferences: deltaEncode(vectorStyleReferences, 1),
+                styleStartIndices: deltaEncode(vectorStyleStartIndices, 1),
+                styles: vectorStyleTables.styles
+              })
+            ),
+            gzipOptions
           )
         )
-      )
-    );
-    const endTime = performance.now();
-    console.log(`[${count}/${total}] Rendered (${tX} ${tY} ${tZ}) in (${cX} ${cY} ${cZ}) in ${Math.floor(endTime - startTime)}ms.`);
+      );
+    }
+
+    // labels
+    if (shouldRenderLabels) {
+      fs.writeFileSync(
+        path.join(labelsDir, tZ.toString(), tX.toString(), `${tY}.gz`),
+        Buffer.from(
+          gzipSync(
+            encoder.encode(
+              JSON.stringify({
+                type: 'FeatureCollection',
+                extent: labelQuantization,
+                zoom: tZ,
+                features: labels.map((l) => l.label),
+                textStyles: labelsStyleTables.textStyles,
+                iconStyles: labelsStyleTables.iconStyles,
+                circleStyles: labelsStyleTables.circleStyles,
+                charsets: dumpCharsets(charsets)
+              })
+            ),
+            gzipOptions
+          )
+        )
+      );
+    }
+
+    if (count % 16 === 0 || count === total) console.log(`[${cX} ${cY} ${cZ}] ${Math.round((count / total) * 100)}%`);
   }
   return true;
 }

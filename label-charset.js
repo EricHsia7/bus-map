@@ -1,4 +1,4 @@
-const { kindToTable } = require('./label-styles');
+const { labelKindToTable } = require('./label-styles');
 
 function registerChars(charsets, label, kind, styleReference) {
   const key = `${kind}\u0000${styleReference}`;
@@ -22,7 +22,7 @@ function dumpCharsets(charsets) {
   for (const [key, charset] of charsets) {
     const [kind, styleReference] = key.split('\u0000');
     output.push({
-      table: kindToTable[kind],
+      table: labelKindToTable[kind],
       style: parseInt(styleReference),
       charset: Array.from(charset.keys()).join('')
     });

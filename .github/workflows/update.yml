@@ -127,9 +127,9 @@ jobs:
         uses: actions/cache/restore@v6
         with:
           path: chunks
-          key: chunks-${{ hashFiles('input.osm.pbf') }}-${{ hashFiles('chunk.js') }}-${{ hashFiles('config.json') }}
+          key: chunks-${{ hashFiles('input.osm.pbf') }}-${{ hashFiles('chunk.sh') }}
           restore-keys: |
-            chunks-${{ hashFiles('input.osm.pbf') }}-${{ hashFiles('chunk.js') }}-${{ hashFiles('config.json') }}
+            chunks-${{ hashFiles('input.osm.pbf') }}-${{ hashFiles('chunk.sh') }}
 
       - name: Chunk Map Data
         if: steps.restore-cached-chunks.outputs.cache-hit != 'true'
@@ -166,7 +166,6 @@ jobs:
           git add ./tiles ./labels -f || true
           git commit -m "Updates" || true
       # git rm -r --cached . >/dev/null -> unstage everything while keeping files on disk
-
       - name: Push to Dist Branch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
