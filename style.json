@@ -620439,23 +620439,6 @@
   {
     "groups": [
       {
-        "layer": "interpolation",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": []
-      }
-    ],
-    "paint": {
-      "line-color": "rgba(95,95,102,1)",
-      "line-width": "1",
-      "line-dasharray": "2, 4"
-    }
-  },
-  {
-    "groups": [
-      {
         "layer": "addresses",
         "zoom": {
           "min": 17,
