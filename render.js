@@ -19,6 +19,7 @@ const { registerChars, dumpCharsets } = require('./label-charset.js');
 const { paintToVector } = require('./paint-to-vector.js');
 const { createVectorStyleTables, registerVectorStyle } = require('./vector-styles.js');
 const { deltaEncode } = require('./delta.js');
+const { AsyncPool } = require('./async-pool.js');
 
 const toObjectOptions = {
   enums: String, // enums as string names
@@ -634,18 +635,9 @@ async function renderChunk(cX, cY, cZ, fileformat) {
       );
     }
 
-    if (count % 16 === 0 || count === total) console.log(`[${cX} ${cY} ${cZ}] ${Math.round((count / total) * 100)}%`);
+    if (count % 16 === 0 || count === total) console.log(`[${cX} ${cY} ${cZ}]\t${Math.round((count / total) * 100)}%`);
   }
   return true;
-}
-
-function splitByLength(array, length = 3) {
-  const groups = [];
-  const quantity = Math.ceil(array.length / length);
-  for (let i = 0; i < quantity; i++) {
-    groups.push(array.slice(i * length, i * length + length));
-  }
-  return groups;
 }
 
 async function main() {
@@ -656,15 +648,15 @@ async function main() {
   const baseZ = config.chunks.baseZ;
   const fileformat = await loadFileformat();
   const chunkTiles = areaToTiles(west, south, east, north, baseZ);
-  const groups = splitByLength(chunkTiles, 4);
-  for (const group of groups) {
+  const pool = new AsyncPool(4, async function (tile, index) {
     try {
-      const groupResults = await Promise.allSettled(group.map((tile) => renderChunk(tile[0], tile[1], baseZ, fileformat)));
-      console.log(groupResults);
+      const result = await renderChunk(tile[0], tile[1], baseZ, fileformat);
+      console.log(result);
     } catch (err) {
       console.log(baseZ, err);
     }
-  }
+  });
+  await pool.runSettled(chunkTiles);
 }
 
 main();
