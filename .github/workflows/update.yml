@@ -149,12 +149,12 @@ jobs:
           path: chunks
           key: ${{ steps.restore-cached-chunks.outputs.cache-primary-key }}
 
-      - name: Render
+      - name: Build
         if: steps.restore-cached-tiles-labels.outputs.cache-hit != 'true'
         run: |
           mkdir -p tiles || true
           mkdir -p labels || true
-          node render.js || true
+          node build.js || true
 
       - name: Configure git
         run: |
