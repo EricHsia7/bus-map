@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { decompressSync, gzipSync } = require('fflate');
 const { plotPolygon, plotLineString, plotPolygonLabel, plotPointLabel, plotLineStringLabel } = require('./plot.js');
-const { getTileViewbox, getSubTiles, areaToTiles, projectLatitude, projectLongitude } = require('./coordinate.js');
+const { getTileViewbox, getSubTiles, projectLatitude, projectLongitude } = require('./coordinate.js');
 const style = require('./style.json');
 const mml = require('./mml.json');
 const M = require('./match-rule.js');
@@ -19,7 +19,7 @@ const { registerChars, dumpCharsets } = require('./label-charset.js');
 const { paintToVector } = require('./paint-to-vector.js');
 const { createVectorStyleTables, registerVectorStyle } = require('./vector-styles.js');
 const { deltaEncode } = require('./delta.js');
-const { AsyncPool } = require('./async-pool.js');
+const { parentPort } = require('node:worker_threads');
 
 const toObjectOptions = {
   enums: String, // enums as string names
@@ -640,23 +640,17 @@ async function renderChunk(cX, cY, cZ, fileformat) {
   return true;
 }
 
-async function main() {
-  const west = config.bbox.west;
-  const south = config.bbox.south;
-  const east = config.bbox.east;
-  const north = config.bbox.north;
-  const baseZ = config.chunks.baseZ;
-  const fileformat = await loadFileformat();
-  const chunkTiles = areaToTiles(west, south, east, north, baseZ);
-  const pool = new AsyncPool(4, async function (tile, index) {
-    try {
-      const result = await renderChunk(tile[0], tile[1], baseZ, fileformat);
-      console.log(result);
-    } catch (err) {
-      console.log(baseZ, err);
-    }
-  });
-  await pool.runSettled(chunkTiles);
-}
+parentPort.on('message', handleMessage);
 
-main();
+async function handleMessage(message) {
+  try {
+    const fileformat = await loadFileformat();
+    console.log(message);
+    const result = await renderChunk(message.tile[0], message.tile[1], message.baseZ, fileformat);
+    console.log(result);
+  } catch (error) {
+    console.log(error);
+  } finally {
+    parentPort.postMessage(message);
+  }
+}
