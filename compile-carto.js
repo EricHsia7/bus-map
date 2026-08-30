@@ -226,12 +226,41 @@ function clampZoom(zoom, bound, kind) {
   else zoom.max = Math.min(zoom.max, z);
 }
 
+// Collect the distinct layer ids named by a (comma-free) selector, in source
+// order. Attribute values and pseudo-class arguments are blanked out first so
+// that a `#` inside them (a hex colour, say) is never mistaken for an id.
+function collectLayerIds(sel) {
+  const bare = sel.replace(/\[[^\]]*\]/g, '[]').replace(/\(([^()]*)\)/g, '()');
+  const ids = [];
+  for (const m of bare.matchAll(/#([\w-]+)/g)) {
+    if (!ids.includes(m[1])) ids.push(m[1]);
+  }
+  return ids;
+}
+
 // Parse a single (comma-free) selector like
 //   #roads[highway="primary"]:zoom(12, 15)::casing
 // into { layer, filters:[{key,op,value}], zoom:{min,max}, attachment }.
 // Filters are ANDed and keep their source order.
 function parseSelector(sel) {
-  const layer = (sel.match(/#([\w-]+)/) || [])[1] || null;
+  // A flattened selector can pick up more than one id when a nested rule
+  // re-narrows a multi-layer parent:
+  //
+  //   #roads-casing, #bridges, #tunnels {
+  //     &::bridges_and_tunnels_background {
+  //       &[feature='highway_bridleway'] { &#bridges { ... } }
+  //     }
+  //   }
+  //
+  // flattens to `#roads-casing ... #bridges`, `#bridges ... #bridges` and
+  // `#tunnels ... #bridges`. A feature belongs to exactly one Mapnik layer,
+  // so `#a#b` with a != b is unsatisfiable: those combinations must be
+  // DROPPED. Taking the first id instead (the previous behaviour) silently
+  // widened every re-narrowed block back to all of its ancestor layers --
+  // that is how bridge/tunnel casings ended up painted on plain roads.
+  const ids = collectLayerIds(sel);
+  const layer = ids.length ? ids[0] : null;
+  const conflict = ids.length > 1;
   const attachment = (sel.match(/::([\w-]+)/) || [])[1] || null;
   const filters = [];
   const zoom = { min: ZOOM_MIN, max: ZOOM_MAX };
@@ -289,7 +318,7 @@ function parseSelector(sel) {
     filters.push({ key, op, value: resolveVars(bound ?? '').trim() });
   }
 
-  return { layer, filters, zoom, attachment };
+  return { layer, filters, zoom, attachment, conflict };
 }
 
 // Turn a nesting chain of (possibly comma-separated) selectors into the OR
@@ -303,6 +332,8 @@ function buildGroups(chain, parseSel = parseSelector) {
   const seen = new Set();
   for (const combo of combos) {
     const p = parseSel(joinChain(combo));
+    // Unsatisfiable layer intersection (`#a ... #b`): emit nothing.
+    if (p.conflict) continue;
     const group = { layer: p.layer, zoom: p.zoom, and: p.filters };
     const key = JSON.stringify(group);
     if (!seen.has(key)) {

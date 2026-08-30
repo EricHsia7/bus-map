@@ -1219,7 +1219,7 @@
 }
 @default-casing: #b8bec6;
 @road-fill: #b8bec6;
-@road-casing: @road-fill;
+@road-casing: darken(@road-fill, 3%);
 
 // Zoom shades
 // Minor classes fade *in shade*, from a light tint at z12 to the full road
@@ -1267,63 +1267,64 @@
 @minor-construction: #a6a7a9;
 
 /* Dual-carriageway, high speed, grade-separated with restricted access. */
-@motorway-casing: @road-fill;
+
 @motorway-fill: @road-fill;
-@motorway-low-zoom-casing: @road-fill;
-@motorway-low-zoom: @road-fill;
-@motorway-shield: @road-fill;
+@motorway-casing: darken(@motorway-fill, 3%);
+@motorway-low-zoom-casing: @motorway-fill;
+@motorway-low-zoom: @motorway-fill;
+@motorway-shield: @motorway-fill;
 @motorway-tunnel-fill: @tunnel-fill;
 
 /* High-importance corridors that do not meet full motorway standards. */
 @trunk-fill: @road-fill;
-@trunk-casing: @trunk-fill;
+@trunk-casing: darken(@trunk-fill, 3%);
 @trunk-low-zoom-casing: @trunk-fill;
 @trunk-low-zoom: @trunk-fill;
 @trunk-shield: @trunk-fill;
 @trunk-tunnel-fill: @tunnel-fill;
 
 /* Links major cities and large towns within a state or region. */
-@primary-casing: @road-fill;
 @primary-fill: @road-fill;
-@primary-low-zoom-casing: lighten(@road-fill, 2%);
-@primary-low-zoom: @road-fill;
-@primary-shield: @road-fill;
+@primary-casing: darken(@primary-fill, 3%);
+@primary-low-zoom-casing: lighten(@primary-fill, 2%);
+@primary-low-zoom: lighten(@primary-fill, 2%);
+@primary-shield: @primary-fill;
 @primary-tunnel-fill: @tunnel-fill;
 
 /* Connects smaller towns, major suburbs, or key urban hubs. */
-@secondary-casing: @road-fill;
 @secondary-fill: @road-fill;
-@secondary-low-zoom-casing: lighten(@road-fill, 2%);
-@secondary-low-zoom: @road-fill;
-@secondary-shield: @road-fill;
+@secondary-casing: darken(@secondary-fill, 3%);
+@secondary-low-zoom-casing: lighten(@secondary-fill, 2%);
+@secondary-low-zoom: lighten(@secondary-fill, 2%);
+@secondary-shield: @secondary-fill;
 @secondary-tunnel-fill: @tunnel-fill;
 
 /* Connects villages, suburbs, or local districts to secondary and primary roads. */
 @tertiary-casing: @road-fill;
-@tertiary-fill: @road-fill;
-@tertiary-low-zoom-casing: lighten(@road-fill, 2%);
-@tertiary-low-zoom: @road-fill;
-@tertiary-shield: @road-fill;
+@tertiary-fill: darken(@tertiary-fill, 3%);
+@tertiary-low-zoom-casing: lighten(@tertiary-fill, 2%);
+@tertiary-low-zoom: lighten(@tertiary-fill, 2%);
+@tertiary-shield: @tertiary-fill;
 @tertiary-tunnel-fill: @tunnel-fill;
 
 /* Streets through housing areas intended for local resident traffic. */
-@residential-casing: @road-fill;
 @residential-fill: @road-fill;
+@residential-casing: darken(@residential-fill, 3%);
 @residential-tunnel-fill: @tunnel-fill;
 
 /* Pedestrian-priority residential streets with strict speed limits. */
-@living-street-casing: @road-fill;
 @living-street-fill: @road-fill;
+@living-street-casing: darken(@living-street-fill, 3%);
 @living-street-tunnel-fill: @tunnel-fill;
 
 /* Access roads to buildings, parking lots, driveways, alleyways, gas stations, or emergency access. */
-@service-casing: @road-fill;
 @service-construction: #a6a7a9;
 @service-fill: @road-fill;
+@service-casing: darken(@service-fill, 3%);
 
 /* Roads reserved primarily for pedestrians, such as shopping streets, plazas, or town centers. */
-@pedestrian-casing: @road-fill;
 @pedestrian-fill: @road-fill;
+@pedestrian-casing: darken(@pedestrian-fill, 3%);
 
 /* Roads used for agricultural or forestry access. Usually unpaved and sub-tagged with surface quality (tracktype=grade1 to grade5). */
 @track-casing: #f3f1ec; // farmland
@@ -1333,11 +1334,11 @@
 /* Designated walking paths, sidewalks, or footbridges. */
 @footway-fill: #8f9298;
 @footway-fill-noaccess: @footway-fill;
-@footway-casing: @footway-fill;
+@footway-casing: darken(@footway-fill, 3%);
 
 @footway-paved-fill: @road-fill;
 @footway-paved-fill-noaccess: @footway-paved-fill;
-@footway-paved-casing: @footway-paved-fill;
+@footway-paved-casing: darken(@footway-paved-fill, 3%);
 
 /* Dedicated bicycle paths or separated cycle tracks. */
 @cycleway-fill: #40dfac;
@@ -1345,14 +1346,14 @@
 @cycleway-casing: #1fd6a2;
 
 /* Generic multi-use non-motorized trails (shared by hikers, mountain bikers, or horse riders). */
-@path-casing: @road-fill;
-@path-fill-noaccess: @path-fill;
 @path-fill: @road-fill;
+@path-fill-noaccess: @path-fill;
+@path-casing: darken(@path-fill, 3%);
 
 /* Outdoor stairs or stepped pathways. */
-@steps-casing: @road-fill;
-@steps-fill-noaccess: @road-fill;
 @steps-fill: @road-fill;
+@steps-fill-noaccess: @steps-fill;
+@steps-casing: darken(@steps-fill, 3%);
 
 /* Paths designated primarily for equestrian/horse riding. */
 @bridleway-fill: #a7d4a7;
@@ -1389,8 +1390,6 @@
 @taxiway-fill: @aeroway-fill;
 
 @unimportant-road: @road-fill;
-
-@bridge-casing-factor: 1.25;
 
 // Road scale factors
 @road-scale-z6: 0.035; // stop
@@ -1429,7 +1428,10 @@
 
 // Casing is class-independent: one outline weight for every hierarchy
 // level, scaled by the same ramp as the road it wraps.
-@casing-width: 0.32;
+
+@bridge-casing-factor: 1.25;
+
+@casing-width: 0.4;
 @bridge-casing-width: @casing-width * @bridge-casing-factor;
 @major-casing-width: @casing-width;
 @secondary-casing-width: @casing-width;
