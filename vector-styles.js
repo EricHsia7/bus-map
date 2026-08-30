@@ -16,11 +16,22 @@ function createVectorStyleTables() {
   return { styles: [], index: new Map(), palette: [], paletteIndex: new Map() };
 }
 
+const rgbaExtractionCache = new Map();
 function pushColor(value, palette) {
-  const component = parseCSSModel(value);
-  if (!component) palette.push(0, 0, 0, 0);
-  const [r, g, b, a] = extractRGBA(component);
-  palette.push(r, g, b, Math.round(a * 255));
+  const cached = rgbaExtractionCache.get(value);
+  if (cached === undefined) {
+    const component = parseCSSModel(value);
+    if (!component) {
+      palette.push(0, 0, 0, 0);
+      rgbaExtractionCache.set(value, [0, 0, 0, 0]);
+      return;
+    }
+    const [r, g, b, a] = extractRGBA(component);
+    palette.push(r, g, b, Math.round(a * 255));
+    rgbaExtractionCache.set(value, [r, g, b, Math.round(a * 255)]);
+  } else {
+    palette.push(cached[0], cached[1], cached[2], cached[3]);
+  }
 }
 
 /**
