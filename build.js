@@ -13,7 +13,7 @@ async function main() {
   const threads = new WorkerPool('./render.js', 4);
 
   const pool = new AsyncPool(4, async function (tile, index) {
-    threads.exec({ tile, baseZ });
+    await threads.exec({ tile, baseZ });
   });
   await pool.runSettled(chunkTiles);
 }
