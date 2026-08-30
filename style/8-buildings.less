@@ -10,7 +10,6 @@
 // of separation from ordinary buildings at every zoom.
 @building-major-fill: darken(@building-fill, 6%);
 @building-major-line: darken(@building-major-fill, 3%);
-@building-major-z15: darken(@building-major-fill, 1%);
 
 // Outlines are hairlines: flat design, just enough to separate adjacent blocks.
 @building-outline-width: 0.35;
@@ -27,9 +26,10 @@
   &[building='train_station'],
   &[public_transport='station'] {
     &:zoom(15) {
-      --polygon-fill: zoom-gradient(@building-major-z15 15z, @building-major-fill 16z);
+      --polygon-fill: zoom-gradient(@building-fill-z15 15z, @building-major-fill 16z);
       &:zoom(16) {
         --line-color: @building-major-line;
+        --line-width: @building-outline-width;
       }
     }
   }

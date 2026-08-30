@@ -1,13 +1,15 @@
 // Parks, woods, other green things
-@grass: #cde3d5;
-@scrub: #c3dfd0;
-@forest: #c1dcce;
+@allotments: #c7e1b6;
+@campsite: #d0e8c3;
+@cemetery: #cce2bf;
 @forest-text: #3b503c;
-@park: #bfd9cc;
-@allotments: #b9d6c4;
-@orchard: #b4d1c0;
-@hedge: #adcfbb;
-@heath: #aacdba;
+@forest: #cee5c1;
+@grass: #d9ebce;
+@heath: #badba9;
+@hedge: #bedcad;
+@orchard: #c1ddb0;
+@park: #cce2bf;
+@scrub: #d0e7c3;
 
 // Basic landuses
 @built-up-lowzoom: #f6f6f9;
@@ -33,8 +35,6 @@
 @rest_area: #f2edf2; // also services
 
 // Other
-@campsite: #c2e0d0;
-@cemetery: #bfd9cb;
 @construction: #eaeaec; // also brownfield
 @mud: @park; // #d8c9ad;
 @bare_ground: #e2dacf;
@@ -60,7 +60,7 @@
 
 @prison: #8e8e8e;
 @prison-line: darken(@prison, 4%);
-@landfill: #b6b592;
+@landfill: #e6e6e6;
 @emergency-area: #f3e3dd;
 @barrier-line: @neutral-800;
 @barrier-line-light: lighten(@neutral-800, 20%);
@@ -118,11 +118,11 @@
     }
   }
 
-  // &[feature='landuse_landfill'] {
-  //  &:zoom(10) {
-  //    --polygon-fill: @landfill;
-  //  }
-  // }
+  &[feature='landuse_landfill'] {
+    &:zoom(10) {
+      --polygon-fill: @landfill;
+    }
+  }
 
   &[feature='landuse_quarry']:zoom(10) {
     --polygon-fill: @quarry;
