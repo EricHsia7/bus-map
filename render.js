@@ -600,7 +600,8 @@ async function renderChunk(cX, cY, cZ, fileformat) {
                 descriptorTypes: vectorDescriptorTypes,
                 styleReferences: deltaEncode(vectorStyleReferences, 1),
                 styleStartIndices: deltaEncode(vectorStyleStartIndices, 1),
-                styles: vectorStyleTables.styles
+                styles: vectorStyleTables.styles,
+                palette: vectorStyleTables.palette
               })
             ),
             gzipOptions

@@ -22,6 +22,14 @@
     "precision": 4096,
     "extent": 2048,
     "buffer": 128,
+    "areaFilter": {
+      "12": 6400,
+      "13": 1600,
+      "14": 400,
+      "15": 20,
+      "16": 0,
+      "17": 0
+    },
     "labelQuantization": 1024,
     "background": "#f2f2f7"
   }
