@@ -735,56 +735,56 @@
   }
 }
 
-#water-lines::casing {
-  // white glow used when water stroke width is less than 3.5 px and only at "mid zoom" (13 - 17)
+// #water-lines::casing {
+//   // white glow used when water stroke width is less than 3.5 px and only at "mid zoom" (13 - 17)
 
-  &[feature='waterway_canal'][int_bridge_tunnel='no']:zoom(13, 14) {
-    --line-color: @water-color;
-    --line-join: round;
-    --line-cap: round;
-    --line-opacity: 0.85;
-    --line-width: zoom-gradient((@stream-width-z13 * @canal-scale-factor) + 0.6, (@stream-width-z14 * @canal-scale-factor) + 0.6 14z);
-    &[int_intermittent='yes'] {
-      --line-dasharray: 4, 3;
-      --line-cap: butt;
-    }
-  }
+//   &[feature='waterway_canal'][int_bridge_tunnel='no']:zoom(13, 14) {
+//     --line-color: @water-color;
+//     --line-join: round;
+//     --line-cap: round;
+//     --line-opacity: 0.85;
+//     --line-width: zoom-gradient((@stream-width-z13 * @canal-scale-factor) + 0.6, (@stream-width-z14 * @canal-scale-factor) + 0.6 14z);
+//     &[int_intermittent='yes'] {
+//       --line-dasharray: 4, 3;
+//       --line-cap: butt;
+//     }
+//   }
 
-  &[feature='waterway_ditch'],
-  &[feature='waterway_drain'],
-  &[feature='waterway_stream'] {
-    &[int_bridge_tunnel='no']:zoom(13, 17) {
-      --line-color: @water-color;
-      --line-join: round;
-      --line-cap: round;
-      --line-opacity: 0.7;
-      &:zoom(14) {
-        --line-opacity: 0.85;
-      }
-      &:zoom(16) {
-        --line-opacity: 0.75;
-      }
-      &:zoom(17) {
-        --line-opacity: 0.6;
-      }
-      --line-width: @stream-width-z13 + 0.6;
-      &:zoom(14) {
-        --line-width: @stream-width-z14 + 0.6;
-      }
-      &[feature='waterway_stream'] {
-        --line-width: zoom-gradient(@stream-width-z15 + 0.6 15z, @stream-width-z16 + 0.6 16z, @stream-width-z17 + 0.6 17z);
-      }
-      &:not([feature='waterway_stream']):zoom(17) {
-        --line-width: @ditchdrain-width-z17 + 0.6;
-      }
+//   &[feature='waterway_ditch'],
+//   &[feature='waterway_drain'],
+//   &[feature='waterway_stream'] {
+//     &[int_bridge_tunnel='no']:zoom(13, 17) {
+//       --line-color: @water-color;
+//       --line-join: round;
+//       --line-cap: round;
+//       --line-opacity: 0.7;
+//       &:zoom(14) {
+//         --line-opacity: 0.85;
+//       }
+//       &:zoom(16) {
+//         --line-opacity: 0.75;
+//       }
+//       &:zoom(17) {
+//         --line-opacity: 0.6;
+//       }
+//       --line-width: @stream-width-z13 + 0.6;
+//       &:zoom(14) {
+//         --line-width: @stream-width-z14 + 0.6;
+//       }
+//       &[feature='waterway_stream'] {
+//         --line-width: zoom-gradient(@stream-width-z15 + 0.6 15z, @stream-width-z16 + 0.6 16z, @stream-width-z17 + 0.6 17z);
+//       }
+//       &:not([feature='waterway_stream']):zoom(17) {
+//         --line-width: @ditchdrain-width-z17 + 0.6;
+//       }
 
-      &[int_intermittent='yes'] {
-        --line-dasharray: 4, 3;
-        --line-cap: butt;
-      }
-    }
-  }
-}
+//       &[int_intermittent='yes'] {
+//         --line-dasharray: 4, 3;
+//         --line-cap: butt;
+//       }
+//     }
+//   }
+// }
 
 #bridges:zoom(14)::casing {
   &[feature='waterway_river'] {
