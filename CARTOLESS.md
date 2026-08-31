@@ -187,12 +187,14 @@ as the key the range narrows the zoom window and emits no filters.
 The new compiler is otherwise faithful to the old one. Three differences are deliberate bug fixes:
 
 **a. Empty-string inequality is no longer silently dropped.**
+
 The old filter regex required at least one character in the value, so
 `[ref != '']` in `f-golf.mss` was discarded entirely. `:not([ref=""])` now
 compiles to `{ key: "ref", op: "!=", value: "" }`, which is what the stylesheet
 always meant.
 
 **b. Zoom constraints intersect instead of overwriting.**
+
 In `5-roads`, `#roads-fill[zoom >= '10'] { [zoom='9'] { ... } }` used to compile
 to `9..9` — the child’s `=` overwrote the parent’s floor, so a halo rendered at
 z9 from a layer the parent explicitly restricted to z≥10. Nested zoom bounds now
@@ -201,6 +203,7 @@ so the contradictory rule correctly never matches. This affects 5 rules, all in
 `5-roads`, all of them contradictions of exactly this kind.
 
 **c. Contradictory layer intersections are dropped instead of widened.**
+
 Flattening a nested rule can leave two different ids on one selector, e.g.
 `#roads-casing, #bridges, #tunnels { &::bridges_and_tunnels_background { &[feature='highway_bridleway'] { &#bridges { … } } } }` flattens to
 `#roads-casing … #bridges` as well as `#bridges … #bridges`. A feature belongs to
