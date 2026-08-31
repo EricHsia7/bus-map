@@ -68,7 +68,7 @@ function instanceElements(props, k) {
     const widthScale = scaleBase(props['line-scale']);
 
     if (has('line-color')) {
-      attrs['stroke'] = Array.isArray(props['stroke']) ? props['stroke'][0] : props['stroke'];
+      attrs['stroke'] = Array.isArray(props['line-color']) ? props['line-color'][0] : props['line-color'];
     }
 
     if (has('line-width')) {
