@@ -10,10 +10,23 @@ CartoCSS compiler produced.
 
 ---
 
-## Properties
+## Command line
 
-Mapnik symbolizer properties are prefixed with `--`, so LESS treats them as custom
-properties instead of choking on unknown declarations.
+```bash
+cat ./style/*.less > style.less
+node compile-carto.js style.less > style.json
+```
+
+| flag            | effect                                                                                                                    |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `--dark`        | every resolved colour is inverted (`invert.js`) for a dark basemap; only colours change, geometry and sizes are untouched |
+| `--keep-scales` | `*-scale` properties are shipped instead of folded into their sibling size — see `--keep-scales` below                    |
+
+Note that `compile-carto.js` respects the order of selectors and rules in the input stylesheet, so a custom concatenation script or prefixed file names are necessary to ensure layer order and rule cascading.
+
+---
+
+## Properties
 
 ```less
 --line-width: 2;
@@ -44,10 +57,7 @@ the size itself:
 
 ```less
 #text:zoom(12) {
-  --text-size: zoom-gradient(
-    10 12z,
-    30 15z
-  ); // text size is updated when the zoom level jumps
+  --text-size: zoom-gradient(10 12z, 30 15z); // text size is updated when the zoom level jumps
 }
 
 #circle:zoom(13) {
@@ -61,10 +71,7 @@ or state a reference size once and put the ladder on a `*-scale` multiplier:
 ```less
 #text:zoom(12) {
   --text-size: 10;
-  --text-scale: zoom-gradient(
-    1 12z,
-    3 15z
-  ); // supports continuous interpolation at runtime
+  --text-scale: zoom-gradient(1 12z, 3 15z); // supports continuous interpolation at runtime
 }
 
 #circle:zoom(13) {
@@ -76,7 +83,7 @@ or state a reference size once and put the ladder on a `*-scale` multiplier:
 
 Both spellings compile to the same output by default: `--text-scale` and
 `--marker-scale` are folded into their sibling size and never reach the JSON.
-See [Scale properties](#scale-properties----text-scale-and---marker-scale).
+See [Scale properties](#scale-properties).
 
 ---
 
@@ -90,15 +97,16 @@ A compound selector is written in this order:
 
 ### Layers
 
-Unchanged: `#roads-fill`, `#text-point`, ...
-
 ### Attachments
 
 Unchanged, but always written last, as a pseudo-element: `::casing`, `::halo`.
 
+An attachment may sit on any segment of a nesting chain; the innermost one wins.
+It is emitted as a top-level `attachment` key next to `groups` and `paint`, never as a paint property, and because each attachment is rendered as its own symbolizer, paint from one attachment never cascades onto another.
+
 ### Equality filters
 
-CartoCSS's single-quoted filters become standard CSS attribute selectors with
+CartoCSS’s single-quoted filters become standard CSS attribute selectors with
 double quotes:
 
 | CartoCSS           | CartoLESS          |
@@ -106,6 +114,9 @@ double quotes:
 | `[feature='park']` | `[feature="park"]` |
 | `[ref != 'x']`     | `:not([ref="x"])`  |
 | `[ref != '']`      | `:not([ref=""])`   |
+
+Double quotes are the canonical spelling, but the tokenizer also accepts
+single-quoted and unquoted values, so a stylesheet can be migrated file by file.
 
 ### Nesting
 
@@ -115,20 +126,20 @@ with `&`:
 
 ```less
 #roads-fill:zoom(12) {
-  &[feature="highway_primary"] {
+  &[feature='highway_primary'] {
     --line-width: 4;
   }
 }
 ```
 
 A comma-separated list still expands to the cartesian product of parent × child,
-just like before.
+just like before. A nested selector that forgets the `&` is still treated as AND rather than as a descendant selector, since descent has no meaning for a layer.
 
 ---
 
 ## Zoom and numeric functions
 
-These are the "custom functions" — they collapse the repetitive
+These are the “custom functions” — they collapse the repetitive
 `[zoom >= a][zoom < b]` and `[k >= a][k <= b]` chains into one legible token.
 Syntactically they are ordinary functional pseudo-classes, so LESS parses them
 without complaint.
@@ -156,125 +167,54 @@ For non-zoom numeric attributes:
 | `[score < 400000]`       | `:lt(score, 400000)`       |
 | `[population <= 600000]` | `:lte(population, 600000)` |
 
-### `:range(key, lo, hi)`
+With `zoom` as the key these narrow the zoom window instead of becoming a
+filter, and strict bounds are converted to inclusive ones: `:gt(zoom, 12)` is a floor of 13, `:lt(zoom, 12)` a ceiling of 11.
+
+### `:range(key, lowerBound, upperBound)`
 
 A matched `>=` / `<=` pair on one key collapses into a single inclusive range:
 
 ```less
 :range(score, 1, 9)      // was [score>=1][score<=9]
 :range(zoom, 12, 14)     // equivalent to :zoom(12, 14)
+:range(score, 1000, *)   // open upper bound
 ```
+
+Either bound may be `*` to leave that end open, as in `:zoom`. With `zoom`
+as the key the range narrows the zoom window and emits no filters.
 
 ---
 
-## Two intentional behaviour changes
+## Three intentional changes
 
-The new compiler is otherwise byte-for-byte identical to the old one (verified
-rule-by-rule over all 17 stylesheets: 2230 rules / 28720 selector groups). Two
-differences are deliberate bug fixes:
+The new compiler is otherwise faithful to the old one. Three differences are deliberate bug fixes:
 
 **a. Empty-string inequality is no longer silently dropped.**
+
 The old filter regex required at least one character in the value, so
 `[ref != '']` in `f-golf.mss` was discarded entirely. `:not([ref=""])` now
 compiles to `{ key: "ref", op: "!=", value: "" }`, which is what the stylesheet
 always meant.
 
 **b. Zoom constraints intersect instead of overwriting.**
+
 In `5-roads`, `#roads-fill[zoom >= '10'] { [zoom='9'] { ... } }` used to compile
-to `9..9` — the child's `=` overwrote the parent's floor, so a halo rendered at
+to `9..9` — the child’s `=` overwrote the parent’s floor, so a halo rendered at
 z9 from a layer the parent explicitly restricted to z≥10. Nested zoom bounds now
 intersect (`min = max(...)`, `max = min(...)`), yielding an empty `10..9` range,
 so the contradictory rule correctly never matches. This affects 5 rules, all in
 `5-roads`, all of them contradictions of exactly this kind.
 
-A third, smaller improvement: top-level comma splitting is now paren-aware, so
-selector lists are no longer split inside `rgba(255, 255, 255, 0.6)` or
-`saturate(darken(@c, 10%), 20%)`.
+**c. Contradictory layer intersections are dropped instead of widened.**
+
+Flattening a nested rule can leave two different ids on one selector, e.g.
+`#roads-casing, #bridges, #tunnels { &::bridges_and_tunnels_background { &[feature='highway_bridleway'] { &#bridges { … } } } }` flattens to
+`#roads-casing … #bridges` as well as `#bridges … #bridges`. A feature belongs to
+exactly one layer, so `#a#b` with `a != b` is unsatisfiable. The old behavior kept the first id, which silently widened every re-narrowed block back to all of its ancestor layers — that is how bridge and tunnel casings ended up painted on plain roads. Such selector combinations now emit no group at all.
 
 ---
 
-## Files
-
-```text
-style/*.less        17 converted stylesheets
-compile-carto.js    the new compiler (same CLI and JSON output as before)
-tools/mss-to-less.js  the one-shot codemod used to convert .mss -> .less
-```
-
-Usage is unchanged:
-
-```sh
-node compile-carto.js style.less > style.json
-node compile-carto.js --dark style.less > style-dark.json
-node compile-carto.js --keep-scales style.less > style-labels.json
-```
-
-`--dark` inverts every resolved colour. `--keep-scales` ships `*-scale`
-properties instead of folding them into their sibling size; see
-[Scale properties](#scale-properties----text-scale-and---marker-scale).
-
-`compile-carto.js` still requires the sibling modules `./color`, `./calc`, and
-`./invert` from your existing tree; they are untouched and are not included here.
-`paint-to-svg.js` also needs no changes — the compiler still emits classic
-`instance/property` paint keys, which is what `splitInstances` expects.
-
-To re-run the codemod against a fresh checkout of the original CartoCSS:
-
-```sh
-node tools/mss-to-less.js path/to/mss-dir path/to/out-dir
-```
-
-It reports a warning for anything it cannot confidently convert; the current
-stylesheets convert with zero warnings.
-
-## Zoom ladders: `step()` and `interpolate()`
-
-A CartoCSS stylesheet expresses a zoom-varying property as a stack of sibling
-blocks. In `5-roads` alone there are 417 such ladders for `--line-width` and
-228 for `--line-pattern-width`. `step()` and `interpolate()` collapse each one
-into a single declaration.
-
-```less
-#roads[feature="highway_motorway"] {
-  --line-width: step(0.5 12, 1 14, 2 16);
-  --line-color: interpolate(#cda 10, #e892a2 16);
-}
-```
-
-### `step(v1 z1, v2 z2, …)` — piecewise constant
-
-`v1` applies from `z1` up to `z2 - 1`, `v2` from `z2` to `z3 - 1`, and the last
-value holds to the maximum zoom. Stop zooms must be integers and must strictly
-increase. `step(0.5 12, 1 14, 2 16)` means z12–13 → `0.5`, z14–15 → `1`,
-z16+ → `2`.
-
-### `interpolate(v1 z1, v2 z2, …)` — piecewise linear
-
-The value varies continuously between stops, so stop zooms may be **any real
-number** (`interpolate(0 12.5z, 10 16.5z)` is valid). Numbers and colors can be interpolated; colors blend per RGBA channel. Anything else is a compile error.
-
-### Shared rules
-
-- **Below the first stop the property is not emitted.** The rule can still render there if it carries other, constant properties — those are copied into every band. This matches how the hand-written ladders behave today.
-- **Above the last stop the value is clamped**, so `step(2 12z)` is just "`2` from z12 on".
-- Values may contain spaces and commas: `step(darken(@c, 10%) 14, rgba(1, 2, 3, 0.5) 16z)` parses correctly, because the zoom is the last whitespace-separated token and stops are split only on top-level commas.
-
-### How it compiles
-
-The compiler evaluates every property at each integer zoom, collapses zooms 0–24 into maximal bands that share an identical paint object, and emits one rule per band with the band's zoom range intersected into each selector group. Consequences:
-
-- Two ladders on one rule union their breakpoints.
-- Bands with equal values coalesce, so `interpolate(3 10z, 3 20z)` emits one rule.
-- A band that cannot overlap a group's zoom range drops that group.
-- Rules with no ladder take a fast path and compile exactly as before, so output for the existing stylesheets is byte-for-byte unchanged.
-
-## `zoom-gradient()` — the underlying component
-
-`step()` and `interpolate()` are two presets of one idea: a value that varies
-along an axis, with stops. CSS already has that model, so the general form is a
-gradient whose axis is the zoom level. It lives in **`color.js`**, next to the
-other CSS models, and is registered in `CSSGradients` so it parses with the
-same `parseModel` / `splitByTopLevelDelimiter` machinery as `linear-gradient()`.
+## zoom-gradient()
 
 ```less
 --line-width: zoom-gradient(1, 2.5 16z, 4 17z, 6 18z, 8 19z, 12 20z);
@@ -309,19 +249,6 @@ a position-less leading stop from position 0, but a leading value with nothing
 before it has nothing to interpolate _from_; holding it constant is what map
 styles actually mean by a default.
 
-### Relationship to `step()` and `interpolate()`
-
-Both desugar to this component and share its sampler, so there is exactly one
-implementation of the semantics:
-
-```text
-step(a 12z, b 14z) == zoom-gradient(a 12z 13z, b 14z)
-```
-
-Use `step()`/`interpolate()` when a ladder is uniformly one kind. Reach for
-`zoom-gradient()` when a single property mixes kinds — a base value plus stops,
-or a constant band followed by a ramp — which the two presets cannot express.
-
 ### Worked example
 
 A seven-block `::casing` ladder:
@@ -331,7 +258,7 @@ A seven-block `::casing` ladder:
   --line-width: 1;
   --line-color: mix(@roller-coaster-casing, @roller-coaster-fill, 50%);
   --line-join: round;
-  &[tunnel="yes"]:zoom(16) {
+  &[tunnel='yes']:zoom(16) {
     --line-color: darken(@roller-coaster-casing, 20%);
   }
   &:zoom(16) {
@@ -358,25 +285,19 @@ collapses to two:
 ```less
 &::casing {
   --line-width: zoom-gradient(1, 2.5 16z, 4 17z, 6 18z, 8 19z, 12 20z);
-  --line-color: zoom-gradient(
-    mix(@roller-coaster-casing, @roller-coaster-fill, 50%),
-    @roller-coaster-casing 16z
-  );
+  --line-color: zoom-gradient(mix(@roller-coaster-casing, @roller-coaster-fill, 50%), @roller-coaster-casing 16z);
   --line-join: round;
-  &[tunnel="yes"]:zoom(16) {
+  &[tunnel='yes']:zoom(16) {
     --line-color: darken(@roller-coaster-casing, 20%);
   }
 }
 ```
 
-Both compile to the same seven rules with the same paint at every zoom 0–24;
-`tools/gradient-test.js` asserts it. Note that the width stops sit at
-_consecutive integer_ zooms, so interpolation and stepping coincide exactly
-here — there is no zoom in between at which they could differ.
+Both compile to the same seven rules with the same paint at every zoom 0–24.
 
 ### API added to `color.js`
 
-```js
+```jsx
 looksLikeZoomGradientValue(value); // -> boolean
 parseZoomGradient(value); // -> { type, stops: [{ value, from, to }] } | undefined
 sampleZoomGradient(gradient, position); // -> string | undefined  (accepts source or parsed)
@@ -392,17 +313,9 @@ is precisely why it is not called `linear-gradient()`: that name _is_ matched by
 
 ## Scale properties
 
-Mapnik has no `text-scale` symbolizer property — a size is a single constant at
-a given zoom. `--text-scale` and `--marker-scale` are therefore source sugar,
-exactly like `step()`/`interpolate()`: a stylesheet states a reference size once
-and expresses the zoom ladder as a multiplier of it.
-
 ```less
 --text-size: 10;
---text-scale: zoom-gradient(
-  1,
-  1.2 14z
-); // z0–13 -> text-size 10, z14+ -> text-size 12
+--text-scale: zoom-gradient(1, 1.2 14z); // z0–13 -> text-size 10, z14+ -> text-size 12
 ```
 
 The pairs are fixed:
@@ -411,6 +324,7 @@ The pairs are fixed:
 | ---------------- | ---------------- |
 | `--text-scale`   | `--text-size`    |
 | `--marker-scale` | `--marker-width` |
+| `--line-scale`   | `--line-width`   |
 
 Rules:
 
@@ -426,15 +340,13 @@ Rules:
 - A scale with nothing to scale is inert. If the size is not emitted at that
   zoom — a gated ladder below its first stop — the scale is simply dropped.
 - A scale that is not a number, on either side, is a compile error.
-- `text-scale` never appears in the output JSON, so `paint-to-label.js` and
-  `paint-to-svg.js` need no changes.
 
 Add further pairs in `SCALE_TARGETS` if other sizes ever want the same
-treatment (e.g. `shield-scale` → `shield-size`).
+treatment (e.g. `shield-scale` → `shield-size`).
 
 ### `--keep-scales`
 
-For the label/GPU consumer, the scale is not sugar but a shipped property: the
+For the label/GPU consumer, the scale is a shipped property: the
 client rasterizes glyphs once at the reference size and scales them on the GPU.
 With `--keep-scales` the compiler does not fold, and instead emits each scale as
 the **interval** `[s0, s1]` covering zooms `z` to `z + 1` — exactly the range
@@ -454,39 +366,3 @@ over which tile zoom `z` is displayed:
 
 Because the interval changes at every zoom, a rule carrying a scale never takes
 the no-ladder fast path under `--keep-scales`; it is banded like any ladder.
-
-## Collapsing the existing stylesheets
-
-The 17 stylesheets in `style/` ship already collapsed: 407 properties were
-rewritten as `zoom-gradient()` and 926 rung blocks disappeared. The remaining
-`:zoom()` blocks are not ladders — they gate whole rule bodies rather than a
-single value, so they stay as selectors.
-
-`tools/collapse-ladders.js` performs the rewrite, and `tools/verify-collapse.js`
-proves it changed nothing visible:
-
-```text
-node tools/collapse-ladders.js style            # dry run, prints counts
-node tools/collapse-ladders.js style --write    # rewrite in place
-node tools/verify-collapse.js <expanded> style  # 0 mismatches expected
-```
-
-The verifier walks both trees, computes the effective paint for every selector
-chain at every zoom 0..24, and compares value by value: 72,107 comparisons,
-0 mismatches. It also fails when no file changed, so a no-op run cannot pass.
-
-Three rules keep the rewrite faithful, and each one was added because the
-verifier caught the mistake:
-
-1. **Gaps become hard stops.** An expanded rung holds its value until the next
-   rung takes over. A ladder at zooms 13, 16 must emit `v 13z 15z`, not two
-   interpolating stops, or zooms 14 and 15 get invented in-between values.
-   Stops at consecutive zooms need no range: nothing lies between them.
-2. **Values with their own top-level commas are left alone.** A stop list is
-   comma-separated, so `line-dasharray: 0.1, 9` cannot be placed in one
-   unambiguously.
-3. **A rung with nested children still contributes its stop.** Leaving the
-   declaration behind in the child would override the parent's gradient,
-   because children cascade after the parent's own declarations.
-
-Where a ladder is genuinely smooth, `zoom-gradient()` stops can be edited by hand to drop the hard-stop ranges and interpolate instead. The collapser never makes that choice for you, because it cannot know whether a jump was intended.

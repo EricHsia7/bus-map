@@ -4,7 +4,7 @@ const { looksLikeNumericalExpression, calc } = require('./calc');
 const { invertRGB } = require('./invert');
 
 // Usage: node compile-carto.js style.less > style.json
-//
+
 // -------------------------------------------------------------------------
 // CartoLESS: CartoCSS re-expressed in standard LESS
 // -------------------------------------------------------------------------
@@ -62,6 +62,54 @@ const { invertRGB } = require('./invert');
 const ZOOM_MIN = 0;
 const ZOOM_MAX = 24;
 
+/**
+ * @typedef {Object} Filter A single data-driven constraint, ANDed with its siblings.
+ * @property {string} key Feature attribute name.
+ * @property {'='|'!='|'>='|'<='|'>'|'<'} op Comparison operator.
+ * @property {string} value Right-hand side, always as source text.
+ */
+
+/**
+ * @typedef {Object} ZoomWindow An inclusive zoom range. Empty when `min > max`.
+ * @property {number} min Lowest matching zoom.
+ * @property {number} max Highest matching zoom.
+ */
+
+/**
+ * @typedef {Object} Group One AND-group: a layer, a zoom window and a filter chain.
+ * @property {string|null} layer Mapnik layer id, without the `#`.
+ * @property {ZoomWindow} zoom Zoom window this group matches.
+ * @property {Filter[]} and Filters, in source order, all of which must hold.
+ */
+
+/**
+ * @typedef {Object.<string, string|number|Array<number|string>>} Paint
+ * Paint properties in classic Mapnik spelling (`line-width`, `casing/line-width`).
+ * Values are resolved strings, except a shipped `*-scale` under `--keep-scales`,
+ * which is the interval `[s0, s1]`.
+ */
+
+/**
+ * @typedef {Object} Rule One output rule: OR of groups sharing one paint object.
+ * @property {Group[]} groups Match if ANY group matches.
+ * @property {Paint} paint Properties to apply.
+ * @property {string} [attachment] Symbolizer this paint belongs to (`casing`, `halo`, ...).
+ */
+
+/**
+ * @typedef {Object} ZoomBand A maximal run of zooms sharing an identical paint.
+ * @property {number} min First zoom in the run.
+ * @property {number} max Last zoom in the run.
+ * @property {string} key JSON of `paint`, used to detect equal neighbours.
+ * @property {Paint} paint The paint object for the whole run.
+ */
+
+/**
+ * @typedef {Object} Rational An exact value as a reduced BigInt fraction.
+ * @property {bigint} n Numerator, carrying the sign.
+ * @property {bigint} d Denominator, always positive.
+ */
+
 const dark = process?.argv && Array.isArray(process.argv) && process.argv.includes('--dark');
 
 // --keep-scales: do NOT fold `*-scale` into its sibling size. The size stays a
@@ -74,16 +122,37 @@ const rawVars = new Map();
 const resolvedVars = new Map();
 const resolving = new Set();
 
+/**
+ * Substitute every known `@variable` token in a string with its resolved value.
+ *
+ * LESS deliberately does not interpolate custom property values, so the
+ * compiler performs this substitution itself. Unknown tokens are left verbatim.
+ *
+ * @param {string} str Source text possibly containing `@name` tokens.
+ * @returns {string} The text with known variables replaced.
+ */
 function substituteVarTokens(str) {
   return str.replace(/@[A-Za-z_][\w-]*/g, (token) => {
     if (rawVars.has(token)) {
-      const resolved = resolveVar(token);
+      const resolved = resolveVariable(token);
       return resolved != null ? String(resolved) : token;
     }
     return token;
   });
 }
 
+/**
+ * Reduce a declaration value to the form that is emitted: substitute variables,
+ * then evaluate it as a colour or as arithmetic when it looks like either.
+ *
+ * Colours are normalised to `rgba(...)`, and inverted first under `--dark`.
+ * Zoom ladders must not be passed here; they are sampled per zoom beforehand,
+ * because the whole `zoom-gradient(...)` call is neither a colour nor an
+ * expression.
+ *
+ * @param {string} str Raw declaration value.
+ * @returns {string} The resolved value, or the substituted text unchanged.
+ */
 function resolveValue(str) {
   if (typeof str !== 'string') return str;
   const substituted = substituteVarTokens(str.trim());
@@ -107,43 +176,56 @@ function resolveValue(str) {
   return substituted;
 }
 
-function resolveVar(name) {
+/**
+ * Resolve one LESS `@variable` to its final value, memoising the result.
+ *
+ * A variable may be defined in terms of others; a reference cycle falls back to
+ * the raw text instead of recursing forever.
+ *
+ * @param {string} name Variable name including the leading `@`.
+ * @returns {string} The resolved value.
+ */
+function resolveVariable(name) {
   if (resolvedVars.has(name)) return resolvedVars.get(name);
   if (resolving.has(name)) return rawVars.get(name); // guard against cycles
   resolving.add(name);
   const value = resolveValue(rawVars.get(name));
   resolving.delete(name);
   resolvedVars.set(name, value);
-  return value;
+  return String(value);
 }
 
-function resolveVars(v) {
-  if (rawVars.has(v)) return resolveVar(v);
-  return v;
-}
-
-/* ----------------------------------------------------------------------- */
-/* Paint properties (pure)                                                 */
-/* ----------------------------------------------------------------------- */
-
-// `--casing__line-width` -> `casing/line-width`; `--line-width` -> `line-width`.
-// Anything that is not a custom property is passed through untouched, so a
-// stylesheet may still be compiled mid-migration.
+/**
+ * Convert a CartoLESS custom property into a classic Mapnik paint key:
+ * `--casing__line-width` -> `casing/line-width`, `--line-width` -> `line-width`.
+ *
+ * Only the FIRST `__` is the instance separator, so `--casing__line-dasharray`
+ * round-trips correctly. Anything that is not a custom property is passed
+ * through untouched, so a stylesheet may still be compiled mid-migration.
+ *
+ * @param {string} prop Declaration property name.
+ * @returns {string} The compiled paint key.
+ */
 function normalizePaintProp(prop) {
-  const name = prop.trim();
+  const name = String(prop).trim();
   if (!name.startsWith('--')) return name;
   const bare = name.slice(2);
   const sep = bare.indexOf('__');
   return sep === -1 ? bare : `${bare.slice(0, sep)}/${bare.slice(sep + 2)}`;
 }
 
-/* ----------------------------------------------------------------------- */
-/* Selector helpers (pure)                                                 */
-/* ----------------------------------------------------------------------- */
-
-// Split a selector string on the commas that are NOT inside [ ... ] or ( ... ).
-// Parens matter now that filters are written as :range(key, 1, 9).
-// "#a[b=\"x,y\"], #c"  ->  ["#a[b='x,y']", " #c"]
+/**
+ * Split a selector list on the commas that separate alternatives, i.e. those
+ * NOT inside `[ ... ]` or `( ... )`.
+ *
+ * Parens matter now that filters are written as `:range(key, 1, 9)`, and
+ * brackets matter for values such as `rgba(255, 255, 255, 0.6)`.
+ *
+ * @param {string} sel Selector text, possibly a comma-separated list.
+ * @returns {string[]} One entry per alternative, untrimmed.
+ * @example
+ * splitTopLevelCommas('#a[b="x,y"], #c') // -> ['#a[b="x,y"]', ' #c']
+ */
 function splitTopLevelCommas(sel) {
   const parts = [];
   let depth = 0;
@@ -163,8 +245,16 @@ function splitTopLevelCommas(sel) {
   return parts;
 }
 
-// Cartesian product of an array of arrays.
-// [[a,b],[c]] -> [[a,c],[b,c]]
+/**
+ * Cartesian product of an array of arrays, used to expand one comma-separated
+ * selector level against the next.
+ *
+ * @template T
+ * @param {T[][]} arrays One array of alternatives per nesting level.
+ * @returns {T[][]} Every combination, in row-major order.
+ * @example
+ * cartesian([['a', 'b'], ['c']]) // -> [['a', 'c'], ['b', 'c']]
+ */
 function cartesian(arrays) {
   return arrays.reduce(
     (acc, cur) => {
@@ -176,9 +266,17 @@ function cartesian(arrays) {
   );
 }
 
-// Resolve a nesting chain into one flat selector, honouring the LESS parent
-// reference. `&` is substituted with everything accumulated so far, which is
-// exactly how LESS itself flattens nested rules.
+/**
+ * Flatten one nesting chain into a single selector, honouring the LESS parent
+ * reference: `&` is substituted with everything accumulated so far, which is
+ * exactly how LESS itself flattens nested rules.
+ *
+ * A nested selector written without `&` would be a descendant selector in LESS,
+ * which is meaningless for a Mapnik layer, so it is treated as AND instead.
+ *
+ * @param {string[]} parts Selectors from outermost ancestor to innermost rule.
+ * @returns {string} The flattened, comma-free selector.
+ */
 function joinChain(parts) {
   let acc = '';
   for (const raw of parts) {
@@ -210,6 +308,13 @@ const SELECTOR_TOKEN_RE = new RegExp(
 
 const COMPARISON_OP = { gte: '>=', lte: '<=', gt: '>', lt: '<' };
 
+/**
+ * Split the argument list of a functional pseudo-class into trimmed,
+ * non-empty arguments.
+ *
+ * @param {string} args Raw text between the parentheses.
+ * @returns {string[]} The arguments, in source order.
+ */
 function splitArgs(args) {
   return args
     .split(',')
@@ -217,18 +322,36 @@ function splitArgs(args) {
     .filter((a) => a !== '');
 }
 
-// Narrow a zoom window with one bound. `*` (or a missing bound) is open.
+/**
+ * Narrow a zoom window in place with one inclusive bound. `*`, a missing bound
+ * or a non-numeric bound leaves that end open.
+ *
+ * Bounds intersect rather than overwrite (`min = max(...)`, `max = min(...)`),
+ * so a child can only ever tighten what an ancestor allowed.
+ *
+ * @param {ZoomWindow} zoom Window to narrow, mutated in place.
+ * @param {string|undefined} bound Bound as written in the selector.
+ * @param {'min'|'max'} kind Which end of the window `bound` constrains.
+ * @returns {void}
+ */
 function clampZoom(zoom, bound, kind) {
   if (bound === undefined || bound === '*') return;
-  const z = Number(resolveVars(bound));
+  const z = Number(bound);
   if (!Number.isFinite(z)) return;
   if (kind === 'min') zoom.min = Math.max(zoom.min, z);
   else zoom.max = Math.min(zoom.max, z);
 }
 
-// Collect the distinct layer ids named by a (comma-free) selector, in source
-// order. Attribute values and pseudo-class arguments are blanked out first so
-// that a `#` inside them (a hex colour, say) is never mistaken for an id.
+/**
+ * Collect the distinct layer ids named by a comma-free selector, in source
+ * order.
+ *
+ * Attribute values and pseudo-class arguments are blanked out first, so a `#`
+ * inside them (a hex colour, say) is never mistaken for an id.
+ *
+ * @param {string} sel A flattened, comma-free selector.
+ * @returns {string[]} Layer ids without the leading `#`, deduplicated.
+ */
 function collectLayerIds(sel) {
   const bare = sel.replace(/\[[^\]]*\]/g, '[]').replace(/\(([^()]*)\)/g, '()');
   const ids = [];
@@ -238,10 +361,20 @@ function collectLayerIds(sel) {
   return ids;
 }
 
-// Parse a single (comma-free) selector like
-//   #roads[highway="primary"]:zoom(12, 15)::casing
-// into { layer, filters:[{key,op,value}], zoom:{min,max}, attachment }.
-// Filters are ANDed and keep their source order.
+/**
+ * Parse one flattened, comma-free selector such as
+ * `#roads[highway="primary"]:zoom(12, 15)::casing` into its layer, filter
+ * chain, zoom window and attachment.
+ *
+ * Filters are ANDed and keep their source order. `:zoom`, `:range(zoom, ...)`
+ * and the comparison family applied to `zoom` narrow the window instead of
+ * producing filters, with strict bounds converted to inclusive ones.
+ *
+ * @param {string} sel The selector to parse.
+ * @returns {{layer: string|null, filters: Filter[], zoom: ZoomWindow, attachment: string|null, conflict: boolean}}
+ *   `conflict` is true when the selector names two different layers, which is
+ *   unsatisfiable and must be dropped rather than widened to the first id.
+ */
 function parseSelector(sel) {
   // A flattened selector can pick up more than one id when a nested rule
   // re-narrows a multi-layer parent:
@@ -271,12 +404,12 @@ function parseSelector(sel) {
     const [, notKey, notDq, notSq, notBare, eqKey, eqDq, eqSq, eqBare, fn, fnArgs] = m;
 
     if (notKey !== undefined) {
-      const value = resolveVars(notDq ?? notSq ?? notBare ?? '').trim();
+      const value = (notDq ?? notSq ?? notBare ?? '').trim();
       filters.push({ key: notKey, op: '!=', value });
       continue;
     }
     if (eqKey !== undefined) {
-      const value = resolveVars(eqDq ?? eqSq ?? eqBare ?? '').trim();
+      const value = (eqDq ?? eqSq ?? eqBare ?? '').trim();
       filters.push({ key: eqKey, op: '=', value });
       continue;
     }
@@ -296,8 +429,8 @@ function parseSelector(sel) {
         clampZoom(zoom, lo, 'min');
         clampZoom(zoom, hi, 'max');
       } else {
-        if (lo !== undefined && lo !== '*') filters.push({ key, op: '>=', value: resolveVars(lo).trim() });
-        if (hi !== undefined && hi !== '*') filters.push({ key, op: '<=', value: resolveVars(hi).trim() });
+        if (lo !== undefined && lo !== '*') filters.push({ key, op: '>=', value: lo.trim() });
+        if (hi !== undefined && hi !== '*') filters.push({ key, op: '<=', value: hi.trim() });
       }
       continue;
     }
@@ -306,7 +439,7 @@ function parseSelector(sel) {
     const [key, bound] = args;
     const op = COMPARISON_OP[fn];
     if (key === 'zoom') {
-      const z = Number(resolveVars(bound));
+      const z = Number(bound);
       if (Number.isFinite(z)) {
         if (op === '>=') zoom.min = Math.max(zoom.min, z);
         else if (op === '>') zoom.min = Math.max(zoom.min, z + 1);
@@ -315,16 +448,25 @@ function parseSelector(sel) {
       }
       continue;
     }
-    filters.push({ key, op, value: resolveVars(bound ?? '').trim() });
+    filters.push({ key, op, value: (bound ?? '').trim() });
   }
 
   return { layer, filters, zoom, attachment, conflict };
 }
 
-// Turn a nesting chain of (possibly comma-separated) selectors into the OR
-// list of AND-groups. The chain is [ancestorSelector, ..., ruleSelector].
-// Each level is split on top-level commas, the Cartesian product is taken
-// (parent AND child), and every combination is parsed into one AND-group.
+/**
+ * Turn a nesting chain of possibly comma-separated selectors into the OR list
+ * of AND-groups emitted for a declaration block.
+ *
+ * Each level is split on top-level commas, the Cartesian product is taken
+ * (parent AND child), and every combination is flattened and parsed into one
+ * group. Groups naming two different layers are dropped, and duplicate groups
+ * are collapsed.
+ *
+ * @param {string[]} chain Selectors from outermost ancestor to innermost rule.
+ * @param {(sel: string) => ReturnType<typeof parseSelector>} [parseSel] Parser override, for tests.
+ * @returns {Group[]} The satisfiable, deduplicated groups.
+ */
 function buildGroups(chain, parseSel = parseSelector) {
   const perLevel = chain.map(splitTopLevelCommas);
   const combos = cartesian(perLevel);
@@ -344,140 +486,73 @@ function buildGroups(chain, parseSel = parseSelector) {
   return groups;
 }
 
-/* ----------------------------------------------------------------------- */
-/* Zoom ladders: step() and interpolate() (pure)                           */
-/* ----------------------------------------------------------------------- */
-
-// Mapnik has no runtime zoom expression: a symbolizer property is a constant
-// for a given zoom level. `step()` and `interpolate()` are therefore SOURCE
-// sugar -- the compiler evaluates them at every integer zoom and splits the
-// rule into one output rule per band of zooms that share the same paint.
-//
-//   --line-width: step(0.5 12, 1 14, 2 16);
-//     z12-13 -> 0.5,  z14-15 -> 1,  z16+ -> 2,  below z12 -> not emitted
-//
-//   --line-width: interpolate(0.5 12, 4 18);
-//     one value per integer zoom, linearly between the stops, clamped after
-//     the last stop. Stop zooms may be fractional; the value is still only
-//     sampled at the integer zooms Mapnik actually renders.
-const LADDER_RE = /^(step|interpolate)\s*\(([\s\S]*)\)\s*$/;
-
+/**
+ * Round to 4 decimals, the precision every non-exact emitted number uses.
+ *
+ * @param {number} n Value to round.
+ * @returns {number} The rounded value.
+ */
 function round4(n) {
   return Math.round(n * 1e4) / 1e4;
 }
 
-function isLadder(value) {
-  if (typeof value !== 'string') return false;
-  return LADDER_RE.test(value.trim()) || looksLikeZoomGradientValue(value);
-}
+/**
+ * Sample a `zoom-gradient(...)` ladder at one integer zoom.
+ *
+ * Stop values are resolved before sampling, since unresolved tokens cannot be
+ * interpolated. Returns `undefined` when the ladder has not started yet, i.e.
+ * the zoom is below its first positioned stop and there is no base value, in
+ * which case the property is simply not emitted.
+ *
+ * @param {string} value The ladder as written in the stylesheet.
+ * @param {number} z Integer zoom to sample at.
+ * @param {string} prop Paint key, used only in diagnostics.
+ * @param {(v: string) => string} [resolve] Value resolver, for tests.
+ * @returns {string|undefined} The sampled value, or `undefined` if not started.
+ * @throws {Error} If the ladder cannot be parsed, or its stops cannot be blended.
+ */
+function evaluateZoomGradient(value, z, prop, resolve = resolveValue) {
+  if (looksLikeZoomGradientValue(value)) {
+    const gradient = parseZoomGradient(value);
+    if (gradient === undefined) {
+      throw new Error(`Error parsing "${value}" on the property "${prop}".`);
+    }
 
-// "0.5 12" -> { value: "0.5", zoom: 12 }. The zoom is the LAST whitespace-
-// separated token, so values may contain spaces: `darken(@c, 10%) 14`.
-function parseStops(fn, body, prop) {
-  const stops = splitTopLevelCommas(body)
-    .map((s) => s.trim())
-    .filter((s) => s !== '')
-    .map((arg) => {
-      const m = arg.match(/^([\s\S]+?)\s+(-?\d+(?:\.\d+)?)$/);
-      if (!m) {
-        throw new Error(`${fn}() on ${prop}: stop "${arg}" must be "<value> <zoom>"`);
-      }
-      const zoom = Number(m[2]);
-      if (fn === 'step' && !Number.isInteger(zoom)) {
-        throw new Error(`step() on ${prop}: stop zoom ${zoom} must be an integer (use interpolate() for fractional stops)`);
-      }
-      return { value: m[1].trim(), zoom };
-    });
-  if (!stops.length) throw new Error(`${fn}() on ${prop}: needs at least one stop`);
-  for (let i = 1; i < stops.length; i++) {
-    if (stops[i].zoom <= stops[i - 1].zoom) {
-      throw new Error(`${fn}() on ${prop}: stop zooms must strictly increase (${stops[i - 1].zoom} then ${stops[i].zoom})`);
+    const stops = gradient.stops;
+    const stopsLength = stops.length;
+    // Resolve the values before sampling since unresolved tokens cannot be interpolated.
+    for (let i = 0; i < stopsLength; i++) {
+      if (stops[i].value) stops[i].value = resolve(stops[i].value);
+    }
+    const sampled = sampleZoomGradient(gradient, z);
+    if (sampled !== undefined) return sampled;
+
+    const firstPositioned = gradient.stops.find((s) => s.from !== undefined);
+    const started = gradient.stops[0].from === undefined || (firstPositioned !== undefined && z >= firstPositioned.from);
+    if (started) {
+      // Distinguish "has not started yet" from "these stops cannot be blended".
+      throw new Error(`Error sampling "${value}" on the property "${prop}" at z=${z}.\n${JSON.stringify(gradient, null, 2)}`);
     }
   }
-  return stops;
 }
 
-// step() and interpolate() are sugar over the zoom-gradient component that
-// lives in color.js, so all three share one sampler:
-//
-//   step(a 12, b 14)        ==  zoom-gradient(a 12z 13z, b 14z)
-//   interpolate(a 12, b 18) ==  zoom-gradient(a 12z, b 18z)
-function toZoomGradient(value, prop) {
-  const raw = String(value).trim();
-
-  if (looksLikeZoomGradientValue(raw)) {
-    const parsed = parseZoomGradient(raw);
-    if (parsed === undefined) {
-      throw new Error(`zoom-gradient() on ${prop}: could not parse "${raw}" (stop positions need the z unit, e.g. "4 17z")`);
-    }
-    return parsed;
-  }
-
-  const m = LADDER_RE.exec(raw);
-  if (!m) return undefined;
-
-  const fn = m[1];
-  const stops = parseStops(fn, m[2], prop);
-
-  // interpolate -> point stops (blend between them)
-  if (fn === 'interpolate') {
-    return { type: 'zoom-gradient', stops: stops.map((s) => ({ value: s.value, from: s.zoom, to: undefined })) };
-  }
-
-  // step -> hard stops (constant across each band), like a CSS hard stop
-  return {
-    type: 'zoom-gradient',
-    stops: stops.map((s, i) => ({
-      value: s.value,
-      from: s.zoom,
-      to: i < stops.length - 1 ? stops[i + 1].zoom - 1 : undefined
-    }))
-  };
-}
-
-// Value of a ladder at one integer zoom, or undefined when the ladder has not
-// started yet (zoom below its first stop).
-function evalLadder(value, z, prop, resolve = resolveValue) {
-  const gradient = toZoomGradient(value, prop);
-  if (gradient === undefined) return resolve(value);
-
-  const sampled = sampleZoomGradient(gradient, z);
-  if (sampled !== undefined) return resolve(sampled);
-
-  // Distinguish "has not started yet" from "these stops cannot be blended".
-  const firstPositioned = gradient.stops.find((s) => s.from !== undefined);
-  const started = gradient.stops[0].from === undefined || (firstPositioned !== undefined && z >= firstPositioned.from);
-  if (started) {
-    throw new Error(`${prop}: cannot interpolate between stops at zoom ${z} (numbers with matching units, or colors)`);
-  }
-  return undefined;
-}
-
-/* ----------------------------------------------------------------------- */
-/* Scale properties: --text-scale folds into --text-size (pure)            */
-/* ----------------------------------------------------------------------- */
-
-// Mapnik has no `text-scale` symbolizer property -- a text size is a single
-// constant at a given zoom. `--text-scale` is therefore SOURCE sugar, exactly
-// like step()/interpolate(): it lets a stylesheet state a reference size once
-// and express the zoom ladder as a multiplier of it.
-//
-//   --text-size: 10;
-//   --text-scale: zoom-gradient(1, 1.2 14z);
-//     z0-13 -> text-size 10,  z14+ -> text-size 12
-//
-// The compiler multiplies the two and emits only `text-size`, so `text-scale`
-// never reaches the output JSON and downstream consumers (paint-to-label.js,
-// paint-to-svg.js) need no changes. Add further pairs here if other sizes ever
-// want the same treatment (e.g. 'shield-scale': 'shield-size').
+// Scale properties
 const SCALE_TARGETS = {
   'text-scale': 'text-size',
   'marker-scale': 'marker-width',
   'line-scale': 'line-width'
 };
 
-// `casing/text-scale` -> ['casing/', 'text-scale']; `text-scale` -> ['', 'text-scale'].
-// A scale only ever applies to the size of its OWN instance.
+/**
+ * Split a paint key into its instance prefix and bare property name:
+ * `casing/text-scale` -> `['casing/', 'text-scale']`, `text-scale` -> `['', 'text-scale']`.
+ *
+ * A scale only ever applies to the size of its OWN instance, which is why the
+ * prefix has to be carried around rather than discarded.
+ *
+ * @param {string} key A paint key in Mapnik spelling.
+ * @returns {[string, string]} The instance prefix (with trailing `/`) and bare name.
+ */
 function splitInstanceKey(key) {
   const sep = key.lastIndexOf('/');
   return sep === -1 ? ['', key] : [key.slice(0, sep + 1), key.slice(sep + 1)];
@@ -489,6 +564,13 @@ function splitInstanceKey(key) {
  * not 11.000000000000002. Floating point would leave that noise in the emitted
  * JSON and every folded size would differ from the hand-written ladder it
  * replaced, so the fold is done on rationals and only rounded as a fallback. */
+/**
+ * Greatest common divisor of two BigInts, sign-insensitive.
+ *
+ * @param {bigint} a First value.
+ * @param {bigint} b Second value.
+ * @returns {bigint} The GCD of the absolute values.
+ */
 function ratGcd(a, b) {
   a = a < 0n ? -a : a;
   b = b < 0n ? -b : b;
@@ -500,6 +582,13 @@ function ratGcd(a, b) {
   return a;
 }
 
+/**
+ * Build a reduced rational with a positive denominator.
+ *
+ * @param {bigint} n Numerator.
+ * @param {bigint} d Denominator.
+ * @returns {Rational|undefined} The reduced fraction, or `undefined` if `d` is zero.
+ */
 function ratReduce(n, d) {
   if (d === 0n) return undefined;
   const g = ratGcd(n, d) || 1n;
@@ -512,6 +601,12 @@ function ratReduce(n, d) {
   return { n: rn, d: rd };
 }
 
+/**
+ * Parse a plain decimal literal such as `9`, `2.5` or `-0.75` exactly.
+ *
+ * @param {string|number} text Candidate literal.
+ * @returns {Rational|undefined} The exact value, or `undefined` if not a plain decimal.
+ */
 function ratFromDecimal(text) {
   const m = String(text)
     .trim()
@@ -522,8 +617,16 @@ function ratFromDecimal(text) {
   return ratReduce(sign * BigInt((m[2] || '0') + frac), 10n ** BigInt(frac.length));
 }
 
-// A unitless number, or a division of two such numbers -- `11 / 9`, `(11 / 9)`.
-// Division is the one shape a ratio needs that a decimal cannot always express.
+/**
+ * Parse a unitless number, or a division of two such numbers -- `11 / 9`,
+ * `(11 / 9)` -- exactly.
+ *
+ * Division is the one shape a ratio needs that a decimal cannot always express,
+ * so it is understood here rather than being handed to floating point.
+ *
+ * @param {string|number} text Candidate value, optionally wrapped in parentheses.
+ * @returns {Rational|undefined} The exact value, or `undefined` if not a number or ratio.
+ */
 function ratFromValue(text) {
   const raw = String(text)
     .trim()
@@ -539,7 +642,16 @@ function ratFromValue(text) {
   return ratFromDecimal(raw);
 }
 
-// Exact decimal string, or undefined when the fraction does not terminate.
+/**
+ * Render a rational as an exact decimal string, e.g. `11`, `2.5`.
+ *
+ * Only fractions whose denominator is a product of 2s and 5s terminate in base
+ * 10; anything else has no exact decimal form and the caller must fall back to
+ * rounded floating point.
+ *
+ * @param {Rational} r The value to render.
+ * @returns {string|undefined} The exact decimal, or `undefined` if it does not terminate.
+ */
 function ratToDecimalString(r) {
   let d = r.d;
   let twos = 0;
@@ -561,7 +673,21 @@ function ratToDecimalString(r) {
   return `${r.n < 0n ? '-' : ''}${intPart}${frac ? `.${frac}` : ''}`;
 }
 
-// size * scale, exactly where possible.
+/**
+ * Multiply a reference size by a scale, exactly where possible.
+ *
+ * Both sides are multiplied as BigInt rationals, so `9 * (11 / 9)` emits `11`
+ * rather than `11.000000000000002`. Only when a side is not a plain decimal or
+ * division (a variable, an expression, a non-terminating fraction) does it fall
+ * back to floating point rounded to 4 decimals, like every other ladder value.
+ *
+ * @param {string|number} sizeValue The reference size.
+ * @param {string|number} scaleValue The multiplier.
+ * @param {string} prop Size key being written, used in diagnostics.
+ * @param {(v: string) => string} [resolve] Value resolver, for tests.
+ * @returns {string} The product as a value string.
+ * @throws {Error} If either side is not a number after resolution.
+ */
 function multiplyScaled(sizeValue, scaleValue, prop, resolve = resolveValue) {
   const size = ratFromValue(sizeValue);
   const scale = ratFromValue(scaleValue);
@@ -581,8 +707,19 @@ function multiplyScaled(sizeValue, scaleValue, prop, resolve = resolveValue) {
   return String(round4(sizeNum * scaleNum));
 }
 
-// Fold every `*-scale` into its sibling size and drop the scale key.
-// Returns the new paint plus the size keys that were rewritten.
+/**
+ * Fold every `*-scale` into the sibling size of its own instance and drop the
+ * scale key, so scales never reach the output JSON.
+ *
+ * A scale with nothing to scale is inert: if the size is not emitted at this
+ * zoom (a gated ladder below its first stop) the scale is simply dropped. Under
+ * `--keep-scales` nothing is folded, because the scale is then a shipped
+ * property rather than sugar.
+ *
+ * @param {Paint} paint Paint object for one zoom.
+ * @param {(v: string) => string} [resolve] Value resolver, for tests.
+ * @returns {{paint: Paint, folded: Set<string>}} The new paint and the size keys that were rewritten.
+ */
 function foldScales(paint, resolve = resolveValue) {
   // In --keep-scales mode the scale is a shipped property, not sugar: pass it
   // through untouched so the reference size and the scalar stay separate.
@@ -606,18 +743,30 @@ function foldScales(paint, resolve = resolveValue) {
   return { paint: out, folded };
 }
 
-// The paint object as it applies at one integer zoom.
+/**
+ * The paint object as it applies at one integer zoom.
+ *
+ * Three stages, in this order: sample ladders WITHOUT resolving, so a ratio
+ * such as `(11 / 9)` reaches the fold intact instead of arriving rounded; fold
+ * scales into sizes; then resolve only what was sampled or rewritten, so rules
+ * without ladders compile exactly as before.
+ *
+ * @param {Paint} paint Paint object as read from the stylesheet.
+ * @param {number} z Integer zoom to evaluate at.
+ * @param {(v: string) => string} [resolve] Value resolver, for tests.
+ * @returns {Paint} The properties that apply at `z`, fully resolved.
+ */
 function paintAtZoom(paint, z, resolve = resolveValue) {
   // Stage 1: sample ladders WITHOUT resolving, so a ratio like `(11 / 9)`
   // reaches the fold intact instead of arriving as a rounded decimal.
   const raw = {};
   const sampled = new Set();
   for (const [prop, value] of Object.entries(paint)) {
-    if (!isLadder(value)) {
+    if (!looksLikeZoomGradientValue(value)) {
       raw[prop] = value;
       continue;
     }
-    const v = evalLadder(value, z, prop, (x) => x);
+    const v = evaluateZoomGradient(value, z, prop, resolveValue);
     if (v !== undefined) {
       raw[prop] = v;
       sampled.add(prop);
@@ -637,12 +786,23 @@ function paintAtZoom(paint, z, resolve = resolveValue) {
   return out;
 }
 
-// nextRef * scale / curRef, exactly where possible.
-//
-// The shipped pair is anchored to ONE reference size (the one at z), but a rule
-// can change its reference between z and z+1. Re-expressing the upper scale
-// against the lower reference keeps a single `text-size` sufficient:
-//   curRef * s1' === nextRef * s1
+/**
+ * Re-anchor a scale to a different reference size: `nextRef * scale / curRef`,
+ * exactly where possible.
+ *
+ * A shipped pair is anchored to ONE reference size (the one at `z`), but a rule
+ * can change its reference between `z` and `z + 1`. Re-expressing the upper
+ * scale against the lower reference keeps a single `text-size` sufficient
+ * across the interval: `curRef * s1' === nextRef * s1`.
+ *
+ * @param {string|number} curRef Reference size at `z`.
+ * @param {string|number} nextRef Reference size at `z + 1`.
+ * @param {string|number} scaleValue Scale at `z + 1`, anchored to `nextRef`.
+ * @param {string} prop Scale key being written, used in diagnostics.
+ * @param {(v: string) => string} [resolve] Value resolver, for tests.
+ * @returns {string|number} The scale re-anchored to `curRef`.
+ * @throws {Error} If the sizes are not numbers, or `curRef` is zero.
+ */
 function renormalizeScale(curRef, nextRef, scaleValue, prop, resolve = resolveValue) {
   const a = ratFromValue(nextRef);
   const b = ratFromValue(curRef);
@@ -662,18 +822,38 @@ function renormalizeScale(curRef, nextRef, scaleValue, prop, resolve = resolveVa
   return round4((nr * sv) / cr);
 }
 
+/**
+ * Resolve a value and return it as a number when it is one, so a shipped scale
+ * interval is JSON numbers rather than strings.
+ *
+ * @param {string|number} value Value to coerce.
+ * @param {(v: string) => string} [resolve] Value resolver, for tests.
+ * @returns {number|string|number} The number, or the original value if it is not numeric.
+ */
 function asNumber(value, resolve = resolveValue) {
   const n = Number(resolve(value));
   return Number.isFinite(n) ? n : value;
 }
 
-// The paint as SHIPPED at one integer zoom. Identical to paintAtZoom unless
-// --keep-scales, in which case every scale becomes the interval [s0, s1] that
-// covers [z, z+1] -- exactly the range over which tile zoom z is displayed.
-//
-// Doing the lookahead here rather than in render.js means the label pass keeps
-// its single matchRules/inferLayers call at tZ: layer membership can change
-// with zoom, and sampling it twice would have to reconcile two memberships.
+/**
+ * The paint as SHIPPED at one integer zoom.
+ *
+ * Identical to {@link paintAtZoom} unless `--keep-scales`, in which case every
+ * scale becomes the interval `[s0, s1]` covering `[z, z + 1]` -- exactly the
+ * range over which tile zoom `z` is displayed. If the size stops being emitted
+ * at `z + 1`, or `z` is `ZOOM_MAX`, the interval is flat rather than
+ * interpolating toward nothing.
+ *
+ * Doing the lookahead here rather than in `render.js` means the label pass
+ * keeps its single `matchRules`/`inferLayers` call at tile zoom: layer
+ * membership can change with zoom, and sampling it twice would have to
+ * reconcile two memberships.
+ *
+ * @param {Paint} paint Paint object as read from the stylesheet.
+ * @param {number} z Integer tile zoom.
+ * @param {(v: string) => string} [resolve] Value resolver, for tests.
+ * @returns {Paint} The shipped properties at `z`.
+ */
 function shipPaintAtZoom(paint, z, resolve = resolveValue) {
   const cur = paintAtZoom(paint, z, resolve);
   if (!keepScales) return cur;
@@ -693,8 +873,7 @@ function shipPaintAtZoom(paint, z, resolve = resolveValue) {
     const nextRef = next[sizeKey];
 
     if (s1 === undefined || curRef === undefined || nextRef === undefined) {
-      // The rule stops emitting a size at z+1 (a gated ladder ending, or
-      // ZOOM_MAX): hold the value rather than interpolate toward nothing.
+      // The rule stops emitting a size at z+1 (a gated ladder ending, or ZOOM_MAX): hold the value rather than interpolate toward nothing.
       s1 = s0;
     } else if (String(nextRef) !== String(curRef)) {
       s1 = renormalizeScale(curRef, nextRef, s1, key, resolve);
@@ -705,7 +884,17 @@ function shipPaintAtZoom(paint, z, resolve = resolveValue) {
   return cur;
 }
 
-// Collapse zooms 0..24 into maximal runs that share an identical paint object.
+/**
+ * Collapse zooms `ZOOM_MIN..ZOOM_MAX` into maximal runs that share an identical
+ * shipped paint object, so one ladder becomes one rule per band.
+ *
+ * Zooms where nothing is emitted produce no band, which is how a gated ladder
+ * stays gated.
+ *
+ * @param {Paint} paint Paint object as read from the stylesheet.
+ * @param {(v: string) => string} [resolve] Value resolver, for tests.
+ * @returns {ZoomBand[]} The bands, in ascending zoom order.
+ */
 function zoomBands(paint, resolve = resolveValue) {
   const bands = [];
   for (let z = ZOOM_MIN; z <= ZOOM_MAX; z++) {
@@ -722,7 +911,14 @@ function zoomBands(paint, resolve = resolveValue) {
   return bands;
 }
 
-// Restrict a rule's groups to a band, dropping groups the band excludes.
+/**
+ * Intersect each group's zoom window with a band, dropping the groups the band
+ * excludes entirely.
+ *
+ * @param {Group[]} groups Groups of the original rule.
+ * @param {ZoomBand} band The band being emitted.
+ * @returns {Group[]} New groups, clipped to the band.
+ */
 function clipGroupsToBand(groups, band) {
   const out = [];
   for (const g of groups) {
@@ -734,10 +930,12 @@ function clipGroupsToBand(groups, band) {
   return out;
 }
 
-/* ----------------------------------------------------------------------- */
-/* Comment stripping (pure)                                                */
-/* ----------------------------------------------------------------------- */
-
+/**
+ * Strip inline and block comments from a stylesheet, leaving string literals untouched so a `//` inside a quoted value survives.
+ *
+ * @param {string} input Stylesheet source.
+ * @returns {string} The source without comments.
+ */
 function stripComments(input) {
   let out = '';
   let i = 0;
@@ -781,10 +979,18 @@ function stripComments(input) {
   return out;
 }
 
-/* ----------------------------------------------------------------------- */
-/* Main (only runs when invoked as a script)                               */
-/* ----------------------------------------------------------------------- */
-
+/**
+ * Compile the stylesheet named on the command line and write the rule JSON to
+ * stdout.
+ *
+ * Steps: parse with postcss + postcss-less; collect `@variables` and resolve
+ * them; walk every rule, normalise its declarations into paint keys, derive the
+ * OR list of AND-groups from the nesting chain, and emit either one rule (no
+ * ladder) or one rule per zoom band. Rules are emitted in source order, which
+ * downstream consumers rely on for layer order and cascading.
+ *
+ * @returns {void}
+ */
 function main() {
   const postcss = require('postcss');
   const less = require('postcss-less');
@@ -818,7 +1024,7 @@ function main() {
       rawVars.set(decl.prop, decl.value);
     }
   });
-  for (const name of rawVars.keys()) resolveVar(name);
+  for (const name of rawVars.keys()) resolveVariable(name);
 
   // 2) Walk rules, preserving AND (filter chains) and OR (comma selectors).
   const out = [];
@@ -833,7 +1039,7 @@ function main() {
       // A ladder is resolved per zoom band, not here: resolveValue would try to
       // read the whole function as a single color or arithmetic expression.
       // Variables still have to be substituted up front.
-      paint[normalizePaintProp(c.prop)] = isLadder(c.value) ? substituteVarTokens(c.value.trim()) : resolveValue(c.value);
+      paint[normalizePaintProp(c.prop)] = looksLikeZoomGradientValue(c.value) ? substituteVarTokens(c.value.trim()) : resolveValue(c.value);
     }); // shallow: direct decls only
     if (!Object.keys(paint).length) return;
 
@@ -853,7 +1059,7 @@ function main() {
     // A constant --text-scale still has to be folded away here.
     const hasShippedScale = keepScales && Object.keys(paint).some((k) => SCALE_TARGETS[splitInstanceKey(k)[1]] !== undefined);
 
-    if (!hasShippedScale && !Object.values(paint).some(isLadder)) {
+    if (!hasShippedScale && !Object.values(paint).some(looksLikeZoomGradientValue)) {
       const flat = foldScales(paint).paint;
       out.push(attachment ? { groups, paint: flat, attachment } : { groups, paint: flat });
       return;
@@ -881,10 +1087,6 @@ module.exports = {
   buildGroups,
   resolveValue,
   stripComments,
-  isLadder,
-  parseStops,
-  toZoomGradient,
-  evalLadder,
   splitInstanceKey,
   multiplyScaled,
   foldScales,

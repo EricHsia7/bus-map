@@ -1100,7 +1100,6 @@ function sampleZoomGradient(gradient, position) {
 
   const stops = parsed.stops;
   const positioned = stops.filter((stop) => stop.from !== undefined);
-
   // Before the first positioned stop: the base value, or nothing at all.
   if (stops[0].from === undefined) {
     if (positioned.length === 0 || position < positioned[0].from) return stops[0].value;
