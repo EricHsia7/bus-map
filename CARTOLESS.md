@@ -13,13 +13,16 @@ CartoCSS compiler produced.
 ## Command line
 
 ```bash
-node compile-carto.js style/style.less > style.json
+cat ./style/*.less > style.less
+node compile-carto.js style.less > style.json
 ```
 
 | flag            | effect                                                                                                                    |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | `--dark`        | every resolved colour is inverted (`invert.js`) for a dark basemap; only colours change, geometry and sizes are untouched |
 | `--keep-scales` | `*-scale` properties are shipped instead of folded into their sibling size — see `--keep-scales` below                    |
+
+Note that `compile-carto.js` respects the order of selectors and rules in the input stylesheet, so a custom concatenation script or prefixed file names are necessary to ensure layer order and rule cascading.
 
 ---
 
