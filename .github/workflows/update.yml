@@ -154,7 +154,7 @@ jobs:
         run: |
           mkdir -p tiles || true
           mkdir -p labels || true
-          node build.js || true
+          node render.js || true
 
       - name: Configure git
         run: |

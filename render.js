@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { decompressSync, gzipSync } = require('fflate');
 const { plotPolygon, plotLineString, plotPolygonLabel, plotPointLabel, plotLineStringLabel } = require('./plot.js');
-const { getTileViewbox, getSubTiles, projectLatitude, projectLongitude } = require('./coordinate.js');
+const { getTileViewbox, getSubTiles, areaToTiles, projectLatitude, projectLongitude } = require('./coordinate.js');
 const style = require('./style.json');
 const mml = require('./mml.json');
 const M = require('./match-rule.js');
@@ -19,7 +19,6 @@ const { registerChars, dumpCharsets } = require('./label-charset.js');
 const { paintToVector } = require('./paint-to-vector.js');
 const { createVectorStyleTables, registerVectorStyle } = require('./vector-styles.js');
 const { deltaEncode } = require('./delta.js');
-const { parentPort } = require('node:worker_threads');
 
 const toObjectOptions = {
   enums: String, // enums as string names
@@ -635,22 +634,37 @@ async function renderChunk(cX, cY, cZ, fileformat) {
       );
     }
 
-    if (count % 16 === 0 || count === total) console.log(`[${cX} ${cY} ${cZ}]\t${Math.round((count / total) * 100)}%`);
+    if (count % 16 === 0 || count === total) console.log(`[${cX} ${cY} ${cZ}] ${Math.round((count / total) * 100)}%`);
   }
   return true;
 }
 
-parentPort.on('message', handleMessage);
+function splitByLength(array, length = 3) {
+  const groups = [];
+  const quantity = Math.ceil(array.length / length);
+  for (let i = 0; i < quantity; i++) {
+    groups.push(array.slice(i * length, i * length + length));
+  }
+  return groups;
+}
 
-async function handleMessage(message) {
-  try {
-    const fileformat = await loadFileformat();
-    console.log(message);
-    const result = await renderChunk(message.tile[0], message.tile[1], message.baseZ, fileformat);
-    console.log(result);
-  } catch (error) {
-    console.log(error);
-  } finally {
-    parentPort.postMessage(message);
+async function main() {
+  const west = config.bbox.west;
+  const south = config.bbox.south;
+  const east = config.bbox.east;
+  const north = config.bbox.north;
+  const baseZ = config.chunks.baseZ;
+  const fileformat = await loadFileformat();
+  const chunkTiles = areaToTiles(west, south, east, north, baseZ);
+  const groups = splitByLength(chunkTiles, 4);
+  for (const group of groups) {
+    try {
+      const groupResults = await Promise.allSettled(group.map((tile) => renderChunk(tile[0], tile[1], baseZ, fileformat)));
+      console.log(groupResults);
+    } catch (err) {
+      console.log(baseZ, err);
+    }
   }
 }
+
+main();
