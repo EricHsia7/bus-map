@@ -16,10 +16,10 @@ CartoCSS compiler produced.
 node compile-carto.js style/style.less > style.json
 ```
 
-| flag | effect |
-| --- | --- |
-| `--dark` | every resolved colour is inverted (`invert.js`) for a dark basemap; only colours change, geometry and sizes are untouched |
-| `--keep-scales` | `*-scale` properties are shipped instead of folded into their sibling size — see `--keep-scales` below |
+| flag            | effect                                                                                                                    |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `--dark`        | every resolved colour is inverted (`invert.js`) for a dark basemap; only colours change, geometry and sizes are untouched |
+| `--keep-scales` | `*-scale` properties are shipped instead of folded into their sibling size — see `--keep-scales` below                    |
 
 ---
 
@@ -35,18 +35,17 @@ node compile-carto.js style/style.less > style.json
 
 CartoCSS wrote instances as `name/prop`. A slash is not legal in a custom property name, so the separator is `__` (double underscore):
 
-| CartoCSS | CartoLESS | compiled key |
-| --- | --- | --- |
-| `line-width: 2;` | `--line-width: 2;` | `line-width` |
-| `background/line-width: 2;` | `--background__line-width: 2;` | `background/line-width` |
+| CartoCSS                     | CartoLESS                       | compiled key            |
+| ---------------------------- | ------------------------------- | ----------------------- |
+| `line-width: 2;`             | `--line-width: 2;`              | `line-width`            |
+| `background/line-width: 2;`  | `--background__line-width: 2;`  | `background/line-width` |
 | `tunnelfill/line-color: @c;` | `--tunnelfill__line-color: @c;` | `tunnelfill/line-color` |
 
 Only the **first** `__` is the instance separator, so `--casing__line-dasharray`
 round-trips correctly.
 
 > [!NOTE]
-LESS does not interpolate custom property values. `lessc` treats the right-hand side of a `--*` declaration as verbatim text, so `--line-color: @grass` is *not* substituted by LESS. This is deliberate: `compile-carto.js` performs variable substitution itself, so `@`-variables keep working and stay readable in the source. Do not run these files through `lessc` and expect resolved colors.
-> 
+> LESS does not interpolate custom property values. `lessc` treats the right-hand side of a `--*` declaration as verbatim text, so `--line-color: @grass` is _not_ substituted by LESS. This is deliberate: `compile-carto.js` performs variable substitution itself, so `@`-variables keep working and stay readable in the source. Do not run these files through `lessc` and expect resolved colors.
 
 ### Scales
 
@@ -107,11 +106,11 @@ It is emitted as a top-level `attachment` key next to `groups` and `paint`, neve
 CartoCSS’s single-quoted filters become standard CSS attribute selectors with
 double quotes:
 
-| CartoCSS | CartoLESS |
-| --- | --- |
+| CartoCSS           | CartoLESS          |
+| ------------------ | ------------------ |
 | `[feature='park']` | `[feature="park"]` |
-| `[ref != 'x']` | `:not([ref="x"])` |
-| `[ref != '']` | `:not([ref=""])` |
+| `[ref != 'x']`     | `:not([ref="x"])`  |
+| `[ref != '']`      | `:not([ref=""])`   |
 
 Double quotes are the canonical spelling, but the tokenizer also accepts
 single-quoted and unquoted values, so a stylesheet can be migrated file by file.
@@ -146,23 +145,23 @@ without complaint.
 
 Bounds are **inclusive**, and `*` means open:
 
-| CartoCSS | CartoLESS |
-| --- | --- |
-| `[zoom >= 12]` | `:zoom(12)` |
-| `[zoom >= 12][zoom < 15]` | `:zoom(12, 14)` |
-| `[zoom <= 9]` / `[zoom < 10]` | `:zoom(*, 9)` |
-| `[zoom = '9']` | `:zoom(9, 9)` |
-| any zoom | omit entirely |
+| CartoCSS                      | CartoLESS       |
+| ----------------------------- | --------------- |
+| `[zoom >= 12]`                | `:zoom(12)`     |
+| `[zoom >= 12][zoom < 15]`     | `:zoom(12, 14)` |
+| `[zoom <= 9]` / `[zoom < 10]` | `:zoom(*, 9)`   |
+| `[zoom = '9']`                | `:zoom(9, 9)`   |
+| any zoom                      | omit entirely   |
 
 ### Numeric comparisons
 
 For non-zoom numeric attributes:
 
-| CartoCSS | CartoLESS |
-| --- | --- |
-| `[height > 20]` | `:gt(height, 20)` |
-| `[height >= 20]` | `:gte(height, 20)` |
-| `[score < 400000]` | `:lt(score, 400000)` |
+| CartoCSS                 | CartoLESS                  |
+| ------------------------ | -------------------------- |
+| `[height > 20]`          | `:gt(height, 20)`          |
+| `[height >= 20]`         | `:gte(height, 20)`         |
+| `[score < 400000]`       | `:lt(score, 400000)`       |
 | `[population <= 600000]` | `:lte(population, 600000)` |
 
 With `zoom` as the key these narrow the zoom window instead of becoming a
@@ -222,27 +221,28 @@ exactly one layer, so `#a#b` with `a != b` is unsatisfiable. The old behavior ke
 ### The `z` unit
 
 Stop positions carry a `z` unit, exactly as CSS gradient stops carry `%`. This
-is not decoration: a stop *value* can itself be a bare number, so `2.5 16`
+is not decoration: a stop _value_ can itself be a bare number, so `2.5 16`
 would be ambiguous. `2.5 16z` never is. Omitting the unit is a compile error
 rather than a silent misparse.
 
 ### Semantics
 
-| Form | Meaning |
-| --- | --- |
-| `v p1z` | a stop at zoom `p1` |
-| `v p1z p2z` | a **hard stop**: `v` is constant across `p1…p2` |
+| Form                  | Meaning                                                |
+| --------------------- | ------------------------------------------------------ |
+| `v p1z`               | a stop at zoom `p1`                                    |
+| `v p1z p2z`           | a **hard stop**: `v` is constant across `p1…p2`        |
 | `v` (first stop only) | a **base value**, held until the first positioned stop |
+
 - Two positioned stops **interpolate** between their positions, like CSS.
 - After the last stop the value is **clamped**.
 - Before the first positioned stop, with no base, the property is **not
-emitted** at all.
+  emitted** at all.
 - Numbers blend when their units agree (`2px`→`4px` gives `3px`); everything the
-colour model can read blends per RGBA channel. Anything else is an error.
+  colour model can read blends per RGBA channel. Anything else is an error.
 
 The base value is the one deliberate deviation from CSS. CSS would interpolate
 a position-less leading stop from position 0, but a leading value with nothing
-before it has nothing to interpolate *from*; holding it constant is what map
+before it has nothing to interpolate _from_; holding it constant is what map
 styles actually mean by a default.
 
 ### Worked example
@@ -304,7 +304,7 @@ interpolateStopValues(from, to, t); // -> string | undefined
 with the existing `looksLike…` / `parse…` pairs; the compiler turns that into a
 diagnostic. `zoom-gradient(` is matched by neither `looksLikeColorValue` nor
 `looksLikeNumericalExpression`, so the value reaches the sampler intact — which
-is precisely why it is not called `linear-gradient()`: that name *is* matched by
+is precisely why it is not called `linear-gradient()`: that name _is_ matched by
 `looksLikeColorValue`, and the value would collapse to `rgba(0,0,0,0)`.
 
 ## Scale properties
@@ -316,25 +316,25 @@ is precisely why it is not called `linear-gradient()`: that name *is* matched by
 
 The pairs are fixed:
 
-| scale property | folds into |
-| --- | --- |
-| `--text-scale` | `--text-size` |
+| scale property   | folds into       |
+| ---------------- | ---------------- |
+| `--text-scale`   | `--text-size`    |
 | `--marker-scale` | `--marker-width` |
-| `--line-scale` | `--line-width` |
+| `--line-scale`   | `--line-width`   |
 
 Rules:
 
 - A scale only ever applies to the size of its **own instance**:
-`--casing__text-scale` multiplies `casing/text-size`, never the bare one.
+  `--casing__text-scale` multiplies `casing/text-size`, never the bare one.
 - The fold happens after ladders are sampled but before values are resolved, so
-a ratio such as `(11 / 9)` reaches the multiplication intact.
+  a ratio such as `(11 / 9)` reaches the multiplication intact.
 - Multiplication is **exact**: sizes and ratios are multiplied as BigInt
-rationals, so `9 × (11 / 9)` emits `11`, not `11.000000000000002`. Only when a
-side is not a plain decimal or division (a variable, an expression, a
-non-terminating fraction) does it fall back to floating point rounded to 4
-decimals, like every other ladder value.
+  rationals, so `9 × (11 / 9)` emits `11`, not `11.000000000000002`. Only when a
+  side is not a plain decimal or division (a variable, an expression, a
+  non-terminating fraction) does it fall back to floating point rounded to 4
+  decimals, like every other ladder value.
 - A scale with nothing to scale is inert. If the size is not emitted at that
-zoom — a gated ladder below its first stop — the scale is simply dropped.
+  zoom — a gated ladder below its first stop — the scale is simply dropped.
 - A scale that is not a number, on either side, is a compile error.
 
 Add further pairs in `SCALE_TARGETS` if other sizes ever want the same
@@ -353,12 +353,12 @@ over which tile zoom `z` is displayed:
 ```
 
 - The lookahead happens in the compiler, not in `render.js`, so the label pass
-keeps its single `matchRules`/`inferLayers` call at tile zoom.
+  keeps its single `matchRules`/`inferLayers` call at tile zoom.
 - If a rule changes its reference size between `z` and `z + 1`, the upper scale
-is **re-anchored** to the lower reference (`curRef × s1' === nextRef × s1`), so
-one `text-size` remains sufficient across the interval.
+  is **re-anchored** to the lower reference (`curRef × s1' === nextRef × s1`), so
+  one `text-size` remains sufficient across the interval.
 - If the size stops being emitted at `z + 1`, or `z` is the maximum zoom, the
-interval is flat (`s1 = s0`) rather than interpolating toward nothing.
+  interval is flat (`s1 = s0`) rather than interpolating toward nothing.
 
 Because the interval changes at every zoom, a rule carrying a scale never takes
 the no-ladder fast path under `--keep-scales`; it is banded like any ladder.
