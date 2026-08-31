@@ -1,7 +1,5 @@
 /* forked from https://github.com/EricHsia7/auto-dark-mode/tree/main/src/lib */
 
-const { looksLikeNumericalExpression, calc } = require('./calc');
-
 function looksLikeColorValue(value) {
   value = value.trim().toLowerCase();
 
@@ -208,18 +206,6 @@ function parseNumber(value) {
       number: parseFloat(unitedFloatMatch[1]),
       unit: unitedFloatMatch[2].trim()
     };
-  }
-
-  // try to evaluate inline expression
-  if (looksLikeNumericalExpression(value)) {
-    const evaluated = calc(value);
-    if (Number.isFinite(evaluated)) {
-      return {
-        type: 'number',
-        number: evaluated,
-        unit: ''
-      };
-    }
   }
 
   return undefined;

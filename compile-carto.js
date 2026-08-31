@@ -342,6 +342,12 @@ function evaluateZoomGradient(value, z, prop, resolve = resolveValue) {
       throw new Error(`Error parsing "${value}" on the property "${prop}".`);
     }
 
+    const stops = gradient.stops;
+    const stopsLength = stops.length;
+    // Resolve before sampling since unresolved tokens cannot be interpolated.
+    for (let i = 0; i < stopsLength; i++) {
+      if (stops[i].value) stops[i].value = resolve(stops[i].value);
+    }
     const sampled = sampleZoomGradient(gradient, z);
     if (sampled !== undefined) return resolve(sampled);
 
@@ -502,7 +508,7 @@ function paintAtZoom(paint, z, resolve = resolveValue) {
       raw[prop] = value;
       continue;
     }
-    const v = evaluateZoomGradient(value, z, prop, (x) => x);
+    const v = evaluateZoomGradient(value, z, prop, resolveValue);
     if (v !== undefined) {
       raw[prop] = v;
       sampled.add(prop);
