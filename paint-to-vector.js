@@ -12,12 +12,18 @@ function num(v) {
  * carries one reference size and the client interpolates the multiplier per
  * frame, so a tile stays valid across its whole zoom octave.
  */
-function pair(v) {
+function numberPair(v) {
   if (!Array.isArray(v) || v.length !== 2) return undefined;
   const a = num(v[0]);
   const b = num(v[1]);
   if (!Number.isFinite(a) || !Number.isFinite(b)) return undefined;
   return [a, b];
+}
+
+function stringPair(v) {
+  if (!Array.isArray(v) || v.length !== 2) return undefined;
+  if (typeof v[0] !== 'string' || typeof v[1] !== 'string') return undefined;
+  return [v[0], v[1]];
 }
 
 function dash(v) {
@@ -42,7 +48,7 @@ function instanceToDescriptors(props) {
     // 'fill-rule': 'nonzero'
 
     // polygon-fill -> fill
-    styleProperties['fill'] = props['polygon-fill'] || ['rgba(0,0,0,1)', 'rgba(0,0,0,1)'];
+    styleProperties['fill'] = stringPair(props['polygon-fill']) || ['rgba(0,0,0,1)', 'rgba(0,0,0,1)'];
 
     // polygon-opacity -> fill-opacity
     if (has('polygon-opacity')) styleProperties['fill-opacity'] = num(props['polygon-opacity']);
@@ -57,7 +63,7 @@ function instanceToDescriptors(props) {
   if (has('line-color') || has('line-width')) {
     const styleProperties = {};
     // line-color -> stroke
-    styleProperties['stroke'] = props['line-color'] || ['rgba(0,0,0,1)', 'rgba(0,0,0,1)'];
+    styleProperties['stroke'] = stringPair(props['line-color']) || ['rgba(0,0,0,1)', 'rgba(0,0,0,1)'];
 
     // line-width -> stroke-width
     styleProperties['stroke-width'] = has('line-width') ? num(props['line-width']) : 1;
@@ -77,7 +83,7 @@ function instanceToDescriptors(props) {
     // line-scale -> stroke-width-scale (SCALE_TARGETS: line-scale -> line-width)
     // Only the width is scaled. The dash pattern keeps its authored rhythm, so a dashed casing does not visibly re-phase while zooming inside one octave.
     if (has('line-scale')) {
-      const scale = pair(props['line-scale']);
+      const scale = numberPair(props['line-scale']);
       if (scale) styleProperties['stroke-width-scale'] = scale;
     }
 
