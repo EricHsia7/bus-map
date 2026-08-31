@@ -107,7 +107,7 @@ function paintToPlan(paint) {
 }
 
 /**
- * Convert to vector objects
+ * Break down geometries into descriptors
  * @returns {{
  * polygonDescriptors: Array<{ instance: string, kind: 'polygon', styleProperties, geometry }>,
  * lineDescriptors: Array<{ instance: string, kind: 'line', styleProperties, geometry }>
@@ -115,7 +115,7 @@ function paintToPlan(paint) {
  */
 function paintToVector(paint, shape, x0, y0, x1, y1, extent, buffer) {
   const isLine = shape.type === 'LineString';
-  const plan = paintToPlan(paint); // geometries will be rendered 1:1 at runtime
+  const plan = paintToPlan(paint);
 
   // prepare geometries
   const geometries = new Map();
