@@ -184,9 +184,7 @@ as the key the range narrows the zoom window and emits no filters.
 
 ## Three intentional changes
 
-The new compiler is otherwise faithful to the old one (verified rule-by-rule over
-all 17 stylesheets: 2230 rules / 28720 selector groups). Three differences are
-deliberate bug fixes:
+The new compiler is otherwise faithful to the old one. Three differences are deliberate bug fixes:
 
 **a. Empty-string inequality is no longer silently dropped.**
 The old filter regex required at least one character in the value, so
