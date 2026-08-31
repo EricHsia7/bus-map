@@ -349,7 +349,7 @@ function evaluateZoomGradient(value, z, prop, resolve = resolveValue) {
       if (stops[i].value) stops[i].value = resolve(stops[i].value);
     }
     const sampled = sampleZoomGradient(gradient, z);
-    if (sampled !== undefined) return resolve(sampled);
+    if (sampled !== undefined) return sampled;
 
     const firstPositioned = gradient.stops.find((s) => s.from !== undefined);
     const started = gradient.stops[0].from === undefined || (firstPositioned !== undefined && z >= firstPositioned.from);
