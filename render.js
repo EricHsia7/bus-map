@@ -114,7 +114,6 @@ async function loadFileformat() {
 // Parse one chunk's .osm.pbf into { nodeMap, ways, relations }.
 // Returns null when the chunk file does not exist.
 async function parseChunk(cX, cY, cZ, fileformat) {
-  const key = `${cZ}_${cX}_${cY}`;
   const file = path.join(chunksDir, `${cZ}_${cX}_${cY}.osm.pbf`);
   if (!fs.existsSync(file)) return null;
 
@@ -187,7 +186,7 @@ async function parseChunk(cX, cY, cZ, fileformat) {
         const tags = (keys, vals) => Object.fromEntries(keys.map((k, i) => [st[k], st[vals[i]]]));
 
         for (const group of block.primitivegroup) {
-          // --- regular Nodes ---
+          // Nodes
           for (const n of group.nodes) {
             const id = Number(n.id);
             const longitude = projectLongitude(toDeg(n.lon, lonOff));
@@ -204,7 +203,7 @@ async function parseChunk(cX, cY, cZ, fileformat) {
             nodeMap.set(id, [longitude, latitude]);
           }
 
-          // --- DenseNodes (this is where nodes usually are!) ---
+          // DenseNodes (this is where nodes usually are!)
           if (group.dense) {
             const d = group.dense;
             let id = 0,
@@ -238,7 +237,7 @@ async function parseChunk(cX, cY, cZ, fileformat) {
             }
           }
 
-          // --- Ways (refs are delta-coded) ---
+          // Ways (refs are delta-coded)
           for (const w of group.ways) {
             let ref = 0;
             const refs = w.refs.map((r) => (ref += Number(r)));
@@ -249,7 +248,7 @@ async function parseChunk(cX, cY, cZ, fileformat) {
             });
           }
 
-          // --- Relations (memids delta-coded, roles are string IDs) ---
+          // Relations (memids delta-coded, roles are string IDs)
           for (const r of group.relations) {
             let mid = 0;
             const members = r.memids.map((m, i) => ({
