@@ -42,7 +42,7 @@ function instanceToDescriptors(props) {
     // 'fill-rule': 'nonzero'
 
     // polygon-fill -> fill
-    styleProperties['fill'] = props['polygon-fill'] || 'none';
+    styleProperties['fill'] = props['polygon-fill'] || ['rgba(0,0,0,1)', 'rgba(0,0,0,1)'];
 
     // polygon-opacity -> fill-opacity
     if (has('polygon-opacity')) styleProperties['fill-opacity'] = num(props['polygon-opacity']);
@@ -57,7 +57,7 @@ function instanceToDescriptors(props) {
   if (has('line-color') || has('line-width')) {
     const styleProperties = {};
     // line-color -> stroke
-    styleProperties['stroke'] = props['line-color'] || 'rgba(0,0,0,1)';
+    styleProperties['stroke'] = props['line-color'] || ['rgba(0,0,0,1)', 'rgba(0,0,0,1)'];
 
     // line-width -> stroke-width
     styleProperties['stroke-width'] = has('line-width') ? num(props['line-width']) : 1;

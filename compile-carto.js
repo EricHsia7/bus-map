@@ -543,6 +543,29 @@ const SCALE_TARGETS = {
   'line-scale': 'line-width'
 };
 
+// Interpolatable properties
+const INTERPOLATABLE_TARGETS = ['line-color', 'polygon-fill'];
+
+function deepAssign(target, source) {
+  for (const key in source) {
+    if (Object.prototype.hasOwnProperty.call(source, key)) {
+      if (typeof source[key] === 'object' && source[key] !== null && !Array.isArray(source[key])) {
+        target[key] = deepAssign(target[key] || {}, source[key]);
+      } else if (Array.isArray(source[key])) {
+        target[key] = source[key].map((item) => {
+          if (typeof item === 'object' && item !== null) {
+            return deepAssign({}, item);
+          }
+          return item;
+        });
+      } else {
+        target[key] = source[key];
+      }
+    }
+  }
+  return target;
+}
+
 /**
  * Split a paint key into its instance prefix and bare property name:
  * `casing/text-scale` -> `['casing/', 'text-scale']`, `text-scale` -> `['', 'text-scale']`.
@@ -855,33 +878,47 @@ function asNumber(value, resolve = resolveValue) {
  * @returns {Paint} The shipped properties at `z`.
  */
 function shipPaintAtZoom(paint, z, resolve = resolveValue) {
-  const cur = paintAtZoom(paint, z, resolve);
-  if (!keepScales) return cur;
+  const current = paintAtZoom(paint, z, resolve);
+  if (!keepScales) return current;
 
   // At ZOOM_MAX there is no next zoom to grow into, so the interval is flat.
-  const next = z >= ZOOM_MAX ? cur : paintAtZoom(paint, z + 1, resolve);
+  const next = z >= ZOOM_MAX ? current : paintAtZoom(paint, z + 1, resolve);
 
-  for (const key of Object.keys(cur)) {
-    const [instance, bare] = splitInstanceKey(key);
-    const target = SCALE_TARGETS[bare];
-    if (target === undefined) continue;
-
-    const sizeKey = instance + target;
-    const curRef = cur[sizeKey];
-    const s0 = cur[key];
-    let s1 = next[key];
-    const nextRef = next[sizeKey];
-
-    if (s1 === undefined || curRef === undefined || nextRef === undefined) {
-      // The rule stops emitting a size at z+1 (a gated ladder ending, or ZOOM_MAX): hold the value rather than interpolate toward nothing.
-      s1 = s0;
-    } else if (String(nextRef) !== String(curRef)) {
-      s1 = renormalizeScale(curRef, nextRef, s1, key, resolve);
-    }
-
-    cur[key] = [asNumber(s0, resolve), asNumber(s1, resolve)];
+  const originalKeys = [];
+  for (const key in current) {
+    originalKeys.push(key);
   }
-  return cur;
+
+  for (const key of originalKeys) {
+    const [instance, bare] = splitInstanceKey(key);
+    if (SCALE_TARGETS.hasOwnProperty(bare)) {
+      const sizeKey = `${instance}${SCALE_TARGETS[bare]}`;
+
+      const curRef = current[sizeKey];
+      const nextRef = next[sizeKey];
+
+      const s0 = current[key];
+      let s1 = next[key];
+
+      if (s1 === undefined || curRef === undefined || nextRef === undefined) {
+        // The rule stops emitting a size at z+1 (a gated ladder ending, or ZOOM_MAX): hold the value rather than interpolate toward nothing.
+        s1 = s0;
+      } else if (String(nextRef) !== String(curRef)) {
+        s1 = renormalizeScale(curRef, nextRef, s1, key, resolve);
+      }
+
+      current[key] = [asNumber(s0, resolve), asNumber(s1, resolve)];
+    } else if (INTERPOLATABLE_TARGETS.indexOf(bare) > -1) {
+      const v0 = current[key];
+      const v1 = next[key];
+      if (current.hasOwnProperty(key) && next.hasOwnProperty(key)) {
+        current[key] = [v0, v1];
+      } else {
+        current[key] = [v0, v0];
+      }
+    }
+  }
+  return current;
 }
 
 /**
@@ -1058,8 +1095,8 @@ function main() {
     // Fast path: no zoom ladder, so the rule maps 1:1 onto one output rule.
     // A constant --text-scale still has to be folded away here.
     const hasShippedScale = keepScales && Object.keys(paint).some((k) => SCALE_TARGETS[splitInstanceKey(k)[1]] !== undefined);
-
-    if (!hasShippedScale && !Object.values(paint).some(looksLikeZoomGradientValue)) {
+    const hasInterpolatable = Object.keys(paint).some((k) => INTERPOLATABLE_TARGETS.indexOf(splitInstanceKey(k)[1]) > -1);
+    if (!hasShippedScale && !hasInterpolatable && !Object.values(paint).some(looksLikeZoomGradientValue)) {
       const flat = foldScales(paint).paint;
       out.push(attachment ? { groups, paint: flat, attachment } : { groups, paint: flat });
       return;
