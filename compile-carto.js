@@ -339,7 +339,7 @@ function evaluateZoomGradient(value, z, prop, resolve = resolveValue) {
   if (looksLikeZoomGradientValue(value)) {
     const gradient = parseZoomGradient(value);
     if (gradient === undefined) {
-      throw new Error(`Error parsing "${value}"`);
+      throw new Error(`Error parsing "${value}" on the property "${prop}".`);
     }
 
     const sampled = sampleZoomGradient(gradient, z);
@@ -349,7 +349,7 @@ function evaluateZoomGradient(value, z, prop, resolve = resolveValue) {
     const started = gradient.stops[0].from === undefined || (firstPositioned !== undefined && z >= firstPositioned.from);
     if (started) {
       // Distinguish "has not started yet" from "these stops cannot be blended".
-      throw new Error(`Error interpolating "${value}" on the property "${prop}" at z=${z}.\n${JSON.stringify(gradient, null, 2)}`);
+      throw new Error(`Error sampling "${value}" on the property "${prop}" at z=${z}.\n${JSON.stringify(gradient, null, 2)}`);
     }
   }
 }
