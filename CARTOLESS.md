@@ -168,7 +168,7 @@ For non-zoom numeric attributes:
 With `zoom` as the key these narrow the zoom window instead of becoming a
 filter, and strict bounds are converted to inclusive ones: `:gt(zoom, 12)` is a floor of 13, `:lt(zoom, 12)` a ceiling of 11.
 
-### `:range(key, lo, hi)`
+### `:range(key, lowerBound, upperBound)`
 
 A matched `>=` / `<=` pair on one key collapses into a single inclusive range:
 
