@@ -344,7 +344,7 @@ function evaluateZoomGradient(value, z, prop, resolve = resolveValue) {
 
     const stops = gradient.stops;
     const stopsLength = stops.length;
-    // Resolve before sampling since unresolved tokens cannot be interpolated.
+    // Resolve the values before sampling since unresolved tokens cannot be interpolated.
     for (let i = 0; i < stopsLength; i++) {
       if (stops[i].value) stops[i].value = resolve(stops[i].value);
     }
