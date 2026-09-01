@@ -62,6 +62,16 @@ const { invertRGB } = require('./invert');
 const ZOOM_MIN = 0;
 const ZOOM_MAX = 24;
 
+// Scale properties
+const SCALE_TARGETS = {
+  'text-scale': 'text-size',
+  'marker-scale': 'marker-width',
+  'line-scale': 'line-width'
+};
+
+// Interpolatable properties
+const INTERPOLATABLE_TARGETS = ['line-color', 'polygon-fill'];
+
 /**
  * @typedef {Object} Filter A single data-driven constraint, ANDed with its siblings.
  * @property {string} key Feature attribute name.
@@ -534,36 +544,6 @@ function evaluateZoomGradient(value, z, prop, resolve = resolveValue) {
       throw new Error(`Error sampling "${value}" on the property "${prop}" at z=${z}.\n${JSON.stringify(gradient, null, 2)}`);
     }
   }
-}
-
-// Scale properties
-const SCALE_TARGETS = {
-  'text-scale': 'text-size',
-  'marker-scale': 'marker-width',
-  'line-scale': 'line-width'
-};
-
-// Interpolatable properties
-const INTERPOLATABLE_TARGETS = ['line-color', 'polygon-fill'];
-
-function deepAssign(target, source) {
-  for (const key in source) {
-    if (Object.prototype.hasOwnProperty.call(source, key)) {
-      if (typeof source[key] === 'object' && source[key] !== null && !Array.isArray(source[key])) {
-        target[key] = deepAssign(target[key] || {}, source[key]);
-      } else if (Array.isArray(source[key])) {
-        target[key] = source[key].map((item) => {
-          if (typeof item === 'object' && item !== null) {
-            return deepAssign({}, item);
-          }
-          return item;
-        });
-      } else {
-        target[key] = source[key];
-      }
-    }
-  }
-  return target;
 }
 
 /**
