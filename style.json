@@ -3920,40 +3920,6 @@
         "layer": "water-areas",
         "zoom": {
           "min": 5,
-          "max": 8
-        },
-        "and": [
-          {
-            "key": "natural",
-            "op": "=",
-            "value": "glacier"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": [
-        "1",
-        "1"
-      ],
-      "non-interpolatable": "line-width",
-      "line-color": [
-        "rgba(177,232,245,1)",
-        "rgba(177,232,245,1)"
-      ],
-      "polygon-fill": [
-        "rgba(199,242,250,1)",
-        "rgba(199,242,250,1)"
-      ]
-    },
-    "attachment": "natural"
-  },
-  {
-    "groups": [
-      {
-        "layer": "water-areas",
-        "zoom": {
-          "min": 9,
           "max": 9
         },
         "and": [
@@ -3968,7 +3934,7 @@
     "paint": {
       "line-width": [
         "1",
-        "1.5"
+        "1"
       ],
       "non-interpolatable": "line-width",
       "line-color": [
@@ -4136,7 +4102,7 @@
       ],
       "line-width": [
         "0.7",
-        "1.2"
+        "0.7"
       ],
       "non-interpolatable": "line-width"
     }
@@ -4159,7 +4125,7 @@
       ],
       "line-width": [
         "1.2",
-        "1.5"
+        "1.2"
       ],
       "non-interpolatable": "line-width"
     }
@@ -4235,7 +4201,7 @@
       "line-join": "round",
       "line-width": [
         "5.5",
-        "7"
+        "5.5"
       ],
       "non-interpolatable": "line-width"
     },
@@ -4266,7 +4232,7 @@
       "line-join": "round",
       "line-width": [
         "7",
-        "9"
+        "7"
       ],
       "non-interpolatable": "line-width"
     },
@@ -4297,7 +4263,7 @@
       "line-join": "round",
       "line-width": [
         "9",
-        "11"
+        "9"
       ],
       "non-interpolatable": "line-width"
     },
@@ -4328,7 +4294,7 @@
       "line-join": "round",
       "line-width": [
         "11",
-        "13"
+        "11"
       ],
       "non-interpolatable": "line-width"
     },
@@ -4585,7 +4551,7 @@
     "paint": {
       "line-width": [
         "3.5",
-        "4"
+        "3.5"
       ],
       "non-interpolatable": "line-width"
     },
@@ -4673,7 +4639,7 @@
     "paint": {
       "line-width": [
         "4",
-        "4.5"
+        "4"
       ],
       "non-interpolatable": "line-width"
     },
@@ -4761,7 +4727,7 @@
     "paint": {
       "line-width": [
         "4.5",
-        "5"
+        "4.5"
       ],
       "non-interpolatable": "line-width"
     },
@@ -4967,7 +4933,7 @@
       "line-join": "round",
       "line-width": [
         "3.8",
-        "4.5"
+        "3.8"
       ],
       "non-interpolatable": "line-width"
     },
@@ -4998,7 +4964,7 @@
       "line-join": "round",
       "line-width": [
         "4.5",
-        "5.2"
+        "4.5"
       ],
       "non-interpolatable": "line-width"
     },
@@ -5029,7 +4995,7 @@
       "line-join": "round",
       "line-width": [
         "5.2",
-        "5.9"
+        "5.2"
       ],
       "non-interpolatable": "line-width"
     },
@@ -5060,7 +5026,7 @@
       "line-join": "round",
       "line-width": [
         "5.9",
-        "6.6"
+        "5.9"
       ],
       "non-interpolatable": "line-width"
     },
@@ -5135,7 +5101,7 @@
       ],
       "water/line-width": [
         "2.3",
-        "3"
+        "2.3"
       ],
       "water/non-interpolatable": "line-width",
       "water/line-cap": "round",
@@ -5181,7 +5147,7 @@
       ],
       "water/line-width": [
         "3",
-        "4.5"
+        "3"
       ],
       "water/non-interpolatable": "line-width",
       "water/line-cap": "round",
@@ -5227,7 +5193,7 @@
       ],
       "water/line-width": [
         "4.5",
-        "6"
+        "4.5"
       ],
       "water/non-interpolatable": "line-width",
       "water/line-cap": "round",
@@ -5273,7 +5239,7 @@
       ],
       "water/line-width": [
         "6",
-        "8"
+        "6"
       ],
       "water/non-interpolatable": "line-width",
       "water/line-cap": "round",
@@ -5319,7 +5285,7 @@
       ],
       "water/line-width": [
         "8",
-        "10"
+        "8"
       ],
       "water/non-interpolatable": "line-width",
       "water/line-cap": "round",
@@ -5365,7 +5331,7 @@
       ],
       "water/line-width": [
         "10",
-        "12"
+        "10"
       ],
       "water/non-interpolatable": "line-width",
       "water/line-cap": "round",
@@ -5467,7 +5433,7 @@
       ],
       "background/line-width": [
         "2.3",
-        "3"
+        "2.3"
       ],
       "background/non-interpolatable": "line-width",
       "background/line-join": "round"
@@ -5522,7 +5488,7 @@
       ],
       "background/line-width": [
         "3",
-        "4.5"
+        "3"
       ],
       "background/non-interpolatable": "line-width",
       "background/line-join": "round"
@@ -5577,7 +5543,7 @@
       ],
       "background/line-width": [
         "4.5",
-        "6"
+        "4.5"
       ],
       "background/non-interpolatable": "line-width",
       "background/line-join": "round"
@@ -5632,7 +5598,7 @@
       ],
       "background/line-width": [
         "6",
-        "8"
+        "6"
       ],
       "background/non-interpolatable": "line-width",
       "background/line-join": "round"
@@ -5687,7 +5653,7 @@
       ],
       "background/line-width": [
         "8",
-        "10"
+        "8"
       ],
       "background/non-interpolatable": "line-width",
       "background/line-join": "round"
@@ -5742,7 +5708,7 @@
       ],
       "background/line-width": [
         "10",
-        "12"
+        "10"
       ],
       "background/non-interpolatable": "line-width",
       "background/line-join": "round"
@@ -5863,7 +5829,7 @@
       "background/line-join": "round",
       "background/line-width": [
         "4.5",
-        "6"
+        "4.5"
       ],
       "background/non-interpolatable": "line-width"
     },
@@ -5928,7 +5894,7 @@
       "background/line-join": "round",
       "background/line-width": [
         "6",
-        "8"
+        "6"
       ],
       "background/non-interpolatable": "line-width"
     },
@@ -5993,7 +5959,7 @@
       "background/line-join": "round",
       "background/line-width": [
         "8",
-        "10"
+        "8"
       ],
       "background/non-interpolatable": "line-width"
     },
@@ -6058,7 +6024,7 @@
       "background/line-join": "round",
       "background/line-width": [
         "10",
-        "12"
+        "10"
       ],
       "background/non-interpolatable": "line-width"
     },
@@ -6226,7 +6192,7 @@
       ],
       "tunnelfill/line-width": [
         "0.8",
-        "1"
+        "0.8"
       ],
       "tunnelfill/non-interpolatable": "line-width",
       "tunnelfill/line-join": "round"
@@ -6283,7 +6249,7 @@
       ],
       "tunnelfill/line-width": [
         "1",
-        "1.5"
+        "1"
       ],
       "tunnelfill/non-interpolatable": "line-width",
       "tunnelfill/line-join": "round"
@@ -6340,7 +6306,7 @@
       ],
       "tunnelfill/line-width": [
         "1.5",
-        "3"
+        "1.5"
       ],
       "tunnelfill/non-interpolatable": "line-width",
       "tunnelfill/line-join": "round"
@@ -6397,7 +6363,7 @@
       ],
       "tunnelfill/line-width": [
         "3",
-        "5"
+        "3"
       ],
       "tunnelfill/non-interpolatable": "line-width",
       "tunnelfill/line-join": "round"
@@ -6454,7 +6420,7 @@
       ],
       "tunnelfill/line-width": [
         "5",
-        "7"
+        "5"
       ],
       "tunnelfill/non-interpolatable": "line-width",
       "tunnelfill/line-join": "round"
@@ -6511,7 +6477,7 @@
       ],
       "tunnelfill/line-width": [
         "7",
-        "8"
+        "7"
       ],
       "tunnelfill/non-interpolatable": "line-width",
       "tunnelfill/line-join": "round"
@@ -6695,7 +6661,7 @@
     "paint": {
       "water/line-width": [
         "0.8",
-        "1.4"
+        "0.8"
       ],
       "water/non-interpolatable": "line-width",
       "water/line-color": [
@@ -6911,7 +6877,7 @@
     "paint": {
       "water/line-width": [
         "1.4",
-        "2"
+        "1.4"
       ],
       "water/non-interpolatable": "line-width",
       "water/line-color": [
@@ -8898,7 +8864,7 @@
     "paint": {
       "background/line-width": [
         "2.5",
-        "3"
+        "2.5"
       ],
       "background/non-interpolatable": "line-width"
     },
@@ -9414,7 +9380,7 @@
     "paint": {
       "background/line-width": [
         "3",
-        "3.5"
+        "3"
       ],
       "background/non-interpolatable": "line-width"
     },
@@ -9930,7 +9896,7 @@
     "paint": {
       "background/line-width": [
         "3.5",
-        "4"
+        "3.5"
       ],
       "background/non-interpolatable": "line-width"
     },
@@ -11584,7 +11550,7 @@
     "paint": {
       "water/line-width": [
         "2.5",
-        "3"
+        "2.5"
       ],
       "water/non-interpolatable": "line-width"
     },
@@ -11940,7 +11906,7 @@
     "paint": {
       "water/line-width": [
         "3",
-        "3.5"
+        "3"
       ],
       "water/non-interpolatable": "line-width"
     },
@@ -12296,7 +12262,7 @@
     "paint": {
       "water/line-width": [
         "3.5",
-        "4"
+        "3.5"
       ],
       "water/non-interpolatable": "line-width"
     },
@@ -14595,7 +14561,7 @@
         "layer": "water-lines",
         "zoom": {
           "min": 15,
-          "max": 15
+          "max": 16
         },
         "and": [
           {
@@ -14624,7 +14590,7 @@
         "layer": "water-lines",
         "zoom": {
           "min": 15,
-          "max": 15
+          "max": 16
         },
         "and": [
           {
@@ -14648,7 +14614,7 @@
         "layer": "water-lines",
         "zoom": {
           "min": 15,
-          "max": 15
+          "max": 16
         },
         "and": [
           {
@@ -14677,7 +14643,7 @@
         "layer": "water-lines",
         "zoom": {
           "min": 15,
-          "max": 15
+          "max": 16
         },
         "and": [
           {
@@ -14701,7 +14667,7 @@
         "layer": "water-lines",
         "zoom": {
           "min": 15,
-          "max": 15
+          "max": 16
         },
         "and": [
           {
@@ -14730,7 +14696,7 @@
         "layer": "water-lines",
         "zoom": {
           "min": 15,
-          "max": 15
+          "max": 16
         },
         "and": [
           {
@@ -14754,7 +14720,7 @@
         "layer": "water-lines",
         "zoom": {
           "min": 15,
-          "max": 15
+          "max": 16
         },
         "and": [
           {
@@ -14783,7 +14749,7 @@
         "layer": "water-lines",
         "zoom": {
           "min": 15,
-          "max": 15
+          "max": 16
         },
         "and": [
           {
@@ -14807,7 +14773,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 15,
-          "max": 15
+          "max": 16
         },
         "and": [
           {
@@ -14836,7 +14802,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 15,
-          "max": 15
+          "max": 16
         },
         "and": [
           {
@@ -14860,7 +14826,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 15,
-          "max": 15
+          "max": 16
         },
         "and": [
           {
@@ -14889,7 +14855,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 15,
-          "max": 15
+          "max": 16
         },
         "and": [
           {
@@ -14913,7 +14879,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 15,
-          "max": 15
+          "max": 16
         },
         "and": [
           {
@@ -14942,7 +14908,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 15,
-          "max": 15
+          "max": 16
         },
         "and": [
           {
@@ -14966,7 +14932,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 15,
-          "max": 15
+          "max": 16
         },
         "and": [
           {
@@ -14995,7 +14961,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 15,
-          "max": 15
+          "max": 16
         },
         "and": [
           {
@@ -15040,452 +15006,6 @@
       {
         "layer": "water-lines",
         "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_ditch"
-          },
-          {
-            "key": "int_intermittent",
-            "op": "!=",
-            "value": "yes"
-          },
-          {
-            "key": "int_bridge_tunnel",
-            "op": "=",
-            "value": "tunnel"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_stream"
-          }
-        ]
-      },
-      {
-        "layer": "water-lines",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_ditch"
-          },
-          {
-            "key": "int_bridge_tunnel",
-            "op": "=",
-            "value": "tunnel"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_stream"
-          }
-        ]
-      },
-      {
-        "layer": "water-lines",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_drain"
-          },
-          {
-            "key": "int_intermittent",
-            "op": "!=",
-            "value": "yes"
-          },
-          {
-            "key": "int_bridge_tunnel",
-            "op": "=",
-            "value": "tunnel"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_stream"
-          }
-        ]
-      },
-      {
-        "layer": "water-lines",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_drain"
-          },
-          {
-            "key": "int_bridge_tunnel",
-            "op": "=",
-            "value": "tunnel"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_stream"
-          }
-        ]
-      },
-      {
-        "layer": "water-lines",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_fish_pass"
-          },
-          {
-            "key": "int_intermittent",
-            "op": "!=",
-            "value": "yes"
-          },
-          {
-            "key": "int_bridge_tunnel",
-            "op": "=",
-            "value": "tunnel"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_stream"
-          }
-        ]
-      },
-      {
-        "layer": "water-lines",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_fish_pass"
-          },
-          {
-            "key": "int_bridge_tunnel",
-            "op": "=",
-            "value": "tunnel"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_stream"
-          }
-        ]
-      },
-      {
-        "layer": "water-lines",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_stream"
-          },
-          {
-            "key": "int_intermittent",
-            "op": "!=",
-            "value": "yes"
-          },
-          {
-            "key": "int_bridge_tunnel",
-            "op": "=",
-            "value": "tunnel"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_stream"
-          }
-        ]
-      },
-      {
-        "layer": "water-lines",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_stream"
-          },
-          {
-            "key": "int_bridge_tunnel",
-            "op": "=",
-            "value": "tunnel"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_stream"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_ditch"
-          },
-          {
-            "key": "int_intermittent",
-            "op": "!=",
-            "value": "yes"
-          },
-          {
-            "key": "int_bridge_tunnel",
-            "op": "=",
-            "value": "tunnel"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_stream"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_ditch"
-          },
-          {
-            "key": "int_bridge_tunnel",
-            "op": "=",
-            "value": "tunnel"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_stream"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_drain"
-          },
-          {
-            "key": "int_intermittent",
-            "op": "!=",
-            "value": "yes"
-          },
-          {
-            "key": "int_bridge_tunnel",
-            "op": "=",
-            "value": "tunnel"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_stream"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_drain"
-          },
-          {
-            "key": "int_bridge_tunnel",
-            "op": "=",
-            "value": "tunnel"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_stream"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_fish_pass"
-          },
-          {
-            "key": "int_intermittent",
-            "op": "!=",
-            "value": "yes"
-          },
-          {
-            "key": "int_bridge_tunnel",
-            "op": "=",
-            "value": "tunnel"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_stream"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_fish_pass"
-          },
-          {
-            "key": "int_bridge_tunnel",
-            "op": "=",
-            "value": "tunnel"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_stream"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_stream"
-          },
-          {
-            "key": "int_intermittent",
-            "op": "!=",
-            "value": "yes"
-          },
-          {
-            "key": "int_bridge_tunnel",
-            "op": "=",
-            "value": "tunnel"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_stream"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_stream"
-          },
-          {
-            "key": "int_bridge_tunnel",
-            "op": "=",
-            "value": "tunnel"
-          },
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_stream"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "background/line-width": [
-        "4",
-        "4.5"
-      ],
-      "background/non-interpolatable": "line-width",
-      "water/line-width": [
-        "4",
-        "4.5"
-      ],
-      "water/non-interpolatable": "line-width",
-      "tunnelfill/line-width": [
-        "1.5",
-        "2"
-      ],
-      "tunnelfill/non-interpolatable": "line-width"
-    },
-    "attachment": "fill"
-  },
-  {
-    "groups": [
-      {
-        "layer": "water-lines",
-        "zoom": {
           "min": 17,
           "max": 17
         },
@@ -15911,17 +15431,17 @@
     "paint": {
       "background/line-width": [
         "4.5",
-        "5"
+        "4.5"
       ],
       "background/non-interpolatable": "line-width",
       "water/line-width": [
         "4.5",
-        "5"
+        "4.5"
       ],
       "water/non-interpolatable": "line-width",
       "tunnelfill/line-width": [
         "2",
-        "2.5"
+        "2"
       ],
       "tunnelfill/non-interpolatable": "line-width"
     },
@@ -16859,7 +16379,7 @@
       "water/line-cap": "round",
       "water/line-width": [
         "1.12",
-        "1.96"
+        "1.12"
       ],
       "water/non-interpolatable": "line-width"
     },
@@ -16905,7 +16425,7 @@
       "water/line-cap": "round",
       "water/line-width": [
         "1.96",
-        "2.8"
+        "1.96"
       ],
       "water/non-interpolatable": "line-width"
     },
@@ -16951,7 +16471,7 @@
       "water/line-cap": "round",
       "water/line-width": [
         "2.8",
-        "3.5"
+        "2.8"
       ],
       "water/non-interpolatable": "line-width"
     },
@@ -16997,7 +16517,7 @@
       "water/line-cap": "round",
       "water/line-width": [
         "3.5",
-        "4.2"
+        "3.5"
       ],
       "water/non-interpolatable": "line-width"
     },
@@ -17043,7 +16563,7 @@
       "water/line-cap": "round",
       "water/line-width": [
         "4.2",
-        "4.9"
+        "4.2"
       ],
       "water/non-interpolatable": "line-width"
     },
@@ -17089,7 +16609,7 @@
       "water/line-cap": "round",
       "water/line-width": [
         "4.9",
-        "5.6"
+        "4.9"
       ],
       "water/non-interpolatable": "line-width"
     },
@@ -17250,7 +16770,7 @@
       "background/line-join": "round",
       "background/line-width": [
         "2.8",
-        "3.5"
+        "2.8"
       ],
       "background/non-interpolatable": "line-width"
     },
@@ -17315,7 +16835,7 @@
       "background/line-join": "round",
       "background/line-width": [
         "3.5",
-        "4.2"
+        "3.5"
       ],
       "background/non-interpolatable": "line-width"
     },
@@ -17380,7 +16900,7 @@
       "background/line-join": "round",
       "background/line-width": [
         "4.2",
-        "4.9"
+        "4.2"
       ],
       "background/non-interpolatable": "line-width"
     },
@@ -17445,7 +16965,7 @@
       "background/line-join": "round",
       "background/line-width": [
         "4.9",
-        "5.6"
+        "4.9"
       ],
       "background/non-interpolatable": "line-width"
     },
@@ -17609,12 +17129,12 @@
       "water/line-cap": "butt",
       "water/line-width": [
         "2.96",
-        "3.8"
+        "2.96"
       ],
       "water/non-interpolatable": "line-width",
       "background/line-width": [
         "2.96",
-        "3.8"
+        "2.96"
       ],
       "background/non-interpolatable": "line-width",
       "tunnelfill/line-color": [
@@ -17624,6 +17144,73 @@
       "tunnelfill/line-join": "round",
       "tunnelfill/line-width": [
         "0.96",
+        "0.96"
+      ],
+      "tunnelfill/non-interpolatable": "line-width"
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "water-lines",
+        "zoom": {
+          "min": 14,
+          "max": 14
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "waterway_canal"
+          },
+          {
+            "key": "int_bridge_tunnel",
+            "op": "=",
+            "value": "tunnel"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 14,
+          "max": 14
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "waterway_canal"
+          },
+          {
+            "key": "int_bridge_tunnel",
+            "op": "=",
+            "value": "tunnel"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "water/line-dasharray": "4, 2",
+      "water/line-cap": "butt",
+      "water/line-width": [
+        "3.8",
+        "3.8"
+      ],
+      "water/non-interpolatable": "line-width",
+      "background/line-width": [
+        "3.8",
+        "3.8"
+      ],
+      "background/non-interpolatable": "line-width",
+      "tunnelfill/line-color": [
+        "rgba(176,217,253,1)",
+        "rgba(176,217,253,1)"
+      ],
+      "tunnelfill/line-join": "round",
+      "tunnelfill/line-width": [
+        "1.3",
         "1.3"
       ],
       "tunnelfill/non-interpolatable": "line-width"
@@ -17635,8 +17222,8 @@
       {
         "layer": "water-lines",
         "zoom": {
-          "min": 14,
-          "max": 14
+          "min": 15,
+          "max": 15
         },
         "and": [
           {
@@ -17654,8 +17241,8 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 14,
-          "max": 14
+          "min": 15,
+          "max": 15
         },
         "and": [
           {
@@ -17675,12 +17262,12 @@
       "water/line-dasharray": "4, 2",
       "water/line-cap": "butt",
       "water/line-width": [
-        "3.8",
+        "4.5",
         "4.5"
       ],
       "water/non-interpolatable": "line-width",
       "background/line-width": [
-        "3.8",
+        "4.5",
         "4.5"
       ],
       "background/non-interpolatable": "line-width",
@@ -17690,7 +17277,7 @@
       ],
       "tunnelfill/line-join": "round",
       "tunnelfill/line-width": [
-        "1.3",
+        "2",
         "2"
       ],
       "tunnelfill/non-interpolatable": "line-width"
@@ -17702,8 +17289,8 @@
       {
         "layer": "water-lines",
         "zoom": {
-          "min": 15,
-          "max": 15
+          "min": 16,
+          "max": 16
         },
         "and": [
           {
@@ -17721,8 +17308,8 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 15,
-          "max": 15
+          "min": 16,
+          "max": 16
         },
         "and": [
           {
@@ -17742,12 +17329,12 @@
       "water/line-dasharray": "4, 2",
       "water/line-cap": "butt",
       "water/line-width": [
-        "4.5",
+        "5.2",
         "5.2"
       ],
       "water/non-interpolatable": "line-width",
       "background/line-width": [
-        "4.5",
+        "5.2",
         "5.2"
       ],
       "background/non-interpolatable": "line-width",
@@ -17757,7 +17344,7 @@
       ],
       "tunnelfill/line-join": "round",
       "tunnelfill/line-width": [
-        "2",
+        "2.7",
         "2.7"
       ],
       "tunnelfill/non-interpolatable": "line-width"
@@ -17769,73 +17356,6 @@
       {
         "layer": "water-lines",
         "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_canal"
-          },
-          {
-            "key": "int_bridge_tunnel",
-            "op": "=",
-            "value": "tunnel"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "waterway_canal"
-          },
-          {
-            "key": "int_bridge_tunnel",
-            "op": "=",
-            "value": "tunnel"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "water/line-dasharray": "4, 2",
-      "water/line-cap": "butt",
-      "water/line-width": [
-        "5.2",
-        "5.9"
-      ],
-      "water/non-interpolatable": "line-width",
-      "background/line-width": [
-        "5.2",
-        "5.9"
-      ],
-      "background/non-interpolatable": "line-width",
-      "tunnelfill/line-color": [
-        "rgba(176,217,253,1)",
-        "rgba(176,217,253,1)"
-      ],
-      "tunnelfill/line-join": "round",
-      "tunnelfill/line-width": [
-        "2.7",
-        "3.4"
-      ],
-      "tunnelfill/non-interpolatable": "line-width"
-    },
-    "attachment": "fill"
-  },
-  {
-    "groups": [
-      {
-        "layer": "water-lines",
-        "zoom": {
           "min": 17,
           "max": 17
         },
@@ -17877,12 +17397,12 @@
       "water/line-cap": "butt",
       "water/line-width": [
         "5.9",
-        "6.6"
+        "5.9"
       ],
       "water/non-interpolatable": "line-width",
       "background/line-width": [
         "5.9",
-        "6.6"
+        "5.9"
       ],
       "background/non-interpolatable": "line-width",
       "tunnelfill/line-color": [
@@ -17892,7 +17412,7 @@
       "tunnelfill/line-join": "round",
       "tunnelfill/line-width": [
         "3.4",
-        "4.1"
+        "3.4"
       ],
       "tunnelfill/non-interpolatable": "line-width"
     },
@@ -19041,8 +18561,9 @@
     "paint": {
       "line-width": [
         "0.5",
-        "1"
+        "0.5"
       ],
+      "non-interpolatable": "line-width",
       "line-color": [
         "rgba(242,242,247,1)",
         "rgba(242,242,247,1)"
@@ -19056,35 +18577,6 @@
         "layer": "piers-line",
         "zoom": {
           "min": 13,
-          "max": 13
-        },
-        "and": [
-          {
-            "key": "man_made",
-            "op": "=",
-            "value": "pier"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": [
-        "1",
-        "1"
-      ],
-      "line-color": [
-        "rgba(242,242,247,1)",
-        "rgba(242,242,247,1)"
-      ],
-      "line-cap": "square"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "piers-line",
-        "zoom": {
-          "min": 14,
           "max": 14
         },
         "and": [
@@ -19099,8 +18591,9 @@
     "paint": {
       "line-width": [
         "1",
-        "2"
+        "1"
       ],
+      "non-interpolatable": "line-width",
       "line-color": [
         "rgba(242,242,247,1)",
         "rgba(242,242,247,1)"
@@ -19114,35 +18607,6 @@
         "layer": "piers-line",
         "zoom": {
           "min": 15,
-          "max": 15
-        },
-        "and": [
-          {
-            "key": "man_made",
-            "op": "=",
-            "value": "pier"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": [
-        "2",
-        "2"
-      ],
-      "line-color": [
-        "rgba(242,242,247,1)",
-        "rgba(242,242,247,1)"
-      ],
-      "line-cap": "square"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "piers-line",
-        "zoom": {
-          "min": 16,
           "max": 16
         },
         "and": [
@@ -19157,8 +18621,9 @@
     "paint": {
       "line-width": [
         "2",
-        "4"
+        "2"
       ],
+      "non-interpolatable": "line-width",
       "line-color": [
         "rgba(242,242,247,1)",
         "rgba(242,242,247,1)"
@@ -19188,6 +18653,7 @@
         "4",
         "4"
       ],
+      "non-interpolatable": "line-width",
       "line-color": [
         "rgba(242,242,247,1)",
         "rgba(242,242,247,1)"
@@ -85344,7 +84810,7 @@
         "layer": "roads-fill",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -85358,7 +84824,7 @@
         "layer": "bridges",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -85372,7 +84838,7 @@
         "layer": "tunnels",
         "zoom": {
           "min": 15,
-          "max": 16
+          "max": 15
         },
         "and": [
           {
@@ -85386,7 +84852,60 @@
     "paint": {
       "line-width": [
         "6",
-        "6"
+        "6.6667"
+      ]
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_raceway"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_raceway"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_raceway"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": [
+        "6.6667",
+        "7.3333"
       ]
     },
     "attachment": "fill"
@@ -85438,7 +84957,7 @@
     ],
     "paint": {
       "line-width": [
-        "6",
+        "7.3333",
         "8"
       ]
     },
@@ -89675,6 +89194,36 @@
         "layer": "roads-low-zoom",
         "zoom": {
           "min": 8,
+          "max": 8
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "railway_rail"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-color": [
+        "rgba(115,124,138,1)",
+        "rgba(115,124,138,1)"
+      ],
+      "line-width": [
+        "0.8",
+        "0.825"
+      ],
+      "line-join": "round"
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-low-zoom",
+        "zoom": {
+          "min": 9,
           "max": 9
         },
         "and": [
@@ -89684,7 +89233,23 @@
             "value": "railway_rail"
           }
         ]
-      },
+      }
+    ],
+    "paint": {
+      "line-color": [
+        "rgba(115,124,138,1)",
+        "rgba(115,124,138,1)"
+      ],
+      "line-width": [
+        "0.825",
+        "0.85"
+      ],
+      "line-join": "round"
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
       {
         "layer": "roads-fill",
         "zoom": {
@@ -89711,8 +89276,8 @@
         "rgba(115,124,138,1)"
       ],
       "line-width": [
-        "0.8",
-        "0.8"
+        "0.85",
+        "0.875"
       ],
       "line-join": "round"
     },
@@ -89746,7 +89311,7 @@
         "rgba(115,124,138,1)"
       ],
       "line-width": [
-        "0.8",
+        "0.875",
         "0.9"
       ],
       "line-join": "round"
@@ -396651,7 +396216,7 @@
     "paint": {
       "background/line-width": [
         "3.5",
-        "4.5"
+        "3.75"
       ],
       "line-color": [
         "rgba(51,48,54,1)",
@@ -396683,7 +396248,7 @@
     ],
     "paint": {
       "background/line-width": [
-        "4.5",
+        "3.75",
         "5.5"
       ],
       "line-color": [

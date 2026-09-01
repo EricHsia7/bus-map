@@ -1177,8 +1177,10 @@
     &#piers-poly {
       --polygon-fill: @land-color;
     }
+
     &#piers-line {
-      --line-width: 0.5 * zoom-gradient(1, 2 13z 14z, 4 15z 16z, 8 17z);
+      --line-width: zoom-gradient(0.5, 1 13z 14z, 2 15z 16z, 4 17z);
+      --non-interpolatable: line-width;
       --line-color: @land-color;
       --line-cap: square;
     }
@@ -2671,7 +2673,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
 
     &[feature='highway_raceway'] {
-      --line-width: 1.2 * zoom-gradient(1 12z, (2 / 1.2) 13z, 2.5 14z, 5 15z 17z, (8 / 1.2) 18z, 10 19z, 20 20z);
+      --line-width: zoom-gradient(1.2 12z, 2 13z, 3 14z, 6 15z, 8 18z, 12 19z, 24 20z);
       &:zoom(12) {
         --line-color: @raceway-fill;
         --line-join: round;
@@ -2847,7 +2849,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     &[feature='railway_INT-spur-siding-yard']:zoom(13) {
       &:zoom(1, 12) {
         --line-color: @rail-line;
-        --line-width: 0.5 * zoom-gradient(1, 1.6 8z 11z, 1.8 12z);
+        --line-width: zoom-gradient(0.5, 0.8 8z, 0.9 12z);
         --line-join: round;
         &#roads_low_zoom[int_tunnel='yes'],
         &#tunnels {
@@ -2883,10 +2885,10 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
             }
           }
           &[feature='railway_INT-spur-siding-yard'] {
-            --dark__line-width: 2 * zoom-gradient(1, 1.5 18z);
+            --dark__line-width: zoom-gradient(2, 3 18z);
             --dark__line-color: @rail-line-light;
             &:zoom(16) {
-              --light__line-width: 0.8 * zoom-gradient(1, 1.25 18z);
+              --light__line-width: zoom-gradient(0.8, 1 18z);
             }
           }
           &[preserved='yes'] {
@@ -8136,7 +8138,7 @@ Then all three layers are added to the rendering with comp-op: darken, so that t
     }
   }
   &[admin_level='2']::wideline {
-    --background__line-width: 1.2 * zoom-gradient(1 4z, 1.25 5z, 1.5 6z, (2.2 / 1.2) 7z, 2.5 8z, (3.5 / 1.2) 9z, 3.75 10z, (5.5 / 1.2) 11z, 5 12z, (7 / 1.2) 13z, (8 / 1.2) 14z);
+    --background__line-width: zoom-gradient(1.2 4z, 1.5 5z, 1.8 6z, 2.2 7z, 3 8z, 3.5 9z, 3.75 10z, 5.5 11z, 6 12z, 7 13z, 8 14z);
     --line-color: zoom-gradient(@admin-boundaries 4z 9z, @admin-boundaries-wide 10z);
     --line-width: zoom-gradient(1.2 4z, 1.5 5z, 1.8 6z, 2.2 7z, 3 8z, 3.5 9z, 4.5 10z, 5 11z, 5 12z, 7 13z, 8 14z);
     &:zoom(4) {

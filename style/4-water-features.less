@@ -72,8 +72,10 @@
     &#piers-poly {
       --polygon-fill: @land-color;
     }
+
     &#piers-line {
-      --line-width: 0.5 * zoom-gradient(1, 2 13z 14z, 4 15z 16z, 8 17z);
+      --line-width: zoom-gradient(0.5, 1 13z 14z, 2 15z 16z, 4 17z);
+      --non-interpolatable: line-width;
       --line-color: @land-color;
       --line-cap: square;
     }

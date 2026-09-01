@@ -21,7 +21,7 @@ Then all three layers are added to the rendering with comp-op: darken, so that t
     }
   }
   &[admin_level='2']::wideline {
-    --background__line-width: 1.2 * zoom-gradient(1 4z, 1.25 5z, 1.5 6z, (2.2 / 1.2) 7z, 2.5 8z, (3.5 / 1.2) 9z, 3.75 10z, (5.5 / 1.2) 11z, 5 12z, (7 / 1.2) 13z, (8 / 1.2) 14z);
+    --background__line-width: zoom-gradient(1.2 4z, 1.5 5z, 1.8 6z, 2.2 7z, 3 8z, 3.5 9z, 3.75 10z, 5.5 11z, 6 12z, 7 13z, 8 14z);
     --line-color: zoom-gradient(@admin-boundaries 4z 9z, @admin-boundaries-wide 10z);
     --line-width: zoom-gradient(1.2 4z, 1.5 5z, 1.8 6z, 2.2 7z, 3 8z, 3.5 9z, 4.5 10z, 5 11z, 5 12z, 7 13z, 8 14z);
     &:zoom(4) {

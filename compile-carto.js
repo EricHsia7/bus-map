@@ -146,7 +146,7 @@ function getNonInterpolatableList(paint) {
         .split(',')
         .map((item) => item.trim());
       for (const bareProperty of bareProperties) {
-        list.add(`${instance}/${bareProperty}`);
+        list.add(`${instance}${bareProperty}`);
       }
     }
   }
@@ -745,10 +745,15 @@ function shipPaintAtZoom(paint, z, resolve = resolveValue) {
 
   for (const key of originalKeys) {
     const [instance, bare] = splitInstanceKey(key);
-    if (INTERPOLATABLE_TARGETS.has(bare) && !nonInterpolatableList.has(key)) {
+    if (INTERPOLATABLE_TARGETS.has(bare)) {
       const v0 = current[key];
       const v1 = next[key];
-      current[key] = [v0, v1 === undefined ? v0 : v1];
+
+      if (!nonInterpolatableList.has(key)) {
+        current[key] = [v0, v1 === undefined ? v0 : v1];
+      } else {
+        current[key] = [v0, v0];
+      }
     }
   }
   return current;
