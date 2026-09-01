@@ -341,16 +341,9 @@ Rules:
   zoom — a gated ladder below its first stop — the scale is simply dropped.
 - A scale that is not a number, on either side, is a compile error.
 
-Add further pairs in `SCALE_TARGETS` if other sizes ever want the same
-treatment (e.g. `shield-scale` → `shield-size`).
-
-### `--keep-scales`
-
 For the label/GPU consumer, the scale is a shipped property: the
 client rasterizes glyphs once at the reference size and scales them on the GPU.
-With `--keep-scales` the compiler does not fold, and instead emits each scale as
-the **interval** `[s0, s1]` covering zooms `z` to `z + 1` — exactly the range
-over which tile zoom `z` is displayed:
+The compiler emits each scale as the **interval** `[s0, s1]` covering zooms `z` to `z + 1` — exactly the range over which tile zoom `z` is displayed:
 
 ```json
 { "text-size": 10, "text-scale": [1, 1.2] }

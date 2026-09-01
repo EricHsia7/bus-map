@@ -1132,5 +1132,6 @@ module.exports = {
   looksLikeZoomGradientValue,
   parseZoomGradient,
   sampleZoomGradient,
-  interpolateStopValues
+  interpolateStopValues,
+  stringifyComponent
 };

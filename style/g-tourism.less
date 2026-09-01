@@ -30,8 +30,7 @@
     }
 
     &::casing {
-      --line-width: 1;
-      --line-scale: zoom-gradient(1, 2.5 16z, 4 17z, 6 18z, 8 19z, 12 20z);
+      --line-width: zoom-gradient(1, 2.5 16z, 4 17z, 6 18z, 8 19z, 12 20z);
       --line-color: zoom-gradient(mix(@roller-coaster-casing, @roller-coaster-fill, 50%), @roller-coaster-casing 16z);
       --line-join: round;
 
@@ -41,8 +40,7 @@
     }
 
     &:zoom(16)::fill {
-      --line-width: 1.25;
-      --line-scale: zoom-gradient(1, 1.6 17z, 2.4 18z, 3.2 19z, 4.8 20z);
+      --line-width: 1.25 * zoom-gradient(1, 1.6 17z, 2.4 18z, 3.2 19z, 4.8 20z);
       --line-color: @roller-coaster-fill;
       --line-join: round;
 

@@ -73,8 +73,7 @@
       --polygon-fill: @land-color;
     }
     &#piers-line {
-      --line-width: 0.5;
-      --line-scale: zoom-gradient(1, 2 13z 14z, 4 15z 16z, 8 17z);
+      --line-width: 0.5 * zoom-gradient(1, 2 13z 14z, 4 15z 16z, 8 17z);
       --line-color: @land-color;
       --line-cap: square;
     }
@@ -86,8 +85,7 @@
       --polygon-fill: @breakwater-color;
     }
     &#piers-line {
-      --line-width: 1;
-      --line-scale: zoom-gradient(1, 2 13z 15z, 4 16z);
+      --line-width: zoom-gradient(1, 2 13z 15z, 4 16z);
       --line-color: @breakwater-color;
     }
   }

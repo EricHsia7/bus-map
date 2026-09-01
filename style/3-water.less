@@ -37,8 +37,7 @@
 #water-areas {
   &[natural='glacier']::natural {
     &:zoom(5) {
-      --line-width: 1;
-      --line-scale: zoom-gradient(1, 1.5 10z);
+      --line-width: zoom-gradient(1, 1.5 10z);
       --line-color: @glacier-line;
       --polygon-fill: @glacier;
       &:zoom(10) {
@@ -134,9 +133,11 @@
     --line-join: round;
     --line-width: @stream-width-z14 + 1;
     &[feature='waterway_stream'] {
+      // MARK(pairing) line-width is set but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
       --line-width: zoom-gradient(@stream-width-z15 + 1 15z, @stream-width-z16 + 1 16z, @stream-width-z17 + 1 17z, @stream-width-z18 + 1 18z);
     }
     &:not([feature='waterway_stream']):zoom(17) {
+      // MARK(pairing) line-width is set but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
       --line-width: @ditchdrain-width-z17 + 1;
     }
   }
@@ -192,6 +193,7 @@
       &[int_bridge_tunnel='tunnel']:zoom(14) {
         // Background for dashed tunnel casings
         // The line widths are adjusted later - this just "books in" the background layer
+        // MARK(pairing) line-color is set on instance 'background' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --background__line-color: @water-tunnelfill-color;
         --background__line-join: round;
       }
@@ -200,19 +202,25 @@
         --background__line-join: round;
         --background__line-width: @stream-width-z14;
         &[feature='waterway_stream'] {
+          // MARK(pairing) line-width is set on instance 'background' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --background__line-width: zoom-gradient(@stream-width-z15 15z, @stream-width-z16 16z, @stream-width-z17 17z, @stream-width-z18 18z);
         }
         &:not([feature='waterway_stream']):zoom(17) {
+          // MARK(pairing) line-width is set on instance 'background' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --background__line-width: @ditchdrain-width-z17;
         }
       }
+      // MARK(pairing) line-width is set on instance 'water' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
       --water__line-width: zoom-gradient(@stream-width-z12, @stream-width-z13 13z, @stream-width-z14 14z);
       &[feature='waterway_stream'] {
+        // MARK(pairing) line-width is set on instance 'water' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --water__line-width: zoom-gradient(@stream-width-z15 15z, @stream-width-z16 16z, @stream-width-z17 17z, @stream-width-z18 18z);
       }
       &:not([feature='waterway_stream']):zoom(17) {
+        // MARK(pairing) line-width is set on instance 'water' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --water__line-width: @ditchdrain-width-z17;
       }
+      // MARK(pairing) line-color is set on instance 'water' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
       --water__line-color: @water-color;
       --water__line-cap: round;
       --water__line-join: round;
@@ -231,19 +239,27 @@
       &[int_bridge_tunnel='tunnel']:zoom(14) {
         --water__line-dasharray: 4, 2;
         --water__line-cap: butt;
+        // MARK(pairing) line-width is set on instance 'background' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --background__line-width: @stream-width-z14 + 1;
+        // MARK(pairing) line-width is set on instance 'water' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --water__line-width: @stream-width-z14 + 1;
         --tunnelfill__line-width: @stream-width-z14 - 0.5;
         --tunnelfill__line-color: @water-tunnelfill-color;
         --tunnelfill__line-join: round;
         &[feature='waterway_stream'] {
+          // MARK(pairing) line-width is set on instance 'background' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --background__line-width: zoom-gradient(@stream-width-z15 + 1.5 15z, @stream-width-z16 + 1 16z, @stream-width-z17 + 1 17z, @stream-width-z18 + 1 18z);
+          // MARK(pairing) line-width is set on instance 'water' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --water__line-width: zoom-gradient(@stream-width-z15 + 1.5 15z, @stream-width-z16 + 1 16z, @stream-width-z17 + 1 17z, @stream-width-z18 + 1 18z);
+          // MARK(pairing) line-width is set on instance 'tunnelfill' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --tunnelfill__line-width: zoom-gradient(@stream-width-z15 - 1 15z, @stream-width-z16 - 1.5 16z, @stream-width-z17 - 1.5 17z, @stream-width-z18 - 1.5 18z);
         }
         &:not([feature='waterway_stream']):zoom(17) {
+          // MARK(pairing) line-width is set on instance 'background' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --background__line-width: @ditchdrain-width-z17 + 1;
+          // MARK(pairing) line-width is set on instance 'water' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --water__line-width: @ditchdrain-width-z17 + 1;
+          // MARK(pairing) line-width is set on instance 'tunnelfill' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --tunnelfill__line-width: @ditchdrain-width-z17 - 1.5;
         }
       }
@@ -254,6 +270,7 @@
     &[int_bridge_tunnel='tunnel']:zoom(13) {
       // Background for dashed tunnel casings
       // The line widths are adjusted later - this just "books in" the background layer
+      // MARK(pairing) line-color is set on instance 'background' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
       --background__line-color: @water-tunnelfill-color;
       --background__line-join: round;
     }
@@ -276,7 +293,9 @@
     &[int_bridge_tunnel='tunnel']:zoom(13) {
       --water__line-dasharray: 4, 2;
       --water__line-cap: butt;
+      // MARK(pairing) line-width is set on instance 'background' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
       --background__line-width: zoom-gradient((@stream-width-z13 * @canal-scale-factor) + 1, (@stream-width-z14 * @canal-scale-factor) + 1 14z, (@stream-width-z15 * @canal-scale-factor) + 1 15z, (@stream-width-z16 * @canal-scale-factor) + 1 16z, (@stream-width-z17 * @canal-scale-factor) + 1 17z, (@stream-width-z18 * @canal-scale-factor) + 1 18z);
+      // MARK(pairing) line-width is set on instance 'water' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
       --water__line-width: zoom-gradient((@stream-width-z13 * @canal-scale-factor) + 1, (@stream-width-z14 * @canal-scale-factor) + 1 14z, (@stream-width-z15 * @canal-scale-factor) + 1 15z, (@stream-width-z16 * @canal-scale-factor) + 1 16z, (@stream-width-z17 * @canal-scale-factor) + 1 17z, (@stream-width-z18 * @canal-scale-factor) + 1 18z);
       --tunnelfill__line-width: zoom-gradient((@stream-width-z13 * @canal-scale-factor) - 1, (@stream-width-z14 * @canal-scale-factor) - 1.5 14z, (@stream-width-z15 * @canal-scale-factor) - 1.5 15z, (@stream-width-z16 * @canal-scale-factor) - 1.5 16z, (@stream-width-z17 * @canal-scale-factor) - 1.5 17z, (@stream-width-z18 * @canal-scale-factor) - 1.5 18z);
       --tunnelfill__line-color: @water-tunnelfill-color;
