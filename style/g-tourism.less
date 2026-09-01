@@ -20,7 +20,7 @@
 #roller-coaster-gap-fill {
   &:zoom(15) {
     &[bridge='yes']:zoom(16)::bridges {
-      --line-width: zoom-gradient(2.5 + @bridge-casing-width-z16, 4 + @bridge-casing-width-z17 17z, 6 + 1.5 * @bridge-casing-width-z18 18z, 8 + 2 * @bridge-casing-width-z19 19z, 12 + 2 * @bridge-casing-width-z20 20z);
+      --line-width: zoom-gradient(2.5 + @bridge-casing-width * @road-scale, 4 + @bridge-casing-width * @road-scale 17z, 6 + 1.5 * @bridge-casing-width * @road-scale 18z, 8 + 2 * @bridge-casing-width * @road-scale 19z, 12 + 2 * @bridge-casing-width * @road-scale 20z);
       --line-color: @roller-coaster-casing;
       --line-join: round;
 

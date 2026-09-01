@@ -193,6 +193,7 @@
 @taxiway-scale: zoom-gradient(1, 1.5 15z, 2 16z);
 @footway-scale: zoom-gradient(3.9 14z, 3.6 15z, 2.9 16z, 1.65 18z, 1 19z);
 @cycleway-scale: zoom-gradient(2.16 13z, 1.94 14z, 1.72 15z, 1.3 16z, 1 18z, 0.86 19z);
+@access-marking-scale: zoom-gradient((0.632 / 0.176) 15z, (0.52 / 0.176) 16z 17z, (0.288 / 0.176) 18z, 1 19z);
 
 // Reference widths
 @motorway-width: 9;
@@ -1514,7 +1515,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         --line__line-cap: round;
         --line__line-join: round;
 
-        --line__line-width: zoom-gradient(@track-width-z13, @track-width 15z);
+        --line__line-width: zoom-gradient(@track-width, @track-width 15z);
 
         // &[tracktype='grade1'] {
         //   --line__line-dasharray: 100, 0;
@@ -2124,7 +2125,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         }
 
         --access__line-join: round;
-        --access__line-width: zoom-gradient(@access-marking-width-z15 15z, @access-marking-width-z16 16z 17z, @access-marking-width-z18 18z, @access-marking-width-z19 19z);
+        --access__line-width: @access-marking-width * @access-marking-scale;
 
         &:zoom(15) {
           --access__line-cap: butt;
@@ -2145,7 +2146,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         }
         --access__line-join: round;
         --access__line-cap: round;
-        --access__line-width: zoom-gradient(@access-marking-width-z15 15z, @access-marking-width-z16 16z 17z, @access-marking-width-z18 18z, @access-marking-width-z19 19z);
+        --access__line-width: @access-marking-width * @access-marking-scale;
         --access__line-dasharray: 6 9;
       }
     }
@@ -2158,7 +2159,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         }
         --access__line-join: round;
         --access__line-cap: round;
-        --access__line-width: zoom-gradient(@access-marking-width-z15 15z, @access-marking-width-z16 16z 17z, @access-marking-width-z18 18z, @access-marking-width-z19 19z);
+        --access__line-width: @access-marking-width * @access-marking-scale;
         --access__line-dasharray: 6 9;
       }
     }
@@ -2194,7 +2195,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         }
         --access__line-join: round;
         --access__line-cap: round;
-        --access__line-width: zoom-gradient(@access-marking-width-z15 15z, @access-marking-width-z16 16z 17z, @access-marking-width-z18 18z, @access-marking-width-z19 19z);
+        --access__line-width: @access-marking-width * @access-marking-scale;
         --access__line-dasharray: 6 9;
       }
     }
@@ -2211,7 +2212,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         }
         --access__line-join: round;
         --access__line-cap: round;
-        --access__line-width: zoom-gradient(@access-marking-width-z15 15z, @access-marking-width-z16 16z 17z, @access-marking-width-z18 18z, @access-marking-width-z19 19z);
+        --access__line-width: @access-marking-width * @access-marking-scale;
         --access__line-dasharray: 6 9;
       }
     }
@@ -2224,7 +2225,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         }
         --access__line-join: round;
         --access__line-cap: round;
-        --access__line-width: zoom-gradient(@access-marking-width-z15 15z, @access-marking-width-z16 16z 17z, @access-marking-width-z18 18z, @access-marking-width-z19 19z);
+        --access__line-width: @access-marking-width * @access-marking-scale;
         --access__line-dasharray: 6 9;
       }
     }

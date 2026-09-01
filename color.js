@@ -1110,9 +1110,18 @@ function sampleZoomGradient(gradient, position) {
   for (let i = 0; i < positioned.length; i++) {
     const stop = positioned[i];
     const end = zoomStopEnd(stop);
-    if (position >= stop.from && position <= end) return stop.value;
-
     const next = positioned[i + 1];
+
+    // At a boundary shared with the next stop the LATER stop wins, exactly as
+    // in CSS: `linear-gradient(to right, #ff0000 0% 50%, #0000ff 50% 100%)` is
+    // blue at 50%. Without this, the earlier stop's closed interval swallows
+    // the boundary, so a hard-stop table reads one position to the right and
+    // ships as a ramp from the previous value.
+    const sharedBoundary = next !== undefined && next.from === end;
+    if (position >= stop.from && (position < end || (position === end && !sharedBoundary))) {
+      return stop.value;
+    }
+
     if (next !== undefined && position > end && position < next.from) {
       // A hard stop holds its value until the next stop begins.
       if (stop.to !== undefined) return stop.value;

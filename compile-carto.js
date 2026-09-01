@@ -62,9 +62,42 @@ const { invertRGB } = require('./invert');
 const ZOOM_MIN = 0;
 const ZOOM_MAX = 24;
 
-// Properties the renderer interpolates across the display range of a tile zoom.
-// They ship as the interval [v(z), v(z + 1)] rather than a single value.
-const INTERPOLATABLE_TARGETS = new Set(['line-color', 'polygon-fill', 'text-scale', 'marker-scale', 'line-width']);
+/**
+ * How far below `z + 1` the upper end of a shipped interval is sampled.
+ *
+ * Tile zoom `z` is on screen over `[z, z + 1)`, an interval that is OPEN at the
+ * top, so the value to grow toward is the left limit at `z + 1` rather than the
+ * value AT `z + 1`. The distinction only matters for values that step -- a hard
+ * stop, a base stop, or a ladder that has not started -- where the two differ
+ * by the whole jump. Small enough that `round4` removes the sampling error from
+ * values that do interpolate.
+ */
+const SHIP_EPSILON = 1e-9;
+
+// Properties the renderer interpolates across the display range of a tile
+// zoom. They ship as the interval [v(z), v(z + 1)] rather than a single value.
+// `line-width` is on this list so a size that grows with zoom no longer needs a
+// companion `line-scale`: the width itself carries the ramp.
+const INTERPOLATABLE_TARGETS = new Set(['line-color', 'polygon-fill', 'text-scale', 'line-scale', 'marker-scale', 'line-width']);
+
+/**
+ * Declaration that opts properties OUT of interpolation, per rule:
+ *
+ *     --non-interpolatable: line-width, water__line-color;
+ *
+ * An entry naming only a property (`line-width`) covers every instance in the
+ * rule; an entry naming an instance (`water__line-width`, or the compiled
+ * spelling `water/line-width`) covers just that one. `*` covers everything.
+ * If the directive itself carries an instance -- `--water__non-interpolatable`
+ * -- its unqualified entries are scoped to that instance.
+ *
+ * Unlike paint, this is a compile-time directive rather than a value, so it is
+ * collected from the whole nesting chain: one declaration on an enclosing block
+ * covers the rules inside it.
+ */
+const FLAT_DIRECTIVE = 'non-interpolatable';
+const FLAT_ALL = '*';
+const NO_FLAT = new Set();
 
 /**
  * @typedef {Object} Filter A single data-driven constraint, ANDed with its siblings.
@@ -127,14 +160,70 @@ const resolving = new Set();
 /**
  * Whether a value mentions a zoom ladder anywhere, as opposed to BEING one.
  *
- * `zoom-gradient(...)` may now appear inside arithmetic, so the compiler can no
- * longer decide how to treat a value by testing its first token.
+ * A ladder may now appear inside arithmetic, so the compiler can no longer
+ * decide how to treat a value by testing its first token.
  *
  * @param {unknown} value Candidate value.
  * @returns {boolean} True if a ladder appears anywhere in the text.
  */
 function containsZoomGradient(value) {
   return typeof value === 'string' && value.toLowerCase().includes('zoom-gradient(');
+}
+
+/**
+ * Normalise one `--non-interpolatable` entry into a paint-key matcher.
+ *
+ * @param {string} entry One comma-separated entry as written.
+ * @param {string} scope Instance prefix of the directive itself, or ''.
+ * @returns {string|undefined} The matcher, or `undefined` for an empty entry.
+ */
+function normalizeFlatEntry(entry, scope) {
+  const text = entry.trim();
+  if (text === '') return undefined;
+  if (text === FLAT_ALL || text.toLowerCase() === 'all') return FLAT_ALL;
+  const [instance, bare] = splitInstanceKey(normalizePaintProp(text.startsWith('--') ? text : `--${text}`));
+  // An entry that names no instance matches every instance, unless the
+  // directive it came from was itself instance-qualified.
+  if (instance) return `${instance}${bare}`;
+  return scope ? `${scope}${bare}` : bare;
+}
+
+/**
+ * Whether a paint key is forced flat by a `--non-interpolatable` directive.
+ *
+ * @param {string} key Paint key in compiled spelling, e.g. `water/line-width`.
+ * @param {Set<string>} flat Normalised directive entries.
+ * @returns {boolean} True if the key must ship as `[v, v]`.
+ */
+function isFlatKey(key, flat) {
+  if (flat === undefined || flat.size === 0) return false;
+  if (flat.has(FLAT_ALL)) return true;
+  if (flat.has(key)) return true;
+  const [, bare] = splitInstanceKey(key);
+  return flat.has(bare);
+}
+
+/**
+ * Collect every `--non-interpolatable` entry that applies to a rule, walking
+ * from the outermost enclosing block inward.
+ *
+ * @param {object} rule A postcss rule node.
+ * @returns {Set<string>} Normalised entries, empty if the directive is unused.
+ */
+function collectFlatDirective(rule) {
+  const flat = new Set();
+  for (let n = rule; n && n.type === 'rule'; n = n.parent) {
+    n.each((c) => {
+      if (c.type !== 'decl' || !c.prop || c.prop.startsWith('@')) return;
+      const [instance, bare] = splitInstanceKey(normalizePaintProp(c.prop));
+      if (bare !== FLAT_DIRECTIVE) return;
+      for (const entry of String(c.value).split(',')) {
+        const normalized = normalizeFlatEntry(entry, instance);
+        if (normalized !== undefined) flat.add(normalized);
+      }
+    });
+  }
+  return flat;
 }
 
 /**
@@ -173,7 +262,7 @@ function sampleEmbeddedGradients(value, z, prop) {
       else if (value[j] === ')' && --depth === 0) break;
     }
     if (j >= value.length) {
-      throw new Error(`Unclosed zoom-gradient in "${value}" on the property "${prop}".`);
+      throw new Error(`Unclosed ${value.slice(at, at + 13)} in "${value}" on the property "${prop}".`);
     }
 
     const ladder = value.slice(at, j + 1);
@@ -617,7 +706,14 @@ function round4(n) {
 }
 
 /**
- * Sample a `zoom-gradient(...)` ladder at one integer zoom.
+ * Sample a `zoom-gradient(...)` ladder at one zoom, integer or fractional.
+ *
+ * A ladder is not continuous in general, and needs no second spelling in order
+ * to step: a base stop holds flat below the first positioned stop, and a hard
+ * stop -- `v 16z 17z`, the same double-position form CSS gives `linear-gradient`
+ * in `#ff0000 0% 50%, #0000ff 50% 100%` -- holds its value until the next stop
+ * begins. Continuity is a promise made by the PROPERTY, via
+ * `INTERPOLATABLE_TARGETS`, not by this function.
  *
  * Stop values are resolved before sampling, since unresolved tokens cannot be
  * interpolated. Returns `undefined` when the ladder has not started yet, i.e.
@@ -644,7 +740,18 @@ function evaluateZoomGradient(value, z, prop, resolve = resolveValue) {
     // interpolated. Stops are resolved at the SAME zoom, so a stop may itself
     // be written in terms of another zoom-dependent variable.
     for (let i = 0; i < stopsLength; i++) {
-      if (stops[i].value) stops[i].value = resolve(stops[i].value, z, prop);
+      if (!stops[i].value) continue;
+      stops[i].value = resolve(stops[i].value, z, prop);
+
+      // An undefined variable resolves to its own token. Sampling AT a stop
+      // returns that token verbatim, so before fractional sampling existed the
+      // stylesheet happily shipped the text `@access-marking-width-z15` as a
+      // width and only the renderer noticed. Fail here instead, naming the
+      // variable rather than dumping the parsed ladder.
+      const undefinedVar = String(stops[i].value).match(/@[A-Za-z0-9_-]+/);
+      if (undefinedVar !== null) {
+        throw new Error(`Undefined variable "${undefinedVar[0]}" in "${value}" on the property "${prop}".`);
+      }
     }
     const sampled = sampleZoomGradient(gradient, z);
     if (sampled !== undefined) return sampled;
@@ -700,8 +807,10 @@ function paintAtZoom(paint, z, resolve = resolveValue) {
  * The paint as SHIPPED at one integer zoom.
  *
  * Identical to {@link paintAtZoom} except that every interpolatable target
- * becomes the interval `[v0, v1]` covering `[z, z + 1]` -- exactly the range
- * over which tile zoom `z` is displayed. If the property stops being emitted at
+ * becomes the interval `[v0, v1]` covering `[z, z + 1)` -- exactly the range
+ * over which tile zoom `z` is displayed. `v1` is the left limit at `z + 1`, so
+ * a stepped value (a hard stop or a base stop) ships flat and jumps
+ * only at the zoom boundary, while a continuous ladder still ramps. If the property stops being emitted at
  * `z + 1`, or `z` is `ZOOM_MAX`, the interval is flat rather than interpolating
  * toward nothing.
  *
@@ -715,24 +824,37 @@ function paintAtZoom(paint, z, resolve = resolveValue) {
  * @param {(v: string) => string} [resolve] Value resolver, for tests.
  * @returns {Paint} The shipped properties at `z`.
  */
-function shipPaintAtZoom(paint, z, resolve = resolveValue) {
+function shipPaintAtZoom(paint, z, resolve = resolveValue, flat = NO_FLAT) {
   const current = paintAtZoom(paint, z, resolve);
 
   // At ZOOM_MAX there is no next zoom to grow into, so the interval is flat.
-  const next = z >= ZOOM_MAX ? current : paintAtZoom(paint, z + 1, resolve);
-
+  // Below it, the upper end is the LEFT LIMIT at `z + 1`, not the value there:
+  // tile zoom `z` is displayed over `[z, z + 1)`, so a value that steps at
+  // `z + 1` must stay flat across the whole of this tile's range instead of
+  // sliding into its next value.
   const originalKeys = [];
   for (const key in current) {
     originalKeys.push(key);
   }
 
+  const ramping = originalKeys.filter(
+    (key) => INTERPOLATABLE_TARGETS.has(splitInstanceKey(key)[1]) && !isFlatKey(key, flat)
+  );
+
+  // Nothing here ramps -- every interpolatable key is either absent or pinned
+  // flat -- so the second sampling pass can be skipped entirely.
+  const next = ramping.length === 0 || z >= ZOOM_MAX ? current : paintAtZoom(paint, z + 1 - SHIP_EPSILON, resolve);
+
   for (const key of originalKeys) {
     const [instance, bare] = splitInstanceKey(key);
-    if (INTERPOLATABLE_TARGETS.has(bare)) {
-      const v0 = current[key];
-      const v1 = next[key];
-      current[key] = [v0, v1 === undefined ? v0 : v1];
+    if (!INTERPOLATABLE_TARGETS.has(bare)) continue;
+    const v0 = current[key];
+    if (isFlatKey(key, flat)) {
+      current[key] = [v0, v0];
+      continue;
     }
+    const v1 = next[key];
+    current[key] = [v0, v1 === undefined ? v0 : v1];
   }
   return current;
 }
@@ -748,10 +870,10 @@ function shipPaintAtZoom(paint, z, resolve = resolveValue) {
  * @param {(v: string) => string} [resolve] Value resolver, for tests.
  * @returns {ZoomBand[]} The bands, in ascending zoom order.
  */
-function zoomBands(paint, resolve = resolveValue) {
+function zoomBands(paint, resolve = resolveValue, flat = NO_FLAT) {
   const bands = [];
   for (let z = ZOOM_MIN; z <= ZOOM_MAX; z++) {
-    const p = shipPaintAtZoom(paint, z, resolve);
+    const p = shipPaintAtZoom(paint, z, resolve, flat);
     if (!Object.keys(p).length) continue;
     const key = JSON.stringify(p);
     const prev = bands[bands.length - 1];
@@ -887,12 +1009,17 @@ function main() {
     for (let n = rule; n && n.type === 'rule'; n = n.parent) chain.unshift(n.selector);
 
     const paint = {};
+    // `--non-interpolatable` is a directive rather than paint, so it is read
+    // from the whole nesting chain and never emitted.
+    const flat = collectFlatDirective(rule);
     rule.each((c) => {
       if (c.type !== 'decl') return;
       if (c.prop.startsWith('@')) return; // LESS variable, not paint
+      const key = normalizePaintProp(c.prop);
+      if (splitInstanceKey(key)[1] === FLAT_DIRECTIVE) return;
       // Values are kept as written and resolved per zoom, since a variable may
       // hold a ladder and therefore have no single zoom-independent value.
-      paint[normalizePaintProp(c.prop)] = c.value.trim();
+      paint[key] = c.value.trim();
     }); // shallow: direct decls only
     if (!Object.keys(paint).length) return;
 
@@ -909,7 +1036,7 @@ function main() {
     const groups = buildGroups(chain, parseSelector);
 
     // A ladder splits the rule into one rule per band of equal paint.
-    for (const band of zoomBands(paint)) {
+    for (const band of zoomBands(paint, resolveValue, flat)) {
       const banded = clipGroupsToBand(groups, band);
       if (!banded.length) continue;
       out.push(attachment ? { groups: banded, paint: band.paint, attachment } : { groups: banded, paint: band.paint });
@@ -932,6 +1059,9 @@ module.exports = {
   resolveVariable,
   containsZoomGradient,
   sampleEmbeddedGradients,
+  normalizeFlatEntry,
+  isFlatKey,
+  collectFlatDirective,
   evaluateZoomGradient,
   stripComments,
   splitInstanceKey,
