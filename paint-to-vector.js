@@ -66,7 +66,7 @@ function instanceToDescriptors(props) {
     styleProperties['stroke'] = stringPair(props['line-color']) || ['rgba(0,0,0,1)', 'rgba(0,0,0,1)'];
 
     // line-width -> stroke-width
-    styleProperties['stroke-width'] = has('line-width') ? num(props['line-width']) : 1;
+    styleProperties['stroke-width'] = numberPair(props['line-width']);
 
     // line-opacity -> stroke-opacity
     if (has('line-opacity')) styleProperties['stroke-opacity'] = num(props['line-opacity']);
@@ -79,13 +79,6 @@ function instanceToDescriptors(props) {
 
     // line-dasharray -> stroke-dasharray
     if (has('line-dasharray') && props['line-dasharray'] !== 'none') styleProperties['stroke-dasharray'] = dash(props['line-dasharray']);
-
-    // line-scale -> stroke-width-scale (SCALE_TARGETS: line-scale -> line-width)
-    // Only the width is scaled. The dash pattern keeps its authored rhythm, so a dashed casing does not visibly re-phase while zooming inside one octave.
-    if (has('line-scale')) {
-      const scale = numberPair(props['line-scale']);
-      if (scale) styleProperties['stroke-width-scale'] = scale;
-    }
 
     // opacity -> opacity
     if (has('opacity')) styleProperties['opacity'] = num(props['opacity']);

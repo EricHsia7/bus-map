@@ -62,10 +62,8 @@ const { invertRGB } = require('./invert');
 const ZOOM_MIN = 0;
 const ZOOM_MAX = 24;
 
-// Properties the renderer interpolates across the display range of a tile
-// zoom. They ship as the interval [v(z), v(z + 1)] rather than a single value.
-// `line-width` is on this list so a size that grows with zoom no longer needs a
-// companion `line-scale`: the width itself carries the ramp.
+// Properties the renderer interpolates across the display range of a tile zoom.
+// They ship as the interval [v(z), v(z + 1)] rather than a single value.
 const INTERPOLATABLE_TARGETS = new Set(['line-color', 'polygon-fill', 'text-scale', 'marker-scale', 'line-width']);
 
 /**

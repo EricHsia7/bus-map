@@ -19,17 +19,12 @@ function num(v, k = 1) {
 }
 
 /**
- * Lower end of a shipped [s0, s1] scale interval, or 1.
- *
- * A raster tile is a single rasterization, so it cannot interpolate: it is baked
- * at its own zoom, which is exactly s0. This reproduces what the compiler used
- * to do when it folded --line-scale into --line-width before emitting JSON, so
- * raster output is unchanged by the scale work.
+ * Resolve interpolatable properties defined on [z, z+1] at integer zoom (z)
+ * (The raster tiles are rendered at integer zooms.)
  */
-function scaleBase(v) {
-  if (!Array.isArray(v) || v.length !== 2) return 1;
-  const n = typeof v[0] === 'number' ? v[0] : parseFloat(v[0]);
-  return Number.isFinite(n) ? n : 1;
+function resolveInterpolatable(v) {
+  if (!Array.isArray(v) || v.length !== 2) return v;
+  return typeof v[0] === 'number' ? Number(v[0]) : v[0];
 }
 
 function dash(v, k = 1) {
@@ -65,14 +60,13 @@ function instanceElements(props, k) {
   // line stroke (solid)
   if (has('line-color') || has('line-width')) {
     const attrs = { fill: 'none' };
-    const widthScale = scaleBase(props['line-scale']);
 
     if (has('line-color')) {
-      attrs['stroke'] = Array.isArray(props['line-color']) ? props['line-color'][0] : props['line-color'];
+      attrs['stroke'] = resolveInterpolatable(props['line-color']);
     }
 
     if (has('line-width')) {
-      attrs['stroke-width'] = num(props['line-width'], k) * widthScale;
+      attrs['stroke-width'] = resolveInterpolatable(props['line-width']) * k;
     }
 
     if (has('line-opacity')) {
