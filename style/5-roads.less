@@ -3,20 +3,6 @@
 @road-casing: darken(@road-fill, 3%);
 
 // Zoom shades
-// Minor classes fade *in shade*, from a light tint at their entry zoom to
-// their full class colour one or two zooms later. Major classes go the other
-// way: slightly softer while entering, then settling on their class colour.
-//
-// Each ladder is now anchored on the class colour it converges to (see the
-// HIERARCHY SHADE RAMP below) rather than on the shared @road-fill, so the
-// hierarchy ordering holds at every zoom and each ladder ends exactly on the
-// class colour instead of overshooting it.
-
-@service-road-z14: lighten(@service-fill, 4%);
-@service-road-z15: lighten(@service-fill, 2%);
-
-@major-road-z12: lighten(@primary-fill, 4%);
-@major-road-z13: lighten(@primary-fill, 2%);
 
 // Rail
 @rail-line-dark: @rail-700; // mainline, tram, monorail beam
@@ -71,39 +57,34 @@
 */
 
 /* Dual-carriageway, high speed, grade-separated with restricted access. */
-
-@motorway-fill: darken(@road-fill, 6%);
+@motorway-fill: darken(@road-fill, 8%);
 @motorway-casing: darken(@motorway-fill, 3%);
-@motorway-entry: lighten(@motorway-fill, 6%);
-@motorway-low-zoom-casing: lighten(@motorway-casing, 4%);
-@motorway-low-zoom: @motorway-entry;
+@motorway-low-zoom: lighten(@motorway-fill, 2%);
+@motorway-low-zoom-casing: lighten(@motorway-low-zoom, 2%);
 @motorway-shield: @motorway-fill;
 @motorway-tunnel-fill: @tunnel-fill;
 
 /* High-importance corridors that do not meet full motorway standards. */
-@trunk-fill: darken(@road-fill, 4%);
+@trunk-fill: darken(@road-fill, 5%);
 @trunk-casing: darken(@trunk-fill, 3%);
-@trunk-entry: lighten(@trunk-fill, 6%);
-@trunk-low-zoom-casing: lighten(@trunk-casing, 4%);
-@trunk-low-zoom: @trunk-entry;
+@trunk-low-zoom: lighten(@trunk-fill, 3%);
+@trunk-low-zoom-casing: lighten(@trunk-low-zoom, 2%);
 @trunk-shield: @trunk-fill;
 @trunk-tunnel-fill: @tunnel-fill;
 
 /* Links major cities and large towns within a state or region. */
 @primary-fill: darken(@road-fill, 2%);
 @primary-casing: darken(@primary-fill, 3%);
-@primary-entry: lighten(@primary-fill, 6%);
-@primary-low-zoom-casing: lighten(@primary-casing, 4%);
-@primary-low-zoom: @primary-entry;
+@primary-low-zoom: lighten(@primary-fill, 4%);
+@primary-low-zoom-casing: lighten(@primary-low-zoom, 2%);
 @primary-shield: @primary-fill;
 @primary-tunnel-fill: @tunnel-fill;
 
 /* Connects smaller towns, major suburbs, or key urban hubs. */
 @secondary-fill: @road-fill;
 @secondary-casing: darken(@secondary-fill, 3%);
-@secondary-entry: lighten(@secondary-fill, 6%);
-@secondary-low-zoom-casing: lighten(@secondary-casing, 4%);
-@secondary-low-zoom: @secondary-entry;
+@secondary-low-zoom: lighten(@secondary-fill, 5%);
+@secondary-low-zoom-casing: lighten(@secondary-low-zoom, 2%);
 @secondary-shield: @secondary-fill;
 @secondary-tunnel-fill: @tunnel-fill;
 
@@ -113,82 +94,88 @@
 // relative to every other class. Both are now defined like their siblings.
 @tertiary-fill: lighten(@road-fill, 2%);
 @tertiary-casing: darken(@tertiary-fill, 3%);
-@tertiary-entry: lighten(@tertiary-fill, 6%);
-@tertiary-low-zoom-casing: lighten(@tertiary-casing, 4%);
-@tertiary-low-zoom: @tertiary-entry;
+@tertiary-low-zoom: lighten(@tertiary-fill, 6%);
+@tertiary-low-zoom-casing: @tertiary-low-zoom;
 @tertiary-shield: @tertiary-fill;
 @tertiary-tunnel-fill: @tunnel-fill;
 
 /* Streets through housing areas intended for local resident traffic. */
 @residential-fill: lighten(@road-fill, 4%);
 @residential-casing: darken(@residential-fill, 3%);
-@residential-entry: lighten(@residential-fill, 6%);
+@residential-low-zoom: lighten(@residential-fill, 7%);
+@residential-low-zoom-casing: @residential-low-zoom;
 @residential-tunnel-fill: @tunnel-fill;
 
 /* Pedestrian-priority residential streets with strict speed limits. */
 @living-street-fill: lighten(@road-fill, 5%);
 @living-street-casing: darken(@living-street-fill, 3%);
-@living-street-entry: lighten(@living-street-fill, 6%);
+@living-street-low-zoom: lighten(@living-street-fill, 8%);
+@living-street-low-zoom-casing: @living-street-low-zoom;
 @living-street-tunnel-fill: @tunnel-fill;
 
 /* Access roads to buildings, parking lots, driveways, alleyways, gas stations, or emergency access. */
 @service-construction: #a6a7a9;
 @service-fill: lighten(@road-fill, 7%);
 @service-casing: darken(@service-fill, 3%);
-@service-entry: lighten(@service-fill, 6%);
+@service-low-zoom: lighten(@service-fill, 9%);
+@service-low-zoom-casing: @service-low-zoom;
 
 /* Roads reserved primarily for pedestrians, such as shopping streets, plazas, or town centers. */
 @pedestrian-fill: lighten(@road-fill, 6%);
 @pedestrian-casing: darken(@pedestrian-fill, 3%);
-@pedestrian-entry: lighten(@pedestrian-fill, 6%);
+@pedestrian-low-zoom: lighten(@pedestrian-fill, 10%);
+@pedestrian-low-zoom-casing: @pedestrian-low-zoom;
 
 /* Roads used for agricultural or forestry access. Usually unpaved and sub-tagged with surface quality (tracktype=grade1 to grade5). */
 @track-casing: #f3f1ec; // farmland
 @track-fill-noaccess: #dfdbce;
 @track-fill: #dad6c8;
-@track-entry: lighten(@track-fill, 6%);
+@track-low-zoom: lighten(@track-fill, 5%);
+@track-low-zoom-casing: @track-low-zoom;
+@track-low-zoom-noaccess: @track-low-zoom;
 
 /* Designated walking paths, sidewalks, or footbridges. */
 @footway-fill: #8f9298;
 @footway-fill-noaccess: @footway-fill;
 @footway-casing: darken(@footway-fill, 3%);
+@footway-low-zoom: lighten(@footway-fill, 10%);
+@footway-low-zoom-casing: @footway-low-zoom;
 
 @footway-paved-fill: lighten(@road-fill, 7%);
 @footway-paved-fill-noaccess: @footway-paved-fill;
 @footway-paved-casing: darken(@footway-paved-fill, 3%);
-@footway-paved-entry: lighten(@footway-paved-fill, 6%);
-
-// Minor roads
-@minor-road-z10: lighten(@residential-fill, 8%);
-@minor-road-z11: lighten(@residential-fill, 8%);
-@minor-road-z12: lighten(@residential-fill, 7%);
-@minor-road-z13: lighten(@residential-fill, 6%);
-@minor-road-z14: lighten(@residential-fill, 6%); // entry zoom for minor roads
-@minor-road-z15: lighten(@residential-fill, 4%);
-@minor-road-z16: lighten(@residential-fill, 2%);
+@footway-paved-low-zoom: lighten(@footway-paved-fill, 10%);
+@footway-paved-low-zoom-casing: @footway-paved-low-zoom;
 
 /* Dedicated bicycle paths or separated cycle tracks. */
-@cycleway-fill: #40dfac;
-@cycleway-fill-noaccess: @cycleway-fill;
-@cycleway-casing: #1fd6a2;
+// @cycleway-fill: #40dfac;
+// @cycleway-fill-noaccess: @cycleway-fill;
+// @cycleway-casing: #1fd6a2;
+// @cycleway-low-zoom: @cycleway-fill;
+// @cycleway-low-zoom-casing: lighten(@cycleway-casing, 4%);
 
 /* Generic multi-use non-motorized trails (shared by hikers, mountain bikers, or horse riders). */
 @path-fill: lighten(@road-fill, 8%);
 @path-fill-noaccess: @path-fill;
 @path-casing: darken(@path-fill, 3%);
-@path-entry: lighten(@path-fill, 6%);
+@path-low-zoom: lighten(@path-fill, 10%);
+@path-low-zoom-casing: @path-low-zoom;
+@path-low-zoom-noaccess: @path-low-zoom;
 
 /* Outdoor stairs or stepped pathways. */
 @steps-fill: lighten(@road-fill, 7%);
 @steps-fill-noaccess: @steps-fill;
 @steps-casing: darken(@steps-fill, 3%);
-@steps-entry: lighten(@steps-fill, 6%);
+@steps-low-zoom: lighten(@steps-fill, 10%);
+@steps-low-zoom-casing: @steps-low-zoom;
+@steps-low-zoom-noaccess: @steps-fill-noaccess;
 
 /* Paths designated primarily for equestrian/horse riding. */
 @bridleway-fill: #a7d4a7;
 @bridleway-fill-noaccess: @bridleway-fill;
 @bridleway-casing: darken(@bridleway-fill, 3%);
-@bridleway-entry: lighten(@bridleway-fill, 6%);
+@bridleway-low-zoom: lighten(@bridleway-fill, 6%);
+@bridleway-low-zoom-casing: @bridleway-low-zoom;
 
 /*
 * Used for modeling entry/exit ramps, slip lanes, and grade-separated connections between main roads:
@@ -219,7 +206,11 @@
 
 @taxiway-fill: @aeroway-fill;
 
-@unimportant-road: @road-fill;
+// highway_unclassified and the generic highway_road fallback.
+@unimportant-road: lighten(@road-fill, 4%);
+@unimportant-road-casing: darken(@unimportant-road, 3%);
+@unimportant-road-low-zoom: lighten(@unimportant-road, 6%);
+@unimportant-road-low-zoom-casing: lighten(@unimportant-road-low-zoom, 2%);
 
 // Road scale factors
 @road-scale-z6: 0.035; // stop
@@ -527,12 +518,10 @@
         }
 
         &#tunnels {
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line-color: @tunnel-casing;
         }
 
         &#bridges {
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line-color: @bridge-casing;
           --line-join: round;
           --line-cap: round; // TODO: butt or round?
@@ -541,7 +530,7 @@
     }
 
     &[feature='highway_living_street']:zoom(15) {
-      --line-color: zoom-gradient(@residential-casing, @living-street-casing 14z);
+      --line-color: zoom-gradient(@residential-casing, @living-street-casing 16z);
       --line-width: @living-street-width;
       --line-scale: zoom-gradient(@road-scale-z6, @road-scale-z8 8z, @road-scale-z10 10z, @road-scale-z12 12z, @road-scale-z14 14z, @road-scale-z16 16z, @road-scale-z18 18z, @road-scale-z20 20z);
 
@@ -551,12 +540,10 @@
       }
 
       &#tunnels {
-        // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --line-color: @tunnel-casing;
       }
 
       &#bridges {
-        // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --line-color: @bridge-casing;
         --line-join: round;
         --line-cap: butt;
@@ -609,7 +596,7 @@
     }
 
     &[feature='highway_trunk']:zoom(12) {
-      --line-color: zoom-gradient(@trunk-low-zoom-casing @trunk-casing 13z);
+      --line-color: zoom-gradient(@trunk-low-zoom-casing, @trunk-casing 13z);
 
       --line-width: @trunk-width;
       --line-scale: zoom-gradient(@road-scale-z6, @road-scale-z8 8z, @road-scale-z10 10z, @road-scale-z12 12z, @road-scale-z14 14z, @road-scale-z16 16z, @road-scale-z18 18z, @road-scale-z20 20z);
@@ -682,14 +669,13 @@
       &#bridges {
         --line-join: round;
         --line-cap: butt;
-        // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --line-color: @bridge-casing;
       }
     }
 
     &[feature='highway_tertiary'] {
       &:zoom(13) {
-        --line-color: zoom-gradient(@tertiary-low-zoom-casing 13z, @tertiary-casing 14z);
+        --line-color: zoom-gradient(@tertiary-low-zoom-casing, @tertiary-casing 15z);
 
         --line-width: @tertiary-width;
         --line-scale: zoom-gradient(@road-scale-z12 12z, @road-scale-z14 14z, @road-scale-z16 16z, @road-scale-z18 18z, @road-scale-z20 20z);
@@ -704,12 +690,10 @@
         }
 
         &#tunnels {
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line-color: @tunnel-casing;
         }
 
         &#bridges {
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line-color: @bridge-casing;
           --line-join: round;
           --line-cap: butt;
@@ -729,12 +713,10 @@
       }
 
       &#tunnels {
-        // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --line-color: @tunnel-casing;
       }
 
       &#bridges {
-        // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --line-color: @bridge-casing;
         --line-join: round;
         --line-cap: butt;
@@ -758,7 +740,6 @@
       }
 
       &#bridges {
-        // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --line-color: @bridge-casing;
         --line-join: round;
         --line-cap: butt;
@@ -777,12 +758,10 @@
       }
 
       &#tunnels {
-        // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --line-color: @tunnel-casing;
       }
 
       &#bridges {
-        // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --line-color: @bridge-casing;
         --line-join: round;
         --line-cap: butt;
@@ -1316,27 +1295,22 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       &[construction='tertiary_link']:zoom(14) {
         &[construction='motorway'],
         &[construction='motorway_link'] {
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line-color: @motorway-fill;
         }
         &[construction='trunk'],
         &[construction='trunk_link'] {
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line-color: @trunk-fill;
         }
         &[construction='primary'],
         &[construction='primary_link'] {
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line-color: @primary-fill;
         }
         &[construction='secondary'],
         &[construction='secondary_link'] {
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line-color: @secondary-fill;
         }
         &[construction='tertiary'],
         &[construction='tertiary_link'] {
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line-color: @minor-construction;
         }
 
@@ -1352,12 +1326,10 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           --b__line-dasharray: @dash-roadworks-wide;
           &[construction='secondary_link'] {
             --line-width: @secondary-link-width-z15;
-            // MARK(pairing) line-width is set on instance 'b' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
             --b__line-width: @secondary-link-width-z15 - 2 * @casing-width-z15;
           }
           &[construction='tertiary_link'] {
             --line-width: @tertiary-link-width-z15;
-            // MARK(pairing) line-width is set on instance 'b' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
             --b__line-width: @tertiary-link-width-z15 - 2 * @casing-width-z15;
           }
         }
@@ -1401,14 +1373,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       &[construction='service'] {
         &[service='INT-normal']:zoom(15),
         &[service='INT-minor']:zoom(17) {
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line-color: @minor-construction;
-          // MARK(pairing) line-color is set on instance 'b' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --b__line-color: white;
           --b__line-dasharray: @dash-roadworks;
           &[service='INT-normal'] {
             --line-width: zoom-gradient(@service-width-z14, @service-width-z16 16z, @service-width-z17 17z, 8 18z);
-            // MARK(pairing) line-width is set on instance 'b' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
             --b__line-width: zoom-gradient(@service-width-z14, @service-width-z16 - 2 * @casing-width-z16 16z, @service-width-z17 - 2 * @casing-width-z17 17z, 7 18z);
             &:zoom(16) {
               --b__line-dasharray: @dash-roadworks-wide;
@@ -1416,7 +1385,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           }
           &[service='INT-minor'] {
             --line-width: zoom-gradient(@minor-service-width-z17, @minor-service-width-z18 18z, @minor-service-width-z19 - 2 * @casing-width-z19 19z);
-            // MARK(pairing) line-width is set on instance 'b' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
             --b__line-width: zoom-gradient(@minor-service-width-z17 - 2 * @casing-width-z17, @minor-service-width-z18 - 2 * @casing-width-z18 18z, @minor-service-width-z19 - 4 * @casing-width-z19 19z);
             --b__line-dasharray: @dash-roadworks-wide;
           }
@@ -1456,8 +1424,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       &:zoom(15) {
         &[service='INT-normal']:zoom(15),
         &[service='INT-minor']:zoom(16) {
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
-          --line-color: zoom-gradient(@service-road-z15 15z, @service-fill 16z);
+          --line-color: zoom-gradient(@service-low-zoom, @service-fill 16z);
           &[service='INT-normal'] {
             --line-width: @service-width - 2 * @casing-width;
             --line-scale: zoom-gradient(@road-scale-z6, @road-scale-z8 8z, @road-scale-z10 10z, @road-scale-z12 12z, @road-scale-z14 14z, @road-scale-z16 16z, @road-scale-z18 18z, @road-scale-z20 20z);
@@ -1469,8 +1436,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           --line-join: round;
           --line-cap: round;
           &#tunnels {
-            // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
-            --line-color: zoom-gradient(@service-road-z15 15z, @service-fill 16z);
+            --line-color: zoom-gradient(@service-low-zoom, @service-fill 16z);
           }
           &#bridges {
             &[service='INT-normal'] {
@@ -1494,11 +1460,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         --line-scale: zoom-gradient(@road-scale-z6, @road-scale-z8 8z, @road-scale-z10 10z, @road-scale-z12 12z, @road-scale-z14 14z, @road-scale-z16 16z, @road-scale-z18 18z, @road-scale-z20 20z);
         &#roads-fill,
         &#bridges {
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
-          --line-color: zoom-gradient(@minor-road-z15 15z, @minor-road-z16 16z, @living-street-fill 17z);
+          --line-color: zoom-gradient(@living-street-low-zoom, @living-street-fill 17z);
         }
         &#tunnels {
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line-color: @living-street-tunnel-fill;
         }
         &#bridges {
@@ -1518,10 +1482,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --line__line-join: round;
       --line__line-cap: round;
       --line__line-width: zoom-gradient(@path-width-z14 14z, @path-width-z15 15z, @path-width-z16 16z 17z, @path-width-z18 18z, @path-width-z19 19z);
-      --line__line-color: @path-fill;
+      --line__line-color: zoom-gradient(@path-low-zoom, @path-fill 16z);
       &[access='no'] {
-        // MARK(pairing) line-color is set on instance 'line' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
-        --line__line-color: @path-fill-noaccess;
+        --line__line-color: zoom-gradient(@path-low-zoom-noaccess, @path-fill-noaccess 16z);
       }
     }
 
@@ -1556,7 +1519,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
             --line-scale: zoom-gradient(@road-scale-z6, @road-scale-z8 8z, @road-scale-z10 10z, @road-scale-z12 12z, @road-scale-z14 14z, @road-scale-z16 16z, @road-scale-z18 18z, @road-scale-z20 20z);
           }
           &#tunnels {
-            // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
             --line-color: @motorway-tunnel-fill;
           }
           &#bridges {
@@ -1645,7 +1607,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
             --line-scale: zoom-gradient(@road-scale-z6, @road-scale-z8 8z, @road-scale-z10 10z, @road-scale-z12 12z, @road-scale-z14 14z, @road-scale-z16 16z, @road-scale-z18 18z, @road-scale-z20 20z);
           }
           &#tunnels {
-            // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
             --line-color: @trunk-tunnel-fill;
           }
           &#bridges {
@@ -1728,7 +1689,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
             --line-scale: zoom-gradient(@road-scale-z6, @road-scale-z8 8z, @road-scale-z10 10z, @road-scale-z12 12z, @road-scale-z14 14z, @road-scale-z16 16z, @road-scale-z18 18z, @road-scale-z20 20z);
           }
           &#tunnels {
-            // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
             --line-color: @primary-tunnel-fill;
           }
           &#bridges {
@@ -1797,7 +1757,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           --line-scale: zoom-gradient(@road-scale-z6, @road-scale-z8 8z, @road-scale-z10 10z, @road-scale-z12 12z, @road-scale-z14 14z, @road-scale-z16 16z, @road-scale-z18 18z, @road-scale-z20 20z);
         }
         &#tunnels {
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line-color: @secondary-tunnel-fill;
         }
         &#bridges {
@@ -1827,7 +1786,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
             --line-scale: zoom-gradient(@road-scale-z6, @road-scale-z8 8z, @road-scale-z10 10z, @road-scale-z12 12z, @road-scale-z14 14z, @road-scale-z16 16z, @road-scale-z18 18z, @road-scale-z20 20z);
           }
           &#tunnels {
-            // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
             --line-color: @tertiary-tunnel-fill;
           }
           &#bridges {
@@ -1849,15 +1807,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --line-width: @residential-width - 2 * @casing-width;
       --line-scale: zoom-gradient(@road-scale-z14 14z, @road-scale-z16 16z, @road-scale-z18 18z, @road-scale-z20 20z);
 
-      --line-color: zoom-gradient(@minor-road-z14 14z, @minor-road-z15 15z, @minor-road-z16 16z, @unimportant-road 17z);
+      --line-color: zoom-gradient(@unimportant-road-low-zoom, @unimportant-road 16z);
       &#roads-fill,
       &#bridges {
-        // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
-        --line-color: zoom-gradient(@minor-road-z14 14z, @minor-road-z15 15z, @minor-road-z16 16z, @residential-fill 17z);
+        --line-color: zoom-gradient(@residential-low-zoom, @residential-fill 16z);
       }
 
       &#tunnels {
-        // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --line-color: @residential-tunnel-fill;
       }
 
@@ -1870,7 +1826,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     &[feature='highway_road'] {
       &:zoom(10) {
         --line-width: 1;
-        --line-color: zoom-gradient(@minor-road-z10 10z, @minor-road-z11 11z, @minor-road-z12 12z, @minor-road-z13 13z, @minor-road-z14 14z, @minor-road-z15 15z, @minor-road-z16 16z, @unimportant-road 17z);
+        // Enters at z10; two stops are enough to fade it in over z10 -> z12.
+        --line-color: zoom-gradient(@unimportant-road-low-zoom, @unimportant-road 12z);
         --line-join: round;
         --line-cap: round;
       }
@@ -1880,7 +1837,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         --line-scale: zoom-gradient(@road-scale-z6, @road-scale-z8 8z, @road-scale-z10 10z, @road-scale-z12 12z, @road-scale-z14 14z, @road-scale-z16 16z, @road-scale-z18 18z, @road-scale-z20 20z);
 
         &#roads-fill {
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line-color: @road-fill;
         }
 
@@ -1891,7 +1847,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         }
 
         &#tunnels {
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line-color: @road-fill;
         }
       }
@@ -1903,7 +1858,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       &:zoom(14) {
         --line-width: @pedestrian-width - 2 * @casing-width;
         --line-scale: zoom-gradient(@road-scale-z6, @road-scale-z8 8z, @road-scale-z10 10z, @road-scale-z12 12z, @road-scale-z14 14z, @road-scale-z16 16z, @road-scale-z18 18z, @road-scale-z20 20z);
-        --line-color: zoom-gradient(@minor-road-z14 14z, @pedestrian-fill 15z);
+        --line-color: zoom-gradient(@pedestrian-low-zoom, @pedestrian-fill 15z);
         &#bridges {
           --line-width: @pedestrian-width - 2 * @bridge-casing-width;
           --line-scale: zoom-gradient(@road-scale-z6, @road-scale-z8 8z, @road-scale-z10 10z, @road-scale-z12 12z, @road-scale-z14 14z, @road-scale-z16 16z, @road-scale-z18 18z, @road-scale-z20 20z);
@@ -1917,7 +1872,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --line-width: 1.2;
       --line-scale: zoom-gradient(1 12z, (2 / 1.2) 13z, 2.5 14z, 5 15z 17z, (8 / 1.2) 18z, 10 19z, 20 20z);
       &:zoom(12) {
-        // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --line-color: @raceway-fill;
         --line-join: round;
         --line-cap: round;
@@ -1933,14 +1887,12 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           --background__line-join: round;
           --background__line-width: @steps-width-z15 + 2 * @paths-background-width;
         }
-        // MARK(pairing) line-color is set on instance 'line' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
-        --line__line-color: @steps-fill;
+
+        --line__line-color: zoom-gradient(@steps-low-zoom, @steps-fill 18z);
         &[access='no'] {
-          // MARK(pairing) line-color is set on instance 'line' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
-          --line__line-color: @steps-fill-noaccess;
+          --line__line-color: zoom-gradient(@steps-low-zoom-noaccess, @steps-fill-noaccess 18z);
         }
         --line__line-dasharray: 2 1;
-        // MARK(pairing) line-width is set on instance 'line' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --line__line-width: zoom-gradient(@steps-width-z14, @steps-width-z15 15z);
       }
     }
@@ -1954,17 +1906,15 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           --background__line-join: round;
           --background__line-width: @bridleway-width-z15 + 2 * @paths-background-width;
         }
-        // MARK(pairing) line-color is set on instance 'line' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
+
         --line__line-color: @bridleway-fill;
         &[access='no'] {
-          // MARK(pairing) line-color is set on instance 'line' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line__line-color: @bridleway-fill-noaccess;
         }
         // --line__line-dasharray: 4;
-        // MARK(pairing) line-width is set on instance 'line' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
+
         --line__line-width: @bridleway-width-z13;
         &:zoom(15) {
-          // MARK(pairing) line-width is set on instance 'line' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line__line-width: @bridleway-width-z15;
         }
         &#tunnels {
@@ -1985,10 +1935,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         --line-dasharray: 6 9;
       }
 
-      // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
       --line-color: zoom-gradient(lighten(@footway-fill, 11%) 16z, @footway-fill 17z);
       &[access='no'] {
-        // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --line-color: @footway-fill-noaccess;
       }
     }
@@ -2018,16 +1966,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     &[feature='highway_track'] {
       &:not([access='no']):zoom(13),
       &:zoom(15) {
-        // MARK(pairing) line-color is set on instance 'line' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
-        --line__line-color: @track-fill;
+        --line__line-color: zoom-gradient(@track-low-zoom, @track-fill 15z);
         &[access='no'] {
-          // MARK(pairing) line-color is set on instance 'line' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
-          --line__line-color: @track-fill-noaccess;
+          --line__line-color: zoom-gradient(@track-low-zoom-noaccess, @track-fill-noaccess 15z);
         }
         --line__line-cap: round;
         --line__line-join: round;
 
-        // MARK(pairing) line-width is set on instance 'line' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --line__line-width: zoom-gradient(@track-width-z13, @track-width-z15 15z);
 
         // &[tracktype='grade1'] {
@@ -2072,11 +2017,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         --line-scale: zoom-gradient(1, (1 / 0.6) 12z);
         &#roads-fill,
         &#bridges {
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line-color: @bus-guideway-fill;
         }
         &#tunnels {
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line-color: @bus-guideway-tunnel-fill;
         }
       }
@@ -2085,11 +2028,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         --line-join: round;
         &#roads-fill,
         &#bridges {
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line-color: @bus-guideway-fill;
         }
         &#tunnels {
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line-color: @bus-guideway-tunnel-fill;
         }
         --b__line-width: 1;
@@ -2115,7 +2056,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         &#tunnels {
           // Sub-pixel stroke: too thin for the ghost to register, so this is
           // the one below-grade case that still earns a dash.
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
+
           --line-color: @tunnel-rail-fill;
           --line-dasharray: @underground-dasharray;
         }
@@ -2125,7 +2066,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         &#bridges {
           --dark__line-join: round;
           &:zoom(16) {
-            // MARK(pairing) line-color is set on instance 'light' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
             --light__line-color: @white;
             --light__line-join: round;
           }
@@ -2152,7 +2092,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
             --dark__line-scale: zoom-gradient(1, 1.5 18z);
             --dark__line-color: @rail-line-light;
             &:zoom(16) {
-              // MARK(pairing) line-width is set on instance 'light' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
               --light__line-width: 0.8;
               --light__line-scale: zoom-gradient(1, 1.25 18z);
             }
@@ -2191,14 +2130,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       &:zoom(8, 9),
       &:not([preserved='yes']):zoom(10, 11),
       &:zoom(12) {
-        // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --line-color: @rail-line-lighter;
         &:zoom(10) {
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line-color: @rail-line-light;
         }
         &:zoom(13) {
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line-color: @rail-line-dark;
         }
         // Urban rail is one thin stroke: no casing, no core. A casing with a
@@ -2213,11 +2149,10 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         --line-scale: zoom-gradient(0.8, 1 14z, 1.4 16z, 1.8 18z);
         &[preserved='yes']:zoom(13) {
           // Preserved differs in value, not in structure.
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
+
           --line-color: @rail-line-lighter;
         }
         &#tunnels {
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line-color: @tunnel-rail-fill;
         }
       }
@@ -2232,7 +2167,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         --core__line-join: round;
 
         &[preserved='yes'] {
-          // MARK(pairing) line-color is set on instance 'line' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line__line-color: @rail-line-lighter;
         }
       }
@@ -2252,11 +2186,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           --line-width: 0.5;
         }
         &[preserved='yes']:zoom(15) {
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line-color: @rail-line-lighter;
         }
         &#tunnels {
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line-color: @tunnel-rail-fill;
         }
       }
@@ -2270,11 +2202,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         --line-width: 1;
         --line-scale: zoom-gradient(0.8, 1 14z, 1.3 16z, 1.6 18z);
         &[preserved='yes']:zoom(15) {
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line-color: @rail-line-lighter;
         }
         &#tunnels {
-          // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line-color: @tunnel-rail-fill;
         }
       }
@@ -2302,14 +2232,12 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         --line__line-join: round;
 
         &[preserved='yes'] {
-          // MARK(pairing) line-color is set on instance 'line' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line__line-color: @rail-line-light;
-          
+
           --background__line-color: @white;
         }
 
         &#tunnels {
-          // MARK(pairing) line-color is set on instance 'line' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --line__line-color: @tunnel-rail-fill;
         }
       }
@@ -2459,7 +2387,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   }
 
   &[int_tc_type='living_street']:zoom(15) {
-    --line-color: zoom-gradient(@minor-road-z15 15z, @minor-road-z16 16z, @living-street-fill 17z);
+    --line-color: zoom-gradient(@living-street-low-zoom, @living-street-fill 16z);
     --line-width: @living-street-width * @turning-circle-factor;
     --line-scale: zoom-gradient(@road-scale-z6, @road-scale-z8 8z, @road-scale-z10 10z, @road-scale-z12 12z, @road-scale-z14 14z, @road-scale-z16 16z, @road-scale-z18 18z, @road-scale-z20 20z);
     --line-cap: round;
@@ -2491,36 +2419,28 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --line-cap: round;
 
     &[int_tc_type='trunk'] {
-      // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
       --line-color: @trunk-casing;
     }
     &[int_tc_type='primary'] {
-      // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
       --line-color: @primary-casing;
     }
     &[int_tc_type='secondary'] {
-      // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
       --line-color: @secondary-casing;
     }
     &[int_tc_type='tertiary'] {
-      // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
       --line-color: @tertiary-casing;
     }
     &[int_tc_type='unclassified'],
     &[int_tc_type='residential'] {
-      // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
       --line-color: @residential-casing;
     }
     &[int_tc_type='living_street'] {
-      // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
       --line-color: @living-street-casing;
     }
     &[int_tc_type='service'] {
-      // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
       --line-color: @service-casing;
     }
     &[int_tc_type='track'] {
-      // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
       --line-color: @track-casing;
     }
   }
@@ -2540,7 +2460,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
     --line-color: zoom-gradient(lighten(@footway-fill, 22%) 14z, lighten(@footway-fill, 10%) 15z, @footway-fill 16z);
     &[access='no'] {
-      // MARK(pairing) line-color is set but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
       --line-color: @footway-fill-noaccess;
     }
   }
@@ -2676,28 +2595,22 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     &[feature='highway_pedestrian'],
     &[feature='highway_living_street'] {
       &:zoom(15) {
-        // MARK(pairing) line-color is set on instance 'access' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --access__line-color: @access-marking;
         &[surface='unpaved'] {
-          // MARK(pairing) line-color is set on instance 'access' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --access__line-color: @access-marking-white-unpaved;
         }
         &[feature='highway_primary'],
         &[feature='highway_pedestrian'] {
-          // MARK(pairing) line-color is set on instance 'access' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --access__line-color: @access-marking-light;
         }
         &[feature='highway_secondary'] {
-          // MARK(pairing) line-color is set on instance 'access' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --access__line-color: @access-marking-secondary;
         }
         &[feature='highway_living_street'] {
-          // MARK(pairing) line-color is set on instance 'access' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --access__line-color: @access-marking-living-street;
         }
 
         --access__line-join: round;
-        // MARK(pairing) line-width is set on instance 'access' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --access__line-width: zoom-gradient(@access-marking-width-z15 15z, @access-marking-width-z16 16z 17z, @access-marking-width-z18 18z, @access-marking-width-z19 19z);
 
         &:zoom(15) {
@@ -2710,19 +2623,15 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     &[feature='highway_road'],
     &[feature='highway_service'][service='INT-normal'] {
       &:zoom(16) {
-        // MARK(pairing) line-color is set on instance 'access' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --access__line-color: @access-marking;
         &[surface='unpaved'] {
-          // MARK(pairing) line-color is set on instance 'access' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --access__line-color: @access-marking-white-unpaved;
         }
         &[feature='highway_road'] {
-          // MARK(pairing) line-color is set on instance 'access' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --access__line-color: @access-marking-light;
         }
         --access__line-join: round;
         --access__line-cap: round;
-        // MARK(pairing) line-width is set on instance 'access' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --access__line-width: zoom-gradient(@access-marking-width-z15 15z, @access-marking-width-z16 16z 17z, @access-marking-width-z18 18z, @access-marking-width-z19 19z);
         --access__line-dasharray: 6 9;
       }
@@ -2730,15 +2639,12 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
     &[feature='highway_service'][service='INT-minor'] {
       &:zoom(17) {
-        // MARK(pairing) line-color is set on instance 'access' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --access__line-color: @access-marking;
         &[surface='unpaved'] {
-          // MARK(pairing) line-color is set on instance 'access' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --access__line-color: @access-marking-white-unpaved;
         }
         --access__line-join: round;
         --access__line-cap: round;
-        // MARK(pairing) line-width is set on instance 'access' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --access__line-width: zoom-gradient(@access-marking-width-z15 15z, @access-marking-width-z16 16z 17z, @access-marking-width-z18 18z, @access-marking-width-z19 19z);
         --access__line-dasharray: 6 9;
       }
@@ -2755,32 +2661,26 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     &[feature='highway_pedestrian'],
     &[feature='highway_living_street'] {
       &:zoom(15) {
-        // MARK(pairing) line-color is set on instance 'access' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --access__line-color: @access-marking;
         &[feature='highway_tertiary'],
         &[feature='highway_unclassified'],
         &[feature='highway_residential'] {
           &[surface='unpaved'] {
-            // MARK(pairing) line-color is set on instance 'access' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
             --access__line-color: @access-marking-white-unpaved;
           }
         }
         &[feature='highway_primary'],
         &[feature='highway_pedestrian'] {
-          // MARK(pairing) line-color is set on instance 'access' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --access__line-color: @access-marking-light;
         }
         &[feature='highway_secondary'] {
-          // MARK(pairing) line-color is set on instance 'access' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --access__line-color: @access-marking-secondary;
         }
         &[feature='highway_living_street'] {
-          // MARK(pairing) line-color is set on instance 'access' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --access__line-color: @access-marking-living-street;
         }
         --access__line-join: round;
         --access__line-cap: round;
-        // MARK(pairing) line-width is set on instance 'access' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --access__line-width: zoom-gradient(@access-marking-width-z15 15z, @access-marking-width-z16 16z 17z, @access-marking-width-z18 18z, @access-marking-width-z19 19z);
         --access__line-dasharray: 6 9;
       }
@@ -2789,19 +2689,15 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     &[feature='highway_road'],
     &[feature='highway_service'][service='INT-normal'] {
       &:zoom(16) {
-        // MARK(pairing) line-color is set on instance 'access' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --access__line-color: @access-marking;
         &[surface='unpaved'] {
-          // MARK(pairing) line-color is set on instance 'access' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --access__line-color: @access-marking-white-unpaved;
         }
         &[feature='highway_road'] {
-          // MARK(pairing) line-color is set on instance 'access' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --access__line-color: @access-marking-light;
         }
         --access__line-join: round;
         --access__line-cap: round;
-        // MARK(pairing) line-width is set on instance 'access' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --access__line-width: zoom-gradient(@access-marking-width-z15 15z, @access-marking-width-z16 16z 17z, @access-marking-width-z18 18z, @access-marking-width-z19 19z);
         --access__line-dasharray: 6 9;
       }
@@ -2809,15 +2705,12 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
     &[feature='highway_service'][service='INT-minor'] {
       &:zoom(17) {
-        // MARK(pairing) line-color is set on instance 'access' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --access__line-color: @access-marking;
         &[surface='unpaved'] {
-          // MARK(pairing) line-color is set on instance 'access' but line-width is not set in this rule; confirm the paired value is inherited from an enclosing rule.
           --access__line-color: @access-marking-white-unpaved;
         }
         --access__line-join: round;
         --access__line-cap: round;
-        // MARK(pairing) line-width is set on instance 'access' but line-color is not set in this rule; confirm the paired value is inherited from an enclosing rule.
         --access__line-width: zoom-gradient(@access-marking-width-z15 15z, @access-marking-width-z16 16z 17z, @access-marking-width-z18 18z, @access-marking-width-z19 19z);
         --access__line-dasharray: 6 9;
       }
