@@ -31,31 +31,6 @@
 
 @minor-construction: #a6a7a9;
 
-/*
-  HIERARCHY SHADE RAMP
-
-  Shade -- not just width -- now encodes hierarchy: the lower the class, the
-  fainter it is drawn at the same zoom. Every step is derived from @road-fill,
-  so a single base colour still drives the whole road palette.
-
-    motorway      darken  6%   (firmest)
-    trunk         darken  4%
-    primary       darken  2%
-    secondary     @road-fill
-    tertiary      lighten 2%
-    residential   lighten 4%
-    living_street lighten 5%
-    pedestrian    lighten 6%
-    service       lighten 7%   (faintest motorised)
-    steps/paved footway lighten 7%, path lighten 8%
-
-  Each class also carries an `-entry` tint: the shade the class fades in FROM,
-  lightened toward @land-color. It is only ever used as the first stop of a
-  1-2 stop zoom-gradient, so entering is a colour fade, never a visibility
-  gate -- no class's minimum zoom is raised for the sake of the fade, and a
-  feature that is faint is still fully present in the tile.
-*/
-
 /* Dual-carriageway, high speed, grade-separated with restricted access. */
 @motorway-fill: darken(@road-fill, 8%);
 @motorway-casing: darken(@motorway-fill, 3%);
