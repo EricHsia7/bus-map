@@ -137,11 +137,11 @@ function containsZoomGradient(value) {
   return typeof value === 'string' && value.toLowerCase().includes('zoom-gradient(');
 }
 
-function getNonInterpolatableList(paint) {
+function getFlatList(paint) {
   const list = new Set();
   for (const key in paint) {
     const [instance, bare] = splitInstanceKey(key);
-    if (bare === 'non-interpolatable') {
+    if (bare === 'flat') {
       const bareProperties = String(paint[key])
         .split(',')
         .map((item) => item.trim());
@@ -733,7 +733,7 @@ function paintAtZoom(paint, z, resolve = resolveValue) {
  */
 function shipPaintAtZoom(paint, z, resolve = resolveValue) {
   const current = paintAtZoom(paint, z, resolve);
-  const nonInterpolatableList = getNonInterpolatableList(current);
+  const nonInterpolatableList = getFlatList(current);
 
   // At ZOOM_MAX there is no next zoom to grow into, so the interval is flat.
   const next = z >= ZOOM_MAX ? current : paintAtZoom(paint, z + 1, resolve);

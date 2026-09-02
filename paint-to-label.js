@@ -97,8 +97,8 @@ function paintToLabels(paint, tags = {}) {
           styleProperties: prune({
             'text-size': num(props['text-size']),
             'text-scale': numberPair(props['text-scale']),
-            'text-fill': props['text-fill'], // NON-INTERPOLATABLE
-            'text-halo-fill': props['text-halo-fill'], // NON-INTERPOLATABLE
+            'text-fill': props['text-fill'], // flat
+            'text-halo-fill': props['text-halo-fill'], // flat
             'text-halo-radius': num(props['text-halo-radius']),
             'text-face-name': props['text-face-name'],
             'text-placement': props['text-placement'],

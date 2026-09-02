@@ -38,7 +38,7 @@
   &[natural='glacier']::natural {
     &:zoom(5) {
       --line-width: zoom-gradient(1, 1.5 10z);
-      --non-interpolatable: line-width;
+      --flat: line-width;
       --line-color: @glacier-line;
       --polygon-fill: @glacier;
       &:zoom(10) {
@@ -65,7 +65,7 @@
     }
     --line-color: @water-color;
     --line-width: zoom-gradient(@river-width-z8, @river-width-z9 9z, @river-width-z10 10z);
-    --non-interpolatable: line-width;
+    --flat: line-width;
   }
 }
 
@@ -125,7 +125,7 @@
     --line-color: @waterway-bridge-casing;
     --line-join: round;
     --line-width: zoom-gradient(@river-width-z14 + 1, @river-width-z15 + 1 15z, @river-width-z16 + 1 16z, @river-width-z17 + 1 17z, @river-width-z18 + 1 18z);
-    --non-interpolatable: line-width;
+    --flat: line-width;
   }
 
   &[feature='waterway_ditch'],
@@ -135,10 +135,10 @@
     --line-color: @waterway-bridge-casing;
     --line-join: round;
     --line-width: @stream-width-z14 + 1;
-    --non-interpolatable: line-width;
+    --flat: line-width;
     &[feature='waterway_stream'] {
       --line-width: zoom-gradient(@stream-width-z15 + 1 15z, @stream-width-z16 + 1 16z, @stream-width-z17 + 1 17z, @stream-width-z18 + 1 18z);
-      --non-interpolatable: line-width;
+      --flat: line-width;
     }
     &:not([feature='waterway_stream']):zoom(17) {
       --line-width: @ditchdrain-width-z17 + 1;
@@ -149,7 +149,7 @@
     --line-color: @waterway-bridge-casing;
     --line-join: round;
     --line-width: zoom-gradient((@stream-width-z14 * @canal-scale-factor) + 1, (@stream-width-z15 * @canal-scale-factor) + 1 15z, (@stream-width-z16 * @canal-scale-factor) + 1 16z, (@stream-width-z17 * @canal-scale-factor) + 1 17z, (@stream-width-z18 * @canal-scale-factor) + 1 18z);
-    --non-interpolatable: line-width;
+    --flat: line-width;
   }
 }
 
@@ -160,19 +160,19 @@
       // Background for dashed tunnel casings
       --background__line-color: @water-tunnelfill-color;
       --background__line-width: zoom-gradient(@river-width-z12, @river-width-z13 13z, @river-width-z14 14z, @river-width-z15 15z, @river-width-z16 16z, @river-width-z17 17z, @river-width-z18 18z);
-      --background__non-interpolatable: line-width;
+      --background__flat: line-width;
       --background__line-join: round;
     }
     &[int_bridge_tunnel='bridge'][int_intermittent='yes']:zoom(14) {
       --background__line-color: @water-color;
       --background__line-join: round;
       --background__line-width: zoom-gradient(@river-width-z14, @river-width-z15 15z, @river-width-z16 16z, @river-width-z17 17z, @river-width-z18 18z);
-      --background__non-interpolatable: line-width;
+      --background__flat: line-width;
     }
 
     --water__line-color: @water-color;
     --water__line-width: zoom-gradient(@river-width-z12, @river-width-z13 13z, @river-width-z14 14z, @river-width-z15 15z, @river-width-z16 16z, @river-width-z17 17z, @river-width-z18 18z);
-    --water__non-interpolatable: line-width;
+    --water__flat: line-width;
     --water__line-cap: round;
     --water__line-join: round;
 
@@ -187,7 +187,7 @@
       --water__line-cap: butt;
       --tunnelfill__line-color: @water-tunnelfill-color;
       --tunnelfill__line-width: zoom-gradient(@river-width-z12 - 1.5, @river-width-z13 - 2 13z, @river-width-z14 - 3 14z, @river-width-z15 - 3 15z, @river-width-z16 - 3 16z, @river-width-z17 - 3 17z, @river-width-z18 - 4 18z);
-      --tunnelfill__non-interpolatable: line-width;
+      --tunnelfill__flat: line-width;
       --tunnelfill__line-join: round;
     }
   }
@@ -209,26 +209,26 @@
         --background__line-color: @water-tunnelfill-color;
         --background__line-join: round;
         --background__line-width: @stream-width-z14;
-        --background__non-interpolatable: line-width;
+        --background__flat: line-width;
         &[feature='waterway_stream'] {
           --background__line-width: zoom-gradient(@stream-width-z15 15z, @stream-width-z16 16z, @stream-width-z17 17z, @stream-width-z18 18z);
-          --background__non-interpolatable: line-width;
+          --background__flat: line-width;
         }
         &:not([feature='waterway_stream']):zoom(17) {
           --background__line-width: @ditchdrain-width-z17;
-          --background__non-interpolatable: line-width;
+          --background__flat: line-width;
         }
       }
 
       --water__line-width: zoom-gradient(@stream-width-z12, @stream-width-z13 13z, @stream-width-z14 14z);
-      --water__non-interpolatable: line-width;
+      --water__flat: line-width;
       &[feature='waterway_stream'] {
         --water__line-width: zoom-gradient(@stream-width-z15 15z, @stream-width-z16 16z, @stream-width-z17 17z, @stream-width-z18 18z);
-        --water__non-interpolatable: line-width;
+        --water__flat: line-width;
       }
       &:not([feature='waterway_stream']):zoom(17) {
         --water__line-width: @ditchdrain-width-z17;
-        --water__non-interpolatable: line-width;
+        --water__flat: line-width;
       }
 
       --water__line-color: @water-color;
@@ -248,37 +248,37 @@
 
       &[int_bridge_tunnel='tunnel']:zoom(14) {
         --background__line-width: @stream-width-z14 + 1;
-        --background__non-interpolatable: line-width;
+        --background__flat: line-width;
 
         --water__line-dasharray: 4, 2;
         --water__line-cap: butt;
         --water__line-width: @stream-width-z14 + 1;
-        --water__non-interpolatable: line-width;
+        --water__flat: line-width;
 
         --tunnelfill__line-color: @water-tunnelfill-color;
         --tunnelfill__line-join: round;
         --tunnelfill__line-width: @stream-width-z14 - 0.5;
-        --tunnelfill__non-interpolatable: line-width;
+        --tunnelfill__flat: line-width;
 
         &[feature='waterway_stream'] {
           --background__line-width: zoom-gradient(@stream-width-z15 + 1.5 15z, @stream-width-z16 + 1 16z, @stream-width-z17 + 1 17z, @stream-width-z18 + 1 18z);
-          --background__non-interpolatable: line-width;
+          --background__flat: line-width;
 
           --water__line-width: zoom-gradient(@stream-width-z15 + 1.5 15z, @stream-width-z16 + 1 16z, @stream-width-z17 + 1 17z, @stream-width-z18 + 1 18z);
-          --water__non-interpolatable: line-width;
+          --water__flat: line-width;
 
           --tunnelfill__line-width: zoom-gradient(@stream-width-z15 - 1 15z, @stream-width-z16 - 1.5 16z, @stream-width-z17 - 1.5 17z, @stream-width-z18 - 1.5 18z);
-          --tunnelfill__non-interpolatable: line-width;
+          --tunnelfill__flat: line-width;
         }
         &:not([feature='waterway_stream']):zoom(17) {
           --background__line-width: @ditchdrain-width-z17 + 1;
-          --background__non-interpolatable: line-width;
+          --background__flat: line-width;
 
           --water__line-width: @ditchdrain-width-z17 + 1;
-          --water__non-interpolatable: line-width;
+          --water__flat: line-width;
 
           --tunnelfill__line-width: @ditchdrain-width-z17 - 1.5;
-          --tunnelfill__non-interpolatable: line-width;
+          --tunnelfill__flat: line-width;
         }
       }
     }
@@ -296,14 +296,14 @@
       --background__line-color: @water-tunnelfill-color;
       --background__line-join: round;
       --background__line-width: zoom-gradient(@stream-width-z14 * @canal-scale-factor, @stream-width-z15 * @canal-scale-factor 15z, @stream-width-z16 * @canal-scale-factor 16z, @stream-width-z17 * @canal-scale-factor 17z, @stream-width-z18 * @canal-scale-factor 18z);
-      --background__non-interpolatable: line-width;
+      --background__flat: line-width;
     }
 
     --water__line-color: @water-color;
     --water__line-join: round;
     --water__line-cap: round;
     --water__line-width: zoom-gradient(@stream-width-z12 * @canal-scale-factor, @stream-width-z13 * @canal-scale-factor 13z, @stream-width-z14 * @canal-scale-factor 14z, @stream-width-z15 * @canal-scale-factor 15z, @stream-width-z16 * @canal-scale-factor 16z, @stream-width-z17 * @canal-scale-factor 17z, @stream-width-z18 * @canal-scale-factor 18z);
-    --water__non-interpolatable: line-width;
+    --water__flat: line-width;
 
     &[int_intermittent='yes'] {
       --water__line-dasharray: 4, 3;
@@ -314,15 +314,15 @@
       --water__line-dasharray: 4, 2;
       --water__line-cap: butt;
       --water__line-width: zoom-gradient((@stream-width-z13 * @canal-scale-factor) + 1, (@stream-width-z14 * @canal-scale-factor) + 1 14z, (@stream-width-z15 * @canal-scale-factor) + 1 15z, (@stream-width-z16 * @canal-scale-factor) + 1 16z, (@stream-width-z17 * @canal-scale-factor) + 1 17z, (@stream-width-z18 * @canal-scale-factor) + 1 18z);
-      --water__non-interpolatable: line-width;
+      --water__flat: line-width;
 
       --background__line-width: zoom-gradient((@stream-width-z13 * @canal-scale-factor) + 1, (@stream-width-z14 * @canal-scale-factor) + 1 14z, (@stream-width-z15 * @canal-scale-factor) + 1 15z, (@stream-width-z16 * @canal-scale-factor) + 1 16z, (@stream-width-z17 * @canal-scale-factor) + 1 17z, (@stream-width-z18 * @canal-scale-factor) + 1 18z);
-      --background__non-interpolatable: line-width;
+      --background__flat: line-width;
 
       --tunnelfill__line-color: @water-tunnelfill-color;
       --tunnelfill__line-join: round;
       --tunnelfill__line-width: zoom-gradient((@stream-width-z13 * @canal-scale-factor) - 1, (@stream-width-z14 * @canal-scale-factor) - 1.5 14z, (@stream-width-z15 * @canal-scale-factor) - 1.5 15z, (@stream-width-z16 * @canal-scale-factor) - 1.5 16z, (@stream-width-z17 * @canal-scale-factor) - 1.5 17z, (@stream-width-z18 * @canal-scale-factor) - 1.5 18z);
-      --tunnelfill__non-interpolatable: line-width;
+      --tunnelfill__flat: line-width;
     }
   }
 }

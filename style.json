@@ -3936,7 +3936,7 @@
         "1",
         "1"
       ],
-      "non-interpolatable": "line-width",
+      "flat": "line-width",
       "line-color": [
         "rgba(177,232,245,1)",
         "rgba(177,232,245,1)"
@@ -3970,7 +3970,7 @@
         "1.5",
         "1.5"
       ],
-      "non-interpolatable": "line-width",
+      "flat": "line-width",
       "line-color": [
         "rgba(177,232,245,1)",
         "rgba(177,232,245,1)"
@@ -4104,7 +4104,7 @@
         "0.7",
         "0.7"
       ],
-      "non-interpolatable": "line-width"
+      "flat": "line-width"
     }
   },
   {
@@ -4127,7 +4127,7 @@
         "1.2",
         "1.2"
       ],
-      "non-interpolatable": "line-width"
+      "flat": "line-width"
     }
   },
   {
@@ -4150,7 +4150,7 @@
         "1.5",
         "1.5"
       ],
-      "non-interpolatable": "line-width"
+      "flat": "line-width"
     }
   },
   {
@@ -4203,7 +4203,7 @@
         "5.5",
         "5.5"
       ],
-      "non-interpolatable": "line-width"
+      "flat": "line-width"
     },
     "attachment": "casing"
   },
@@ -4234,7 +4234,7 @@
         "7",
         "7"
       ],
-      "non-interpolatable": "line-width"
+      "flat": "line-width"
     },
     "attachment": "casing"
   },
@@ -4265,7 +4265,7 @@
         "9",
         "9"
       ],
-      "non-interpolatable": "line-width"
+      "flat": "line-width"
     },
     "attachment": "casing"
   },
@@ -4296,7 +4296,7 @@
         "11",
         "11"
       ],
-      "non-interpolatable": "line-width"
+      "flat": "line-width"
     },
     "attachment": "casing"
   },
@@ -4327,7 +4327,7 @@
         "13",
         "13"
       ],
-      "non-interpolatable": "line-width"
+      "flat": "line-width"
     },
     "attachment": "casing"
   },
@@ -4400,7 +4400,7 @@
         "3",
         "3"
       ],
-      "non-interpolatable": "line-width"
+      "flat": "line-width"
     },
     "attachment": "casing"
   },
@@ -4465,7 +4465,7 @@
       }
     ],
     "paint": {
-      "non-interpolatable": "line-width"
+      "flat": "line-width"
     },
     "attachment": "casing"
   },
@@ -4553,7 +4553,7 @@
         "3.5",
         "3.5"
       ],
-      "non-interpolatable": "line-width"
+      "flat": "line-width"
     },
     "attachment": "casing"
   },
@@ -4641,7 +4641,7 @@
         "4",
         "4"
       ],
-      "non-interpolatable": "line-width"
+      "flat": "line-width"
     },
     "attachment": "casing"
   },
@@ -4729,7 +4729,7 @@
         "4.5",
         "4.5"
       ],
-      "non-interpolatable": "line-width"
+      "flat": "line-width"
     },
     "attachment": "casing"
   },
@@ -4817,7 +4817,7 @@
         "5",
         "5"
       ],
-      "non-interpolatable": "line-width"
+      "flat": "line-width"
     },
     "attachment": "casing"
   },
@@ -4935,7 +4935,7 @@
         "3.8",
         "3.8"
       ],
-      "non-interpolatable": "line-width"
+      "flat": "line-width"
     },
     "attachment": "casing"
   },
@@ -4966,7 +4966,7 @@
         "4.5",
         "4.5"
       ],
-      "non-interpolatable": "line-width"
+      "flat": "line-width"
     },
     "attachment": "casing"
   },
@@ -4997,7 +4997,7 @@
         "5.2",
         "5.2"
       ],
-      "non-interpolatable": "line-width"
+      "flat": "line-width"
     },
     "attachment": "casing"
   },
@@ -5028,7 +5028,7 @@
         "5.9",
         "5.9"
       ],
-      "non-interpolatable": "line-width"
+      "flat": "line-width"
     },
     "attachment": "casing"
   },
@@ -5059,7 +5059,7 @@
         "6.6",
         "6.6"
       ],
-      "non-interpolatable": "line-width"
+      "flat": "line-width"
     },
     "attachment": "casing"
   },
@@ -5103,7 +5103,7 @@
         "2.3",
         "2.3"
       ],
-      "water/non-interpolatable": "line-width",
+      "water/flat": "line-width",
       "water/line-cap": "round",
       "water/line-join": "round"
     },
@@ -5149,7 +5149,7 @@
         "3",
         "3"
       ],
-      "water/non-interpolatable": "line-width",
+      "water/flat": "line-width",
       "water/line-cap": "round",
       "water/line-join": "round"
     },
@@ -5195,7 +5195,7 @@
         "4.5",
         "4.5"
       ],
-      "water/non-interpolatable": "line-width",
+      "water/flat": "line-width",
       "water/line-cap": "round",
       "water/line-join": "round"
     },
@@ -5241,7 +5241,7 @@
         "6",
         "6"
       ],
-      "water/non-interpolatable": "line-width",
+      "water/flat": "line-width",
       "water/line-cap": "round",
       "water/line-join": "round"
     },
@@ -5287,7 +5287,7 @@
         "8",
         "8"
       ],
-      "water/non-interpolatable": "line-width",
+      "water/flat": "line-width",
       "water/line-cap": "round",
       "water/line-join": "round"
     },
@@ -5333,7 +5333,7 @@
         "10",
         "10"
       ],
-      "water/non-interpolatable": "line-width",
+      "water/flat": "line-width",
       "water/line-cap": "round",
       "water/line-join": "round"
     },
@@ -5379,7 +5379,7 @@
         "12",
         "12"
       ],
-      "water/non-interpolatable": "line-width",
+      "water/flat": "line-width",
       "water/line-cap": "round",
       "water/line-join": "round"
     },
@@ -5435,7 +5435,7 @@
         "2.3",
         "2.3"
       ],
-      "background/non-interpolatable": "line-width",
+      "background/flat": "line-width",
       "background/line-join": "round"
     },
     "attachment": "fill"
@@ -5490,7 +5490,7 @@
         "3",
         "3"
       ],
-      "background/non-interpolatable": "line-width",
+      "background/flat": "line-width",
       "background/line-join": "round"
     },
     "attachment": "fill"
@@ -5545,7 +5545,7 @@
         "4.5",
         "4.5"
       ],
-      "background/non-interpolatable": "line-width",
+      "background/flat": "line-width",
       "background/line-join": "round"
     },
     "attachment": "fill"
@@ -5600,7 +5600,7 @@
         "6",
         "6"
       ],
-      "background/non-interpolatable": "line-width",
+      "background/flat": "line-width",
       "background/line-join": "round"
     },
     "attachment": "fill"
@@ -5655,7 +5655,7 @@
         "8",
         "8"
       ],
-      "background/non-interpolatable": "line-width",
+      "background/flat": "line-width",
       "background/line-join": "round"
     },
     "attachment": "fill"
@@ -5710,7 +5710,7 @@
         "10",
         "10"
       ],
-      "background/non-interpolatable": "line-width",
+      "background/flat": "line-width",
       "background/line-join": "round"
     },
     "attachment": "fill"
@@ -5765,7 +5765,7 @@
         "12",
         "12"
       ],
-      "background/non-interpolatable": "line-width",
+      "background/flat": "line-width",
       "background/line-join": "round"
     },
     "attachment": "fill"
@@ -5831,7 +5831,7 @@
         "4.5",
         "4.5"
       ],
-      "background/non-interpolatable": "line-width"
+      "background/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -5896,7 +5896,7 @@
         "6",
         "6"
       ],
-      "background/non-interpolatable": "line-width"
+      "background/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -5961,7 +5961,7 @@
         "8",
         "8"
       ],
-      "background/non-interpolatable": "line-width"
+      "background/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -6026,7 +6026,7 @@
         "10",
         "10"
       ],
-      "background/non-interpolatable": "line-width"
+      "background/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -6091,7 +6091,7 @@
         "12",
         "12"
       ],
-      "background/non-interpolatable": "line-width"
+      "background/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -6194,7 +6194,7 @@
         "0.8",
         "0.8"
       ],
-      "tunnelfill/non-interpolatable": "line-width",
+      "tunnelfill/flat": "line-width",
       "tunnelfill/line-join": "round"
     },
     "attachment": "fill"
@@ -6251,7 +6251,7 @@
         "1",
         "1"
       ],
-      "tunnelfill/non-interpolatable": "line-width",
+      "tunnelfill/flat": "line-width",
       "tunnelfill/line-join": "round"
     },
     "attachment": "fill"
@@ -6308,7 +6308,7 @@
         "1.5",
         "1.5"
       ],
-      "tunnelfill/non-interpolatable": "line-width",
+      "tunnelfill/flat": "line-width",
       "tunnelfill/line-join": "round"
     },
     "attachment": "fill"
@@ -6365,7 +6365,7 @@
         "3",
         "3"
       ],
-      "tunnelfill/non-interpolatable": "line-width",
+      "tunnelfill/flat": "line-width",
       "tunnelfill/line-join": "round"
     },
     "attachment": "fill"
@@ -6422,7 +6422,7 @@
         "5",
         "5"
       ],
-      "tunnelfill/non-interpolatable": "line-width",
+      "tunnelfill/flat": "line-width",
       "tunnelfill/line-join": "round"
     },
     "attachment": "fill"
@@ -6479,7 +6479,7 @@
         "7",
         "7"
       ],
-      "tunnelfill/non-interpolatable": "line-width",
+      "tunnelfill/flat": "line-width",
       "tunnelfill/line-join": "round"
     },
     "attachment": "fill"
@@ -6536,7 +6536,7 @@
         "8",
         "8"
       ],
-      "tunnelfill/non-interpolatable": "line-width",
+      "tunnelfill/flat": "line-width",
       "tunnelfill/line-join": "round"
     },
     "attachment": "fill"
@@ -6663,7 +6663,7 @@
         "0.8",
         "0.8"
       ],
-      "water/non-interpolatable": "line-width",
+      "water/flat": "line-width",
       "water/line-color": [
         "rgba(154,207,252,1)",
         "rgba(154,207,252,1)"
@@ -6879,7 +6879,7 @@
         "1.4",
         "1.4"
       ],
-      "water/non-interpolatable": "line-width",
+      "water/flat": "line-width",
       "water/line-color": [
         "rgba(154,207,252,1)",
         "rgba(154,207,252,1)"
@@ -7161,7 +7161,7 @@
         "2",
         "2"
       ],
-      "water/non-interpolatable": "line-width",
+      "water/flat": "line-width",
       "water/line-color": [
         "rgba(154,207,252,1)",
         "rgba(154,207,252,1)"
@@ -7964,7 +7964,7 @@
         "2",
         "2"
       ],
-      "background/non-interpolatable": "line-width"
+      "background/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -8350,7 +8350,7 @@
       }
     ],
     "paint": {
-      "background/non-interpolatable": "line-width"
+      "background/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -8866,7 +8866,7 @@
         "2.5",
         "2.5"
       ],
-      "background/non-interpolatable": "line-width"
+      "background/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -9382,7 +9382,7 @@
         "3",
         "3"
       ],
-      "background/non-interpolatable": "line-width"
+      "background/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -9898,7 +9898,7 @@
         "3.5",
         "3.5"
       ],
-      "background/non-interpolatable": "line-width"
+      "background/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -10414,7 +10414,7 @@
         "4",
         "4"
       ],
-      "background/non-interpolatable": "line-width"
+      "background/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -10930,7 +10930,7 @@
         "3",
         "3"
       ],
-      "background/non-interpolatable": "line-width"
+      "background/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -11196,7 +11196,7 @@
       }
     ],
     "paint": {
-      "water/non-interpolatable": "line-width"
+      "water/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -11552,7 +11552,7 @@
         "2.5",
         "2.5"
       ],
-      "water/non-interpolatable": "line-width"
+      "water/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -11908,7 +11908,7 @@
         "3",
         "3"
       ],
-      "water/non-interpolatable": "line-width"
+      "water/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -12264,7 +12264,7 @@
         "3.5",
         "3.5"
       ],
-      "water/non-interpolatable": "line-width"
+      "water/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -12620,7 +12620,7 @@
         "4",
         "4"
       ],
-      "water/non-interpolatable": "line-width"
+      "water/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -12976,7 +12976,7 @@
         "3",
         "3"
       ],
-      "water/non-interpolatable": "line-width"
+      "water/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -14206,14 +14206,14 @@
         "3",
         "3"
       ],
-      "background/non-interpolatable": "line-width",
+      "background/flat": "line-width",
       "water/line-dasharray": "4, 2",
       "water/line-cap": "butt",
       "water/line-width": [
         "3",
         "3"
       ],
-      "water/non-interpolatable": "line-width",
+      "water/flat": "line-width",
       "tunnelfill/line-color": [
         "rgba(176,217,253,1)",
         "rgba(176,217,253,1)"
@@ -14223,7 +14223,7 @@
         "1.5",
         "1.5"
       ],
-      "tunnelfill/non-interpolatable": "line-width"
+      "tunnelfill/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -14549,9 +14549,9 @@
       }
     ],
     "paint": {
-      "background/non-interpolatable": "line-width",
-      "water/non-interpolatable": "line-width",
-      "tunnelfill/non-interpolatable": "line-width"
+      "background/flat": "line-width",
+      "water/flat": "line-width",
+      "tunnelfill/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -14987,17 +14987,17 @@
         "4",
         "4"
       ],
-      "background/non-interpolatable": "line-width",
+      "background/flat": "line-width",
       "water/line-width": [
         "4",
         "4"
       ],
-      "water/non-interpolatable": "line-width",
+      "water/flat": "line-width",
       "tunnelfill/line-width": [
         "1.5",
         "1.5"
       ],
-      "tunnelfill/non-interpolatable": "line-width"
+      "tunnelfill/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -15433,17 +15433,17 @@
         "4.5",
         "4.5"
       ],
-      "background/non-interpolatable": "line-width",
+      "background/flat": "line-width",
       "water/line-width": [
         "4.5",
         "4.5"
       ],
-      "water/non-interpolatable": "line-width",
+      "water/flat": "line-width",
       "tunnelfill/line-width": [
         "2",
         "2"
       ],
-      "tunnelfill/non-interpolatable": "line-width"
+      "tunnelfill/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -15879,17 +15879,17 @@
         "5",
         "5"
       ],
-      "background/non-interpolatable": "line-width",
+      "background/flat": "line-width",
       "water/line-width": [
         "5",
         "5"
       ],
-      "water/non-interpolatable": "line-width",
+      "water/flat": "line-width",
       "tunnelfill/line-width": [
         "2.5",
         "2.5"
       ],
-      "tunnelfill/non-interpolatable": "line-width"
+      "tunnelfill/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -16325,17 +16325,17 @@
         "4",
         "4"
       ],
-      "background/non-interpolatable": "line-width",
+      "background/flat": "line-width",
       "water/line-width": [
         "4",
         "4"
       ],
-      "water/non-interpolatable": "line-width",
+      "water/flat": "line-width",
       "tunnelfill/line-width": [
         "1.5",
         "1.5"
       ],
-      "tunnelfill/non-interpolatable": "line-width"
+      "tunnelfill/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -16381,7 +16381,7 @@
         "1.12",
         "1.12"
       ],
-      "water/non-interpolatable": "line-width"
+      "water/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -16427,7 +16427,7 @@
         "1.96",
         "1.96"
       ],
-      "water/non-interpolatable": "line-width"
+      "water/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -16473,7 +16473,7 @@
         "2.8",
         "2.8"
       ],
-      "water/non-interpolatable": "line-width"
+      "water/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -16519,7 +16519,7 @@
         "3.5",
         "3.5"
       ],
-      "water/non-interpolatable": "line-width"
+      "water/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -16565,7 +16565,7 @@
         "4.2",
         "4.2"
       ],
-      "water/non-interpolatable": "line-width"
+      "water/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -16611,7 +16611,7 @@
         "4.9",
         "4.9"
       ],
-      "water/non-interpolatable": "line-width"
+      "water/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -16657,7 +16657,7 @@
         "5.6",
         "5.6"
       ],
-      "water/non-interpolatable": "line-width"
+      "water/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -16772,7 +16772,7 @@
         "2.8",
         "2.8"
       ],
-      "background/non-interpolatable": "line-width"
+      "background/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -16837,7 +16837,7 @@
         "3.5",
         "3.5"
       ],
-      "background/non-interpolatable": "line-width"
+      "background/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -16902,7 +16902,7 @@
         "4.2",
         "4.2"
       ],
-      "background/non-interpolatable": "line-width"
+      "background/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -16967,7 +16967,7 @@
         "4.9",
         "4.9"
       ],
-      "background/non-interpolatable": "line-width"
+      "background/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -17032,7 +17032,7 @@
         "5.6",
         "5.6"
       ],
-      "background/non-interpolatable": "line-width"
+      "background/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -17131,12 +17131,12 @@
         "2.96",
         "2.96"
       ],
-      "water/non-interpolatable": "line-width",
+      "water/flat": "line-width",
       "background/line-width": [
         "2.96",
         "2.96"
       ],
-      "background/non-interpolatable": "line-width",
+      "background/flat": "line-width",
       "tunnelfill/line-color": [
         "rgba(176,217,253,1)",
         "rgba(176,217,253,1)"
@@ -17146,7 +17146,7 @@
         "0.96",
         "0.96"
       ],
-      "tunnelfill/non-interpolatable": "line-width"
+      "tunnelfill/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -17198,12 +17198,12 @@
         "3.8",
         "3.8"
       ],
-      "water/non-interpolatable": "line-width",
+      "water/flat": "line-width",
       "background/line-width": [
         "3.8",
         "3.8"
       ],
-      "background/non-interpolatable": "line-width",
+      "background/flat": "line-width",
       "tunnelfill/line-color": [
         "rgba(176,217,253,1)",
         "rgba(176,217,253,1)"
@@ -17213,7 +17213,7 @@
         "1.3",
         "1.3"
       ],
-      "tunnelfill/non-interpolatable": "line-width"
+      "tunnelfill/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -17265,12 +17265,12 @@
         "4.5",
         "4.5"
       ],
-      "water/non-interpolatable": "line-width",
+      "water/flat": "line-width",
       "background/line-width": [
         "4.5",
         "4.5"
       ],
-      "background/non-interpolatable": "line-width",
+      "background/flat": "line-width",
       "tunnelfill/line-color": [
         "rgba(176,217,253,1)",
         "rgba(176,217,253,1)"
@@ -17280,7 +17280,7 @@
         "2",
         "2"
       ],
-      "tunnelfill/non-interpolatable": "line-width"
+      "tunnelfill/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -17332,12 +17332,12 @@
         "5.2",
         "5.2"
       ],
-      "water/non-interpolatable": "line-width",
+      "water/flat": "line-width",
       "background/line-width": [
         "5.2",
         "5.2"
       ],
-      "background/non-interpolatable": "line-width",
+      "background/flat": "line-width",
       "tunnelfill/line-color": [
         "rgba(176,217,253,1)",
         "rgba(176,217,253,1)"
@@ -17347,7 +17347,7 @@
         "2.7",
         "2.7"
       ],
-      "tunnelfill/non-interpolatable": "line-width"
+      "tunnelfill/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -17399,12 +17399,12 @@
         "5.9",
         "5.9"
       ],
-      "water/non-interpolatable": "line-width",
+      "water/flat": "line-width",
       "background/line-width": [
         "5.9",
         "5.9"
       ],
-      "background/non-interpolatable": "line-width",
+      "background/flat": "line-width",
       "tunnelfill/line-color": [
         "rgba(176,217,253,1)",
         "rgba(176,217,253,1)"
@@ -17414,7 +17414,7 @@
         "3.4",
         "3.4"
       ],
-      "tunnelfill/non-interpolatable": "line-width"
+      "tunnelfill/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -17466,12 +17466,12 @@
         "6.6",
         "6.6"
       ],
-      "water/non-interpolatable": "line-width",
+      "water/flat": "line-width",
       "background/line-width": [
         "6.6",
         "6.6"
       ],
-      "background/non-interpolatable": "line-width",
+      "background/flat": "line-width",
       "tunnelfill/line-color": [
         "rgba(176,217,253,1)",
         "rgba(176,217,253,1)"
@@ -17481,7 +17481,7 @@
         "4.1",
         "4.1"
       ],
-      "tunnelfill/non-interpolatable": "line-width"
+      "tunnelfill/flat": "line-width"
     },
     "attachment": "fill"
   },
@@ -18563,7 +18563,7 @@
         "0.5",
         "0.5"
       ],
-      "non-interpolatable": "line-width",
+      "flat": "line-width",
       "line-color": [
         "rgba(242,242,247,1)",
         "rgba(242,242,247,1)"
@@ -18593,7 +18593,7 @@
         "1",
         "1"
       ],
-      "non-interpolatable": "line-width",
+      "flat": "line-width",
       "line-color": [
         "rgba(242,242,247,1)",
         "rgba(242,242,247,1)"
@@ -18623,7 +18623,7 @@
         "2",
         "2"
       ],
-      "non-interpolatable": "line-width",
+      "flat": "line-width",
       "line-color": [
         "rgba(242,242,247,1)",
         "rgba(242,242,247,1)"
@@ -18653,7 +18653,7 @@
         "4",
         "4"
       ],
-      "non-interpolatable": "line-width",
+      "flat": "line-width",
       "line-color": [
         "rgba(242,242,247,1)",
         "rgba(242,242,247,1)"
