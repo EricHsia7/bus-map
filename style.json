@@ -22614,7 +22614,7 @@
     ],
     "paint": {
       "line-join": "round",
-      "line-cap": "butt"
+      "line-cap": "round"
     },
     "attachment": "casing"
   },
@@ -22694,7 +22694,7 @@
         "rgba(178,185,193,1)"
       ],
       "line-join": "round",
-      "line-cap": "butt"
+      "line-cap": "round"
     },
     "attachment": "casing"
   },
