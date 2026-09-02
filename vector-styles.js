@@ -33,7 +33,7 @@ function pushColor(value, palette) {
     palette.push(cached[0], cached[1], cached[2], cached[3]);
   }
 }
-// TODO: handle non-interpolatable properties
+// TODO: handle flat properties
 
 /**
  * @returns {number}

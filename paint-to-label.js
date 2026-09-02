@@ -15,7 +15,7 @@ function num(v) {
  * per frame and multiplies the single reference size, so cached glyphs are
  * measured once and only transformed. Anything else is dropped.
  */
-function pair(v) {
+function numberPair(v) {
   if (!Array.isArray(v) || v.length !== 2) return undefined;
   const a = num(v[0]);
   const b = num(v[1]);
@@ -96,9 +96,9 @@ function paintToLabels(paint, tags = {}) {
           }),
           styleProperties: prune({
             'text-size': num(props['text-size']),
-            'text-scale': pair(props['text-scale']),
-            'text-fill': props['text-fill'], // NOT INTERPOLATABLE
-            'text-halo-fill': props['text-halo-fill'], // NOT INTERPOLATABLE
+            'text-scale': numberPair(props['text-scale']),
+            'text-fill': props['text-fill'], // flat
+            'text-halo-fill': props['text-halo-fill'], // flat
             'text-halo-radius': num(props['text-halo-radius']),
             'text-face-name': props['text-face-name'],
             'text-placement': props['text-placement'],
@@ -142,7 +142,7 @@ function paintToLabels(paint, tags = {}) {
           'marker-fill': props['marker-fill'],
           'marker-line-color': props['marker-line-color'],
           'marker-width': num(props['marker-width']),
-          'marker-scale': pair(props['marker-scale'])
+          'marker-scale': numberPair(props['marker-scale'])
         })
       });
     }
@@ -150,4 +150,4 @@ function paintToLabels(paint, tags = {}) {
   return out.length ? out : null;
 }
 
-module.exports = { paintToLabels, resolveField, pair };
+module.exports = { paintToLabels, resolveField, pair: numberPair };
