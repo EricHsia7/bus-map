@@ -12,12 +12,18 @@ function num(v) {
  * carries one reference size and the client interpolates the multiplier per
  * frame, so a tile stays valid across its whole zoom octave.
  */
-function pair(v) {
+function numberPair(v) {
   if (!Array.isArray(v) || v.length !== 2) return undefined;
   const a = num(v[0]);
   const b = num(v[1]);
   if (!Number.isFinite(a) || !Number.isFinite(b)) return undefined;
   return [a, b];
+}
+
+function stringPair(v) {
+  if (!Array.isArray(v) || v.length !== 2) return undefined;
+  if (typeof v[0] !== 'string' || typeof v[1] !== 'string') return undefined;
+  return [v[0], v[1]];
 }
 
 function dash(v) {
@@ -42,7 +48,7 @@ function instanceToDescriptors(props) {
     // 'fill-rule': 'nonzero'
 
     // polygon-fill -> fill
-    styleProperties['fill'] = props['polygon-fill'] || 'none';
+    styleProperties['fill'] = stringPair(props['polygon-fill']) || ['rgba(0,0,0,1)', 'rgba(0,0,0,1)'];
 
     // polygon-opacity -> fill-opacity
     if (has('polygon-opacity')) styleProperties['fill-opacity'] = num(props['polygon-opacity']);
@@ -57,10 +63,10 @@ function instanceToDescriptors(props) {
   if (has('line-color') || has('line-width')) {
     const styleProperties = {};
     // line-color -> stroke
-    styleProperties['stroke'] = props['line-color'] || 'rgba(0,0,0,1)';
+    styleProperties['stroke'] = stringPair(props['line-color']) || ['rgba(0,0,0,1)', 'rgba(0,0,0,1)'];
 
     // line-width -> stroke-width
-    styleProperties['stroke-width'] = has('line-width') ? num(props['line-width']) : 1;
+    styleProperties['stroke-width'] = numberPair(props['line-width']);
 
     // line-opacity -> stroke-opacity
     if (has('line-opacity')) styleProperties['stroke-opacity'] = num(props['line-opacity']);
@@ -73,13 +79,6 @@ function instanceToDescriptors(props) {
 
     // line-dasharray -> stroke-dasharray
     if (has('line-dasharray') && props['line-dasharray'] !== 'none') styleProperties['stroke-dasharray'] = dash(props['line-dasharray']);
-
-    // line-scale -> stroke-width-scale (SCALE_TARGETS: line-scale -> line-width)
-    // Only the width is scaled. The dash pattern keeps its authored rhythm, so a dashed casing does not visibly re-phase while zooming inside one octave.
-    if (has('line-scale')) {
-      const scale = pair(props['line-scale']);
-      if (scale) styleProperties['stroke-width-scale'] = scale;
-    }
 
     // opacity -> opacity
     if (has('opacity')) styleProperties['opacity'] = num(props['opacity']);
@@ -107,7 +106,7 @@ function paintToPlan(paint) {
 }
 
 /**
- * Convert to vector objects
+ * Break down geometries into descriptors
  * @returns {{
  * polygonDescriptors: Array<{ instance: string, kind: 'polygon', styleProperties, geometry }>,
  * lineDescriptors: Array<{ instance: string, kind: 'line', styleProperties, geometry }>
@@ -115,7 +114,7 @@ function paintToPlan(paint) {
  */
 function paintToVector(paint, shape, x0, y0, x1, y1, extent, buffer) {
   const isLine = shape.type === 'LineString';
-  const plan = paintToPlan(paint); // geometries will be rendered 1:1 at runtime
+  const plan = paintToPlan(paint);
 
   // prepare geometries
   const geometries = new Map();

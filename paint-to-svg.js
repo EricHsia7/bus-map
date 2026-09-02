@@ -1,60 +1,4 @@
 /**
- * paint-to-svg.js
- *---------------------------------------------------------------------
- * Convert a compiled CartoCSS rule's `paint` object (as produced by
- * compile-carto.js and stored in style.json) into SVG elements, for the
- * BACKGROUND layer only -- i.e. geometry fills and strokes. Text, shields,
- * markers and point symbols are intentionally ignored.
- *
- *   const { paintToSvg } = require('./paint-to-svg.js');
- *   const d = plotPolygon(geom, x0,y0,x1,y1);      // from plot.js
- *   const svg = paintToSvg(rule.paint, d, 'polygon');
- *   // -> '<path d="..." fill="#eee" fill-rule="nonzero"/>'
- *
- *--------------------------------------------------------------------
- * Instances (the slash prefix)
- *--------------------------------------------------------------------
- * CartoCSS lets one rule carry several symbolizers of the same type via a
- * `name/` prefix ("instances"), e.g. `background/line-width` and
- * `line/line-width` are two independent LineSymbolizers. Each instance -->
- * its own SVG element. Properties with no prefix belong to the default
- * instance (""). Instances render in first-seen order (their cascade order).
- *
- * Within one instance you may have both a fill symbolizer and a stroke
- * symbolizer (e.g. polygon-fill + line-color); we emit fill first, stroke
- * second, matching Mapnik's paint order.
- *
- *--------------------------------------------------------------------
- * fill-rule = nonzero (leverages path orientation)
- *--------------------------------------------------------------------
- * plot.js winds outer rings clockwise and holes counter-clockwise. With
- * opposite winding, the winding number inside a hole is 0, so `nonzero`
- * fills the outer ring and subtracts the holes automatically -- no evenodd
- * needed, and it is robust to nested / touching rings.
- */
-
-/* Background symbolizer families we render. Everything else is dropped. */
-const BACKGROUND_TYPES = ['polygon-pattern', 'polygon', 'line-pattern', 'line'];
-
-/* CartoCSS property -> SVG attribute maps, per symbolizer type. */
-const LINE_ATTR = {
-  'line-color': 'stroke',
-  'line-width': 'stroke-width',
-  'line-opacity': 'stroke-opacity',
-  'line-join': 'stroke-linejoin',
-  'line-cap': 'stroke-linecap',
-  'line-dasharray': 'stroke-dasharray'
-};
-const POLYGON_ATTR = {
-  'polygon-fill': 'fill',
-  'polygon-opacity': 'fill-opacity'
-};
-
-/*---------------------------------------------------------------*/
-/* Step 1: split a flat paint object into instances                        */
-/*---------------------------------------------------------------*/
-
-/**
  * Group paint keys by instance prefix.
  * @returns Map<instanceName, {props:{prop:value}}> preserving first-seen order
  */
@@ -70,43 +14,17 @@ function splitInstances(paint) {
   return instances;
 }
 
-/** Which background symbolizer types are present in a prop bag. */
-function typesIn(props) {
-  const present = new Set();
-  for (const p of Object.keys(props)) {
-    for (const t of BACKGROUND_TYPES) {
-      if (p === t + '-file' || p.startsWith(t + '-') || p === t) {
-        // longest match wins (polygon-pattern before polygon)
-        present.add(t);
-        break;
-      }
-    }
-  }
-  // de-dupe overlaps: if polygon-pattern present, drop bare 'polygon' unless it
-  // has its own fill; if line-pattern present, keep line only if it has stroke.
-  return present;
-}
-
-/*---------------------------------------------------------------*/
-/* Step 2: build element descriptors (a small, precomputable "plan")        */
-/*---------------------------------------------------------------*/
-
 function num(v, k = 1) {
   return typeof v === 'number' ? v * k : parseFloat(v) * k;
 }
 
 /**
- * Lower end of a shipped [s0, s1] scale interval, or 1.
- *
- * A raster tile is a single rasterization, so it cannot interpolate: it is baked
- * at its own zoom, which is exactly s0. This reproduces what the compiler used
- * to do when it folded --line-scale into --line-width before emitting JSON, so
- * raster output is unchanged by the scale work.
+ * Resolve interpolatable properties defined on [z, z+1] at integer zoom (z)
+ * (The raster tiles are rendered at integer zooms.)
  */
-function scaleBase(v) {
-  if (!Array.isArray(v) || v.length !== 2) return 1;
-  const n = typeof v[0] === 'number' ? v[0] : parseFloat(v[0]);
-  return Number.isFinite(n) ? n : 1;
+function resolveInterpolatable(v) {
+  if (!Array.isArray(v) || v.length !== 2) return v;
+  return typeof v[0] === 'number' ? Number(v[0]) : v[0];
 }
 
 function dash(v, k = 1) {
@@ -125,42 +43,49 @@ function instanceElements(props, k) {
 
   // polygon fill (solid)
   if (has('polygon-fill')) {
-    const attrs = { 'fill': props['polygon-fill'], 'fill-rule': 'nonzero' };
-    if (has('polygon-opacity')) attrs['fill-opacity'] = num(props['polygon-opacity']);
-    els.push({ kind: 'polygon', attrs });
-  }
+    const attrs = {
+      'fill': 'rgba(0,0,0,1)',
+      'fill-rule': 'nonzero'
+    };
 
-  // polygon pattern fill
-  if (has('polygon-pattern-file')) {
-    els.push({
-      kind: 'polygon-pattern',
-      patternFile: props['polygon-pattern-file'],
-      attrs: {
-        'fill-rule': 'nonzero',
-        'fill-opacity': has('polygon-pattern-opacity') ? num(props['polygon-pattern-opacity']) : undefined
-      }
-    });
+    attrs['fill'] = Array.isArray(props['polygon-fill']) ? props['polygon-fill'][0] : props['polygon-fill']; // use style at integer zoom
+
+    if (has('polygon-opacity')) {
+      attrs['fill-opacity'] = num(props['polygon-opacity']);
+    }
+
+    els.push({ kind: 'polygon', attrs });
   }
 
   // line stroke (solid)
   if (has('line-color') || has('line-width')) {
     const attrs = { fill: 'none' };
-    const widthScale = scaleBase(props['line-scale']);
-    for (const [prop, attr] of Object.entries(LINE_ATTR)) {
-      if (!has(prop)) continue;
-      attrs[attr] = prop === 'line-width' ? num(props[prop], k) * widthScale : prop === 'line-dasharray' ? dash(props[prop], k) : props[prop];
-    }
-    // Mapnik defaults: round is common for map lines; only set if provided.
-    els.push({ kind: 'line', attrs });
-  }
 
-  // line pattern stroke
-  if (has('line-pattern-file')) {
-    els.push({
-      kind: 'line-pattern',
-      patternFile: props['line-pattern-file'],
-      attrs: { fill: 'none' }
-    });
+    if (has('line-color')) {
+      attrs['stroke'] = resolveInterpolatable(props['line-color']);
+    }
+
+    if (has('line-width')) {
+      attrs['stroke-width'] = resolveInterpolatable(props['line-width']) * k;
+    }
+
+    if (has('line-opacity')) {
+      attrs['stroke-opacity'] = num(props['line-opacity']);
+    }
+
+    if (has('line-join')) {
+      attrs['stroke-linejoin'] = props['line-join'];
+    }
+
+    if (has('line-cap')) {
+      attrs['stroke-linecap'] = props['line-cap'];
+    }
+
+    if (has('line-dasharray')) {
+      attrs['stroke-dasharray'] = dash(props['line-dasharray'], k);
+    }
+
+    els.push({ kind: 'line', attrs });
   }
 
   return els;
@@ -186,10 +111,6 @@ function paintToPlan(paint, k) {
   return plan;
 }
 
-/*---------------------------------------------------------------*/
-/* Step 3: render a plan (or paint) to SVG using a shared geometry trace    */
-/*---------------------------------------------------------------*/
-
 function esc(v) {
   return String(v).replace(/"/g, '&quot;').replace(/&/g, '&amp;');
 }
@@ -212,40 +133,11 @@ function attrsToStr(attrs) {
  */
 function elementToSvg(el, d, opts = {}) {
   const attrs = { ...el.attrs };
-
-  // pattern fills -> url(#..) referencing a <pattern> registered in defs
-  if (el.kind === 'polygon-pattern' || el.kind === 'line-pattern') {
-    const id = patternId(el.patternFile);
-    if (opts.patternDefs) {
-      opts.patternDefs.set(id, patternDef(id, el.patternFile));
-    }
-    if (el.kind === 'polygon-pattern') attrs.fill = `url(#${id})`;
-    else {
-      attrs.stroke = `url(#${id})`;
-      attrs.fill = 'none';
-    }
-  }
-
   if (el.groupOpacity !== undefined) attrs.opacity = el.groupOpacity;
-
   const geom = opts.pathRef ? `href="#${opts.pathRef}"` : `d="${d}"`;
   const tag = opts.pathRef ? 'use' : 'path';
   const dataInst = el.instance ? ` data-instance="${esc(el.instance)}"` : '';
   return `<${tag} ${geom} ${attrsToStr(attrs)}${dataInst}/>`;
-}
-
-function patternId(file) {
-  return (
-    'pat-' +
-    String(file)
-      .replace(/[^\w]+/g, '-')
-      .replace(/^-|-$/g, '')
-  );
-}
-function patternDef(id, file) {
-  // Best-effort: reference the pattern image; real width/height come from the
-  // symbolizer's -width/-height if you have them. Tiles at 1:1 by default.
-  return `<pattern id="${id}" patternUnits="userSpaceOnUse" width="16" height="16">` + `<image href="${esc(file)}" width="16" height="16"/></pattern>`;
 }
 
 /**
@@ -269,7 +161,7 @@ function keepForGeometry(el, geomType) {
   const g = String(geomType).toLowerCase();
   const isLineGeom = g === 'linestring' || g === 'line';
   // A linestring has no interior, so polygon fills are meaningless on it.
-  if (isLineGeom && (el.kind === 'polygon' || el.kind === 'polygon-pattern')) return false;
+  if (isLineGeom && el.kind === 'polygon') return false;
   return true;
 }
 
@@ -283,6 +175,5 @@ module.exports = {
   paintToSvgElements,
   paintToPlan,
   splitInstances,
-  instanceElements,
-  BACKGROUND_TYPES
+  instanceElements
 };

@@ -13,7 +13,7 @@ function canonical(value) {
 }
 
 function createVectorStyleTables() {
-  return { styles: [], index: new Map(), palette: [], paletteIndex: new Map() };
+  return { styles: [], index: new Map(), palette0: [], palette1: [], paletteIndex: new Map() };
 }
 
 const rgbaExtractionCache = new Map();
@@ -33,6 +33,7 @@ function pushColor(value, palette) {
     palette.push(cached[0], cached[1], cached[2], cached[3]);
   }
 }
+// TODO: handle flat properties
 
 /**
  * @returns {number}
@@ -45,11 +46,13 @@ function registerVectorStyle(tables, desc) {
     const styleReference = tables.styles.length;
     for (const property in styleProperties) {
       if (property === 'stroke' || property === 'fill') {
-        const existingPaletteReference = tables.paletteIndex.get(styleProperties[property]);
+        const combinationKey = styleProperties[property].join('\u0000'); // key on the combination
+        const existingPaletteReference = tables.paletteIndex.get(combinationKey);
         if (existingPaletteReference === undefined) {
           const paletteReference = tables.paletteIndex.size;
-          tables.paletteIndex.set(styleProperties[property], paletteReference);
-          pushColor(styleProperties[property], tables.palette);
+          tables.paletteIndex.set(combinationKey, paletteReference);
+          pushColor(styleProperties[property][0], tables.palette0);
+          pushColor(styleProperties[property][1], tables.palette1);
           styleProperties[property] = paletteReference;
         } else {
           styleProperties[property] = existingPaletteReference;

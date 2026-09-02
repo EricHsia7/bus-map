@@ -13,8 +13,7 @@
   &:zoom(5) {
     &[ice_edge='ice_ocean'],
     &[ice_edge='ice_land'] {
-      --line-width: 0.375;
-      --line-scale: zoom-gradient(1, (0.5 / 0.375) 8z 9z, 2 10z);
+      --line-width: zoom-gradient(1, 0.5 8z 9z, 0.75 10z);
       --line-color: @glacier-line;
       &:zoom(10) {
         --line-dasharray: 4, 2;

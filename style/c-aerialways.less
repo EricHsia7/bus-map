@@ -56,14 +56,12 @@
 
   &[man_made='goods_conveyor'] {
     &:zoom(14) {
-      --line__line-width: 0.7;
-      --line__line-scale: zoom-gradient(1, (1 / 0.7) 16z);
+      --line__line-width: zoom-gradient(0.7, 1 16z);
       --line__line-join: round;
       --line__line-cap: round;
       --line__line-color: @aerialway-line-light;
 
-      --dash__line-width: 2;
-      --dash__line-scale: zoom-gradient(1, 1.5 16z);
+      --dash__line-width: 2 * zoom-gradient(1, 1.5 16z);
       --dash__line-join: round;
       --dash__line-color: @aerialway-line-light;
       --dash__line-dasharray: 4, 6;
@@ -76,18 +74,15 @@
 
   &[man_made='pipeline'] {
     &:zoom(14) {
-      --line__line-width: 0.7;
-      --line__line-scale: zoom-gradient(1, (1 / 0.7) 15z, (1.5 / 0.7) 16z, (2 / 0.7) 17z, (3 / 0.7) 18z, (4 / 0.7) 19z);
+      --line__line-width: zoom-gradient(0.7, 1 15z, 1.5 16z, 2 17z, 3 18z, 4 19z);
       --line__line-join: round;
       --line__line-color: @aerialway-line-mid;
       --line__line-dasharray: 0, 0.7, 14, 0.7;
-      --dash__line-width: 2;
-      --dash__line-scale: zoom-gradient(1, 1.25 15z, 1.5 16z, 2 17z, 2.5 18z, 3 19z);
+      --dash__line-width: 2 * zoom-gradient(1, 1.25 15z, 1.5 16z, 2 17z, 2.5 18z, 3 19z);
       --dash__line-join: round;
       --dash__line-color: @aerialway-line-mid;
       --dash__line-dasharray: 0, 0.7, 0.7, 12.6, 0.7, 0.7;
-      --center__line-width: 1;
-      --center__line-scale: zoom-gradient(1 17z, 2 18z, 3 19z);
+      --center__line-width: zoom-gradient(1 17z, 2 18z, 3 19z);
       &:zoom(15) {
         --line__line-dasharray: 0, 0.7, 16, 0.7;
         --dash__line-dasharray: 0, 0.7, 0.7, 14.6, 0.7, 0.7;
