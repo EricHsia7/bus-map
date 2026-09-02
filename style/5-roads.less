@@ -982,14 +982,14 @@ data, and is thus faster. Chosen is for zoom level 10 as cut-off, because
 tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
 // Sub-feature scheduling.
-//
+
 // #bridges / #tunnels used to be gated at z12 while the road classes they
 // belong to enter much earlier in #roads-low-zoom / #roads-fill (motorway and
 // trunk at z6, primary and rail at z8, road at z10, bus_guideway at z11,
 // raceway at z1). A bridge is not a feature of its own: it is a piece of the
 // road, so it has to enter with the road, otherwise a motorway visibly breaks
 // apart at every crossing between z6 and z11.
-//
+
 // The per-feature zoom filters inside this block already carry each class's
 // own schedule, and the layer gate intersects with them, so the fix is to let
 // the early classes through the gate explicitly instead of lowering it for
@@ -1000,13 +1000,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 #bridges:zoom(12),
 #tunnels:zoom(12) {
   &::fill {
-    /*
-     * The highway_construction rules below are quite sensitive to re-ordering, since the instances end up swapping round
-     * (and then the dashes appear below the fills). See:
-     * https://github.com/gravitystorm/openstreetmap-carto/issues/23
-     * https://github.com/mapbox/carto/issues/235
-     * https://github.com/mapbox/carto/issues/237
-     */
     &[feature='highway_construction']:zoom(12) {
       &[construction='motorway']:zoom(12),
       &[construction='motorway_link']:zoom(13),
