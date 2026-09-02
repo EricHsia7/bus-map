@@ -298,8 +298,8 @@
 #bridges,
 #tunnels {
   &::casing {
-    &[feature='highway_service']:zoom(15) {
-      &[service='INT-normal']:zoom(15),
+    &[feature='highway_service']:zoom(16) {
+      &[service='INT-normal']:zoom(16),
       &[service='INT-minor']:zoom(16) {
         --line-color: @service-casing;
 
@@ -328,12 +328,12 @@
       }
     }
 
-    &[feature='highway_living_street']:zoom(15) {
+    &[feature='highway_living_street']:zoom(16) {
       --line-color: zoom-gradient(@residential-casing, @living-street-casing 16z);
       --line-width: @living-street-width * @road-scale;
 
       &#roads-casing {
-        --line-cap: butt;
+        --line-cap: round;
         --line-join: round;
       }
 
@@ -363,6 +363,27 @@
           --line-width: @path-width * @road-scale + 2 * (@paths-background-width + @paths-tunnel-casing-width);
           --line-color: @tunnel-casing;
         }
+      }
+    }
+
+    &[feature='highway_residential']:zoom(15),
+    &[feature='highway_unclassified']:zoom(15) {
+      --line-color: @residential-casing;
+      --line-width: @residential-width * @road-scale;
+
+      &#roads-casing {
+        --line-join: round;
+        --line-cap: butt;
+      }
+
+      &#tunnels {
+        --line-color: @tunnel-casing;
+      }
+
+      &#bridges {
+        --line-color: @bridge-casing;
+        --line-join: round;
+        --line-cap: butt;
       }
     }
 
@@ -414,27 +435,29 @@
       }
     }
 
-    &[feature='highway_primary']:zoom(12) {
-      --line-color: zoom-gradient(@primary-low-zoom-casing, @primary-casing 13z);
+    &[feature='highway_tertiary'] {
+      &:zoom(13) {
+        --line-color: zoom-gradient(@tertiary-low-zoom-casing, @tertiary-casing 15z);
 
-      --line-width: @primary-width * @road-scale;
-      &[link='yes'] {
-        --line-width: @primary-link-width * @road-scale;
-      }
+        --line-width: @tertiary-width * @road-scale;
+        &[link='yes'] {
+          --line-width: @tertiary-link-width * @road-scale;
+        }
 
-      &#roads-casing {
-        --line-join: round;
-        --line-cap: butt;
-      }
+        &#roads-casing {
+          --line-join: round;
+          --line-cap: butt;
+        }
 
-      &#tunnels {
-        --line-color: @tunnel-casing;
-      }
+        &#tunnels {
+          --line-color: @tunnel-casing;
+        }
 
-      &#bridges {
-        --line-join: round;
-        --line-cap: butt; // Make the roads connected
-        --line-color: @bridge-casing;
+        &#bridges {
+          --line-color: @bridge-casing;
+          --line-join: round;
+          --line-cap: butt;
+        }
       }
     }
 
@@ -462,36 +485,13 @@
       }
     }
 
-    &[feature='highway_tertiary'] {
-      &:zoom(13) {
-        --line-color: zoom-gradient(@tertiary-low-zoom-casing, @tertiary-casing 15z);
+    &[feature='highway_primary']:zoom(12) {
+      --line-color: zoom-gradient(@primary-low-zoom-casing, @primary-casing 13z);
 
-        --line-width: @tertiary-width * @road-scale;
-        &[link='yes'] {
-          --line-width: @tertiary-link-width * @road-scale;
-        }
-
-        &#roads-casing {
-          --line-join: round;
-          --line-cap: butt;
-        }
-
-        &#tunnels {
-          --line-color: @tunnel-casing;
-        }
-
-        &#bridges {
-          --line-color: @bridge-casing;
-          --line-join: round;
-          --line-cap: butt;
-        }
+      --line-width: @primary-width * @road-scale;
+      &[link='yes'] {
+        --line-width: @primary-link-width * @road-scale;
       }
-    }
-
-    &[feature='highway_residential']:zoom(14),
-    &[feature='highway_unclassified']:zoom(15) {
-      --line-color: @residential-casing;
-      --line-width: @residential-width * @road-scale;
 
       &#roads-casing {
         --line-join: round;
@@ -503,9 +503,9 @@
       }
 
       &#bridges {
-        --line-color: @bridge-casing;
         --line-join: round;
-        --line-cap: butt;
+        --line-cap: butt; // Make the roads connected
+        --line-color: @bridge-casing;
       }
     }
 
@@ -1154,10 +1154,16 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         &[service='INT-minor']:zoom(16) {
           --line-color: zoom-gradient(@service-low-zoom, @service-fill 16z);
           &[service='INT-normal'] {
-            --line-width: @service-width * @road-scale - 2 * @casing-width;
+            --line-width: @service-width * @road-scale;
+            &:zoom(17) {
+              --line-width: @service-width * @road-scale - 2 * @casing-width;
+            }
           }
           &[service='INT-minor'] {
-            --line-width: @minor-service-width * @road-scale - 2 * @casing-width;
+            --line-width: @minor-service-width * @road-scale;
+            &:zoom(17) {
+              --line-width: @minor-service-width * @road-scale - 2 * @casing-width;
+            }
           }
           --line-join: round;
           --line-cap: round;
@@ -1166,10 +1172,16 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           }
           &#bridges {
             &[service='INT-normal'] {
-              --line-width: @service-width * @road-scale - 2 * @bridge-casing-width;
+              --line-width: @service-width * @road-scale;
+              &:zoom(17) {
+                --line-width: @service-width * @road-scale - 2 * @bridge-casing-width;
+              }
             }
             &[service='INT-minor'] {
-              --line-width: @minor-service-width * @road-scale - 2 * @bridge-casing-width;
+              --line-width: @minor-service-width * @road-scale;
+              &:zoom(17) {
+                --line-width: @minor-service-width * @road-scale - 2 * @bridge-casing-width;
+              }
             }
           }
         }
@@ -1180,20 +1192,28 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     &#bridges[feature='highway_living_street'],
     &#tunnels[feature='highway_living_street'] {
       &:zoom(15) {
-        --line-width: @living-street-width * @road-scale - 2 * @casing-width;
+        --line-width: @living-street-width * @road-scale;
+        &:zoom(17) {
+          --line-width: @living-street-width * @road-scale - 2 * @casing-width;
+        }
 
         &#roads-fill,
         &#bridges {
           --line-color: zoom-gradient(@living-street-low-zoom, @living-street-fill 17z);
         }
+
         &#tunnels {
           --line-color: @living-street-tunnel-fill;
         }
+
         &#bridges {
-          --line-width: @living-street-width * @road-scale - 2 * @casing-width;
+          --line-width: @living-street-width * @road-scale;
+          &:zoom(17) {
+            --line-width: @living-street-width * @road-scale - 2 * @casing-width;
+          }
         }
         --line-join: round;
-        --line-cap: butt;
+        --line-cap: round;
       }
     }
 
@@ -1209,6 +1229,33 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --line__line-color: zoom-gradient(@path-low-zoom, @path-fill 16z);
       &[access='no'] {
         --line__line-color: zoom-gradient(@path-low-zoom-noaccess, @path-fill-noaccess 16z);
+      }
+    }
+
+    &[feature='highway_residential']:zoom(14),
+    &[feature='highway_unclassified']:zoom(15) {
+      --line-cap: round;
+      --line-join: round;
+      --line-width: @residential-width * @road-scale;
+      &:zoom(16) {
+        --line-width: @residential-width * @road-scale - 2 * @casing-width; // schedule: delay casing
+      }
+
+      --line-color: zoom-gradient(@unimportant-road-low-zoom, @unimportant-road 16z);
+      &#roads-fill,
+      &#bridges {
+        --line-color: zoom-gradient(@residential-low-zoom, @residential-fill 16z);
+      }
+
+      &#tunnels {
+        --line-color: @residential-tunnel-fill;
+      }
+
+      &#bridges {
+        --line-width: @residential-width * @road-scale;
+        &:zoom(16) {
+          --line-width: @residential-width * @road-scale - 2 * @bridge-casing-width; // schedule: delay casing
+        }
       }
     }
 
@@ -1268,32 +1315,27 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       }
     }
 
-    &#roads-low-zoom[feature='highway_primary'],
-    &#roads-fill[feature='highway_primary'],
-    &#bridges[feature='highway_primary'],
-    &#tunnels[feature='highway_primary'] {
-      &:not([link='yes']):zoom(8),
-      &:zoom(10) {
-        --line-color: zoom-gradient(@primary-low-zoom, @primary-fill 12z);
-        --line-width: @primary-width * @road-scale;
-        &:zoom(12) {
-          --line-width: @primary-width * @road-scale - 2 * @casing-width;
-          &[link='yes'] {
-            --line-width: @primary-link-width * @road-scale - 2 * @casing-width;
-          }
-
-          &#tunnels {
-            --line-color: @primary-tunnel-fill;
-          }
-
-          &#bridges {
-            --line-width: @primary-width * @road-scale - 2 * @bridge-casing-width;
-            &[link='yes'] {
-              --line-width: @primary-link-width * @road-scale - 2 * @bridge-casing-width;
-            }
-          }
+    &[feature='highway_tertiary'] {
+      &:zoom(13) {
+        --line-color: zoom-gradient(@tertiary-low-zoom 13z, @tertiary-fill 14z);
+        --line-width: @tertiary-width * @road-scale;
+        &:zoom(14) {
           --line-cap: round;
           --line-join: round;
+
+          --line-width: @tertiary-width * @road-scale - 2 * @casing-width;
+          &[link='yes'] {
+            --line-width: @tertiary-link-width * @road-scale - 2 * @casing-width;
+          }
+          &#tunnels {
+            --line-color: @tertiary-tunnel-fill;
+          }
+          &#bridges {
+            --line-width: @tertiary-width * @road-scale - 2 * @bridge-casing-width;
+            &[link='yes'] {
+              --line-width: @tertiary-link-width * @road-scale - 2 * @bridge-casing-width;
+            }
+          }
         }
       }
     }
@@ -1326,49 +1368,33 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       }
     }
 
-    &[feature='highway_tertiary'] {
-      &:zoom(13) {
-        --line-color: zoom-gradient(@tertiary-low-zoom 13z, @tertiary-fill 14z);
-        --line-width: @tertiary-width * @road-scale;
-        &:zoom(14) {
-          --line-cap: round;
-          --line-join: round;
-
-          --line-width: @tertiary-width * @road-scale - 2 * @casing-width;
+    &#roads-low-zoom[feature='highway_primary'],
+    &#roads-fill[feature='highway_primary'],
+    &#bridges[feature='highway_primary'],
+    &#tunnels[feature='highway_primary'] {
+      &:not([link='yes']):zoom(8),
+      &:zoom(10) {
+        --line-color: zoom-gradient(@primary-low-zoom, @primary-fill 12z);
+        --line-width: @primary-width * @road-scale;
+        &:zoom(12) {
+          --line-width: @primary-width * @road-scale - 2 * @casing-width;
           &[link='yes'] {
-            --line-width: @tertiary-link-width * @road-scale - 2 * @casing-width;
+            --line-width: @primary-link-width * @road-scale - 2 * @casing-width;
           }
+
           &#tunnels {
-            --line-color: @tertiary-tunnel-fill;
+            --line-color: @primary-tunnel-fill;
           }
+
           &#bridges {
-            --line-width: @tertiary-width * @road-scale - 2 * @bridge-casing-width;
+            --line-width: @primary-width * @road-scale - 2 * @bridge-casing-width;
             &[link='yes'] {
-              --line-width: @tertiary-link-width * @road-scale - 2 * @bridge-casing-width;
+              --line-width: @primary-link-width * @road-scale - 2 * @bridge-casing-width;
             }
           }
+          --line-cap: round;
+          --line-join: round;
         }
-      }
-    }
-
-    &[feature='highway_residential']:zoom(14),
-    &[feature='highway_unclassified']:zoom(15) {
-      --line-cap: round;
-      --line-join: round;
-      --line-width: @residential-width * @road-scale - 2 * @casing-width;
-
-      --line-color: zoom-gradient(@unimportant-road-low-zoom, @unimportant-road 16z);
-      &#roads-fill,
-      &#bridges {
-        --line-color: zoom-gradient(@residential-low-zoom, @residential-fill 16z);
-      }
-
-      &#tunnels {
-        --line-color: @residential-tunnel-fill;
-      }
-
-      &#bridges {
-        --line-width: @residential-width * @road-scale - 2 * @bridge-casing-width;
       }
     }
 
