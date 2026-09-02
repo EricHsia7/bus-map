@@ -298,6 +298,27 @@
 #bridges,
 #tunnels {
   &::casing {
+    &[feature='highway_pedestrian']:zoom(15) {
+      --line-color: @pedestrian-casing;
+
+      --line-width: @pedestrian-width * @road-scale;
+
+      &#roads-casing {
+        --line-join: round;
+        --line-cap: round;
+      }
+
+      &#tunnels {
+        --line-color: @tunnel-casing;
+      }
+
+      &#bridges {
+        --line-color: @bridge-casing;
+        --line-join: round;
+        --line-cap: round;
+      }
+    }
+
     &[feature='highway_service']:zoom(16) {
       &[service='INT-normal']:zoom(16),
       &[service='INT-minor']:zoom(16) {
@@ -370,27 +391,6 @@
     &[feature='highway_unclassified']:zoom(15) {
       --line-color: @residential-casing;
       --line-width: @residential-width * @road-scale;
-
-      &#roads-casing {
-        --line-join: round;
-        --line-cap: round;
-      }
-
-      &#tunnels {
-        --line-color: @tunnel-casing;
-      }
-
-      &#bridges {
-        --line-color: @bridge-casing;
-        --line-join: round;
-        --line-cap: round;
-      }
-    }
-
-    &[feature='highway_pedestrian']:zoom(15) {
-      --line-color: @pedestrian-casing;
-
-      --line-width: @pedestrian-width * @road-scale;
 
       &#roads-casing {
         --line-join: round;
@@ -1146,6 +1146,29 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       }
     }
 
+    &#roads-fill[feature='highway_pedestrian'],
+    &#bridges[feature='highway_pedestrian'],
+    &#tunnels[feature='highway_pedestrian'] {
+      --line-color: zoom-gradient(@pedestrian-low-zoom, @pedestrian-fill 15z);
+
+      &:zoom(14) {
+        --line-width: @pedestrian-width * @road-scale;
+        &:zoom(16) {
+          --line-width: @pedestrian-width * @road-scale - 2 * @casing-width;
+        }
+
+        &#bridges {
+          --line-width: @pedestrian-width * @road-scale;
+          &:zoom(16) {
+            --line-width: @pedestrian-width * @road-scale - 2 * @bridge-casing-width;
+          }
+        }
+
+        --line-join: round;
+        --line-cap: round;
+      }
+    }
+
     &#roads-fill[feature='highway_service'],
     &#bridges[feature='highway_service'],
     &#tunnels[feature='highway_service'] {
@@ -1256,29 +1279,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         &:zoom(16) {
           --line-width: @residential-width * @road-scale - 2 * @bridge-casing-width; // schedule: delay casing
         }
-      }
-    }
-
-    &#roads-fill[feature='highway_pedestrian'],
-    &#bridges[feature='highway_pedestrian'],
-    &#tunnels[feature='highway_pedestrian'] {
-      --line-color: zoom-gradient(@pedestrian-low-zoom, @pedestrian-fill 15z);
-
-      &:zoom(14) {
-        --line-width: @pedestrian-width * @road-scale;
-        &:zoom(16) {
-          --line-width: @pedestrian-width * @road-scale - 2 * @casing-width;
-        }
-
-        &#bridges {
-          --line-width: @pedestrian-width * @road-scale;
-          &:zoom(16) {
-            --line-width: @pedestrian-width * @road-scale - 2 * @bridge-casing-width;
-          }
-        }
-
-        --line-join: round;
-        --line-cap: round;
       }
     }
 
