@@ -22703,6 +22703,423 @@
       {
         "layer": "roads-casing",
         "zoom": {
+          "min": 15,
+          "max": 15
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 15,
+          "max": 15
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 15,
+          "max": 15
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-color": [
+        "rgba(192,198,205,1)",
+        "rgba(192,198,205,1)"
+      ],
+      "line-width": [
+        "2.24",
+        "2.72"
+      ]
+    },
+    "attachment": "casing"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-color": [
+        "rgba(192,198,205,1)",
+        "rgba(192,198,205,1)"
+      ],
+      "line-width": [
+        "2.72",
+        "3.248"
+      ]
+    },
+    "attachment": "casing"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 17,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 17,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 17,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-color": [
+        "rgba(192,198,205,1)",
+        "rgba(192,198,205,1)"
+      ],
+      "line-width": [
+        "3.248",
+        "3.776"
+      ]
+    },
+    "attachment": "casing"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-color": [
+        "rgba(192,198,205,1)",
+        "rgba(192,198,205,1)"
+      ],
+      "line-width": [
+        "3.776",
+        "4.48"
+      ]
+    },
+    "attachment": "casing"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 19,
+          "max": 19
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 19,
+          "max": 19
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 19,
+          "max": 19
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-color": [
+        "rgba(192,198,205,1)",
+        "rgba(192,198,205,1)"
+      ],
+      "line-width": [
+        "4.48",
+        "5.184"
+      ]
+    },
+    "attachment": "casing"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 20,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 20,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 20,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-color": [
+        "rgba(192,198,205,1)",
+        "rgba(192,198,205,1)"
+      ],
+      "line-width": [
+        "5.184",
+        "5.184"
+      ]
+    },
+    "attachment": "casing"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-casing",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-join": "round",
+      "line-cap": "round"
+    },
+    "attachment": "casing"
+  },
+  {
+    "groups": [
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-color": [
+        "rgba(210,213,218,1)",
+        "rgba(210,213,218,1)"
+      ]
+    },
+    "attachment": "casing"
+  },
+  {
+    "groups": [
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-color": [
+        "rgba(178,185,193,1)",
+        "rgba(178,185,193,1)"
+      ],
+      "line-join": "round",
+      "line-cap": "round"
+    },
+    "attachment": "casing"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-casing",
+        "zoom": {
           "min": 12,
           "max": 12
         },
@@ -29031,423 +29448,6 @@
             "key": "feature",
             "op": "=",
             "value": "highway_road"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-color": [
-        "rgba(178,185,193,1)",
-        "rgba(178,185,193,1)"
-      ],
-      "line-join": "round",
-      "line-cap": "butt"
-    },
-    "attachment": "casing"
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-casing",
-        "zoom": {
-          "min": 15,
-          "max": 15
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 15,
-          "max": 15
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 15,
-          "max": 15
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-color": [
-        "rgba(192,198,205,1)",
-        "rgba(192,198,205,1)"
-      ],
-      "line-width": [
-        "2.24",
-        "2.72"
-      ]
-    },
-    "attachment": "casing"
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-casing",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-color": [
-        "rgba(192,198,205,1)",
-        "rgba(192,198,205,1)"
-      ],
-      "line-width": [
-        "2.72",
-        "3.248"
-      ]
-    },
-    "attachment": "casing"
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-casing",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-color": [
-        "rgba(192,198,205,1)",
-        "rgba(192,198,205,1)"
-      ],
-      "line-width": [
-        "3.248",
-        "3.776"
-      ]
-    },
-    "attachment": "casing"
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-casing",
-        "zoom": {
-          "min": 18,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 18,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 18,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-color": [
-        "rgba(192,198,205,1)",
-        "rgba(192,198,205,1)"
-      ],
-      "line-width": [
-        "3.776",
-        "4.48"
-      ]
-    },
-    "attachment": "casing"
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-casing",
-        "zoom": {
-          "min": 19,
-          "max": 19
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 19,
-          "max": 19
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 19,
-          "max": 19
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-color": [
-        "rgba(192,198,205,1)",
-        "rgba(192,198,205,1)"
-      ],
-      "line-width": [
-        "4.48",
-        "5.184"
-      ]
-    },
-    "attachment": "casing"
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-casing",
-        "zoom": {
-          "min": 20,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 20,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 20,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-color": [
-        "rgba(192,198,205,1)",
-        "rgba(192,198,205,1)"
-      ],
-      "line-width": [
-        "5.184",
-        "5.184"
-      ]
-    },
-    "attachment": "casing"
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-casing",
-        "zoom": {
-          "min": 15,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-join": "round",
-      "line-cap": "butt"
-    },
-    "attachment": "casing"
-  },
-  {
-    "groups": [
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 15,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-color": [
-        "rgba(210,213,218,1)",
-        "rgba(210,213,218,1)"
-      ]
-    },
-    "attachment": "casing"
-  },
-  {
-    "groups": [
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 15,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
           }
         ]
       }
@@ -66606,6 +66606,1115 @@
   {
     "groups": [
       {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 10,
+          "max": 13
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 12,
+          "max": 13
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 12,
+          "max": 13
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-color": [
+        "rgba(229,232,235,1)",
+        "rgba(229,232,235,1)"
+      ]
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 14,
+          "max": 14
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 14,
+          "max": 14
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 14,
+          "max": 14
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-color": [
+        "rgba(229,232,235,1)",
+        "rgba(201,206,212,1)"
+      ]
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-color": [
+        "rgba(201,206,212,1)",
+        "rgba(201,206,212,1)"
+      ]
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 14,
+          "max": 14
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 14,
+          "max": 14
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 14,
+          "max": 14
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": [
+        "1.76",
+        "2.24"
+      ],
+      "line-join": "round",
+      "line-cap": "round"
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 15,
+          "max": 15
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 15,
+          "max": 15
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 15,
+          "max": 15
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": [
+        "2.24",
+        "2.72"
+      ],
+      "line-join": "round",
+      "line-cap": "round"
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": [
+        "2.72",
+        "3.248"
+      ],
+      "line-join": "round",
+      "line-cap": "round"
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 17,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 17,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 17,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": [
+        "3.248",
+        "3.776"
+      ],
+      "line-join": "round",
+      "line-cap": "round"
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": [
+        "3.776",
+        "4.48"
+      ],
+      "line-join": "round",
+      "line-cap": "round"
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 19,
+          "max": 19
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 19,
+          "max": 19
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 19,
+          "max": 19
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": [
+        "4.48",
+        "5.184"
+      ],
+      "line-join": "round",
+      "line-cap": "round"
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 20,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 20,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 20,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": [
+        "5.184",
+        "5.184"
+      ],
+      "line-join": "round",
+      "line-cap": "round"
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": [
+        "1.92",
+        "2.448"
+      ]
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 17,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 17,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 17,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": [
+        "2.448",
+        "2.976"
+      ]
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": [
+        "2.976",
+        "3.68"
+      ]
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 19,
+          "max": 19
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 19,
+          "max": 19
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 19,
+          "max": 19
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": [
+        "3.68",
+        "4.384"
+      ]
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 20,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 20,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      },
+      {
+        "layer": "tunnels",
+        "zoom": {
+          "min": 20,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": [
+        "4.384",
+        "4.384"
+      ]
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 14,
+          "max": 14
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": [
+        "1.76",
+        "2.24"
+      ]
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 15,
+          "max": 15
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": [
+        "2.24",
+        "2.72"
+      ]
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": [
+        "2.72",
+        "3.248"
+      ]
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 17,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": [
+        "3.248",
+        "3.776"
+      ]
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": [
+        "3.776",
+        "4.48"
+      ]
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 19,
+          "max": 19
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": [
+        "4.48",
+        "5.184"
+      ]
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 20,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": [
+        "5.184",
+        "5.184"
+      ]
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": [
+        "1.72",
+        "2.248"
+      ]
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 17,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": [
+        "2.248",
+        "2.776"
+      ]
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": [
+        "2.776",
+        "3.48"
+      ]
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 19,
+          "max": 19
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": [
+        "3.48",
+        "4.184"
+      ]
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
+        "layer": "bridges",
+        "zoom": {
+          "min": 20,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_pedestrian"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-width": [
+        "4.184",
+        "4.184"
+      ]
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
         "layer": "roads-low-zoom",
         "zoom": {
           "min": 6,
@@ -86467,594 +87576,6 @@
       "line-color": [
         "rgba(184,190,198,1)",
         "rgba(184,190,198,1)"
-      ]
-    },
-    "attachment": "fill"
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-fill",
-        "zoom": {
-          "min": 14,
-          "max": 14
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 14,
-          "max": 14
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 14,
-          "max": 14
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": [
-        "0.96",
-        "1.44"
-      ],
-      "line-color": [
-        "rgba(229,232,235,1)",
-        "rgba(201,206,212,1)"
-      ],
-      "line-join": "round",
-      "line-cap": "round"
-    },
-    "attachment": "fill"
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-fill",
-        "zoom": {
-          "min": 15,
-          "max": 15
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 15,
-          "max": 15
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 15,
-          "max": 15
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": [
-        "1.44",
-        "1.92"
-      ],
-      "line-color": [
-        "rgba(201,206,212,1)",
-        "rgba(201,206,212,1)"
-      ],
-      "line-join": "round",
-      "line-cap": "round"
-    },
-    "attachment": "fill"
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-fill",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": [
-        "1.92",
-        "2.448"
-      ],
-      "line-color": [
-        "rgba(201,206,212,1)",
-        "rgba(201,206,212,1)"
-      ],
-      "line-join": "round",
-      "line-cap": "round"
-    },
-    "attachment": "fill"
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-fill",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": [
-        "2.448",
-        "2.976"
-      ],
-      "line-color": [
-        "rgba(201,206,212,1)",
-        "rgba(201,206,212,1)"
-      ],
-      "line-join": "round",
-      "line-cap": "round"
-    },
-    "attachment": "fill"
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-fill",
-        "zoom": {
-          "min": 18,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 18,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 18,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": [
-        "2.976",
-        "3.68"
-      ],
-      "line-color": [
-        "rgba(201,206,212,1)",
-        "rgba(201,206,212,1)"
-      ],
-      "line-join": "round",
-      "line-cap": "round"
-    },
-    "attachment": "fill"
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-fill",
-        "zoom": {
-          "min": 19,
-          "max": 19
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 19,
-          "max": 19
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 19,
-          "max": 19
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": [
-        "3.68",
-        "4.384"
-      ],
-      "line-color": [
-        "rgba(201,206,212,1)",
-        "rgba(201,206,212,1)"
-      ],
-      "line-join": "round",
-      "line-cap": "round"
-    },
-    "attachment": "fill"
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-fill",
-        "zoom": {
-          "min": 20,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 20,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      },
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 20,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": [
-        "4.384",
-        "4.384"
-      ],
-      "line-color": [
-        "rgba(201,206,212,1)",
-        "rgba(201,206,212,1)"
-      ],
-      "line-join": "round",
-      "line-cap": "round"
-    },
-    "attachment": "fill"
-  },
-  {
-    "groups": [
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 14,
-          "max": 14
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": [
-        "0.76",
-        "1.24"
-      ]
-    },
-    "attachment": "fill"
-  },
-  {
-    "groups": [
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 15,
-          "max": 15
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": [
-        "1.24",
-        "1.72"
-      ]
-    },
-    "attachment": "fill"
-  },
-  {
-    "groups": [
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": [
-        "1.72",
-        "2.248"
-      ]
-    },
-    "attachment": "fill"
-  },
-  {
-    "groups": [
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": [
-        "2.248",
-        "2.776"
-      ]
-    },
-    "attachment": "fill"
-  },
-  {
-    "groups": [
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 18,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": [
-        "2.776",
-        "3.48"
-      ]
-    },
-    "attachment": "fill"
-  },
-  {
-    "groups": [
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 19,
-          "max": 19
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": [
-        "3.48",
-        "4.184"
-      ]
-    },
-    "attachment": "fill"
-  },
-  {
-    "groups": [
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 20,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": [
-        "4.184",
-        "4.184"
       ]
     },
     "attachment": "fill"

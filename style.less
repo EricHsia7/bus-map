@@ -1646,6 +1646,27 @@
       }
     }
 
+    &[feature='highway_pedestrian']:zoom(15) {
+      --line-color: @pedestrian-casing;
+
+      --line-width: @pedestrian-width * @road-scale;
+
+      &#roads-casing {
+        --line-join: round;
+        --line-cap: round;
+      }
+
+      &#tunnels {
+        --line-color: @tunnel-casing;
+      }
+
+      &#bridges {
+        --line-color: @bridge-casing;
+        --line-join: round;
+        --line-cap: round;
+      }
+    }
+
     &[feature='highway_motorway']:zoom(12) {
       --line-color: zoom-gradient(@motorway-low-zoom-casing, @motorway-casing 13z);
 
@@ -1781,27 +1802,6 @@
       &#tunnels {
         --line-join: round;
         --line-cap: butt;
-      }
-
-      &#bridges {
-        --line-color: @bridge-casing;
-        --line-join: round;
-        --line-cap: butt;
-      }
-    }
-
-    &[feature='highway_pedestrian']:zoom(15) {
-      --line-color: @pedestrian-casing;
-
-      --line-width: @pedestrian-width * @road-scale;
-
-      &#roads-casing {
-        --line-join: round;
-        --line-cap: butt;
-      }
-
-      &#tunnels {
-        --line-color: @tunnel-casing;
       }
 
       &#bridges {
@@ -2518,6 +2518,29 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       }
     }
 
+    &#roads-fill[feature='highway_pedestrian'],
+    &#bridges[feature='highway_pedestrian'],
+    &#tunnels[feature='highway_pedestrian'] {
+      --line-color: zoom-gradient(@pedestrian-low-zoom, @pedestrian-fill 15z);
+
+      &:zoom(14) {
+        --line-width: @pedestrian-width * @road-scale;
+        &:zoom(16) {
+          --line-width: @pedestrian-width * @road-scale - 2 * @casing-width;
+        }
+
+        &#bridges {
+          --line-width: @pedestrian-width * @road-scale;
+          &:zoom(16) {
+            --line-width: @pedestrian-width * @road-scale - 2 * @bridge-casing-width;
+          }
+        }
+
+        --line-join: round;
+        --line-cap: round;
+      }
+    }
+
     &#roads-low-zoom[feature='highway_motorway'],
     &#roads-fill[feature='highway_motorway'],
     &#bridges[feature='highway_motorway'],
@@ -2681,20 +2704,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         &#tunnels {
           --line-color: @road-fill;
         }
-      }
-    }
-
-    &#roads-fill[feature='highway_pedestrian'],
-    &#bridges[feature='highway_pedestrian'],
-    &#tunnels[feature='highway_pedestrian'] {
-      &:zoom(14) {
-        --line-width: @pedestrian-width * @road-scale - 2 * @casing-width;
-        --line-color: zoom-gradient(@pedestrian-low-zoom, @pedestrian-fill 15z);
-        &#bridges {
-          --line-width: @pedestrian-width * @road-scale - 2 * @bridge-casing-width;
-        }
-        --line-join: round;
-        --line-cap: round;
       }
     }
 
