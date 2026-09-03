@@ -111,8 +111,23 @@ function packLineString(lineString, x0, y0, x1, y1, extent = 2048, buffer = 64) 
   return quantizedLines;
 }
 
+function packCircle(circle, x0, y0, x1, y1, extent = 2048, buffer = 64) {
+  const dX = x1 - x0;
+  const dY = y1 - y0;
+  if (!dX || !dY || !Number.isFinite(dX) || !Number.isFinite(dY)) return null;
+  const scaleX = extent / dX;
+  const scaleY = extent / dY;
+  const transformX = (x) => (x - x0) * scaleX;
+  const transformY = (y) => (dY - (y - y0)) * scaleY;
+  const x = transformX(circle.coordinates[0]);
+  const y = transformY(circle.coordinates[1]);
+  if (x < -buffer || x > extent + buffer || y < -buffer || y > extent + buffer) return null;
+  return [[[x, y]]];
+}
+
 module.exports = {
   packPolygon,
   packPolygonOutline,
-  packLineString
+  packLineString,
+  packCircle
 };

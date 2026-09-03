@@ -1,4 +1,4 @@
-const { packPolygon, packLineString, packPolygonOutline } = require('./pack');
+const { packPolygon, packLineString, packPolygonOutline, packCircle } = require('./pack');
 const { splitInstances } = require('./paint-to-svg');
 
 function num(v) {
@@ -86,6 +86,17 @@ function instanceToDescriptors(props) {
     descriptors.push({ kind: 'line', styleProperties });
   }
 
+  if (has('circle-fill') || has('circle-width')) {
+    const styleProperties = {};
+    // circle-fill -> fill
+    styleProperties['fill'] = stringPair(props['circle-fill']) || ['rgba(0,0,0,1)', 'rgba(0,0,0,1)'];
+
+    // circle-width -> circle-width
+    styleProperties['circle-width'] = numberPair(props['circle-width']);
+
+    descriptors.push({ kind: 'circle', styleProperties });
+  }
+
   return descriptors;
 }
 
@@ -109,7 +120,8 @@ function paintToPlan(paint) {
  * Break down geometries into descriptors
  * @returns {{
  * polygonDescriptors: Array<{ instance: string, kind: 'polygon', styleProperties, geometry }>,
- * lineDescriptors: Array<{ instance: string, kind: 'line', styleProperties, geometry }>
+ * lineDescriptors: Array<{ instance: string, kind: 'line', styleProperties, geometry }>,
+ * circleDescriptors: Array<{ instance: string, kind: 'circle', styleProperties, geometry }>
  * }}
  */
 function paintToVector(paint, shape, x0, y0, x1, y1, extent, buffer) {
@@ -128,12 +140,16 @@ function paintToVector(paint, shape, x0, y0, x1, y1, extent, buffer) {
     } else if (item.kind === 'line') {
       if (geometries.has('line')) continue;
       geometries.set('line', isLine ? packLineString(shape, x0, y0, x1, y1, extent, buffer) : packPolygonOutline(shape, x0, y0, x1, y1, extent, buffer));
+    } else if (item.kind === 'circle') {
+      if (geometries.has('circle')) continue;
+      geometries.set('circle', packCircle(shape, x0, y0, x1, y1, extent, buffer));
     }
   }
 
   // pair every descriptor with a geometry
   const polygonDescriptors = [];
   const lineDescriptors = [];
+  const circleDescriptors = [];
   for (const item of plan) {
     // invalidate unexpected matches
     if (isLine && (item.kind === 'polygon' || item.kind === 'polygon-pattern')) continue;
@@ -146,12 +162,17 @@ function paintToVector(paint, shape, x0, y0, x1, y1, extent, buffer) {
       if (!geometries.get('line')) continue;
       const geometry = geometries.get('line');
       lineDescriptors.push({ ...item, geometry });
+    } else if (item.kind === 'circle') {
+      if (!geometries.get('circle')) continue;
+      const geometry = geometries.get('circle');
+      circleDescriptors.push({ ...item, geometry });
     }
   }
 
   return {
     polygonDescriptors,
-    lineDescriptors
+    lineDescriptors,
+    circleDescriptors
   };
 }
 
