@@ -312,23 +312,15 @@
 
   &[feature='amenity_fountain']:zoom(16) {
     &::basin {
-      &:zoom(17, 17) {
-        --marker-fill: @water-color;
-        --marker-allow-overlap: true;
-        --marker-line-width: 0;
-        --marker-width: 10;
-        --marker-ignore-placement: true;
+      &:zoom(17) {
+        --circle-fill: @water-color;
+        --circle-width: 10;
       }
     }
     &::nozzle {
-      --nozzle__marker-fill: zoom-gradient(@marina-text 17z 17z, @marina-text 18z);
-      &:zoom(17, 17) {
-        --nozzle__marker-line-width: 0;
-        --nozzle__marker-width: 3;
-      }
-      &:zoom(18) {
-        --nozzle__marker-file: "url('symbols/amenity/fountain.svg')";
-        --nozzle__marker-clip: false;
+      &:zoom(17) {
+        --nozzle__circle-fill: zoom-gradient(@marina-text 17z 17z, @marina-text 18z);
+        --nozzle__circle-width: 3;
       }
     }
   }

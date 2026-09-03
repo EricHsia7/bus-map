@@ -18389,16 +18389,22 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(154,207,252,1)",
-      "marker-line-color": "rgba(174,174,178,1)",
-      "marker-line-width": "1",
-      "marker-width": "8",
-      "marker-scale": [
-        "1",
-        "1.25"
+      "line/circle-fill": [
+        "rgba(174,174,178,1)",
+        "rgba(174,174,178,1)"
       ],
-      "marker-allow-overlap": "true",
-      "marker-ignore-placement": "true"
+      "line/circle-width": [
+        "9",
+        "11"
+      ],
+      "fill/circle-fill": [
+        "rgba(154,207,252,1)",
+        "rgba(154,207,252,1)"
+      ],
+      "fill/circle-width": [
+        "8",
+        "10"
+      ]
     }
   },
   {
@@ -18419,16 +18425,22 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(154,207,252,1)",
-      "marker-line-color": "rgba(174,174,178,1)",
-      "marker-line-width": "1",
-      "marker-width": "8",
-      "marker-scale": [
-        "1.25",
-        "1.25"
+      "line/circle-fill": [
+        "rgba(174,174,178,1)",
+        "rgba(174,174,178,1)"
       ],
-      "marker-allow-overlap": "true",
-      "marker-ignore-placement": "true"
+      "line/circle-width": [
+        "11",
+        "11"
+      ],
+      "fill/circle-fill": [
+        "rgba(154,207,252,1)",
+        "rgba(154,207,252,1)"
+      ],
+      "fill/circle-width": [
+        "10",
+        "10"
+      ]
     }
   },
   {
@@ -160980,7 +160992,7 @@
         "layer": "amenity-points",
         "zoom": {
           "min": 17,
-          "max": 17
+          "max": 24
         },
         "and": [
           {
@@ -160992,11 +161004,14 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(154,207,252,1)",
-      "marker-allow-overlap": "true",
-      "marker-line-width": "0",
-      "marker-width": "10",
-      "marker-ignore-placement": "true"
+      "circle-fill": [
+        "rgba(154,207,252,1)",
+        "rgba(154,207,252,1)"
+      ],
+      "circle-width": [
+        "10",
+        "10"
+      ]
     },
     "attachment": "basin"
   },
@@ -161018,53 +161033,14 @@
       }
     ],
     "paint": {
-      "nozzle/marker-fill": "rgba(87,109,223,1)"
-    },
-    "attachment": "nozzle"
-  },
-  {
-    "groups": [
-      {
-        "layer": "amenity-points",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_fountain"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "nozzle/marker-line-width": "0",
-      "nozzle/marker-width": "3"
-    },
-    "attachment": "nozzle"
-  },
-  {
-    "groups": [
-      {
-        "layer": "amenity-points",
-        "zoom": {
-          "min": 18,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_fountain"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "nozzle/marker-file": "\"url('symbols/amenity/fountain.svg')\"",
-      "nozzle/marker-clip": "false"
+      "nozzle/circle-fill": [
+        "rgba(87,109,223,1)",
+        "rgba(87,109,223,1)"
+      ],
+      "nozzle/circle-width": [
+        "3",
+        "3"
+      ]
     },
     "attachment": "nozzle"
   },
