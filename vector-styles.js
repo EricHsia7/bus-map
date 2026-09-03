@@ -33,7 +33,6 @@ function pushColor(value, palette) {
     palette.push(cached[0], cached[1], cached[2], cached[3]);
   }
 }
-// TODO: handle flat properties
 
 /**
  * @returns {number}
@@ -44,19 +43,17 @@ function registerVectorStyle(tables, desc) {
   const existingReference = tables.index.get(key);
   if (existingReference === undefined) {
     const styleReference = tables.styles.length;
-    for (const property in styleProperties) {
-      if (property === 'stroke' || property === 'fill') {
-        const combinationKey = styleProperties[property].join('\u0000'); // key on the combination
-        const existingPaletteReference = tables.paletteIndex.get(combinationKey);
-        if (existingPaletteReference === undefined) {
-          const paletteReference = tables.paletteIndex.size;
-          tables.paletteIndex.set(combinationKey, paletteReference);
-          pushColor(styleProperties[property][0], tables.palette0);
-          pushColor(styleProperties[property][1], tables.palette1);
-          styleProperties[property] = paletteReference;
-        } else {
-          styleProperties[property] = existingPaletteReference;
-        }
+    if (styleProperties.palette) {
+      const combinationKey = styleProperties.palette.join('\u0000'); // key on the combination
+      const existingPaletteReference = tables.paletteIndex.get(combinationKey);
+      if (existingPaletteReference === undefined) {
+        const paletteReference = tables.paletteIndex.size;
+        tables.paletteIndex.set(combinationKey, paletteReference);
+        pushColor(styleProperties.palette[0], tables.palette0);
+        pushColor(styleProperties.palette[1], tables.palette1);
+        styleProperties.palette = paletteReference;
+      } else {
+        styleProperties.palette = existingPaletteReference;
       }
     }
     tables.styles.push(styleProperties);

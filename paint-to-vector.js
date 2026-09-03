@@ -47,11 +47,11 @@ function instanceToDescriptors(props) {
     const styleProperties = {};
     // 'fill-rule': 'nonzero'
 
-    // polygon-fill -> fill
-    styleProperties['fill'] = stringPair(props['polygon-fill']) || ['rgba(0,0,0,1)', 'rgba(0,0,0,1)'];
+    // polygon-fill -> palette
+    styleProperties['palette'] = stringPair(props['polygon-fill']) || ['rgba(0,0,0,1)', 'rgba(0,0,0,1)'];
 
-    // polygon-opacity -> fill-opacity
-    if (has('polygon-opacity')) styleProperties['fill-opacity'] = num(props['polygon-opacity']);
+    // polygon-opacity -> palette-opacity
+    if (has('polygon-opacity')) styleProperties['palette-opacity'] = num(props['polygon-opacity']);
 
     // opacity -> opacity
     if (has('opacity')) styleProperties['opacity'] = num(props['opacity']);
@@ -62,14 +62,17 @@ function instanceToDescriptors(props) {
   // line stroke (solid)
   if (has('line-color') || has('line-width')) {
     const styleProperties = {};
-    // line-color -> stroke
-    styleProperties['stroke'] = stringPair(props['line-color']) || ['rgba(0,0,0,1)', 'rgba(0,0,0,1)'];
+    // line-color -> palette
+    styleProperties['palette'] = stringPair(props['line-color']) || ['rgba(0,0,0,1)', 'rgba(0,0,0,1)'];
+
+    // line-opacity -> palette-opacity
+    if (has('line-opacity')) styleProperties['palette-opacity'] = num(props['line-opacity']);
+
+    // opacity -> opacity
+    if (has('opacity')) styleProperties['opacity'] = num(props['opacity']);
 
     // line-width -> stroke-width
     styleProperties['stroke-width'] = numberPair(props['line-width']);
-
-    // line-opacity -> stroke-opacity
-    if (has('line-opacity')) styleProperties['stroke-opacity'] = num(props['line-opacity']);
 
     // line-join -> stroke-linejoin
     if (has('line-join')) styleProperties['stroke-linejoin'] = props['line-join'];
@@ -80,16 +83,19 @@ function instanceToDescriptors(props) {
     // line-dasharray -> stroke-dasharray
     if (has('line-dasharray') && props['line-dasharray'] !== 'none') styleProperties['stroke-dasharray'] = dash(props['line-dasharray']);
 
-    // opacity -> opacity
-    if (has('opacity')) styleProperties['opacity'] = num(props['opacity']);
-
     descriptors.push({ kind: 'line', styleProperties });
   }
 
-  if (has('circle-fill') || has('circle-width')) {
+  if (has('circle-width')) {
     const styleProperties = {};
-    // circle-fill -> fill
-    styleProperties['fill'] = stringPair(props['circle-fill']) || ['rgba(0,0,0,1)', 'rgba(0,0,0,1)'];
+    // circle-fill -> palette
+    styleProperties['palette'] = stringPair(props['circle-fill']) || ['rgba(0,0,0,1)', 'rgba(0,0,0,1)'];
+
+    // circle-opacity -> palette-opacity
+    if (has('palette-opacity')) styleProperties['palette-opacity'] = numberPair(props['circle-width']);
+
+    // opacity -> opacity
+    if (has('opacity')) styleProperties['opacity'] = num(props['opacity']);
 
     // circle-width -> circle-width
     styleProperties['circle-width'] = numberPair(props['circle-width']);
