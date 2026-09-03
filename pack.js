@@ -122,7 +122,7 @@ function packCircle(circle, x0, y0, x1, y1, extent = 2048, buffer = 64) {
   const x = transformX(circle.coordinates[0]);
   const y = transformY(circle.coordinates[1]);
   if (x < -buffer || x > extent + buffer || y < -buffer || y > extent + buffer) return null;
-  return [[[x, y]]];
+  return [[[Math.round(x), Math.round(y)]]];
 }
 
 module.exports = {
