@@ -394,13 +394,6 @@ function baseGeometry(base, layer) {
   return GEOMETRY_TABLE[base.table] || layer.geometry || null;
 }
 
-function geomMatches(layerGeom, want) {
-  if (!want || !layerGeom) return true;
-  const g = String(want).toLowerCase();
-  const norm = g === 'line' ? 'linestring' : g === 'area' ? 'polygon' : g;
-  return layerGeom === norm;
-}
-
 /**
  * Infer the layer(s) a feature belongs to from its tags.
  * @param {Object} tags   raw OSM attribute row
@@ -415,7 +408,7 @@ function inferLayers(tags, opts = {}) {
     if (opts.zoom != null && (opts.zoom < layer.minzoom || opts.zoom > layer.maxzoom)) continue;
 
     for (const base of layer.base) {
-      if (!geomMatches(baseGeometry(base, layer), opts.geometry)) continue;
+      if (baseGeometry(base, layer) !== opts.geometry) continue;
       if (!evalBool(base.where, tags)) continue;
       let row = applyColumns(base.columns, tags);
       let ok = true;
