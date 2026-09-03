@@ -363,34 +363,32 @@ async function renderChunk(cX, cY, cZ, fileformat) {
             if (polygonDescriptors.length > 0) vectorPolygons.push({ base, rule, index, descriptors: polygonDescriptors });
             if (lineDescriptors.length > 0) vectorLines.push({ base, rule, index, descriptors: lineDescriptors });
           }
-        }
 
-        // labels
-        if (shouldRenderLabels) {
-          const labelPaint = {};
-          for (const idx of idxs) Object.assign(labelPaint, style[idx].paint);
-          const labelRule = idxs[idxs.length - 1];
-          const descs = paintToLabels(labelPaint, feat);
-          if (!descs) continue;
-          for (const desc of descs) {
-            // descriptor
-            const textSize = desc.styleProperties['text-size'];
-            if (!textSize) continue;
-            const textScale = Array.isArray(desc.styleProperties['text-scale']) ? desc.styleProperties['text-scale'][0] : desc.styleProperties['text-scale'] || 1; // resolve the placement at discrete zoom level (tZ)
-            const labelGeometry = closed ? plotPolygonLabel(shape, x0, y0, x1, y1, labelQuantization) : plotLineStringLabel(shape, x0, y0, x1, y1, desc.properties.label, textSize, textScale, tileSize, labelQuantization);
-            if (!labelGeometry) continue;
-            const styleReference = registerLabelsStyle(labelsStyleTables, desc);
-            if (desc.properties.label) registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference);
-            labels.push({
-              base,
-              rule: labelRule,
-              label: {
-                type: 'Feature',
-                id: `w${way.id}`,
-                geometry: labelGeometry,
-                properties: { ...desc.properties, style: styleReference }
+          // labels
+          if (shouldRenderLabels) {
+            const descs = paintToLabels(paint, feat);
+            if (descs) {
+              for (const desc of descs) {
+                // descriptor
+                const textSize = desc.styleProperties['text-size'];
+                if (!textSize) continue;
+                const textScale = Array.isArray(desc.styleProperties['text-scale']) ? desc.styleProperties['text-scale'][0] : desc.styleProperties['text-scale'] || 1; // resolve the placement at discrete zoom level (tZ)
+                const labelGeometry = closed ? plotPolygonLabel(shape, x0, y0, x1, y1, labelQuantization) : plotLineStringLabel(shape, x0, y0, x1, y1, desc.properties.label, textSize, textScale, tileSize, labelQuantization);
+                if (!labelGeometry) continue;
+                const styleReference = registerLabelsStyle(labelsStyleTables, desc);
+                if (desc.properties.label) registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference);
+                labels.push({
+                  base,
+                  rule,
+                  label: {
+                    type: 'Feature',
+                    id: `w${way.id}`,
+                    geometry: labelGeometry,
+                    properties: { ...desc.properties, style: styleReference }
+                  }
+                });
               }
-            });
+            }
           }
         }
       }
@@ -432,31 +430,29 @@ async function renderChunk(cX, cY, cZ, fileformat) {
               if (lineDescriptors.length > 0) vectorLines.push({ base, rule, index, descriptors: lineDescriptors });
             }
           }
-        }
 
-        // labels
-        if (shouldRenderLabels) {
-          const labelPaint = {};
-          for (const idx of idxs) Object.assign(labelPaint, style[idx].paint);
-          const labelRule = idxs[idxs.length - 1];
-          const descs = paintToLabels(labelPaint, featRow);
-          if (!descs) continue;
-          if (feat.polygons[0]) {
-            const labelGeometry = plotPolygonLabel({ type: 'Polygon', coordinates: feat.polygons[0] }, x0, y0, x1, y1, labelQuantization);
-            if (labelGeometry) {
-              for (const desc of descs) {
-                const styleReference = registerLabelsStyle(labelsStyleTables, desc);
-                if (desc.properties.label) registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference);
-                labels.push({
-                  base,
-                  rule: labelRule,
-                  label: {
-                    type: 'Feature',
-                    id: `r${layer.id}:${labelGeometry.coordinates[0]}:${labelGeometry.coordinates[1]}`,
-                    geometry: labelGeometry,
-                    properties: { ...desc.properties, style: styleReference }
+          // labels
+          if (shouldRenderLabels) {
+            if (feat.polygons[0]) {
+              const descs = paintToLabels(paint, featRow);
+              if (descs) {
+                const labelGeometry = plotPolygonLabel({ type: 'Polygon', coordinates: feat.polygons[0] }, x0, y0, x1, y1, labelQuantization);
+                if (labelGeometry) {
+                  for (const desc of descs) {
+                    const styleReference = registerLabelsStyle(labelsStyleTables, desc);
+                    if (desc.properties.label) registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference);
+                    labels.push({
+                      base,
+                      rule,
+                      label: {
+                        type: 'Feature',
+                        id: `r${layer.id}:${labelGeometry.coordinates[0]}:${labelGeometry.coordinates[1]}`,
+                        geometry: labelGeometry,
+                        properties: { ...desc.properties, style: styleReference }
+                      }
+                    });
                   }
-                });
+                }
               }
             }
           }
@@ -468,34 +464,43 @@ async function renderChunk(cX, cY, cZ, fileformat) {
     // which are never drawn as background geometry. Emit each only for the tile
     // whose bbox contains it, so a point lands in exactly one tile.
 
-    if (shouldRenderLabels) {
-      for (const node of center.nodes) {
-        if (node.lon < x0 || node.lon > x1 || node.lat < y0 || node.lat > y1) continue;
-        const layers = I.inferLayers(node.tags, { geometry: 'point', zoom: tZ });
-        for (const layer of layers) {
-          const feat = { ...node.tags, ...layer.row };
-          const idxs = M.matchRules(feat, layer.id, tZ);
-          if (idxs.length === 0) continue;
-          const labelPaint = {};
-          for (const idx of idxs) Object.assign(labelPaint, style[idx].paint);
-          const labelRule = idxs[idxs.length - 1];
-          const descs = paintToLabels(labelPaint, feat);
-          if (!descs) continue;
-          const base = orderOf(layer.id);
-          const labelGeometry = plotPointLabel([node.lon, node.lat], x0, y0, x1, y1, labelQuantization);
-          for (const desc of descs) {
-            const styleReference = registerLabelsStyle(labelsStyleTables, desc);
-            if (desc.properties.label) registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference);
-            labels.push({
-              base,
-              rule: labelRule,
-              label: {
-                type: 'Feature',
-                id: `n${node.id}`,
-                geometry: labelGeometry,
-                properties: { ...desc.properties, style: styleReference }
+    for (const node of center.nodes) {
+      if (node.lon < x0 || node.lon > x1 || node.lat < y0 || node.lat > y1) continue;
+      const layers = I.inferLayers(node.tags, { geometry: 'point', zoom: tZ });
+
+      for (const layer of layers) {
+        const feat = { ...node.tags, ...layer.row };
+        const idxs = M.matchRules(feat, layer.id, tZ);
+        if (idxs.length === 0) continue;
+
+        const passes = cascadeByAttachment(idxs, style);
+        const passesLength = passes.length;
+        const base = orderOf(layer.id);
+
+        for (let index = 0; index < passesLength; index++) {
+          const { paint, rule } = passes[index];
+
+          if (shouldRenderLabels) {
+            const descs = paintToLabels(paint, feat);
+            if (descs) {
+              const labelGeometry = plotPointLabel([node.lon, node.lat], x0, y0, x1, y1, labelQuantization);
+              if (labelGeometry) {
+                for (const desc of descs) {
+                  const styleReference = registerLabelsStyle(labelsStyleTables, desc);
+                  if (desc.properties.label) registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference);
+                  labels.push({
+                    base,
+                    rule,
+                    label: {
+                      type: 'Feature',
+                      id: `n${node.id}`,
+                      geometry: labelGeometry,
+                      properties: { ...desc.properties, style: styleReference }
+                    }
+                  });
+                }
               }
-            });
+            }
           }
         }
       }

@@ -324,7 +324,7 @@ function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, textSc
 function plotPointLabel(point, x0, y0, x1, y1, quantization = 1024) {
   const dX = x1 - x0;
   const dY = y1 - y0;
-  if (!dX || !dY || !Number.isFinite(dX) || !Number.isFinite(dY)) return '';
+  if (!dX || !dY || !Number.isFinite(dX) || !Number.isFinite(dY)) return null;
   const scaleX = quantization / dX;
   const scaleY = quantization / dY;
   const transformX = (x) => Math.floor((x - x0) * scaleX);
