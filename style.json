@@ -26232,7 +26232,7 @@
     ],
     "paint": {
       "line-join": "round",
-      "line-cap": "butt"
+      "line-cap": "round"
     },
     "attachment": "casing"
   },
@@ -26284,7 +26284,7 @@
         "rgba(178,185,193,1)",
         "rgba(178,185,193,1)"
       ],
-      "line-cap": "butt"
+      "line-cap": "round"
     },
     "attachment": "casing"
   },
@@ -30082,7 +30082,7 @@
     ],
     "paint": {
       "line-join": "round",
-      "line-cap": "butt"
+      "line-cap": "round"
     },
     "attachment": "casing"
   },
@@ -30130,7 +30130,7 @@
     ],
     "paint": {
       "line-join": "round",
-      "line-cap": "butt",
+      "line-cap": "round",
       "line-color": [
         "rgba(178,185,193,1)",
         "rgba(178,185,193,1)"
