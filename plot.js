@@ -130,8 +130,8 @@ function plotPolygonLabel(polygon, x0, y0, x1, y1, quantization = 1024) {
   const transformX = (x) => Math.floor((x - x0) * scaleX);
   const transformY = (y) => Math.floor((dY - (y - y0)) * scaleY);
 
-  const coords = polygon.coordinates;
-  const centroid = getCentroid(coords[0]);
+  const rings = polygon.coordinates;
+  const centroid = getCentroid(rings[0]);
   if (!centroid) return null;
   // if (centroid && centroid[0] >= 0 && centroid[0] <= quantization && centroid[1] >= 0 && centroid[1] <= quantization) {
   return { type: 'Point', coordinates: [transformX(centroid[0]), transformY(centroid[1])] };
