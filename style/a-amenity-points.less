@@ -2930,14 +2930,13 @@
 
 #trees:zoom(16) {
   &::canopy {
-    --opacity: 0.6;
     &[natural='tree_row'] {
-      --line-color: darken(@forest, 10%);
+      --line-color: darken(@park, 5%);
       --line-cap: round;
-      --line-width: 2.5 * zoom-gradient(1, 2 17z, 4 18z, 6 19z, 12 20z);
+      --line-width: 1.5 * zoom-gradient(1, 2 17z, 4 18z, 6 19z, 12 20z);
     }
     &[natural='tree'] {
-      --marker-fill: darken(@forest, 10%);
+      --marker-fill: darken(@park, 5%);
       --marker-allow-overlap: true;
       --marker-line-width: 0;
       --marker-ignore-placement: true;

@@ -442,20 +442,22 @@ async function renderChunk(cX, cY, cZ, fileformat) {
           const descs = paintToLabels(labelPaint, featRow);
           if (!descs) continue;
           if (feat.polygons[0]) {
-            const labelGeometry = plotPolygonLabel(feat.polygons[0], x0, y0, x1, y1, labelQuantization);
-            for (const desc of descs) {
-              const styleReference = registerLabelsStyle(labelsStyleTables, desc);
-              if (desc.properties.label) registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference);
-              labels.push({
-                base,
-                rule: labelRule,
-                label: {
-                  type: 'Feature',
-                  id: `r${layer.id}:${labelGeometry.coordinates[0]}:${labelGeometry.coordinates[1]}`,
-                  geometry: labelGeometry,
-                  properties: { ...desc.properties, style: styleReference }
-                }
-              });
+            const labelGeometry = plotPolygonLabel({ type: 'Polygon', coordinates: feat.polygons[0] }, x0, y0, x1, y1, labelQuantization);
+            if (labelGeometry) {
+              for (const desc of descs) {
+                const styleReference = registerLabelsStyle(labelsStyleTables, desc);
+                if (desc.properties.label) registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference);
+                labels.push({
+                  base,
+                  rule: labelRule,
+                  label: {
+                    type: 'Feature',
+                    id: `r${layer.id}:${labelGeometry.coordinates[0]}:${labelGeometry.coordinates[1]}`,
+                    geometry: labelGeometry,
+                    properties: { ...desc.properties, style: styleReference }
+                  }
+                });
+              }
             }
           }
         }

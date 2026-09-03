@@ -124,16 +124,18 @@ function plotLineString(lineString, x0, y0, x1, y1, tileSize = 512, precision = 
 function plotPolygonLabel(polygon, x0, y0, x1, y1, quantization = 1024) {
   const dX = x1 - x0;
   const dY = y1 - y0;
-  if (!dX || !dY || !Number.isFinite(dX) || !Number.isFinite(dY)) return '';
+  if (!dX || !dY || !Number.isFinite(dX) || !Number.isFinite(dY)) return null;
   const scaleX = quantization / dX;
   const scaleY = quantization / dY;
   const transformX = (x) => Math.floor((x - x0) * scaleX);
   const transformY = (y) => Math.floor((dY - (y - y0)) * scaleY);
 
   const coords = polygon.coordinates;
-  const centroid = getCentroid(coords);
+  const centroid = getCentroid(coords[0]);
   // if (centroid && centroid[0] >= 0 && centroid[0] <= quantization && centroid[1] >= 0 && centroid[1] <= quantization) {
-  return { type: 'Point', coordinates: transform([centroid], transformX, transformY)[0] };
+  const transformed = transform([centroid], transformX, transformY);
+  if (transformed.length !== 1) return null;
+  return { type: 'Point', coordinates: transformed };
   //}
 }
 

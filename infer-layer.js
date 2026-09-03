@@ -380,6 +380,20 @@ function applyColumns(columns, row) {
   return next;
 }
 
+const GEOMETRY_TABLE = {
+  planet_osm_point: 'point',
+  planet_osm_line: 'linestring',
+  planet_osm_roads: 'linestring',
+  planet_osm_polygon: 'polygon'
+};
+const POINTIFY = /^(ST_PointOnSurface|ST_Centroid|ST_StartPoint)$/i;
+
+function baseGeometry(base, layer) {
+  const w = base.columns && base.columns.way;
+  if (w && w.t === 'func' && POINTIFY.test(w.name)) return 'point';
+  return GEOMETRY_TABLE[base.table] || layer.geometry || null;
+}
+
 function geomMatches(layerGeom, want) {
   if (!want || !layerGeom) return true;
   const g = String(want).toLowerCase();
@@ -398,10 +412,10 @@ function inferLayers(tags, opts = {}) {
   const out = [];
   for (const layer of mml) {
     if (!layer.base || !layer.base.length) continue;
-    if (!geomMatches(layer.geometry, opts.geometry)) continue;
     if (opts.zoom != null && (opts.zoom < layer.minzoom || opts.zoom > layer.maxzoom)) continue;
 
     for (const base of layer.base) {
+      if (!geomMatches(baseGeometry(base, layer), opts.geometry)) continue;
       if (!evalBool(base.where, tags)) continue;
       let row = applyColumns(base.columns, tags);
       let ok = true;
