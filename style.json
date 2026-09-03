@@ -525,7 +525,7 @@
     "paint": {
       "polygon-fill": [
         "rgba(246,246,249,1)",
-        "rgba(243,245,248,1)"
+        "rgba(243,244,248,1)"
       ]
     },
     "attachment": "low-zoom"
@@ -549,8 +549,8 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(243,245,248,1)",
-        "rgba(241,244,247,1)"
+        "rgba(243,244,248,1)",
+        "rgba(241,242,247,1)"
       ]
     },
     "attachment": "low-zoom"
@@ -574,8 +574,8 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(241,244,247,1)",
-        "rgba(238,242,245,1)"
+        "rgba(241,242,247,1)",
+        "rgba(238,239,245,1)"
       ]
     },
     "attachment": "low-zoom"
@@ -599,8 +599,8 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(238,242,245,1)",
-        "rgba(235,241,244,1)"
+        "rgba(238,239,245,1)",
+        "rgba(235,237,244,1)"
       ]
     },
     "attachment": "low-zoom"
@@ -624,8 +624,8 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(235,241,244,1)",
-        "rgba(235,241,244,1)"
+        "rgba(235,237,244,1)",
+        "rgba(235,237,244,1)"
       ]
     },
     "attachment": "low-zoom"
@@ -313862,7 +313862,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(61,95,112,1)"
+      "text-fill": "rgba(61,73,112,1)"
     }
   },
   {
