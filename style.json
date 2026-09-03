@@ -400956,9 +400956,6 @@
     ],
     "paint": {
       "marker-fill": "rgba(190,218,173,1)",
-      "marker-allow-overlap": "true",
-      "marker-line-width": "0",
-      "marker-ignore-placement": "true",
       "marker-width": "2.5",
       "marker-scale": [
         "1",
@@ -400986,9 +400983,6 @@
     ],
     "paint": {
       "marker-fill": "rgba(190,218,173,1)",
-      "marker-allow-overlap": "true",
-      "marker-line-width": "0",
-      "marker-ignore-placement": "true",
       "marker-width": "2.5",
       "marker-scale": [
         "2",
@@ -401016,9 +401010,6 @@
     ],
     "paint": {
       "marker-fill": "rgba(190,218,173,1)",
-      "marker-allow-overlap": "true",
-      "marker-line-width": "0",
-      "marker-ignore-placement": "true",
       "marker-width": "2.5",
       "marker-scale": [
         "4",
@@ -401046,9 +401037,6 @@
     ],
     "paint": {
       "marker-fill": "rgba(190,218,173,1)",
-      "marker-allow-overlap": "true",
-      "marker-line-width": "0",
-      "marker-ignore-placement": "true",
       "marker-width": "2.5",
       "marker-scale": [
         "6",
@@ -401076,9 +401064,6 @@
     ],
     "paint": {
       "marker-fill": "rgba(190,218,173,1)",
-      "marker-allow-overlap": "true",
-      "marker-line-width": "0",
-      "marker-ignore-placement": "true",
       "marker-width": "2.5",
       "marker-scale": [
         "12",
