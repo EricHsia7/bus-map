@@ -1,5 +1,5 @@
-@default-casing: #b8bec6;
-@road-fill: #b8bec6;
+@default-casing: #b5bec9;
+@road-fill: #b5bec9;
 @road-casing: darken(@road-fill, 3%);
 
 // Zoom shades
@@ -1642,7 +1642,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           }
           &[feature='railway_rail'] {
             --dark__line-color: @rail-line-dark;
-            --dark__line-width: 2 * zoom-gradient(1, 1.5 13z 17z, 2 18z);
+            --dark__line-width: zoom-gradient(2, 3 13z 17z, 6 18z);
             // Modern rail: a grey casing with a continuous white core, not a
             // hatched line. The hatch was a plate-engraving convention for
             // sleepers; at screen resolution it aliases into a dotted mess,
@@ -1661,14 +1661,14 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
             --dark__line-color: @rail-line-light;
             &:zoom(16) {
               --light__line-color: zoom-gradient(@rail-line-light 16z, @white 18z);
-              --light__line-width: zoom-gradient(0 16z, 1 18z);
+              --light__line-width: zoom-gradient(0 16z, 0.6 18z);
             }
           }
           &[preserved='yes'] {
             --dark__line-width: 3;
             --dark__line-color: @rail-line-dark;
             &:zoom(16) {
-              --light__line-width: zoom-gradient(0 16z, 1 18z);
+              --light__line-width: zoom-gradient(0 16z, 0.6 18z);
               --light__line-color: zoom-gradient(@rail-line-dark 16z, @white 18z);
             }
           }

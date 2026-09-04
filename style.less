@@ -47,7 +47,7 @@
 @dash-roadworks-fine: 2, 6; // paths and tracks, where the core is ~1px
 
 // Underground
-@underground-fill: #c9d0d9;
+@underground-fill: #aeb8c6;
 @underground-casing: darken(@underground-fill, 3%);
 @underground-line: darken(@underground-casing, 3%);
 @underground-rail: #a9b0bd;
@@ -83,17 +83,17 @@
   }
 }
 // Parks, woods, other green things
-@allotments: #c7e1b6;
-@campsite: #d0e8c3;
-@cemetery: #cce2bf;
-@forest-text: #3b503c;
-@forest: #cee5c1;
-@grass: #d9ebce;
-@heath: #badba9;
-@hedge: #bedcad;
-@orchard: #c1ddb0;
-@park: #cce2bf;
-@scrub: #d0e7c3;
+@allotments: #d5f6da;
+@campsite: #d1f4d7;
+@cemetery: #cdf1d4;
+@forest-text: #429e69;
+@forest: #c8efd2;
+@grass: #c4edcf;
+@heath: #c0eacc;
+@hedge: #bce8c9;
+@orchard: #b8e6c7;
+@park: #b3e3c4;
+@scrub: #afe1c1;
 
 // Basic landuses
 @built-up-lowzoom: #f6f6f9;
@@ -664,8 +664,8 @@
     --text-spacing: 400;
   }
 }
-@water-color: #9acffc;
-@water-text: #31b1f6;
+@water-color: #8dcafe;
+@water-text: #59aef8;
 @glacier: #c7f2fa;
 @glacier-line: #b1e8f5;
 // Underground watercourses follow the shared underground recipe.
@@ -1250,8 +1250,8 @@
     }
   }
 }
-@default-casing: #b8bec6;
-@road-fill: #b8bec6;
+@default-casing: #b5bec9;
+@road-fill: #b5bec9;
 @road-casing: darken(@road-fill, 3%);
 
 // Zoom shades
@@ -2894,7 +2894,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           }
           &[feature='railway_rail'] {
             --dark__line-color: @rail-line-dark;
-            --dark__line-width: 2 * zoom-gradient(1, 1.5 13z 17z, 2 18z);
+            --dark__line-width: zoom-gradient(2, 3 13z 17z, 6 18z);
             // Modern rail: a grey casing with a continuous white core, not a
             // hatched line. The hatch was a plate-engraving convention for
             // sleepers; at screen resolution it aliases into a dotted mess,
@@ -2913,14 +2913,14 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
             --dark__line-color: @rail-line-light;
             &:zoom(16) {
               --light__line-color: zoom-gradient(@rail-line-light 16z, @white 18z);
-              --light__line-width: zoom-gradient(0 16z, 1 18z);
+              --light__line-width: zoom-gradient(0 16z, 0.6 18z);
             }
           }
           &[preserved='yes'] {
             --dark__line-width: 3;
             --dark__line-color: @rail-line-dark;
             &:zoom(16) {
-              --light__line-width: zoom-gradient(0 16z, 1 18z);
+              --light__line-width: zoom-gradient(0 16z, 0.6 18z);
               --light__line-color: zoom-gradient(@rail-line-dark 16z, @white 18z);
             }
           }
@@ -4761,7 +4761,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 @religious-icon: @standard-text-fill;
 @cable: #646568;
 @cable-dash: #5d5e61;
-@bus-stop: #158cff;
+@bus-stop: #5186c8;
 
 @landcover-font-size: 10;
 @landcover-wrap-width-size: 30;
@@ -7649,12 +7649,12 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     &[natural='tree_row'] {
       --line-color: darken(@park, 5%);
       --line-cap: round;
-      --line-width: 1.5 * zoom-gradient(1, 2 17z, 4 18z, 6 19z, 12 20z);
+      --line-width: 1.5 * zoom-gradient(0 16z, 2 17z, 4 18z, 6 19z, 12 20z);
     }
 
     &[natural='tree'] {
       --circle-fill: darken(@park, 5%);
-      --circle-width: 1.5 * zoom-gradient(1, 2 17z, 4 18z, 6 19z, 12 20z);
+      --circle-width: 1.5 * zoom-gradient(0 16z, 2 17z, 4 18z, 6 19z, 12 20z);
     }
   }
   &[natural='tree']::trunk {
