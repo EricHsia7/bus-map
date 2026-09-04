@@ -64,7 +64,7 @@ const ZOOM_MAX = 24;
 
 // Properties the renderer interpolates across the display range of a tile zoom.
 // They ship as the interval [v(z), v(z + 1)] rather than a single value.
-const INTERPOLATABLE_TARGETS = new Set(['line-color', 'polygon-fill', 'text-scale', 'marker-scale', 'line-width']);
+const INTERPOLATABLE_TARGETS = new Set(['line-color', 'polygon-fill', 'text-scale', 'marker-scale', 'line-width', 'circle-width', 'circle-fill']);
 
 /**
  * @typedef {Object} Filter A single data-driven constraint, ANDed with its siblings.

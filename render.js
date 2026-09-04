@@ -312,6 +312,7 @@ async function renderChunk(cX, cY, cZ, fileformat) {
     // vector
     const vectorPolygons = []; // { base, rule, index, descriptors }
     const vectorLines = []; // { base, rule, index, descriptors }
+    const vectorCircles = []; // { base, rule, index, descriptors }
     const vectorStyleTables = createVectorStyleTables();
 
     // labels
@@ -480,6 +481,14 @@ async function renderChunk(cX, cY, cZ, fileformat) {
         for (let index = 0; index < passesLength; index++) {
           const { paint, rule } = passes[index];
 
+          // vector
+          if (shouldRenderVector) {
+            const shape = { type: 'Point', coordinates: [node.lon, node.lat] };
+            const { circleDescriptors } = paintToVector(paint, shape, x0, y0, x1, y1, extent, buffer);
+            if (circleDescriptors.length > 0) vectorCircles.push({ base, rule, index, descriptors: circleDescriptors });
+          }
+
+          // labels
           if (shouldRenderLabels) {
             const descs = paintToLabels(paint, feat);
             if (descs) {
@@ -525,6 +534,9 @@ async function renderChunk(cX, cY, cZ, fileformat) {
       return a.base - b.base || a.rule - b.rule || a.index - b.index;
     });
     vectorLines.sort(function (a, b) {
+      return a.base - b.base || a.rule - b.rule || a.index - b.index;
+    });
+    vectorCircles.sort(function (a, b) {
       return a.base - b.base || a.rule - b.rule || a.index - b.index;
     });
 
@@ -576,6 +588,7 @@ async function renderChunk(cX, cY, cZ, fileformat) {
 
       const vectorPolygonsLength = vectorPolygons.length;
       const vectorLinesLength = vectorLines.length;
+      const vectorCirclesLength = vectorCircles.length;
       for (let i = 0; i < vectorPolygonsLength; i++) {
         for (let j = 0, m = vectorPolygons[i].descriptors.length; j < m; j++) {
           const descriptor = vectorPolygons[i].descriptors[j];
@@ -586,6 +599,12 @@ async function renderChunk(cX, cY, cZ, fileformat) {
         for (let j = 0, m = vectorLines[i].descriptors.length; j < m; j++) {
           const descriptor = vectorLines[i].descriptors[j];
           pushVectorDescriptor(1, descriptor.geometry, registerVectorStyle(vectorStyleTables, descriptor));
+        }
+      }
+      for (let i = 0; i < vectorCirclesLength; i++) {
+        for (let j = 0, m = vectorCircles[i].descriptors.length; j < m; j++) {
+          const descriptor = vectorCircles[i].descriptors[j];
+          pushVectorDescriptor(2, descriptor.geometry, registerVectorStyle(vectorStyleTables, descriptor));
         }
       }
       vectorStyleStartIndices.push(vectorDescriptorTypes.length);

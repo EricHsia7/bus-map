@@ -161,17 +161,17 @@
     --marker-clip: false;
   }
 
-  &[feature='highway_bus_stop']:zoom(13) {
+  &[feature='highway_bus_stop']:zoom(14) {
     --marker-fill: @bus-stop;
     --marker-width: 6;
-    --marker-scale: zoom-gradient(0 13z, 1 15z);
+    --marker-scale: zoom-gradient(0 14z, 1 16z);
   }
 
-  &[feature='highway_bus_stop']:zoom(14) {
+  &[feature='highway_bus_stop']:zoom(16) {
     --text-name: '[name]';
     --text-face-name: @standard-font;
     --text-size: 10;
-    --text-scale: zoom-gradient(0.5 14z, 1 15z, 1.2 16z);
+    --text-scale: zoom-gradient(1 16z, 1.25 17z);
     --text-fill: darken(@bus-stop, 5%);
     --text-halo-radius: @standard-halo-radius;
     --text-halo-fill: @standard-halo-fill;
@@ -312,23 +312,15 @@
 
   &[feature='amenity_fountain']:zoom(16) {
     &::basin {
-      &:zoom(17, 17) {
-        --marker-fill: @water-color;
-        --marker-allow-overlap: true;
-        --marker-line-width: 0;
-        --marker-width: 10;
-        --marker-ignore-placement: true;
+      &:zoom(17) {
+        --circle-fill: @water-color;
+        --circle-width: 10;
       }
     }
     &::nozzle {
-      --nozzle__marker-fill: zoom-gradient(@marina-text 17z 17z, @marina-text 18z);
-      &:zoom(17, 17) {
-        --nozzle__marker-line-width: 0;
+      &:zoom(17) {
+        --nozzle__marker-fill: @marina-text;
         --nozzle__marker-width: 3;
-      }
-      &:zoom(18) {
-        --nozzle__marker-file: "url('symbols/amenity/fountain.svg')";
-        --nozzle__marker-clip: false;
       }
     }
   }
@@ -2935,21 +2927,16 @@
       --line-cap: round;
       --line-width: 1.5 * zoom-gradient(1, 2 17z, 4 18z, 6 19z, 12 20z);
     }
+
     &[natural='tree'] {
-      --marker-fill: darken(@park, 5%);
-      --marker-width: 2.5;
-      --marker-scale: zoom-gradient(1, 2 17z, 4 18z, 6 19z, 12 20z);
+      --circle-fill: darken(@park, 5%);
+      --circle-width: 1.5 * zoom-gradient(1, 2 17z, 4 18z, 6 19z, 12 20z);
     }
   }
   &[natural='tree']::trunk {
-    --trunk__marker-width: 2;
-    --trunk__marker-scale: zoom-gradient(1 18z, 1.5 19z, 3 20z);
     &:zoom(18) {
-      --trunk__opacity: 0.4;
-      --trunk__marker-fill: @forest-marker; // Same opacity and color as forest svg patterns
-      --trunk__marker-allow-overlap: true;
-      --trunk__marker-line-width: 0;
-      --trunk__marker-ignore-placement: true;
+      --trunk__circle-width: 2 * zoom-gradient(1 18z, 1.5 19z, 3 20z);
+      --trunk__circle-fill: @forest-marker;
     }
   }
 }

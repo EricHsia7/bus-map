@@ -1,4 +1,4 @@
-const { packPolygon, packLineString, packPolygonOutline } = require('./pack');
+const { packPolygon, packLineString, packPolygonOutline, packCircle } = require('./pack');
 const { splitInstances } = require('./paint-to-svg');
 
 function num(v) {
@@ -47,11 +47,11 @@ function instanceToDescriptors(props) {
     const styleProperties = {};
     // 'fill-rule': 'nonzero'
 
-    // polygon-fill -> fill
-    styleProperties['fill'] = stringPair(props['polygon-fill']) || ['rgba(0,0,0,1)', 'rgba(0,0,0,1)'];
+    // polygon-fill -> palette
+    styleProperties['palette'] = stringPair(props['polygon-fill']) || ['rgba(0,0,0,1)', 'rgba(0,0,0,1)'];
 
-    // polygon-opacity -> fill-opacity
-    if (has('polygon-opacity')) styleProperties['fill-opacity'] = num(props['polygon-opacity']);
+    // polygon-opacity -> palette-opacity
+    if (has('polygon-opacity')) styleProperties['palette-opacity'] = num(props['polygon-opacity']);
 
     // opacity -> opacity
     if (has('opacity')) styleProperties['opacity'] = num(props['opacity']);
@@ -62,14 +62,17 @@ function instanceToDescriptors(props) {
   // line stroke (solid)
   if (has('line-color') || has('line-width')) {
     const styleProperties = {};
-    // line-color -> stroke
-    styleProperties['stroke'] = stringPair(props['line-color']) || ['rgba(0,0,0,1)', 'rgba(0,0,0,1)'];
+    // line-color -> palette
+    styleProperties['palette'] = stringPair(props['line-color']) || ['rgba(0,0,0,1)', 'rgba(0,0,0,1)'];
+
+    // line-opacity -> palette-opacity
+    if (has('line-opacity')) styleProperties['palette-opacity'] = num(props['line-opacity']);
+
+    // opacity -> opacity
+    if (has('opacity')) styleProperties['opacity'] = num(props['opacity']);
 
     // line-width -> stroke-width
     styleProperties['stroke-width'] = numberPair(props['line-width']);
-
-    // line-opacity -> stroke-opacity
-    if (has('line-opacity')) styleProperties['stroke-opacity'] = num(props['line-opacity']);
 
     // line-join -> stroke-linejoin
     if (has('line-join')) styleProperties['stroke-linejoin'] = props['line-join'];
@@ -80,10 +83,24 @@ function instanceToDescriptors(props) {
     // line-dasharray -> stroke-dasharray
     if (has('line-dasharray') && props['line-dasharray'] !== 'none') styleProperties['stroke-dasharray'] = dash(props['line-dasharray']);
 
+    descriptors.push({ kind: 'line', styleProperties });
+  }
+
+  if (has('circle-width')) {
+    const styleProperties = {};
+    // circle-fill -> palette
+    styleProperties['palette'] = stringPair(props['circle-fill']) || ['rgba(0,0,0,1)', 'rgba(0,0,0,1)'];
+
+    // circle-opacity -> palette-opacity
+    if (has('palette-opacity')) styleProperties['palette-opacity'] = numberPair(props['circle-width']);
+
     // opacity -> opacity
     if (has('opacity')) styleProperties['opacity'] = num(props['opacity']);
 
-    descriptors.push({ kind: 'line', styleProperties });
+    // circle-width -> circle-width
+    styleProperties['circle-width'] = numberPair(props['circle-width']);
+
+    descriptors.push({ kind: 'circle', styleProperties });
   }
 
   return descriptors;
@@ -109,7 +126,8 @@ function paintToPlan(paint) {
  * Break down geometries into descriptors
  * @returns {{
  * polygonDescriptors: Array<{ instance: string, kind: 'polygon', styleProperties, geometry }>,
- * lineDescriptors: Array<{ instance: string, kind: 'line', styleProperties, geometry }>
+ * lineDescriptors: Array<{ instance: string, kind: 'line', styleProperties, geometry }>,
+ * circleDescriptors: Array<{ instance: string, kind: 'circle', styleProperties, geometry }>
  * }}
  */
 function paintToVector(paint, shape, x0, y0, x1, y1, extent, buffer) {
@@ -128,12 +146,16 @@ function paintToVector(paint, shape, x0, y0, x1, y1, extent, buffer) {
     } else if (item.kind === 'line') {
       if (geometries.has('line')) continue;
       geometries.set('line', isLine ? packLineString(shape, x0, y0, x1, y1, extent, buffer) : packPolygonOutline(shape, x0, y0, x1, y1, extent, buffer));
+    } else if (item.kind === 'circle') {
+      if (geometries.has('circle')) continue;
+      geometries.set('circle', packCircle(shape, x0, y0, x1, y1, extent, buffer));
     }
   }
 
   // pair every descriptor with a geometry
   const polygonDescriptors = [];
   const lineDescriptors = [];
+  const circleDescriptors = [];
   for (const item of plan) {
     // invalidate unexpected matches
     if (isLine && (item.kind === 'polygon' || item.kind === 'polygon-pattern')) continue;
@@ -146,12 +168,17 @@ function paintToVector(paint, shape, x0, y0, x1, y1, extent, buffer) {
       if (!geometries.get('line')) continue;
       const geometry = geometries.get('line');
       lineDescriptors.push({ ...item, geometry });
+    } else if (item.kind === 'circle') {
+      if (!geometries.get('circle')) continue;
+      const geometry = geometries.get('circle');
+      circleDescriptors.push({ ...item, geometry });
     }
   }
 
   return {
     polygonDescriptors,
-    lineDescriptors
+    lineDescriptors,
+    circleDescriptors
   };
 }
 

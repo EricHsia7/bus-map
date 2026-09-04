@@ -525,7 +525,7 @@
     "paint": {
       "polygon-fill": [
         "rgba(246,246,249,1)",
-        "rgba(243,245,248,1)"
+        "rgba(243,244,248,1)"
       ]
     },
     "attachment": "low-zoom"
@@ -549,8 +549,8 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(243,245,248,1)",
-        "rgba(241,244,247,1)"
+        "rgba(243,244,248,1)",
+        "rgba(241,242,247,1)"
       ]
     },
     "attachment": "low-zoom"
@@ -574,8 +574,8 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(241,244,247,1)",
-        "rgba(238,242,245,1)"
+        "rgba(241,242,247,1)",
+        "rgba(238,239,245,1)"
       ]
     },
     "attachment": "low-zoom"
@@ -599,8 +599,8 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(238,242,245,1)",
-        "rgba(235,241,244,1)"
+        "rgba(238,239,245,1)",
+        "rgba(235,237,244,1)"
       ]
     },
     "attachment": "low-zoom"
@@ -624,8 +624,8 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(235,241,244,1)",
-        "rgba(235,241,244,1)"
+        "rgba(235,237,244,1)",
+        "rgba(235,237,244,1)"
       ]
     },
     "attachment": "low-zoom"
@@ -18300,16 +18300,22 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(174,174,178,1)",
-      "marker-line-color": "rgba(158,158,163,1)",
-      "marker-line-width": "1",
-      "marker-width": "8",
-      "marker-scale": [
-        "1",
-        "1.25"
+      "line/circle-width": [
+        "9",
+        "11"
       ],
-      "marker-allow-overlap": "true",
-      "marker-ignore-placement": "true"
+      "line/circle-fill": [
+        "rgba(158,158,163,1)",
+        "rgba(158,158,163,1)"
+      ],
+      "fill/circle-width": [
+        "8",
+        "10"
+      ],
+      "fill/circle-fill": [
+        "rgba(174,174,178,1)",
+        "rgba(174,174,178,1)"
+      ]
     }
   },
   {
@@ -18330,16 +18336,22 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(174,174,178,1)",
-      "marker-line-color": "rgba(158,158,163,1)",
-      "marker-line-width": "1",
-      "marker-width": "8",
-      "marker-scale": [
-        "1.25",
-        "1.25"
+      "line/circle-width": [
+        "11",
+        "11"
       ],
-      "marker-allow-overlap": "true",
-      "marker-ignore-placement": "true"
+      "line/circle-fill": [
+        "rgba(158,158,163,1)",
+        "rgba(158,158,163,1)"
+      ],
+      "fill/circle-width": [
+        "10",
+        "10"
+      ],
+      "fill/circle-fill": [
+        "rgba(174,174,178,1)",
+        "rgba(174,174,178,1)"
+      ]
     }
   },
   {
@@ -18389,16 +18401,22 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(154,207,252,1)",
-      "marker-line-color": "rgba(174,174,178,1)",
-      "marker-line-width": "1",
-      "marker-width": "8",
-      "marker-scale": [
-        "1",
-        "1.25"
+      "line/circle-fill": [
+        "rgba(174,174,178,1)",
+        "rgba(174,174,178,1)"
       ],
-      "marker-allow-overlap": "true",
-      "marker-ignore-placement": "true"
+      "line/circle-width": [
+        "9",
+        "11"
+      ],
+      "fill/circle-fill": [
+        "rgba(154,207,252,1)",
+        "rgba(154,207,252,1)"
+      ],
+      "fill/circle-width": [
+        "8",
+        "10"
+      ]
     }
   },
   {
@@ -18419,16 +18437,22 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(154,207,252,1)",
-      "marker-line-color": "rgba(174,174,178,1)",
-      "marker-line-width": "1",
-      "marker-width": "8",
-      "marker-scale": [
-        "1.25",
-        "1.25"
+      "line/circle-fill": [
+        "rgba(174,174,178,1)",
+        "rgba(174,174,178,1)"
       ],
-      "marker-allow-overlap": "true",
-      "marker-ignore-placement": "true"
+      "line/circle-width": [
+        "11",
+        "11"
+      ],
+      "fill/circle-fill": [
+        "rgba(154,207,252,1)",
+        "rgba(154,207,252,1)"
+      ],
+      "fill/circle-width": [
+        "10",
+        "10"
+      ]
     }
   },
   {
@@ -18477,15 +18501,14 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(174,174,178,1)",
-      "marker-line-width": "0",
-      "marker-width": "8",
-      "marker-scale": [
-        "1",
-        "1.25"
+      "circle-fill": [
+        "rgba(174,174,178,1)",
+        "rgba(174,174,178,1)"
       ],
-      "marker-allow-overlap": "true",
-      "marker-ignore-placement": "true"
+      "circle-width": [
+        "8",
+        "10"
+      ]
     }
   },
   {
@@ -18506,15 +18529,14 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(174,174,178,1)",
-      "marker-line-width": "0",
-      "marker-width": "8",
-      "marker-scale": [
-        "1.25",
-        "1.25"
+      "circle-fill": [
+        "rgba(174,174,178,1)",
+        "rgba(174,174,178,1)"
       ],
-      "marker-allow-overlap": "true",
-      "marker-ignore-placement": "true"
+      "circle-width": [
+        "10",
+        "10"
+      ]
     }
   },
   {
@@ -160193,8 +160215,8 @@
       {
         "layer": "amenity-points",
         "zoom": {
-          "min": 13,
-          "max": 13
+          "min": 14,
+          "max": 14
         },
         "and": [
           {
@@ -160219,90 +160241,6 @@
       {
         "layer": "amenity-points",
         "zoom": {
-          "min": 14,
-          "max": 14
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_bus_stop"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "marker-fill": "rgba(21,140,255,1)",
-      "marker-width": "6",
-      "marker-scale": [
-        "0.5",
-        "1"
-      ]
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "amenity-points",
-        "zoom": {
-          "min": 15,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_bus_stop"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "marker-fill": "rgba(21,140,255,1)",
-      "marker-width": "6",
-      "marker-scale": [
-        "1",
-        "1"
-      ]
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "amenity-points",
-        "zoom": {
-          "min": 14,
-          "max": 14
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_bus_stop"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "text-name": "'[name]'",
-      "text-face-name": "'Noto Sans TC', sans-serif",
-      "text-size": "10",
-      "text-scale": [
-        "0.5",
-        "1"
-      ],
-      "text-fill": "rgba(0,127,251,1)",
-      "text-halo-radius": "1.5",
-      "text-halo-fill": "rgba(255,255,255,0.9)",
-      "text-wrap-width": "50",
-      "text-line-spacing": "-1.5"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "amenity-points",
-        "zoom": {
           "min": 15,
           "max": 15
         },
@@ -160316,18 +160254,12 @@
       }
     ],
     "paint": {
-      "text-name": "'[name]'",
-      "text-face-name": "'Noto Sans TC', sans-serif",
-      "text-size": "10",
-      "text-scale": [
-        "1",
-        "1.2"
-      ],
-      "text-fill": "rgba(0,127,251,1)",
-      "text-halo-radius": "1.5",
-      "text-halo-fill": "rgba(255,255,255,0.9)",
-      "text-wrap-width": "50",
-      "text-line-spacing": "-1.5"
+      "marker-fill": "rgba(21,140,255,1)",
+      "marker-width": "6",
+      "marker-scale": [
+        "0.5",
+        "1"
+      ]
     }
   },
   {
@@ -160348,12 +160280,70 @@
       }
     ],
     "paint": {
+      "marker-fill": "rgba(21,140,255,1)",
+      "marker-width": "6",
+      "marker-scale": [
+        "1",
+        "1"
+      ]
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "amenity-points",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_bus_stop"
+          }
+        ]
+      }
+    ],
+    "paint": {
       "text-name": "'[name]'",
       "text-face-name": "'Noto Sans TC', sans-serif",
       "text-size": "10",
       "text-scale": [
-        "1.2",
-        "1.2"
+        "1",
+        "1.25"
+      ],
+      "text-fill": "rgba(0,127,251,1)",
+      "text-halo-radius": "1.5",
+      "text-halo-fill": "rgba(255,255,255,0.9)",
+      "text-wrap-width": "50",
+      "text-line-spacing": "-1.5"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "amenity-points",
+        "zoom": {
+          "min": 17,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_bus_stop"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-name": "'[name]'",
+      "text-face-name": "'Noto Sans TC', sans-serif",
+      "text-size": "10",
+      "text-scale": [
+        "1.25",
+        "1.25"
       ],
       "text-fill": "rgba(0,127,251,1)",
       "text-halo-radius": "1.5",
@@ -160980,7 +160970,7 @@
         "layer": "amenity-points",
         "zoom": {
           "min": 17,
-          "max": 17
+          "max": 24
         },
         "and": [
           {
@@ -160992,11 +160982,14 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(154,207,252,1)",
-      "marker-allow-overlap": "true",
-      "marker-line-width": "0",
-      "marker-width": "10",
-      "marker-ignore-placement": "true"
+      "circle-fill": [
+        "rgba(154,207,252,1)",
+        "rgba(154,207,252,1)"
+      ],
+      "circle-width": [
+        "10",
+        "10"
+      ]
     },
     "attachment": "basin"
   },
@@ -161018,53 +161011,8 @@
       }
     ],
     "paint": {
-      "nozzle/marker-fill": "rgba(87,109,223,1)"
-    },
-    "attachment": "nozzle"
-  },
-  {
-    "groups": [
-      {
-        "layer": "amenity-points",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_fountain"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "nozzle/marker-line-width": "0",
+      "nozzle/marker-fill": "rgba(87,109,223,1)",
       "nozzle/marker-width": "3"
-    },
-    "attachment": "nozzle"
-  },
-  {
-    "groups": [
-      {
-        "layer": "amenity-points",
-        "zoom": {
-          "min": 18,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_fountain"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "nozzle/marker-file": "\"url('symbols/amenity/fountain.svg')\"",
-      "nozzle/marker-clip": "false"
     },
     "attachment": "nozzle"
   },
@@ -313862,7 +313810,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(61,95,112,1)"
+      "text-fill": "rgba(61,73,112,1)"
     }
   },
   {
@@ -400955,11 +400903,13 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(190,218,173,1)",
-      "marker-width": "2.5",
-      "marker-scale": [
-        "1",
-        "2"
+      "circle-fill": [
+        "rgba(190,218,173,1)",
+        "rgba(190,218,173,1)"
+      ],
+      "circle-width": [
+        "1.5",
+        "3"
       ]
     },
     "attachment": "canopy"
@@ -400982,37 +400932,12 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(190,218,173,1)",
-      "marker-width": "2.5",
-      "marker-scale": [
-        "2",
-        "4"
-      ]
-    },
-    "attachment": "canopy"
-  },
-  {
-    "groups": [
-      {
-        "layer": "trees",
-        "zoom": {
-          "min": 18,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "natural",
-            "op": "=",
-            "value": "tree"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "marker-fill": "rgba(190,218,173,1)",
-      "marker-width": "2.5",
-      "marker-scale": [
-        "4",
+      "circle-fill": [
+        "rgba(190,218,173,1)",
+        "rgba(190,218,173,1)"
+      ],
+      "circle-width": [
+        "3",
         "6"
       ]
     },
@@ -401023,6 +400948,35 @@
       {
         "layer": "trees",
         "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "natural",
+            "op": "=",
+            "value": "tree"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "circle-fill": [
+        "rgba(190,218,173,1)",
+        "rgba(190,218,173,1)"
+      ],
+      "circle-width": [
+        "6",
+        "9"
+      ]
+    },
+    "attachment": "canopy"
+  },
+  {
+    "groups": [
+      {
+        "layer": "trees",
+        "zoom": {
           "min": 19,
           "max": 19
         },
@@ -401036,11 +400990,13 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(190,218,173,1)",
-      "marker-width": "2.5",
-      "marker-scale": [
-        "6",
-        "12"
+      "circle-fill": [
+        "rgba(190,218,173,1)",
+        "rgba(190,218,173,1)"
+      ],
+      "circle-width": [
+        "9",
+        "18"
       ]
     },
     "attachment": "canopy"
@@ -401063,36 +401019,16 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(190,218,173,1)",
-      "marker-width": "2.5",
-      "marker-scale": [
-        "12",
-        "12"
+      "circle-fill": [
+        "rgba(190,218,173,1)",
+        "rgba(190,218,173,1)"
+      ],
+      "circle-width": [
+        "18",
+        "18"
       ]
     },
     "attachment": "canopy"
-  },
-  {
-    "groups": [
-      {
-        "layer": "trees",
-        "zoom": {
-          "min": 16,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "natural",
-            "op": "=",
-            "value": "tree"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "trunk/marker-width": "2"
-    },
-    "attachment": "trunk"
   },
   {
     "groups": [
@@ -401112,10 +401048,13 @@
       }
     ],
     "paint": {
-      "trunk/marker-width": "2",
-      "trunk/marker-scale": [
-        "1",
-        "1.5"
+      "trunk/circle-width": [
+        "2",
+        "3"
+      ],
+      "trunk/circle-fill": [
+        "rgba(107,141,94,1)",
+        "rgba(107,141,94,1)"
       ]
     },
     "attachment": "trunk"
@@ -401138,10 +401077,13 @@
       }
     ],
     "paint": {
-      "trunk/marker-width": "2",
-      "trunk/marker-scale": [
-        "1.5",
-        "3"
+      "trunk/circle-width": [
+        "3",
+        "6"
+      ],
+      "trunk/circle-fill": [
+        "rgba(107,141,94,1)",
+        "rgba(107,141,94,1)"
       ]
     },
     "attachment": "trunk"
@@ -401164,37 +401106,14 @@
       }
     ],
     "paint": {
-      "trunk/marker-width": "2",
-      "trunk/marker-scale": [
-        "3",
-        "3"
+      "trunk/circle-width": [
+        "6",
+        "6"
+      ],
+      "trunk/circle-fill": [
+        "rgba(107,141,94,1)",
+        "rgba(107,141,94,1)"
       ]
-    },
-    "attachment": "trunk"
-  },
-  {
-    "groups": [
-      {
-        "layer": "trees",
-        "zoom": {
-          "min": 18,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "natural",
-            "op": "=",
-            "value": "tree"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "trunk/opacity": "0.4",
-      "trunk/marker-fill": "rgba(107,141,94,1)",
-      "trunk/marker-allow-overlap": "true",
-      "trunk/marker-line-width": "0",
-      "trunk/marker-ignore-placement": "true"
     },
     "attachment": "trunk"
   },

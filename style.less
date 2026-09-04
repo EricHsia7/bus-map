@@ -99,7 +99,7 @@
 @built-up-lowzoom: #f6f6f9;
 @residential: #f0f0f5;
 @retail: #ecedf4;
-@commercial: #ebf1f4;
+@commercial: #ebedf4;
 @industrial: #eff0f6;
 // @industrial-line: #bad4ee; // Also used for railway-line, wastewater_plant-line
 @farmland: #f2f2f2;
@@ -1128,13 +1128,11 @@
       --line-cap: round;
     }
     &#water-barriers-point:zoom(17) {
-      --marker-fill: @dam;
-      --marker-line-color: @dam-line;
-      --marker-line-width: 1;
-      --marker-width: 8;
-      --marker-scale: zoom-gradient(1 17z, 1.25 18z);
-      --marker-allow-overlap: true;
-      --marker-ignore-placement: true;
+      --line__circle-width: zoom-gradient(8 17z, 10 18z) + 1;
+      --line__circle-fill: @dam-line;
+
+      --fill__circle-width: zoom-gradient(8 17z, 10 18z);
+      --fill__circle-fill: @dam;
     }
   }
 
@@ -1144,14 +1142,12 @@
       --line-width: 2;
       --line-dasharray: 2, 2;
     }
+
     &#water-barriers-point:zoom(17) {
-      --marker-fill: @water-color;
-      --marker-line-color: @weir-line;
-      --marker-line-width: 1;
-      --marker-width: 8;
-      --marker-scale: zoom-gradient(1 17z, 1.25 18z);
-      --marker-allow-overlap: true;
-      --marker-ignore-placement: true;
+      --line__circle-fill: @weir-line;
+      --line__circle-width: zoom-gradient(8 17z, 10 18z) + 1;
+      --fill__circle-fill: @water-color;
+      --fill__circle-width: zoom-gradient(8 17z, 10 18z);
     }
   }
 
@@ -1161,12 +1157,8 @@
       --line-width: 2;
     }
     &#water-barriers-point:zoom(17) {
-      --marker-fill: @lock-gate;
-      --marker-line-width: 0;
-      --marker-width: 8;
-      --marker-scale: zoom-gradient(1 17z, 1.25 18z);
-      --marker-allow-overlap: true;
-      --marker-ignore-placement: true;
+      --circle-fill: @lock-gate;
+      --circle-width: zoom-gradient(8 17z, 10 18z);
     }
   }
 }
@@ -4892,17 +4884,17 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --marker-clip: false;
   }
 
-  &[feature='highway_bus_stop']:zoom(13) {
+  &[feature='highway_bus_stop']:zoom(14) {
     --marker-fill: @bus-stop;
     --marker-width: 6;
-    --marker-scale: zoom-gradient(0 13z, 1 15z);
+    --marker-scale: zoom-gradient(0 14z, 1 16z);
   }
 
-  &[feature='highway_bus_stop']:zoom(14) {
+  &[feature='highway_bus_stop']:zoom(16) {
     --text-name: '[name]';
     --text-face-name: @standard-font;
     --text-size: 10;
-    --text-scale: zoom-gradient(0.5 14z, 1 15z, 1.2 16z);
+    --text-scale: zoom-gradient(1 16z, 1.25 17z);
     --text-fill: darken(@bus-stop, 5%);
     --text-halo-radius: @standard-halo-radius;
     --text-halo-fill: @standard-halo-fill;
@@ -5043,23 +5035,15 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
   &[feature='amenity_fountain']:zoom(16) {
     &::basin {
-      &:zoom(17, 17) {
-        --marker-fill: @water-color;
-        --marker-allow-overlap: true;
-        --marker-line-width: 0;
-        --marker-width: 10;
-        --marker-ignore-placement: true;
+      &:zoom(17) {
+        --circle-fill: @water-color;
+        --circle-width: 10;
       }
     }
     &::nozzle {
-      --nozzle__marker-fill: zoom-gradient(@marina-text 17z 17z, @marina-text 18z);
-      &:zoom(17, 17) {
-        --nozzle__marker-line-width: 0;
+      &:zoom(17) {
+        --nozzle__marker-fill: @marina-text;
         --nozzle__marker-width: 3;
-      }
-      &:zoom(18) {
-        --nozzle__marker-file: "url('symbols/amenity/fountain.svg')";
-        --nozzle__marker-clip: false;
       }
     }
   }
@@ -7666,21 +7650,16 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --line-cap: round;
       --line-width: 1.5 * zoom-gradient(1, 2 17z, 4 18z, 6 19z, 12 20z);
     }
+
     &[natural='tree'] {
-      --marker-fill: darken(@park, 5%);
-      --marker-width: 2.5;
-      --marker-scale: zoom-gradient(1, 2 17z, 4 18z, 6 19z, 12 20z);
+      --circle-fill: darken(@park, 5%);
+      --circle-width: 1.5 * zoom-gradient(1, 2 17z, 4 18z, 6 19z, 12 20z);
     }
   }
   &[natural='tree']::trunk {
-    --trunk__marker-width: 2;
-    --trunk__marker-scale: zoom-gradient(1 18z, 1.5 19z, 3 20z);
     &:zoom(18) {
-      --trunk__opacity: 0.4;
-      --trunk__marker-fill: @forest-marker; // Same opacity and color as forest svg patterns
-      --trunk__marker-allow-overlap: true;
-      --trunk__marker-line-width: 0;
-      --trunk__marker-ignore-placement: true;
+      --trunk__circle-width: 2 * zoom-gradient(1 18z, 1.5 19z, 3 20z);
+      --trunk__circle-fill: @forest-marker;
     }
   }
 }
