@@ -160205,8 +160205,8 @@
       {
         "layer": "amenity-points",
         "zoom": {
-          "min": 13,
-          "max": 13
+          "min": 14,
+          "max": 14
         },
         "and": [
           {
@@ -160231,90 +160231,6 @@
       {
         "layer": "amenity-points",
         "zoom": {
-          "min": 14,
-          "max": 14
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_bus_stop"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "marker-fill": "rgba(21,140,255,1)",
-      "marker-width": "6",
-      "marker-scale": [
-        "0.5",
-        "1"
-      ]
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "amenity-points",
-        "zoom": {
-          "min": 15,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_bus_stop"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "marker-fill": "rgba(21,140,255,1)",
-      "marker-width": "6",
-      "marker-scale": [
-        "1",
-        "1"
-      ]
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "amenity-points",
-        "zoom": {
-          "min": 14,
-          "max": 14
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_bus_stop"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "text-name": "'[name]'",
-      "text-face-name": "'Noto Sans TC', sans-serif",
-      "text-size": "10",
-      "text-scale": [
-        "0.5",
-        "1"
-      ],
-      "text-fill": "rgba(0,127,251,1)",
-      "text-halo-radius": "1.5",
-      "text-halo-fill": "rgba(255,255,255,0.9)",
-      "text-wrap-width": "50",
-      "text-line-spacing": "-1.5"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "amenity-points",
-        "zoom": {
           "min": 15,
           "max": 15
         },
@@ -160328,18 +160244,12 @@
       }
     ],
     "paint": {
-      "text-name": "'[name]'",
-      "text-face-name": "'Noto Sans TC', sans-serif",
-      "text-size": "10",
-      "text-scale": [
-        "1",
-        "1.2"
-      ],
-      "text-fill": "rgba(0,127,251,1)",
-      "text-halo-radius": "1.5",
-      "text-halo-fill": "rgba(255,255,255,0.9)",
-      "text-wrap-width": "50",
-      "text-line-spacing": "-1.5"
+      "marker-fill": "rgba(21,140,255,1)",
+      "marker-width": "6",
+      "marker-scale": [
+        "0.5",
+        "1"
+      ]
     }
   },
   {
@@ -160360,12 +160270,70 @@
       }
     ],
     "paint": {
+      "marker-fill": "rgba(21,140,255,1)",
+      "marker-width": "6",
+      "marker-scale": [
+        "1",
+        "1"
+      ]
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "amenity-points",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_bus_stop"
+          }
+        ]
+      }
+    ],
+    "paint": {
       "text-name": "'[name]'",
       "text-face-name": "'Noto Sans TC', sans-serif",
       "text-size": "10",
       "text-scale": [
-        "1.2",
-        "1.2"
+        "1",
+        "1.25"
+      ],
+      "text-fill": "rgba(0,127,251,1)",
+      "text-halo-radius": "1.5",
+      "text-halo-fill": "rgba(255,255,255,0.9)",
+      "text-wrap-width": "50",
+      "text-line-spacing": "-1.5"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "amenity-points",
+        "zoom": {
+          "min": 17,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_bus_stop"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "text-name": "'[name]'",
+      "text-face-name": "'Noto Sans TC', sans-serif",
+      "text-size": "10",
+      "text-scale": [
+        "1.25",
+        "1.25"
       ],
       "text-fill": "rgba(0,127,251,1)",
       "text-halo-radius": "1.5",
@@ -161033,14 +161001,8 @@
       }
     ],
     "paint": {
-      "nozzle/circle-fill": [
-        "rgba(87,109,223,1)",
-        "rgba(87,109,223,1)"
-      ],
-      "nozzle/circle-width": [
-        "3",
-        "3"
-      ]
+      "nozzle/marker-fill": "rgba(87,109,223,1)",
+      "nozzle/marker-width": "3"
     },
     "attachment": "nozzle"
   },

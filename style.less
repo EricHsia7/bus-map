@@ -4890,17 +4890,17 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --marker-clip: false;
   }
 
-  &[feature='highway_bus_stop']:zoom(13) {
+  &[feature='highway_bus_stop']:zoom(14) {
     --marker-fill: @bus-stop;
     --marker-width: 6;
-    --marker-scale: zoom-gradient(0 13z, 1 15z);
+    --marker-scale: zoom-gradient(0 14z, 1 16z);
   }
 
-  &[feature='highway_bus_stop']:zoom(14) {
+  &[feature='highway_bus_stop']:zoom(16) {
     --text-name: '[name]';
     --text-face-name: @standard-font;
     --text-size: 10;
-    --text-scale: zoom-gradient(0.5 14z, 1 15z, 1.2 16z);
+    --text-scale: zoom-gradient(1 16z, 1.25 17z);
     --text-fill: darken(@bus-stop, 5%);
     --text-halo-radius: @standard-halo-radius;
     --text-halo-fill: @standard-halo-fill;
@@ -5048,8 +5048,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
     &::nozzle {
       &:zoom(17) {
-        --nozzle__circle-fill: @marina-text;
-        --nozzle__circle-width: 3;
+        --nozzle__marker-fill: @marina-text;
+        --nozzle__marker-width: 3;
       }
     }
   }
