@@ -1272,7 +1272,7 @@
 @access-marking-secondary: #e2e3e4;
 @access-marking-white-unpaved: #e0e0e1;
 
-@aeroway-fill: #cbcbce;
+@aeroway-fill: #dadde7;
 
 @bus-guideway-fill: #6699ff;
 @bus-guideway-tunnel-fill: lighten(desaturate(@bus-guideway-fill, 20%), 8%);
@@ -1447,29 +1447,29 @@
 @road-scale: zoom-gradient(0.035, 0.055 8z, 0.075 10z, 0.28 12z, 0.55 14z, 0.85 16z, 1.18 18z, 1.62 20z);
 @runway-scale: zoom-gradient(1, 1.5 15z, 2 16z);
 @taxiway-scale: zoom-gradient(1, 1.5 15z, 2 16z);
-@footway-scale: zoom-gradient(3.9 14z, 3.6 15z, 2.9 16z, 1.65 18z, 1 19z);
+@footway-scale: zoom-gradient(0 16z, 2.9 17z, 1.65 18z, 1 19z);
 @cycleway-scale: zoom-gradient(2.16 13z, 1.94 14z, 1.72 15z, 1.3 16z, 1 18z, 0.86 19z);
 @access-marking-scale: zoom-gradient((0.632 / 0.176) 15z, (0.52 / 0.176) 16z 17z, (0.288 / 0.176) 18z, 1 19z);
 
 // Reference widths
-@motorway-width: 10;
-@motorway-link-width: 7;
-@trunk-width: 8.6;
-@trunk-link-width: 6;
-@primary-width: 7.4;
-@primary-link-width: 5.2;
-@secondary-width: 6.2;
-@secondary-link-width: 4.3;
-@tertiary-width: 5.2;
-@tertiary-link-width: 3.6;
-@residential-width: 4.4;
-@road-width: 4.4;
-@living-street-width: 4;
-@pedestrian-width: 3.4;
-@service-width: 2.6;
-@minor-service-width: 1.9;
-@runway-width: 12;
-@taxiway-width: 4;
+@motorway-width: 11;
+@motorway-link-width: 8;
+@trunk-width: 9.6;
+@trunk-link-width: 7;
+@primary-width: 8.4;
+@primary-link-width: 6.2;
+@secondary-width: 7.2;
+@secondary-link-width: 5.3;
+@tertiary-width: 6.2;
+@tertiary-link-width: 4.6;
+@residential-width: 5.4;
+@road-width: 5.4;
+@living-street-width: 5;
+@pedestrian-width: 4.4;
+@service-width: 3.6;
+@minor-service-width: 2.9;
+@runway-width: 13;
+@taxiway-width: 5;
 @bridleway-width: 0.4;
 @footway-width: 0.4;
 @cycleway-width: 0.5;
@@ -1847,24 +1847,6 @@
       }
     }
 
-    // &[feature='highway_footway'] {
-    //   &#bridges {
-    //     &:not([access='no']):zoom(14),
-    //     &:zoom(15) {
-    //       --line-width: @footway-width * @footway-scale + 2 * (@paths-background-width + @paths-bridge-casing-width);
-    //       --line-color: @bridge-casing;
-    //       --line-join: round;
-    //     }
-    //   }
-    //   &#tunnels {
-    //     &:not([access='no']):zoom(14),
-    //     &:zoom(15) {
-    //       --line-width: @footway-width * @footway-scale + 2 * (@paths-background-width + @paths-tunnel-casing-width);
-    //       --line-color: @tunnel-casing;
-    //     }
-    //   }
-    // }
-
     // &[feature='highway_cycleway'] {
     //   &#bridges {
     //     &:not([access='no']):zoom(14),
@@ -2053,26 +2035,6 @@
         }
       }
     }
-
-    // &[feature='highway_footway'] {
-    //   &#bridges {
-    //     &:not([access='no']):zoom(14),
-    //     &:zoom(15) {
-    //       --line-width: @footway-width * @footway-scale + 2 * @paths-background-width;
-    //       --line-color: @footway-casing;
-    //       --line-join: round;
-    //     }
-    //   }
-    //   &#tunnels {
-    //     &:not([access='no']):zoom(14),
-    //     &:zoom(15) {
-    //       --line-color: zoom-gradient(lighten(@footway-fill, 22%) 14z, lighten(@footway-fill, 10%) 15z, @footway-fill 16z);
-    //       --line-cap: round;
-    //       --line-join: round;
-    //       --line-width: @footway-width * @footway-scale + 2 * @paths-background-width;
-    //     }
-    //   }
-    // }
 
     // &[feature='highway_cycleway'] {
     //   &#bridges {
@@ -2758,7 +2720,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --line-cap: butt;
       --line-width: @footway-width * @footway-scale;
 
-      --line-color: zoom-gradient(lighten(@footway-fill, 11%) 16z, @footway-fill 17z);
+      --line-color: zoom-gradient(lighten(@footway-fill, 5%) 16z, @footway-fill 17z);
       &[access='no'] {
         --line-color: @footway-fill-noaccess;
       }
@@ -4538,7 +4500,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 }
 // Buildings
 
-@building-fill: #e5e5ea;
+@building-fill: #e0e3eb;
 @building-line: darken(@building-fill, 3%);
 
 // Zoom shades: same hue, progressively more contrast against @land-color.
@@ -7657,15 +7619,15 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
 #trees:zoom(16) {
   &::canopy {
-    &[natural='tree_row'] {
-      --line-color: darken(@park, 5%);
-      --line-cap: round;
-      --line-width: 1.5 * zoom-gradient(0 16z, 2 17z, 4 18z, 6 19z, 12 20z);
-    }
+    // &[natural='tree_row'] {
+    //   --line-color: darken(@park, 5%);
+    //   --line-cap: round;
+    //   --line-width: 2 * zoom-gradient(0 16z, 2 17z, 4 18z, 6 19z, 12 20z);
+    // }
 
     &[natural='tree'] {
       --circle-fill: darken(@park, 5%);
-      --circle-width: 1.5 * zoom-gradient(0 16z, 2 17z, 4 18z, 6 19z, 12 20z);
+      --circle-width: 2 * zoom-gradient(0 16z, 2 17z, 4 18z, 6 19z, 12 20z);
     }
   }
   &[natural='tree']::trunk {
