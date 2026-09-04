@@ -23,13 +23,11 @@
       --line-cap: round;
     }
     &#water-barriers-point:zoom(17) {
-      --marker-fill: @dam;
-      --marker-line-color: @dam-line;
-      --marker-line-width: 1;
-      --marker-width: 8;
-      --marker-scale: zoom-gradient(1 17z, 1.25 18z);
-      --marker-allow-overlap: true;
-      --marker-ignore-placement: true;
+      --line__circle-width: zoom-gradient(8 17z, 10 18z) + 1;
+      --line__circle-fill: @dam-line;
+
+      --fill__circle-width: zoom-gradient(8 17z, 10 18z);
+      --fill__circle-fill: @dam;
     }
   }
 
@@ -54,12 +52,8 @@
       --line-width: 2;
     }
     &#water-barriers-point:zoom(17) {
-      --marker-fill: @lock-gate;
-      --marker-line-width: 0;
-      --marker-width: 8;
-      --marker-scale: zoom-gradient(1 17z, 1.25 18z);
-      --marker-allow-overlap: true;
-      --marker-ignore-placement: true;
+      --circle-fill: @lock-gate;
+      --circle-width: zoom-gradient(8 17z, 10 18z);
     }
   }
 }

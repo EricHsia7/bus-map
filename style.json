@@ -18300,16 +18300,22 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(174,174,178,1)",
-      "marker-line-color": "rgba(158,158,163,1)",
-      "marker-line-width": "1",
-      "marker-width": "8",
-      "marker-scale": [
-        "1",
-        "1.25"
+      "line/circle-width": [
+        "9",
+        "11"
       ],
-      "marker-allow-overlap": "true",
-      "marker-ignore-placement": "true"
+      "line/circle-fill": [
+        "rgba(158,158,163,1)",
+        "rgba(158,158,163,1)"
+      ],
+      "fill/circle-width": [
+        "8",
+        "10"
+      ],
+      "fill/circle-fill": [
+        "rgba(174,174,178,1)",
+        "rgba(174,174,178,1)"
+      ]
     }
   },
   {
@@ -18330,16 +18336,22 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(174,174,178,1)",
-      "marker-line-color": "rgba(158,158,163,1)",
-      "marker-line-width": "1",
-      "marker-width": "8",
-      "marker-scale": [
-        "1.25",
-        "1.25"
+      "line/circle-width": [
+        "11",
+        "11"
       ],
-      "marker-allow-overlap": "true",
-      "marker-ignore-placement": "true"
+      "line/circle-fill": [
+        "rgba(158,158,163,1)",
+        "rgba(158,158,163,1)"
+      ],
+      "fill/circle-width": [
+        "10",
+        "10"
+      ],
+      "fill/circle-fill": [
+        "rgba(174,174,178,1)",
+        "rgba(174,174,178,1)"
+      ]
     }
   },
   {
@@ -18489,15 +18501,14 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(174,174,178,1)",
-      "marker-line-width": "0",
-      "marker-width": "8",
-      "marker-scale": [
-        "1",
-        "1.25"
+      "circle-fill": [
+        "rgba(174,174,178,1)",
+        "rgba(174,174,178,1)"
       ],
-      "marker-allow-overlap": "true",
-      "marker-ignore-placement": "true"
+      "circle-width": [
+        "8",
+        "10"
+      ]
     }
   },
   {
@@ -18518,15 +18529,14 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(174,174,178,1)",
-      "marker-line-width": "0",
-      "marker-width": "8",
-      "marker-scale": [
-        "1.25",
-        "1.25"
+      "circle-fill": [
+        "rgba(174,174,178,1)",
+        "rgba(174,174,178,1)"
       ],
-      "marker-allow-overlap": "true",
-      "marker-ignore-placement": "true"
+      "circle-width": [
+        "10",
+        "10"
+      ]
     }
   },
   {
