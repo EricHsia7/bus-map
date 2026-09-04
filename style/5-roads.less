@@ -218,8 +218,8 @@
 @minor-service-width: 1.9;
 @runway-width: 12;
 @taxiway-width: 4;
-@bridleway-width: 0.22;
-@footway-width: 0.176;
+@bridleway-width: 0.4;
+@footway-width: 0.4;
 @cycleway-width: 0.5;
 
 // Casing
@@ -1501,17 +1501,16 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
     &[feature='highway_footway']:zoom(16) {
       --line-join: round;
-
+      --line-cap: butt;
       --line-width: @footway-width * @footway-scale;
-
-      &:zoom(17) {
-        --line-cap: butt;
-        --line-dasharray: 6 9;
-      }
 
       --line-color: zoom-gradient(lighten(@footway-fill, 11%) 16z, @footway-fill 17z);
       &[access='no'] {
         --line-color: @footway-fill-noaccess;
+      }
+
+      &:zoom(17) {
+        --line-dasharray: 6 9;
       }
     }
 
@@ -1651,25 +1650,26 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
             // one property a rail line should have -- reading as continuous
             // track. Casing + core keeps the ladder-like double edge at a
             // glance and survives being 2px wide.
-            &:zoom(14) {
-              --light__line-color: @white;
+            &:zoom(15) {
+              --light__line-color: zoom-gradient(@rail-line-dark 15z, @white 16z);
               --light__line-join: round;
-              --light__line-width: zoom-gradient(0.75, 1 13z 17z, 2 18z);
+              --light__line-width: zoom-gradient(0 15z, 1 16z, 2 18z);
             }
           }
           &[feature='railway_INT-spur-siding-yard'] {
             --dark__line-width: zoom-gradient(2, 3 18z);
             --dark__line-color: @rail-line-light;
             &:zoom(16) {
-              --light__line-width: zoom-gradient(0.8, 1 18z);
+              --light__line-color: zoom-gradient(@rail-line-light 16z, @white 18z);
+              --light__line-width: zoom-gradient(0 16z, 1 18z);
             }
           }
           &[preserved='yes'] {
             --dark__line-width: 3;
             --dark__line-color: @rail-line-dark;
             &:zoom(16) {
-              --light__line-width: 1;
-              --light__line-color: @white;
+              --light__line-width: zoom-gradient(0 16z, 1 18z);
+              --light__line-color: zoom-gradient(@rail-line-dark 16z, @white 18z);
             }
           }
         }
@@ -1728,12 +1728,14 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       &:zoom(15) {
         --line__line-width: 3;
         --line__line-color: @rail-line-light;
-        --core__line-width: 1;
-        --core__line-color: @white;
+
+        --core__line-width: zoom-gradient(0 15z, 1 16z);
         --core__line-join: round;
+        --core__line-color: zoom-gradient(@rail-line-light 15z, @white 16z);
 
         &[preserved='yes'] {
           --line__line-color: @rail-line-lighter;
+          --core__line-color: zoom-gradient(@rail-line-lighter 15z, @white 16z);
         }
       }
     }

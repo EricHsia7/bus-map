@@ -21,11 +21,6 @@
 @farmland: #f2f2f2;
 @farmyard: #ededed;
 
-// line width used for faint outline of larger landuses, i.e. where outline is not an
-// intrinsic part of design. Should not appear at lower zoom levels than typical barriers
-// and needs to be sufficiently narrow that it does not interfere with barrier render.
-@landuse-faint-outline-width: 0.3;
-
 // Transport
 @transportation-area: #edf0f7;
 @apron: #dadae0;
@@ -58,7 +53,7 @@
 @wastewater_plant: @industrial;
 @water_works: @industrial;
 
-@prison: #8e8e8e;
+@prison: #d6d6da;
 @prison-line: darken(@prison, 4%);
 @landfill: #e6e6e6;
 @emergency-area: #f3e3dd;
@@ -71,6 +66,8 @@
 @track: darken(@pitch, 7%);
 @stadium: @leisure;
 @golf_course: @campsite;
+
+@landcover-outline-width: 0.35;
 
 #landcover-low-zoom:zoom(1, 9)::low-zoom,
 #landcover:zoom(10)::high-zoom {
@@ -133,7 +130,7 @@
   // &[feature='power_substation']:zoom(13) {
   //  --polygon-fill: zoom-gradient(@built-up-lowzoom, @industrial 13z 14z, @power 15z);
   //  &:zoom(16) {
-  //    --line-width: @landuse-faint-outline-width;
+  //    --line-width: @landcover-outline-width;
   //    --line-color: @power-line;
   //  }
   // }
@@ -171,9 +168,11 @@
   &[feature='amenity_prison']:zoom(14) {
     --polygon-fill: @prison;
     --polygon-opacity: 0.14;
-    --line-color: @prison-line;
-    --line-width: 1.8;
-    --line-opacity: 0.329;
+    &:zoom(16) {
+      --line-color: @prison-line;
+      --line-width: zoom-gradient(0 16z, @landcover-outline-width 17z);
+      --line-opacity: 0.329;
+    }
   }
 
   &[feature='amenity_hospital'],
@@ -236,9 +235,9 @@
   &[feature='tourism_picnic_site'] {
     &:zoom(10) {
       --polygon-fill: @campsite;
-      &:zoom(13) {
+      &:zoom(16) {
         --line-color: darken(@campsite, 3.8%);
-        --line-width: 0.3;
+        --line-width: zoom-gradient(0 16z, @landcover-outline-width 17z);
       }
     }
   }
@@ -269,9 +268,9 @@
 
   &[feature='landuse_recreation_ground']:zoom(10) {
     --polygon-fill: @leisure;
-    &:zoom(15) {
+    &:zoom(16) {
       --line-color: darken(@leisure, 15%);
-      --line-width: 0.3;
+      --line-width: zoom-gradient(0 16z, @landcover-outline-width 17z);
     }
   }
 
@@ -280,8 +279,8 @@
   &[feature='leisure_stadium'] {
     &:zoom(10) {
       --polygon-fill: @stadium;
-      &:zoom(15) {
-        --line-width: 0.3;
+      &:zoom(16) {
+        --line-width: zoom-gradient(0 16z, @landcover-outline-width 17z);
         --line-color: darken(@stadium, 8.8%);
       }
     }
@@ -403,24 +402,24 @@
   &[feature='leisure_playground']:zoom(13),
   &[feature='leisure_fitness_station']:zoom(13) {
     --polygon-fill: @leisure;
-    &:zoom(15) {
+    &:zoom(16) {
+      --line-width: zoom-gradient(0 16z, @landcover-outline-width 17z);
       --line-color: darken(@leisure, 15%);
-      --line-width: 0.3;
     }
   }
 
   &[feature='leisure_pitch']:zoom(10) {
     --polygon-fill: @pitch;
-    &:zoom(15) {
-      --line-width: 0.3;
+    &:zoom(16) {
+      --line-width: zoom-gradient(0 16z, @landcover-outline-width 17z);
       --line-color: darken(@pitch, 5%);
     }
   }
 
   &[feature='leisure_track']:zoom(10) {
     --polygon-fill: @track;
-    &:zoom(15) {
-      --line-width: 0.3;
+    &:zoom(16) {
+      --line-width: zoom-gradient(0 16z, @landcover-outline-width 17z);
       --line-color: darken(@track, 5%);
     }
   }
@@ -428,8 +427,10 @@
   &[feature='leisure_ice_rink'] {
     &:zoom(10) {
       --polygon-fill: @glacier;
-      --line-width: 0.3;
-      --line-color: darken(@pitch, 3%);
+      &:zoom(16) {
+        --line-width: zoom-gradient(0 16z, @landcover-outline-width 17z);
+        --line-color: darken(@pitch, 3%);
+      }
     }
   }
 

@@ -60,7 +60,7 @@ function instanceToDescriptors(props) {
   }
 
   // line stroke (solid)
-  if (has('line-color') || has('line-width')) {
+  if (has('line-width')) {
     const styleProperties = {};
     // line-color -> palette
     styleProperties['palette'] = stringPair(props['line-color']) || ['rgba(0,0,0,1)', 'rgba(0,0,0,1)'];
@@ -92,7 +92,7 @@ function instanceToDescriptors(props) {
     styleProperties['palette'] = stringPair(props['circle-fill']) || ['rgba(0,0,0,1)', 'rgba(0,0,0,1)'];
 
     // circle-opacity -> palette-opacity
-    if (has('palette-opacity')) styleProperties['palette-opacity'] = numberPair(props['circle-width']);
+    if (has('circle-opacity')) styleProperties['palette-opacity'] = num(props['circle-opacity']);
 
     // opacity -> opacity
     if (has('opacity')) styleProperties['opacity'] = num(props['opacity']);

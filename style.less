@@ -105,11 +105,6 @@
 @farmland: #f2f2f2;
 @farmyard: #ededed;
 
-// line width used for faint outline of larger landuses, i.e. where outline is not an
-// intrinsic part of design. Should not appear at lower zoom levels than typical barriers
-// and needs to be sufficiently narrow that it does not interfere with barrier render.
-@landuse-faint-outline-width: 0.3;
-
 // Transport
 @transportation-area: #edf0f7;
 @apron: #dadae0;
@@ -142,7 +137,7 @@
 @wastewater_plant: @industrial;
 @water_works: @industrial;
 
-@prison: #8e8e8e;
+@prison: #d6d6da;
 @prison-line: darken(@prison, 4%);
 @landfill: #e6e6e6;
 @emergency-area: #f3e3dd;
@@ -155,6 +150,8 @@
 @track: darken(@pitch, 7%);
 @stadium: @leisure;
 @golf_course: @campsite;
+
+@landcover-outline-width: 0.35;
 
 #landcover-low-zoom:zoom(1, 9)::low-zoom,
 #landcover:zoom(10)::high-zoom {
@@ -217,7 +214,7 @@
   // &[feature='power_substation']:zoom(13) {
   //  --polygon-fill: zoom-gradient(@built-up-lowzoom, @industrial 13z 14z, @power 15z);
   //  &:zoom(16) {
-  //    --line-width: @landuse-faint-outline-width;
+  //    --line-width: @landcover-outline-width;
   //    --line-color: @power-line;
   //  }
   // }
@@ -255,9 +252,11 @@
   &[feature='amenity_prison']:zoom(14) {
     --polygon-fill: @prison;
     --polygon-opacity: 0.14;
-    --line-color: @prison-line;
-    --line-width: 1.8;
-    --line-opacity: 0.329;
+    &:zoom(16) {
+      --line-color: @prison-line;
+      --line-width: zoom-gradient(0 16z, @landcover-outline-width 17z);
+      --line-opacity: 0.329;
+    }
   }
 
   &[feature='amenity_hospital'],
@@ -320,9 +319,9 @@
   &[feature='tourism_picnic_site'] {
     &:zoom(10) {
       --polygon-fill: @campsite;
-      &:zoom(13) {
+      &:zoom(16) {
         --line-color: darken(@campsite, 3.8%);
-        --line-width: 0.3;
+        --line-width: zoom-gradient(0 16z, @landcover-outline-width 17z);
       }
     }
   }
@@ -353,9 +352,9 @@
 
   &[feature='landuse_recreation_ground']:zoom(10) {
     --polygon-fill: @leisure;
-    &:zoom(15) {
+    &:zoom(16) {
       --line-color: darken(@leisure, 15%);
-      --line-width: 0.3;
+      --line-width: zoom-gradient(0 16z, @landcover-outline-width 17z);
     }
   }
 
@@ -364,8 +363,8 @@
   &[feature='leisure_stadium'] {
     &:zoom(10) {
       --polygon-fill: @stadium;
-      &:zoom(15) {
-        --line-width: 0.3;
+      &:zoom(16) {
+        --line-width: zoom-gradient(0 16z, @landcover-outline-width 17z);
         --line-color: darken(@stadium, 8.8%);
       }
     }
@@ -487,24 +486,24 @@
   &[feature='leisure_playground']:zoom(13),
   &[feature='leisure_fitness_station']:zoom(13) {
     --polygon-fill: @leisure;
-    &:zoom(15) {
+    &:zoom(16) {
+      --line-width: zoom-gradient(0 16z, @landcover-outline-width 17z);
       --line-color: darken(@leisure, 15%);
-      --line-width: 0.3;
     }
   }
 
   &[feature='leisure_pitch']:zoom(10) {
     --polygon-fill: @pitch;
-    &:zoom(15) {
-      --line-width: 0.3;
+    &:zoom(16) {
+      --line-width: zoom-gradient(0 16z, @landcover-outline-width 17z);
       --line-color: darken(@pitch, 5%);
     }
   }
 
   &[feature='leisure_track']:zoom(10) {
     --polygon-fill: @track;
-    &:zoom(15) {
-      --line-width: 0.3;
+    &:zoom(16) {
+      --line-width: zoom-gradient(0 16z, @landcover-outline-width 17z);
       --line-color: darken(@track, 5%);
     }
   }
@@ -512,8 +511,10 @@
   &[feature='leisure_ice_rink'] {
     &:zoom(10) {
       --polygon-fill: @glacier;
-      --line-width: 0.3;
-      --line-color: darken(@pitch, 3%);
+      &:zoom(16) {
+        --line-width: zoom-gradient(0 16z, @landcover-outline-width 17z);
+        --line-color: darken(@pitch, 3%);
+      }
     }
   }
 
@@ -1469,8 +1470,8 @@
 @minor-service-width: 1.9;
 @runway-width: 12;
 @taxiway-width: 4;
-@bridleway-width: 0.22;
-@footway-width: 0.176;
+@bridleway-width: 0.4;
+@footway-width: 0.4;
 @cycleway-width: 0.5;
 
 // Casing
@@ -2752,17 +2753,16 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
     &[feature='highway_footway']:zoom(16) {
       --line-join: round;
-
+      --line-cap: butt;
       --line-width: @footway-width * @footway-scale;
-
-      &:zoom(17) {
-        --line-cap: butt;
-        --line-dasharray: 6 9;
-      }
 
       --line-color: zoom-gradient(lighten(@footway-fill, 11%) 16z, @footway-fill 17z);
       &[access='no'] {
         --line-color: @footway-fill-noaccess;
+      }
+
+      &:zoom(17) {
+        --line-dasharray: 6 9;
       }
     }
 
@@ -2902,25 +2902,26 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
             // one property a rail line should have -- reading as continuous
             // track. Casing + core keeps the ladder-like double edge at a
             // glance and survives being 2px wide.
-            &:zoom(14) {
-              --light__line-color: @white;
+            &:zoom(15) {
+              --light__line-color: zoom-gradient(@rail-line-dark 15z, @white 16z);
               --light__line-join: round;
-              --light__line-width: zoom-gradient(0.75, 1 13z 17z, 2 18z);
+              --light__line-width: zoom-gradient(0 15z, 1 16z, 2 18z);
             }
           }
           &[feature='railway_INT-spur-siding-yard'] {
             --dark__line-width: zoom-gradient(2, 3 18z);
             --dark__line-color: @rail-line-light;
             &:zoom(16) {
-              --light__line-width: zoom-gradient(0.8, 1 18z);
+              --light__line-color: zoom-gradient(@rail-line-light 16z, @white 18z);
+              --light__line-width: zoom-gradient(0 16z, 1 18z);
             }
           }
           &[preserved='yes'] {
             --dark__line-width: 3;
             --dark__line-color: @rail-line-dark;
             &:zoom(16) {
-              --light__line-width: 1;
-              --light__line-color: @white;
+              --light__line-width: zoom-gradient(0 16z, 1 18z);
+              --light__line-color: zoom-gradient(@rail-line-dark 16z, @white 18z);
             }
           }
         }
@@ -2979,12 +2980,14 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       &:zoom(15) {
         --line__line-width: 3;
         --line__line-color: @rail-line-light;
-        --core__line-width: 1;
-        --core__line-color: @white;
+
+        --core__line-width: zoom-gradient(0 15z, 1 16z);
         --core__line-join: round;
+        --core__line-color: zoom-gradient(@rail-line-light 15z, @white 16z);
 
         &[preserved='yes'] {
           --line__line-color: @rail-line-lighter;
+          --core__line-color: zoom-gradient(@rail-line-lighter 15z, @white 16z);
         }
       }
     }
@@ -4553,17 +4556,15 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --polygon-fill: zoom-gradient(@building-fill-z15 15z, @building-major-fill 16z);
       &:zoom(16) {
         --line-color: @building-major-line;
-        --line-width: @building-outline-width;
+        --line-width: zoom-gradient(0 16z, @building-outline-width 17z);
       }
     }
   }
 
   &:zoom(16) {
     --polygon-fill: zoom-gradient(@building-fill-z15 15z, @building-fill 16z);
-    &:zoom(17) {
-      --line-color: @building-line;
-      --line-width: @building-outline-width;
-    }
+    --line-color: @building-line;
+    --line-width: zoom-gradient(0 16z, @building-outline-width 17z);
   }
 }
 

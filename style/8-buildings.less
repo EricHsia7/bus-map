@@ -29,17 +29,15 @@
       --polygon-fill: zoom-gradient(@building-fill-z15 15z, @building-major-fill 16z);
       &:zoom(16) {
         --line-color: @building-major-line;
-        --line-width: @building-outline-width;
+        --line-width: zoom-gradient(0 16z, @building-outline-width 17z);
       }
     }
   }
 
   &:zoom(16) {
     --polygon-fill: zoom-gradient(@building-fill-z15 15z, @building-fill 16z);
-    &:zoom(17) {
-      --line-color: @building-line;
-      --line-width: @building-outline-width;
-    }
+    --line-color: @building-line;
+    --line-width: zoom-gradient(0 16z, @building-outline-width 17z);
   }
 }
 
