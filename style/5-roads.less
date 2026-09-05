@@ -110,7 +110,7 @@
 @track-low-zoom-noaccess: @track-low-zoom;
 
 /* Designated walking paths, sidewalks, or footbridges. */
-@footway-fill: #8f9298;
+@footway-fill: #abb6c4; // #8f9298;
 @footway-fill-noaccess: @footway-fill;
 @footway-casing: darken(@footway-fill, 3%);
 @footway-low-zoom: lighten(@footway-fill, 10%);
@@ -190,7 +190,7 @@
 // Scale gradients
 @motorway-scale: zoom-gradient(0.04, 0.06 8z, 0.09 10z, 0.19 11z, 0.36 12z, 0.55 14z, 1 17z, 1.28 19z, 1.45 21z);
 @arterial-scale: zoom-gradient(0.045, 0.07 8z, 0.1 10z, 0.2 11z, 0.38 12z, 0.56 14z, 1 17z, 1.32 19z, 1.55 21z);
-@minor-scale: zoom-gradient(0.05, 0.09 10z, 0.32 12z, 0.58 14z, 1 17z, 1.42 19z, 1.72 21z);
+@minor-scale: zoom-gradient(0, 0.04 10z, 0.05 12z, 0.1 14z, 0.32 15z, 1 17z, 1.42 19z, 1.72 21z);
 @service-scale: zoom-gradient(0.5, 0.62 15z, 0.78 16z, 1 17z, 1.5 19z, 1.9 21z);
 @road-scale: zoom-gradient(0.035, 0.055 8z, 0.075 10z, 0.28 12z, 0.55 14z, 0.85 16z, 1.18 18z, 1.62 20z);
 @runway-scale: zoom-gradient(1, 1.5 15z, 2 16z);
@@ -2409,7 +2409,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-scale: zoom-gradient(1 13z 14z, (7 / 6) 15z 16z, 1.5 17z, (11 / 6) 18z);
     &:zoom(13) {
       --text-name: '[name]';
-      --text-fill: @standard-text-fill;
       --text-spacing: 300;
       --text-clip: false;
       --text-placement: line;
@@ -2418,13 +2417,16 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       &[tunnel='no'] {
         --text-halo-radius: @standard-halo-radius;
         &[highway='motorway'] {
-          --text-halo-fill: @motorway-fill;
+          --text-fill: darken(@motorway-fill, 25%);
+          --text-halo-fill: @strong-halo-fill;
         }
         &[highway='trunk'] {
-          --text-halo-fill: @trunk-fill;
+          --text-fill: darken(@trunk-fill, 25%);
+          --text-halo-fill: @strong-halo-fill;
         }
         &[highway='primary'] {
-          --text-halo-fill: @primary-fill;
+          --text-fill: darken(@primary-fill, 25%);
+          --text-halo-fill: @strong-halo-fill;
         }
       }
     }
@@ -2437,13 +2439,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-scale: zoom-gradient(1 13z 15z, (7 / 6) 16z, (8 / 6) 17z, (10 / 6) 18z, (11 / 6) 19z);
     &:zoom(13) {
       --text-name: '[name]';
-      --text-fill: @standard-text-fill;
+      --text-fill: darken(@secondary-fill, 25%);
       --text-spacing: 300;
       --text-clip: false;
       --text-placement: line;
       --text-face-name: @book-fonts;
       --text-halo-radius: @standard-halo-radius;
-      --text-halo-fill: @secondary-fill;
+      --text-halo-fill: @standard-halo-fill;
       --text-repeat-distance: @major-highway-text-repeat-distance;
     }
   }
@@ -2455,13 +2457,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-scale: zoom-gradient(1 14z 16z, (7 / 6) 17z, 1.5 18z, (11 / 6) 19z);
     &:zoom(14) {
       --text-name: '[name]';
-      --text-fill: @standard-text-fill;
+      --text-fill: darken(@tertiary-fill, 25%);
       --text-spacing: 300;
       --text-clip: false;
       --text-placement: line;
       --text-face-name: @book-fonts;
       --text-halo-radius: @standard-halo-radius;
-      --text-halo-fill: @tertiary-fill;
+      --text-halo-fill: @standard-halo-fill;
       --text-repeat-distance: @major-highway-text-repeat-distance;
     }
   }
@@ -2492,11 +2494,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-spacing: zoom-gradient(300 15z 16z, 400 17z 18z, 400 19z);
     &:zoom(15) {
       --text-name: '[name]';
-      --text-fill: @standard-text-fill;
+      --text-fill: darken(@residential-fill, 25%);
       --text-clip: false;
       --text-placement: line;
       --text-halo-radius: @standard-halo-radius;
-      --text-halo-fill: @residential-fill;
+      --text-halo-fill: @standard-halo-fill;
       --text-face-name: @book-fonts;
       --text-repeat-distance: @minor-highway-text-repeat-distance;
       &[highway='unclassified'] {
@@ -2515,16 +2517,16 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-scale: zoom-gradient(1 16z);
     &:zoom(16) {
       --text-name: '[name]';
-      --text-fill: @standard-text-fill;
       --text-spacing: 300;
       --text-clip: false;
       --text-placement: line;
       --text-halo-radius: @standard-halo-radius;
+      --text-halo-fill: @standard-halo-fill;
       &[highway='raceway'] {
-        --text-halo-fill: @raceway-fill;
+        --text-fill: darken(@raceway-fill, 25%);
       }
       &[highway='service'] {
-        --text-halo-fill: @service-fill;
+        --text-fill: darken(@service-fill, 25%);
       }
       --text-face-name: @book-fonts;
       --text-repeat-distance: @major-highway-text-repeat-distance;
@@ -2542,17 +2544,17 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-scale: zoom-gradient(1 15z);
     &:zoom(15) {
       --text-name: '[name]';
-      --text-fill: @standard-text-fill;
       --text-spacing: 300;
       --text-clip: false;
       --text-placement: line;
       --text-halo-radius: @standard-halo-radius;
+      --text-halo-fill: @standard-halo-fill;
       &[highway='living_street'] {
-        --text-halo-fill: @living-street-fill;
+        --text-fill: darken(@living-street-fill, 25%);
         --text-repeat-distance: @major-highway-text-repeat-distance;
       }
       &[highway='pedestrian'] {
-        --text-halo-fill: @pedestrian-fill;
+        --text-fill: darken(@pedestrian-fill, 25%);
       }
       --text-face-name: @book-fonts;
       --text-repeat-distance: @minor-highway-text-repeat-distance;
