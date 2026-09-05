@@ -86,42 +86,42 @@
 
 // Managed recreation
 // Cleanest, most saturated greens
-@park: #d3eede; // hsl(145, 45%, 88%)
-@garden: #d8eee3; // hsl(150, 40%, 89%)
-@grass: #dbf0e4; // hsl(145, 42%, 90%)
-@pitch: #cee9d9; // hsl(145, 38%, 86%)
+@park: #d3eede;
+@garden: #d8eee3;
+@grass: #dbf0e4;
+@pitch: #cee9d9;
 @village-green: #dbf0e4; // alias of @grass
 @recreation-ground: #d8eee3; // alias of @garden
 
 // Natural woody
 // Ground cover.
-@wood: #c2e0c8; // hsl(132, 33%, 82%)   natural=wood
-@forest: #c8e4ce; // hsl(132, 35%, 84%)   landuse=forest
-@scrub: #d0e8cf; // hsl(118, 34%, 86%)
-@heath: #d9e8d4; // hsl(105, 30%, 87%)
+@wood: #c2e0c8;
+@forest: #c8e4ce;
+@scrub: #d0e8cf;
+@heath: #d9e8d4;
 
-// Agricultural ── warm/olive
+// Agricultural
 // Production land.
-@orchard: #dde9d3; // hsl(92, 34%, 87%)
-@vineyard: #dae6cc; // hsl(88, 34%, 85%)
-@allotments: #e5ecda; // hsl(82, 32%, 89%)
-@meadow: #e0ecda; // hsl(100, 32%, 89%)
-@farmland: #edf0e5; // hsl(78, 28%, 92%)
+@orchard: #dde9d3;
+@vineyard: #dae6cc;
+@allotments: #e5ecda;
+@meadow: #dbf0e4; // #e0ecda;
+@farmland: #edf0e5;
 @farmyard: #e9eddf;
 
 // Green-rendered non-vegetation
 // Amenities that read green by convention.
-@cemetery: #dce9e0; // hsl(145, 20%, 89%)
-@campsite: #e9f1ee; // hsl(158, 22%, 93%)
+@cemetery: #dce9e0;
+@campsite: #e9f1ee;
 
 // Lines
-@hedge: #a2cda9; // hsl(130, 30%, 72%)  barrier=hedge
+@hedge: #a2cda9;
 
 // Label colors
-@park-text: #3a885a; // hsl(145, 40%, 38%)  Family A
-@forest-text: #378146; // hsl(132, 40%, 36%)  Family B
-@agriculture-text: #5e7f39; // hsl(88, 38%, 36%)  Family C
-@cemetery-text: #547861; // hsl(142, 18%, 40%)  Family D
+@park-text: #3a885a;
+@forest-text: #378146;
+@agriculture-text: #5e7f39;
+@cemetery-text: #547861;
 
 // Basic landuses
 @built-up-lowzoom: #f6f6f9;
@@ -1565,7 +1565,7 @@
 @raceway-oneway-arrow-color: darken(@raceway-fill, 50%);
 @footway-oneway-arrow-color: darken(@footway-fill, 35%);
 @steps-oneway-arrow-color: darken(@steps-fill, 35%);
-@cycleway-oneway-arrow-color: darken(@cycleway-fill, 25%);
+@cycleway-oneway-arrow-color: darken(@cycleway-fill, 30%);
 @track-oneway-arrow-color: darken(@track-fill, 10%);
 @bridleway-oneway-arrow-color: darken(@bridleway-fill, 15%);
 
@@ -3706,15 +3706,15 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       &[tunnel='no'] {
         --text-halo-radius: @standard-halo-radius;
         &[highway='motorway'] {
-          --text-fill: darken(@motorway-fill, 25%);
+          --text-fill: darken(@motorway-fill, 30%);
           --text-halo-fill: @strong-halo-fill;
         }
         &[highway='trunk'] {
-          --text-fill: darken(@trunk-fill, 25%);
+          --text-fill: darken(@trunk-fill, 30%);
           --text-halo-fill: @strong-halo-fill;
         }
         &[highway='primary'] {
-          --text-fill: darken(@primary-fill, 25%);
+          --text-fill: darken(@primary-fill, 30%);
           --text-halo-fill: @strong-halo-fill;
         }
       }
@@ -3728,7 +3728,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-scale: zoom-gradient(1 13z 15z, (7 / 6) 16z, (8 / 6) 17z, (10 / 6) 18z, (11 / 6) 19z);
     &:zoom(13) {
       --text-name: '[name]';
-      --text-fill: darken(@secondary-fill, 25%);
+      --text-fill: darken(@secondary-fill, 30%);
       --text-spacing: 300;
       --text-clip: false;
       --text-placement: line;
@@ -3746,7 +3746,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-scale: zoom-gradient(1 14z 16z, (7 / 6) 17z, 1.5 18z, (11 / 6) 19z);
     &:zoom(14) {
       --text-name: '[name]';
-      --text-fill: darken(@tertiary-fill, 25%);
+      --text-fill: darken(@tertiary-fill, 30%);
       --text-spacing: 300;
       --text-clip: false;
       --text-placement: line;
@@ -3783,7 +3783,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     --text-spacing: zoom-gradient(300 15z 16z, 400 17z 18z, 400 19z);
     &:zoom(15) {
       --text-name: '[name]';
-      --text-fill: darken(@residential-fill, 25%);
+      --text-fill: darken(@residential-fill, 30%);
       --text-clip: false;
       --text-placement: line;
       --text-halo-radius: @standard-halo-radius;
@@ -3812,10 +3812,10 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --text-halo-radius: @standard-halo-radius;
       --text-halo-fill: @standard-halo-fill;
       &[highway='raceway'] {
-        --text-fill: darken(@raceway-fill, 25%);
+        --text-fill: darken(@raceway-fill, 30%);
       }
       &[highway='service'] {
-        --text-fill: darken(@service-fill, 25%);
+        --text-fill: darken(@service-fill, 30%);
       }
       --text-face-name: @book-fonts;
       --text-repeat-distance: @major-highway-text-repeat-distance;
@@ -3839,11 +3839,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --text-halo-radius: @standard-halo-radius;
       --text-halo-fill: @standard-halo-fill;
       &[highway='living_street'] {
-        --text-fill: darken(@living-street-fill, 25%);
+        --text-fill: darken(@living-street-fill, 30%);
         --text-repeat-distance: @major-highway-text-repeat-distance;
       }
       &[highway='pedestrian'] {
-        --text-fill: darken(@pedestrian-fill, 25%);
+        --text-fill: darken(@pedestrian-fill, 30%);
       }
       --text-face-name: @book-fonts;
       --text-repeat-distance: @minor-highway-text-repeat-distance;
@@ -4540,15 +4540,17 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 // Buildings
 
 @building-fill: #e0e3eb;
-@building-line: darken(@building-fill, 3%);
+@building-line: darken(@building-fill, 6%);
 
 // Zoom shades: same hue, progressively more contrast against @land-color.
 @building-fill-z15: lighten(@building-fill, 1.5%);
+@building-fill-z17: darken(@building-fill, 3%);
 
 // Major buildings (stations, terminals, places of worship) keep one clear step
 // of separation from ordinary buildings at every zoom.
 @building-major-fill: darken(@building-fill, 6%);
-@building-major-line: darken(@building-major-fill, 3%);
+@building-major-fill-17z: darken(@building-major-fill, 3%);
+@building-major-line: darken(@building-major-fill, 6%);
 
 // Outlines are hairlines: flat design, just enough to separate adjacent blocks.
 @building-outline-width: 0.38;
@@ -4565,7 +4567,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[building='train_station'],
   &[public_transport='station'] {
     &:zoom(15) {
-      --polygon-fill: zoom-gradient(@building-fill-z15 15z, @building-major-fill 16z);
+      --polygon-fill: zoom-gradient(@building-fill-z15 15z, @building-major-fill 16z, @building-major-fill-17z 17z);
       &:zoom(16) {
         --line-color: @building-major-line;
         --line-width: zoom-gradient(0 16z, @building-outline-width 17z);
@@ -4574,7 +4576,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   }
 
   &:zoom(16) {
-    --polygon-fill: zoom-gradient(@building-fill-z15 15z, @building-fill 16z);
+    --polygon-fill: zoom-gradient(@building-fill-z15 15z, @building-fill 16z, @building-fill-z17 17z);
     --line-color: @building-line;
     --line-width: zoom-gradient(0 16z, @building-outline-width 17z);
   }

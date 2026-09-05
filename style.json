@@ -2647,8 +2647,8 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(224,236,218,1)",
-        "rgba(224,236,218,1)"
+        "rgba(219,240,228,1)",
+        "rgba(219,240,228,1)"
       ]
     },
     "attachment": "low-zoom"
@@ -104000,7 +104000,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(90,105,124,1)",
+      "text-fill": "rgba(79,92,109,1)",
       "text-halo-fill": "rgba(255,255,255,0.95)"
     }
   },
@@ -104080,7 +104080,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(96,113,132,1)",
+      "text-fill": "rgba(86,100,117,1)",
       "text-halo-fill": "rgba(255,255,255,0.95)"
     }
   },
@@ -104160,7 +104160,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(103,120,142,1)",
+      "text-fill": "rgba(92,108,127,1)",
       "text-halo-fill": "rgba(255,255,255,0.95)"
     }
   },
@@ -104333,7 +104333,7 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-fill": "rgba(107,125,147,1)",
+      "text-fill": "rgba(97,113,132,1)",
       "text-spacing": "300",
       "text-clip": "false",
       "text-placement": "line",
@@ -104487,7 +104487,7 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-fill": "rgba(114,130,151,1)",
+      "text-fill": "rgba(101,117,138,1)",
       "text-spacing": "300",
       "text-clip": "false",
       "text-placement": "line",
@@ -104652,7 +104652,7 @@
     ],
     "paint": {
       "text-name": "'[name]'",
-      "text-fill": "rgba(119,134,156,1)",
+      "text-fill": "rgba(105,121,145,1)",
       "text-clip": "false",
       "text-placement": "line",
       "text-halo-radius": "1.5",
@@ -104848,7 +104848,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(107,125,147,1)"
+      "text-fill": "rgba(97,113,132,1)"
     }
   },
   {
@@ -104893,7 +104893,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(129,143,162,1)"
+      "text-fill": "rgba(114,130,151,1)"
     }
   },
   {
@@ -105019,7 +105019,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(122,138,158,1)",
+      "text-fill": "rgba(107,125,148,1)",
       "text-repeat-distance": "50"
     }
   },
@@ -105065,7 +105065,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(125,142,160,1)"
+      "text-fill": "rgba(111,129,149,1)"
     }
   },
   {
@@ -128805,7 +128805,7 @@
         "layer": "buildings",
         "zoom": {
           "min": 16,
-          "max": 24
+          "max": 16
         },
         "and": [
           {
@@ -128819,7 +128819,7 @@
         "layer": "buildings",
         "zoom": {
           "min": 16,
-          "max": 24
+          "max": 16
         },
         "and": [
           {
@@ -128833,7 +128833,7 @@
         "layer": "buildings",
         "zoom": {
           "min": 16,
-          "max": 24
+          "max": 16
         },
         "and": [
           {
@@ -128847,7 +128847,7 @@
         "layer": "buildings",
         "zoom": {
           "min": 16,
-          "max": 24
+          "max": 16
         },
         "and": [
           {
@@ -128861,7 +128861,7 @@
         "layer": "buildings",
         "zoom": {
           "min": 16,
-          "max": 24
+          "max": 16
         },
         "and": [
           {
@@ -128875,7 +128875,87 @@
     "paint": {
       "polygon-fill": [
         "rgba(205,210,223,1)",
-        "rgba(205,210,223,1)"
+        "rgba(196,202,217,1)"
+      ]
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "buildings",
+        "zoom": {
+          "min": 17,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "amenity",
+            "op": "=",
+            "value": "place_of_worship"
+          }
+        ]
+      },
+      {
+        "layer": "buildings",
+        "zoom": {
+          "min": 17,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "aeroway",
+            "op": "=",
+            "value": "terminal"
+          }
+        ]
+      },
+      {
+        "layer": "buildings",
+        "zoom": {
+          "min": 17,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "aerialway",
+            "op": "=",
+            "value": "station"
+          }
+        ]
+      },
+      {
+        "layer": "buildings",
+        "zoom": {
+          "min": 17,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "building",
+            "op": "=",
+            "value": "train_station"
+          }
+        ]
+      },
+      {
+        "layer": "buildings",
+        "zoom": {
+          "min": 17,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "public_transport",
+            "op": "=",
+            "value": "station"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": [
+        "rgba(196,202,217,1)",
+        "rgba(196,202,217,1)"
       ]
     }
   },
@@ -128954,8 +129034,8 @@
     ],
     "paint": {
       "line-color": [
-        "rgba(196,202,217,1)",
-        "rgba(196,202,217,1)"
+        "rgba(186,193,211,1)",
+        "rgba(186,193,211,1)"
       ],
       "line-width": [
         "0",
@@ -129038,8 +129118,8 @@
     ],
     "paint": {
       "line-color": [
-        "rgba(196,202,217,1)",
-        "rgba(196,202,217,1)"
+        "rgba(186,193,211,1)",
+        "rgba(186,193,211,1)"
       ],
       "line-width": [
         "0.38",
@@ -129061,11 +129141,11 @@
     "paint": {
       "polygon-fill": [
         "rgba(224,227,235,1)",
-        "rgba(224,227,235,1)"
+        "rgba(215,219,229,1)"
       ],
       "line-color": [
-        "rgba(215,219,229,1)",
-        "rgba(215,219,229,1)"
+        "rgba(205,210,223,1)",
+        "rgba(205,210,223,1)"
       ],
       "line-width": [
         "0",
@@ -129086,12 +129166,12 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(224,227,235,1)",
-        "rgba(224,227,235,1)"
-      ],
-      "line-color": [
         "rgba(215,219,229,1)",
         "rgba(215,219,229,1)"
+      ],
+      "line-color": [
+        "rgba(205,210,223,1)",
+        "rgba(205,210,223,1)"
       ],
       "line-width": [
         "0.38",
@@ -129112,7 +129192,7 @@
     ],
     "paint": {
       "marker-width": "5",
-      "marker-fill": "rgba(215,219,229,1)",
+      "marker-fill": "rgba(205,210,223,1)",
       "marker-allow-overlap": "true",
       "marker-ignore-placement": "true",
       "marker-file": "\"url('symbols/rect.svg')\"",
@@ -129136,7 +129216,7 @@
         "1",
         "1"
       ],
-      "marker-fill": "rgba(215,219,229,1)",
+      "marker-fill": "rgba(205,210,223,1)",
       "marker-allow-overlap": "true",
       "marker-ignore-placement": "true",
       "marker-file": "\"url('symbols/rect.svg')\"",
@@ -129160,7 +129240,7 @@
         "1",
         "1.6"
       ],
-      "marker-fill": "rgba(215,219,229,1)",
+      "marker-fill": "rgba(205,210,223,1)",
       "marker-allow-overlap": "true",
       "marker-ignore-placement": "true",
       "marker-file": "\"url('symbols/rect.svg')\"",
@@ -129184,7 +129264,7 @@
         "1.6",
         "1.6"
       ],
-      "marker-fill": "rgba(215,219,229,1)",
+      "marker-fill": "rgba(205,210,223,1)",
       "marker-allow-overlap": "true",
       "marker-ignore-placement": "true",
       "marker-file": "\"url('symbols/rect.svg')\"",
@@ -129458,7 +129538,7 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(196,202,217,1)"
+      "marker-fill": "rgba(186,193,211,1)"
     }
   },
   {
@@ -129479,7 +129559,7 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(215,219,229,1)",
+      "marker-fill": "rgba(205,210,223,1)",
       "marker-file": "\"url('symbols/rectdiag.svg')\""
     }
   },
