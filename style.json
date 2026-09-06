@@ -1232,66 +1232,6 @@
       {
         "layer": "landcover",
         "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_prison"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-color": [
-        "rgba(203,203,208,1)",
-        "rgba(203,203,208,1)"
-      ],
-      "line-width": [
-        "0",
-        "0.38"
-      ],
-      "line-opacity": "0.329"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_prison"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-color": [
-        "rgba(203,203,208,1)",
-        "rgba(203,203,208,1)"
-      ],
-      "line-width": [
-        "0.38",
-        "0.38"
-      ],
-      "line-opacity": "0.329"
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover",
-        "zoom": {
           "min": 12,
           "max": 12
         },
@@ -1996,120 +1936,6 @@
       {
         "layer": "landcover",
         "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "tourism_camp_site"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "tourism_caravan_site"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "tourism_picnic_site"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-color": [
-        "rgba(217,231,226,1)",
-        "rgba(217,231,226,1)"
-      ],
-      "line-width": [
-        "0",
-        "0.38"
-      ]
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "tourism_camp_site"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "tourism_caravan_site"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "tourism_picnic_site"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-color": [
-        "rgba(217,231,226,1)",
-        "rgba(217,231,226,1)"
-      ],
-      "line-width": [
-        "0.38",
-        "0.38"
-      ]
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover",
-        "zoom": {
           "min": 10,
           "max": 24
         },
@@ -2199,64 +2025,6 @@
       {
         "layer": "landcover",
         "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_recreation_ground"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-color": [
-        "rgba(198,230,214,1)",
-        "rgba(198,230,214,1)"
-      ],
-      "line-width": [
-        "0",
-        "0.38"
-      ]
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "landuse_recreation_ground"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-color": [
-        "rgba(198,230,214,1)",
-        "rgba(198,230,214,1)"
-      ],
-      "line-width": [
-        "0.38",
-        "0.38"
-      ]
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover",
-        "zoom": {
           "min": 10,
           "max": 24
         },
@@ -2299,122 +2067,8 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(211,238,222,1)",
-        "rgba(211,238,222,1)"
-      ]
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_sports_centre"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_water_park"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_stadium"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": [
-        "0",
-        "0.38"
-      ],
-      "line-color": [
-        "rgba(179,225,198,1)",
-        "rgba(179,225,198,1)"
-      ]
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_sports_centre"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_water_park"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_stadium"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": [
-        "0.38",
-        "0.38"
-      ],
-      "line-color": [
-        "rgba(179,225,198,1)",
-        "rgba(179,225,198,1)"
+        "rgba(200,234,214,1)",
+        "rgba(200,234,214,1)"
       ]
     },
     "attachment": "low-zoom"
@@ -2803,8 +2457,8 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(226,218,207,1)",
-        "rgba(226,218,207,1)"
+        "rgba(229,223,215,1)",
+        "rgba(229,223,215,1)"
       ]
     },
     "attachment": "low-zoom"
@@ -2870,8 +2524,8 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(226,218,207,1)",
-        "rgba(226,218,207,1)"
+        "rgba(229,223,215,1)",
+        "rgba(229,223,215,1)"
       ]
     },
     "attachment": "low-zoom"
@@ -3447,94 +3101,8 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(211,238,222,1)",
-        "rgba(211,238,222,1)"
-      ]
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_playground"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_fitness_station"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": [
-        "0",
-        "0.38"
-      ],
-      "line-color": [
-        "rgba(193,231,208,1)",
-        "rgba(193,231,208,1)"
-      ]
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_playground"
-          }
-        ]
-      },
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_fitness_station"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": [
-        "0.38",
-        "0.38"
-      ],
-      "line-color": [
-        "rgba(193,231,208,1)",
-        "rgba(193,231,208,1)"
+        "rgba(200,234,214,1)",
+        "rgba(200,234,214,1)"
       ]
     },
     "attachment": "low-zoom"
@@ -3569,64 +3137,6 @@
       {
         "layer": "landcover",
         "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_pitch"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": [
-        "0",
-        "0.38"
-      ],
-      "line-color": [
-        "rgba(188,225,203,1)",
-        "rgba(188,225,203,1)"
-      ]
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_pitch"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": [
-        "0.38",
-        "0.38"
-      ],
-      "line-color": [
-        "rgba(188,225,203,1)",
-        "rgba(188,225,203,1)"
-      ]
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover",
-        "zoom": {
           "min": 10,
           "max": 24
         },
@@ -3652,64 +3162,6 @@
       {
         "layer": "landcover",
         "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_track"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": [
-        "0",
-        "0.38"
-      ],
-      "line-color": [
-        "rgba(163,214,184,1)",
-        "rgba(163,214,184,1)"
-      ]
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_track"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": [
-        "0.38",
-        "0.38"
-      ],
-      "line-color": [
-        "rgba(163,214,184,1)",
-        "rgba(163,214,184,1)"
-      ]
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover",
-        "zoom": {
           "min": 10,
           "max": 24
         },
@@ -3726,64 +3178,6 @@
       "polygon-fill": [
         "rgba(199,242,250,1)",
         "rgba(199,242,250,1)"
-      ]
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_ice_rink"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": [
-        "0",
-        "0.38"
-      ],
-      "line-color": [
-        "rgba(188,225,203,1)",
-        "rgba(188,225,203,1)"
-      ]
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_ice_rink"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": [
-        "0.38",
-        "0.38"
-      ],
-      "line-color": [
-        "rgba(188,225,203,1)",
-        "rgba(188,225,203,1)"
       ]
     },
     "attachment": "low-zoom"
@@ -355067,7 +354461,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(26,66,42,1)"
+      "text-fill": "rgba(21,56,35,1)"
     }
   },
   {
@@ -371242,7 +370636,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(111,92,67,1)"
+      "text-fill": "rgba(115,97,74,1)"
     }
   },
   {
