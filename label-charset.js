@@ -1,29 +1,23 @@
-const { labelKindToTable } = require('./label-styles');
-
-function registerChars(charsets, label, kind, styleReference) {
-  const key = `${kind}\u0000${styleReference}`;
-  if (!charsets.has(key)) {
-    charsets.set(key, new Map());
+function registerChars(charsets, text, styleReference) {
+  if (!charsets.has(styleReference)) {
+    charsets.set(styleReference, new Map());
   }
 
-  const charset = charsets.get(key);
-  const length = label.length;
-  for (let i = length - 1; i >= 0; i--) {
-    if (!charset.has(label[i])) {
+  const charset = charsets.get(styleReference);
+  const length = text.length;
+  for (let i = 0; i < length; i++) {
+    if (!charset.has(text[i])) {
       const size = charset.size;
-      charset.set(label[i], size);
-      continue;
+      charset.set(text[i], size);
     }
   }
 }
 
 function dumpCharsets(charsets) {
   const output = [];
-  for (const [key, charset] of charsets) {
-    const [kind, styleReference] = key.split('\u0000');
+  for (const [styleReference, charset] of charsets) {
     output.push({
-      table: labelKindToTable[kind],
-      style: parseInt(styleReference),
+      style: styleReference,
       charset: Array.from(charset.keys()).join('')
     });
   }

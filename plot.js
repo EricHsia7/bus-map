@@ -211,7 +211,6 @@ function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, textSc
   const segmentTurns = new Float32Array(coordinatesLength - 1);
   let totalLength = 0;
   let totalTurn = 0;
-  let maxDistance = -Infinity;
   for (let i = 1; i < coordinatesLength; i++) {
     const s = i - 1; // segment index
     const px = coordinates[i - 1][0];
@@ -328,7 +327,8 @@ function plotPointLabel(point, x0, y0, x1, y1, quantization = 1024) {
   const scaleY = quantization / dY;
   const transformX = (x) => Math.floor((x - x0) * scaleX);
   const transformY = (y) => Math.floor((dY - (y - y0)) * scaleY);
-  return { type: 'Point', coordinates: transform([point], transformX, transformY)[0] };
+  const coordinates = point.coordinates;
+  return { type: 'Point', coordinates: [transformX(coordinates[0]), transformY(coordinates[1])] };
 }
 
 module.exports = {

@@ -316,7 +316,9 @@ async function renderChunk(cX, cY, cZ, fileformat) {
     const vectorStyleTables = createVectorStyleTables();
 
     // labels
-    const labels = []; // features for the text/marker overlay
+    const labels = []; // { base, rule, descriptor }
+    const labelText = []; // { base, rule, descriptor, geometry }
+    const labelCircles = []; // { base, rule, descriptor, geometry }
     const labelsStyleTables = createLabelsStyleTables();
     const charsets = new Map();
 
@@ -367,28 +369,13 @@ async function renderChunk(cX, cY, cZ, fileformat) {
 
           // labels
           if (shouldRenderLabels) {
-            const descs = paintToLabels(paint, feat);
-            if (descs) {
-              for (const desc of descs) {
-                // descriptor
-                const textSize = desc.styleProperties['text-size'];
-                if (!textSize) continue;
-                const textScale = Array.isArray(desc.styleProperties['text-scale']) ? desc.styleProperties['text-scale'][0] : desc.styleProperties['text-scale'] || 1; // resolve the placement at discrete zoom level (tZ)
-                const labelGeometry = closed ? plotPolygonLabel(shape, x0, y0, x1, y1, labelQuantization) : plotLineStringLabel(shape, x0, y0, x1, y1, desc.properties.label, textSize, textScale, tileSize, labelQuantization);
-                if (!labelGeometry) continue;
-                const styleReference = registerLabelsStyle(labelsStyleTables, desc);
-                if (desc.properties.label) registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference);
-                labels.push({
-                  base,
-                  rule,
-                  label: {
-                    type: 'Feature',
-                    id: `w${way.id}`,
-                    geometry: labelGeometry,
-                    properties: { ...desc.properties, style: styleReference }
-                  }
-                });
-              }
+            const { textDescriptors } = paintToLabels(paint, `w${way.id}`, feat);
+            for (const descriptor of textDescriptors) {
+              const textSize = paint['text-size'];
+              if (!textSize) continue;
+              const textScale = Array.isArray(paint['text-scale']) ? paint['text-scale'][0] : paint['text-scale'] || 1; // resolve the placement at discrete zoom level (tZ)
+              const geometry = closed ? plotPolygonLabel(shape, x0, y0, x1, y1, labelQuantization) : plotLineStringLabel(shape, x0, y0, x1, y1, descriptor.properties.label, textSize, textScale, tileSize, labelQuantization);
+              if (geometry) labelText.push({ base, rule, descriptor, geometry });
             }
           }
         }
@@ -435,25 +422,12 @@ async function renderChunk(cX, cY, cZ, fileformat) {
           // labels
           if (shouldRenderLabels) {
             if (feat.polygons[0]) {
-              const descs = paintToLabels(paint, featRow);
-              if (descs) {
-                const labelGeometry = plotPolygonLabel({ type: 'Polygon', coordinates: feat.polygons[0] }, x0, y0, x1, y1, labelQuantization);
-                if (labelGeometry) {
-                  for (const desc of descs) {
-                    const styleReference = registerLabelsStyle(labelsStyleTables, desc);
-                    if (desc.properties.label) registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference);
-                    labels.push({
-                      base,
-                      rule,
-                      label: {
-                        type: 'Feature',
-                        id: `r${layer.id}:${labelGeometry.coordinates[0]}:${labelGeometry.coordinates[1]}`,
-                        geometry: labelGeometry,
-                        properties: { ...desc.properties, style: styleReference }
-                      }
-                    });
-                  }
-                }
+              // The geometry doesn't depend on the styles
+              const geometry = plotPolygonLabel({ type: 'Polygon', coordinates: feat.polygons[0] }, x0, y0, x1, y1, labelQuantization);
+              if (geometry) {
+                const { textDescriptors, circleDescriptors } = paintToLabels(paint, `r${layer.id}:${geometry.coordinates[0]}:${geometry.coordinates[1]}`, featRow);
+                for (const descriptor of textDescriptors) labelText.push({ base, rule, descriptor, geometry });
+                for (const descriptor of circleDescriptors) labelCircles.push({ base, rule, descriptor, geometry });
               }
             }
           }
@@ -490,25 +464,12 @@ async function renderChunk(cX, cY, cZ, fileformat) {
 
           // labels
           if (shouldRenderLabels) {
-            const descs = paintToLabels(paint, feat);
-            if (descs) {
-              const labelGeometry = plotPointLabel([node.lon, node.lat], x0, y0, x1, y1, labelQuantization);
-              if (labelGeometry) {
-                for (const desc of descs) {
-                  const styleReference = registerLabelsStyle(labelsStyleTables, desc);
-                  if (desc.properties.label) registerChars(charsets, desc.properties.label, desc.properties.kind, styleReference);
-                  labels.push({
-                    base,
-                    rule,
-                    label: {
-                      type: 'Feature',
-                      id: `n${node.id}`,
-                      geometry: labelGeometry,
-                      properties: { ...desc.properties, style: styleReference }
-                    }
-                  });
-                }
-              }
+            const shape = { type: 'Point', coordinates: [node.lon, node.lat] };
+            const geometry = plotPointLabel(shape, x0, y0, x1, y1, labelQuantization);
+            if (geometry) {
+              const { textDescriptors, circleDescriptors } = paintToLabels(paint, `n${node.id}`, feat);
+              for (const descriptor of textDescriptors) labelText.push({ base, rule, descriptor, geometry });
+              for (const descriptor of circleDescriptors) labelCircles.push({ base, rule, descriptor, geometry });
             }
           }
         }
@@ -527,7 +488,10 @@ async function renderChunk(cX, cY, cZ, fileformat) {
     lines.sort(function (a, b) {
       return a.base - b.base || a.rule - b.rule || a.index - b.index;
     });
-    labels.sort(function (a, b) {
+    labelText.sort(function (a, b) {
+      return a.base - b.base || a.rule - b.rule;
+    });
+    labelCircles.sort(function (a, b) {
       return a.base - b.base || a.rule - b.rule;
     });
     vectorPolygons.sort(function (a, b) {
@@ -544,7 +508,7 @@ async function renderChunk(cX, cY, cZ, fileformat) {
     await makeDirectory(path.join(tilesDir, tZ.toString(), tX.toString()));
     await makeDirectory(path.join(labelsDir, tZ.toString(), tX.toString()));
 
-    // raster tiles
+    // raster
     if (shouldRenderRaster) {
       const polygonElements = polygons.map((f) => f.svg).join('');
       const lineElements = lines.map((l) => l.svg).join('');
@@ -552,7 +516,7 @@ async function renderChunk(cX, cY, cZ, fileformat) {
       await rasterize(svg, path.join(tilesDir, tZ.toString(), tX.toString(), tY.toString()));
     }
 
-    // vector tiles
+    // vector
     if (shouldRenderVector) {
       // Flat parallel arrays instead of nested [[[x, y], ...], ...] descriptors,
       // so the client can adopt each one with a single typed-array constructor
@@ -637,15 +601,59 @@ async function renderChunk(cX, cY, cZ, fileformat) {
 
     // labels
     if (shouldRenderLabels) {
+      const labelGeometries = [];
+      const labelDescriptorStartIndices = [0];
+      const labelDescriptors = [];
+      const labelStyleReferences = [];
+      const labelStyleStartIndices = [];
+      const labelTypes = []; // 0: point text, 1: line text, 2: circle
+
+      let previousStyleReference = -1;
+      const pushLabelDescriptor = (typeCode, geometry, styleReference, id, text) => {
+        labelTypes.push(typeCode);
+        if (styleReference !== previousStyleReference) {
+          labelStyleReferences.push(styleReference);
+          labelStyleStartIndices.push(labelTypes.length - 1);
+          previousStyleReference = styleReference;
+        }
+        if (geometry.type === 'Point') {
+          labelGeometries.push(geometry.coordinates[0], geometry.coordinates[1], 0);
+        } else if (geometry.type === 'LineString') {
+          const coordinatesLength = geometry.coordinates.length;
+          for (let j = 0; j < coordinatesLength; j++) {
+            labelGeometries.push(geometry.coordinates[j][0], geometry.coordinates[j][1], geometry.angles[j]);
+          }
+        }
+        labelDescriptorStartIndices.push(labelGeometries.length / 3);
+        if (text) {
+          labelDescriptors.push({ text, id, style: styleReference });
+          registerChars(charsets, descriptor.text, styleReference);
+        } else {
+          labelDescriptors.push({ id, style: styleReference });
+        }
+      };
+
+      const labelTextLength = labelText.length;
+      const labelCirclesLength = labelCircles.length;
+      for (let i = 0; i < labelTextLength; i++) {
+        const styleReference = registerLabelsStyle(labelsStyleTables, labelText[i].descriptor.styleProperties);
+        pushLabelDescriptor(labelText[i].geometry.type === 'Point' ? 0 : 1, labelText[i].geometry, styleReference, labelText[i].descriptor.id, labelText[i].descriptor.text);
+      }
+      for (let i = 0; i < labelCirclesLength; i++) {
+        const styleReference = registerLabelsStyle(labelsStyleTables, labelCircles[i].descriptor.styleProperties);
+        pushLabelDescriptor(2, labelCircles[i].geometry, styleReference, labelText[i].descriptor.id, null);
+      }
+
       fs.writeFileSync(
         path.join(labelsDir, tZ.toString(), tX.toString(), `${tY}.gz`),
         Buffer.from(
           gzipSync(
             encoder.encode(
               JSON.stringify({
-                type: 'FeatureCollection',
+                type: 'Label',
                 extent: labelQuantization,
                 zoom: tZ,
+
                 features: labels.map((l) => l.label),
                 textStyles: labelsStyleTables.textStyles,
                 iconStyles: labelsStyleTables.iconStyles,

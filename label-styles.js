@@ -1,11 +1,3 @@
-const labelKindToTable = {
-  text: 'textStyles',
-  marker: 'iconStyles',
-  point: 'iconStyles',
-  shield: 'iconStyles',
-  circle: 'circleStyles'
-};
-
 // Key-order-independent serialization, so two styles that differ only in the order their properties were assigned intern to the same entry.
 function canonical(value) {
   if (Array.isArray(value)) return `[${value.map(canonical).join(',')}]`;
@@ -19,18 +11,15 @@ function canonical(value) {
 }
 
 function createLabelsStyleTables() {
-  return { textStyles: [], iconStyles: [], circleStyles: [], index: new Map() };
+  return { styles: [], index: new Map() };
 }
 
-function registerLabelsStyle(tables, desc) {
-  const { kind, styleProperties } = desc;
-  const table = labelKindToTable[kind];
-  if (table === undefined) throw new Error(`unknown kind "${kind}"`);
-  const key = `${table}\u0000${canonical(styleProperties)}`;
+function registerLabelsStyle(tables, styleProperties) {
+  const key = canonical(styleProperties);
   const existingReference = tables.index.get(key);
   if (existingReference === undefined) {
-    const length = tables[table].length;
-    tables[table].push(styleProperties);
+    const length = tables.styles.length;
+    tables.styles.push(styleProperties);
     tables.index.set(key, length);
     return length;
   }
@@ -39,6 +28,5 @@ function registerLabelsStyle(tables, desc) {
 
 module.exports = {
   createLabelsStyleTables,
-  registerLabelsStyle,
-  labelKindToTable
+  registerLabelsStyle
 };

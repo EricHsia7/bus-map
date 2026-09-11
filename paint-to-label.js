@@ -76,78 +76,99 @@ function resolveField(expr, tags = {}) {
  * Extract text/marker label descriptors from a compiled paint object.
  * @param paint  merged rule.paint (from style.json)
  * @param tags   feature tags (used to resolve text-name / shield-name)
- * @returns null when there is no text/marker symbolizer, else
- *   Array<{ kind, instance, properties, styleProperties }> in cascade (first-seen) order.
+ * @returns {{
+ * textDescriptors: Array<{ kind: "text", id: string, text, styleProperties }>,
+ * circleDescriptors: Array<{ kind: "circle", id: string, styleProperties }>
+ * }}
  */
-function paintToLabels(paint, tags = {}) {
-  const out = [];
+function paintToLabels(paint, id, tags = {}) {
+  const textDescriptors = [];
+  const circleDescriptors = [];
   const instances = splitInstances(paint);
+  const has = (p) => props[p] !== undefined && props[p] !== null;
+
   for (const [instance, { props }] of instances) {
-    // text symbolizer
-    if (props['text-name'] !== undefined) {
-      const label = resolveField(props['text-name'], tags);
-      if (label) {
-        out.push({
-          kind: 'text',
-          instance,
-          properties: prune({
-            kind: 'text',
-            label
-          }),
-          styleProperties: prune({
-            'text-size': num(props['text-size']),
-            'text-scale': numberPair(props['text-scale']),
-            'text-fill': props['text-fill'], // flat
-            'text-halo-fill': props['text-halo-fill'], // flat
-            'text-halo-radius': num(props['text-halo-radius']),
-            'text-face-name': props['text-face-name'],
-            'text-placement': props['text-placement'],
-            'text-dy': num(props['text-dy']),
-            'text-wrap-width': num(props['text-wrap-width'])
-          })
-        });
+    // text
+    if (has('text-name') && has('text-size')) {
+      const text = resolveField(props['text-name'], tags);
+      if (text) {
+        const styleProperties = {};
+
+        // text-size -> text-size
+        styleProperties['text-size'] = num(props['text-size']);
+
+        // text-scale -> text-scale
+        styleProperties['text-scale'] = numberPair(props['text-scale']);
+
+        // text-fill -> text-fill
+        styleProperties['text-fill'] = props['text-fill'] || 'rgba(0,0,0,1)';
+
+        // text-halo-fill -> text-halo-fill
+        if (has('text-halo-fill')) styleProperties['text-halo-fill'] = props['text-halo-fill'];
+
+        // text-halo-radius -> text-halo-radius
+        if (has('text-halo-radius')) styleProperties['text-halo-radius'] = num(props['text-halo-radius']);
+
+        // text-face-name -> text-face-name
+        if (has('text-face-name')) styleProperties['text-face-name'] = props['text-face-name'];
+
+        // text-placement -> text-placement
+        if (has('text-placement')) styleProperties['text-placement'] = props['text-placement'];
+
+        // text-dy -> text-dy
+        if (has('text-dy')) styleProperties['text-dy'] = num(props['text-dy']);
+
+        // text-wrap-width -> text-wrap-width
+        if (has('text-wrap-width')) styleProperties = num(props['text-wrap-width']);
+
+        textDescriptors.push({ kind: 'text', id, text, styleProperties });
       }
     }
 
-    // marker / point / shield symbolizers (icons)
-    for (const mp of MARKER_PREFIXES) {
-      const file = props[mp + '-file'];
-      if (file === undefined) continue;
-      out.push({
-        kind: mp,
-        instance,
-        properties: prune({
-          kind: mp,
-          // shields carry their own text
-          label: mp === 'shield' && props['shield-name'] !== undefined ? resolveField(props['shield-name'], tags) : undefined
-        }),
-        styleProperties: prune({
-          'icon': iconId(file),
-          'icon-width': num(props[mp + '-width']),
-          'icon-height': num(props[mp + '-height']),
-          'shield-size': mp === 'shield' ? num(props['shield-size']) : undefined
-        })
-      });
+    // circle marker
+    if (has('marker-fill') && has('marker-width')) {
+      const styleProperties = {};
+
+      // marker-fill -> marker-fill
+      styleProperties['marker-fill'] = props['marker-fill'];
+
+      // marker-width -> marker-width
+      styleProperties['marker-width'] = num(props['marker-width']);
+
+      // marker-line-color -> marker-line-color
+      if (has('marker-line-color')) styleProperties['marker-line-color'] = props['marker-line-color'];
+
+      // marker-scale -> marker-scale
+      if (has('marker-scale')) styleProperties['marker-scale'] = numberPair(props['marker-scale']);
+
+      circleDescriptors.push({ kind: 'circle', id, styleProperties });
     }
 
-    // ellipse/circle marker with marker-fill
-    if (props['marker-fill'] !== undefined) {
-      out.push({
-        kind: 'circle',
-        instance,
-        properties: prune({
-          kind: 'circle'
-        }),
-        styleProperties: prune({
-          'marker-fill': props['marker-fill'],
-          'marker-line-color': props['marker-line-color'],
-          'marker-width': num(props['marker-width']),
-          'marker-scale': numberPair(props['marker-scale'])
-        })
-      });
-    }
+    // marker / point / shield symbolizers (icons)
+    // for (const mp of MARKER_PREFIXES) {
+    //   const file = props[mp + '-file'];
+    //   if (file === undefined) continue;
+    //   descriptors.push({
+    //     kind: mp,
+    //     instance,
+    //     properties: prune({
+    //       kind: mp,
+    //       // shields carry their own text
+    //       label: mp === 'shield' && props['shield-name'] !== undefined ? resolveField(props['shield-name'], tags) : undefined
+    //     }),
+    //     styleProperties: prune({
+    //       'icon': iconId(file),
+    //       'icon-width': num(props[mp + '-width']),
+    //       'icon-height': num(props[mp + '-height']),
+    //       'shield-size': mp === 'shield' ? num(props['shield-size']) : undefined
+    //     })
+    //   });
+    // }
   }
-  return out.length ? out : null;
+  return {
+    textDescriptors,
+    circleDescriptors
+  };
 }
 
 module.exports = { paintToLabels, resolveField, pair: numberPair };
