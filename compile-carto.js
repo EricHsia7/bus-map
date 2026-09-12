@@ -733,7 +733,7 @@ function paintAtZoom(paint, z, resolve = resolveValue) {
  */
 function shipPaintAtZoom(paint, z, resolve = resolveValue) {
   const current = paintAtZoom(paint, z, resolve);
-  const nonInterpolatableList = getFlatList(current);
+  const flatList = getFlatList(current);
 
   // At ZOOM_MAX there is no next zoom to grow into, so the interval is flat.
   const next = z >= ZOOM_MAX ? current : paintAtZoom(paint, z + 1, resolve);
@@ -749,7 +749,7 @@ function shipPaintAtZoom(paint, z, resolve = resolveValue) {
       const v0 = current[key];
       const v1 = next[key];
 
-      if (!nonInterpolatableList.has(key)) {
+      if (!flatList.has(key)) {
         current[key] = [v0, v1 === undefined ? v0 : v1];
       } else {
         current[key] = [v0, v0];
