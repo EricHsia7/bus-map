@@ -71445,7 +71445,7 @@
       "line-cap": "butt",
       "line-width": [
         "0",
-        "1.16"
+        "0.66"
       ],
       "line-color": [
         "rgba(186,195,207,1)",
@@ -71503,67 +71503,8 @@
       "line-join": "round",
       "line-cap": "butt",
       "line-width": [
-        "1.16",
-        "0.66"
-      ],
-      "line-color": [
-        "rgba(171,182,196,1)",
-        "rgba(171,182,196,1)"
-      ]
-    },
-    "attachment": "fill"
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-fill",
-        "zoom": {
-          "min": 18,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_footway"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 18,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_footway"
-          }
-        ]
-      },
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 18,
-          "max": 18
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_footway"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-join": "round",
-      "line-cap": "butt",
-      "line-width": [
         "0.66",
-        "0.4"
+        "0.8"
       ],
       "line-color": [
         "rgba(171,182,196,1)",
@@ -71577,7 +71518,7 @@
       {
         "layer": "roads-fill",
         "zoom": {
-          "min": 19,
+          "min": 18,
           "max": 24
         },
         "and": [
@@ -71591,7 +71532,7 @@
       {
         "layer": "bridges",
         "zoom": {
-          "min": 19,
+          "min": 18,
           "max": 24
         },
         "and": [
@@ -71605,7 +71546,7 @@
       {
         "layer": "tunnels",
         "zoom": {
-          "min": 19,
+          "min": 18,
           "max": 24
         },
         "and": [
@@ -71621,8 +71562,8 @@
       "line-join": "round",
       "line-cap": "butt",
       "line-width": [
-        "0.4",
-        "0.4"
+        "0.8",
+        "0.8"
       ],
       "line-color": [
         "rgba(171,182,196,1)",
@@ -82359,50 +82300,6 @@
     "paint": {
       "line-width": [
         "0",
-        "1.16"
-      ],
-      "line-cap": "round",
-      "line-join": "round",
-      "line-color": [
-        "rgba(171,182,196,1)",
-        "rgba(171,182,196,1)"
-      ]
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "highway-area-casing",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_footway"
-          }
-        ]
-      },
-      {
-        "layer": "highway-area-casing",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_pedestrian"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-width": [
-        "1.16",
         "0.66"
       ],
       "line-cap": "round",
@@ -82418,8 +82315,8 @@
       {
         "layer": "highway-area-casing",
         "zoom": {
-          "min": 18,
-          "max": 18
+          "min": 17,
+          "max": 17
         },
         "and": [
           {
@@ -82432,8 +82329,8 @@
       {
         "layer": "highway-area-casing",
         "zoom": {
-          "min": 18,
-          "max": 18
+          "min": 17,
+          "max": 17
         },
         "and": [
           {
@@ -82447,7 +82344,7 @@
     "paint": {
       "line-width": [
         "0.66",
-        "0.4"
+        "0.8"
       ],
       "line-cap": "round",
       "line-join": "round",
@@ -82462,7 +82359,7 @@
       {
         "layer": "highway-area-casing",
         "zoom": {
-          "min": 19,
+          "min": 18,
           "max": 24
         },
         "and": [
@@ -82476,7 +82373,7 @@
       {
         "layer": "highway-area-casing",
         "zoom": {
-          "min": 19,
+          "min": 18,
           "max": 24
         },
         "and": [
@@ -82490,8 +82387,8 @@
     ],
     "paint": {
       "line-width": [
-        "0.4",
-        "0.4"
+        "0.8",
+        "0.8"
       ],
       "line-cap": "round",
       "line-join": "round",

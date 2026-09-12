@@ -20,8 +20,8 @@
     },
     "size": 512,
     "precision": 4096,
-    "extent": 2048,
-    "buffer": 128,
+    "extent": 4096,
+    "buffer": 256,
     "areaFilter": {
       "12": 6400,
       "13": 1600,
