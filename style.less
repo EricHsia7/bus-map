@@ -86,42 +86,37 @@
 
 // Managed recreation
 // Cleanest, most saturated greens
-@park: #d3eede;
-@garden: #d8eee3;
-@grass: #dbf0e4;
-@pitch: #cee9d9;
-@village-green: #dbf0e4; // alias of @grass
-@recreation-ground: #d8eee3; // alias of @garden
+@park: #d6ebe7;
+@garden: #dbebe9;
+@grass: #e1efed;
+@pitch: #cde5df;
 
 // Natural woody
 // Ground cover.
-@wood: #c2e0c8;
-@forest: #c8e4ce;
-@scrub: #d0e8cf;
-@heath: #d9e8d4;
+@wood: #c9e3dc;
+@scrub: #d1e6de;
+@heath: #d5e7de;
 
 // Agricultural
 // Production land.
-@orchard: #dde9d3;
-@vineyard: #dae6cc;
-@allotments: #e5ecda;
-@meadow: #dbf0e4; // #e0ecda;
-@farmland: #edf0e5;
-@farmyard: #e9eddf;
+@agriculture: #e0ebe5; // orchard/allotments/vineyard
+@farmland: #eaf0ed;
+@farmyard: #e4ece8;
 
-// Green-rendered non-vegetation
-// Amenities that read green by convention.
-@cemetery: #dce9e0;
-@campsite: #e9f1ee;
+// Non-vegetation, green by convention → push to blue-grey
+@cemetery: #e2e7e9;
+@campsite: #e9f1ef;
 
-// Lines
-@hedge: #a2cda9;
+// Structure on the plate
+@park-outline: #a4ccc4;
+// @footway: #b4dad2;
+// @path-area: #eaf1ef;
+// @park-building: #dee8e9;
+@hedge: #a4ccc4;
 
-// Label colors
-@park-text: #3a885a;
-@forest-text: #378146;
-@agriculture-text: #5e7f39;
-@cemetery-text: #547861;
+// Labels
+@park-text: #36786f;
+@forest-text: #317261;
 
 // Basic landuses
 @built-up-lowzoom: #f6f6f9;
@@ -362,7 +357,7 @@
   }
 
   &[feature='landuse_recreation_ground']:zoom(10) {
-    --polygon-fill: @recreation-ground;
+    --polygon-fill: @garden;
   }
 
   &[feature='leisure_sports_centre'],
@@ -388,7 +383,7 @@
   // physical land cover drawn inside the grounds above
   &[feature='landuse_forest'] {
     &:zoom(5) {
-      --polygon-fill: @forest;
+      --polygon-fill: @wood;
     }
   }
 
@@ -404,11 +399,11 @@
   }
 
   &[feature='landuse_meadow']:zoom(5) {
-    --polygon-fill: @meadow;
+    --polygon-fill: @grass;
   }
 
   &[feature='landuse_village_green']:zoom(5) {
-    --polygon-fill: @village-green;
+    --polygon-fill: @grass;
   }
 
   &[feature='natural_scrub']:zoom(5) {
@@ -444,7 +439,7 @@
   }
 
   &[feature='wetland_swamp']:zoom(5) {
-    --polygon-fill: @forest;
+    --polygon-fill: @wood;
   }
 
   &[feature='wetland_mangrove']:zoom(5) {
@@ -474,25 +469,25 @@
   // cultivated cover (sits inside farmland)
   &[feature='landuse_orchard'] {
     &:zoom(5) {
-      --polygon-fill: @orchard;
+      --polygon-fill: @agriculture;
     }
   }
 
   &[feature='landuse_vineyard'] {
     &:zoom(5) {
-      --polygon-fill: @vineyard;
+      --polygon-fill: @agriculture;
     }
   }
 
   &[feature='landuse_plant_nursery'] {
     &:zoom(10) {
-      --polygon-fill: @orchard;
+      --polygon-fill: @agriculture;
     }
   }
 
   &[feature='landuse_allotments'] {
     &:zoom(10) {
-      --polygon-fill: @allotments;
+      --polygon-fill: @agriculture;
     }
   }
 
