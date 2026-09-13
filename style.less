@@ -1259,11 +1259,11 @@
 @turning-circle-line: @neutral-500;
 @highway-area-line: @neutral-600;
 
-@access-marking: #eaeaeb;
-@access-marking-light: #eaeaeb;
-@access-marking-living-street: #d3d3d5;
-@access-marking-secondary: #e2e3e4;
-@access-marking-white-unpaved: #e0e0e1;
+// @access-marking: #eaeaeb;
+// @access-marking-light: #eaeaeb;
+// @access-marking-living-street: #d3d3d5;
+// @access-marking-secondary: #e2e3e4;
+// @access-marking-white-unpaved: #e0e0e1;
 
 @aeroway-fill: #dadde7;
 
@@ -1433,34 +1433,38 @@
 @unimportant-road-low-zoom-casing: lighten(@unimportant-road-low-zoom, 2%);
 
 // Scale gradients
-@motorway-scale: zoom-gradient(0.04, 0.06 8z, 0.09 10z, 0.19 11z, 0.36 12z, 0.55 14z, 1 17z, 1.28 19z, 1.45 21z);
-@arterial-scale: zoom-gradient(0.045, 0.07 8z, 0.1 10z, 0.2 11z, 0.38 12z, 0.56 14z, 1 17z, 1.32 19z, 1.55 21z);
-@minor-scale: zoom-gradient(0, 0.04 10z, 0.05 12z, 0.1 14z, 0.32 15z, 1 17z, 1.42 19z, 1.72 21z);
-@service-scale: zoom-gradient(0.5, 0.62 15z, 0.78 16z, 1 17z, 1.5 19z, 1.9 21z);
-@road-scale: zoom-gradient(0.035, 0.055 8z, 0.075 10z, 0.28 12z, 0.55 14z, 0.85 16z, 1.18 18z, 1.62 20z);
-@runway-scale: zoom-gradient(1, 1.5 15z, 2 16z);
-@taxiway-scale: zoom-gradient(1, 1.5 15z, 2 16z);
-@footway-scale: zoom-gradient(0 16z, 1.65 17z, 2 18z);
-@cycleway-scale: zoom-gradient(2.16 13z, 1.94 14z, 1.72 15z, 1.3 16z, 1 18z, 0.86 19z);
-@access-marking-scale: zoom-gradient((0.632 / 0.176) 15z, (0.52 / 0.176) 16z 17z, (0.288 / 0.176) 18z, 1 19z);
+// @motorway-scale: zoom-gradient(0.19 12z, 0.36 13z, 0.55 14z, 0.7 15z, 0.85 16z, 1 17z, 2 18z);
+// @arterial-scale: zoom-gradient(0.2 12z, 0.38 13z, 0.56 14z, 0.72 15z, 0.86 16z, 1 17z, 2 18z);
+// @minor-scale: zoom-gradient(0, 0.05 12z, 0.2 13z, 0.42 14z, 0.6 15z, 0.78 16z, 1 17z, 2 18z);
+// @service-scale: zoom-gradient(0.5, 0.7 14z, 0.8 15z, 0.9 16z, 1 17z, 2 18z);
+@motorway-scale: zoom-gradient(0.33 12z, 1.134 18z);
+@arterial-scale: zoom-gradient(0.2 12z, 2 18z);
+@minor-scale: zoom-gradient(0 12z, 1.2 18z);
+@service-scale: zoom-gradient(0.5 14z, 2 18z);
+@road-scale: zoom-gradient(0.035 8z 1.62 20z);
+@runway-scale: zoom-gradient(1 15z, 2 16z);
+@taxiway-scale: zoom-gradient(1 15z, 2 16z);
+@footway-scale: zoom-gradient(0 16z, 2 18z);
+@cycleway-scale: zoom-gradient(2.16 13z, 0.86 19z);
+// @access-marking-scale: zoom-gradient((0.632 / 0.176) 15z, (0.52 / 0.176) 16z 17z, (0.288 / 0.176) 18z, 1 19z);
 
 // Reference widths
-@motorway-width: 11;
-@motorway-link-width: 8;
-@trunk-width: 9.6;
-@trunk-link-width: 7;
-@primary-width: 8.4;
-@primary-link-width: 6.2;
-@secondary-width: 7.2;
-@secondary-link-width: 5.3;
-@tertiary-width: 6.2;
-@tertiary-link-width: 4.6;
-@residential-width: 5.4;
-@road-width: 5.4;
-@living-street-width: 5;
-@pedestrian-width: 4.4;
-@service-width: 3.6;
-@minor-service-width: 2.9;
+@motorway-width: 12;
+@motorway-link-width: 8.6;
+@trunk-width: 10.4;
+@trunk-link-width: 7.5;
+@primary-width: 9;
+@primary-link-width: 6.5;
+@secondary-width: 7.8;
+@secondary-link-width: 5.6;
+@tertiary-width: 6.6;
+@tertiary-link-width: 4.8;
+@residential-width: 5.8;
+@road-width: 5.8;
+@living-street-width: 5.4;
+@pedestrian-width: 4.8;
+@service-width: 4;
+@minor-service-width: 3.3;
 @runway-width: 13;
 @taxiway-width: 5;
 @bridleway-width: 0.4;
@@ -1470,14 +1474,14 @@
 // Casing
 @bridge-casing-factor: 1.25;
 
-@casing-width: 0.4;
+@casing-width: zoom-gradient(0.22 12z, 0.28 14z, 0.35 16z, 0.45 18z, 0.5 20z);
 @bridge-casing-width: @casing-width * @bridge-casing-factor;
 @major-casing-width: @casing-width;
 @secondary-casing-width: @casing-width;
 @residential-casing-width: @casing-width;
 @major-bridge-casing-width: @bridge-casing-width;
 
-@access-marking-width: 0.176;
+// @access-marking-width: 0.176;
 
 @mini-roundabout-width: 3;
 
@@ -3338,142 +3342,142 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   }
 }
 
-#tunnels::fill,
-#roads-fill::fill,
-#bridges::fill {
-  &[access='restricted'] {
-    &[feature='highway_motorway'],
-    &[feature='highway_trunk'],
-    &[feature='highway_primary'],
-    &[feature='highway_secondary'],
-    &[feature='highway_tertiary'],
-    &[feature='highway_unclassified'],
-    &[feature='highway_residential'],
-    &[feature='highway_pedestrian'],
-    &[feature='highway_living_street'] {
-      &:zoom(15) {
-        --access__line-color: @access-marking;
-        &[surface='unpaved'] {
-          --access__line-color: @access-marking-white-unpaved;
-        }
-        &[feature='highway_primary'],
-        &[feature='highway_pedestrian'] {
-          --access__line-color: @access-marking-light;
-        }
-        &[feature='highway_secondary'] {
-          --access__line-color: @access-marking-secondary;
-        }
-        &[feature='highway_living_street'] {
-          --access__line-color: @access-marking-living-street;
-        }
+// #tunnels::fill,
+// #roads-fill::fill,
+// #bridges::fill {
+//   &[access='restricted'] {
+//     &[feature='highway_motorway'],
+//     &[feature='highway_trunk'],
+//     &[feature='highway_primary'],
+//     &[feature='highway_secondary'],
+//     &[feature='highway_tertiary'],
+//     &[feature='highway_unclassified'],
+//     &[feature='highway_residential'],
+//     &[feature='highway_pedestrian'],
+//     &[feature='highway_living_street'] {
+//       &:zoom(15) {
+//         --access__line-color: @access-marking;
+//         &[surface='unpaved'] {
+//           --access__line-color: @access-marking-white-unpaved;
+//         }
+//         &[feature='highway_primary'],
+//         &[feature='highway_pedestrian'] {
+//           --access__line-color: @access-marking-light;
+//         }
+//         &[feature='highway_secondary'] {
+//           --access__line-color: @access-marking-secondary;
+//         }
+//         &[feature='highway_living_street'] {
+//           --access__line-color: @access-marking-living-street;
+//         }
 
-        --access__line-join: round;
-        --access__line-width: @access-marking-width * @access-marking-scale;
+//         --access__line-join: round;
+//         --access__line-width: @access-marking-width * @access-marking-scale;
 
-        &:zoom(15) {
-          --access__line-cap: butt;
-          --access__dasharray: 6 9;
-        }
-      }
-    }
+//         &:zoom(15) {
+//           --access__line-cap: butt;
+//           --access__dasharray: 6 9;
+//         }
+//       }
+//     }
 
-    &[feature='highway_road'],
-    &[feature='highway_service'][service='INT-normal'] {
-      &:zoom(16) {
-        --access__line-color: @access-marking;
-        &[surface='unpaved'] {
-          --access__line-color: @access-marking-white-unpaved;
-        }
-        &[feature='highway_road'] {
-          --access__line-color: @access-marking-light;
-        }
-        --access__line-join: round;
-        --access__line-cap: round;
-        --access__line-width: @access-marking-width * @access-marking-scale;
-        --access__line-dasharray: 6 9;
-      }
-    }
+//     &[feature='highway_road'],
+//     &[feature='highway_service'][service='INT-normal'] {
+//       &:zoom(16) {
+//         --access__line-color: @access-marking;
+//         &[surface='unpaved'] {
+//           --access__line-color: @access-marking-white-unpaved;
+//         }
+//         &[feature='highway_road'] {
+//           --access__line-color: @access-marking-light;
+//         }
+//         --access__line-join: round;
+//         --access__line-cap: round;
+//         --access__line-width: @access-marking-width * @access-marking-scale;
+//         --access__line-dasharray: 6 9;
+//       }
+//     }
 
-    &[feature='highway_service'][service='INT-minor'] {
-      &:zoom(17) {
-        --access__line-color: @access-marking;
-        &[surface='unpaved'] {
-          --access__line-color: @access-marking-white-unpaved;
-        }
-        --access__line-join: round;
-        --access__line-cap: round;
-        --access__line-width: @access-marking-width * @access-marking-scale;
-        --access__line-dasharray: 6 9;
-      }
-    }
-  }
-  &[access='no'] {
-    &[feature='highway_motorway'],
-    &[feature='highway_trunk'],
-    &[feature='highway_primary'],
-    &[feature='highway_secondary'],
-    &[feature='highway_tertiary'],
-    &[feature='highway_unclassified'],
-    &[feature='highway_residential'],
-    &[feature='highway_pedestrian'],
-    &[feature='highway_living_street'] {
-      &:zoom(15) {
-        --access__line-color: @access-marking;
-        &[feature='highway_tertiary'],
-        &[feature='highway_unclassified'],
-        &[feature='highway_residential'] {
-          &[surface='unpaved'] {
-            --access__line-color: @access-marking-white-unpaved;
-          }
-        }
-        &[feature='highway_primary'],
-        &[feature='highway_pedestrian'] {
-          --access__line-color: @access-marking-light;
-        }
-        &[feature='highway_secondary'] {
-          --access__line-color: @access-marking-secondary;
-        }
-        &[feature='highway_living_street'] {
-          --access__line-color: @access-marking-living-street;
-        }
-        --access__line-join: round;
-        --access__line-cap: round;
-        --access__line-width: @access-marking-width * @access-marking-scale;
-        --access__line-dasharray: 6 9;
-      }
-    }
+//     &[feature='highway_service'][service='INT-minor'] {
+//       &:zoom(17) {
+//         --access__line-color: @access-marking;
+//         &[surface='unpaved'] {
+//           --access__line-color: @access-marking-white-unpaved;
+//         }
+//         --access__line-join: round;
+//         --access__line-cap: round;
+//         --access__line-width: @access-marking-width * @access-marking-scale;
+//         --access__line-dasharray: 6 9;
+//       }
+//     }
+//   }
+//   &[access='no'] {
+//     &[feature='highway_motorway'],
+//     &[feature='highway_trunk'],
+//     &[feature='highway_primary'],
+//     &[feature='highway_secondary'],
+//     &[feature='highway_tertiary'],
+//     &[feature='highway_unclassified'],
+//     &[feature='highway_residential'],
+//     &[feature='highway_pedestrian'],
+//     &[feature='highway_living_street'] {
+//       &:zoom(15) {
+//         --access__line-color: @access-marking;
+//         &[feature='highway_tertiary'],
+//         &[feature='highway_unclassified'],
+//         &[feature='highway_residential'] {
+//           &[surface='unpaved'] {
+//             --access__line-color: @access-marking-white-unpaved;
+//           }
+//         }
+//         &[feature='highway_primary'],
+//         &[feature='highway_pedestrian'] {
+//           --access__line-color: @access-marking-light;
+//         }
+//         &[feature='highway_secondary'] {
+//           --access__line-color: @access-marking-secondary;
+//         }
+//         &[feature='highway_living_street'] {
+//           --access__line-color: @access-marking-living-street;
+//         }
+//         --access__line-join: round;
+//         --access__line-cap: round;
+//         --access__line-width: @access-marking-width * @access-marking-scale;
+//         --access__line-dasharray: 6 9;
+//       }
+//     }
 
-    &[feature='highway_road'],
-    &[feature='highway_service'][service='INT-normal'] {
-      &:zoom(16) {
-        --access__line-color: @access-marking;
-        &[surface='unpaved'] {
-          --access__line-color: @access-marking-white-unpaved;
-        }
-        &[feature='highway_road'] {
-          --access__line-color: @access-marking-light;
-        }
-        --access__line-join: round;
-        --access__line-cap: round;
-        --access__line-width: @access-marking-width * @access-marking-scale;
-        --access__line-dasharray: 6 9;
-      }
-    }
+//     &[feature='highway_road'],
+//     &[feature='highway_service'][service='INT-normal'] {
+//       &:zoom(16) {
+//         --access__line-color: @access-marking;
+//         &[surface='unpaved'] {
+//           --access__line-color: @access-marking-white-unpaved;
+//         }
+//         &[feature='highway_road'] {
+//           --access__line-color: @access-marking-light;
+//         }
+//         --access__line-join: round;
+//         --access__line-cap: round;
+//         --access__line-width: @access-marking-width * @access-marking-scale;
+//         --access__line-dasharray: 6 9;
+//       }
+//     }
 
-    &[feature='highway_service'][service='INT-minor'] {
-      &:zoom(17) {
-        --access__line-color: @access-marking;
-        &[surface='unpaved'] {
-          --access__line-color: @access-marking-white-unpaved;
-        }
-        --access__line-join: round;
-        --access__line-cap: round;
-        --access__line-width: @access-marking-width * @access-marking-scale;
-        --access__line-dasharray: 6 9;
-      }
-    }
-  }
-}
+//     &[feature='highway_service'][service='INT-minor'] {
+//       &:zoom(17) {
+//         --access__line-color: @access-marking;
+//         &[surface='unpaved'] {
+//           --access__line-color: @access-marking-white-unpaved;
+//         }
+//         --access__line-join: round;
+//         --access__line-cap: round;
+//         --access__line-width: @access-marking-width * @access-marking-scale;
+//         --access__line-dasharray: 6 9;
+//       }
+//     }
+//   }
+// }
 
 #aeroways {
   &[aeroway='runway'] {
@@ -4509,7 +4513,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 @building-major-line: darken(@building-major-fill, 3%);
 
 // Outlines are hairlines: flat design, just enough to separate adjacent blocks.
-@building-outline-width: 0.38;
+@building-outline-width: 0.45;
 
 @entrance-permissive: darken(@building-line, 6%);
 @entrance-normal: @building-line;
