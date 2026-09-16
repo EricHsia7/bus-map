@@ -223,7 +223,7 @@
 @runway-width: 13;
 @taxiway-width: 5;
 @bridleway-width: 0.4;
-@footway-width: 0.4;
+@footway-width: 0.8;
 @cycleway-width: 0.5;
 
 // Casing
@@ -440,30 +440,6 @@
       }
     }
 
-    &[feature='highway_trunk']:zoom(12) {
-      --line-color: zoom-gradient(@trunk-low-zoom-casing, @trunk-casing 13z);
-
-      --line-width: @trunk-width * @motorway-scale;
-      &[link='yes'] {
-        --line-width: @trunk-link-width * @motorway-scale;
-      }
-
-      &#roads-casing {
-        --line-join: round;
-        --line-cap: round;
-      }
-
-      &#tunnels {
-        --line-color: @tunnel-casing;
-      }
-
-      &#bridges {
-        --line-join: round;
-        --line-color: @bridge-casing;
-        --line-cap: round;
-      }
-    }
-
     &[feature='highway_tertiary'] {
       &:zoom(13) {
         --line-color: zoom-gradient(@tertiary-low-zoom-casing, @tertiary-casing 15z);
@@ -557,6 +533,30 @@
         --line-color: @bridge-casing;
         --line-join: round;
         --line-cap: butt;
+      }
+    }
+
+    &[feature='highway_trunk']:zoom(12) {
+      --line-color: zoom-gradient(@trunk-low-zoom-casing, @trunk-casing 13z);
+
+      --line-width: @trunk-width * @motorway-scale;
+      &[link='yes'] {
+        --line-width: @trunk-link-width * @motorway-scale;
+      }
+
+      &#roads-casing {
+        --line-join: round;
+        --line-cap: round;
+      }
+
+      &#tunnels {
+        --line-color: @tunnel-casing;
+      }
+
+      &#bridges {
+        --line-join: round;
+        --line-color: @bridge-casing;
+        --line-cap: round;
       }
     }
 
@@ -1111,6 +1111,21 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     //   }
     // }
 
+    &[feature='highway_footway']:zoom(16) {
+      --line-join: round;
+      --line-cap: butt;
+      --line-width: @footway-width * @footway-scale;
+
+      --line-color: zoom-gradient(lighten(@footway-fill, 5%) 16z, @footway-fill 17z);
+      &[access='no'] {
+        --line-color: @footway-fill-noaccess;
+      }
+
+      &:zoom(17) {
+        --line-dasharray: 6 9;
+      }
+    }
+
     &#roads-fill[feature='highway_pedestrian'],
     &#bridges[feature='highway_pedestrian'],
     &#tunnels[feature='highway_pedestrian'] {
@@ -1275,34 +1290,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       }
     }
 
-    &#roads-low-zoom[feature='highway_trunk'],
-    &#roads-fill[feature='highway_trunk'],
-    &#bridges[feature='highway_trunk'],
-    &#tunnels[feature='highway_trunk'] {
-      &:not([link='yes']):zoom(6),
-      &:zoom(10) {
-        --line-width: @trunk-width * @motorway-scale;
-        --line-color: zoom-gradient(@trunk-low-zoom, @trunk-fill 12z);
-        &:zoom(12) {
-          --line-width: @trunk-width * @motorway-scale - 2 * @casing-width;
-          &[link='yes'] {
-            --line-width: @trunk-link-width * @motorway-scale - 2 * @casing-width;
-          }
-          &#tunnels {
-            --line-color: @trunk-tunnel-fill;
-          }
-          &#bridges {
-            --line-width: @trunk-width * @motorway-scale - 2 * @bridge-casing-width;
-            &[link='yes'] {
-              --line-width: @trunk-link-width * @motorway-scale - 2 * @bridge-casing-width;
-            }
-          }
-          --line-cap: round;
-          --line-join: round;
-        }
-      }
-    }
-
     &[feature='highway_tertiary'] {
       &:zoom(13) {
         --line-color: zoom-gradient(@tertiary-low-zoom 13z, @tertiary-fill 14z);
@@ -1413,12 +1400,31 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       }
     }
 
-    &[feature='highway_raceway'] {
-      --line-width: zoom-gradient(1.2 12z, 2 13z, 3 14z, 6 15z, 8 18z, 12 19z, 24 20z);
-      &:zoom(12) {
-        --line-color: @raceway-fill;
-        --line-join: round;
-        --line-cap: round;
+    &#roads-low-zoom[feature='highway_trunk'],
+    &#roads-fill[feature='highway_trunk'],
+    &#bridges[feature='highway_trunk'],
+    &#tunnels[feature='highway_trunk'] {
+      &:not([link='yes']):zoom(6),
+      &:zoom(10) {
+        --line-width: @trunk-width * @motorway-scale;
+        --line-color: zoom-gradient(@trunk-low-zoom, @trunk-fill 12z);
+        &:zoom(12) {
+          --line-width: @trunk-width * @motorway-scale - 2 * @casing-width;
+          &[link='yes'] {
+            --line-width: @trunk-link-width * @motorway-scale - 2 * @casing-width;
+          }
+          &#tunnels {
+            --line-color: @trunk-tunnel-fill;
+          }
+          &#bridges {
+            --line-width: @trunk-width * @motorway-scale - 2 * @bridge-casing-width;
+            &[link='yes'] {
+              --line-width: @trunk-link-width * @motorway-scale - 2 * @bridge-casing-width;
+            }
+          }
+          --line-cap: round;
+          --line-join: round;
+        }
       }
     }
 
@@ -1466,43 +1472,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         }
       }
     }
-
-    &[feature='highway_footway']:zoom(16) {
-      --line-join: round;
-      --line-cap: butt;
-      --line-width: @footway-width * @footway-scale;
-
-      --line-color: zoom-gradient(lighten(@footway-fill, 5%) 16z, @footway-fill 17z);
-      &[access='no'] {
-        --line-color: @footway-fill-noaccess;
-      }
-
-      &:zoom(17) {
-        --line-dasharray: 6 9;
-      }
-    }
-
-    // &[feature='highway_platform'] {
-    //   &:zoom(16) {
-    //     --line-join: round;
-    //     --line-width: 4.5;
-    //     --line-color: @rail-line;
-    //     --line-cap: round;
-    //     --b__line-width: 4;
-    //     --b__line-color: @platform-fill;
-    //     --b__line-cap: round;
-    //     --b__line-join: round;
-    //   }
-    // }
-
-    // &[feature='highway_cycleway']:zoom(14) {
-    //   --line-join: round;
-    //   --line-cap: butt;
-    //   --line-width: zoom-gradient(@cycleway-width-z14 14z, @cycleway-width-z15 15z, @cycleway-width-z16 16z 17z, @cycleway-width-z18 18z, @cycleway-width-z19 19z);
-    //   --line-dasharray: 4 4;
-
-    //   --line-color: @cycleway-fill;
-    // }
 
     &[feature='highway_track'] {
       &:not([access='no']):zoom(13),
@@ -1553,7 +1522,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     }
 
     &[feature='highway_bus_guideway']:zoom(11) {
-      &:zoom(1, 12) {
+      &:zoom(12) {
         --line-width: zoom-gradient(0.6, 1 12z);
         &#roads-fill,
         &#bridges {
@@ -1579,6 +1548,81 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         --b__line-join: round;
         &:zoom(14) {
           --b__line-dasharray: 0, 11, 8, 1;
+        }
+      }
+    }
+
+    &[feature='railway_tram'],
+    &[feature='railway_tram-service']:zoom(15) {
+      &:zoom(12) {
+        --line-color: @rail-line-dark;
+        // Tram is the lightest gauge in the family, so it stays the thinnest
+        // stroke. A single ladder now drives every zoom, and tram-service
+        // rides the same scale from a smaller base -- which is what the four
+        // hand-written width overrides at z15/17/18/19 were approximating.
+        --line-width: zoom-gradient(0.6, 0.8 14z, 1 16z, 1.3 18z);
+        &[feature='railway_tram-service'] {
+          --line-width: 0.5;
+        }
+        &[preserved='yes']:zoom(15) {
+          --line-color: @rail-line-lighter;
+        }
+        &#tunnels {
+          --line-color: @tunnel-rail-fill;
+        }
+      }
+    }
+
+    &[feature='railway_subway'] {
+      &:zoom(12) {
+        // One step darker than @rail-line-light: dropping from 4px to 1.6px
+        // costs contrast, so the colour has to pay it back.
+        --line-color: @rail-line;
+        --line-width: zoom-gradient(0.8, 1 14z, 1.3 16z, 1.6 18z);
+        &[preserved='yes']:zoom(15) {
+          --line-color: @rail-line-lighter;
+        }
+        &#tunnels {
+          --line-color: @tunnel-rail-fill;
+        }
+      }
+      &#bridges {
+        &:zoom(14) {
+          --line-width: zoom-gradient(0.8, 1 14z, 1.3 16z, 1.6 18z);
+          --line-color: @rail-line;
+        }
+      }
+    }
+
+    &[feature='railway_light_rail'],
+    &[feature='railway_funicular'],
+    &[feature='railway_narrow_gauge'] {
+      &:zoom(8, 9),
+      &:not([preserved='yes']):zoom(10, 11),
+      &:zoom(12) {
+        --line-color: @rail-line-lighter;
+        &:zoom(10) {
+          --line-color: @rail-line-light;
+        }
+        &:zoom(13) {
+          --line-color: @rail-line-dark;
+        }
+        // Urban rail is one thin stroke: no casing, no core. A casing with a
+        // core is the *road* idiom -- an outline wrapped around a fill -- so
+        // building rail out of the same two parts is what made it read as
+        // another class of street, however the colours were tuned. Weight now
+        // carries the distinction instead: roads are wide and light, rail is
+        // thin and dark. Thin also happens to be true to the thing, which a
+        // 4px casing was not.
+
+        --line-width: zoom-gradient(0.8, 1 14z, 1.4 16z, 1.8 18z);
+        &[preserved='yes']:zoom(13) {
+          // Preserved differs in value, not in structure.
+
+          --line-color: @rail-line-lighter;
+        }
+        &#tunnels {
+          --line-color: @tunnel-rail-fill;
         }
       }
     }
@@ -1659,97 +1703,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       }
     }
 
-    &[feature='railway_light_rail'],
-    &[feature='railway_funicular'],
-    &[feature='railway_narrow_gauge'] {
-      &:zoom(8, 9),
-      &:not([preserved='yes']):zoom(10, 11),
-      &:zoom(12) {
-        --line-color: @rail-line-lighter;
-        &:zoom(10) {
-          --line-color: @rail-line-light;
-        }
-        &:zoom(13) {
-          --line-color: @rail-line-dark;
-        }
-        // Urban rail is one thin stroke: no casing, no core. A casing with a
-        // core is the *road* idiom -- an outline wrapped around a fill -- so
-        // building rail out of the same two parts is what made it read as
-        // another class of street, however the colours were tuned. Weight now
-        // carries the distinction instead: roads are wide and light, rail is
-        // thin and dark. Thin also happens to be true to the thing, which a
-        // 4px casing was not.
-
-        --line-width: zoom-gradient(0.8, 1 14z, 1.4 16z, 1.8 18z);
-        &[preserved='yes']:zoom(13) {
-          // Preserved differs in value, not in structure.
-
-          --line-color: @rail-line-lighter;
-        }
-        &#tunnels {
-          --line-color: @tunnel-rail-fill;
-        }
-      }
-    }
-
-    &[feature='railway_miniature'] {
-      &:zoom(15) {
-        --line__line-width: 3;
-        --line__line-color: @rail-line-light;
-
-        --core__line-width: zoom-gradient(0 15z, 1 16z);
-        --core__line-join: round;
-        --core__line-color: zoom-gradient(@rail-line-light 15z, @white 16z);
-
-        &[preserved='yes'] {
-          --line__line-color: @rail-line-lighter;
-          --core__line-color: zoom-gradient(@rail-line-lighter 15z, @white 16z);
-        }
-      }
-    }
-
-    &[feature='railway_tram'],
-    &[feature='railway_tram-service']:zoom(15) {
-      &:zoom(12) {
-        --line-color: @rail-line-dark;
-        // Tram is the lightest gauge in the family, so it stays the thinnest
-        // stroke. A single ladder now drives every zoom, and tram-service
-        // rides the same scale from a smaller base -- which is what the four
-        // hand-written width overrides at z15/17/18/19 were approximating.
-        --line-width: zoom-gradient(0.6, 0.8 14z, 1 16z, 1.3 18z);
-        &[feature='railway_tram-service'] {
-          --line-width: 0.5;
-        }
-        &[preserved='yes']:zoom(15) {
-          --line-color: @rail-line-lighter;
-        }
-        &#tunnels {
-          --line-color: @tunnel-rail-fill;
-        }
-      }
-    }
-
-    &[feature='railway_subway'] {
-      &:zoom(12) {
-        // One step darker than @rail-line-light: dropping from 4px to 1.6px
-        // costs contrast, so the colour has to pay it back.
-        --line-color: @rail-line;
-        --line-width: zoom-gradient(0.8, 1 14z, 1.3 16z, 1.6 18z);
-        &[preserved='yes']:zoom(15) {
-          --line-color: @rail-line-lighter;
-        }
-        &#tunnels {
-          --line-color: @tunnel-rail-fill;
-        }
-      }
-      &#bridges {
-        &:zoom(14) {
-          --line-width: zoom-gradient(0.8, 1 14z, 1.3 16z, 1.6 18z);
-          --line-color: @rail-line;
-        }
-      }
-    }
-
     &[feature='railway_monorail'] {
       &:zoom(14) {
         --background__line-width: 4;
@@ -1776,6 +1729,62 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       }
     }
 
+    &[feature='railway_disused'] {
+      &:zoom(15) {
+        --line-color: @rail-line-light;
+        --line-width: 2;
+        --line-dasharray: @dash-abandoned;
+        --line-join: round;
+      }
+    }
+
+    &[feature='railway_miniature'] {
+      &:zoom(15) {
+        --line__line-width: 3;
+        --line__line-color: @rail-line-light;
+
+        --core__line-width: zoom-gradient(0 15z, 1 16z);
+        --core__line-join: round;
+        --core__line-color: zoom-gradient(@rail-line-light 15z, @white 16z);
+
+        &[preserved='yes'] {
+          --line__line-color: @rail-line-lighter;
+          --core__line-color: zoom-gradient(@rail-line-lighter 15z, @white 16z);
+        }
+      }
+    }
+
+    &[feature='highway_raceway'] {
+      --line-width: zoom-gradient(1.2 12z, 2 13z, 3 14z, 6 15z, 8 18z, 12 19z, 24 20z);
+      &:zoom(12) {
+        --line-color: @raceway-fill;
+        --line-join: round;
+        --line-cap: round;
+      }
+    }
+
+    // &[feature='highway_platform'] {
+    //   &:zoom(16) {
+    //     --line-join: round;
+    //     --line-width: 4.5;
+    //     --line-color: @rail-line;
+    //     --line-cap: round;
+    //     --b__line-width: 4;
+    //     --b__line-color: @platform-fill;
+    //     --b__line-cap: round;
+    //     --b__line-join: round;
+    //   }
+    // }
+
+    // &[feature='highway_cycleway']:zoom(14) {
+    //   --line-join: round;
+    //   --line-cap: butt;
+    //   --line-width: zoom-gradient(@cycleway-width-z14 14z, @cycleway-width-z15 15z, @cycleway-width-z16 16z 17z, @cycleway-width-z18 18z, @cycleway-width-z19 19z);
+    //   --line-dasharray: 4 4;
+
+    //   --line-color: @cycleway-fill;
+    // }
+
     // The two classes that keep a dash, because for these the broken line
     // *is* the statement: planned track, and track that has stopped being
     // track. Both now spend a token from the shared vocabulary, so they cannot
@@ -1788,15 +1797,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     //     --line-join: round;
     //   }
     // }
-
-    &[feature='railway_disused'] {
-      &:zoom(15) {
-        --line-color: @rail-line-light;
-        --line-width: 2;
-        --line-dasharray: @dash-abandoned;
-        --line-join: round;
-      }
-    }
 
     &[feature='railway_platform'] {
       &:zoom(16) {
@@ -1962,11 +1962,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 }
 
 #highway-area-casing {
-  &[feature='highway_service']:zoom(15) {
-    --line-color: @rail-line-light;
-    --line-width: 1;
-  }
-
   &[feature='highway_footway']:zoom(16),
   &[feature='highway_pedestrian']:zoom(16) {
     --line-width: @footway-width * @footway-scale;
@@ -1978,6 +1973,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     &[access='no'] {
       --line-color: @footway-fill-noaccess;
     }
+  }
+
+  &[feature='highway_service']:zoom(15) {
+    --line-color: @rail-line-light;
+    --line-width: 1;
   }
 
   &[feature='highway_platform'],
