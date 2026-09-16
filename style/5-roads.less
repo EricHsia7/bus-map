@@ -416,30 +416,6 @@
       }
     }
 
-    &[feature='highway_motorway']:zoom(12) {
-      --line-color: zoom-gradient(@motorway-low-zoom-casing, @motorway-casing 13z);
-
-      --line-width: @motorway-width * @motorway-scale;
-      &[link='yes'] {
-        --line-width: @motorway-link-width * @motorway-scale;
-      }
-
-      &#roads-casing {
-        --line-join: round;
-        --line-cap: butt;
-      }
-
-      &#tunnels {
-        --line-color: @tunnel-casing;
-      }
-
-      &#bridges {
-        --line-join: round;
-        --line-color: @bridge-casing;
-        --line-cap: butt;
-      }
-    }
-
     &[feature='highway_tertiary'] {
       &:zoom(13) {
         --line-color: zoom-gradient(@tertiary-low-zoom-casing, @tertiary-casing 15z);
@@ -532,6 +508,30 @@
       &#bridges {
         --line-color: @bridge-casing;
         --line-join: round;
+        --line-cap: butt;
+      }
+    }
+
+    &[feature='highway_motorway']:zoom(12) {
+      --line-color: zoom-gradient(@motorway-low-zoom-casing, @motorway-casing 13z);
+
+      --line-width: @motorway-width * @motorway-scale;
+      &[link='yes'] {
+        --line-width: @motorway-link-width * @motorway-scale;
+      }
+
+      &#roads-casing {
+        --line-join: round;
+        --line-cap: butt;
+      }
+
+      &#tunnels {
+        --line-color: @tunnel-casing;
+      }
+
+      &#bridges {
+        --line-join: round;
+        --line-color: @bridge-casing;
         --line-cap: butt;
       }
     }
@@ -1262,34 +1262,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       }
     }
 
-    &#roads-low-zoom[feature='highway_motorway'],
-    &#roads-fill[feature='highway_motorway'],
-    &#bridges[feature='highway_motorway'],
-    &#tunnels[feature='highway_motorway'] {
-      &:not([link='yes']):zoom(6),
-      &:zoom(10) {
-        --line-color: zoom-gradient(@motorway-low-zoom, @motorway-fill 14z);
-        --line-width: @motorway-width * @motorway-scale;
-        &:zoom(12) {
-          --line-width: @motorway-width * @motorway-scale - 2 * @casing-width;
-          &[link='yes'] {
-            --line-width: @motorway-link-width * @motorway-scale - 2 * @casing-width;
-          }
-          &#tunnels {
-            --line-color: @motorway-tunnel-fill;
-          }
-          &#bridges {
-            --line-width: @motorway-width * @motorway-scale - 2 * @bridge-casing-width;
-            &[link='yes'] {
-              --line-width: @motorway-link-width * @motorway-scale - 2 * @bridge-casing-width;
-            }
-          }
-          --line-cap: round;
-          --line-join: round;
-        }
-      }
-    }
-
     &[feature='highway_tertiary'] {
       &:zoom(13) {
         --line-color: zoom-gradient(@tertiary-low-zoom 13z, @tertiary-fill 14z);
@@ -1396,6 +1368,34 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
         &#tunnels {
           --line-color: @road-fill;
+        }
+      }
+    }
+
+    &#roads-low-zoom[feature='highway_motorway'],
+    &#roads-fill[feature='highway_motorway'],
+    &#bridges[feature='highway_motorway'],
+    &#tunnels[feature='highway_motorway'] {
+      &:not([link='yes']):zoom(6),
+      &:zoom(10) {
+        --line-color: zoom-gradient(@motorway-low-zoom, @motorway-fill 14z);
+        --line-width: @motorway-width * @motorway-scale;
+        &:zoom(12) {
+          --line-width: @motorway-width * @motorway-scale - 2 * @casing-width;
+          &[link='yes'] {
+            --line-width: @motorway-link-width * @motorway-scale - 2 * @casing-width;
+          }
+          &#tunnels {
+            --line-color: @motorway-tunnel-fill;
+          }
+          &#bridges {
+            --line-width: @motorway-width * @motorway-scale - 2 * @bridge-casing-width;
+            &[link='yes'] {
+              --line-width: @motorway-link-width * @motorway-scale - 2 * @bridge-casing-width;
+            }
+          }
+          --line-cap: round;
+          --line-join: round;
         }
       }
     }
