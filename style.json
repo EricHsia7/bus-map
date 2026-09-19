@@ -2218,56 +2218,6 @@
         ]
       },
       {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "natural_grassland"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": [
-        "rgba(225,239,237,1)",
-        "rgba(225,239,237,1)"
-      ]
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
-        "layer": "landcover",
-        "zoom": {
-          "min": 10,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "leisure_track"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": [
-        "rgba(182,217,208,1)",
-        "rgba(182,217,208,1)"
-      ]
-    },
-    "attachment": "low-zoom"
-  },
-  {
-    "groups": [
-      {
         "layer": "landcover-low-zoom",
         "zoom": {
           "min": 5,
@@ -2278,6 +2228,20 @@
             "key": "feature",
             "op": "=",
             "value": "landuse_grass"
+          }
+        ]
+      },
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "natural_grassland"
           }
         ]
       },
@@ -3164,6 +3128,31 @@
       "polygon-fill": [
         "rgba(205,229,223,1)",
         "rgba(205,229,223,1)"
+      ]
+    },
+    "attachment": "low-zoom"
+  },
+  {
+    "groups": [
+      {
+        "layer": "landcover",
+        "zoom": {
+          "min": 10,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "leisure_track"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "polygon-fill": [
+        "rgba(182,217,208,1)",
+        "rgba(182,217,208,1)"
       ]
     },
     "attachment": "low-zoom"

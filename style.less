@@ -393,14 +393,7 @@
     }
   }
 
-  &[feature='natural_grassland']:zoom(5) {
-    --polygon-fill: @grass;
-  }
-
-  &[feature='leisure_track']:zoom(10) {
-    --polygon-fill: @track;
-  }
-
+  &[feature='natural_grassland']:zoom(5),
   &[feature='landuse_grass']:zoom(5) {
     --polygon-fill: @grass;
   }
@@ -506,6 +499,10 @@
 
   &[feature='leisure_pitch']:zoom(10) {
     --polygon-fill: @pitch;
+  }
+
+  &[feature='leisure_track']:zoom(10) {
+    --polygon-fill: @track;
   }
 
   &[feature='leisure_ice_rink'] {
