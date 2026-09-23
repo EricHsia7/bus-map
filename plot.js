@@ -172,6 +172,30 @@ function clamp(value, min, max) {
 const maxTotalTurn = (60 / 180) * Math.PI;
 const sampleRateRatio = 2;
 
+// directional placement tuning
+const HORIZONTAL = 0;
+const VERTICAL = 1;
+// How strongly the tangent direction drives orientation choice (vs. curvature).
+const directionWeight = 1.0;
+// Tie-breaker: horizontal is the default reading direction, so tax vertical a bit.
+const verticalModeBias = 0.15;
+// A candidate is only eligible for a mode if the tangent is "enough" of that direction.
+const minVerticality = Math.sin((60 / 180) * Math.PI); // >= 60° from horizontal
+const maxVerticalityForHorizontal = Math.sin((60 / 180) * Math.PI);
+// Upright glyphs may lean with the road, but only so far.
+const maxVerticalGlyphTilt = (30 / 180) * Math.PI;
+
+// Ideographic / kana / hangul / fullwidth ranges stack cleanly; Latin does not.
+const VERTICAL_SCRIPT = /[\u1100-\u11FF\u2E80-\u303F\u3040-\u9FFF\uA960-\uA97F\uAC00-\uD7FF\uF900-\uFAFF\uFE30-\uFE4F\uFF00-\uFF60\uFFE0-\uFFE6]/;
+function supportsVerticalLayout(label) {
+  for (let i = 0; i < label.length; i++) {
+    const c = label[i];
+    if (c === ' ') continue;
+    if (!VERTICAL_SCRIPT.test(c)) return false;
+  }
+  return true;
+}
+
 function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, textScale, tileSize = 512, quantization = 1024) {
   if (!Array.isArray(lineString.coordinates) || lineString.coordinates.length < 2) return null;
   if (!label || label.length === 0) return null;
@@ -191,14 +215,23 @@ function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, textSc
   const fontSize = textSize * textScale * (tileSize / 256);
 
   const labelLength = label.length;
-  const charAdvances = new Float32Array(labelLength);
-  const advancePrefix = new Float32Array(labelLength + 1);
-  let totalAdvance = 0;
+
+  // Horizontal advances come from the shaper; vertical advances are em boxes.
+  const hAdvances = new Float32Array(labelLength);
+  const hPrefix = new Float32Array(labelLength + 1);
+  const vAdvances = new Float32Array(labelLength);
+  const vPrefix = new Float32Array(labelLength + 1);
+  let hTotal = 0;
+  let vTotal = 0;
   for (let i = 0; i < labelLength; i++) {
     const advance = measureTextWidth(label[i], fontSize, 0, 0);
-    charAdvances[i] = advance;
-    advancePrefix[i + 1] = advancePrefix[i] + advance;
-    totalAdvance += advance;
+    hAdvances[i] = advance;
+    hPrefix[i + 1] = hPrefix[i] + advance;
+    hTotal += advance;
+
+    vAdvances[i] = fontSize;
+    vPrefix[i + 1] = vPrefix[i] + fontSize;
+    vTotal += fontSize;
   }
 
   const coordinatesLength = coordinates.length;
@@ -206,12 +239,11 @@ function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, textSc
   const segmentTotalLengths = new Float32Array(coordinatesLength - 1);
   const segmentDeltaX = new Float32Array(coordinatesLength - 1);
   const segmentDeltaY = new Float32Array(coordinatesLength - 1);
-  const segmentAbsoluteSlopes = new Float32Array(coordinatesLength - 1);
+  const segmentVerticality = new Float32Array(coordinatesLength - 1); // |sin(theta)|
   const segmentAngles = new Float32Array(coordinatesLength - 1);
   const segmentTurns = new Float32Array(coordinatesLength - 1);
   let totalLength = 0;
   let totalTurn = 0;
-  let maxDistance = -Infinity;
   for (let i = 1; i < coordinatesLength; i++) {
     const s = i - 1; // segment index
     const px = coordinates[i - 1][0];
@@ -223,17 +255,20 @@ function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, textSc
     segmentDeltaY[s] = dy;
     const distance = Math.hypot(dx, dy);
     segmentLengths[s] = distance;
-    segmentTotalLengths[s] = totalLength; // arc length at segment start
+    segmentTotalLengths[s] = totalLength;
     totalLength += distance;
-    segmentAbsoluteSlopes[s] = Math.abs(dy / dx);
+    // Bounded, slope-free direction measure: 0 = horizontal, 1 = vertical.
+    segmentVerticality[s] = distance === 0 ? 0 : Math.abs(dy) / distance;
     const angle = Math.atan2(dy, dx);
     segmentAngles[s] = angle;
     segmentTurns[s] = totalTurn;
     totalTurn += s === 0 ? 0 : Math.abs(angle - segmentAngles[s - 1]);
   }
 
-  // Reject short path
-  if (totalAdvance + charAdvances[0] + charAdvances[labelLength - 1] > totalLength) return null;
+  const verticalAllowed = supportsVerticalLayout(label);
+  const hFits = hTotal + hAdvances[0] + hAdvances[labelLength - 1] <= totalLength;
+  const vFits = verticalAllowed && vTotal + vAdvances[0] + vAdvances[labelLength - 1] <= totalLength;
+  if (!hFits && !vFits) return null;
 
   const resampledX = [];
   const resampledY = [];
@@ -255,18 +290,39 @@ function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, textSc
   const halfSlidingWindow = Math.ceil((labelLength * sampleRateRatio) / 2) + 1;
   let minScore = Infinity;
   let minScoreIndex = -1;
+  let mode = HORIZONTAL;
   for (let i = halfSlidingWindow; i < resampledLength - halfSlidingWindow - 1; i++) {
     const planTotalTurn = segmentTurns[resampledToSegement[i + halfSlidingWindow]] - segmentTurns[resampledToSegement[i - halfSlidingWindow]];
     if (planTotalTurn >= maxTotalTurn) continue;
-    const centerAbsoluteSlope = segmentAbsoluteSlopes[resampledToSegement[i]];
-    const score = planTotalTurn + centerAbsoluteSlope;
-    if (score < minScore) {
-      minScore = score;
-      minScoreIndex = i;
+
+    const verticality = segmentVerticality[resampledToSegement[i]];
+
+    // Horizontal: penalize steep tangents (the old centerAbsoluteSlope term, bounded).
+    if (hFits && verticality <= maxVerticalityForHorizontal) {
+      const score = planTotalTurn + directionWeight * verticality;
+      if (score < minScore) {
+        minScore = score;
+        minScoreIndex = i;
+        mode = HORIZONTAL;
+      }
+    }
+
+    // Vertical: penalize flat tangents instead, so upright stacking wins on steep runs.
+    if (vFits && verticality >= minVerticality) {
+      const score = planTotalTurn + directionWeight * (1 - verticality) + verticalModeBias;
+      if (score < minScore) {
+        minScore = score;
+        minScoreIndex = i;
+        mode = VERTICAL;
+      }
     }
   }
 
   if (minScoreIndex < 0) return null;
+
+  const advances = mode === VERTICAL ? vAdvances : hAdvances;
+  const advancePrefix = mode === VERTICAL ? vPrefix : hPrefix;
+  const totalAdvance = mode === VERTICAL ? vTotal : hTotal;
 
   function sampleAtDistance(dist) {
     let remaining = clamp(dist, 0, totalLength);
@@ -283,14 +339,10 @@ function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, textSc
       remaining -= segLen;
     }
     const last = coordinates[coordinatesLength - 1];
-    return {
-      x: last[0],
-      y: last[1],
-      angle: 0
-    };
+    return { x: last[0], y: last[1], angle: 0 };
   }
 
-  const start = segmentTotalLengths[resampledToSegement[minScoreIndex - halfSlidingWindow]];
+  const start = clamp(segmentTotalLengths[resampledToSegement[minScoreIndex - halfSlidingWindow]], 0, totalLength - totalAdvance);
   const end = start + totalAdvance;
   const startPoint = sampleAtDistance(start);
   const endPoint = sampleAtDistance(end);
@@ -298,26 +350,37 @@ function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, textSc
   const dirX = endPoint.x - startPoint.x;
   const dirY = endPoint.y - startPoint.y;
   const EPS = 1e-6;
-  const flip = dirX < -EPS || (Math.abs(dirX) <= EPS && dirY > 0);
+  // Horizontal text must read left-to-right; vertical text must read top-to-bottom.
+  const flip = mode === VERTICAL ? dirY < -EPS || (Math.abs(dirY) <= EPS && dirX < 0) : dirX < -EPS || (Math.abs(dirX) <= EPS && dirY > 0);
 
   const outputCoordinates = [];
   const outputAngles = [];
   const quantizeComponent = (x) => Math.floor((x / tileSize) * quantization);
-  const quantizeAngle = (angle) => Math.floor((((angle + 2 * Math.PI) % (2 * Math.PI)) / (2 * Math.PI)) * quantization);
+  const quantizeAngle = (angle) => Math.floor(((((angle % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI)) / (2 * Math.PI)) * quantization);
 
   for (let i = 0; i < labelLength; i++) {
-    const offset = advancePrefix[i] + charAdvances[i] / 2;
-
-    // Flipped: glyph 0 starts at the far end and we walk backwards, so glyph 0 still lands on the left-hand side of the screen.
+    const offset = advancePrefix[i] + advances[i] / 2;
     const d = flip ? end - offset : start + offset;
 
     const { x, y, angle } = sampleAtDistance(d);
+    const oriented = flip ? angle + Math.PI : angle;
+
+    let glyphAngle;
+    if (mode === VERTICAL) {
+      // v_char ∥ v_T: the glyph's up-axis follows the tangent, so the baseline
+      // rotates by -90°. Clamp the lean so upright stacking stays legible.
+      const tilt = Math.atan2(Math.sin(oriented - Math.PI / 2), Math.cos(oriented - Math.PI / 2));
+      glyphAngle = clamp(tilt, -maxVerticalGlyphTilt, maxVerticalGlyphTilt);
+    } else {
+      // v_char · v_T = 0: baseline along the tangent.
+      glyphAngle = oriented;
+    }
 
     outputCoordinates.push([quantizeComponent(x), quantizeComponent(y)]);
-    outputAngles.push(quantizeAngle(flip ? angle + Math.PI : angle));
+    outputAngles.push(quantizeAngle(glyphAngle));
   }
 
-  return { type: 'LineString', coordinates: outputCoordinates, angles: outputAngles };
+  return { type: 'LineString', coordinates: outputCoordinates, angles: outputAngles, orientation: mode === VERTICAL ? 'vertical' : 'horizontal' };
 }
 
 function plotPointLabel(point, x0, y0, x1, y1, quantization = 1024) {
