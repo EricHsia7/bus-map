@@ -188,7 +188,7 @@
 @unimportant-road-low-zoom-casing: lighten(@unimportant-road-low-zoom, 2%);
 
 // Scale gradients
-@motorway-scale: zoom-gradient(0.33 12z, 1.25 18z);
+@motorway-scale: zoom-gradient(0.33 12z, 1.5 18z);
 @arterial-scale: zoom-gradient(0.25 12z, 2.35 18z);
 @minor-scale: zoom-gradient(0 12z, 1.2 18z);
 @service-scale: zoom-gradient(0.5 14z, 2 18z);
@@ -201,21 +201,21 @@
 
 // Reference widths
 @motorway-width: 12;
-@motorway-link-width: 8.6;
-@trunk-width: 10.4;
-@trunk-link-width: 7.5;
-@primary-width: 9;
-@primary-link-width: 6.5;
-@secondary-width: 7.8;
-@secondary-link-width: 5.6;
-@tertiary-width: 6.6;
-@tertiary-link-width: 4.8;
-@residential-width: 5.8;
-@road-width: 5.8;
-@living-street-width: 5.4;
-@pedestrian-width: 4.8;
+@motorway-link-width: 11;
+@trunk-width: 10;
+@trunk-link-width: 9;
+@primary-width: 10;
+@primary-link-width: 9;
+@secondary-width: 8;
+@secondary-link-width: 7;
+@tertiary-width: 8;
+@tertiary-link-width: 7;
+@residential-width: 6;
+@road-width: 5.5;
+@living-street-width: 5.5;
+@pedestrian-width: 4.5;
 @service-width: 4;
-@minor-service-width: 3.3;
+@minor-service-width: 3.25;
 @runway-width: 13;
 @taxiway-width: 5;
 @bridleway-width: 0.4;
@@ -466,9 +466,9 @@
     &[feature='highway_primary']:zoom(12) {
       --line-color: zoom-gradient(@primary-low-zoom-casing, @primary-casing 13z);
 
-      --line-width: @primary-width * @arterial-scale;
+      --line-width: @primary-width * @motorway-scale;
       &[link='yes'] {
-        --line-width: @primary-link-width * @arterial-scale;
+        --line-width: @primary-link-width * @motorway-scale;
       }
 
       &#roads-casing {
@@ -1334,17 +1334,17 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       &:not([link='yes']):zoom(8),
       &:zoom(10) {
         --line-color: zoom-gradient(@primary-low-zoom, @primary-fill 12z);
-        --line-width: @primary-width * @arterial-scale;
+        --line-width: @primary-width * @motorway-scale;
         &:zoom(12) {
-          --line-width: @primary-width * @arterial-scale;
+          --line-width: @primary-width * @motorway-scale;
           &[link='yes'] {
-            --line-width: @primary-link-width * @arterial-scale;
+            --line-width: @primary-link-width * @motorway-scale;
           }
 
           &:zoom(13) {
-            --line-width: @primary-width * @arterial-scale - 2 * @casing-width;
+            --line-width: @primary-width * @motorway-scale - 2 * @casing-width;
             &[link='yes'] {
-              --line-width: @primary-link-width * @arterial-scale - 2 * @casing-width;
+              --line-width: @primary-link-width * @motorway-scale - 2 * @casing-width;
             }
           }
 
@@ -1353,15 +1353,15 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           }
 
           &#bridges {
-            --line-width: @primary-width * @arterial-scale;
+            --line-width: @primary-width * @motorway-scale;
             &[link='yes'] {
-              --line-width: @primary-link-width * @arterial-scale;
+              --line-width: @primary-link-width * @motorway-scale;
             }
 
             &:zoom(13) {
-              --line-width: @primary-width * @arterial-scale - 2 * @bridge-casing-width;
+              --line-width: @primary-width * @motorway-scale - 2 * @bridge-casing-width;
               &[link='yes'] {
-                --line-width: @primary-link-width * @arterial-scale - 2 * @bridge-casing-width;
+                --line-width: @primary-link-width * @motorway-scale - 2 * @bridge-casing-width;
               }
             }
           }
@@ -1893,7 +1893,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
   &[int_tc_type='primary']:zoom(15) {
     --line-color: @primary-casing;
-    --line-width: @primary-width * @arterial-scale * @turning-circle-factor + 2 * @casing-width;
+    --line-width: @primary-width * @motorway-scale * @turning-circle-factor + 2 * @casing-width;
     --line-cap: round;
   }
 
@@ -1944,7 +1944,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
   &[int_tc_type='primary']:zoom(15) {
     --line-color: @primary-fill;
-    --line-width: @primary-width * @arterial-scale * @turning-circle-factor;
+    --line-width: @primary-width * @motorway-scale * @turning-circle-factor;
     --line-cap: round;
   }
 
