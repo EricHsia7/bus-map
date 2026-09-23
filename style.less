@@ -1434,14 +1434,14 @@
 
 // Scale gradients
 @motorway-scale: zoom-gradient(0.33 12z, 1.25 18z);
-@arterial-scale: zoom-gradient(0.2 12z, 2.25 18z);
+@arterial-scale: zoom-gradient(0.25 12z, 2.35 18z);
 @minor-scale: zoom-gradient(0 12z, 1.2 18z);
 @service-scale: zoom-gradient(0.5 14z, 2 18z);
-@road-scale: zoom-gradient(0.035 8z 1.62 20z);
+@road-scale: zoom-gradient(0.035 8z 1.65 20z);
 @runway-scale: zoom-gradient(1 15z, 2 16z);
 @taxiway-scale: zoom-gradient(1 15z, 2 16z);
 @footway-scale: zoom-gradient(0 16z, 2 18z);
-@cycleway-scale: zoom-gradient(2.16 13z, 0.86 19z);
+@cycleway-scale: zoom-gradient(2.15 13z, 0.85 19z);
 // @access-marking-scale: zoom-gradient((0.632 / 0.176) 15z, (0.52 / 0.176) 16z 17z, (0.288 / 0.176) 18z, 1 19z);
 
 // Reference widths
@@ -1468,7 +1468,7 @@
 @cycleway-width: 0.5;
 
 // Casing
-@bridge-casing-factor: 1.25;
+@bridge-casing-factor: 1;
 
 @casing-width: zoom-gradient(0.22 12z, 1.2 20z);
 @bridge-casing-width: @casing-width * @bridge-casing-factor;
@@ -1693,6 +1693,7 @@
 
       &#roads-casing {
         --line-join: round;
+        --line-cap: round;
         --line-cap: round;
       }
 
