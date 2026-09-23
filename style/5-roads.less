@@ -201,15 +201,15 @@
 
 // Reference widths
 @motorway-width: 12;
-@motorway-link-width: 11;
+@motorway-link-width: 8;
 @trunk-width: 10;
-@trunk-link-width: 9;
+@trunk-link-width: 8;
 @primary-width: 10;
-@primary-link-width: 9;
+@primary-link-width: 8;
 @secondary-width: 8;
-@secondary-link-width: 7;
+@secondary-link-width: 6;
 @tertiary-width: 8;
-@tertiary-link-width: 7;
+@tertiary-link-width: 6;
 @residential-width: 6;
 @road-width: 5.5;
 @living-street-width: 5.5;
@@ -449,7 +449,6 @@
       &#roads-casing {
         --line-join: round;
         --line-cap: round;
-        --line-cap: round;
       }
 
       &#tunnels {
@@ -458,7 +457,7 @@
 
       &#bridges {
         --line-join: round;
-        --line-cap: butt;
+        --line-cap: round;
         --line-color: @bridge-casing;
       }
     }
@@ -505,7 +504,7 @@
       &#bridges {
         --line-color: @bridge-casing;
         --line-join: round;
-        --line-cap: butt;
+        --line-cap: round;
       }
     }
 
@@ -529,7 +528,7 @@
       &#bridges {
         --line-join: round;
         --line-color: @bridge-casing;
-        --line-cap: butt;
+        --line-cap: round;
       }
     }
 
@@ -552,8 +551,8 @@
 
       &#bridges {
         --line-join: round;
-        --line-color: @bridge-casing;
         --line-cap: round;
+        --line-color: @bridge-casing;
       }
     }
 
