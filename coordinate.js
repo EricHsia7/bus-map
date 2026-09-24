@@ -1,5 +1,6 @@
 const R = 6378137;
 const degToRad = Math.PI / 180;
+const radToDeg = 180 / Math.PI;
 
 function degToTile(lon, lat, z) {
   const n = 2 ** z;
@@ -12,8 +13,8 @@ function tileToBoundingbox(x, y, z) {
   const n = 2 ** z;
   const west = (x / n) * 360 - 180;
   const east = ((x + 1) / n) * 360 - 180;
-  const north = (180 / Math.PI) * Math.atan(Math.sinh(Math.PI * (1 - (2 * y) / n)));
-  const south = (180 / Math.PI) * Math.atan(Math.sinh(Math.PI * (1 - (2 * (y + 1)) / n)));
+  const north = radToDeg * Math.atan(Math.sinh(Math.PI * (1 - (2 * y) / n)));
+  const south = radToDeg * Math.atan(Math.sinh(Math.PI * (1 - (2 * (y + 1)) / n)));
   return [west, south, east, north];
 }
 
