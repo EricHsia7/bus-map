@@ -188,10 +188,11 @@
 @unimportant-road-low-zoom-casing: lighten(@unimportant-road-low-zoom, 2%);
 
 // Scale gradients
-@motorway-scale: zoom-gradient(0.33 12z, 1.5 18z);
-@arterial-scale: zoom-gradient(0.25 12z, 2.35 18z);
-@minor-scale: zoom-gradient(0 12z, 1.2 18z);
-@service-scale: zoom-gradient(0.5 14z, 2 18z);
+@road-class-scale: zoom-gradient(0.33 12z, 1.5 18z);
+@motorway-scale: @road-class-scale;
+@arterial-scale: @road-class-scale;
+@minor-scale: @road-class-scale;
+@service-scale: @road-class-scale;
 @road-scale: zoom-gradient(0.035 8z 1.65 20z);
 @runway-scale: zoom-gradient(1 15z, 2 16z);
 @taxiway-scale: zoom-gradient(1 15z, 2 16z);
@@ -200,16 +201,21 @@
 // @access-marking-scale: zoom-gradient((0.632 / 0.176) 15z, (0.52 / 0.176) 16z 17z, (0.288 / 0.176) 18z, 1 19z);
 
 // Reference widths
+//
+// Strictly decreasing by importance, with steps small enough (<= ~25%) that a
+// junction between neighbouring classes reads as a continuation rather than a
+// break. Every `*-link` width sits between its parent class and the next class
+// down, so a link is never wider than either road it connects.
 @motorway-width: 12;
-@motorway-link-width: 8;
-@trunk-width: 10;
-@trunk-link-width: 8;
+@motorway-link-width: 9;
+@trunk-width: 11;
+@trunk-link-width: 8.5;
 @primary-width: 10;
 @primary-link-width: 8;
-@secondary-width: 8;
-@secondary-link-width: 6;
+@secondary-width: 9;
+@secondary-link-width: 7;
 @tertiary-width: 8;
-@tertiary-link-width: 6;
+@tertiary-link-width: 6.5;
 @residential-width: 6;
 @road-width: 5.5;
 @living-street-width: 5.5;
@@ -221,6 +227,47 @@
 @bridleway-width: 0.4;
 @footway-width: 0.8;
 @cycleway-width: 0.5;
+
+// Railway reference widths
+//
+// Mainline rail is the reference; every other track type is either the same
+// ramp times a factor or its own ramp, so widths stay proportionate at all
+// zooms. Surface, tunnel and bridge variants of one track type share the same
+// width, and bridge halos are the track width plus a fixed margin, so a track
+// keeps its width through portals and across bridges.
+@rail-width: zoom-gradient(2, 3 13z 16z, 6 18z);
+@rail-core-width: zoom-gradient(0 15z, 1 16z, 2 18z);
+// Spur / siding / yard and preserved track: same idiom as the mainline, one
+// step lighter and narrower by a constant ratio rather than a separate ramp.
+@rail-minor-factor: 0.8;
+@spur-siding-yard-width: @rail-width * @rail-minor-factor;
+@spur-siding-yard-core-width: @rail-core-width * @rail-minor-factor;
+@preserved-rail-width: @rail-width * @rail-minor-factor;
+@preserved-rail-core-width: @rail-core-width * @rail-minor-factor;
+
+@light-rail-width: zoom-gradient(0.8, 1 14z, 1.4 16z, 1.8 18z);
+@subway-width: zoom-gradient(0.8, 1 14z, 1.3 16z, 1.6 18z);
+@tram-width: zoom-gradient(0.6, 0.8 14z, 1 16z, 1.3 18z);
+// Tram service track is to tram what a siding is to the mainline: the same
+// ramp at a constant ratio, so the two stay continuous where they join.
+@tram-service-factor: 0.75;
+@tram-service-width: @tram-width * @tram-service-factor;
+@monorail-width: 3;
+@monorail-casing-width: @monorail-width + 1;
+@miniature-rail-width: 3;
+@miniature-rail-core-width: zoom-gradient(0 15z, 1 16z);
+@disused-rail-width: 2;
+
+// Bridge halos, as a factor of the track width they wrap, so the halo grows
+// with the track instead of being overtaken by it at high zoom.
+@rail-bridge-background-factor: 1.35;
+@rail-bridge-casing-factor: 1.7;
+@rail-bridge-background-width: @rail-width * @rail-bridge-background-factor;
+@rail-bridge-casing-width: @rail-width * @rail-bridge-casing-factor;
+@spur-siding-yard-bridge-background-width: @spur-siding-yard-width * @rail-bridge-background-factor;
+@spur-siding-yard-bridge-casing-width: @spur-siding-yard-width * @rail-bridge-casing-factor;
+@monorail-bridge-background-width: @monorail-casing-width * @rail-bridge-background-factor;
+@monorail-bridge-casing-width: @monorail-casing-width * @rail-bridge-casing-factor;
 
 // Casing
 @bridge-casing-factor: 1;
@@ -711,7 +758,10 @@
     &[feature='railway_monorail']:zoom(14) {
       &#bridges {
         &:zoom(13) {
-          --line-width: 6.5;
+          --line-width: @rail-bridge-casing-width;
+          &[feature='railway_monorail'] {
+            --line-width: @monorail-bridge-casing-width;
+          }
           --line-color: @bridge-casing;
           --line-join: round;
         }
@@ -721,7 +771,7 @@
     &[feature='railway_INT-spur-siding-yard'] {
       &#bridges {
         &:zoom(13) {
-          --line-width: 5.7;
+          --line-width: @spur-siding-yard-bridge-casing-width;
           --line-color: @bridge-casing;
           --line-join: round;
         }
@@ -880,7 +930,10 @@
     &[feature='railway_rail']:zoom(13),
     &[feature='railway_monorail']:zoom(14) {
       &#bridges {
-        --line-width: 5;
+        --line-width: @rail-bridge-background-width;
+        &[feature='railway_monorail'] {
+          --line-width: @monorail-bridge-background-width;
+        }
         --line-color: @land-color;
         --line-join: round;
       }
@@ -889,7 +942,7 @@
     &[feature='railway_INT-spur-siding-yard'] {
       &#bridges {
         &:zoom(13) {
-          --line-width: 4;
+          --line-width: @spur-siding-yard-bridge-background-width;
           --line-color: @land-color;
           --line-join: round;
         }
@@ -1623,9 +1676,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         // stroke. A single ladder now drives every zoom, and tram-service
         // rides the same scale from a smaller base -- which is what the four
         // hand-written width overrides at z15/17/18/19 were approximating.
-        --line-width: zoom-gradient(0.6, 0.8 14z, 1 16z, 1.3 18z);
+        --line-width: @tram-width;
         &[feature='railway_tram-service'] {
-          --line-width: 0.5;
+          // Constant 0.5 broke away from the tram ramp as you zoomed in; a
+          // service track now keeps a fixed ratio to the tram line it joins.
+          --line-width: @tram-service-width;
         }
         &[preserved='yes']:zoom(15) {
           --line-color: @rail-line-lighter;
@@ -1641,7 +1696,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         // One step darker than @rail-line-light: dropping from 4px to 1.6px
         // costs contrast, so the colour has to pay it back.
         --line-color: @rail-line;
-        --line-width: zoom-gradient(0.8, 1 14z, 1.3 16z, 1.6 18z);
+        --line-width: @subway-width;
         &[preserved='yes']:zoom(15) {
           --line-color: @rail-line-lighter;
         }
@@ -1651,7 +1706,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       }
       &#bridges {
         &:zoom(14) {
-          --line-width: zoom-gradient(0.8, 1 14z, 1.3 16z, 1.6 18z);
+          --line-width: @subway-width;
           --line-color: @rail-line;
         }
       }
@@ -1678,7 +1733,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         // thin and dark. Thin also happens to be true to the thing, which a
         // 4px casing was not.
 
-        --line-width: zoom-gradient(0.8, 1 14z, 1.4 16z, 1.8 18z);
+        --line-width: @light-rail-width;
         &[preserved='yes']:zoom(13) {
           // Preserved differs in value, not in structure.
 
@@ -1717,7 +1772,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           }
           &[feature='railway_rail'] {
             --dark__line-color: @rail-line-dark;
-            --dark__line-width: zoom-gradient(2, 3 13z 17z, 6 18z);
+            // Was `3 13z 17z, 6 18z`: the width doubled in a single zoom step
+            // and, at z18, left the mainline twice the width of the siding it
+            // runs into. The ramp now widens gradually from z16, where the
+            // white core appears.
+            --dark__line-width: @rail-width;
             // Modern rail: a grey casing with a continuous white core, not a
             // hatched line. The hatch was a plate-engraving convention for
             // sleepers; at screen resolution it aliases into a dotted mess,
@@ -1728,22 +1787,22 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
             &:zoom(15) {
               --light__line-color: zoom-gradient(@rail-line-dark 15z, @white 16z);
               --light__line-join: round;
-              --light__line-width: zoom-gradient(0 15z, 1 16z, 2 18z);
+              --light__line-width: @rail-core-width;
             }
           }
           &[feature='railway_INT-spur-siding-yard'] {
-            --dark__line-width: zoom-gradient(2, 3 18z);
+            --dark__line-width: @spur-siding-yard-width;
             --dark__line-color: @rail-line-light;
             &:zoom(16) {
               --light__line-color: zoom-gradient(@rail-line-light 16z, @white 18z);
-              --light__line-width: zoom-gradient(0 16z, 0.6 18z);
+              --light__line-width: @spur-siding-yard-core-width;
             }
           }
           &[preserved='yes'] {
-            --dark__line-width: 3;
+            --dark__line-width: @preserved-rail-width;
             --dark__line-color: @rail-line-dark;
             &:zoom(16) {
-              --light__line-width: zoom-gradient(0 16z, 0.6 18z);
+              --light__line-width: @preserved-rail-core-width;
               --light__line-color: zoom-gradient(@rail-line-dark 16z, @white 18z);
             }
           }
@@ -1753,14 +1812,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           // white core, one step lighter. The missing core is what reads as
           // "covered" -- the track is there, the rails are not visible.
           --line-color: @tunnel-rail-fill;
-          --line-width: 2.8;
+          // Same total width as the surface track so the line does not step
+          // at the portal; the missing white core is what reads as "covered".
+          --line-width: @rail-width;
           --line-clip: false;
           &[feature='railway_INT-spur-siding-yard'] {
             --line-color: @underground-casing;
-            --line-width: zoom-gradient(1.9, 2.7 18z);
-          }
-          &[feature='railway_rail']:zoom(18) {
-            --line-width: 3.8;
+            --line-width: @spur-siding-yard-width;
           }
         }
       }
@@ -1768,14 +1826,14 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
     &[feature='railway_monorail'] {
       &:zoom(14) {
-        --background__line-width: 4;
+        --background__line-width: @monorail-casing-width;
         --background__line-color: @rail-casing;
         --background__line-cap: round;
         --background__line-join: round;
         // A monorail is a continuous elevated beam; a dashed beam read as
         // "under construction". The white casing separates it from whatever it
         // flies over, which is what the dash was really doing.
-        --line__line-width: 3;
+        --line__line-width: @monorail-width;
         --line__line-color: @rail-line-dark;
         --line__line-cap: round;
         --line__line-join: round;
@@ -1795,7 +1853,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     &[feature='railway_disused'] {
       &:zoom(15) {
         --line-color: @rail-line-light;
-        --line-width: 2;
+        --line-width: @disused-rail-width;
         --line-dasharray: @dash-abandoned;
         --line-join: round;
       }
@@ -1803,10 +1861,10 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
     &[feature='railway_miniature'] {
       &:zoom(15) {
-        --line__line-width: 3;
+        --line__line-width: @miniature-rail-width;
         --line__line-color: @rail-line-light;
 
-        --core__line-width: zoom-gradient(0 15z, 1 16z);
+        --core__line-width: @miniature-rail-core-width;
         --core__line-join: round;
         --core__line-color: zoom-gradient(@rail-line-light 15z, @white 16z);
 

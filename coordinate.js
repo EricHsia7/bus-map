@@ -1,3 +1,6 @@
+const R = 6378137;
+const degToRad = Math.PI / 180;
+
 function degToTile(lon, lat, z) {
   const n = 2 ** z;
   const x = Math.floor(((lon + 180) / 360) * n);
@@ -57,8 +60,6 @@ function getSubTiles(x, y, baseZ, maxZ) {
 }
 
 function getTileViewbox(x, y, z) {
-  const R = 6378137;
-  const degToRad = Math.PI / 180;
   const n = 2 ** z;
   const west = (x / n) * 360 - 180;
   const east = ((x + 1) / n) * 360 - 180;
@@ -78,20 +79,14 @@ function getTileViewbox(x, y, z) {
  * @returns [x, y]
  */
 function projectCoordinate(lon, lat) {
-  const R = 6378137;
-  const degToRad = Math.PI / 180;
   return [R * lon * degToRad, R * Math.log(Math.tan(Math.PI / 4 + (lat * degToRad) / 2))];
 }
 
 function projectLongitude(lon) {
-  const R = 6378137;
-  const degToRad = Math.PI / 180;
   return R * lon * degToRad;
 }
 
 function projectLatitude(lat) {
-  const R = 6378137;
-  const degToRad = Math.PI / 180;
   return R * Math.log(Math.tan(Math.PI / 4 + (lat * degToRad) / 2));
 }
 
