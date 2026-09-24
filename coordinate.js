@@ -20,9 +20,6 @@ function tileToBoundingbox(x, y, z) {
 function areaToTiles(lon0, lat0, lon1, lat1, bazeZ) {
   const [x0, y0] = degToTile(lon0, lat0, bazeZ);
   const [x1, y1] = degToTile(lon1, lat1, bazeZ);
-  const horizCount = Math.abs(x1 - x0) + 1;
-  const vertiCount = Math.abs(y0 - y1) + 1;
-  const count = horizCount * vertiCount;
   const tiles = [];
   for (let x = x0; x < x1 + 1; x++) {
     for (let y = y1; y < y0 + 1; y++) {
