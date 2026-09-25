@@ -78650,6 +78650,46 @@
       {
         "layer": "highway-area-casing",
         "zoom": {
+          "min": 15,
+          "max": 15
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_service"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-cap": "round",
+      "line-join": "round",
+      "line-color": [
+        "rgba(201,208,217,1)",
+        "rgba(171,182,196,1)"
+      ]
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "highway-area-casing",
+        "zoom": {
+          "min": 16,
+          "max": 16
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_service"
+          }
+        ]
+      },
+      {
+        "layer": "highway-area-casing",
+        "zoom": {
           "min": 16,
           "max": 16
         },
@@ -78691,6 +78731,20 @@
   },
   {
     "groups": [
+      {
+        "layer": "highway-area-casing",
+        "zoom": {
+          "min": 17,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_service"
+          }
+        ]
+      },
       {
         "layer": "highway-area-casing",
         "zoom": {
@@ -78745,6 +78799,20 @@
           {
             "key": "feature",
             "op": "=",
+            "value": "highway_service"
+          }
+        ]
+      },
+      {
+        "layer": "highway-area-casing",
+        "zoom": {
+          "min": 18,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
             "value": "highway_footway"
           }
         ]
@@ -78782,6 +78850,25 @@
       {
         "layer": "highway-area-casing",
         "zoom": {
+          "min": 15,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_service"
+          },
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          }
+        ]
+      },
+      {
+        "layer": "highway-area-casing",
+        "zoom": {
           "min": 16,
           "max": 24
         },
@@ -78822,34 +78909,6 @@
       "line-color": [
         "rgba(171,182,196,1)",
         "rgba(171,182,196,1)"
-      ]
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "highway-area-casing",
-        "zoom": {
-          "min": 15,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_service"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-color": [
-        "rgba(139,147,159,1)",
-        "rgba(139,147,159,1)"
-      ],
-      "line-width": [
-        "1",
-        "1"
       ]
     }
   },

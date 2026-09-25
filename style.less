@@ -3375,6 +3375,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 }
 
 #highway-area-casing {
+  &[feature='highway_service']:zoom(15),
   &[feature='highway_footway']:zoom(16),
   &[feature='highway_pedestrian']:zoom(16) {
     --line-width: @footway-width * @footway-scale;
@@ -3386,11 +3387,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     &[access='no'] {
       --line-color: @footway-fill-noaccess;
     }
-  }
-
-  &[feature='highway_service']:zoom(15) {
-    --line-color: @rail-line-light;
-    --line-width: 1;
   }
 
   &[feature='highway_platform'],
