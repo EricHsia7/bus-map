@@ -175,7 +175,8 @@
 @tunnel-platform-fill: @underground-fill;
 @tunnel-text-fill: @underground-text-fill;
 
-@platform-fill: @rail-400; // interior of a platform, inside a @rail-line edge
+@platform-fill: @rail-300; // interior of a platform
+@platform-casing: darken(@rail-300, 3%);
 
 @private-marking-for-red: #c26363;
 @private-marking: #efa9a9;
@@ -204,7 +205,7 @@
 // `arterial` overtook `motorway` (secondary rendered wider than motorway/trunk/
 // primary), `service` overtook `minor` (service wider than residential), and
 // tertiary/residential were hairlines at z13-z14 where they met secondary.
-@road-class-scale: zoom-gradient(0.33 12z, 1.5 18z);
+@road-class-scale: zoom-gradient(0.3 12z, 1.5 18z);
 @motorway-scale: @road-class-scale;
 @arterial-scale: @road-class-scale;
 @minor-scale: @road-class-scale;
@@ -251,8 +252,8 @@
 // zooms. Surface, tunnel and bridge variants of one track type share the same
 // width, and bridge halos are the track width plus a fixed margin, so a track
 // keeps its width through portals and across bridges.
-@rail-width: zoom-gradient(2, 3 13z 16z, 6 18z);
-@rail-core-width: zoom-gradient(0 15z, 1 16z, 2 18z);
+@rail-width: zoom-gradient(2, 3 18z);
+@rail-core-width: zoom-gradient(0 15z, 0.7 18z);
 // Spur / siding / yard and preserved track: same idiom as the mainline, one
 // step lighter and narrower by a constant ratio rather than a separate ramp.
 @rail-minor-factor: 0.8;
@@ -1970,7 +1971,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       &:zoom(16) {
         --line-join: round;
         --line-width: 4.5;
-        --line-color: @rail-line;
+        --line-color: @platform-casing;
         --line-cap: round;
         --b__line-width: 4;
         --b__line-color: @platform-fill;
