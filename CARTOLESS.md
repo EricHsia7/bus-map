@@ -1,5 +1,3 @@
-# CARTOLESS
-
 # CartoLESS
 
 A re-spelling of CartoCSS that is **valid, standard LESS**. Every `.less` file in
