@@ -370,7 +370,7 @@ function plotLineStringLabel(lineString, x0, y0, x1, y1, label, textSize, textSc
       // v_char ∥ v_T: the glyph's up-axis follows the tangent, so the baseline
       // rotates by -90°. Clamp the lean so upright stacking stays legible.
       const tilt = Math.atan2(Math.sin(oriented - Math.PI / 2), Math.cos(oriented - Math.PI / 2));
-      glyphAngle = clamp(tilt, -maxVerticalGlyphTilt, maxVerticalGlyphTilt);
+      glyphAngle = tilt;
     } else {
       // v_char · v_T = 0: baseline along the tangent.
       glyphAngle = oriented;

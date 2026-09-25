@@ -101,25 +101,25 @@
   }
 
   &[feature='landuse_residential']:zoom(12) {
-    --polygon-fill: zoom-gradient(@built-up-lowzoom 12z, @residential 16z);
+    --polygon-fill: zoom-gradient(darken(@residential, 2%) 12z, @residential 14z);
   }
 
   &[feature='landuse_commercial']:zoom(12) {
-    --polygon-fill: zoom-gradient(@built-up-lowzoom 12z, @commercial 16z);
+    --polygon-fill: zoom-gradient(darken(@commercial, 2%) 12z, @commercial 14z);
   }
 
   &[feature='landuse_retail'],
   &[feature='shop_mall'],
   &[feature='amenity_marketplace'] {
-    &:zoom(14) {
-      --polygon-fill: zoom-gradient(@built-up-lowzoom 14z, @retail 16z);
+    &:zoom(12) {
+      --polygon-fill: zoom-gradient(darken(@retail, 2%) 12z, @retail 14z);
     }
   }
 
   &[feature='landuse_industrial'],
   &[feature='man_made_works'] {
-    &:zoom(14) {
-      --polygon-fill: zoom-gradient(@built-up-lowzoom 14z, @industrial 16z);
+    &:zoom(12) {
+      --polygon-fill: zoom-gradient(darken(@industrial, 2%) 12z, @industrial 14z);
     }
   }
 
@@ -195,7 +195,7 @@
   &[feature='amenity_social_facility'],
   &[feature='amenity_arts_centre'] {
     &:zoom(12) {
-      --polygon-fill: zoom-gradient(@built-up-lowzoom 12z, @societal_amenities 14z);
+      --polygon-fill: zoom-gradient(darken(@societal_amenities, 2%) 12z, @societal_amenities 14z);
     }
   }
 
