@@ -40766,6 +40766,8 @@
         "rgba(205,211,218,1)",
         "rgba(187,195,205,1)"
       ],
+      "line-cap": "round",
+      "line-join": "round",
       "line-width": [
         "4",
         "5.6"
@@ -40823,6 +40825,8 @@
         "rgba(187,195,205,1)",
         "rgba(187,195,205,1)"
       ],
+      "line-cap": "round",
+      "line-join": "round",
       "line-width": [
         "5.6",
         "7.2"
@@ -40880,6 +40884,8 @@
         "rgba(187,195,205,1)",
         "rgba(187,195,205,1)"
       ],
+      "line-cap": "round",
+      "line-join": "round",
       "line-width": [
         "7.2",
         "8.8"
@@ -40937,6 +40943,8 @@
         "rgba(187,195,205,1)",
         "rgba(187,195,205,1)"
       ],
+      "line-cap": "round",
+      "line-join": "round",
       "line-width": [
         "8.8",
         "10.4"
@@ -40994,6 +41002,8 @@
         "rgba(187,195,205,1)",
         "rgba(187,195,205,1)"
       ],
+      "line-cap": "round",
+      "line-join": "round",
       "line-width": [
         "10.4",
         "12"
@@ -41051,6 +41061,8 @@
         "rgba(187,195,205,1)",
         "rgba(187,195,205,1)"
       ],
+      "line-cap": "round",
+      "line-join": "round",
       "line-width": [
         "12",
         "12"
@@ -41104,8 +41116,6 @@
       }
     ],
     "paint": {
-      "line-cap": "round",
-      "line-join": "round",
       "line-width": [
         "5.6",
         "7.2"
@@ -41159,8 +41169,6 @@
       }
     ],
     "paint": {
-      "line-cap": "round",
-      "line-join": "round",
       "line-width": [
         "7.2",
         "8.8"
@@ -41214,8 +41222,6 @@
       }
     ],
     "paint": {
-      "line-cap": "round",
-      "line-join": "round",
       "line-width": [
         "8.8",
         "10.4"
@@ -41269,8 +41275,6 @@
       }
     ],
     "paint": {
-      "line-cap": "round",
-      "line-join": "round",
       "line-width": [
         "10.4",
         "12"
@@ -41324,8 +41328,6 @@
       }
     ],
     "paint": {
-      "line-cap": "round",
-      "line-join": "round",
       "line-width": [
         "12",
         "12"
@@ -43136,6 +43138,8 @@
         "rgba(181,190,201,1)",
         "rgba(181,190,201,1)"
       ],
+      "line-cap": "round",
+      "line-join": "round",
       "line-width": [
         "2.7",
         "4.5"
@@ -43250,6 +43254,8 @@
         "rgba(181,190,201,1)",
         "rgba(181,190,201,1)"
       ],
+      "line-cap": "round",
+      "line-join": "round",
       "line-width": [
         "4.5",
         "6.3"
@@ -43364,6 +43370,8 @@
         "rgba(181,190,201,1)",
         "rgba(181,190,201,1)"
       ],
+      "line-cap": "round",
+      "line-join": "round",
       "line-width": [
         "6.3",
         "8.1"
@@ -43478,6 +43486,8 @@
         "rgba(181,190,201,1)",
         "rgba(181,190,201,1)"
       ],
+      "line-cap": "round",
+      "line-join": "round",
       "line-width": [
         "8.1",
         "9.9"
@@ -43592,6 +43602,8 @@
         "rgba(181,190,201,1)",
         "rgba(181,190,201,1)"
       ],
+      "line-cap": "round",
+      "line-join": "round",
       "line-width": [
         "9.9",
         "11.7"
@@ -43706,6 +43718,8 @@
         "rgba(181,190,201,1)",
         "rgba(181,190,201,1)"
       ],
+      "line-cap": "round",
+      "line-join": "round",
       "line-width": [
         "11.7",
         "13.5"
@@ -43820,6 +43834,8 @@
         "rgba(181,190,201,1)",
         "rgba(181,190,201,1)"
       ],
+      "line-cap": "round",
+      "line-join": "round",
       "line-width": [
         "13.5",
         "13.5"
@@ -43933,9 +43949,7 @@
       "line-width": [
         "4.2",
         "5.7"
-      ],
-      "line-cap": "round",
-      "line-join": "round"
+      ]
     },
     "attachment": "fill"
   },
@@ -44045,9 +44059,7 @@
       "line-width": [
         "5.7",
         "7.2"
-      ],
-      "line-cap": "round",
-      "line-join": "round"
+      ]
     },
     "attachment": "fill"
   },
@@ -44157,9 +44169,7 @@
       "line-width": [
         "7.2",
         "8.7"
-      ],
-      "line-cap": "round",
-      "line-join": "round"
+      ]
     },
     "attachment": "fill"
   },
@@ -44269,9 +44279,7 @@
       "line-width": [
         "8.7",
         "10.2"
-      ],
-      "line-cap": "round",
-      "line-join": "round"
+      ]
     },
     "attachment": "fill"
   },
@@ -44381,9 +44389,7 @@
       "line-width": [
         "10.2",
         "11.7"
-      ],
-      "line-cap": "round",
-      "line-join": "round"
+      ]
     },
     "attachment": "fill"
   },
@@ -44493,9 +44499,7 @@
       "line-width": [
         "11.7",
         "11.4"
-      ],
-      "line-cap": "round",
-      "line-join": "round"
+      ]
     },
     "attachment": "fill"
   },
@@ -44605,9 +44609,7 @@
       "line-width": [
         "11.4",
         "11.1"
-      ],
-      "line-cap": "round",
-      "line-join": "round"
+      ]
     },
     "attachment": "fill"
   },
@@ -44717,9 +44719,7 @@
       "line-width": [
         "11.1",
         "11.1"
-      ],
-      "line-cap": "round",
-      "line-join": "round"
+      ]
     },
     "attachment": "fill"
   },
@@ -75111,6 +75111,47 @@
   {
     "groups": [
       {
+        "layer": "roads-low-zoom",
+        "zoom": {
+          "min": 1,
+          "max": 9
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_raceway"
+          }
+        ]
+      },
+      {
+        "layer": "roads-fill",
+        "zoom": {
+          "min": 10,
+          "max": 11
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "highway_raceway"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "line-color": [
+        "rgba(181,190,201,1)",
+        "rgba(181,190,201,1)"
+      ],
+      "line-join": "round",
+      "line-cap": "round"
+    },
+    "attachment": "fill"
+  },
+  {
+    "groups": [
+      {
         "layer": "roads-fill",
         "zoom": {
           "min": 12,
@@ -75157,7 +75198,13 @@
       "line-width": [
         "1.2",
         "2"
-      ]
+      ],
+      "line-color": [
+        "rgba(181,190,201,1)",
+        "rgba(181,190,201,1)"
+      ],
+      "line-join": "round",
+      "line-cap": "round"
     },
     "attachment": "fill"
   },
@@ -75210,7 +75257,13 @@
       "line-width": [
         "2",
         "3"
-      ]
+      ],
+      "line-color": [
+        "rgba(181,190,201,1)",
+        "rgba(181,190,201,1)"
+      ],
+      "line-join": "round",
+      "line-cap": "round"
     },
     "attachment": "fill"
   },
@@ -75263,7 +75316,13 @@
       "line-width": [
         "3",
         "6"
-      ]
+      ],
+      "line-color": [
+        "rgba(181,190,201,1)",
+        "rgba(181,190,201,1)"
+      ],
+      "line-join": "round",
+      "line-cap": "round"
     },
     "attachment": "fill"
   },
@@ -75316,7 +75375,13 @@
       "line-width": [
         "6",
         "6.6667"
-      ]
+      ],
+      "line-color": [
+        "rgba(181,190,201,1)",
+        "rgba(181,190,201,1)"
+      ],
+      "line-join": "round",
+      "line-cap": "round"
     },
     "attachment": "fill"
   },
@@ -75369,7 +75434,13 @@
       "line-width": [
         "6.6667",
         "7.3333"
-      ]
+      ],
+      "line-color": [
+        "rgba(181,190,201,1)",
+        "rgba(181,190,201,1)"
+      ],
+      "line-join": "round",
+      "line-cap": "round"
     },
     "attachment": "fill"
   },
@@ -75422,7 +75493,13 @@
       "line-width": [
         "7.3333",
         "8"
-      ]
+      ],
+      "line-color": [
+        "rgba(181,190,201,1)",
+        "rgba(181,190,201,1)"
+      ],
+      "line-join": "round",
+      "line-cap": "round"
     },
     "attachment": "fill"
   },
@@ -75475,7 +75552,13 @@
       "line-width": [
         "8",
         "12"
-      ]
+      ],
+      "line-color": [
+        "rgba(181,190,201,1)",
+        "rgba(181,190,201,1)"
+      ],
+      "line-join": "round",
+      "line-cap": "round"
     },
     "attachment": "fill"
   },
@@ -75528,7 +75611,13 @@
       "line-width": [
         "12",
         "24"
-      ]
+      ],
+      "line-color": [
+        "rgba(181,190,201,1)",
+        "rgba(181,190,201,1)"
+      ],
+      "line-join": "round",
+      "line-cap": "round"
     },
     "attachment": "fill"
   },
@@ -75581,56 +75670,7 @@
       "line-width": [
         "24",
         "24"
-      ]
-    },
-    "attachment": "fill"
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-fill",
-        "zoom": {
-          "min": 12,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_raceway"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 12,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_raceway"
-          }
-        ]
-      },
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 12,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_raceway"
-          }
-        ]
-      }
-    ],
-    "paint": {
+      ],
       "line-color": [
         "rgba(181,190,201,1)",
         "rgba(181,190,201,1)"

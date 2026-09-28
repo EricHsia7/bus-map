@@ -2609,11 +2609,10 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     &[feature='highway_tertiary'] {
       &:zoom(13) {
         --line-color: zoom-gradient(@tertiary-low-zoom 13z, @tertiary-fill 14z);
+        --line-cap: round;
+        --line-join: round;
         --line-width: @tertiary-width * @minor-scale;
         &:zoom(14) {
-          --line-cap: round;
-          --line-join: round;
-
           --line-width: @tertiary-width * @minor-scale;
           &[link='yes'] {
             --line-width: @tertiary-link-width * @minor-scale;
@@ -2650,11 +2649,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       &:not([link='yes']):zoom(12),
       &:zoom(12) {
         --line-color: @secondary-fill;
+        --line-cap: round;
+        --line-join: round;
         --line-width: @secondary-width * @arterial-scale;
         &:zoom(13) {
           --line-width: @secondary-width * @arterial-scale - 2 * @secondary-casing-width;
-          --line-cap: round;
-          --line-join: round;
         }
 
         &[link='yes'] {
@@ -3172,11 +3171,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
     &[feature='highway_raceway'] {
       --line-width: zoom-gradient(1.2 12z, 2 13z, 3 14z, 6 15z, 8 18z, 12 19z, 24 20z);
-      &:zoom(12) {
-        --line-color: @raceway-fill;
-        --line-join: round;
-        --line-cap: round;
-      }
+      --line-color: @raceway-fill;
+      --line-join: round;
+      --line-cap: round;
     }
 
     // &[feature='highway_platform'] {
