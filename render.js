@@ -323,7 +323,10 @@ async function renderChunk(cX, cY, cZ, fileformat) {
     for (const way of ways) {
       if (memberWayIds.has(way.id)) continue; // drawn via its parent multipolygon
       const coords = way.refs.map((id) => nodeMap.get(id)).filter(Boolean);
-      const closed = way.refs[0] === way.refs.at(-1);
+      // A closed ring is only an *area* when its tags say so (osm2pgsql /
+      // openstreetmap-carto.lua `isarea`). Closed highways, barriers, etc.
+      // without area=yes stay linestrings, so they reach the road layers.
+      const closed = way.refs.length >= 4 && way.refs[0] === way.refs.at(-1) && coords.length >= 4 && I.isArea(way.tags);
       const shape = closed
         ? { type: 'Polygon', coordinates: [coords] } // ring/area
         : { type: 'LineString', coordinates: coords };

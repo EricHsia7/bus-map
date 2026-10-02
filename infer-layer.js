@@ -367,6 +367,45 @@ function evalBool(n, row) {
 }
 
 /* ----------------------------------------------------------------------- */
+/* Area detection for closed ways (port of openstreetmap-carto.lua isarea)  */
+/* ----------------------------------------------------------------------- */
+// osm2pgsql decides per way whether a closed ring goes to planet_osm_polygon
+// or planet_osm_line/roads. Being closed is NOT enough: a closed
+// highway=footway / service loop is still a line unless tagged area=yes.
+const POLYGON_KEYS = new Set(['abandoned:aeroway', 'abandoned:amenity', 'abandoned:building', 'abandoned:landuse', 'abandoned:power', 'aeroway', 'allotments', 'amenity', 'area:highway', 'craft', 'building', 'building:part', 'club', 'golf', 'emergency', 'harbour', 'healthcare', 'historic', 'landuse', 'leisure', 'man_made', 'military', 'natural', 'office', 'place', 'power', 'public_transport', 'shop', 'tourism', 'water', 'waterway', 'wetland']);
+const POLYGON_VALUES = {
+  highway: new Set(['services', 'rest_area']),
+  junction: new Set(['yes']),
+  railway: new Set(['station'])
+};
+const LINESTRING_VALUES = {
+  golf: new Set(['cartpath', 'hole', 'path']),
+  emergency: new Set(['designated', 'destination', 'no', 'official', 'yes']),
+  historic: new Set(['citywalls']),
+  leisure: new Set(['track', 'slipway']),
+  man_made: new Set(['breakwater', 'cutline', 'embankment', 'groyne', 'pipeline']),
+  natural: new Set(['cliff', 'earth_bank', 'tree_row', 'ridge', 'arete']),
+  power: new Set(['cable', 'line', 'minor_line']),
+  tourism: new Set(['yes']),
+  waterway: new Set(['canal', 'derelict_canal', 'ditch', 'drain', 'river', 'stream', 'tidal_channel', 'wadi', 'weir'])
+};
+
+/** Should a CLOSED way be treated as a polygon (true) or a linestring (false)? */
+function isArea(tags) {
+  if (!tags) return false;
+  // Explicit area=* wins: area=yes -> polygon, any other value -> line.
+  if (tags.area != null) return tags.area === 'yes';
+
+  for (const k in tags) {
+    const v = tags[k];
+    if (POLYGON_KEYS.has(k) && v !== 'no' && !(LINESTRING_VALUES[k] && LINESTRING_VALUES[k].has(v))) return true;
+    if (POLYGON_VALUES[k] && POLYGON_VALUES[k].has(v)) return true;
+  }
+
+  return false;
+}
+
+/* ----------------------------------------------------------------------- */
 /* Column computation + layer inference                                     */
 /* ----------------------------------------------------------------------- */
 
@@ -446,6 +485,7 @@ module.exports = {
   setMml,
   inferLayers,
   inferAndMatch,
+  isArea,
   evalBool,
   evalVal,
   applyColumns,
