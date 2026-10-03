@@ -25316,6 +25316,8 @@
         "rgba(181,190,200,1)",
         "rgba(157,169,184,1)"
       ],
+      "line-cap": "round",
+      "line-join": "round",
       "line-width": [
         "3.3",
         "5.5"
@@ -25373,6 +25375,8 @@
         "rgba(157,169,184,1)",
         "rgba(157,169,184,1)"
       ],
+      "line-cap": "round",
+      "line-join": "round",
       "line-width": [
         "5.5",
         "7.7"
@@ -25430,6 +25434,8 @@
         "rgba(157,169,184,1)",
         "rgba(157,169,184,1)"
       ],
+      "line-cap": "round",
+      "line-join": "round",
       "line-width": [
         "7.7",
         "9.9"
@@ -25487,6 +25493,8 @@
         "rgba(157,169,184,1)",
         "rgba(157,169,184,1)"
       ],
+      "line-cap": "round",
+      "line-join": "round",
       "line-width": [
         "9.9",
         "12.1"
@@ -25544,6 +25552,8 @@
         "rgba(157,169,184,1)",
         "rgba(157,169,184,1)"
       ],
+      "line-cap": "round",
+      "line-join": "round",
       "line-width": [
         "12.1",
         "14.3"
@@ -25601,6 +25611,8 @@
         "rgba(157,169,184,1)",
         "rgba(157,169,184,1)"
       ],
+      "line-cap": "round",
+      "line-join": "round",
       "line-width": [
         "14.3",
         "16.5"
@@ -25658,6 +25670,8 @@
         "rgba(157,169,184,1)",
         "rgba(157,169,184,1)"
       ],
+      "line-cap": "round",
+      "line-join": "round",
       "line-width": [
         "16.5",
         "16.5"

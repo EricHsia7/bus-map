@@ -1878,6 +1878,8 @@
 
     &[feature='highway_trunk']:zoom(12) {
       --line-color: zoom-gradient(@trunk-low-zoom-casing, @trunk-casing 13z);
+      --line-cap: round;
+      --line-join: round;
 
       --line-width: @trunk-width * @motorway-scale;
       &[link='yes'] {
