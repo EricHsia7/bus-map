@@ -19118,6 +19118,7 @@
     ],
     "paint": {
       "line-cap": "butt",
+      "line-join": "round",
       "line-color": [
         "rgba(165,176,192,1)",
         "rgba(165,176,192,1)"
@@ -20297,6 +20298,7 @@
     ],
     "paint": {
       "line-cap": "butt",
+      "line-join": "round",
       "line-color": [
         "rgba(165,176,192,1)",
         "rgba(165,176,192,1)"
@@ -20568,6 +20570,7 @@
     ],
     "paint": {
       "line-cap": "butt",
+      "line-join": "round",
       "line-color": [
         "rgba(165,176,192,1)",
         "rgba(165,176,192,1)"
@@ -21298,6 +21301,7 @@
     ],
     "paint": {
       "line-cap": "butt",
+      "line-join": "round",
       "line-color": [
         "rgba(165,176,192,1)",
         "rgba(165,176,192,1)"
@@ -22013,6 +22017,7 @@
     ],
     "paint": {
       "line-cap": "butt",
+      "line-join": "round",
       "line-color": [
         "rgba(165,176,192,1)",
         "rgba(165,176,192,1)"
@@ -22964,6 +22969,7 @@
     ],
     "paint": {
       "line-cap": "butt",
+      "line-join": "round",
       "line-color": [
         "rgba(165,176,192,1)",
         "rgba(165,176,192,1)"
@@ -23915,6 +23921,7 @@
     ],
     "paint": {
       "line-cap": "butt",
+      "line-join": "round",
       "line-color": [
         "rgba(165,176,192,1)",
         "rgba(165,176,192,1)"
@@ -25223,6 +25230,7 @@
       }
     ],
     "paint": {
+      "line-join": "round",
       "line-cap": "butt",
       "line-color": [
         "rgba(165,176,192,1)",
@@ -26174,6 +26182,7 @@
       }
     ],
     "paint": {
+      "line-join": "round",
       "line-cap": "butt",
       "line-color": [
         "rgba(165,176,192,1)",
@@ -60339,7 +60348,9 @@
       "line-color": [
         "rgba(175,185,196,1)",
         "rgba(175,185,196,1)"
-      ]
+      ],
+      "line-cap": "round",
+      "line-join": "round"
     },
     "attachment": "fill"
   },
@@ -60383,7 +60394,9 @@
       "line-color": [
         "rgba(175,185,196,1)",
         "rgba(166,177,190,1)"
-      ]
+      ],
+      "line-cap": "round",
+      "line-join": "round"
     },
     "attachment": "fill"
   },
@@ -60497,7 +60510,9 @@
       "line-color": [
         "rgba(166,177,190,1)",
         "rgba(166,177,190,1)"
-      ]
+      ],
+      "line-cap": "round",
+      "line-join": "round"
     },
     "attachment": "fill"
   },
@@ -60611,7 +60626,9 @@
       "line-color": [
         "rgba(166,177,190,1)",
         "rgba(166,177,190,1)"
-      ]
+      ],
+      "line-cap": "round",
+      "line-join": "round"
     },
     "attachment": "fill"
   },
@@ -60725,7 +60742,9 @@
       "line-color": [
         "rgba(166,177,190,1)",
         "rgba(166,177,190,1)"
-      ]
+      ],
+      "line-cap": "round",
+      "line-join": "round"
     },
     "attachment": "fill"
   },
@@ -60839,7 +60858,9 @@
       "line-color": [
         "rgba(166,177,190,1)",
         "rgba(166,177,190,1)"
-      ]
+      ],
+      "line-cap": "round",
+      "line-join": "round"
     },
     "attachment": "fill"
   },
@@ -60953,7 +60974,9 @@
       "line-color": [
         "rgba(166,177,190,1)",
         "rgba(166,177,190,1)"
-      ]
+      ],
+      "line-cap": "round",
+      "line-join": "round"
     },
     "attachment": "fill"
   },
@@ -61067,7 +61090,9 @@
       "line-color": [
         "rgba(166,177,190,1)",
         "rgba(166,177,190,1)"
-      ]
+      ],
+      "line-cap": "round",
+      "line-join": "round"
     },
     "attachment": "fill"
   },
@@ -61181,7 +61206,9 @@
       "line-color": [
         "rgba(166,177,190,1)",
         "rgba(166,177,190,1)"
-      ]
+      ],
+      "line-cap": "round",
+      "line-join": "round"
     },
     "attachment": "fill"
   },
@@ -61291,9 +61318,7 @@
       "line-width": [
         "3.3",
         "5.5"
-      ],
-      "line-cap": "round",
-      "line-join": "round"
+      ]
     },
     "attachment": "fill"
   },
@@ -61403,9 +61428,7 @@
       "line-width": [
         "5.5",
         "7.7"
-      ],
-      "line-cap": "round",
-      "line-join": "round"
+      ]
     },
     "attachment": "fill"
   },
@@ -61515,9 +61538,7 @@
       "line-width": [
         "7.7",
         "9.9"
-      ],
-      "line-cap": "round",
-      "line-join": "round"
+      ]
     },
     "attachment": "fill"
   },
@@ -61627,9 +61648,7 @@
       "line-width": [
         "9.9",
         "12.1"
-      ],
-      "line-cap": "round",
-      "line-join": "round"
+      ]
     },
     "attachment": "fill"
   },
@@ -61739,9 +61758,7 @@
       "line-width": [
         "12.1",
         "14.3"
-      ],
-      "line-cap": "round",
-      "line-join": "round"
+      ]
     },
     "attachment": "fill"
   },
@@ -61851,9 +61868,7 @@
       "line-width": [
         "14.3",
         "16.5"
-      ],
-      "line-cap": "round",
-      "line-join": "round"
+      ]
     },
     "attachment": "fill"
   },
@@ -61963,9 +61978,7 @@
       "line-width": [
         "16.5",
         "16.5"
-      ],
-      "line-cap": "round",
-      "line-join": "round"
+      ]
     },
     "attachment": "fill"
   },

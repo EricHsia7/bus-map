@@ -1640,6 +1640,7 @@
 
       &#tunnels {
         --line-cap: @casing-cap-variant;
+        --line-join: round;
         --line-color: @tunnel-casing;
       }
 
@@ -1670,6 +1671,7 @@
 
         &#tunnels {
           --line-cap: @casing-cap-variant;
+          --line-join: round;
           --line-color: @tunnel-casing;
         }
 
@@ -1692,6 +1694,7 @@
 
       &#tunnels {
         --line-cap: @casing-cap-variant;
+        --line-join: round;
         --line-color: @tunnel-casing;
       }
 
@@ -1734,6 +1737,7 @@
 
       &#tunnels {
         --line-cap: @casing-cap-variant;
+        --line-join: round;
         --line-color: @tunnel-casing;
       }
 
@@ -1760,6 +1764,7 @@
 
         &#tunnels {
           --line-cap: @casing-cap-variant;
+          --line-join: round;
           --line-color: @tunnel-casing;
         }
 
@@ -1786,6 +1791,7 @@
 
       &#tunnels {
         --line-cap: @casing-cap-variant;
+        --line-join: round;
         --line-color: @tunnel-casing;
       }
 
@@ -1811,6 +1817,7 @@
 
       &#tunnels {
         --line-cap: @casing-cap-variant;
+        --line-join: round;
         --line-color: @tunnel-casing;
       }
 
@@ -1857,6 +1864,7 @@
       }
 
       &#tunnels {
+        --line-join: round;
         --line-cap: @casing-cap-variant;
         --line-color: @tunnel-casing;
       }
@@ -1882,6 +1890,7 @@
       }
 
       &#tunnels {
+        --line-join: round;
         --line-cap: @casing-cap-variant;
         --line-color: @tunnel-casing;
       }
@@ -2802,6 +2811,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       &:zoom(10) {
         --line-width: @trunk-width * @motorway-scale;
         --line-color: zoom-gradient(@trunk-low-zoom, @trunk-fill 12z);
+        --line-cap: round;
+        --line-join: round;
         &:zoom(12) {
           --line-width: @trunk-width * @motorway-scale;
           &[link='yes'] {
@@ -2832,8 +2843,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
               }
             }
           }
-          --line-cap: round;
-          --line-join: round;
         }
       }
     }
