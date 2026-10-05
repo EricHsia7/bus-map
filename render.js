@@ -294,7 +294,7 @@ async function renderChunk(cX, cY, cZ, fileformat) {
   const total = subTiles.length;
   let count = 0;
   for (const [tX, tY, tZ] of subTiles) {
-    if (cZ < tilesMinZ) continue;
+    if (tZ < tilesMinZ) continue;
     count++;
     const [x0, y0, x1, y1] = getTileViewbox(tX, tY, tZ);
 
