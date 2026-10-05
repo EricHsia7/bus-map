@@ -2740,7 +2740,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 }
 
 #roads-area-text-name {
-  &:zoom(17) {
+  &:zoom(16) {
     --text-name: '[name]';
     --text-size: 9; // area label, hierarchy tier 2
     --text-face-name: @book-fonts;
@@ -2921,7 +2921,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 }
 
 #railways-text-name {
-  /* Mostly started from z17. */
+  /* Mostly started from z16. */
   &[railway='rail'],
   &[railway='subway'],
   &[railway='narrow_gauge'],
@@ -2930,9 +2930,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[railway='monorail'],
   &[railway='tram'] {
     --text-size: 10;
-    --text-scale: zoom-gradient(1 17z 18z, 1.1 19z);
-    --text-dy: zoom-gradient(6 17z 18z, 7 19z);
-    &:zoom(17) {
+    --text-scale: zoom-gradient(1 16z 18z, 1.1 19z);
+    --text-dy: zoom-gradient(6 16z 18z, 7 19z);
+    &:zoom(16) {
       --text-name: '[name]';
       --text-fill: @text-tertiary;
       --text-spacing: 900;

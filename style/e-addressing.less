@@ -28,7 +28,7 @@
     --text-wrap-width: zoom-gradient(30, 22 20z);
     --text-line-spacing: -1.5;
     --text-margin: 3;
-    &:zoom(18) {
+    &:zoom(17) {
       --text-halo-radius: @standard-halo-radius * 1.25;
       &:not([addr_unit='null'])[addr_housenumber='null'] {
         --text-name: '[addr_unit]';
@@ -59,7 +59,7 @@
 /* Building names (rendered differently from addresses because they are no official postal addresses) */
 
 #building-text {
-  &:zoom(14) {
+  &:zoom(16) {
     --text-name: '[name]';
     --text-face-name: @book-fonts;
     --text-fill: @text-secondary;

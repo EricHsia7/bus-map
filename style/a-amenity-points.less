@@ -1654,7 +1654,7 @@
     }
   }
 
-  &[feature='place_square']:zoom(17) {
+  &[feature='place_square']:zoom(16) {
     --text-name: '[name]';
     --text-size: 11;
     --text-face-name: @book-fonts;
@@ -1665,14 +1665,14 @@
     --text-margin: 7;
   }
 
-  &[feature='amenity_pub']:zoom(18),
-  &[feature='amenity_restaurant']:zoom(18),
+  &[feature='amenity_pub']:zoom(17),
+  &[feature='amenity_restaurant']:zoom(17),
   &[feature='amenity_food_court']:zoom(17),
-  &[feature='amenity_cafe']:zoom(18),
-  &[feature='amenity_fast_food']:zoom(18),
-  &[feature='amenity_biergarten']:zoom(18),
-  &[feature='amenity_bar']:zoom(18),
-  &[feature='amenity_ice_cream']:zoom(18) {
+  &[feature='amenity_cafe']:zoom(17),
+  &[feature='amenity_fast_food']:zoom(17),
+  &[feature='amenity_biergarten']:zoom(17),
+  &[feature='amenity_bar']:zoom(17),
+  &[feature='amenity_ice_cream']:zoom(17) {
     --text-name: '[name]';
     --text-fill: @gastronomy-text;
     --text-size: @standard-font-size;
@@ -1875,8 +1875,8 @@
     --text-halo-fill: rgba(255, 255, 255, 0.6);
   }
 
-  &[feature='natural_peak']:zoom(13),
-  &[feature='natural_volcano']:zoom(13),
+  &[feature='natural_peak']:zoom(12),
+  &[feature='natural_volcano']:zoom(12),
   &[feature='natural_saddle']:zoom(15),
   &[feature='mountain_pass']:zoom(15),
   &[feature='tourism_viewpoint']:zoom(16) {
@@ -2150,18 +2150,18 @@
   &[feature='natural_mud'],
   &[feature='leisure_park']:zoom(14),
   &[feature='landuse_recreation_ground']:zoom(14),
-  &[feature='landuse_village_green']:zoom(14),
-  &[feature='leisure_garden']:zoom(14),
+  &[feature='landuse_village_green']:zoom(16),
+  &[feature='leisure_garden']:zoom(16),
   &[feature='landuse_quarry']:zoom(13),
   &[feature='landuse_vineyard']:zoom(13),
   &[feature='landuse_orchard']:zoom(13),
   &[feature='landuse_plant_nursery']:zoom(13),
-  &[feature='landuse_cemetery']:zoom(14),
-  &[feature='amenity_grave_yard']:zoom(14),
+  &[feature='landuse_cemetery']:zoom(15),
+  &[feature='amenity_grave_yard']:zoom(15),
   &[feature='landuse_residential']:zoom(13),
-  &[feature='landuse_meadow']:zoom(14),
+  &[feature='landuse_meadow']:zoom(16),
   &[feature='natural_grassland'],
-  &[feature='landuse_grass']:zoom(14),
+  &[feature='landuse_grass']:zoom(16),
   &[feature='landuse_allotments']:zoom(13),
   &[feature='landuse_farmyard']:zoom(13),
   &[feature='landuse_farmland']:zoom(13),
@@ -2192,9 +2192,9 @@
   &[feature='natural_reef'],
   &[feature='leisure_sports_centre']:not([sport='swimming']):zoom(14),
   &[feature='leisure_stadium']:zoom(14),
-  &[feature='leisure_track']:zoom(14),
+  &[feature='leisure_track']:zoom(15),
   &[feature='leisure_ice_rink']:zoom(16),
-  &[feature='leisure_pitch']:zoom(14) {
+  &[feature='leisure_pitch']:zoom(16) {
     &[is_building='no']:zoom(10),
     &[feature='shop'][shop='mall']:zoom(10),
     &[feature='shop'][shop='mall']:zoom(17) {
@@ -2353,8 +2353,8 @@
   &[feature='tourism_hotel']:zoom(17),
   &[feature='tourism_motel']:zoom(17),
   &[feature='tourism_hostel']:zoom(17),
-  &[feature='tourism_chalet']:zoom(18),
-  &[feature='tourism_guest_house']:zoom(18),
+  &[feature='tourism_chalet']:zoom(17),
+  &[feature='tourism_guest_house']:zoom(17),
   &[feature='tourism_apartment']:zoom(18),
   &[feature='tourism_wilderness_hut']:zoom(16),
   &[feature='tourism_camp_site']:zoom(17),
@@ -2505,7 +2505,7 @@
 
   &[feature='amenity_nursing_home']:zoom(16),
   &[feature='amenity_childcare']:zoom(16) {
-    &:zoom(18) {
+    &:zoom(17) {
       --text-name: '[name]';
       --text-size: @landcover-font-size;
       --text-wrap-width: @landcover-wrap-width-size;
@@ -2519,7 +2519,7 @@
   }
 
   &[feature='amenity_driving_school']:zoom(16) {
-    &:zoom(18) {
+    &:zoom(17) {
       --text-name: '[name]';
       --text-size: @standard-font-size;
       --text-wrap-width: @standard-wrap-width;
@@ -2793,7 +2793,7 @@
     }
   }
 
-  &[feature='amenity_parcel_locker']:zoom(18) {
+  &[feature='amenity_parcel_locker']:zoom(17) {
     --text-name: '[name]';
     --text-dy: 10;
     --text-size: @standard-font-size;
