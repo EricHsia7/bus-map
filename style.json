@@ -1889,8 +1889,8 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(220,237,234,1)",
-        "rgba(220,237,234,1)"
+        "rgba(222,238,235,1)",
+        "rgba(222,238,235,1)"
       ]
     },
     "attachment": "low-zoom"
@@ -1967,8 +1967,8 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(210,232,228,1)",
-        "rgba(210,232,228,1)"
+        "rgba(212,233,229,1)",
+        "rgba(212,233,229,1)"
       ]
     },
     "attachment": "low-zoom"
@@ -1992,8 +1992,8 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(220,237,234,1)",
-        "rgba(220,237,234,1)"
+        "rgba(222,238,235,1)",
+        "rgba(222,238,235,1)"
       ]
     },
     "attachment": "low-zoom"
@@ -2056,8 +2056,8 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(220,237,234,1)",
-        "rgba(220,237,234,1)"
+        "rgba(222,238,235,1)",
+        "rgba(222,238,235,1)"
       ]
     },
     "attachment": "low-zoom"
@@ -2162,8 +2162,8 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(220,237,234,1)",
-        "rgba(220,237,234,1)"
+        "rgba(222,238,235,1)",
+        "rgba(222,238,235,1)"
       ]
     },
     "attachment": "low-zoom"
@@ -2201,8 +2201,8 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(220,237,234,1)",
-        "rgba(220,237,234,1)"
+        "rgba(222,238,235,1)",
+        "rgba(222,238,235,1)"
       ]
     },
     "attachment": "low-zoom"
@@ -2240,8 +2240,8 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(220,237,234,1)",
-        "rgba(220,237,234,1)"
+        "rgba(222,238,235,1)",
+        "rgba(222,238,235,1)"
       ]
     },
     "attachment": "low-zoom"
@@ -2644,8 +2644,8 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(220,237,234,1)",
-        "rgba(220,237,234,1)"
+        "rgba(222,238,235,1)",
+        "rgba(222,238,235,1)"
       ]
     },
     "attachment": "low-zoom"
@@ -2834,8 +2834,8 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(220,237,234,1)",
-        "rgba(220,237,234,1)"
+        "rgba(222,238,235,1)",
+        "rgba(222,238,235,1)"
       ]
     },
     "attachment": "low-zoom"
@@ -3001,8 +3001,8 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(210,232,228,1)",
-        "rgba(210,232,228,1)"
+        "rgba(212,233,229,1)",
+        "rgba(212,233,229,1)"
       ]
     },
     "attachment": "low-zoom"
@@ -3126,8 +3126,8 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(220,237,234,1)",
-        "rgba(220,237,234,1)"
+        "rgba(222,238,235,1)",
+        "rgba(222,238,235,1)"
       ]
     },
     "attachment": "low-zoom"
@@ -3268,8 +3268,8 @@
       "line-join": "round",
       "line-cap": "square",
       "line-color": [
-        "rgba(220,237,234,1)",
-        "rgba(220,237,234,1)"
+        "rgba(222,238,235,1)",
+        "rgba(222,238,235,1)"
       ]
     }
   },
@@ -3360,8 +3360,8 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(220,237,234,1)",
-        "rgba(220,237,234,1)"
+        "rgba(222,238,235,1)",
+        "rgba(222,238,235,1)"
       ]
     },
     "attachment": "first"
@@ -121467,7 +121467,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/shop/massage.svg')\"",
-      "marker-fill": "rgba(51,100,91,1)"
+      "marker-fill": "rgba(52,102,92,1)"
     }
   },
   {
@@ -122180,7 +122180,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/leisure/water_park.svg')\"",
-      "marker-fill": "rgba(51,100,91,1)",
+      "marker-fill": "rgba(52,102,92,1)",
       "marker-clip": "false"
     }
   },
@@ -122217,7 +122217,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/leisure/fitness.svg')\"",
-      "marker-fill": "rgba(51,100,91,1)",
+      "marker-fill": "rgba(52,102,92,1)",
       "marker-clip": "false"
     }
   },
@@ -122285,7 +122285,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/shop/pet.svg')\"",
-      "marker-fill": "rgba(51,100,91,1)",
+      "marker-fill": "rgba(52,102,92,1)",
       "marker-clip": "false"
     }
   },
@@ -122334,7 +122334,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/leisure/playground.svg')\"",
-      "marker-fill": "rgba(51,100,91,1)",
+      "marker-fill": "rgba(52,102,92,1)",
       "marker-clip": "false"
     }
   },
@@ -122383,7 +122383,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/leisure/miniature_golf.svg')\"",
-      "marker-fill": "rgba(51,100,91,1)",
+      "marker-fill": "rgba(52,102,92,1)",
       "marker-clip": "false"
     }
   },
@@ -122406,7 +122406,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/leisure/golf.svg')\"",
-      "marker-fill": "rgba(51,100,91,1)",
+      "marker-fill": "rgba(52,102,92,1)",
       "marker-clip": "false"
     }
   },
@@ -122429,7 +122429,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/tourism/picnic.svg')\"",
-      "marker-fill": "rgba(51,100,91,1)",
+      "marker-fill": "rgba(52,102,92,1)",
       "marker-clip": "false"
     }
   },
@@ -122576,7 +122576,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/leisure/sauna.svg')\"",
-      "marker-fill": "rgba(51,100,91,1)",
+      "marker-fill": "rgba(52,102,92,1)",
       "marker-clip": "false"
     }
   },
@@ -122599,7 +122599,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/leisure/beach_resort.svg')\"",
-      "marker-fill": "rgba(51,100,91,1)",
+      "marker-fill": "rgba(52,102,92,1)",
       "marker-clip": "false"
     }
   },
@@ -122622,7 +122622,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/leisure/bowling_alley.svg')\"",
-      "marker-fill": "rgba(51,100,91,1)",
+      "marker-fill": "rgba(52,102,92,1)",
       "marker-clip": "false"
     }
   },
@@ -122645,7 +122645,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/leisure/outdoor_seating.svg')\"",
-      "marker-fill": "rgba(51,100,91,1)",
+      "marker-fill": "rgba(52,102,92,1)",
       "marker-clip": "false"
     }
   },
@@ -122668,7 +122668,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/leisure/bird_hide.svg')\"",
-      "marker-fill": "rgba(51,100,91,1)",
+      "marker-fill": "rgba(52,102,92,1)",
       "marker-clip": "false"
     }
   },
@@ -122691,7 +122691,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/leisure/amusement_arcade.svg')\"",
-      "marker-fill": "rgba(51,100,91,1)",
+      "marker-fill": "rgba(52,102,92,1)",
       "marker-clip": "false"
     }
   },
@@ -122714,7 +122714,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/leisure/fishing.svg')\"",
-      "marker-fill": "rgba(51,100,91,1)",
+      "marker-fill": "rgba(52,102,92,1)",
       "marker-clip": "false"
     }
   },
@@ -122737,7 +122737,7 @@
     ],
     "paint": {
       "marker-file": "\"url('symbols/leisure/dance.svg')\"",
-      "marker-fill": "rgba(51,100,91,1)",
+      "marker-fill": "rgba(52,102,92,1)",
       "marker-clip": "false"
     }
   },
@@ -127369,7 +127369,7 @@
       "text-size": "5",
       "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
-      "text-fill": "rgba(51,100,91,1)",
+      "text-fill": "rgba(52,102,92,1)",
       "text-dy": "11",
       "text-face-name": "'Noto Sans TC', sans-serif",
       "text-halo-radius": "1.5",
@@ -129904,7 +129904,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(51,100,91,1)"
+      "text-fill": "rgba(52,102,92,1)"
     }
   },
   {
@@ -130091,7 +130091,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(51,100,91,1)"
+      "text-fill": "rgba(52,102,92,1)"
     }
   },
   {
@@ -135304,7 +135304,7 @@
       "text-size": "5",
       "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
-      "text-fill": "rgba(51,100,91,1)",
+      "text-fill": "rgba(52,102,92,1)",
       "text-face-name": "'Noto Sans TC', sans-serif",
       "text-halo-radius": "1.5",
       "text-halo-fill": "rgba(255,255,255,0.9)",
@@ -135366,7 +135366,7 @@
       "text-size": "5",
       "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
-      "text-fill": "rgba(51,100,91,1)",
+      "text-fill": "rgba(52,102,92,1)",
       "text-dy": "11",
       "text-face-name": "'Noto Sans TC', sans-serif",
       "text-halo-radius": "1.5",
@@ -135471,7 +135471,7 @@
       "text-wrap-width": "25",
       "text-line-spacing": "-1.5",
       "text-dy": "13",
-      "text-fill": "rgba(51,100,91,1)",
+      "text-fill": "rgba(52,102,92,1)",
       "text-face-name": "'Noto Sans TC', sans-serif",
       "text-halo-fill": "rgba(255,255,255,0.9)"
     }
@@ -135639,7 +135639,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(69,133,122,1)",
+      "text-fill": "rgba(70,135,123,1)",
       "text-halo-radius": "0"
     }
   },
@@ -174922,7 +174922,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(51,100,91,1)"
+      "text-fill": "rgba(52,102,92,1)"
     }
   },
   {
@@ -215588,7 +215588,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(69,133,122,1)"
+      "text-fill": "rgba(70,135,123,1)"
     }
   },
   {
@@ -334257,7 +334257,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(29,56,51,1)"
+      "text-fill": "rgba(30,58,53,1)"
     }
   },
   {
@@ -349470,7 +349470,7 @@
       }
     ],
     "paint": {
-      "text-fill": "rgba(51,100,91,1)"
+      "text-fill": "rgba(52,102,92,1)"
     }
   },
   {
@@ -362330,8 +362330,8 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(220,237,234,1)",
-        "rgba(220,237,234,1)"
+        "rgba(222,238,235,1)",
+        "rgba(222,238,235,1)"
       ]
     },
     "attachment": "high-zoom"
