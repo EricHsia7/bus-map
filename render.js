@@ -548,7 +548,7 @@ async function renderChunk(cX, cY, cZ, fileformat) {
     await makeDirectory(path.join(labelsDir, tZ.toString(), tX.toString()));
 
     // raster tiles
-    if (shouldRenderRaster) {
+    if (shouldRenderRaster && polygons.length + lines.length > 0) {
       const polygonElements = polygons.map((f) => f.svg).join('');
       const lineElements = lines.map((l) => l.svg).join('');
       const svg = `<svg width="${tileSize}" height="${tileSize}" viewBox="0 0 ${tileSize} ${tileSize}" xmlns="http://www.w3.org/2000/svg">${backgroundElement}${polygonElements}${lineElements}</svg>`;
@@ -556,7 +556,7 @@ async function renderChunk(cX, cY, cZ, fileformat) {
     }
 
     // vector tiles
-    if (shouldRenderVector) {
+    if (shouldRenderVector && vectorPolygons.length + vectorLines.length + vectorCircles.length > 0) {
       // Flat parallel arrays instead of nested [[[x, y], ...], ...] descriptors,
       // so the client can adopt each one with a single typed-array constructor
       // (`new Int16Array(parsed.coordinates)`) and never allocate per point.
@@ -639,7 +639,7 @@ async function renderChunk(cX, cY, cZ, fileformat) {
     }
 
     // labels
-    if (shouldRenderLabels) {
+    if (shouldRenderLabels && labels.length > 0) {
       fs.writeFileSync(
         path.join(labelsDir, tZ.toString(), tX.toString(), `${tY}.gz`),
         Buffer.from(
