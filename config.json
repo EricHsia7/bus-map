@@ -8,7 +8,8 @@
   },
   "chunks": {
     "dir": "./chunks",
-    "baseZ": 12
+    "baseZ": 12,
+    "resolution": 0.01
   },
   "tiles": {
     "dir": "./tiles",
