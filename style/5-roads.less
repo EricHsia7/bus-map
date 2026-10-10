@@ -32,7 +32,7 @@
 @minor-construction: #a6a7a9;
 
 /* Dual-carriageway, high speed, grade-separated with restricted access. */
-@motorway-fill: darken(@road-fill, 8%);
+@motorway-fill: darken(@road-fill, 4%);
 @motorway-casing: darken(@motorway-fill, 3%);
 @motorway-low-zoom: lighten(@motorway-fill, 2%);
 @motorway-low-zoom-casing: lighten(@motorway-low-zoom, 2%);
@@ -651,9 +651,20 @@
       }
 
       &#bridges {
-        --line-join: round;
-        --line-cap: @casing-cap-variant;
-        --line-color: @bridge-casing;
+        --a__line-join: round;
+        --a__line-cap: @casing-cap;
+        --a__line-color: zoom-gradient(@trunk-low-zoom, @trunk-fill 12z);
+
+        --b__line-join: round;
+        --b__line-cap: @casing-cap-variant;
+        --b__line-color: @bridge-casing;
+
+        --a__line-width: @trunk-width * @motorway-scale;
+        --b__line-width: @trunk-width * @motorway-scale;
+        &[link='yes'] {
+          --a__line-width: @trunk-link-width * @motorway-scale;
+          --b__line-width: @trunk-link-width * @motorway-scale;
+        }
       }
     }
 
