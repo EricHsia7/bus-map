@@ -1,0 +1,87 @@
+// chunk.proto — cached, pre-projected base chunk format produced by chunk.js
+// and consumed by render.js.
+//
+// File layout: one ChunkFile message per file (`<z>_<x>_<y>.chunk.pbf`).
+// The header is stored uncompressed so a cache check never has to inflate
+// the payload; the payload is a zlib-compressed ChunkData message.
+//
+// Coordinates are already projected to Web Mercator (EPSG:3857) and
+// quantized to integer units of `resolution` metres:
+//
+//   metres = (origin + value) * resolution
+//
+// where `origin` is the chunk's lower-left corner in units, and `value` is the
+// delta-decoded column entry. Every chunk is self-contained: all nodes needed
+// by its ways are in its own node table, so render.js never touches another
+// chunk or the source .osm.pbf.
+
+syntax = "proto2";
+
+package OSMCHUNK;
+
+message ChunkFile {
+  required ChunkHeader header = 1;
+  oneof data {
+    bytes raw = 2;        // uncompressed ChunkData
+    bytes zlib_data = 3;  // zlib-compressed ChunkData
+  }
+  optional uint32 raw_size = 4; // byte length of ChunkData when compressed
+}
+
+message ChunkHeader {
+  required uint32 version = 1;     // format version, bump on breaking change
+  required uint32 z = 2;
+  required uint32 x = 3;
+  required uint32 y = 4;
+  required double resolution = 5;  // metres per coordinate unit
+  required sint64 origin_x = 6;    // chunk west edge, in units
+  required sint64 origin_y = 7;    // chunk south edge, in units
+  required string fingerprint = 8; // hash of source file + chunk parameters (cache key)
+  optional uint32 node_count = 9;
+  optional uint32 way_count = 10;
+  optional uint32 relation_count = 11;
+  optional int64 created_at = 12;  // ms since epoch
+}
+
+message ChunkData {
+  // Chunk-local string table. Index 0 is reserved ("") and used as the
+  // keys_vals delimiter, exactly like OSMPBF.StringTable.
+  repeated string strings = 1;
+  optional NodeTable nodes = 2;
+  repeated Way ways = 3;
+  repeated Relation relations = 4;
+}
+
+// Column-oriented node table, sorted by id.
+message NodeTable {
+  repeated sint64 id = 1 [packed = true]; // DELTA coded
+  repeated sint64 x = 2 [packed = true];  // DELTA coded, units relative to origin_x
+  repeated sint64 y = 3 [packed = true];  // DELTA coded, units relative to origin_y
+  // Tags of POI nodes (only nodes inside this chunk carry tags):
+  //   ( (<key sid> <val sid>)* 0 )*  — one group per node, same order as id.
+  // Empty when no node in the chunk has tags.
+  repeated uint32 keys_vals = 4 [packed = true];
+}
+
+message Way {
+  required int64 id = 1;
+  repeated uint32 keys = 2 [packed = true];
+  repeated uint32 vals = 3 [packed = true];
+  // Indices into NodeTable (not OSM ids), DELTA coded. Way geometry is always
+  // complete, even when the way extends beyond the chunk.
+  repeated sint32 refs = 4 [packed = true];
+}
+
+message Relation {
+  enum MemberType {
+    NODE = 0;
+    WAY = 1;
+    RELATION = 2;
+  }
+  required int64 id = 1;
+  repeated uint32 keys = 2 [packed = true];
+  repeated uint32 vals = 3 [packed = true];
+  repeated uint32 roles_sid = 4 [packed = true];
+  repeated sint64 memids = 5 [packed = true]; // OSM ids, DELTA coded
+  repeated MemberType types = 6 [packed = true];
+}

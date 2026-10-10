@@ -8,8 +8,7 @@
   },
   "chunks": {
     "dir": "./chunks",
-    "baseZ": 12,
-    "output": "chunk.sh"
+    "baseZ": 12
   },
   "tiles": {
     "dir": "./tiles",
@@ -21,7 +20,7 @@
     "size": 512,
     "precision": 4096,
     "extent": 4096,
-    "buffer": 256,
+    "buffer": 320,
     "areaFilter": {
       "12": 6400,
       "13": 1600,

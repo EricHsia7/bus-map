@@ -129,17 +129,15 @@ jobs:
         uses: actions/cache/restore@v6
         with:
           path: chunks
-          key: chunks-${{ hashFiles('input.osm.pbf') }}-${{ hashFiles('chunk.sh') }}
+          key: chunks-${{ hashFiles('input.osm.pbf') }}-${{ hashFiles('chunk.js') }}
           restore-keys: |
-            chunks-${{ hashFiles('input.osm.pbf') }}-${{ hashFiles('chunk.sh') }}
+            chunks-${{ hashFiles('input.osm.pbf') }}-${{ hashFiles('chunk.js') }}
 
       - name: Chunk Map Data
         if: steps.restore-cached-chunks.outputs.cache-hit != 'true'
         run: |
           mkdir -p chunks
           node chunk.js
-          chmod +x ./chunk.sh
-          ./chunk.sh
 
       - name: Cache Chunks
         id: cache-chunks

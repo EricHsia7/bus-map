@@ -10,7 +10,7 @@ The pipeline replaces the usual PostGIS + Mapnik stack with plain JS/Python scri
 
 1. **Compile the style** (`style.sh` → `compile-carto.js`) — concatenates `style/*.less` into `style.less`, then compiles the CartoLESS[^1] into `style.json`, a flat list of paint rules. `color.js` handle CSS color parsing, and `calc.js` evaluates CartoCSS numeric expressions.
 2. **Compile the layer mapping** (`compile-mml.py`) — parses `openstreetmap-carto-master/project.mml`, extracts each layer's Datasource SQL with a real Postgres parser (`sqlglot`), and emits `mml.json`: per-layer conditions and computed columns (e.g. `feature`, `int_surface`). This lets features be classified without ever running the SQL against a database.
-3. **Fetch & chunk the data** — the GitHub Actions workflow downloads the latest Taiwan extract from Geofabrik, then `chunk.js` (using tile math in `coordinate.js`) generates `chunk.sh`, a set of `osmium extract` commands that split the extract into per-tile `.osm.pbf` chunks under `chunks/`, per the bounding box/zoom in `config.json`.
+3. **Fetch & chunk the data** — the GitHub Actions workflow downloads the latest Taiwan extract from Geofabrik, then `chunk.js` (using tile math in `coordinate.js`) splits the extract into per-tile `.chunk.pbf` chunks under `chunks/`, per the bounding box/zoom in `config.json`.
 4. **Render** (`render.js`) — for each chunk: `infer-layer.js` uses `mml.json` to infer which style layer(s)/feature a raw OSM tag set belongs to, `match-rule.js` matches it against `style.json` to find the applicable paint rule(s), `assemble.js` stitches `multipolygon`/`boundary` relation members into filled rings (so relation-tagged water/landuse/forest areas aren't dropped), and `plot.js` projects geometry into pixel space per tile. `paint-to-svg.js` turns matched paint rules into SVG fills/strokes (background only), which `rasterize.js` (via `@resvg/resvg-js` + `sharp`) rasterizes into WEBP tiles under `tiles/`. `paint-to-label.js` extracts text/marker/shield symbolizers separately into _GeoJSON-like_[^2] manifests under `labels/`, so browsers can place labels live instead of baking them into the raster.
 
 [^1]: See [CARTOLESS.md](./CARTOLESS.md)
@@ -25,7 +25,7 @@ The pipeline replaces the usual PostGIS + Mapnik stack with plain JS/Python scri
 flowchart TD
     A[Checkout & set up Node/Python] --> B[Install apt deps, build libosmium + osmium-tool]
     B --> C[Download Taiwan OSM extract from Geofabrik]
-    C --> D[node chunk.js + chunk.sh -> chunks/]
+    C --> D[node chunk.js -> chunks/]
     D --> E[node render.js -> tiles/ + labels/]
     E --> F[Commit tiles/ + labels/ and force-push to dist branch]
 ```
@@ -38,7 +38,7 @@ Each expensive step (npm deps, the osmium build, the downloaded extract, chunks,
 | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | `data`                                                              | Path to the input `.osm.pbf`                                                                   |
 | `bbox`                                                              | `west`/`south`/`east`/`north` bounds of the region to render                                   |
-| `chunks.dir`, `chunks.baseZ`, `chunks.output`                       | Output dir, base zoom for tiling the extract, and generated shell script name                  |
+| `chunks.dir`, `chunks.baseZ`                                        | Output dir, base zoom for tiling the extract                                                   |
 | `tiles.dir`, `tiles.z.min`/`max`                                    | Output dir and zoom range for rendered tiles                                                   |
 | `tiles.size`, `tiles.extent`, `tiles.precision`, `tiles.background` | Raster tile size, label coordinate quantization, geometry precision, and background fill color |
 
@@ -70,8 +70,6 @@ python3 compile-mml.py openstreetmap-carto-master/project.mml > mml.json
 
 # 3. Split the extract into per-tile chunks
 node chunk.js
-chmod +x ./chunk.sh
-./chunk.sh
 
 # 4. Render raster tiles and label overlays
 node render.js
