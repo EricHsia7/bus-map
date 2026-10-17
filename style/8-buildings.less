@@ -52,14 +52,12 @@
 #entrances {
   &:zoom(16) {
     --marker-width: 5;
-    --marker-scale: zoom-gradient(1 18z 19z, 1.6 20z);
+    --marker-scale: zoom-gradient(0 16z, 1.6 20z);
     --marker-fill: @entrance-normal;
     --marker-allow-overlap: true;
     --marker-ignore-placement: true;
     --marker-file: "url('symbols/rect.svg')";
-    --marker-opacity: 0;
     &[entrance='main'] {
-      --marker-opacity: 1;
       --marker-file: "url('symbols/square.svg')";
     }
   }
@@ -72,6 +70,7 @@
     &[entrance='shop'] {
       --marker-opacity: 1;
       --marker-width: 6;
+      --marker-scale: zoom-gradient(0 17z, 1 18z);
       &[entrance='service'] {
         --marker-file: "url('symbols/corners.svg')";
       }

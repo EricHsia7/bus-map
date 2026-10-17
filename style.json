@@ -108959,6 +108959,29 @@
         "layer": "entrances",
         "zoom": {
           "min": 16,
+          "max": 16
+        },
+        "and": []
+      }
+    ],
+    "paint": {
+      "marker-width": "5",
+      "marker-scale": [
+        "0",
+        "0.4"
+      ],
+      "marker-fill": "rgba(215,219,229,1)",
+      "marker-allow-overlap": "true",
+      "marker-ignore-placement": "true",
+      "marker-file": "\"url('symbols/rect.svg')\""
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "entrances",
+        "zoom": {
+          "min": 17,
           "max": 17
         },
         "and": []
@@ -108966,11 +108989,14 @@
     ],
     "paint": {
       "marker-width": "5",
+      "marker-scale": [
+        "0.4",
+        "0.8"
+      ],
       "marker-fill": "rgba(215,219,229,1)",
       "marker-allow-overlap": "true",
       "marker-ignore-placement": "true",
-      "marker-file": "\"url('symbols/rect.svg')\"",
-      "marker-opacity": "0"
+      "marker-file": "\"url('symbols/rect.svg')\""
     }
   },
   {
@@ -108987,14 +109013,13 @@
     "paint": {
       "marker-width": "5",
       "marker-scale": [
-        "1",
-        "1"
+        "0.8",
+        "1.2"
       ],
       "marker-fill": "rgba(215,219,229,1)",
       "marker-allow-overlap": "true",
       "marker-ignore-placement": "true",
-      "marker-file": "\"url('symbols/rect.svg')\"",
-      "marker-opacity": "0"
+      "marker-file": "\"url('symbols/rect.svg')\""
     }
   },
   {
@@ -109011,14 +109036,13 @@
     "paint": {
       "marker-width": "5",
       "marker-scale": [
-        "1",
+        "1.2",
         "1.6"
       ],
       "marker-fill": "rgba(215,219,229,1)",
       "marker-allow-overlap": "true",
       "marker-ignore-placement": "true",
-      "marker-file": "\"url('symbols/rect.svg')\"",
-      "marker-opacity": "0"
+      "marker-file": "\"url('symbols/rect.svg')\""
     }
   },
   {
@@ -109041,8 +109065,7 @@
       "marker-fill": "rgba(215,219,229,1)",
       "marker-allow-overlap": "true",
       "marker-ignore-placement": "true",
-      "marker-file": "\"url('symbols/rect.svg')\"",
-      "marker-opacity": "0"
+      "marker-file": "\"url('symbols/rect.svg')\""
     }
   },
   {
@@ -109063,7 +109086,6 @@
       }
     ],
     "paint": {
-      "marker-opacity": "1",
       "marker-file": "\"url('symbols/square.svg')\""
     }
   },
@@ -109073,7 +109095,7 @@
         "layer": "entrances",
         "zoom": {
           "min": 17,
-          "max": 24
+          "max": 17
         },
         "and": [
           {
@@ -109087,7 +109109,7 @@
         "layer": "entrances",
         "zoom": {
           "min": 17,
-          "max": 24
+          "max": 17
         },
         "and": [
           {
@@ -109101,7 +109123,7 @@
         "layer": "entrances",
         "zoom": {
           "min": 17,
-          "max": 24
+          "max": 17
         },
         "and": [
           {
@@ -109115,7 +109137,7 @@
         "layer": "entrances",
         "zoom": {
           "min": 17,
-          "max": 24
+          "max": 17
         },
         "and": [
           {
@@ -109129,7 +109151,7 @@
         "layer": "entrances",
         "zoom": {
           "min": 17,
-          "max": 24
+          "max": 17
         },
         "and": [
           {
@@ -109143,6 +109165,102 @@
         "layer": "entrances",
         "zoom": {
           "min": 17,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "entrance",
+            "op": "=",
+            "value": "shop"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "marker-opacity": "1",
+      "marker-width": "6",
+      "marker-scale": [
+        "0",
+        "1"
+      ]
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "entrances",
+        "zoom": {
+          "min": 18,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "entrance",
+            "op": "=",
+            "value": "yes"
+          }
+        ]
+      },
+      {
+        "layer": "entrances",
+        "zoom": {
+          "min": 18,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "entrance",
+            "op": "=",
+            "value": "main"
+          }
+        ]
+      },
+      {
+        "layer": "entrances",
+        "zoom": {
+          "min": 18,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "entrance",
+            "op": "=",
+            "value": "home"
+          }
+        ]
+      },
+      {
+        "layer": "entrances",
+        "zoom": {
+          "min": 18,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "entrance",
+            "op": "=",
+            "value": "service"
+          }
+        ]
+      },
+      {
+        "layer": "entrances",
+        "zoom": {
+          "min": 18,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "entrance",
+            "op": "=",
+            "value": "staircase"
+          }
+        ]
+      },
+      {
+        "layer": "entrances",
+        "zoom": {
+          "min": 18,
           "max": 24
         },
         "and": [
@@ -109156,7 +109274,11 @@
     ],
     "paint": {
       "marker-opacity": "1",
-      "marker-width": "6"
+      "marker-width": "6",
+      "marker-scale": [
+        "1",
+        "1"
+      ]
     }
   },
   {
@@ -110448,7 +110570,7 @@
         "layer": "amenity-points",
         "zoom": {
           "min": 17,
-          "max": 24
+          "max": 17
         },
         "and": [
           {
@@ -110462,7 +110584,7 @@
         "layer": "amenity-points",
         "zoom": {
           "min": 17,
-          "max": 24
+          "max": 17
         },
         "and": [
           {
@@ -110476,7 +110598,7 @@
         "layer": "amenity-points",
         "zoom": {
           "min": 17,
-          "max": 24
+          "max": 17
         },
         "and": [
           {
@@ -110490,7 +110612,7 @@
         "layer": "amenity-points",
         "zoom": {
           "min": 17,
-          "max": 24
+          "max": 17
         },
         "and": [
           {
@@ -110504,7 +110626,7 @@
         "layer": "amenity-points",
         "zoom": {
           "min": 17,
-          "max": 24
+          "max": 17
         },
         "and": [
           {
@@ -110518,7 +110640,7 @@
         "layer": "amenity-points",
         "zoom": {
           "min": 17,
-          "max": 24
+          "max": 17
         },
         "and": [
           {
@@ -110532,7 +110654,7 @@
         "layer": "amenity-points",
         "zoom": {
           "min": 17,
-          "max": 24
+          "max": 17
         },
         "and": [
           {
@@ -110546,6 +110668,131 @@
         "layer": "amenity-points",
         "zoom": {
           "min": 17,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_restaurant"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "marker-clip": "false",
+      "marker-fill": "rgba(199,116,0,1)",
+      "marker-width": "4",
+      "marker-scale": [
+        "0",
+        "1"
+      ]
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "amenity-points",
+        "zoom": {
+          "min": 18,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_bar"
+          }
+        ]
+      },
+      {
+        "layer": "amenity-points",
+        "zoom": {
+          "min": 18,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_biergarten"
+          }
+        ]
+      },
+      {
+        "layer": "amenity-points",
+        "zoom": {
+          "min": 18,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_cafe"
+          }
+        ]
+      },
+      {
+        "layer": "amenity-points",
+        "zoom": {
+          "min": 18,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_fast_food"
+          }
+        ]
+      },
+      {
+        "layer": "amenity-points",
+        "zoom": {
+          "min": 18,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_food_court"
+          }
+        ]
+      },
+      {
+        "layer": "amenity-points",
+        "zoom": {
+          "min": 18,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_ice_cream"
+          }
+        ]
+      },
+      {
+        "layer": "amenity-points",
+        "zoom": {
+          "min": 18,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_pub"
+          }
+        ]
+      },
+      {
+        "layer": "amenity-points",
+        "zoom": {
+          "min": 18,
           "max": 24
         },
         "and": [
@@ -110559,167 +110806,12 @@
     ],
     "paint": {
       "marker-clip": "false",
-      "marker-fill": "rgba(199,116,0,1)"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "amenity-points",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_bar"
-          },
-          {
-            "key": "feature",
-            "op": "!=",
-            "value": "amenity_food_court"
-          }
-        ]
-      },
-      {
-        "layer": "amenity-points",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_biergarten"
-          },
-          {
-            "key": "feature",
-            "op": "!=",
-            "value": "amenity_food_court"
-          }
-        ]
-      },
-      {
-        "layer": "amenity-points",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_cafe"
-          },
-          {
-            "key": "feature",
-            "op": "!=",
-            "value": "amenity_food_court"
-          }
-        ]
-      },
-      {
-        "layer": "amenity-points",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_fast_food"
-          },
-          {
-            "key": "feature",
-            "op": "!=",
-            "value": "amenity_food_court"
-          }
-        ]
-      },
-      {
-        "layer": "amenity-points",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_food_court"
-          },
-          {
-            "key": "feature",
-            "op": "!=",
-            "value": "amenity_food_court"
-          }
-        ]
-      },
-      {
-        "layer": "amenity-points",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_ice_cream"
-          },
-          {
-            "key": "feature",
-            "op": "!=",
-            "value": "amenity_food_court"
-          }
-        ]
-      },
-      {
-        "layer": "amenity-points",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_pub"
-          },
-          {
-            "key": "feature",
-            "op": "!=",
-            "value": "amenity_food_court"
-          }
-        ]
-      },
-      {
-        "layer": "amenity-points",
-        "zoom": {
-          "min": 17,
-          "max": 17
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_restaurant"
-          },
-          {
-            "key": "feature",
-            "op": "!=",
-            "value": "amenity_food_court"
-          }
-        ]
-      }
-    ],
-    "paint": {
+      "marker-fill": "rgba(199,116,0,1)",
       "marker-width": "4",
-      "marker-line-width": "0"
+      "marker-scale": [
+        "1",
+        "1"
+      ]
     }
   },
   {
@@ -112425,27 +112517,6 @@
         "layer": "amenity-points",
         "zoom": {
           "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_parcel_locker"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "marker-fill": "rgba(115,74,8,1)"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "amenity-points",
-        "zoom": {
-          "min": 17,
           "max": 17
         },
         "and": [
@@ -112458,8 +112529,38 @@
       }
     ],
     "paint": {
+      "marker-fill": "rgba(115,74,8,1)",
       "marker-width": "4",
-      "marker-line-width": "0"
+      "marker-scale": [
+        "0",
+        "1"
+      ]
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "amenity-points",
+        "zoom": {
+          "min": 18,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_parcel_locker"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "marker-fill": "rgba(115,74,8,1)",
+      "marker-width": "4",
+      "marker-scale": [
+        "1",
+        "1"
+      ]
     }
   },
   {
@@ -116908,28 +117009,6 @@
         "layer": "amenity-points",
         "zoom": {
           "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "amenity_dentist"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "marker-fill": "rgba(191,0,0,1)",
-      "marker-clip": "false"
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "amenity-points",
-        "zoom": {
-          "min": 17,
           "max": 17
         },
         "and": [
@@ -116943,7 +117022,39 @@
     ],
     "paint": {
       "marker-width": "4",
-      "marker-line-width": "0"
+      "marker-scale": [
+        "0",
+        "1"
+      ],
+      "marker-fill": "rgba(191,0,0,1)",
+      "marker-clip": "false"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "amenity-points",
+        "zoom": {
+          "min": 18,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "amenity_dentist"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "marker-width": "4",
+      "marker-scale": [
+        "1",
+        "1"
+      ],
+      "marker-fill": "rgba(191,0,0,1)",
+      "marker-clip": "false"
     }
   },
   {
@@ -117881,10 +117992,9 @@
     "paint": {
       "marker-width": "4",
       "marker-scale": [
-        "1",
+        "0.75",
         "1.5"
       ],
-      "marker-line-width": "0",
       "marker-clip": "false",
       "marker-fill": "rgba(29,29,47,1)"
     }
@@ -117926,7 +118036,6 @@
         "1.5",
         "1.5"
       ],
-      "marker-line-width": "0",
       "marker-clip": "false",
       "marker-fill": "rgba(29,29,47,1)"
     }
@@ -117951,10 +118060,9 @@
     "paint": {
       "marker-width": "4",
       "marker-scale": [
-        "1",
+        "0",
         "1.5"
       ],
-      "marker-line-width": "0",
       "marker-clip": "false",
       "marker-fill": "rgba(172,57,172,1)"
     }
@@ -117982,7 +118090,6 @@
         "1.5",
         "1.5"
       ],
-      "marker-line-width": "0",
       "marker-clip": "false",
       "marker-fill": "rgba(172,57,172,1)"
     }
@@ -120526,7 +120633,10 @@
     ],
     "paint": {
       "marker-width": "4",
-      "marker-line-width": "0"
+      "marker-scale": [
+        "0",
+        "1"
+      ]
     }
   },
   {
@@ -120545,6 +120655,51 @@
           },
           {
             "key": "shop",
+            "op": "!=",
+            "value": "supermarket"
+          },
+          {
+            "key": "shop",
+            "op": "!=",
+            "value": "department_store"
+          },
+          {
+            "key": "shop",
+            "op": "!=",
+            "value": "mall"
+          },
+          {
+            "key": "shop",
+            "op": "!=",
+            "value": "massage"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "marker-width": "4",
+      "marker-scale": [
+        "1",
+        "1"
+      ]
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "amenity-points",
+        "zoom": {
+          "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "shop"
+          },
+          {
+            "key": "shop",
             "op": "=",
             "value": "other"
           }
@@ -120553,7 +120708,40 @@
     ],
     "paint": {
       "marker-width": "6",
-      "marker-line-width": "0"
+      "marker-scale": [
+        "0",
+        "1"
+      ]
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "amenity-points",
+        "zoom": {
+          "min": 19,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "shop"
+          },
+          {
+            "key": "shop",
+            "op": "=",
+            "value": "other"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "marker-width": "6",
+      "marker-scale": [
+        "1",
+        "1"
+      ]
     }
   },
   {
@@ -122648,6 +122836,33 @@
         "layer": "amenity-points",
         "zoom": {
           "min": 18,
+          "max": 18
+        },
+        "and": [
+          {
+            "key": "feature",
+            "op": "=",
+            "value": "office"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "marker-width": "6",
+      "marker-scale": [
+        "0",
+        "1"
+      ],
+      "marker-clip": "false",
+      "marker-fill": "rgba(72,99,160,1)"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "amenity-points",
+        "zoom": {
+          "min": 19,
           "max": 24
         },
         "and": [
@@ -122661,7 +122876,10 @@
     ],
     "paint": {
       "marker-width": "6",
-      "marker-line-width": "0",
+      "marker-scale": [
+        "1",
+        "1"
+      ],
       "marker-clip": "false",
       "marker-fill": "rgba(72,99,160,1)"
     }
@@ -126786,10 +127004,9 @@
     "paint": {
       "marker-width": "3",
       "marker-scale": [
-        "1",
-        "1.3333"
+        "0",
+        "1.5"
       ],
-      "marker-line-width": "0",
       "marker-fill": "rgba(125,124,124,1)"
     }
   },
@@ -126855,10 +127072,9 @@
     "paint": {
       "marker-width": "3",
       "marker-scale": [
-        "1.3333",
-        "1.3333"
+        "1.5",
+        "1.5"
       ],
-      "marker-line-width": "0",
       "marker-fill": "rgba(125,124,124,1)"
     }
   },

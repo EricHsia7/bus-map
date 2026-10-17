@@ -4737,14 +4737,12 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 #entrances {
   &:zoom(16) {
     --marker-width: 5;
-    --marker-scale: zoom-gradient(1 18z 19z, 1.6 20z);
+    --marker-scale: zoom-gradient(0 16z, 1.6 20z);
     --marker-fill: @entrance-normal;
     --marker-allow-overlap: true;
     --marker-ignore-placement: true;
     --marker-file: "url('symbols/rect.svg')";
-    --marker-opacity: 0;
     &[entrance='main'] {
-      --marker-opacity: 1;
       --marker-file: "url('symbols/square.svg')";
     }
   }
@@ -4757,6 +4755,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     &[entrance='shop'] {
       --marker-opacity: 1;
       --marker-width: 6;
+      --marker-scale: zoom-gradient(0 17z, 1 18z);
       &[entrance='service'] {
         --marker-file: "url('symbols/corners.svg')";
       }
@@ -4990,10 +4989,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[feature='amenity_restaurant']:zoom(17) {
     --marker-clip: false;
     --marker-fill: @gastronomy-icon;
-    &:not([feature='amenity_food_court']):zoom(17, 17) {
-      --marker-width: 4;
-      --marker-line-width: 0;
-    }
+    --marker-width: 4;
+    --marker-scale: zoom-gradient(0 17z, 1 18z);
+    // &:not([feature='amenity_food_court']):zoom(17) {
+    //   --marker-line-width: 0;
+    // }
     &[feature='amenity_bar']:zoom(18) {
       --marker-file: "url('symbols/amenity/bar.svg')";
     }
@@ -5098,10 +5098,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
   &[feature='amenity_parcel_locker']:zoom(17) {
     --marker-fill: @amenity-brown;
-    &:zoom(17, 17) {
-      --marker-width: 4;
-      --marker-line-width: 0;
-    }
+    --marker-width: 4;
+    --marker-scale: zoom-gradient(0 17z, 1 18z);
     &:zoom(18) {
       --marker-file: "url('symbols/amenity/parcel_locker.svg')";
       --marker-clip: false;
@@ -5481,13 +5479,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   }
 
   &[feature='amenity_dentist']:zoom(17) {
-    &:zoom(17, 17) {
-      --marker-width: 4;
-      --marker-line-width: 0;
-    }
+    --marker-width: 4;
+    --marker-scale: zoom-gradient(0 17z, 1 18z);
+
     &:zoom(18) {
       --marker-file: "url('symbols/amenity/dentist.svg')";
     }
+
     --marker-fill: @health-color;
     --marker-clip: false;
   }
@@ -5643,8 +5641,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[feature='amenity_childcare']:zoom(16) {
     &:zoom(17) {
       --marker-width: 4;
-      --marker-scale: zoom-gradient(1 17z, 1.5 18z);
-      --marker-line-width: 0;
+      --marker-scale: zoom-gradient(0 16z, 1.5 18z);
       --marker-clip: false;
       --marker-fill: darken(@societal_amenities, 80%);
     }
@@ -5652,8 +5649,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
   &[feature='amenity_driving_school']:zoom(17) {
     --marker-width: 4;
-    --marker-scale: zoom-gradient(1 17z, 1.5 18z);
-    --marker-line-width: 0;
+    --marker-scale: zoom-gradient(0 17z, 1.5 18z);
     --marker-clip: false;
     --marker-fill: @shop-icon;
   }
@@ -5758,14 +5754,14 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       --marker-fill: @shop-icon;
     }
 
-    &:not([shop='supermarket']):not([shop='department_store']):not([shop='mall']):not([shop='massage']):zoom(17, 17) {
+    &:not([shop='supermarket']):not([shop='department_store']):not([shop='mall']):not([shop='massage']):zoom(17) {
       --marker-width: 4;
-      --marker-line-width: 0;
+      --marker-scale: zoom-gradient(0 17z, 1 18z);
     }
 
     &[shop='other']:zoom(18) {
       --marker-width: 6;
-      --marker-line-width: 0;
+      --marker-scale: zoom-gradient(0 18z, 1 19z);
     }
 
     &[shop='supermarket']:zoom(16) {
@@ -6097,7 +6093,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   // office points
   &[feature='office']:zoom(18) {
     --marker-width: 6;
-    --marker-line-width: 0;
+    --marker-scale: zoom-gradient(0 18z, 1 19z);
     --marker-clip: false;
     --marker-fill: @office;
   }
@@ -6471,8 +6467,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   &[feature='barrier_turnstile'] {
     &:zoom(17) {
       --marker-width: 3;
-      --marker-scale: zoom-gradient(1 17z, (4/3) 18z);
-      --marker-line-width: 0;
+      --marker-scale: zoom-gradient(0 17z, 1.5 18z);
       --marker-fill: @utility-icon;
     }
   }
