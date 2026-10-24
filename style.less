@@ -97,6 +97,7 @@
 @wood: #c9e3dc;
 @scrub: #d1e6de;
 @heath: #d5e7de;
+@forest: @wood;
 
 // Agricultural
 // Production land.
@@ -1457,7 +1458,7 @@
 @arterial-scale: @road-class-scale;
 @minor-scale: @road-class-scale;
 @service-scale: @road-class-scale;
-@road-scale: zoom-gradient(0.035 8z 1.65 20z);
+@road-scale: zoom-gradient(0.035 8z, 1.65 20z);
 @runway-scale: zoom-gradient(1 15z, 2 16z);
 @taxiway-scale: zoom-gradient(1 15z, 2 16z);
 @footway-scale: zoom-gradient(0 16z, 2 18z);
@@ -1472,20 +1473,20 @@
 // down, so a link is never wider than either road it connects.
 @motorway-width: 12;
 @motorway-link-width: 9;
-@trunk-width: 11;
-@trunk-link-width: 8.5;
-@primary-width: 10;
-@primary-link-width: 8;
+@trunk-width: 12;
+@trunk-link-width: 9;
+@primary-width: 12;
+@primary-link-width: 9;
 @secondary-width: 9;
 @secondary-link-width: 7;
-@tertiary-width: 8;
-@tertiary-link-width: 6.5;
-@residential-width: 6;
-@road-width: 5.5;
-@living-street-width: 5.5;
-@pedestrian-width: 4.5;
-@service-width: 4;
-@minor-service-width: 3.25;
+@tertiary-width: 9;
+@tertiary-link-width: 7;
+@residential-width: 3.5;
+@road-width: 3.5;
+@living-street-width: 3.5;
+@pedestrian-width: 3.5;
+@service-width: 3.5;
+@minor-service-width: 3.5;
 @runway-width: 13;
 @taxiway-width: 5;
 @bridleway-width: 0.4;
@@ -1493,7 +1494,7 @@
 @cycleway-width: 0.5;
 
 // Railway reference widths
-//
+
 // Mainline rail is the reference; every other track type is either the same
 // ramp times a factor or its own ramp, so widths stay proportionate at all
 // zooms. Surface, tunnel and bridge variants of one track type share the same
