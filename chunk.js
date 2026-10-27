@@ -102,7 +102,7 @@ function fingerprintOf() {
   return crypto.createHash('sha1').update(key).digest('hex');
 }
 
-// parsing
+//  parsing
 // Global string interning: tags are stored as Uint32 string ids, not JS objects.
 const strings = [''];
 const stringIds = new Map([['', 0]]);
@@ -396,6 +396,30 @@ function isComplete(rel) {
 }
 
 // writing
+// Mercator m² of a closed way's full ring (0 when open). Computed from the
+// global node table, so every chunk holding the way stores the same value.
+function wayArea(osm, w) {
+  const start = osm.wayRefStart[w];
+  const end = osm.wayRefStart[w + 1];
+  if (end - start < 4 || osm.wayRefs[start] !== osm.wayRefs[end - 1] || osm.wayRefs[start] < 0) return 0;
+  const o = osm.wayRefs[start];
+  const ox = osm.nodeX[o];
+  const oy = osm.nodeY[o];
+  let s = 0;
+  let px = 0;
+  let py = 0;
+  for (let i = start + 1; i < end; i++) {
+    const n = osm.wayRefs[i];
+    if (n < 0) continue;
+    const x = osm.nodeX[n] - ox; // relative units: products stay exact
+    const y = osm.nodeY[n] - oy;
+    s += px * y - x * py;
+    px = x;
+    py = y;
+  }
+  return (Math.abs(s) / 2) * resolution * resolution;
+}
+
 function buildChunk(osm, bucket, scratch) {
   // ways: direct hits + members of complete relations, deduped, id order
   const wayList = Int32Array.from(bucket.ways).sort();
@@ -477,7 +501,10 @@ function buildChunk(osm, bucket, scratch) {
       refs.push(scratch[n] - prev);
       prev = scratch[n];
     }
-    wayMessages[j] = { id: osm.wayIds[w], keys, vals, refs };
+    const message = { id: osm.wayIds[w], keys, vals, refs };
+    const area = wayArea(osm, w);
+    if (area > 0) message.area = area;
+    wayMessages[j] = message;
   }
 
   const relationList = Array.from(new Set(bucket.relations)).sort((a, b) => a - b);

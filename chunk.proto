@@ -70,6 +70,10 @@ message Way {
   // Indices into NodeTable (not OSM ids), DELTA coded. Way geometry is always
   // complete, even when the way extends beyond the chunk.
   repeated sint32 refs = 4 [packed = true];
+  // Closed ways only (first ref == last ref): area of the complete, unclipped
+  // ring in Web Mercator m². 0 / absent for open ways. Used by render.js for
+  // the zoom-dependent minimum-area filter (area-filter.js).
+  optional double area = 5;
 }
 
 message Relation {

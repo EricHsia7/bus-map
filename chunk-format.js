@@ -9,7 +9,7 @@ const { zlibSync, unzlibSync } = require('fflate');
 protobuf.util.Long = null;
 protobuf.configure();
 
-const FORMAT_VERSION = 1;
+const FORMAT_VERSION = 2; // v2: Way.area
 const MEMBER_TYPES = ['node', 'way', 'relation'];
 const MEMBER_CODES = { node: 0, way: 1, relation: 2 };
 
@@ -55,7 +55,7 @@ function readChunkHeader(file) {
  * Read a chunk and rebuild the in-memory shape render.js has always used:
  *   nodeMap   Map<id, [x, y]>   projected metres (EPSG:3857)
  *   nodes     [{ id, lon, lat, tags }]  tagged nodes; lon/lat are projected metres
- *   ways      [{ id, refs, tags }]
+ *   ways      [{ id, refs, tags, area }]   area: Mercator m², closed ways only
  *   relations [{ id, members: [{ type, ref, role }], tags }]
  * Returns null when the file does not exist.
  */
@@ -127,7 +127,7 @@ function readChunk(file) {
       index += way.refs[i];
       refs[i] = ids[index];
     }
-    ways[w] = { id: way.id, refs, tags: tagsOf(way.keys, way.vals) };
+    ways[w] = { id: way.id, refs, tags: tagsOf(way.keys, way.vals), area: way.area || 0 };
   }
 
   // relations

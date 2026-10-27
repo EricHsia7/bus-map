@@ -19,6 +19,7 @@ const { registerChars, dumpCharsets } = require('./label-charset.js');
 const { paintToVector } = require('./paint-to-vector.js');
 const { createVectorStyleTables, registerVectorStyle } = require('./vector-styles.js');
 const { deltaEncode } = require('./delta.js');
+const { ringArea, pixelArea, compileLadder } = require('./area-filter.js');
 
 M.loadStyle('./style.json');
 I.loadMml('./mml.json');
@@ -77,6 +78,7 @@ const tileBackground = config.tiles.background;
 const tilesMinZ = Math.min(config.tiles.z.raster.min, config.tiles.z.vector.min);
 const tilesMaxZ = Math.max(config.tiles.z.raster.max, config.tiles.z.vector.max);
 const safeMargin = 64;
+const areaLadder = compileLadder(config.tiles.areaLadder, tilesMinZ, tilesMaxZ);
 
 const gzipOptions = { level: 7 };
 const encoder = new TextEncoder();
@@ -109,6 +111,45 @@ async function renderChunk(cX, cY, cZ) {
 
   // Assemble multipolygon relations (wide rivers, lakes, landuse, ...) into filled area geometry. Their tags live on the relation and their member ways are usually untagged, so the per-way loop below never draws them.
   const { features: areaFeatures, memberWayIds } = assembleAreas(relations, ways, wayMap, nodeMap);
+
+  // Area filter, decided once per feature on its complete (unclipped) geometry,
+  // before any projection-to-tile or clipping. Each feature gets a minZoom; a
+  // tile simply compares tZ against it, so all tiles agree.
+  for (const way of ways) {
+    way.isPolygon = way.refs.length >= 4 && way.refs[0] === way.refs.at(-1) && I.isArea(way.tags);
+    way.minZoom = way.isPolygon ? areaLadder.minZoomOf(way.area, way.tags) : -Infinity;
+  }
+  // Multipolygons: each polygon (outer ring + its holes) is judged on its own,
+  // so a tiny islet of an archipelago can drop while the large islands stay.
+  // Holes below the threshold are filled in (dropped) the same way.
+  for (const feat of areaFeatures) {
+    feat.area = 0;
+    feat.parts = feat.polygons.map((poly) => {
+      const ringAreas = poly.map(ringArea);
+      const area = Math.max(0, ringAreas[0] - ringAreas.slice(1).reduce((a, b) => a + b, 0));
+      feat.area += area;
+      return {
+        poly,
+        minZoom: areaLadder.minZoomOf(area, feat.tags),
+        holeMinZoom: ringAreas.map((a, i) => (i === 0 ? -Infinity : areaLadder.minZoomOf(a, feat.tags)))
+      };
+    });
+  }
+  // Polygons visible at zoom z, with sub-threshold holes removed.
+  const visiblePolygons = (feat, z) => {
+    const out = [];
+    for (const part of feat.parts) {
+      if (z < part.minZoom) continue;
+      out.push(part.holeMinZoom.every((m) => z >= m) ? part.poly : part.poly.filter((_, i) => z >= part.holeMinZoom[i]));
+    }
+    return out;
+  };
+  // carto-style computed columns, only where infer-layer did not supply them
+  const withArea = (row, area, z) => {
+    if (row.way_area === undefined) row.way_area = area;
+    if (row.way_pixels === undefined) row.way_pixels = area / pixelArea(z);
+    return row;
+  };
 
   // reconstruct geometry
   const subTiles = getSubTiles(cX, cY, cZ, tilesMaxZ);
@@ -143,11 +184,12 @@ async function renderChunk(cX, cY, cZ) {
 
     for (const way of ways) {
       if (memberWayIds.has(way.id)) continue; // drawn via its parent multipolygon
+      if (tZ < way.minZoom) continue; // polygon too small at this zoom (whole feature, all tiles)
       const coords = way.refs.map((id) => nodeMap.get(id)).filter(Boolean);
       // A closed ring is only an *area* when its tags say so (osm2pgsql /
       // openstreetmap-carto.lua `isarea`). Closed highways, barriers, etc.
       // without area=yes stay linestrings, so they reach the road layers.
-      const closed = way.refs.length >= 4 && way.refs[0] === way.refs.at(-1) && coords.length >= 4 && I.isArea(way.tags);
+      const closed = way.isPolygon && coords.length >= 4;
       const shape = closed
         ? { type: 'Polygon', coordinates: [coords] } // ring/area
         : { type: 'LineString', coordinates: coords };
@@ -160,6 +202,7 @@ async function renderChunk(cX, cY, cZ) {
 
       for (const layer of layers) {
         const feat = { ...way.tags, ...layer.row }; // inject `feature` + computed cols
+        if (closed) withArea(feat, way.area, tZ);
         const idxs = M.matchRules(feat, layer.id, tZ);
         if (idxs.length === 0) continue;
 
@@ -221,15 +264,17 @@ async function renderChunk(cX, cY, cZ) {
 
     // Multipolygon area features assembled from relations (drawn as fills, beneath the line elements).
     for (const feat of areaFeatures) {
+      const polygonsAtZoom = visiblePolygons(feat, tZ);
+      if (polygonsAtZoom.length === 0) continue; // every part below the area threshold
       let d = '';
-      for (const poly of feat.polygons) {
+      for (const poly of polygonsAtZoom) {
         d += plotPolygon({ type: 'Polygon', coordinates: poly }, x0, y0, x1, y1, tileSize, tilePrecision, safeMargin);
       }
       if (!d) continue;
 
       const layers = I.inferLayers(feat.tags, { geometry: 'polygon', zoom: tZ });
       for (const layer of layers) {
-        const featRow = { ...feat.tags, ...layer.row };
+        const featRow = withArea({ ...feat.tags, ...layer.row }, feat.area, tZ);
         const idxs = M.matchRules(featRow, layer.id, tZ);
         if (idxs.length === 0) continue;
 
@@ -247,7 +292,7 @@ async function renderChunk(cX, cY, cZ) {
 
           // vector
           if (shouldRenderVector) {
-            for (const poly of feat.polygons) {
+            for (const poly of polygonsAtZoom) {
               // The actual geometry depends on clipping and styling.
               // For example, after clipping, the stroke of a cross-tile polygon becomes an open line.
               const { polygonDescriptors, lineDescriptors } = paintToVector(paint, { type: 'Polygon', coordinates: poly }, x0, y0, x1, y1, extent, buffer);
@@ -258,10 +303,10 @@ async function renderChunk(cX, cY, cZ) {
 
           // labels
           if (shouldRenderLabels) {
-            if (feat.polygons[0]) {
+            if (polygonsAtZoom[0]) {
               const descs = paintToLabels(paint, featRow);
               if (descs) {
-                const labelGeometry = plotPolygonLabel({ type: 'Polygon', coordinates: feat.polygons[0] }, x0, y0, x1, y1, labelQuantization);
+                const labelGeometry = plotPolygonLabel({ type: 'Polygon', coordinates: polygonsAtZoom[0] }, x0, y0, x1, y1, labelQuantization);
                 if (labelGeometry) {
                   for (const desc of descs) {
                     const styleReference = registerLabelsStyle(labelsStyleTables, desc);
