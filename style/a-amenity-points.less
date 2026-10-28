@@ -2916,26 +2916,26 @@
   }
 }
 
-#trees:zoom(16) {
-  &::canopy {
-    // &[natural='tree_row'] {
-    //   --line-color: darken(@park, 5%);
-    //   --line-cap: round;
-    //   --line-width: 2 * zoom-gradient(0 16z, 2 17z, 4 18z, 6 19z, 12 20z);
-    // }
+// #trees:zoom(16) {
+//   &::canopy {
+//     // &[natural='tree_row'] {
+//     //   --line-color: darken(@park, 5%);
+//     //   --line-cap: round;
+//     //   --line-width: 2 * zoom-gradient(0 16z, 2 17z, 4 18z, 6 19z, 12 20z);
+//     // }
 
-    &[natural='tree'] {
-      --circle-fill: @forest;
-      --circle-width: 2 * zoom-gradient(0 16z, 2 17z, 4 18z, 6 19z, 12 20z);
-    }
-  }
-  &[natural='tree']::trunk {
-    &:zoom(18) {
-      --trunk__circle-width: 2 * zoom-gradient(1 18z, 1.5 19z, 3 20z);
-      --trunk__circle-fill: @forest-marker;
-    }
-  }
-}
+//     &[natural='tree'] {
+//       --circle-fill: @forest;
+//       --circle-width: 2 * zoom-gradient(0 16z, 2 17z, 4 18z, 6 19z, 12 20z);
+//     }
+//   }
+//   &[natural='tree']::trunk {
+//     &:zoom(18) {
+//       --trunk__circle-width: 2 * zoom-gradient(1 18z, 1.5 19z, 3 20z);
+//       --trunk__circle-fill: @forest;
+//     }
+//   }
+// }
 
 // tier 10: regional / landscape-scale (18 features)
 #text-poly-low-zoom,
