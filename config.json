@@ -45,8 +45,7 @@
     "background": "#f2f2f7"
   },
   "render": {
-    "workerMemoryMB": 1536,
-    "logEveryMs": 500,
+    "workerMemoryMB": 2048,
     "workers": 8
   }
 }

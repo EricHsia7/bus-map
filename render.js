@@ -123,6 +123,22 @@ function createTileDirectories(cX, cZ) {
   }
 }
 
+// Fraction of a tile's width added around it for culling: the larger of the
+// raster safe margin and the vector buffer, so nothing that could reach into
+// the tile's drawn area is skipped.
+const cullMargin = Math.max(safeMargin / tileSize, buffer / extent);
+function bboxOf(points) {
+  let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+  for (const p of points) {
+    if (!p) continue;
+    if (p[0] < minX) minX = p[0];
+    if (p[0] > maxX) maxX = p[0];
+    if (p[1] < minY) minY = p[1];
+    if (p[1] > maxY) maxY = p[1];
+  }
+  return minX === Infinity ? null : [minX, minY, maxX, maxY];
+}
+
 async function renderChunk(cX, cY, cZ) {
   const center = parseChunk(cX, cY, cZ);
 
@@ -143,6 +159,7 @@ async function renderChunk(cX, cY, cZ) {
   for (const way of ways) {
     way.isPolygon = way.refs.length >= 4 && way.refs[0] === way.refs.at(-1) && I.isArea(way.tags);
     way.minZoom = way.isPolygon ? areaLadder.minZoomOf(way.area, way.tags) : -Infinity;
+    way.bbox = bboxOf(way.refs.map((id) => nodeMap.get(id)));
   }
 
   // Multipolygons: each polygon (outer ring + its holes) is judged on its own,
@@ -156,6 +173,7 @@ async function renderChunk(cX, cY, cZ) {
       feat.area += area;
       return {
         poly,
+        bbox: bboxOf(poly[0]), // the outer ring bounds the whole part
         minZoom: areaLadder.minZoomOf(area, feat.tags),
         holeMinZoom: ringAreas.map((a, i) => (i === 0 ? -Infinity : areaLadder.minZoomOf(a, feat.tags)))
       };
@@ -163,10 +181,11 @@ async function renderChunk(cX, cY, cZ) {
   }
 
   // Polygons visible at zoom z, with sub-threshold holes removed.
-  const visiblePolygons = (feat, z) => {
+  const visiblePolygons = (feat, z, outside) => {
     const out = [];
     for (const part of feat.parts) {
       if (z < part.minZoom) continue;
+      if (outside(part.bbox)) continue; // nowhere near this tile
       out.push(part.holeMinZoom.every((m) => z >= m) ? part.poly : part.poly.filter((_, i) => z >= part.holeMinZoom[i]));
     }
     return out;
@@ -188,6 +207,11 @@ async function renderChunk(cX, cY, cZ) {
   for (const [tX, tY, tZ] of subTiles) {
     if (tZ < tilesMinZ) continue;
     const [x0, y0, x1, y1] = getTileViewbox(tX, tY, tZ);
+    // bbox culling: features whose bounds miss this tile (+ render buffer)
+    // are skipped before any projection or clipping.
+    const cull = (x1 - x0) * cullMargin;
+    const bx0 = x0 - cull, by0 = y0 - cull, bx1 = x1 + cull, by1 = y1 + cull;
+    const outside = (b) => b === null || b[2] < bx0 || b[0] > bx1 || b[3] < by0 || b[1] > by1;
 
     // conditional rendering
     const shouldRenderRaster = config.tiles.z.raster.min <= tZ && tZ <= config.tiles.z.raster.max;
@@ -214,6 +238,7 @@ async function renderChunk(cX, cY, cZ) {
     for (const way of ways) {
       if (memberWayIds.has(way.id)) continue; // drawn via its parent multipolygon
       if (tZ < way.minZoom) continue; // polygon too small at this zoom (whole feature, all tiles)
+      if (outside(way.bbox)) continue; // nowhere near this tile
       const coords = way.refs.map((id) => nodeMap.get(id)).filter(Boolean);
       // A closed ring is only an *area* when its tags say so (osm2pgsql /
       // openstreetmap-carto.lua `isarea`). Closed highways, barriers, etc.
@@ -293,7 +318,7 @@ async function renderChunk(cX, cY, cZ) {
 
     // Multipolygon area features assembled from relations (drawn as fills, beneath the line elements).
     for (const feat of areaFeatures) {
-      const polygonsAtZoom = visiblePolygons(feat, tZ);
+      const polygonsAtZoom = visiblePolygons(feat, tZ, outside);
       if (polygonsAtZoom.length === 0) continue; // every part below the area threshold
       let d = '';
       for (const poly of polygonsAtZoom) {
