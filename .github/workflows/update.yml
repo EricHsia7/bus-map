@@ -152,7 +152,7 @@ jobs:
         run: |
           mkdir -p tiles || true
           mkdir -p labels || true
-          node render.js || true
+          node tile.js --order position || true
 
       - name: Configure git
         run: |

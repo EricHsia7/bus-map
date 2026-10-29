@@ -12,7 +12,6 @@ const { paintToSvg } = require('./paint-to-svg.js');
 const { assembleAreas } = require('./assemble.js');
 const config = require('./config.json');
 const { rasterize } = require('./rasterize.js');
-const { makeDirectory } = require('./files.js');
 const { paintToLabels } = require('./paint-to-label.js');
 const { createLabelsStyleTables, registerLabelsStyle } = require('./label-styles.js');
 const { registerChars, dumpCharsets } = require('./label-charset.js');
@@ -99,8 +98,34 @@ function parseChunk(cX, cY, cZ) {
   return readChunk(path.join(chunksDir, chunkFileName(cZ, cX, cY)));
 }
 
+// Create every z/x output directory a chunk will write into, once, before
+// rendering. A chunk spans 2^(z - baseZ) columns per zoom, so this is a few
+// hundred mkdir calls per chunk instead of two awaited calls per tile.
+// mkdirSync({ recursive: true }) is idempotent and tolerates other workers
+// creating the same directory concurrently (no EEXIST).
+const createdDirectories = new Set(); // per process: skip repeats across chunks
+function ensureDirectory(dir) {
+  if (createdDirectories.has(dir)) return;
+  fs.mkdirSync(dir, { recursive: true });
+  createdDirectories.add(dir);
+}
+function createTileDirectories(cX, cZ) {
+  const z = config.tiles.z;
+  for (let tZ = Math.max(cZ, tilesMinZ); tZ <= tilesMaxZ; tZ++) {
+    const tiles = (z.raster.min <= tZ && tZ <= z.raster.max) || (z.vector.min <= tZ && tZ <= z.vector.max);
+    const labels = z.labels.min <= tZ && tZ <= z.labels.max;
+    if (!tiles && !labels) continue;
+    const shift = tZ - cZ;
+    for (let tX = cX << shift, end = (cX + 1) << shift; tX < end; tX++) {
+      if (tiles) ensureDirectory(path.join(tilesDir, String(tZ), String(tX)));
+      if (labels) ensureDirectory(path.join(labelsDir, String(tZ), String(tX)));
+    }
+  }
+}
+
 async function renderChunk(cX, cY, cZ) {
   const center = parseChunk(cX, cY, cZ);
+
   if (!center) return false;
   const { nodeMap, ways, relations } = center;
 
@@ -119,6 +144,7 @@ async function renderChunk(cX, cY, cZ) {
     way.isPolygon = way.refs.length >= 4 && way.refs[0] === way.refs.at(-1) && I.isArea(way.tags);
     way.minZoom = way.isPolygon ? areaLadder.minZoomOf(way.area, way.tags) : -Infinity;
   }
+
   // Multipolygons: each polygon (outer ring + its holes) is judged on its own,
   // so a tiny islet of an archipelago can drop while the large islands stay.
   // Holes below the threshold are filled in (dropped) the same way.
@@ -135,6 +161,7 @@ async function renderChunk(cX, cY, cZ) {
       };
     });
   }
+
   // Polygons visible at zoom z, with sub-threshold holes removed.
   const visiblePolygons = (feat, z) => {
     const out = [];
@@ -144,6 +171,7 @@ async function renderChunk(cX, cY, cZ) {
     }
     return out;
   };
+
   // carto-style computed columns, only where infer-layer did not supply them
   const withArea = (row, area, z) => {
     if (row.way_area === undefined) row.way_area = area;
@@ -153,11 +181,12 @@ async function renderChunk(cX, cY, cZ) {
 
   // reconstruct geometry
   const subTiles = getSubTiles(cX, cY, cZ, tilesMaxZ);
+  createTileDirectories(cX, cZ);
   const total = subTiles.length;
   let count = 0;
+  const written = { raster: 0, vector: 0, labels: 0, nodes: nodeMap.size, ways: ways.length, relations: relations.length };
   for (const [tX, tY, tZ] of subTiles) {
     if (tZ < tilesMinZ) continue;
-    count++;
     const [x0, y0, x1, y1] = getTileViewbox(tX, tY, tZ);
 
     // conditional rendering
@@ -409,16 +438,14 @@ async function renderChunk(cX, cY, cZ) {
       return a.base - b.base || a.rule - b.rule || a.index - b.index;
     });
 
-    // create directories
-    await makeDirectory(path.join(tilesDir, tZ.toString(), tX.toString()));
-    await makeDirectory(path.join(labelsDir, tZ.toString(), tX.toString()));
-
+    // directories were created once per chunk, before the tile loop (createTileDirectories)
     // raster tiles
     if (shouldRenderRaster && polygons.length + lines.length > 0) {
       const polygonElements = polygons.map((f) => f.svg).join('');
       const lineElements = lines.map((l) => l.svg).join('');
       const svg = `<svg width="${tileSize}" height="${tileSize}" viewBox="0 0 ${tileSize} ${tileSize}" xmlns="http://www.w3.org/2000/svg">${backgroundElement}${polygonElements}${lineElements}</svg>`;
       await rasterize(svg, path.join(tilesDir, tZ.toString(), tX.toString(), tY.toString()));
+      written.raster++;
     }
 
     // vector tiles
@@ -478,6 +505,7 @@ async function renderChunk(cX, cY, cZ) {
       }
       vectorStyleStartIndices.push(vectorDescriptorTypes.length);
 
+      written.vector++;
       fs.writeFileSync(
         path.join(tilesDir, tZ.toString(), tX.toString(), `${tY}.gz`),
         Buffer.from(
@@ -506,6 +534,7 @@ async function renderChunk(cX, cY, cZ) {
 
     // labels
     if (shouldRenderLabels && labels.length > 0) {
+      written.labels++;
       fs.writeFileSync(
         path.join(labelsDir, tZ.toString(), tX.toString(), `${tY}.gz`),
         Buffer.from(
@@ -528,9 +557,11 @@ async function renderChunk(cX, cY, cZ) {
       );
     }
 
+    count++;
     if (count % 16 === 0 || count === total) console.log(`[${cX} ${cY} ${cZ}] ${Math.round((count / total) * 100)}%`);
   }
-  return true;
+  // truthy, and tells tile.js what this chunk produced (0 files = nothing to draw)
+  return written;
 }
 
 function splitByLength(array, length = 3) {
@@ -560,4 +591,7 @@ async function main() {
   }
 }
 
-main();
+module.exports = { renderChunk };
+
+// `node render.js` = sequential fallback; `node tile.js` renders chunks in parallel.
+if (require.main === module) main();
