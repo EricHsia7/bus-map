@@ -22,7 +22,7 @@
     "size": 512,
     "precision": 4096,
     "extent": 4096,
-    "buffer": 320,
+    "buffer": 288,
     "areaLadder": {
       "default": [
         [0, 16],
