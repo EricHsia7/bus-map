@@ -52,47 +52,47 @@ jobs:
           sudo apt-get update
           xargs sudo apt-get install -y < dependencies.txt
 
-      - name: Restore Cached Osmium
-        id: restore-cached-osmium
-        uses: actions/cache/restore@v6
-        with:
-          path: ~/osmium-install
-          key: osmium-${{ runner.os }}-libosmium2.20.0-tool1.16.0
-          restore-keys: |
-            osmium-${{ runner.os }}-
+      # - name: Restore Cached Osmium
+      #   id: restore-cached-osmium
+      #   uses: actions/cache/restore@v6
+      #   with:
+      #     path: ~/osmium-install
+      #     key: osmium-${{ runner.os }}-libosmium2.20.0-tool1.16.0
+      #     restore-keys: |
+      #       osmium-${{ runner.os }}-
 
-      - name: Install Libosmium
-        if: steps.restore-cached-osmium.outputs.cache-hit != 'true'
-        run: |
-          git clone --depth 1 --branch v2.20.0 https://github.com/osmcode/libosmium.git
-          cmake -S libosmium -B libosmium/build \
-            -DCMAKE_INSTALL_PREFIX=$HOME/osmium-install \
-            -DBUILD_TESTING=OFF
-          cmake --build libosmium/build -j$(nproc)
-          cmake --install libosmium/build
+      # - name: Install Libosmium
+      #   if: steps.restore-cached-osmium.outputs.cache-hit != 'true'
+      #   run: |
+      #     git clone --depth 1 --branch v2.20.0 https://github.com/osmcode/libosmium.git
+      #     cmake -S libosmium -B libosmium/build \
+      #       -DCMAKE_INSTALL_PREFIX=$HOME/osmium-install \
+      #       -DBUILD_TESTING=OFF
+      #     cmake --build libosmium/build -j$(nproc)
+      #     cmake --install libosmium/build
 
-      - name: Install Osmium Tool
-        if: steps.restore-cached-osmium.outputs.cache-hit != 'true'
-        run: |
-          git clone --depth 1 --branch v1.16.0 https://github.com/osmcode/osmium-tool.git
-          cmake -S osmium-tool -B osmium-tool/build \
-            -DCMAKE_INSTALL_PREFIX=$HOME/osmium-install \
-            -DCMAKE_PREFIX_PATH=$HOME/osmium-install
-          cmake --build osmium-tool/build -j$(nproc)
-          cmake --install osmium-tool/build
+      # - name: Install Osmium Tool
+      #   if: steps.restore-cached-osmium.outputs.cache-hit != 'true'
+      #   run: |
+      #     git clone --depth 1 --branch v1.16.0 https://github.com/osmcode/osmium-tool.git
+      #     cmake -S osmium-tool -B osmium-tool/build \
+      #       -DCMAKE_INSTALL_PREFIX=$HOME/osmium-install \
+      #       -DCMAKE_PREFIX_PATH=$HOME/osmium-install
+      #     cmake --build osmium-tool/build -j$(nproc)
+      #     cmake --install osmium-tool/build
 
-      - name: Cache Osmium
-        id: cache-osmium
-        uses: actions/cache/save@v6
-        if: steps.restore-cached-osmium.outputs.cache-hit != 'true'
-        with:
-          path: ~/osmium-install
-          key: ${{ steps.restore-cached-osmium.outputs.cache-primary-key }}
+      # - name: Cache Osmium
+      #   id: cache-osmium
+      #   uses: actions/cache/save@v6
+      #   if: steps.restore-cached-osmium.outputs.cache-hit != 'true'
+      #   with:
+      #     path: ~/osmium-install
+      #     key: ${{ steps.restore-cached-osmium.outputs.cache-primary-key }}
 
-      - name: Make Osmium available
-        run: |
-          echo "$HOME/osmium-install/bin" >> "$GITHUB_PATH"
-          echo "LD_LIBRARY_PATH=$HOME/osmium-install/lib:$LD_LIBRARY_PATH" >> "$GITHUB_ENV"
+      # - name: Make Osmium available
+      #   run: |
+      #     echo "$HOME/osmium-install/bin" >> "$GITHUB_PATH"
+      #     echo "LD_LIBRARY_PATH=$HOME/osmium-install/lib:$LD_LIBRARY_PATH" >> "$GITHUB_ENV"
 
       - name: Resolve OSM replication state
         id: osm-state
