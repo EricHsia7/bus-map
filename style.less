@@ -1423,6 +1423,33 @@
 @tunnel-platform-fill: @underground-fill;
 @tunnel-text-fill: @underground-text-fill;
 
+// Metro lines (Template:台北捷運色彩 / Module:Adjacent stations). Lines are
+// matched on ref inside the Taipei / New Taipei networks; the OSM colour tag
+// is only a fallback, since it holds loose names ("red") rather than the
+// official colours. Underground track is lightened a step so it reads as
+// below grade without losing the line identity.
+@metro-underground-lighten: 10%;
+@metro-r: #e3002c; // R 紅 淡水信義線
+@metro-br: #c48c31; // BR 棕 文湖線
+@metro-g: #008659; // G 綠 松山新店線
+@metro-o: #f8b61c; // O 橘 中和新蘆線
+@metro-bl: #0070bd; // BL 藍 板南線
+@metro-y: #ffdb00; // Y 黃 環狀線
+@metro-lg: #a1d884; // LG 萬大線
+@metro-sb: #25aae1; // SB 民生汐止線
+@metro-v: #e5554f; // V 淡海輕軌
+@metro-k: #c3b091; // K 安坑輕軌
+@metro-r-underground: lighten(@metro-r, @metro-underground-lighten);
+@metro-br-underground: lighten(@metro-br, @metro-underground-lighten);
+@metro-g-underground: lighten(@metro-g, @metro-underground-lighten);
+@metro-o-underground: lighten(@metro-o, @metro-underground-lighten);
+@metro-bl-underground: lighten(@metro-bl, @metro-underground-lighten);
+@metro-y-underground: lighten(@metro-y, @metro-underground-lighten);
+@metro-lg-underground: lighten(@metro-lg, @metro-underground-lighten);
+@metro-sb-underground: lighten(@metro-sb, @metro-underground-lighten);
+@metro-v-underground: lighten(@metro-v, @metro-underground-lighten);
+@metro-k-underground: lighten(@metro-k, @metro-underground-lighten);
+
 @platform-fill: @rail-300; // interior of a platform
 @platform-casing: darken(@rail-300, 3%);
 
@@ -1627,7 +1654,9 @@
 
 #roads-casing,
 #bridges,
-#tunnels {
+#tunnels,
+#railways-bridges,
+#railways-tunnels {
   &::casing {
     &[feature='highway_pedestrian']:zoom(14) {
       --line-color: @pedestrian-casing;
@@ -2337,7 +2366,10 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 #roads-low-zoom:zoom(1, 9),
 #roads-fill:zoom(10),
 #bridges:zoom(12),
-#tunnels:zoom(12) {
+#tunnels:zoom(12),
+#railways-fill:zoom(10),
+#railways-bridges:zoom(10),
+#railways-tunnels:zoom(10) {
   &::fill {
     // &[feature='highway_construction']:zoom(12) {
     //   &[construction='motorway']:zoom(12),
@@ -3002,7 +3034,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         &[preserved='yes']:zoom(15) {
           --line-color: @rail-line-lighter;
         }
-        &#tunnels {
+        &#railways-tunnels {
           --line-color: @tunnel-rail-fill;
         }
       }
@@ -3017,11 +3049,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         &[preserved='yes']:zoom(15) {
           --line-color: @rail-line-lighter;
         }
-        &#tunnels {
+        &#railways-tunnels {
           --line-color: @tunnel-rail-fill;
         }
       }
-      &#bridges {
+      &#railways-bridges {
         &:zoom(14) {
           --line-width: @subway-width;
           --line-color: @rail-line;
@@ -3056,8 +3088,215 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
           --line-color: @rail-line-lighter;
         }
-        &#tunnels {
+        &#railways-tunnels {
           --line-color: @tunnel-rail-fill;
+        }
+      }
+    }
+
+    // Metro line colours. Placed after the generic subway / light-rail rules
+    // and more specific than them, so they win at every zoom and structure.
+    &[feature='railway_subway'],
+    &[feature='railway_light_rail'] {
+      &[network='台北捷運'],
+      &[network='臺北捷運'],
+      &[network='新北捷運'],
+      &[network='Taipei Metro'],
+      &[network='New Taipei Metro'] {
+        // Fallback: OSM colour names, used only when ref is missing or unknown.
+        &[colour='red'] {
+          &:zoom(12) {
+            --line-color: @metro-r;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-r;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-r-underground;
+            }
+          }
+        }
+        &[colour='brown'] {
+          &:zoom(12) {
+            --line-color: @metro-br;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-br;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-br-underground;
+            }
+          }
+        }
+        &[colour='green'] {
+          &:zoom(12) {
+            --line-color: @metro-g;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-g;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-g-underground;
+            }
+          }
+        }
+        &[colour='orange'] {
+          &:zoom(12) {
+            --line-color: @metro-o;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-o;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-o-underground;
+            }
+          }
+        }
+        &[colour='blue'] {
+          &:zoom(12) {
+            --line-color: @metro-bl;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-bl;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-bl-underground;
+            }
+          }
+        }
+        &[colour='yellow'] {
+          &:zoom(12) {
+            --line-color: @metro-y;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-y;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-y-underground;
+            }
+          }
+        }
+        // Official colours by line ref (wins over the colour fallback: same
+        // specificity, declared later).
+        &[ref='R'] {
+          &:zoom(12) {
+            --line-color: @metro-r;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-r;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-r-underground;
+            }
+          }
+        }
+        &[ref='BR'] {
+          &:zoom(12) {
+            --line-color: @metro-br;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-br;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-br-underground;
+            }
+          }
+        }
+        &[ref='G'] {
+          &:zoom(12) {
+            --line-color: @metro-g;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-g;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-g-underground;
+            }
+          }
+        }
+        &[ref='O'] {
+          &:zoom(12) {
+            --line-color: @metro-o;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-o;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-o-underground;
+            }
+          }
+        }
+        &[ref='BL'] {
+          &:zoom(12) {
+            --line-color: @metro-bl;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-bl;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-bl-underground;
+            }
+          }
+        }
+        &[ref='Y'] {
+          &:zoom(12) {
+            --line-color: @metro-y;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-y;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-y-underground;
+            }
+          }
+        }
+        &[ref='LG'] {
+          &:zoom(12) {
+            --line-color: @metro-lg;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-lg;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-lg-underground;
+            }
+          }
+        }
+        &[ref='SB'] {
+          &:zoom(12) {
+            --line-color: @metro-sb;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-sb;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-sb-underground;
+            }
+          }
+        }
+        &[ref='V'] {
+          &:zoom(12) {
+            --line-color: @metro-v;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-v;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-v-underground;
+            }
+          }
+        }
+        &[ref='K'] {
+          &:zoom(12) {
+            --line-color: @metro-k;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-k;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-k-underground;
+            }
+          }
         }
       }
     }
@@ -3071,7 +3310,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         --line-width: zoom-gradient(0.5, 0.8 8z, 0.9 12z);
         --line-join: round;
         &#roads_low_zoom[int_tunnel='yes'],
-        &#tunnels {
+        &#railways-tunnels {
           // Sub-pixel stroke: too thin for the ghost to register, so this is
           // the one below-grade case that still earns a dash.
 
@@ -3080,8 +3319,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         }
       }
       &:zoom(12) {
-        &#roads-fill,
-        &#bridges {
+        &#railways-fill,
+        &#railways-bridges {
           --dark__line-join: round;
           &:zoom(16) {
             --light__line-color: @white;
@@ -3124,7 +3363,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
             }
           }
         }
-        &#tunnels {
+        &#railways-tunnels {
           // Below grade: same width and continuity as the surface track, no
           // white core, one step lighter. The missing core is what reads as
           // "covered" -- the track is there, the rails are not visible.
@@ -3161,7 +3400,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           --background__line-color: @white;
         }
 
-        &#tunnels {
+        &#railways-tunnels {
           --line__line-color: @tunnel-rail-fill;
         }
       }

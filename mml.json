@@ -3993,282 +3993,6 @@
             "name": "z_order"
           }
         }
-      },
-      {
-        "table": "planet_osm_line",
-        "where": {
-          "t": "and",
-          "x": [
-            {
-              "t": "or",
-              "x": [
-                {
-                  "t": "in",
-                  "l": {
-                    "t": "col",
-                    "name": "tunnel"
-                  },
-                  "vals": [
-                    {
-                      "t": "lit",
-                      "v": "yes",
-                      "s": true
-                    },
-                    {
-                      "t": "lit",
-                      "v": "building_passage",
-                      "s": true
-                    },
-                    {
-                      "t": "lit",
-                      "v": "avalanche_protector",
-                      "s": true
-                    }
-                  ]
-                },
-                {
-                  "t": "cmp",
-                  "op": "=",
-                  "l": {
-                    "t": "col",
-                    "name": "covered"
-                  },
-                  "r": {
-                    "t": "lit",
-                    "v": "yes",
-                    "s": true
-                  }
-                }
-              ]
-            },
-            {
-              "t": "and",
-              "x": [
-                {
-                  "t": "not",
-                  "x": {
-                    "t": "in",
-                    "l": {
-                      "t": "col",
-                      "name": "railway"
-                    },
-                    "vals": [
-                      {
-                        "t": "lit",
-                        "v": "platform",
-                        "s": true
-                      }
-                    ]
-                  }
-                },
-                {
-                  "t": "not",
-                  "x": {
-                    "t": "isnull",
-                    "x": {
-                      "t": "col",
-                      "name": "railway"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        "columns": {
-          "way": {
-            "t": "col",
-            "name": "way"
-          },
-          "feature": {
-            "t": "concat",
-            "args": [
-              {
-                "t": "lit",
-                "v": "railway_",
-                "s": true
-              },
-              {
-                "t": "case",
-                "whens": [
-                  {
-                    "cond": {
-                      "t": "and",
-                      "x": [
-                        {
-                          "t": "cmp",
-                          "op": "=",
-                          "l": {
-                            "t": "col",
-                            "name": "railway"
-                          },
-                          "r": {
-                            "t": "lit",
-                            "v": "rail",
-                            "s": true
-                          }
-                        },
-                        {
-                          "t": "in",
-                          "l": {
-                            "t": "col",
-                            "name": "service"
-                          },
-                          "vals": [
-                            {
-                              "t": "lit",
-                              "v": "spur",
-                              "s": true
-                            },
-                            {
-                              "t": "lit",
-                              "v": "siding",
-                              "s": true
-                            },
-                            {
-                              "t": "lit",
-                              "v": "yard",
-                              "s": true
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    "then": {
-                      "t": "lit",
-                      "v": "INT-spur-siding-yard",
-                      "s": true
-                    }
-                  },
-                  {
-                    "cond": {
-                      "t": "and",
-                      "x": [
-                        {
-                          "t": "cmp",
-                          "op": "=",
-                          "l": {
-                            "t": "col",
-                            "name": "railway"
-                          },
-                          "r": {
-                            "t": "lit",
-                            "v": "tram",
-                            "s": true
-                          }
-                        },
-                        {
-                          "t": "in",
-                          "l": {
-                            "t": "col",
-                            "name": "service"
-                          },
-                          "vals": [
-                            {
-                              "t": "lit",
-                              "v": "spur",
-                              "s": true
-                            },
-                            {
-                              "t": "lit",
-                              "v": "siding",
-                              "s": true
-                            },
-                            {
-                              "t": "lit",
-                              "v": "yard",
-                              "s": true
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    "then": {
-                      "t": "lit",
-                      "v": "tram-service",
-                      "s": true
-                    }
-                  }
-                ],
-                "else": {
-                  "t": "col",
-                  "name": "railway"
-                }
-              }
-            ]
-          },
-          "tracktype": {
-            "t": "lit",
-            "v": null,
-            "s": false
-          },
-          "int_surface": {
-            "t": "lit",
-            "v": null,
-            "s": false
-          },
-          "int_access": {
-            "t": "lit",
-            "v": null,
-            "s": false
-          },
-          "construction": {
-            "t": "col",
-            "name": "construction"
-          },
-          "service": {
-            "t": "lit",
-            "v": null,
-            "s": false
-          },
-          "link": {
-            "t": "lit",
-            "v": null,
-            "s": false
-          },
-          "preserved": {
-            "t": "case",
-            "whens": [
-              {
-                "cond": {
-                  "t": "cmp",
-                  "op": "=",
-                  "l": {
-                    "t": "tag",
-                    "key": "railway:preserved"
-                  },
-                  "r": {
-                    "t": "lit",
-                    "v": "yes",
-                    "s": true
-                  }
-                },
-                "then": {
-                  "t": "lit",
-                  "v": "yes",
-                  "s": true
-                }
-              }
-            ],
-            "else": {
-              "t": "lit",
-              "v": "no",
-              "s": true
-            }
-          },
-          "layer": {
-            "t": "col",
-            "name": "layer"
-          },
-          "osm_id": {
-            "t": "col",
-            "name": "osm_id"
-          },
-          "z_order": {
-            "t": "col",
-            "name": "z_order"
-          }
-        }
       }
     ],
     "wrappers": [
@@ -5993,434 +5717,6 @@
             "name": "z_order"
           }
         }
-      },
-      {
-        "table": "planet_osm_line",
-        "where": {
-          "t": "and",
-          "x": [
-            {
-              "t": "and",
-              "x": [
-                {
-                  "t": "and",
-                  "x": [
-                    {
-                      "t": "and",
-                      "x": [
-                        {
-                          "t": "or",
-                          "x": [
-                            {
-                              "t": "isnull",
-                              "x": {
-                                "t": "col",
-                                "name": "tunnel"
-                              }
-                            },
-                            {
-                              "t": "not",
-                              "x": {
-                                "t": "in",
-                                "l": {
-                                  "t": "col",
-                                  "name": "tunnel"
-                                },
-                                "vals": [
-                                  {
-                                    "t": "lit",
-                                    "v": "yes",
-                                    "s": true
-                                  },
-                                  {
-                                    "t": "lit",
-                                    "v": "building_passage",
-                                    "s": true
-                                  },
-                                  {
-                                    "t": "lit",
-                                    "v": "avalanche_protector",
-                                    "s": true
-                                  }
-                                ]
-                              }
-                            }
-                          ]
-                        },
-                        {
-                          "t": "or",
-                          "x": [
-                            {
-                              "t": "or",
-                              "x": [
-                                {
-                                  "t": "isnull",
-                                  "x": {
-                                    "t": "col",
-                                    "name": "covered"
-                                  }
-                                },
-                                {
-                                  "t": "not",
-                                  "x": {
-                                    "t": "cmp",
-                                    "op": "=",
-                                    "l": {
-                                      "t": "col",
-                                      "name": "covered"
-                                    },
-                                    "r": {
-                                      "t": "lit",
-                                      "v": "yes",
-                                      "s": true
-                                    }
-                                  }
-                                }
-                              ]
-                            },
-                            {
-                              "t": "in",
-                              "l": {
-                                "t": "col",
-                                "name": "railway"
-                              },
-                              "vals": [
-                                {
-                                  "t": "lit",
-                                  "v": "platform",
-                                  "s": true
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "t": "or",
-                      "x": [
-                        {
-                          "t": "isnull",
-                          "x": {
-                            "t": "col",
-                            "name": "bridge"
-                          }
-                        },
-                        {
-                          "t": "not",
-                          "x": {
-                            "t": "in",
-                            "l": {
-                              "t": "col",
-                              "name": "bridge"
-                            },
-                            "vals": [
-                              {
-                                "t": "lit",
-                                "v": "yes",
-                                "s": true
-                              },
-                              {
-                                "t": "lit",
-                                "v": "boardwalk",
-                                "s": true
-                              },
-                              {
-                                "t": "lit",
-                                "v": "cantilever",
-                                "s": true
-                              },
-                              {
-                                "t": "lit",
-                                "v": "covered",
-                                "s": true
-                              },
-                              {
-                                "t": "lit",
-                                "v": "low_water_crossing",
-                                "s": true
-                              },
-                              {
-                                "t": "lit",
-                                "v": "movable",
-                                "s": true
-                              },
-                              {
-                                "t": "lit",
-                                "v": "trestle",
-                                "s": true
-                              },
-                              {
-                                "t": "lit",
-                                "v": "viaduct",
-                                "s": true
-                              }
-                            ]
-                          }
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "t": "or",
-                  "x": [
-                    {
-                      "t": "or",
-                      "x": [
-                        {
-                          "t": "not",
-                          "x": {
-                            "t": "in",
-                            "l": {
-                              "t": "col",
-                              "name": "railway"
-                            },
-                            "vals": [
-                              {
-                                "t": "lit",
-                                "v": "platform",
-                                "s": true
-                              }
-                            ]
-                          }
-                        },
-                        {
-                          "t": "not",
-                          "x": {
-                            "t": "in",
-                            "l": {
-                              "t": "tag",
-                              "key": "location"
-                            },
-                            "vals": [
-                              {
-                                "t": "lit",
-                                "v": "underground",
-                                "s": true
-                              }
-                            ]
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "t": "isnull",
-                      "x": {
-                        "t": "tag",
-                        "key": "location"
-                      }
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "t": "not",
-              "x": {
-                "t": "isnull",
-                "x": {
-                  "t": "col",
-                  "name": "railway"
-                }
-              }
-            }
-          ]
-        },
-        "columns": {
-          "way": {
-            "t": "col",
-            "name": "way"
-          },
-          "feature": {
-            "t": "concat",
-            "args": [
-              {
-                "t": "lit",
-                "v": "railway_",
-                "s": true
-              },
-              {
-                "t": "case",
-                "whens": [
-                  {
-                    "cond": {
-                      "t": "and",
-                      "x": [
-                        {
-                          "t": "cmp",
-                          "op": "=",
-                          "l": {
-                            "t": "col",
-                            "name": "railway"
-                          },
-                          "r": {
-                            "t": "lit",
-                            "v": "rail",
-                            "s": true
-                          }
-                        },
-                        {
-                          "t": "in",
-                          "l": {
-                            "t": "col",
-                            "name": "service"
-                          },
-                          "vals": [
-                            {
-                              "t": "lit",
-                              "v": "spur",
-                              "s": true
-                            },
-                            {
-                              "t": "lit",
-                              "v": "siding",
-                              "s": true
-                            },
-                            {
-                              "t": "lit",
-                              "v": "yard",
-                              "s": true
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    "then": {
-                      "t": "lit",
-                      "v": "INT-spur-siding-yard",
-                      "s": true
-                    }
-                  },
-                  {
-                    "cond": {
-                      "t": "and",
-                      "x": [
-                        {
-                          "t": "cmp",
-                          "op": "=",
-                          "l": {
-                            "t": "col",
-                            "name": "railway"
-                          },
-                          "r": {
-                            "t": "lit",
-                            "v": "tram",
-                            "s": true
-                          }
-                        },
-                        {
-                          "t": "in",
-                          "l": {
-                            "t": "col",
-                            "name": "service"
-                          },
-                          "vals": [
-                            {
-                              "t": "lit",
-                              "v": "spur",
-                              "s": true
-                            },
-                            {
-                              "t": "lit",
-                              "v": "siding",
-                              "s": true
-                            },
-                            {
-                              "t": "lit",
-                              "v": "yard",
-                              "s": true
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    "then": {
-                      "t": "lit",
-                      "v": "tram-service",
-                      "s": true
-                    }
-                  }
-                ],
-                "else": {
-                  "t": "col",
-                  "name": "railway"
-                }
-              }
-            ]
-          },
-          "tracktype": {
-            "t": "lit",
-            "v": null,
-            "s": false
-          },
-          "int_surface": {
-            "t": "lit",
-            "v": null,
-            "s": false
-          },
-          "int_access": {
-            "t": "lit",
-            "v": null,
-            "s": false
-          },
-          "construction": {
-            "t": "col",
-            "name": "construction"
-          },
-          "service": {
-            "t": "lit",
-            "v": null,
-            "s": false
-          },
-          "link": {
-            "t": "lit",
-            "v": null,
-            "s": false
-          },
-          "preserved": {
-            "t": "case",
-            "whens": [
-              {
-                "cond": {
-                  "t": "cmp",
-                  "op": "=",
-                  "l": {
-                    "t": "tag",
-                    "key": "railway:preserved"
-                  },
-                  "r": {
-                    "t": "lit",
-                    "v": "yes",
-                    "s": true
-                  }
-                },
-                "then": {
-                  "t": "lit",
-                  "v": "yes",
-                  "s": true
-                }
-              }
-            ],
-            "else": {
-              "t": "lit",
-              "v": "no",
-              "s": true
-            }
-          },
-          "layer": {
-            "t": "col",
-            "name": "layer"
-          },
-          "osm_id": {
-            "t": "col",
-            "name": "osm_id"
-          },
-          "z_order": {
-            "t": "col",
-            "name": "z_order"
-          }
-        }
       }
     ],
     "wrappers": [
@@ -7346,434 +6642,6 @@
             "t": "lit",
             "v": null,
             "s": false
-          },
-          "layer": {
-            "t": "col",
-            "name": "layer"
-          },
-          "osm_id": {
-            "t": "col",
-            "name": "osm_id"
-          },
-          "z_order": {
-            "t": "col",
-            "name": "z_order"
-          }
-        }
-      },
-      {
-        "table": "planet_osm_line",
-        "where": {
-          "t": "and",
-          "x": [
-            {
-              "t": "and",
-              "x": [
-                {
-                  "t": "and",
-                  "x": [
-                    {
-                      "t": "and",
-                      "x": [
-                        {
-                          "t": "or",
-                          "x": [
-                            {
-                              "t": "isnull",
-                              "x": {
-                                "t": "col",
-                                "name": "tunnel"
-                              }
-                            },
-                            {
-                              "t": "not",
-                              "x": {
-                                "t": "in",
-                                "l": {
-                                  "t": "col",
-                                  "name": "tunnel"
-                                },
-                                "vals": [
-                                  {
-                                    "t": "lit",
-                                    "v": "yes",
-                                    "s": true
-                                  },
-                                  {
-                                    "t": "lit",
-                                    "v": "building_passage",
-                                    "s": true
-                                  },
-                                  {
-                                    "t": "lit",
-                                    "v": "avalanche_protector",
-                                    "s": true
-                                  }
-                                ]
-                              }
-                            }
-                          ]
-                        },
-                        {
-                          "t": "or",
-                          "x": [
-                            {
-                              "t": "or",
-                              "x": [
-                                {
-                                  "t": "isnull",
-                                  "x": {
-                                    "t": "col",
-                                    "name": "covered"
-                                  }
-                                },
-                                {
-                                  "t": "not",
-                                  "x": {
-                                    "t": "cmp",
-                                    "op": "=",
-                                    "l": {
-                                      "t": "col",
-                                      "name": "covered"
-                                    },
-                                    "r": {
-                                      "t": "lit",
-                                      "v": "yes",
-                                      "s": true
-                                    }
-                                  }
-                                }
-                              ]
-                            },
-                            {
-                              "t": "in",
-                              "l": {
-                                "t": "col",
-                                "name": "railway"
-                              },
-                              "vals": [
-                                {
-                                  "t": "lit",
-                                  "v": "platform",
-                                  "s": true
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "t": "or",
-                      "x": [
-                        {
-                          "t": "isnull",
-                          "x": {
-                            "t": "col",
-                            "name": "bridge"
-                          }
-                        },
-                        {
-                          "t": "not",
-                          "x": {
-                            "t": "in",
-                            "l": {
-                              "t": "col",
-                              "name": "bridge"
-                            },
-                            "vals": [
-                              {
-                                "t": "lit",
-                                "v": "yes",
-                                "s": true
-                              },
-                              {
-                                "t": "lit",
-                                "v": "boardwalk",
-                                "s": true
-                              },
-                              {
-                                "t": "lit",
-                                "v": "cantilever",
-                                "s": true
-                              },
-                              {
-                                "t": "lit",
-                                "v": "covered",
-                                "s": true
-                              },
-                              {
-                                "t": "lit",
-                                "v": "low_water_crossing",
-                                "s": true
-                              },
-                              {
-                                "t": "lit",
-                                "v": "movable",
-                                "s": true
-                              },
-                              {
-                                "t": "lit",
-                                "v": "trestle",
-                                "s": true
-                              },
-                              {
-                                "t": "lit",
-                                "v": "viaduct",
-                                "s": true
-                              }
-                            ]
-                          }
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "t": "or",
-                  "x": [
-                    {
-                      "t": "or",
-                      "x": [
-                        {
-                          "t": "not",
-                          "x": {
-                            "t": "in",
-                            "l": {
-                              "t": "col",
-                              "name": "railway"
-                            },
-                            "vals": [
-                              {
-                                "t": "lit",
-                                "v": "platform",
-                                "s": true
-                              }
-                            ]
-                          }
-                        },
-                        {
-                          "t": "not",
-                          "x": {
-                            "t": "in",
-                            "l": {
-                              "t": "tag",
-                              "key": "location"
-                            },
-                            "vals": [
-                              {
-                                "t": "lit",
-                                "v": "underground",
-                                "s": true
-                              }
-                            ]
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "t": "isnull",
-                      "x": {
-                        "t": "tag",
-                        "key": "location"
-                      }
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "t": "not",
-              "x": {
-                "t": "isnull",
-                "x": {
-                  "t": "col",
-                  "name": "railway"
-                }
-              }
-            }
-          ]
-        },
-        "columns": {
-          "way": {
-            "t": "col",
-            "name": "way"
-          },
-          "feature": {
-            "t": "concat",
-            "args": [
-              {
-                "t": "lit",
-                "v": "railway_",
-                "s": true
-              },
-              {
-                "t": "case",
-                "whens": [
-                  {
-                    "cond": {
-                      "t": "and",
-                      "x": [
-                        {
-                          "t": "cmp",
-                          "op": "=",
-                          "l": {
-                            "t": "col",
-                            "name": "railway"
-                          },
-                          "r": {
-                            "t": "lit",
-                            "v": "rail",
-                            "s": true
-                          }
-                        },
-                        {
-                          "t": "in",
-                          "l": {
-                            "t": "col",
-                            "name": "service"
-                          },
-                          "vals": [
-                            {
-                              "t": "lit",
-                              "v": "spur",
-                              "s": true
-                            },
-                            {
-                              "t": "lit",
-                              "v": "siding",
-                              "s": true
-                            },
-                            {
-                              "t": "lit",
-                              "v": "yard",
-                              "s": true
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    "then": {
-                      "t": "lit",
-                      "v": "INT-spur-siding-yard",
-                      "s": true
-                    }
-                  },
-                  {
-                    "cond": {
-                      "t": "and",
-                      "x": [
-                        {
-                          "t": "cmp",
-                          "op": "=",
-                          "l": {
-                            "t": "col",
-                            "name": "railway"
-                          },
-                          "r": {
-                            "t": "lit",
-                            "v": "tram",
-                            "s": true
-                          }
-                        },
-                        {
-                          "t": "in",
-                          "l": {
-                            "t": "col",
-                            "name": "service"
-                          },
-                          "vals": [
-                            {
-                              "t": "lit",
-                              "v": "spur",
-                              "s": true
-                            },
-                            {
-                              "t": "lit",
-                              "v": "siding",
-                              "s": true
-                            },
-                            {
-                              "t": "lit",
-                              "v": "yard",
-                              "s": true
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    "then": {
-                      "t": "lit",
-                      "v": "tram-service",
-                      "s": true
-                    }
-                  }
-                ],
-                "else": {
-                  "t": "col",
-                  "name": "railway"
-                }
-              }
-            ]
-          },
-          "tracktype": {
-            "t": "lit",
-            "v": null,
-            "s": false
-          },
-          "int_surface": {
-            "t": "lit",
-            "v": null,
-            "s": false
-          },
-          "int_access": {
-            "t": "lit",
-            "v": null,
-            "s": false
-          },
-          "construction": {
-            "t": "col",
-            "name": "construction"
-          },
-          "service": {
-            "t": "lit",
-            "v": null,
-            "s": false
-          },
-          "link": {
-            "t": "lit",
-            "v": null,
-            "s": false
-          },
-          "preserved": {
-            "t": "case",
-            "whens": [
-              {
-                "cond": {
-                  "t": "cmp",
-                  "op": "=",
-                  "l": {
-                    "t": "tag",
-                    "key": "railway:preserved"
-                  },
-                  "r": {
-                    "t": "lit",
-                    "v": "yes",
-                    "s": true
-                  }
-                },
-                "then": {
-                  "t": "lit",
-                  "v": "yes",
-                  "s": true
-                }
-              }
-            ],
-            "else": {
-              "t": "lit",
-              "v": "no",
-              "s": true
-            }
           },
           "layer": {
             "t": "col",
@@ -8856,272 +7724,6 @@
           "t": "and",
           "x": [
             {
-              "t": "in",
-              "l": {
-                "t": "col",
-                "name": "bridge"
-              },
-              "vals": [
-                {
-                  "t": "lit",
-                  "v": "yes",
-                  "s": true
-                },
-                {
-                  "t": "lit",
-                  "v": "boardwalk",
-                  "s": true
-                },
-                {
-                  "t": "lit",
-                  "v": "cantilever",
-                  "s": true
-                },
-                {
-                  "t": "lit",
-                  "v": "covered",
-                  "s": true
-                },
-                {
-                  "t": "lit",
-                  "v": "low_water_crossing",
-                  "s": true
-                },
-                {
-                  "t": "lit",
-                  "v": "movable",
-                  "s": true
-                },
-                {
-                  "t": "lit",
-                  "v": "trestle",
-                  "s": true
-                },
-                {
-                  "t": "lit",
-                  "v": "viaduct",
-                  "s": true
-                }
-              ]
-            },
-            {
-              "t": "not",
-              "x": {
-                "t": "isnull",
-                "x": {
-                  "t": "col",
-                  "name": "railway"
-                }
-              }
-            }
-          ]
-        },
-        "columns": {
-          "way": {
-            "t": "col",
-            "name": "way"
-          },
-          "feature": {
-            "t": "concat",
-            "args": [
-              {
-                "t": "lit",
-                "v": "railway_",
-                "s": true
-              },
-              {
-                "t": "case",
-                "whens": [
-                  {
-                    "cond": {
-                      "t": "and",
-                      "x": [
-                        {
-                          "t": "cmp",
-                          "op": "=",
-                          "l": {
-                            "t": "col",
-                            "name": "railway"
-                          },
-                          "r": {
-                            "t": "lit",
-                            "v": "rail",
-                            "s": true
-                          }
-                        },
-                        {
-                          "t": "in",
-                          "l": {
-                            "t": "col",
-                            "name": "service"
-                          },
-                          "vals": [
-                            {
-                              "t": "lit",
-                              "v": "spur",
-                              "s": true
-                            },
-                            {
-                              "t": "lit",
-                              "v": "siding",
-                              "s": true
-                            },
-                            {
-                              "t": "lit",
-                              "v": "yard",
-                              "s": true
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    "then": {
-                      "t": "lit",
-                      "v": "INT-spur-siding-yard",
-                      "s": true
-                    }
-                  },
-                  {
-                    "cond": {
-                      "t": "and",
-                      "x": [
-                        {
-                          "t": "cmp",
-                          "op": "=",
-                          "l": {
-                            "t": "col",
-                            "name": "railway"
-                          },
-                          "r": {
-                            "t": "lit",
-                            "v": "tram",
-                            "s": true
-                          }
-                        },
-                        {
-                          "t": "in",
-                          "l": {
-                            "t": "col",
-                            "name": "service"
-                          },
-                          "vals": [
-                            {
-                              "t": "lit",
-                              "v": "spur",
-                              "s": true
-                            },
-                            {
-                              "t": "lit",
-                              "v": "siding",
-                              "s": true
-                            },
-                            {
-                              "t": "lit",
-                              "v": "yard",
-                              "s": true
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    "then": {
-                      "t": "lit",
-                      "v": "tram-service",
-                      "s": true
-                    }
-                  }
-                ],
-                "else": {
-                  "t": "col",
-                  "name": "railway"
-                }
-              }
-            ]
-          },
-          "tracktype": {
-            "t": "lit",
-            "v": null,
-            "s": false
-          },
-          "int_surface": {
-            "t": "lit",
-            "v": null,
-            "s": false
-          },
-          "int_access": {
-            "t": "lit",
-            "v": null,
-            "s": false
-          },
-          "construction": {
-            "t": "col",
-            "name": "construction"
-          },
-          "service": {
-            "t": "lit",
-            "v": null,
-            "s": false
-          },
-          "link": {
-            "t": "lit",
-            "v": null,
-            "s": false
-          },
-          "preserved": {
-            "t": "case",
-            "whens": [
-              {
-                "cond": {
-                  "t": "cmp",
-                  "op": "=",
-                  "l": {
-                    "t": "tag",
-                    "key": "railway:preserved"
-                  },
-                  "r": {
-                    "t": "lit",
-                    "v": "yes",
-                    "s": true
-                  }
-                },
-                "then": {
-                  "t": "lit",
-                  "v": "yes",
-                  "s": true
-                }
-              }
-            ],
-            "else": {
-              "t": "lit",
-              "v": "no",
-              "s": true
-            }
-          },
-          "int_intermittent": {
-            "t": "lit",
-            "v": null,
-            "s": false
-          },
-          "layer": {
-            "t": "col",
-            "name": "layer"
-          },
-          "osm_id": {
-            "t": "col",
-            "name": "osm_id"
-          },
-          "z_order": {
-            "t": "col",
-            "name": "z_order"
-          }
-        }
-      },
-      {
-        "table": "planet_osm_line",
-        "where": {
-          "t": "and",
-          "x": [
-            {
               "t": "and",
               "x": [
                 {
@@ -9510,6 +8112,1414 @@
           "preserved": {
             "t": "col",
             "name": "preserved"
+          },
+          "int_intermittent": {
+            "t": "col",
+            "name": "int_intermittent"
+          },
+          "int_bridge_tunnel": {
+            "t": "lit",
+            "v": "bridge",
+            "s": true
+          },
+          "layernotnull": {
+            "t": "coalesce",
+            "args": [
+              {
+                "t": "col",
+                "name": "layer"
+              },
+              {
+                "t": "lit",
+                "v": "0",
+                "s": false
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "railways-tunnels",
+    "geometry": "linestring",
+    "minzoom": 10,
+    "maxzoom": 22,
+    "base": [
+      {
+        "table": "planet_osm_line",
+        "where": {
+          "t": "and",
+          "x": [
+            {
+              "t": "or",
+              "x": [
+                {
+                  "t": "in",
+                  "l": {
+                    "t": "col",
+                    "name": "tunnel"
+                  },
+                  "vals": [
+                    {
+                      "t": "lit",
+                      "v": "yes",
+                      "s": true
+                    },
+                    {
+                      "t": "lit",
+                      "v": "building_passage",
+                      "s": true
+                    },
+                    {
+                      "t": "lit",
+                      "v": "avalanche_protector",
+                      "s": true
+                    }
+                  ]
+                },
+                {
+                  "t": "cmp",
+                  "op": "=",
+                  "l": {
+                    "t": "col",
+                    "name": "covered"
+                  },
+                  "r": {
+                    "t": "lit",
+                    "v": "yes",
+                    "s": true
+                  }
+                }
+              ]
+            },
+            {
+              "t": "and",
+              "x": [
+                {
+                  "t": "not",
+                  "x": {
+                    "t": "in",
+                    "l": {
+                      "t": "col",
+                      "name": "railway"
+                    },
+                    "vals": [
+                      {
+                        "t": "lit",
+                        "v": "platform",
+                        "s": true
+                      }
+                    ]
+                  }
+                },
+                {
+                  "t": "not",
+                  "x": {
+                    "t": "isnull",
+                    "x": {
+                      "t": "col",
+                      "name": "railway"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "columns": {
+          "way": {
+            "t": "col",
+            "name": "way"
+          },
+          "feature": {
+            "t": "concat",
+            "args": [
+              {
+                "t": "lit",
+                "v": "railway_",
+                "s": true
+              },
+              {
+                "t": "case",
+                "whens": [
+                  {
+                    "cond": {
+                      "t": "and",
+                      "x": [
+                        {
+                          "t": "cmp",
+                          "op": "=",
+                          "l": {
+                            "t": "col",
+                            "name": "railway"
+                          },
+                          "r": {
+                            "t": "lit",
+                            "v": "rail",
+                            "s": true
+                          }
+                        },
+                        {
+                          "t": "in",
+                          "l": {
+                            "t": "col",
+                            "name": "service"
+                          },
+                          "vals": [
+                            {
+                              "t": "lit",
+                              "v": "spur",
+                              "s": true
+                            },
+                            {
+                              "t": "lit",
+                              "v": "siding",
+                              "s": true
+                            },
+                            {
+                              "t": "lit",
+                              "v": "yard",
+                              "s": true
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "then": {
+                      "t": "lit",
+                      "v": "INT-spur-siding-yard",
+                      "s": true
+                    }
+                  },
+                  {
+                    "cond": {
+                      "t": "and",
+                      "x": [
+                        {
+                          "t": "cmp",
+                          "op": "=",
+                          "l": {
+                            "t": "col",
+                            "name": "railway"
+                          },
+                          "r": {
+                            "t": "lit",
+                            "v": "tram",
+                            "s": true
+                          }
+                        },
+                        {
+                          "t": "in",
+                          "l": {
+                            "t": "col",
+                            "name": "service"
+                          },
+                          "vals": [
+                            {
+                              "t": "lit",
+                              "v": "spur",
+                              "s": true
+                            },
+                            {
+                              "t": "lit",
+                              "v": "siding",
+                              "s": true
+                            },
+                            {
+                              "t": "lit",
+                              "v": "yard",
+                              "s": true
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "then": {
+                      "t": "lit",
+                      "v": "tram-service",
+                      "s": true
+                    }
+                  }
+                ],
+                "else": {
+                  "t": "col",
+                  "name": "railway"
+                }
+              }
+            ]
+          },
+          "tracktype": {
+            "t": "lit",
+            "v": null,
+            "s": false
+          },
+          "int_surface": {
+            "t": "lit",
+            "v": null,
+            "s": false
+          },
+          "int_access": {
+            "t": "lit",
+            "v": null,
+            "s": false
+          },
+          "construction": {
+            "t": "col",
+            "name": "construction"
+          },
+          "service": {
+            "t": "lit",
+            "v": null,
+            "s": false
+          },
+          "link": {
+            "t": "lit",
+            "v": null,
+            "s": false
+          },
+          "preserved": {
+            "t": "case",
+            "whens": [
+              {
+                "cond": {
+                  "t": "cmp",
+                  "op": "=",
+                  "l": {
+                    "t": "tag",
+                    "key": "railway:preserved"
+                  },
+                  "r": {
+                    "t": "lit",
+                    "v": "yes",
+                    "s": true
+                  }
+                },
+                "then": {
+                  "t": "lit",
+                  "v": "yes",
+                  "s": true
+                }
+              }
+            ],
+            "else": {
+              "t": "lit",
+              "v": "no",
+              "s": true
+            }
+          },
+          "ref": {
+            "t": "col",
+            "name": "ref"
+          },
+          "colour": {
+            "t": "tag",
+            "key": "colour"
+          },
+          "network": {
+            "t": "tag",
+            "key": "network"
+          },
+          "layer": {
+            "t": "col",
+            "name": "layer"
+          },
+          "osm_id": {
+            "t": "col",
+            "name": "osm_id"
+          },
+          "z_order": {
+            "t": "col",
+            "name": "z_order"
+          }
+        }
+      }
+    ],
+    "wrappers": [
+      {
+        "where": null,
+        "columns": {
+          "way": {
+            "t": "col",
+            "name": "way"
+          },
+          "feature": {
+            "t": "case",
+            "whens": [
+              {
+                "cond": {
+                  "t": "cmp",
+                  "op": "=",
+                  "l": {
+                    "t": "col",
+                    "name": "link"
+                  },
+                  "r": {
+                    "t": "lit",
+                    "v": "yes",
+                    "s": true
+                  }
+                },
+                "then": {
+                  "t": "func",
+                  "name": "SUBSTRING",
+                  "args": [
+                    {
+                      "t": "col",
+                      "name": "feature"
+                    },
+                    {
+                      "t": "lit",
+                      "v": "0",
+                      "s": false
+                    },
+                    {
+                      "t": "arith",
+                      "op": "-",
+                      "l": {
+                        "t": "func",
+                        "name": "LENGTH",
+                        "args": [
+                          {
+                            "t": "col",
+                            "name": "feature"
+                          }
+                        ]
+                      },
+                      "r": {
+                        "t": "lit",
+                        "v": "4",
+                        "s": false
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "else": {
+              "t": "col",
+              "name": "feature"
+            }
+          },
+          "tracktype": {
+            "t": "col",
+            "name": "tracktype"
+          },
+          "int_surface": {
+            "t": "col",
+            "name": "int_surface"
+          },
+          "int_access": {
+            "t": "col",
+            "name": "int_access"
+          },
+          "construction": {
+            "t": "col",
+            "name": "construction"
+          },
+          "service": {
+            "t": "col",
+            "name": "service"
+          },
+          "link": {
+            "t": "col",
+            "name": "link"
+          },
+          "preserved": {
+            "t": "col",
+            "name": "preserved"
+          },
+          "ref": {
+            "t": "col",
+            "name": "ref"
+          },
+          "colour": {
+            "t": "col",
+            "name": "colour"
+          },
+          "network": {
+            "t": "col",
+            "name": "network"
+          },
+          "layernotnull": {
+            "t": "coalesce",
+            "args": [
+              {
+                "t": "col",
+                "name": "layer"
+              },
+              {
+                "t": "lit",
+                "v": "0",
+                "s": false
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "railways-fill",
+    "geometry": "linestring",
+    "minzoom": 10,
+    "maxzoom": 22,
+    "base": [
+      {
+        "table": "planet_osm_line",
+        "where": {
+          "t": "and",
+          "x": [
+            {
+              "t": "and",
+              "x": [
+                {
+                  "t": "and",
+                  "x": [
+                    {
+                      "t": "and",
+                      "x": [
+                        {
+                          "t": "or",
+                          "x": [
+                            {
+                              "t": "isnull",
+                              "x": {
+                                "t": "col",
+                                "name": "tunnel"
+                              }
+                            },
+                            {
+                              "t": "not",
+                              "x": {
+                                "t": "in",
+                                "l": {
+                                  "t": "col",
+                                  "name": "tunnel"
+                                },
+                                "vals": [
+                                  {
+                                    "t": "lit",
+                                    "v": "yes",
+                                    "s": true
+                                  },
+                                  {
+                                    "t": "lit",
+                                    "v": "building_passage",
+                                    "s": true
+                                  },
+                                  {
+                                    "t": "lit",
+                                    "v": "avalanche_protector",
+                                    "s": true
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "t": "or",
+                          "x": [
+                            {
+                              "t": "or",
+                              "x": [
+                                {
+                                  "t": "isnull",
+                                  "x": {
+                                    "t": "col",
+                                    "name": "covered"
+                                  }
+                                },
+                                {
+                                  "t": "not",
+                                  "x": {
+                                    "t": "cmp",
+                                    "op": "=",
+                                    "l": {
+                                      "t": "col",
+                                      "name": "covered"
+                                    },
+                                    "r": {
+                                      "t": "lit",
+                                      "v": "yes",
+                                      "s": true
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "t": "in",
+                              "l": {
+                                "t": "col",
+                                "name": "railway"
+                              },
+                              "vals": [
+                                {
+                                  "t": "lit",
+                                  "v": "platform",
+                                  "s": true
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "t": "or",
+                      "x": [
+                        {
+                          "t": "isnull",
+                          "x": {
+                            "t": "col",
+                            "name": "bridge"
+                          }
+                        },
+                        {
+                          "t": "not",
+                          "x": {
+                            "t": "in",
+                            "l": {
+                              "t": "col",
+                              "name": "bridge"
+                            },
+                            "vals": [
+                              {
+                                "t": "lit",
+                                "v": "yes",
+                                "s": true
+                              },
+                              {
+                                "t": "lit",
+                                "v": "boardwalk",
+                                "s": true
+                              },
+                              {
+                                "t": "lit",
+                                "v": "cantilever",
+                                "s": true
+                              },
+                              {
+                                "t": "lit",
+                                "v": "covered",
+                                "s": true
+                              },
+                              {
+                                "t": "lit",
+                                "v": "low_water_crossing",
+                                "s": true
+                              },
+                              {
+                                "t": "lit",
+                                "v": "movable",
+                                "s": true
+                              },
+                              {
+                                "t": "lit",
+                                "v": "trestle",
+                                "s": true
+                              },
+                              {
+                                "t": "lit",
+                                "v": "viaduct",
+                                "s": true
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "t": "or",
+                  "x": [
+                    {
+                      "t": "or",
+                      "x": [
+                        {
+                          "t": "not",
+                          "x": {
+                            "t": "in",
+                            "l": {
+                              "t": "col",
+                              "name": "railway"
+                            },
+                            "vals": [
+                              {
+                                "t": "lit",
+                                "v": "platform",
+                                "s": true
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "t": "not",
+                          "x": {
+                            "t": "in",
+                            "l": {
+                              "t": "tag",
+                              "key": "location"
+                            },
+                            "vals": [
+                              {
+                                "t": "lit",
+                                "v": "underground",
+                                "s": true
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "t": "isnull",
+                      "x": {
+                        "t": "tag",
+                        "key": "location"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "t": "not",
+              "x": {
+                "t": "isnull",
+                "x": {
+                  "t": "col",
+                  "name": "railway"
+                }
+              }
+            }
+          ]
+        },
+        "columns": {
+          "way": {
+            "t": "col",
+            "name": "way"
+          },
+          "feature": {
+            "t": "concat",
+            "args": [
+              {
+                "t": "lit",
+                "v": "railway_",
+                "s": true
+              },
+              {
+                "t": "case",
+                "whens": [
+                  {
+                    "cond": {
+                      "t": "and",
+                      "x": [
+                        {
+                          "t": "cmp",
+                          "op": "=",
+                          "l": {
+                            "t": "col",
+                            "name": "railway"
+                          },
+                          "r": {
+                            "t": "lit",
+                            "v": "rail",
+                            "s": true
+                          }
+                        },
+                        {
+                          "t": "in",
+                          "l": {
+                            "t": "col",
+                            "name": "service"
+                          },
+                          "vals": [
+                            {
+                              "t": "lit",
+                              "v": "spur",
+                              "s": true
+                            },
+                            {
+                              "t": "lit",
+                              "v": "siding",
+                              "s": true
+                            },
+                            {
+                              "t": "lit",
+                              "v": "yard",
+                              "s": true
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "then": {
+                      "t": "lit",
+                      "v": "INT-spur-siding-yard",
+                      "s": true
+                    }
+                  },
+                  {
+                    "cond": {
+                      "t": "and",
+                      "x": [
+                        {
+                          "t": "cmp",
+                          "op": "=",
+                          "l": {
+                            "t": "col",
+                            "name": "railway"
+                          },
+                          "r": {
+                            "t": "lit",
+                            "v": "tram",
+                            "s": true
+                          }
+                        },
+                        {
+                          "t": "in",
+                          "l": {
+                            "t": "col",
+                            "name": "service"
+                          },
+                          "vals": [
+                            {
+                              "t": "lit",
+                              "v": "spur",
+                              "s": true
+                            },
+                            {
+                              "t": "lit",
+                              "v": "siding",
+                              "s": true
+                            },
+                            {
+                              "t": "lit",
+                              "v": "yard",
+                              "s": true
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "then": {
+                      "t": "lit",
+                      "v": "tram-service",
+                      "s": true
+                    }
+                  }
+                ],
+                "else": {
+                  "t": "col",
+                  "name": "railway"
+                }
+              }
+            ]
+          },
+          "tracktype": {
+            "t": "lit",
+            "v": null,
+            "s": false
+          },
+          "int_surface": {
+            "t": "lit",
+            "v": null,
+            "s": false
+          },
+          "int_access": {
+            "t": "lit",
+            "v": null,
+            "s": false
+          },
+          "construction": {
+            "t": "col",
+            "name": "construction"
+          },
+          "service": {
+            "t": "lit",
+            "v": null,
+            "s": false
+          },
+          "link": {
+            "t": "lit",
+            "v": null,
+            "s": false
+          },
+          "preserved": {
+            "t": "case",
+            "whens": [
+              {
+                "cond": {
+                  "t": "cmp",
+                  "op": "=",
+                  "l": {
+                    "t": "tag",
+                    "key": "railway:preserved"
+                  },
+                  "r": {
+                    "t": "lit",
+                    "v": "yes",
+                    "s": true
+                  }
+                },
+                "then": {
+                  "t": "lit",
+                  "v": "yes",
+                  "s": true
+                }
+              }
+            ],
+            "else": {
+              "t": "lit",
+              "v": "no",
+              "s": true
+            }
+          },
+          "ref": {
+            "t": "col",
+            "name": "ref"
+          },
+          "colour": {
+            "t": "tag",
+            "key": "colour"
+          },
+          "network": {
+            "t": "tag",
+            "key": "network"
+          },
+          "layer": {
+            "t": "col",
+            "name": "layer"
+          },
+          "osm_id": {
+            "t": "col",
+            "name": "osm_id"
+          },
+          "z_order": {
+            "t": "col",
+            "name": "z_order"
+          }
+        }
+      }
+    ],
+    "wrappers": [
+      {
+        "where": null,
+        "columns": {
+          "way": {
+            "t": "col",
+            "name": "way"
+          },
+          "feature": {
+            "t": "case",
+            "whens": [
+              {
+                "cond": {
+                  "t": "cmp",
+                  "op": "=",
+                  "l": {
+                    "t": "col",
+                    "name": "link"
+                  },
+                  "r": {
+                    "t": "lit",
+                    "v": "yes",
+                    "s": true
+                  }
+                },
+                "then": {
+                  "t": "func",
+                  "name": "SUBSTRING",
+                  "args": [
+                    {
+                      "t": "col",
+                      "name": "feature"
+                    },
+                    {
+                      "t": "lit",
+                      "v": "0",
+                      "s": false
+                    },
+                    {
+                      "t": "arith",
+                      "op": "-",
+                      "l": {
+                        "t": "func",
+                        "name": "LENGTH",
+                        "args": [
+                          {
+                            "t": "col",
+                            "name": "feature"
+                          }
+                        ]
+                      },
+                      "r": {
+                        "t": "lit",
+                        "v": "4",
+                        "s": false
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "else": {
+              "t": "col",
+              "name": "feature"
+            }
+          },
+          "tracktype": {
+            "t": "col",
+            "name": "tracktype"
+          },
+          "int_surface": {
+            "t": "col",
+            "name": "int_surface"
+          },
+          "int_access": {
+            "t": "col",
+            "name": "int_access"
+          },
+          "construction": {
+            "t": "col",
+            "name": "construction"
+          },
+          "service": {
+            "t": "col",
+            "name": "service"
+          },
+          "link": {
+            "t": "col",
+            "name": "link"
+          },
+          "preserved": {
+            "t": "col",
+            "name": "preserved"
+          },
+          "ref": {
+            "t": "col",
+            "name": "ref"
+          },
+          "colour": {
+            "t": "col",
+            "name": "colour"
+          },
+          "network": {
+            "t": "col",
+            "name": "network"
+          },
+          "layernotnull": {
+            "t": "coalesce",
+            "args": [
+              {
+                "t": "col",
+                "name": "layer"
+              },
+              {
+                "t": "lit",
+                "v": "0",
+                "s": false
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "railways-bridges",
+    "geometry": "linestring",
+    "minzoom": 10,
+    "maxzoom": 22,
+    "base": [
+      {
+        "table": "planet_osm_line",
+        "where": {
+          "t": "and",
+          "x": [
+            {
+              "t": "in",
+              "l": {
+                "t": "col",
+                "name": "bridge"
+              },
+              "vals": [
+                {
+                  "t": "lit",
+                  "v": "yes",
+                  "s": true
+                },
+                {
+                  "t": "lit",
+                  "v": "boardwalk",
+                  "s": true
+                },
+                {
+                  "t": "lit",
+                  "v": "cantilever",
+                  "s": true
+                },
+                {
+                  "t": "lit",
+                  "v": "covered",
+                  "s": true
+                },
+                {
+                  "t": "lit",
+                  "v": "low_water_crossing",
+                  "s": true
+                },
+                {
+                  "t": "lit",
+                  "v": "movable",
+                  "s": true
+                },
+                {
+                  "t": "lit",
+                  "v": "trestle",
+                  "s": true
+                },
+                {
+                  "t": "lit",
+                  "v": "viaduct",
+                  "s": true
+                }
+              ]
+            },
+            {
+              "t": "not",
+              "x": {
+                "t": "isnull",
+                "x": {
+                  "t": "col",
+                  "name": "railway"
+                }
+              }
+            }
+          ]
+        },
+        "columns": {
+          "way": {
+            "t": "col",
+            "name": "way"
+          },
+          "feature": {
+            "t": "concat",
+            "args": [
+              {
+                "t": "lit",
+                "v": "railway_",
+                "s": true
+              },
+              {
+                "t": "case",
+                "whens": [
+                  {
+                    "cond": {
+                      "t": "and",
+                      "x": [
+                        {
+                          "t": "cmp",
+                          "op": "=",
+                          "l": {
+                            "t": "col",
+                            "name": "railway"
+                          },
+                          "r": {
+                            "t": "lit",
+                            "v": "rail",
+                            "s": true
+                          }
+                        },
+                        {
+                          "t": "in",
+                          "l": {
+                            "t": "col",
+                            "name": "service"
+                          },
+                          "vals": [
+                            {
+                              "t": "lit",
+                              "v": "spur",
+                              "s": true
+                            },
+                            {
+                              "t": "lit",
+                              "v": "siding",
+                              "s": true
+                            },
+                            {
+                              "t": "lit",
+                              "v": "yard",
+                              "s": true
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "then": {
+                      "t": "lit",
+                      "v": "INT-spur-siding-yard",
+                      "s": true
+                    }
+                  },
+                  {
+                    "cond": {
+                      "t": "and",
+                      "x": [
+                        {
+                          "t": "cmp",
+                          "op": "=",
+                          "l": {
+                            "t": "col",
+                            "name": "railway"
+                          },
+                          "r": {
+                            "t": "lit",
+                            "v": "tram",
+                            "s": true
+                          }
+                        },
+                        {
+                          "t": "in",
+                          "l": {
+                            "t": "col",
+                            "name": "service"
+                          },
+                          "vals": [
+                            {
+                              "t": "lit",
+                              "v": "spur",
+                              "s": true
+                            },
+                            {
+                              "t": "lit",
+                              "v": "siding",
+                              "s": true
+                            },
+                            {
+                              "t": "lit",
+                              "v": "yard",
+                              "s": true
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "then": {
+                      "t": "lit",
+                      "v": "tram-service",
+                      "s": true
+                    }
+                  }
+                ],
+                "else": {
+                  "t": "col",
+                  "name": "railway"
+                }
+              }
+            ]
+          },
+          "tracktype": {
+            "t": "lit",
+            "v": null,
+            "s": false
+          },
+          "int_surface": {
+            "t": "lit",
+            "v": null,
+            "s": false
+          },
+          "int_access": {
+            "t": "lit",
+            "v": null,
+            "s": false
+          },
+          "construction": {
+            "t": "col",
+            "name": "construction"
+          },
+          "service": {
+            "t": "lit",
+            "v": null,
+            "s": false
+          },
+          "link": {
+            "t": "lit",
+            "v": null,
+            "s": false
+          },
+          "preserved": {
+            "t": "case",
+            "whens": [
+              {
+                "cond": {
+                  "t": "cmp",
+                  "op": "=",
+                  "l": {
+                    "t": "tag",
+                    "key": "railway:preserved"
+                  },
+                  "r": {
+                    "t": "lit",
+                    "v": "yes",
+                    "s": true
+                  }
+                },
+                "then": {
+                  "t": "lit",
+                  "v": "yes",
+                  "s": true
+                }
+              }
+            ],
+            "else": {
+              "t": "lit",
+              "v": "no",
+              "s": true
+            }
+          },
+          "ref": {
+            "t": "col",
+            "name": "ref"
+          },
+          "colour": {
+            "t": "tag",
+            "key": "colour"
+          },
+          "network": {
+            "t": "tag",
+            "key": "network"
+          },
+          "int_intermittent": {
+            "t": "lit",
+            "v": null,
+            "s": false
+          },
+          "layer": {
+            "t": "col",
+            "name": "layer"
+          },
+          "osm_id": {
+            "t": "col",
+            "name": "osm_id"
+          },
+          "z_order": {
+            "t": "col",
+            "name": "z_order"
+          }
+        }
+      }
+    ],
+    "wrappers": [
+      {
+        "where": null,
+        "columns": {
+          "way": {
+            "t": "col",
+            "name": "way"
+          },
+          "feature": {
+            "t": "case",
+            "whens": [
+              {
+                "cond": {
+                  "t": "cmp",
+                  "op": "=",
+                  "l": {
+                    "t": "col",
+                    "name": "link"
+                  },
+                  "r": {
+                    "t": "lit",
+                    "v": "yes",
+                    "s": true
+                  }
+                },
+                "then": {
+                  "t": "func",
+                  "name": "SUBSTRING",
+                  "args": [
+                    {
+                      "t": "col",
+                      "name": "feature"
+                    },
+                    {
+                      "t": "lit",
+                      "v": "0",
+                      "s": false
+                    },
+                    {
+                      "t": "arith",
+                      "op": "-",
+                      "l": {
+                        "t": "func",
+                        "name": "LENGTH",
+                        "args": [
+                          {
+                            "t": "col",
+                            "name": "feature"
+                          }
+                        ]
+                      },
+                      "r": {
+                        "t": "lit",
+                        "v": "4",
+                        "s": false
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "else": {
+              "t": "col",
+              "name": "feature"
+            }
+          },
+          "tracktype": {
+            "t": "col",
+            "name": "tracktype"
+          },
+          "int_surface": {
+            "t": "col",
+            "name": "int_surface"
+          },
+          "int_access": {
+            "t": "col",
+            "name": "int_access"
+          },
+          "construction": {
+            "t": "col",
+            "name": "construction"
+          },
+          "service": {
+            "t": "col",
+            "name": "service"
+          },
+          "link": {
+            "t": "col",
+            "name": "link"
+          },
+          "preserved": {
+            "t": "col",
+            "name": "preserved"
+          },
+          "ref": {
+            "t": "col",
+            "name": "ref"
+          },
+          "colour": {
+            "t": "col",
+            "name": "colour"
+          },
+          "network": {
+            "t": "col",
+            "name": "network"
           },
           "int_intermittent": {
             "t": "col",
