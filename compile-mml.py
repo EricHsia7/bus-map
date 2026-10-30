@@ -28,7 +28,7 @@ Output shape (mml.json):
         { "where": <tree|null>,        # predicate over COMPUTED columns
           "columns": { "feature": <tree>, ... } } ] } , ... ]
 
-Usage:  python compile-mml.py ./openstreetmap-carto-master/project.mml > mml.json
+Usage: python compile-mml.py ./project.mml > mml.json
 """
 
 import sys, re, json
