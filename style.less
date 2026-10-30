@@ -1627,7 +1627,9 @@
 
 #roads-casing,
 #bridges,
-#tunnels {
+#tunnels,
+#railways-bridges,
+#railways-tunnels {
   &::casing {
     &[feature='highway_pedestrian']:zoom(14) {
       --line-color: @pedestrian-casing;
@@ -2337,7 +2339,10 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 #roads-low-zoom:zoom(1, 9),
 #roads-fill:zoom(10),
 #bridges:zoom(12),
-#tunnels:zoom(12) {
+#tunnels:zoom(12),
+#railways-fill:zoom(10),
+#railways-bridges:zoom(10),
+#railways-tunnels:zoom(10) {
   &::fill {
     // &[feature='highway_construction']:zoom(12) {
     //   &[construction='motorway']:zoom(12),
@@ -3002,7 +3007,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         &[preserved='yes']:zoom(15) {
           --line-color: @rail-line-lighter;
         }
-        &#tunnels {
+        &#railways-tunnels {
           --line-color: @tunnel-rail-fill;
         }
       }
@@ -3017,11 +3022,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         &[preserved='yes']:zoom(15) {
           --line-color: @rail-line-lighter;
         }
-        &#tunnels {
+        &#railways-tunnels {
           --line-color: @tunnel-rail-fill;
         }
       }
-      &#bridges {
+      &#railways-bridges {
         &:zoom(14) {
           --line-width: @subway-width;
           --line-color: @rail-line;
@@ -3056,7 +3061,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
           --line-color: @rail-line-lighter;
         }
-        &#tunnels {
+        &#railways-tunnels {
           --line-color: @tunnel-rail-fill;
         }
       }
@@ -3071,7 +3076,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         --line-width: zoom-gradient(0.5, 0.8 8z, 0.9 12z);
         --line-join: round;
         &#roads_low_zoom[int_tunnel='yes'],
-        &#tunnels {
+        &#railways-tunnels {
           // Sub-pixel stroke: too thin for the ghost to register, so this is
           // the one below-grade case that still earns a dash.
 
@@ -3080,8 +3085,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         }
       }
       &:zoom(12) {
-        &#roads-fill,
-        &#bridges {
+        &#railways-fill,
+        &#railways-bridges {
           --dark__line-join: round;
           &:zoom(16) {
             --light__line-color: @white;
@@ -3124,7 +3129,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
             }
           }
         }
-        &#tunnels {
+        &#railways-tunnels {
           // Below grade: same width and continuity as the surface track, no
           // white core, one step lighter. The missing core is what reads as
           // "covered" -- the track is there, the rails are not visible.
@@ -3161,7 +3166,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           --background__line-color: @white;
         }
 
-        &#tunnels {
+        &#railways-tunnels {
           --line__line-color: @tunnel-rail-fill;
         }
       }
