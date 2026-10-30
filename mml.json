@@ -8408,6 +8408,18 @@
               "s": true
             }
           },
+          "ref": {
+            "t": "col",
+            "name": "ref"
+          },
+          "colour": {
+            "t": "tag",
+            "key": "colour"
+          },
+          "network": {
+            "t": "tag",
+            "key": "network"
+          },
           "layer": {
             "t": "col",
             "name": "layer"
@@ -8516,6 +8528,18 @@
           "preserved": {
             "t": "col",
             "name": "preserved"
+          },
+          "ref": {
+            "t": "col",
+            "name": "ref"
+          },
+          "colour": {
+            "t": "col",
+            "name": "colour"
+          },
+          "network": {
+            "t": "col",
+            "name": "network"
           },
           "layernotnull": {
             "t": "coalesce",
@@ -8955,6 +8979,18 @@
               "s": true
             }
           },
+          "ref": {
+            "t": "col",
+            "name": "ref"
+          },
+          "colour": {
+            "t": "tag",
+            "key": "colour"
+          },
+          "network": {
+            "t": "tag",
+            "key": "network"
+          },
           "layer": {
             "t": "col",
             "name": "layer"
@@ -9063,6 +9099,18 @@
           "preserved": {
             "t": "col",
             "name": "preserved"
+          },
+          "ref": {
+            "t": "col",
+            "name": "ref"
+          },
+          "colour": {
+            "t": "col",
+            "name": "colour"
+          },
+          "network": {
+            "t": "col",
+            "name": "network"
           },
           "layernotnull": {
             "t": "coalesce",
@@ -9335,6 +9383,18 @@
               "s": true
             }
           },
+          "ref": {
+            "t": "col",
+            "name": "ref"
+          },
+          "colour": {
+            "t": "tag",
+            "key": "colour"
+          },
+          "network": {
+            "t": "tag",
+            "key": "network"
+          },
           "int_intermittent": {
             "t": "lit",
             "v": null,
@@ -9448,6 +9508,18 @@
           "preserved": {
             "t": "col",
             "name": "preserved"
+          },
+          "ref": {
+            "t": "col",
+            "name": "ref"
+          },
+          "colour": {
+            "t": "col",
+            "name": "colour"
+          },
+          "network": {
+            "t": "col",
+            "name": "network"
           },
           "int_intermittent": {
             "t": "col",
