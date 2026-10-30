@@ -1,5 +1,6 @@
 __pycache__
 .DS_Store
+*.done
 *.log
 *.log.*
 *.pbf
@@ -11,4 +12,5 @@ log.txt
 node_modules
 output/tiles
 package-lock.json
+tile-report.json
 tiles

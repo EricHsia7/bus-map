@@ -12,7 +12,6 @@ const { paintToSvg } = require('./paint-to-svg.js');
 const { assembleAreas } = require('./assemble.js');
 const config = require('./config.json');
 const { rasterize } = require('./rasterize.js');
-const { makeDirectory } = require('./files.js');
 const { paintToLabels } = require('./paint-to-label.js');
 const { createLabelsStyleTables, registerLabelsStyle } = require('./label-styles.js');
 const { registerChars, dumpCharsets } = require('./label-charset.js');
@@ -99,8 +98,50 @@ function parseChunk(cX, cY, cZ) {
   return readChunk(path.join(chunksDir, chunkFileName(cZ, cX, cY)));
 }
 
+// Create every z/x output directory a chunk will write into, once, before
+// rendering. A chunk spans 2^(z - baseZ) columns per zoom, so this is a few
+// hundred mkdir calls per chunk instead of two awaited calls per tile.
+// mkdirSync({ recursive: true }) is idempotent and tolerates other workers
+// creating the same directory concurrently (no EEXIST).
+const createdDirectories = new Set(); // per process: skip repeats across chunks
+function ensureDirectory(dir) {
+  if (createdDirectories.has(dir)) return;
+  fs.mkdirSync(dir, { recursive: true });
+  createdDirectories.add(dir);
+}
+function createTileDirectories(cX, cZ) {
+  const z = config.tiles.z;
+  for (let tZ = Math.max(cZ, tilesMinZ); tZ <= tilesMaxZ; tZ++) {
+    const tiles = (z.raster.min <= tZ && tZ <= z.raster.max) || (z.vector.min <= tZ && tZ <= z.vector.max);
+    const labels = z.labels.min <= tZ && tZ <= z.labels.max;
+    if (!tiles && !labels) continue;
+    const shift = tZ - cZ;
+    for (let tX = cX << shift, end = (cX + 1) << shift; tX < end; tX++) {
+      if (tiles) ensureDirectory(path.join(tilesDir, String(tZ), String(tX)));
+      if (labels) ensureDirectory(path.join(labelsDir, String(tZ), String(tX)));
+    }
+  }
+}
+
+// Fraction of a tile's width added around it for culling: the larger of the
+// raster safe margin and the vector buffer, so nothing that could reach into
+// the tile's drawn area is skipped.
+const cullMargin = Math.max(safeMargin / tileSize, buffer / extent);
+function bboxOf(points) {
+  let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+  for (const p of points) {
+    if (!p) continue;
+    if (p[0] < minX) minX = p[0];
+    if (p[0] > maxX) maxX = p[0];
+    if (p[1] < minY) minY = p[1];
+    if (p[1] > maxY) maxY = p[1];
+  }
+  return minX === Infinity ? null : [minX, minY, maxX, maxY];
+}
+
 async function renderChunk(cX, cY, cZ) {
   const center = parseChunk(cX, cY, cZ);
+
   if (!center) return false;
   const { nodeMap, ways, relations } = center;
 
@@ -118,7 +159,9 @@ async function renderChunk(cX, cY, cZ) {
   for (const way of ways) {
     way.isPolygon = way.refs.length >= 4 && way.refs[0] === way.refs.at(-1) && I.isArea(way.tags);
     way.minZoom = way.isPolygon ? areaLadder.minZoomOf(way.area, way.tags) : -Infinity;
+    way.bbox = bboxOf(way.refs.map((id) => nodeMap.get(id)));
   }
+
   // Multipolygons: each polygon (outer ring + its holes) is judged on its own,
   // so a tiny islet of an archipelago can drop while the large islands stay.
   // Holes below the threshold are filled in (dropped) the same way.
@@ -130,20 +173,24 @@ async function renderChunk(cX, cY, cZ) {
       feat.area += area;
       return {
         poly,
+        bbox: bboxOf(poly[0]), // the outer ring bounds the whole part
         minZoom: areaLadder.minZoomOf(area, feat.tags),
         holeMinZoom: ringAreas.map((a, i) => (i === 0 ? -Infinity : areaLadder.minZoomOf(a, feat.tags)))
       };
     });
   }
+
   // Polygons visible at zoom z, with sub-threshold holes removed.
-  const visiblePolygons = (feat, z) => {
+  const visiblePolygons = (feat, z, outside) => {
     const out = [];
     for (const part of feat.parts) {
       if (z < part.minZoom) continue;
+      if (outside(part.bbox)) continue; // nowhere near this tile
       out.push(part.holeMinZoom.every((m) => z >= m) ? part.poly : part.poly.filter((_, i) => z >= part.holeMinZoom[i]));
     }
     return out;
   };
+
   // carto-style computed columns, only where infer-layer did not supply them
   const withArea = (row, area, z) => {
     if (row.way_area === undefined) row.way_area = area;
@@ -153,12 +200,18 @@ async function renderChunk(cX, cY, cZ) {
 
   // reconstruct geometry
   const subTiles = getSubTiles(cX, cY, cZ, tilesMaxZ);
+  createTileDirectories(cX, cZ);
   const total = subTiles.length;
   let count = 0;
+  const written = { raster: 0, vector: 0, labels: 0, nodes: nodeMap.size, ways: ways.length, relations: relations.length };
   for (const [tX, tY, tZ] of subTiles) {
     if (tZ < tilesMinZ) continue;
-    count++;
     const [x0, y0, x1, y1] = getTileViewbox(tX, tY, tZ);
+    // bbox culling: features whose bounds miss this tile (+ render buffer)
+    // are skipped before any projection or clipping.
+    const cull = (x1 - x0) * cullMargin;
+    const bx0 = x0 - cull, by0 = y0 - cull, bx1 = x1 + cull, by1 = y1 + cull;
+    const outside = (b) => b === null || b[2] < bx0 || b[0] > bx1 || b[3] < by0 || b[1] > by1;
 
     // conditional rendering
     const shouldRenderRaster = config.tiles.z.raster.min <= tZ && tZ <= config.tiles.z.raster.max;
@@ -185,6 +238,7 @@ async function renderChunk(cX, cY, cZ) {
     for (const way of ways) {
       if (memberWayIds.has(way.id)) continue; // drawn via its parent multipolygon
       if (tZ < way.minZoom) continue; // polygon too small at this zoom (whole feature, all tiles)
+      if (outside(way.bbox)) continue; // nowhere near this tile
       const coords = way.refs.map((id) => nodeMap.get(id)).filter(Boolean);
       // A closed ring is only an *area* when its tags say so (osm2pgsql /
       // openstreetmap-carto.lua `isarea`). Closed highways, barriers, etc.
@@ -264,7 +318,7 @@ async function renderChunk(cX, cY, cZ) {
 
     // Multipolygon area features assembled from relations (drawn as fills, beneath the line elements).
     for (const feat of areaFeatures) {
-      const polygonsAtZoom = visiblePolygons(feat, tZ);
+      const polygonsAtZoom = visiblePolygons(feat, tZ, outside);
       if (polygonsAtZoom.length === 0) continue; // every part below the area threshold
       let d = '';
       for (const poly of polygonsAtZoom) {
@@ -409,16 +463,14 @@ async function renderChunk(cX, cY, cZ) {
       return a.base - b.base || a.rule - b.rule || a.index - b.index;
     });
 
-    // create directories
-    await makeDirectory(path.join(tilesDir, tZ.toString(), tX.toString()));
-    await makeDirectory(path.join(labelsDir, tZ.toString(), tX.toString()));
-
+    // directories were created once per chunk, before the tile loop (createTileDirectories)
     // raster tiles
     if (shouldRenderRaster && polygons.length + lines.length > 0) {
       const polygonElements = polygons.map((f) => f.svg).join('');
       const lineElements = lines.map((l) => l.svg).join('');
       const svg = `<svg width="${tileSize}" height="${tileSize}" viewBox="0 0 ${tileSize} ${tileSize}" xmlns="http://www.w3.org/2000/svg">${backgroundElement}${polygonElements}${lineElements}</svg>`;
       await rasterize(svg, path.join(tilesDir, tZ.toString(), tX.toString(), tY.toString()));
+      written.raster++;
     }
 
     // vector tiles
@@ -478,6 +530,7 @@ async function renderChunk(cX, cY, cZ) {
       }
       vectorStyleStartIndices.push(vectorDescriptorTypes.length);
 
+      written.vector++;
       fs.writeFileSync(
         path.join(tilesDir, tZ.toString(), tX.toString(), `${tY}.gz`),
         Buffer.from(
@@ -506,6 +559,7 @@ async function renderChunk(cX, cY, cZ) {
 
     // labels
     if (shouldRenderLabels && labels.length > 0) {
+      written.labels++;
       fs.writeFileSync(
         path.join(labelsDir, tZ.toString(), tX.toString(), `${tY}.gz`),
         Buffer.from(
@@ -528,9 +582,11 @@ async function renderChunk(cX, cY, cZ) {
       );
     }
 
+    count++;
     if (count % 16 === 0 || count === total) console.log(`[${cX} ${cY} ${cZ}] ${Math.round((count / total) * 100)}%`);
   }
-  return true;
+  // truthy, and tells tile.js what this chunk produced (0 files = nothing to draw)
+  return written;
 }
 
 function splitByLength(array, length = 3) {
@@ -560,4 +616,7 @@ async function main() {
   }
 }
 
-main();
+module.exports = { renderChunk };
+
+// `node render.js` = sequential fallback; `node tile.js` renders chunks in parallel.
+if (require.main === module) main();

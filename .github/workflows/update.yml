@@ -5,7 +5,7 @@ on:
   schedule:
     - cron: '0 0 30 1,3,5,7,8,10,12 *'
     - cron: '0 0 29 4,6,9,11 *'
-    - cron: '0 0 27 2 *'  # monthly update
+    - cron: '0 0 27 2 *' # monthly update
   push:
     branches:
       - test
@@ -46,53 +46,6 @@ jobs:
             ./node_modules
             package-lock.json
           key: ${{ steps.restore-cached-node-dependencies.outputs.cache-primary-key }}
-
-      - name: Install Dependencies
-        run: |
-          sudo apt-get update
-          xargs sudo apt-get install -y < dependencies.txt
-
-      - name: Restore Cached Osmium
-        id: restore-cached-osmium
-        uses: actions/cache/restore@v6
-        with:
-          path: ~/osmium-install
-          key: osmium-${{ runner.os }}-libosmium2.20.0-tool1.16.0
-          restore-keys: |
-            osmium-${{ runner.os }}-
-
-      - name: Install Libosmium
-        if: steps.restore-cached-osmium.outputs.cache-hit != 'true'
-        run: |
-          git clone --depth 1 --branch v2.20.0 https://github.com/osmcode/libosmium.git
-          cmake -S libosmium -B libosmium/build \
-            -DCMAKE_INSTALL_PREFIX=$HOME/osmium-install \
-            -DBUILD_TESTING=OFF
-          cmake --build libosmium/build -j$(nproc)
-          cmake --install libosmium/build
-
-      - name: Install Osmium Tool
-        if: steps.restore-cached-osmium.outputs.cache-hit != 'true'
-        run: |
-          git clone --depth 1 --branch v1.16.0 https://github.com/osmcode/osmium-tool.git
-          cmake -S osmium-tool -B osmium-tool/build \
-            -DCMAKE_INSTALL_PREFIX=$HOME/osmium-install \
-            -DCMAKE_PREFIX_PATH=$HOME/osmium-install
-          cmake --build osmium-tool/build -j$(nproc)
-          cmake --install osmium-tool/build
-
-      - name: Cache Osmium
-        id: cache-osmium
-        uses: actions/cache/save@v6
-        if: steps.restore-cached-osmium.outputs.cache-hit != 'true'
-        with:
-          path: ~/osmium-install
-          key: ${{ steps.restore-cached-osmium.outputs.cache-primary-key }}
-
-      - name: Make Osmium available
-        run: |
-          echo "$HOME/osmium-install/bin" >> "$GITHUB_PATH"
-          echo "LD_LIBRARY_PATH=$HOME/osmium-install/lib:$LD_LIBRARY_PATH" >> "$GITHUB_ENV"
 
       - name: Resolve OSM replication state
         id: osm-state
@@ -152,7 +105,7 @@ jobs:
         run: |
           mkdir -p tiles || true
           mkdir -p labels || true
-          node render.js || true
+          node tile.js --order position || true
 
       - name: Configure git
         run: |
@@ -163,7 +116,7 @@ jobs:
         run: |
           git checkout --orphan temp-branch  || true
           git rm -r --cached . >/dev/null || true
-          git add ./tiles ./labels -f || true
+          git add ./tiles ./labels ./tile-report.json -f || true
           git commit -m "Updates" || true
       # git rm -r --cached . >/dev/null -> unstage everything while keeping files on disk
       - name: Push to Dist Branch

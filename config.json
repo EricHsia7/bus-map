@@ -9,7 +9,8 @@
   "chunks": {
     "dir": "./chunks",
     "baseZ": 12,
-    "resolution": 0.01
+    "resolution": 0.01,
+    "completeRelations": ["multipolygon", "boundary"]
   },
   "tiles": {
     "dir": "./tiles",
@@ -21,7 +22,7 @@
     "size": 512,
     "precision": 4096,
     "extent": 4096,
-    "buffer": 320,
+    "buffer": 288,
     "areaLadder": {
       "default": [
         [0, 16],
@@ -42,5 +43,11 @@
     },
     "labelQuantization": 1024,
     "background": "#f2f2f7"
+  },
+  "render": {
+    "workerMemoryMB": 2048,
+    "logEverySeconds": 10,
+    "workers": 8,
+    "retries": 3
   }
 }
