@@ -51,7 +51,7 @@
   "render": {
     "workerMemoryMB": 2048,
     "logEverySeconds": 10,
-    "workers": 4,
+    "workers": 8,
     "retries": 3
   }
 }
