@@ -1437,8 +1437,14 @@
 @metro-y: #ffdb00; // Y 黃 環狀線
 @metro-lg: #a1d884; // LG 萬大線
 @metro-sb: #25aae1; // SB 民生汐止線
-@metro-v: #e5554f; // V 淡海輕軌
-@metro-k: #c3b091; // K 安坑輕軌
+@metro-v: #e5554f; // V 淡海輕軌 (綠山線 GM, 藍海線 BS) and V2 八里輕軌 share it
+@metro-k: #c3b091; // K 安坑輕軌 (雙城–十四張)
+@metro-lb: #79bce8; // LB 三鶯線
+@metro-kl: #1e90ff; // KL 基隆捷運
+@metro-c: #00ffff; // C 中和光復線
+@metro-s: #cc7722; // S 深坑輕軌
+@metro-f: #e5007f; // F 五股泰山輕軌
+@metro-f2: #f6c3d9; // F2 泰山板橋輕軌
 @metro-r-underground: lighten(@metro-r, @metro-underground-lighten);
 @metro-br-underground: lighten(@metro-br, @metro-underground-lighten);
 @metro-g-underground: lighten(@metro-g, @metro-underground-lighten);
@@ -1449,6 +1455,30 @@
 @metro-sb-underground: lighten(@metro-sb, @metro-underground-lighten);
 @metro-v-underground: lighten(@metro-v, @metro-underground-lighten);
 @metro-k-underground: lighten(@metro-k, @metro-underground-lighten);
+@metro-lb-underground: lighten(@metro-lb, @metro-underground-lighten);
+@metro-kl-underground: lighten(@metro-kl, @metro-underground-lighten);
+@metro-c-underground: lighten(@metro-c, @metro-underground-lighten);
+@metro-s-underground: lighten(@metro-s, @metro-underground-lighten);
+@metro-f-underground: lighten(@metro-f, @metro-underground-lighten);
+@metro-f2-underground: lighten(@metro-f2, @metro-underground-lighten);
+// 桃園捷運 (Module:Adjacent stations/桃園捷運). Its refs reuse R/G/O/BR with
+// different colours, so these are matched in a separate network block.
+@metro-ty-a: #8246af; // A 桃園機場捷運
+@metro-ty-g: #62a033; // G 綠線
+@metro-ty-g-ext: #006835; // 綠線 中壢延伸線 / 大溪延伸線
+@metro-ty-o: #ffa500; // O 橘線
+@metro-ty-br: #824729; // BR 棕線
+@metro-ty-r: #b20016; // R 紅線
+@metro-ty-b: #0057b8; // B 藍線
+@metro-ty-lb: #00549d; // LB 三鶯線延伸八德段
+@metro-ty-a-underground: lighten(@metro-ty-a, @metro-underground-lighten);
+@metro-ty-g-underground: lighten(@metro-ty-g, @metro-underground-lighten);
+@metro-ty-g-ext-underground: lighten(@metro-ty-g-ext, @metro-underground-lighten);
+@metro-ty-o-underground: lighten(@metro-ty-o, @metro-underground-lighten);
+@metro-ty-br-underground: lighten(@metro-ty-br, @metro-underground-lighten);
+@metro-ty-r-underground: lighten(@metro-ty-r, @metro-underground-lighten);
+@metro-ty-b-underground: lighten(@metro-ty-b, @metro-underground-lighten);
+@metro-ty-lb-underground: lighten(@metro-ty-lb, @metro-underground-lighten);
 
 @platform-fill: @rail-300; // interior of a platform
 @platform-casing: darken(@rail-300, 3%);
@@ -1537,8 +1567,8 @@
 @preserved-rail-width: @rail-width * @rail-minor-factor;
 @preserved-rail-core-width: @rail-core-width * @rail-minor-factor;
 
-@light-rail-width: zoom-gradient(0.8, 1 14z, 1.4 16z, 1.8 18z);
-@subway-width: zoom-gradient(0.8, 1 14z, 1.3 16z, 1.6 18z);
+@light-rail-width: zoom-gradient(0.9 12z, 1.8 17z);
+@subway-width: zoom-gradient(0.9 12z, 1.8 17z);
 @tram-width: zoom-gradient(0.6, 0.8 14z, 1 16z, 1.3 18z);
 // Tram service track is to tram what a siding is to the mainline: the same
 // ramp at a constant ratio, so the two stay continuous where they join.
@@ -3102,7 +3132,10 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       &[network='臺北捷運'],
       &[network='新北捷運'],
       &[network='Taipei Metro'],
-      &[network='New Taipei Metro'] {
+      &[network='New Taipei Metro'],
+      &[network='新北大眾捷運'],
+      &[network='淡海輕軌'],
+      &[network='安坑輕軌'] {
         // Fallback: OSM colour names, used only when ref is missing or unknown.
         &[colour='red'] {
           &:zoom(12) {
@@ -3173,6 +3206,131 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
             }
             &#railways-tunnels {
               --line-color: @metro-y-underground;
+            }
+          }
+        }
+        // New Taipei Metro colour fallbacks: Module:Adjacent stations aliases and
+        // the official hex values, which is how OSM often stores colour=*.
+        &[colour='light blue'],
+        &[colour='lightblue'],
+        &[colour='#79bce8'],
+        &[colour='#79BCE8'] {
+          &:zoom(12) {
+            --line-color: @metro-lb;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-lb;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-lb-underground;
+            }
+          }
+        }
+        &[colour='sky blue'],
+        &[colour='skyblue'],
+        &[colour='#25aae1'],
+        &[colour='#25AAE1'] {
+          &:zoom(12) {
+            --line-color: @metro-sb;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-sb;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-sb-underground;
+            }
+          }
+        }
+        &[colour='cyan'],
+        &[colour='#00ffff'],
+        &[colour='#00FFFF'] {
+          &:zoom(12) {
+            --line-color: @metro-c;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-c;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-c-underground;
+            }
+          }
+        }
+        &[colour='#e5554f'],
+        &[colour='#E5554F'] {
+          &:zoom(12) {
+            --line-color: @metro-v;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-v;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-v-underground;
+            }
+          }
+        }
+        &[colour='#c3b091'],
+        &[colour='#C3B091'] {
+          &:zoom(12) {
+            --line-color: @metro-k;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-k;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-k-underground;
+            }
+          }
+        }
+        &[colour='#1e90ff'],
+        &[colour='#1E90FF'],
+        &[colour='dodgerblue'] {
+          &:zoom(12) {
+            --line-color: @metro-kl;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-kl;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-kl-underground;
+            }
+          }
+        }
+        &[colour='#cc7722'],
+        &[colour='#CC7722'] {
+          &:zoom(12) {
+            --line-color: @metro-s;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-s;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-s-underground;
+            }
+          }
+        }
+        &[colour='#e5007f'],
+        &[colour='#E5007F'] {
+          &:zoom(12) {
+            --line-color: @metro-f;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-f;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-f-underground;
+            }
+          }
+        }
+        &[colour='#f6c3d9'],
+        &[colour='#F6C3D9'] {
+          &:zoom(12) {
+            --line-color: @metro-f2;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-f2;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-f2-underground;
             }
           }
         }
@@ -3274,7 +3432,12 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
             }
           }
         }
-        &[ref='V'] {
+        &[ref='V'],
+        &[ref='V2'],
+        &[ref='GM'],
+        &[ref='BS'],
+        &[ref='v'],
+        &[ref='v2'] {
           &:zoom(12) {
             --line-color: @metro-v;
             &#railways-fill,
@@ -3286,7 +3449,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
             }
           }
         }
-        &[ref='K'] {
+        &[ref='K'],
+        &[ref='k'] {
           &:zoom(12) {
             --line-color: @metro-k;
             &#railways-fill,
@@ -3295,6 +3459,305 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
             }
             &#railways-tunnels {
               --line-color: @metro-k-underground;
+            }
+          }
+        }
+        &[ref='LB'],
+        &[ref='lb'] {
+          &:zoom(12) {
+            --line-color: @metro-lb;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-lb;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-lb-underground;
+            }
+          }
+        }
+        &[ref='KL'],
+        &[ref='kl'] {
+          &:zoom(12) {
+            --line-color: @metro-kl;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-kl;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-kl-underground;
+            }
+          }
+        }
+        &[ref='C'],
+        &[ref='c'] {
+          &:zoom(12) {
+            --line-color: @metro-c;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-c;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-c-underground;
+            }
+          }
+        }
+        &[ref='S'],
+        &[ref='s'] {
+          &:zoom(12) {
+            --line-color: @metro-s;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-s;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-s-underground;
+            }
+          }
+        }
+        &[ref='F'],
+        &[ref='f'] {
+          &:zoom(12) {
+            --line-color: @metro-f;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-f;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-f-underground;
+            }
+          }
+        }
+        &[ref='F2'],
+        &[ref='f2'] {
+          &:zoom(12) {
+            --line-color: @metro-f2;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-f2;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-f2-underground;
+            }
+          }
+        }
+      }
+
+      // 桃園捷運: separate block, since R/G/O/BR mean different colours here.
+      &[network='桃園捷運'],
+      &[network='桃園大眾捷運'],
+      &[network='Taoyuan Metro'],
+      &[network='桃園機場捷運'],
+      &[network='Taoyuan Airport MRT'] {
+        // Fallback: Module aliases (colour names) and official hex values.
+        &[colour='purple'],
+        &[colour='#8246af'],
+        &[colour='#8246AF'] {
+          &:zoom(12) {
+            --line-color: @metro-ty-a;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-ty-a;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-ty-a-underground;
+            }
+          }
+        }
+        &[colour='green'],
+        &[colour='#62a033'],
+        &[colour='#62A033'] {
+          &:zoom(12) {
+            --line-color: @metro-ty-g;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-ty-g;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-ty-g-underground;
+            }
+          }
+        }
+        &[colour='#006835'] {
+          &:zoom(12) {
+            --line-color: @metro-ty-g-ext;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-ty-g-ext;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-ty-g-ext-underground;
+            }
+          }
+        }
+        &[colour='orange'],
+        &[colour='#ffa500'],
+        &[colour='#FFA500'] {
+          &:zoom(12) {
+            --line-color: @metro-ty-o;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-ty-o;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-ty-o-underground;
+            }
+          }
+        }
+        &[colour='brown'],
+        &[colour='#824729'] {
+          &:zoom(12) {
+            --line-color: @metro-ty-br;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-ty-br;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-ty-br-underground;
+            }
+          }
+        }
+        &[colour='red'],
+        &[colour='#b20016'],
+        &[colour='#B20016'] {
+          &:zoom(12) {
+            --line-color: @metro-ty-r;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-ty-r;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-ty-r-underground;
+            }
+          }
+        }
+        &[colour='blue'],
+        &[colour='#0057b8'],
+        &[colour='#0057B8'] {
+          &:zoom(12) {
+            --line-color: @metro-ty-b;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-ty-b;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-ty-b-underground;
+            }
+          }
+        }
+        &[colour='#00549d'],
+        &[colour='#00549D'] {
+          &:zoom(12) {
+            --line-color: @metro-ty-lb;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-ty-lb;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-ty-lb-underground;
+            }
+          }
+        }
+        // Official colours by line ref (declared later: wins over the fallback).
+        &[ref='A'],
+        &[ref='a'] {
+          &:zoom(12) {
+            --line-color: @metro-ty-a;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-ty-a;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-ty-a-underground;
+            }
+          }
+        }
+        &[ref='G'],
+        &[ref='g'] {
+          &:zoom(12) {
+            --line-color: @metro-ty-g;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-ty-g;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-ty-g-underground;
+            }
+          }
+        }
+        &[ref='Zhongli'],
+        &[ref='Daxi'] {
+          &:zoom(12) {
+            --line-color: @metro-ty-g-ext;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-ty-g-ext;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-ty-g-ext-underground;
+            }
+          }
+        }
+        &[ref='O'],
+        &[ref='o'] {
+          &:zoom(12) {
+            --line-color: @metro-ty-o;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-ty-o;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-ty-o-underground;
+            }
+          }
+        }
+        &[ref='BR'],
+        &[ref='br'] {
+          &:zoom(12) {
+            --line-color: @metro-ty-br;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-ty-br;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-ty-br-underground;
+            }
+          }
+        }
+        &[ref='R'],
+        &[ref='r'] {
+          &:zoom(12) {
+            --line-color: @metro-ty-r;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-ty-r;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-ty-r-underground;
+            }
+          }
+        }
+        &[ref='B'],
+        &[ref='b'] {
+          &:zoom(12) {
+            --line-color: @metro-ty-b;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-ty-b;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-ty-b-underground;
+            }
+          }
+        }
+        &[ref='LB'] {
+          &:zoom(12) {
+            --line-color: @metro-ty-lb;
+            &#railways-fill,
+            &#railways-bridges {
+              --line-color: @metro-ty-lb;
+            }
+            &#railways-tunnels {
+              --line-color: @metro-ty-lb-underground;
             }
           }
         }
