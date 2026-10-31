@@ -19,6 +19,7 @@ const { paintToVector } = require('./paint-to-vector.js');
 const { createVectorStyleTables, registerVectorStyle } = require('./vector-styles.js');
 const { deltaEncode } = require('./delta.js');
 const { ringArea, pixelArea, compileLadder } = require('./area-filter.js');
+const { epsilon, computeSignificance, filterCoords } = require('./simplify.js');
 
 M.loadStyle('./style.json');
 I.loadMml('./mml.json');
@@ -78,6 +79,14 @@ const tilesMinZ = Math.min(config.tiles.z.raster.min, config.tiles.z.vector.min)
 const tilesMaxZ = Math.max(config.tiles.z.raster.max, config.tiles.z.vector.max);
 const safeMargin = 64;
 const areaLadder = compileLadder(config.tiles.areaLadder, tilesMinZ, tilesMaxZ);
+// Zoom-dependent simplification (simplify.js). tolerancePx is measured on a
+// 256-px tile; 0 disables. No simplification at z >= maxZoom (default: the
+// highest rendered zoom, which clients overzoom from).
+const simplifyConfig = config.tiles.simplify ?? {};
+const simplifyTolerancePx = simplifyConfig.tolerancePx ?? 0.5;
+const simplifyMaxZoom = simplifyConfig.maxZoom ?? tilesMaxZ;
+const simplifyEpsilon = (z) => (simplifyTolerancePx > 0 && z < simplifyMaxZoom ? epsilon(z, simplifyTolerancePx) : 0);
+let warnedNoJunctions = false;
 
 const gzipOptions = { level: 7 };
 const encoder = new TextEncoder();
@@ -143,7 +152,16 @@ async function renderChunk(cX, cY, cZ) {
   const center = parseChunk(cX, cY, cZ);
 
   if (!center) return false;
-  const { nodeMap, ways, relations } = center;
+  const { nodeMap, ways, relations, junctions } = center;
+
+  // Per-vertex significance, once per chunk on complete ways (see simplify.js).
+  let simplify = simplifyTolerancePx > 0;
+  if (simplify && !junctions) {
+    simplify = false;
+    if (!warnedNoJunctions) console.warn('chunk format v2 has no junction data: simplification off. Re-run chunk.js.');
+    warnedNoJunctions = true;
+  }
+  if (simplify) computeSignificance(ways, nodeMap, junctions);
 
   const wayMap = new Map();
   for (let i = ways.length - 1; i >= 0; i--) {
@@ -159,8 +177,23 @@ async function renderChunk(cX, cY, cZ) {
   for (const way of ways) {
     way.isPolygon = way.refs.length >= 4 && way.refs[0] === way.refs.at(-1) && I.isArea(way.tags);
     way.minZoom = way.isPolygon ? areaLadder.minZoomOf(way.area, way.tags) : -Infinity;
-    way.bbox = bboxOf(way.refs.map((id) => nodeMap.get(id)));
+    way.coords = way.refs.map((id) => nodeMap.get(id)).filter(Boolean);
+    way.bbox = bboxOf(way.coords);
   }
+
+  // Simplified coordinates per zoom, cached for the zoom being rendered (tiles
+  // of one zoom share it). Rings that collapse below 4 points return null.
+  const coordsAt = (holder, coords, z, closed) => {
+    const eps = simplify ? simplifyEpsilon(z) : 0;
+    if (eps === 0) return coords;
+    if (holder._z === z && holder._coords === coords) return holder._simplified;
+    let out = filterCoords(coords, eps);
+    if (closed && out.length < 4) out = null;
+    holder._z = z;
+    holder._coords = coords;
+    holder._simplified = out;
+    return out;
+  };
 
   // Multipolygons: each polygon (outer ring + its holes) is judged on its own,
   // so a tiny islet of an archipelago can drop while the large islands stay.
@@ -174,6 +207,7 @@ async function renderChunk(cX, cY, cZ) {
       return {
         poly,
         bbox: bboxOf(poly[0]), // the outer ring bounds the whole part
+        rings: poly.map(() => ({})), // per-ring simplification cache
         minZoom: areaLadder.minZoomOf(area, feat.tags),
         holeMinZoom: ringAreas.map((a, i) => (i === 0 ? -Infinity : areaLadder.minZoomOf(a, feat.tags)))
       };
@@ -186,7 +220,15 @@ async function renderChunk(cX, cY, cZ) {
     for (const part of feat.parts) {
       if (z < part.minZoom) continue;
       if (outside(part.bbox)) continue; // nowhere near this tile
-      out.push(part.holeMinZoom.every((m) => z >= m) ? part.poly : part.poly.filter((_, i) => z >= part.holeMinZoom[i]));
+      const outer = coordsAt(part.rings[0], part.poly[0], z, true);
+      if (!outer) continue; // outer ring collapsed at this tolerance
+      const rings = [outer];
+      for (let i = 1; i < part.poly.length; i++) {
+        if (z < part.holeMinZoom[i]) continue; // hole below the area threshold: filled in
+        const hole = coordsAt(part.rings[i], part.poly[i], z, true);
+        if (hole) rings.push(hole);
+      }
+      out.push(rings);
     }
     return out;
   };
@@ -239,7 +281,8 @@ async function renderChunk(cX, cY, cZ) {
       if (memberWayIds.has(way.id)) continue; // drawn via its parent multipolygon
       if (tZ < way.minZoom) continue; // polygon too small at this zoom (whole feature, all tiles)
       if (outside(way.bbox)) continue; // nowhere near this tile
-      const coords = way.refs.map((id) => nodeMap.get(id)).filter(Boolean);
+      const coords = coordsAt(way, way.coords, tZ, way.isPolygon && way.coords.length >= 4);
+      if (!coords) continue; // ring collapsed at this zoom's tolerance
       // A closed ring is only an *area* when its tags say so (osm2pgsql /
       // openstreetmap-carto.lua `isarea`). Closed highways, barriers, etc.
       // without area=yes stay linestrings, so they reach the road layers.
@@ -583,7 +626,7 @@ async function renderChunk(cX, cY, cZ) {
     }
 
     count++;
-    if (count % 16 === 0 || count === total) console.log(`[${cX} ${cY} ${cZ}] ${Math.round((count / total) * 100)}%`);
+    if (count % 64 === 0 || count === total) console.log(`[${cX} ${cY} ${cZ}] ${Math.round((count / total) * 100)}%`);
   }
   // truthy, and tells tile.js what this chunk produced (0 files = nothing to draw)
   return written;

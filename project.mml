@@ -402,6 +402,29 @@ Layer:
         ) AS piers_line
     properties:
       minzoom: 12
+  - id: aeroways
+    geometry: linestring
+    <<: *extents
+    Datasource:
+      <<: *osm2pgsql
+      table: |-
+        (SELECT
+            way,
+            aeroway,
+            bridge IN ('yes', 'boardwalk', 'cantilever', 'covered', 'low_water_crossing', 'movable', 'trestle', 'viaduct') AS bridge,
+            carto_highway_int_surface(surface) AS int_surface
+          FROM planet_osm_line
+          WHERE aeroway IN ('runway', 'taxiway')
+          ORDER BY
+            bridge NULLS FIRST,
+            CASE WHEN aeroway = 'runway' THEN 1 ELSE 0 END,
+            CASE WHEN surface IN ('unpaved', 'compacted', 'dirt', 'earth', 'fine_gravel', 'grass', 'grass_paver', 'gravel', 'ground',
+                                  'mud', 'pebblestone', 'salt', 'sand', 'woodchips', 'clay', 'ice', 'snow') THEN 0 ELSE 1 END,
+            osm_id
+        ) AS aeroways
+    properties:
+      cache-features: true
+      minzoom: 11
   - id: bridge
     geometry: polygon
     <<: *extents
@@ -1093,29 +1116,6 @@ Layer:
       cache-features: true
       group-by: layernotnull
       minzoom: 10
-  - id: aeroways
-    geometry: linestring
-    <<: *extents
-    Datasource:
-      <<: *osm2pgsql
-      table: |-
-        (SELECT
-            way,
-            aeroway,
-            bridge IN ('yes', 'boardwalk', 'cantilever', 'covered', 'low_water_crossing', 'movable', 'trestle', 'viaduct') AS bridge,
-            carto_highway_int_surface(surface) AS int_surface
-          FROM planet_osm_line
-          WHERE aeroway IN ('runway', 'taxiway')
-          ORDER BY
-            bridge NULLS FIRST,
-            CASE WHEN aeroway = 'runway' THEN 1 ELSE 0 END,
-            CASE WHEN surface IN ('unpaved', 'compacted', 'dirt', 'earth', 'fine_gravel', 'grass', 'grass_paver', 'gravel', 'ground',
-                                  'mud', 'pebblestone', 'salt', 'sand', 'woodchips', 'clay', 'ice', 'snow') THEN 0 ELSE 1 END,
-            osm_id
-        ) AS aeroways
-    properties:
-      cache-features: true
-      minzoom: 11
   - id: waterslide
     geometry: linestring
     <<: *extents

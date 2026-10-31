@@ -9,7 +9,8 @@ const { zlibSync, unzlibSync } = require('fflate');
 protobuf.util.Long = null;
 protobuf.configure();
 
-const FORMAT_VERSION = 2; // v2: Way.area
+const FORMAT_VERSION = 3; // v2: Way.area, v3: NodeTable.junctions
+const READABLE_VERSIONS = [2, 3]; // v2 still renders, just without simplification
 const MEMBER_TYPES = ['node', 'way', 'relation'];
 const MEMBER_CODES = { node: 0, way: 1, relation: 2 };
 
@@ -57,13 +58,14 @@ function readChunkHeader(file) {
  *   nodes     [{ id, lon, lat, tags }]  tagged nodes; lon/lat are projected metres
  *   ways      [{ id, refs, tags, area }]   area: Mercator m², closed ways only
  *   relations [{ id, members: [{ type, ref, role }], tags }]
+ *   junctions Set<id> nodes simplification must keep; null for v2 chunks
  * Returns null when the file does not exist.
  */
 function readChunk(file) {
   if (!fs.existsSync(file)) return null;
   const message = ChunkFile.decode(fs.readFileSync(file));
   const header = message.header;
-  if (header.version !== FORMAT_VERSION) {
+  if (!READABLE_VERSIONS.includes(header.version)) {
     throw new Error(`${file}: chunk format v${header.version}, expected v${FORMAT_VERSION}. Re-run chunk.js.`);
   }
   let payload;
@@ -130,6 +132,17 @@ function readChunk(file) {
     ways[w] = { id: way.id, refs, tags: tagsOf(way.keys, way.vals), area: way.area || 0 };
   }
 
+  // junctions (v3): delta-coded local indices -> OSM node ids
+  let junctions = null;
+  if (header.version >= 3) {
+    junctions = new Set();
+    let index = 0;
+    for (const d of table.junctions || []) {
+      index += d;
+      junctions.add(ids[index]);
+    }
+  }
+
   // relations
   const relations = new Array(data.relations.length);
   for (let r = 0; r < data.relations.length; r++) {
@@ -143,7 +156,7 @@ function readChunk(file) {
     relations[r] = { id: relation.id, members, tags: tagsOf(relation.keys, relation.vals) };
   }
 
-  return { header, nodeMap, nodes, ways, relations };
+  return { header, nodeMap, nodes, ways, relations, junctions };
 }
 
 module.exports = { FORMAT_VERSION, MEMBER_CODES, chunkFileName, writeChunk, readChunk, readChunkHeader };

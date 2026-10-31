@@ -61,6 +61,10 @@ message NodeTable {
   //   ( (<key sid> <val sid>)* 0 )*  — one group per node, same order as id.
   // Empty when no node in the chunk has tags.
   repeated uint32 keys_vals = 4 [packed = true];
+  // v3: nodes a simplifier must keep (way endpoints, closed-way starts,
+  // nodes where ways diverge, tagged nodes), decided over the whole input so
+  // all chunks agree. Local node-table indices, ascending, DELTA coded.
+  repeated uint32 junctions = 5 [packed = true];
 }
 
 message Way {

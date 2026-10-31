@@ -395,6 +395,52 @@ function isComplete(rel) {
   return false;
 }
 
+// junctions
+// Nodes a simplifier must never drop (render.js / simplify.js), decided over
+// the whole dataset so every chunk agrees:
+//   * endpoints of open ways and the start node of every closed way;
+//   * nodes where ways diverge: the same node seen with different neighbour
+//     pairs (a road crossing, the end of a shared polygon border, a way that
+//     touches itself);
+//   * tagged nodes (POIs on a way: crossings, entrances, signals).
+// Nodes interior to a stretch shared by several ways (same neighbours in each)
+// are *not* junctions, so shared borders are still simplified — identically.
+function junctionFlags(osm) {
+  const count = osm.nodeIds.length;
+  const flag = new Uint8Array(count);
+  const nbA = new Int32Array(count).fill(-2); // first-seen neighbour pair (min, max)
+  const nbB = new Int32Array(count);
+  const seen = (n, a, b) => {
+    const lo = a < b ? a : b;
+    const hi = a < b ? b : a;
+    if (nbA[n] === -2) {
+      nbA[n] = lo;
+      nbB[n] = hi;
+    } else if (nbA[n] !== lo || nbB[n] !== hi) flag[n] = 1;
+  };
+  const refs = [];
+  for (let w = 0; w < osm.wayIds.length; w++) {
+    refs.length = 0;
+    for (let i = osm.wayRefStart[w]; i < osm.wayRefStart[w + 1]; i++) if (osm.wayRefs[i] >= 0) refs.push(osm.wayRefs[i]);
+    const n = refs.length;
+    if (n === 0) continue;
+    flag[refs[0]] = 1;
+    flag[refs[n - 1]] = 1;
+    const closed = n >= 4 && refs[0] === refs[n - 1];
+    const end = closed ? n - 1 : n; // a ring's closing ref repeats its first
+    for (let i = 1; i < end - (closed ? 0 : 1); i++) {
+      const prev = refs[i - 1];
+      const next = closed && i === end - 1 ? refs[0] : refs[i + 1];
+      seen(refs[i], prev, next);
+    }
+  }
+  for (let t = 0; t < osm.taggedNode.length; t++) flag[osm.taggedNode[t]] = 1;
+  let total = 0;
+  for (let i = 0; i < count; i++) total += flag[i];
+  console.log(`junctions: ${total} of ${count} nodes`);
+  return flag;
+}
+
 // writing
 // Mercator m² of a closed way's full ring (0 when open). Computed from the
 // global node table, so every chunk holding the way stores the same value.
@@ -420,7 +466,7 @@ function wayArea(osm, w) {
   return (Math.abs(s) / 2) * resolution * resolution;
 }
 
-function buildChunk(osm, bucket, scratch) {
+function buildChunk(osm, bucket, scratch, junction) {
   // ways: direct hits + members of complete relations, deduped, id order
   const wayList = Int32Array.from(bucket.ways).sort();
   const ways = [];
@@ -465,6 +511,8 @@ function buildChunk(osm, bucket, scratch) {
   const xs = new Array(nodes.length);
   const ys = new Array(nodes.length);
   const keysVals = [];
+  const junctions = []; // DELTA-coded local node indices
+  let pj = 0;
   let pid = 0;
   let px = bucket.originX;
   let py = bucket.originY;
@@ -474,6 +522,10 @@ function buildChunk(osm, bucket, scratch) {
     ids[i] = id - pid;
     xs[i] = osm.nodeX[n] - px;
     ys[i] = osm.nodeY[n] - py;
+    if (junction[n]) {
+      junctions.push(i - pj);
+      pj = i;
+    }
     pid = id;
     px = osm.nodeX[n];
     py = osm.nodeY[n];
@@ -529,7 +581,7 @@ function buildChunk(osm, bucket, scratch) {
 
   return {
     counts: { nodeCount: nodes.length, wayCount: ways.length, relationCount: relationList.length },
-    data: { strings: local, nodes: { id: ids, x: xs, y: ys, keysVals }, ways: wayMessages, relations: relationMessages }
+    data: { strings: local, nodes: { id: ids, x: xs, y: ys, keysVals, junctions }, ways: wayMessages, relations: relationMessages }
   };
 }
 
@@ -629,12 +681,13 @@ function main() {
     if (bucket) bucket.tagged.push(t);
   }
 
+  const junction = junctionFlags(osm);
   const scratch = new Int32Array(osm.nodeIds.length).fill(-1);
   let written = 0;
   let bytes = 0;
   for (const bucket of buckets) {
     if (!bucket) continue;
-    const { counts, data } = buildChunk(osm, bucket, scratch);
+    const { counts, data } = buildChunk(osm, bucket, scratch, junction);
     const header = { z: baseZ, x: bucket.x, y: bucket.y, resolution, originX: bucket.originX, originY: bucket.originY, fingerprint, ...counts };
     bytes += writeChunk(bucket.file, header, data, compressionLevel);
     written++;

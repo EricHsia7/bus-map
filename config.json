@@ -42,12 +42,16 @@
       ]
     },
     "labelQuantization": 1024,
+    "simplify": {
+      "tolerancePx": 0.35,
+      "maxZoom": 17
+    },
     "background": "#f2f2f7"
   },
   "render": {
     "workerMemoryMB": 2048,
     "logEverySeconds": 10,
-    "workers": 8,
+    "workers": 4,
     "retries": 3
   }
 }

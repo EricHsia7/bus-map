@@ -3550,6 +3550,106 @@
     "wrappers": []
   },
   {
+    "id": "aeroways",
+    "geometry": "linestring",
+    "minzoom": 11,
+    "maxzoom": 22,
+    "base": [
+      {
+        "table": "planet_osm_line",
+        "where": {
+          "t": "in",
+          "l": {
+            "t": "col",
+            "name": "aeroway"
+          },
+          "vals": [
+            {
+              "t": "lit",
+              "v": "runway",
+              "s": true
+            },
+            {
+              "t": "lit",
+              "v": "taxiway",
+              "s": true
+            }
+          ]
+        },
+        "columns": {
+          "way": {
+            "t": "col",
+            "name": "way"
+          },
+          "aeroway": {
+            "t": "col",
+            "name": "aeroway"
+          },
+          "bridge": {
+            "t": "in",
+            "l": {
+              "t": "col",
+              "name": "bridge"
+            },
+            "vals": [
+              {
+                "t": "lit",
+                "v": "yes",
+                "s": true
+              },
+              {
+                "t": "lit",
+                "v": "boardwalk",
+                "s": true
+              },
+              {
+                "t": "lit",
+                "v": "cantilever",
+                "s": true
+              },
+              {
+                "t": "lit",
+                "v": "covered",
+                "s": true
+              },
+              {
+                "t": "lit",
+                "v": "low_water_crossing",
+                "s": true
+              },
+              {
+                "t": "lit",
+                "v": "movable",
+                "s": true
+              },
+              {
+                "t": "lit",
+                "v": "trestle",
+                "s": true
+              },
+              {
+                "t": "lit",
+                "v": "viaduct",
+                "s": true
+              }
+            ]
+          },
+          "int_surface": {
+            "t": "func",
+            "name": "carto_highway_int_surface",
+            "args": [
+              {
+                "t": "col",
+                "name": "surface"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "wrappers": []
+  },
+  {
     "id": "bridge",
     "geometry": "polygon",
     "minzoom": 12,
@@ -9547,106 +9647,6 @@
         }
       }
     ]
-  },
-  {
-    "id": "aeroways",
-    "geometry": "linestring",
-    "minzoom": 11,
-    "maxzoom": 22,
-    "base": [
-      {
-        "table": "planet_osm_line",
-        "where": {
-          "t": "in",
-          "l": {
-            "t": "col",
-            "name": "aeroway"
-          },
-          "vals": [
-            {
-              "t": "lit",
-              "v": "runway",
-              "s": true
-            },
-            {
-              "t": "lit",
-              "v": "taxiway",
-              "s": true
-            }
-          ]
-        },
-        "columns": {
-          "way": {
-            "t": "col",
-            "name": "way"
-          },
-          "aeroway": {
-            "t": "col",
-            "name": "aeroway"
-          },
-          "bridge": {
-            "t": "in",
-            "l": {
-              "t": "col",
-              "name": "bridge"
-            },
-            "vals": [
-              {
-                "t": "lit",
-                "v": "yes",
-                "s": true
-              },
-              {
-                "t": "lit",
-                "v": "boardwalk",
-                "s": true
-              },
-              {
-                "t": "lit",
-                "v": "cantilever",
-                "s": true
-              },
-              {
-                "t": "lit",
-                "v": "covered",
-                "s": true
-              },
-              {
-                "t": "lit",
-                "v": "low_water_crossing",
-                "s": true
-              },
-              {
-                "t": "lit",
-                "v": "movable",
-                "s": true
-              },
-              {
-                "t": "lit",
-                "v": "trestle",
-                "s": true
-              },
-              {
-                "t": "lit",
-                "v": "viaduct",
-                "s": true
-              }
-            ]
-          },
-          "int_surface": {
-            "t": "func",
-            "name": "carto_highway_int_surface",
-            "args": [
-              {
-                "t": "col",
-                "name": "surface"
-              }
-            ]
-          }
-        }
-      }
-    ],
-    "wrappers": []
   },
   {
     "id": "waterslide",
