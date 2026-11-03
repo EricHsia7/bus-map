@@ -411949,8 +411949,8 @@
       {
         "layer": "buildings",
         "zoom": {
-          "min": 15,
-          "max": 15
+          "min": 17,
+          "max": 17
         },
         "and": [
           {
@@ -411963,8 +411963,8 @@
       {
         "layer": "buildings",
         "zoom": {
-          "min": 15,
-          "max": 15
+          "min": 17,
+          "max": 17
         },
         "and": [
           {
@@ -411977,8 +411977,8 @@
       {
         "layer": "buildings",
         "zoom": {
-          "min": 15,
-          "max": 15
+          "min": 17,
+          "max": 17
         },
         "and": [
           {
@@ -411991,8 +411991,8 @@
       {
         "layer": "buildings",
         "zoom": {
-          "min": 15,
-          "max": 15
+          "min": 17,
+          "max": 17
         },
         "and": [
           {
@@ -412005,88 +412005,8 @@
       {
         "layer": "buildings",
         "zoom": {
-          "min": 15,
-          "max": 15
-        },
-        "and": [
-          {
-            "key": "public_transport",
-            "op": "=",
-            "value": "station"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "polygon-fill": [
-        "rgba(229,231,238,1)",
-        "rgba(205,210,223,1)"
-      ]
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "amenity",
-            "op": "=",
-            "value": "place_of_worship"
-          }
-        ]
-      },
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "aeroway",
-            "op": "=",
-            "value": "terminal"
-          }
-        ]
-      },
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "aerialway",
-            "op": "=",
-            "value": "station"
-          }
-        ]
-      },
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "building",
-            "op": "=",
-            "value": "train_station"
-          }
-        ]
-      },
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 16,
-          "max": 16
+          "min": 17,
+          "max": 17
         },
         "and": [
           {
@@ -412100,7 +412020,15 @@
     "paint": {
       "polygon-fill": [
         "rgba(205,210,223,1)",
-        "rgba(200,206,220,1)"
+        "rgba(193,199,215,1)"
+      ],
+      "line-color": [
+        "rgba(196,202,217,1)",
+        "rgba(196,202,217,1)"
+      ],
+      "line-width": [
+        "0",
+        "1"
       ]
     }
   },
@@ -412109,7 +412037,7 @@
       {
         "layer": "buildings",
         "zoom": {
-          "min": 17,
+          "min": 18,
           "max": 24
         },
         "and": [
@@ -412123,7 +412051,7 @@
       {
         "layer": "buildings",
         "zoom": {
-          "min": 17,
+          "min": 18,
           "max": 24
         },
         "and": [
@@ -412137,7 +412065,7 @@
       {
         "layer": "buildings",
         "zoom": {
-          "min": 17,
+          "min": 18,
           "max": 24
         },
         "and": [
@@ -412151,7 +412079,7 @@
       {
         "layer": "buildings",
         "zoom": {
-          "min": 17,
+          "min": 18,
           "max": 24
         },
         "and": [
@@ -412165,7 +412093,7 @@
       {
         "layer": "buildings",
         "zoom": {
-          "min": 17,
+          "min": 18,
           "max": 24
         },
         "and": [
@@ -412179,92 +412107,16 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(200,206,220,1)",
-        "rgba(200,206,220,1)"
-      ]
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "amenity",
-            "op": "=",
-            "value": "place_of_worship"
-          }
-        ]
-      },
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "aeroway",
-            "op": "=",
-            "value": "terminal"
-          }
-        ]
-      },
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "aerialway",
-            "op": "=",
-            "value": "station"
-          }
-        ]
-      },
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "building",
-            "op": "=",
-            "value": "train_station"
-          }
-        ]
-      },
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 16,
-          "max": 16
-        },
-        "and": [
-          {
-            "key": "public_transport",
-            "op": "=",
-            "value": "station"
-          }
-        ]
-      }
-    ],
-    "paint": {
+        "rgba(193,199,215,1)",
+        "rgba(193,199,215,1)"
+      ],
       "line-color": [
         "rgba(196,202,217,1)",
         "rgba(196,202,217,1)"
       ],
       "line-width": [
-        "0",
-        "0.45"
+        "1",
+        "1"
       ]
     }
   },
@@ -412274,91 +412126,7 @@
         "layer": "buildings",
         "zoom": {
           "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "amenity",
-            "op": "=",
-            "value": "place_of_worship"
-          }
-        ]
-      },
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "aeroway",
-            "op": "=",
-            "value": "terminal"
-          }
-        ]
-      },
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "aerialway",
-            "op": "=",
-            "value": "station"
-          }
-        ]
-      },
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "building",
-            "op": "=",
-            "value": "train_station"
-          }
-        ]
-      },
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "public_transport",
-            "op": "=",
-            "value": "station"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-color": [
-        "rgba(196,202,217,1)",
-        "rgba(196,202,217,1)"
-      ],
-      "line-width": [
-        "0.45",
-        "0.45"
-      ]
-    }
-  },
-  {
-    "groups": [
-      {
-        "layer": "buildings",
-        "zoom": {
-          "min": 16,
-          "max": 16
+          "max": 17
         },
         "and": []
       }
@@ -412366,15 +412134,15 @@
     "paint": {
       "polygon-fill": [
         "rgba(224,227,235,1)",
-        "rgba(219,223,232,1)"
+        "rgba(218,221,231,1)"
       ],
       "line-color": [
-        "rgba(215,219,229,1)",
-        "rgba(215,219,229,1)"
+        "rgba(212,216,227,1)",
+        "rgba(212,216,227,1)"
       ],
       "line-width": [
         "0",
-        "0.45"
+        "1"
       ]
     }
   },
@@ -412383,7 +412151,7 @@
       {
         "layer": "buildings",
         "zoom": {
-          "min": 17,
+          "min": 18,
           "max": 24
         },
         "and": []
@@ -412391,16 +412159,16 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(219,223,232,1)",
-        "rgba(219,223,232,1)"
+        "rgba(218,221,231,1)",
+        "rgba(218,221,231,1)"
       ],
       "line-color": [
-        "rgba(215,219,229,1)",
-        "rgba(215,219,229,1)"
+        "rgba(212,216,227,1)",
+        "rgba(212,216,227,1)"
       ],
       "line-width": [
-        "0.45",
-        "0.45"
+        "1",
+        "1"
       ]
     }
   },
@@ -412421,7 +412189,7 @@
         "0",
         "0.4"
       ],
-      "marker-fill": "rgba(215,219,229,1)",
+      "marker-fill": "rgba(212,216,227,1)",
       "marker-allow-overlap": "true",
       "marker-ignore-placement": "true",
       "marker-file": "\"url('symbols/rect.svg')\""
@@ -412444,7 +412212,7 @@
         "0.4",
         "0.8"
       ],
-      "marker-fill": "rgba(215,219,229,1)",
+      "marker-fill": "rgba(212,216,227,1)",
       "marker-allow-overlap": "true",
       "marker-ignore-placement": "true",
       "marker-file": "\"url('symbols/rect.svg')\""
@@ -412467,7 +412235,7 @@
         "0.8",
         "1.2"
       ],
-      "marker-fill": "rgba(215,219,229,1)",
+      "marker-fill": "rgba(212,216,227,1)",
       "marker-allow-overlap": "true",
       "marker-ignore-placement": "true",
       "marker-file": "\"url('symbols/rect.svg')\""
@@ -412490,7 +412258,7 @@
         "1.2",
         "1.6"
       ],
-      "marker-fill": "rgba(215,219,229,1)",
+      "marker-fill": "rgba(212,216,227,1)",
       "marker-allow-overlap": "true",
       "marker-ignore-placement": "true",
       "marker-file": "\"url('symbols/rect.svg')\""
@@ -412513,7 +412281,7 @@
         "1.6",
         "1.6"
       ],
-      "marker-fill": "rgba(215,219,229,1)",
+      "marker-fill": "rgba(212,216,227,1)",
       "marker-allow-overlap": "true",
       "marker-ignore-placement": "true",
       "marker-file": "\"url('symbols/rect.svg')\""
@@ -412885,7 +412653,7 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(196,202,217,1)"
+      "marker-fill": "rgba(193,199,215,1)"
     }
   },
   {
@@ -412906,7 +412674,7 @@
       }
     ],
     "paint": {
-      "marker-fill": "rgba(215,219,229,1)",
+      "marker-fill": "rgba(212,216,227,1)",
       "marker-file": "\"url('symbols/rectdiag.svg')\""
     }
   },
