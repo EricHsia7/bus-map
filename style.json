@@ -42272,6 +42272,16 @@
             "key": "feature",
             "op": "=",
             "value": "highway_footway"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "crossing"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "sidewalk"
           }
         ]
       },
@@ -42286,6 +42296,16 @@
             "key": "feature",
             "op": "=",
             "value": "highway_footway"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "crossing"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "sidewalk"
           }
         ]
       },
@@ -42300,6 +42320,16 @@
             "key": "feature",
             "op": "=",
             "value": "highway_footway"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "crossing"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "sidewalk"
           }
         ]
       },
@@ -42314,6 +42344,16 @@
             "key": "feature",
             "op": "=",
             "value": "highway_footway"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "crossing"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "sidewalk"
           }
         ]
       },
@@ -42328,6 +42368,16 @@
             "key": "feature",
             "op": "=",
             "value": "highway_footway"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "crossing"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "sidewalk"
           }
         ]
       },
@@ -42342,6 +42392,16 @@
             "key": "feature",
             "op": "=",
             "value": "highway_footway"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "crossing"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "sidewalk"
           }
         ]
       }
@@ -42373,6 +42433,16 @@
             "key": "feature",
             "op": "=",
             "value": "highway_footway"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "crossing"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "sidewalk"
           }
         ]
       },
@@ -42387,6 +42457,16 @@
             "key": "feature",
             "op": "=",
             "value": "highway_footway"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "crossing"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "sidewalk"
           }
         ]
       },
@@ -42401,6 +42481,16 @@
             "key": "feature",
             "op": "=",
             "value": "highway_footway"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "crossing"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "sidewalk"
           }
         ]
       },
@@ -42415,6 +42505,16 @@
             "key": "feature",
             "op": "=",
             "value": "highway_footway"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "crossing"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "sidewalk"
           }
         ]
       },
@@ -42429,6 +42529,16 @@
             "key": "feature",
             "op": "=",
             "value": "highway_footway"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "crossing"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "sidewalk"
           }
         ]
       },
@@ -42443,6 +42553,16 @@
             "key": "feature",
             "op": "=",
             "value": "highway_footway"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "crossing"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "sidewalk"
           }
         ]
       }
@@ -42474,6 +42594,16 @@
             "key": "feature",
             "op": "=",
             "value": "highway_footway"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "crossing"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "sidewalk"
           }
         ]
       },
@@ -42488,6 +42618,16 @@
             "key": "feature",
             "op": "=",
             "value": "highway_footway"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "crossing"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "sidewalk"
           }
         ]
       },
@@ -42502,6 +42642,16 @@
             "key": "feature",
             "op": "=",
             "value": "highway_footway"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "crossing"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "sidewalk"
           }
         ]
       },
@@ -42516,6 +42666,16 @@
             "key": "feature",
             "op": "=",
             "value": "highway_footway"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "crossing"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "sidewalk"
           }
         ]
       },
@@ -42530,6 +42690,16 @@
             "key": "feature",
             "op": "=",
             "value": "highway_footway"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "crossing"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "sidewalk"
           }
         ]
       },
@@ -42544,6 +42714,16 @@
             "key": "feature",
             "op": "=",
             "value": "highway_footway"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "crossing"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "sidewalk"
           }
         ]
       }
@@ -42577,6 +42757,16 @@
             "value": "highway_footway"
           },
           {
+            "key": "footway",
+            "op": "!=",
+            "value": "crossing"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "sidewalk"
+          },
+          {
             "key": "access",
             "op": "=",
             "value": "no"
@@ -42594,6 +42784,16 @@
             "key": "feature",
             "op": "=",
             "value": "highway_footway"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "crossing"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "sidewalk"
           },
           {
             "key": "access",
@@ -42615,6 +42815,16 @@
             "value": "highway_footway"
           },
           {
+            "key": "footway",
+            "op": "!=",
+            "value": "crossing"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "sidewalk"
+          },
+          {
             "key": "access",
             "op": "=",
             "value": "no"
@@ -42632,6 +42842,16 @@
             "key": "feature",
             "op": "=",
             "value": "highway_footway"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "crossing"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "sidewalk"
           },
           {
             "key": "access",
@@ -42653,6 +42873,16 @@
             "value": "highway_footway"
           },
           {
+            "key": "footway",
+            "op": "!=",
+            "value": "crossing"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "sidewalk"
+          },
+          {
             "key": "access",
             "op": "=",
             "value": "no"
@@ -42670,6 +42900,16 @@
             "key": "feature",
             "op": "=",
             "value": "highway_footway"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "crossing"
+          },
+          {
+            "key": "footway",
+            "op": "!=",
+            "value": "sidewalk"
           },
           {
             "key": "access",
@@ -42684,98 +42924,6 @@
         "rgba(171,182,196,1)",
         "rgba(171,182,196,1)"
       ]
-    },
-    "attachment": "fill"
-  },
-  {
-    "groups": [
-      {
-        "layer": "roads-fill",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_footway"
-          }
-        ]
-      },
-      {
-        "layer": "bridges",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_footway"
-          }
-        ]
-      },
-      {
-        "layer": "tunnels",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_footway"
-          }
-        ]
-      },
-      {
-        "layer": "railways-fill",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_footway"
-          }
-        ]
-      },
-      {
-        "layer": "railways-bridges",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_footway"
-          }
-        ]
-      },
-      {
-        "layer": "railways-tunnels",
-        "zoom": {
-          "min": 17,
-          "max": 24
-        },
-        "and": [
-          {
-            "key": "feature",
-            "op": "=",
-            "value": "highway_footway"
-          }
-        ]
-      }
-    ],
-    "paint": {
-      "line-dasharray": "6 9"
     },
     "attachment": "fill"
   },

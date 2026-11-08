@@ -2541,17 +2541,19 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     // }
 
     &[feature='highway_footway']:zoom(16) {
-      --line-join: round;
-      --line-cap: butt;
-      --line-width: @footway-width * @footway-scale;
+      &:not([footway='crossing']):not([footway='sidewalk']) {
+        --line-join: round;
+        --line-cap: butt;
+        --line-width: @footway-width * @footway-scale;
 
-      --line-color: zoom-gradient(lighten(@footway-fill, 5%) 16z, @footway-fill 17z);
-      &[access='no'] {
-        --line-color: @footway-fill-noaccess;
-      }
+        --line-color: zoom-gradient(lighten(@footway-fill, 5%) 16z, @footway-fill 17z);
+        &[access='no'] {
+          --line-color: @footway-fill-noaccess;
+        }
 
-      &:zoom(17) {
-        --line-dasharray: 6 9;
+        // &:zoom(17) {
+        //   --line-dasharray: 6 9;
+        // }
       }
     }
 
