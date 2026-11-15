@@ -412167,11 +412167,11 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(205,210,223,1)",
+        "rgba(205,210,223,0)",
         "rgba(193,199,215,1)"
       ],
       "line-color": [
-        "rgba(196,202,217,1)",
+        "rgba(196,202,217,0)",
         "rgba(196,202,217,1)"
       ],
       "line-width": [
@@ -412281,11 +412281,11 @@
     ],
     "paint": {
       "polygon-fill": [
-        "rgba(224,227,235,1)",
+        "rgba(224,227,235,0)",
         "rgba(218,221,231,1)"
       ],
       "line-color": [
-        "rgba(212,216,227,1)",
+        "rgba(212,216,227,0)",
         "rgba(212,216,227,1)"
       ],
       "line-width": [
@@ -412337,7 +412337,6 @@
         "0",
         "0.4"
       ],
-      "marker-fill": "rgba(212,216,227,1)",
       "marker-allow-overlap": "true",
       "marker-ignore-placement": "true",
       "marker-file": "\"url('symbols/rect.svg')\""
@@ -412360,7 +412359,7 @@
         "0.4",
         "0.8"
       ],
-      "marker-fill": "rgba(212,216,227,1)",
+      "marker-fill": "rgba(212,216,227,0)",
       "marker-allow-overlap": "true",
       "marker-ignore-placement": "true",
       "marker-file": "\"url('symbols/rect.svg')\""
@@ -412775,7 +412774,7 @@
         "layer": "entrances",
         "zoom": {
           "min": 17,
-          "max": 24
+          "max": 17
         },
         "and": [
           {
@@ -412789,6 +412788,41 @@
         "layer": "entrances",
         "zoom": {
           "min": 17,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "permissive"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "marker-fill": "rgba(193,199,215,0)"
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "entrances",
+        "zoom": {
+          "min": 18,
+          "max": 24
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "yes"
+          }
+        ]
+      },
+      {
+        "layer": "entrances",
+        "zoom": {
+          "min": 18,
           "max": 24
         },
         "and": [
@@ -412810,6 +412844,28 @@
         "layer": "entrances",
         "zoom": {
           "min": 17,
+          "max": 17
+        },
+        "and": [
+          {
+            "key": "access",
+            "op": "=",
+            "value": "no"
+          }
+        ]
+      }
+    ],
+    "paint": {
+      "marker-fill": "rgba(212,216,227,0)",
+      "marker-file": "\"url('symbols/rectdiag.svg')\""
+    }
+  },
+  {
+    "groups": [
+      {
+        "layer": "entrances",
+        "zoom": {
+          "min": 18,
           "max": 24
         },
         "and": [
