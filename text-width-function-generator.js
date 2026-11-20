@@ -16,7 +16,7 @@ for (let i = 0; i < argv.length; i++) {
   else if (a === '--liga') opt.liga = true;
 }
 if (!opt.font) {
-  console.error('usage: gen-width-fn.js --font <file> [--out f.js] [--name fn] ' + '[--charset latin|ascii|file:chars.txt|"U+20-7E,U+4E00-9FFF"] [--no-kern] [--liga]');
+  console.error('usage: text-width-function-generator.js --font <file> [--out f.js] [--name fn] ' + '[--charset latin|ascii|file:chars.txt|"U+20-7E,U+4E00-9FFF"] [--no-kern] [--liga]');
   process.exit(1);
 }
 
