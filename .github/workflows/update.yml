@@ -49,11 +49,15 @@ jobs:
 
       - name: Resolve OSM replication state
         id: osm-state
+        shell: bash
         run: |
           set -euo pipefail
-          seq=$(curl -fsS "https://download.geofabrik.de/asia/taiwan-updates/state.txt" \
-                | awk -F= '/^sequenceNumber=/{print $2}')
+
+          seq=$(curl -fLsS "https://download.geofabrik.de/asia/taiwan/updates/state.txt" \
+            | awk -F= '/^sequenceNumber=/{print $2}')
+
           [ -n "$seq" ] || { echo "no sequenceNumber"; exit 1; }
+
           echo "sequence-number=$seq" >> "$GITHUB_OUTPUT"
 
       - name: Restore Cached Map Data
