@@ -53,7 +53,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          seq=$(curl -fLsS "https://download.geofabrik.de/asia/taiwan/updates/state.txt" \
+          seq=$(curl -fLsS "http://download.geofabrik.de/asia/taiwan/updates/state.txt" \
             | awk -F= '/^sequenceNumber=/{print $2}')
 
           [ -n "$seq" ] || { echo "no sequenceNumber"; exit 1; }
